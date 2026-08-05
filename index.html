@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tyna — Consultoria em IA e Governança Corporativa</title>
+<meta name="description" content="Consultoria em Inteligência Artificial aplicada ao negócio: governança corporativa, política interna de IA, adequação à LGPD, AI Gateway e capacitação de lideranças e equipes.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0D1117;
+    --surface:#141B26;
+    --surface-2:#1B2430;
+    --line:#26303D;
+    --text:#EDEFF2;
+    --text-muted:#8B93A1;
+    --gold:#C9A968;
+    --gold-dim:#7d6c46;
+    --good:#8FB99B;
+    --serif:'Source Serif 4', Georgia, serif;
+    --display:'Space Grotesk', sans-serif;
+    --mono:'IBM Plex Mono', monospace;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
+  body{
+    background:var(--ink);
+    color:var(--text);
+    font-family:var(--serif);
+    line-height:1.6;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  img,svg{max-width:100%; display:block;}
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 32px;}
+  h1,h2,h3,h4{font-family:var(--display); font-weight:600; line-height:1.15; letter-spacing:-0.01em;}
+  .eyebrow{
+    font-family:var(--mono); font-size:12.5px; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--gold); display:flex; align-items:center; gap:10px; margin-bottom:18px;
+  }
+  .eyebrow::before{content:''; width:22px; height:1px; background:var(--gold);}
+  .num{font-family:var(--mono); color:var(--gold); font-size:13px;}
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky; top:0; z-index:100;
+    background:rgba(13,17,23,0.86); backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex; align-items:center; justify-content:space-between; height:76px;}
+  .logo{font-family:var(--display); font-weight:700; font-size:22px; letter-spacing:0.02em; display:flex; align-items:baseline; gap:8px;}
+  .logo span{font-family:var(--mono); font-weight:400; font-size:11px; color:var(--text-muted); letter-spacing:0.12em;}
+  nav ul{list-style:none; display:flex; gap:36px;}
+  nav ul a{font-family:var(--display); font-size:14.5px; color:var(--text-muted); transition:color .2s;}
+  nav ul a:hover, nav ul a:focus-visible{color:var(--text);}
+  .btn{
+    font-family:var(--display); font-size:14.5px; font-weight:500; padding:11px 22px;
+    border-radius:3px; display:inline-block; white-space:nowrap;
+  }
+  .btn-primary{background:var(--gold); color:var(--ink);}
+  .btn-primary:hover{background:#dabb7d;}
+  .btn-ghost{border:1px solid var(--line); color:var(--text);}
+  .btn-ghost:hover{border-color:var(--gold); color:var(--gold);}
+  .nav-toggle{display:none; background:none; border:0; color:var(--text); font-size:26px; cursor:pointer;}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--gold); outline-offset:3px;}
+
+  /* ---------- Hero ---------- */
+  .hero{padding:96px 0 70px; position:relative; overflow:hidden;}
+  .hero-grid{display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center;}
+  .hero h1{font-size:clamp(34px,4.6vw,58px); margin-bottom:22px;}
+  .hero h1 em{font-style:normal; color:var(--gold);}
+  .hero p.lead{font-size:18.5px; color:var(--text-muted); max-width:520px; margin-bottom:34px;}
+  .hero-ctas{display:flex; gap:14px; margin-bottom:52px; flex-wrap:wrap;}
+  .trustbar{border-top:1px solid var(--line); padding-top:22px;}
+  .trustbar p{font-family:var(--mono); font-size:11.5px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); margin-bottom:14px;}
+  .trustbar ul{list-style:none; display:flex; flex-wrap:wrap; gap:10px 28px;}
+  .trustbar li{font-family:var(--display); font-size:15px; color:var(--text);}
+
+  /* Gateway diagram */
+  .gateway{position:relative; aspect-ratio:1/1; max-width:480px; margin:0 auto;}
+  .gateway svg{width:100%; height:100%; overflow:visible;}
+  .g-ring{fill:none; stroke:var(--line); stroke-width:1;}
+  .g-ring-dash{fill:none; stroke:var(--gold-dim); stroke-width:1; stroke-dasharray:2 6; animation:spin 60s linear infinite;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  .g-hub-fill{fill:var(--surface-2); stroke:var(--gold); stroke-width:1.4;}
+  .g-node-fill{fill:var(--surface); stroke:var(--line); stroke-width:1.2;}
+  .g-line{stroke:var(--line); stroke-width:1.2;}
+  .g-pulse{fill:var(--gold); opacity:0.85;}
+  .g-label{font-family:var(--mono); font-size:9.5px; fill:var(--text-muted); letter-spacing:0.04em;}
+  .g-hub-label{font-family:var(--mono); font-size:10.5px; fill:var(--gold); letter-spacing:0.08em;}
+  .pulse-anim{animation:pulse 2.8s ease-in-out infinite;}
+  .pulse-anim.d2{animation-delay:.5s;}
+  .pulse-anim.d3{animation-delay:1s;}
+  .pulse-anim.d4{animation-delay:1.5s;}
+  @keyframes pulse{0%,100%{opacity:.35; r:2.5;} 50%{opacity:1; r:4;}}
+
+  /* ---------- Sections generic ---------- */
+  section{padding:100px 0; border-bottom:1px solid var(--line);}
+  .section-head{max-width:640px; margin-bottom:56px;}
+  .section-head h2{font-size:clamp(28px,3.4vw,40px); margin-bottom:16px;}
+  .section-head p{color:var(--text-muted); font-size:17.5px;}
+
+  /* Problem/context */
+  .problem-grid{display:grid; grid-template-columns:0.9fr 1.1fr; gap:64px; align-items:start;}
+  .problem-grid h2{font-size:clamp(26px,3.2vw,36px); margin-bottom:20px;}
+  .risk-list{display:flex; flex-direction:column; gap:0;}
+  .risk-item{display:grid; grid-template-columns:90px 1fr; gap:20px; padding:22px 0; border-top:1px solid var(--line);}
+  .risk-item:last-child{border-bottom:1px solid var(--line);}
+  .risk-item .num{padding-top:2px;}
+  .risk-item h4{font-size:16.5px; margin-bottom:6px; font-weight:600;}
+  .risk-item p{color:var(--text-muted); font-size:15px;}
+
+  /* Services */
+  .svc-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
+  .svc-card{background:var(--ink); padding:36px 30px; display:flex; flex-direction:column; gap:14px; transition:background .25s;}
+  .svc-card:hover{background:var(--surface);}
+  .svc-card .num{opacity:.8;}
+  .svc-card h3{font-size:19px;}
+  .svc-card p{color:var(--text-muted); font-size:15px; flex-grow:1;}
+
+  /* Trilhas ledger */
+  .track-tabs{display:flex; gap:10px; margin-bottom:40px;}
+  .track-tab{font-family:var(--mono); font-size:12.5px; letter-spacing:0.08em; text-transform:uppercase; padding:9px 16px; border:1px solid var(--line); border-radius:2px; color:var(--text-muted); cursor:pointer; background:none;}
+  .track-tab.active{border-color:var(--gold); color:var(--gold);}
+  .module{display:grid; grid-template-columns:70px 1fr; gap:28px; padding:30px 0; border-top:1px solid var(--line);}
+  .track-group:last-child .module:last-child{border-bottom:1px solid var(--line);}
+  .module .num{font-size:22px; padding-top:2px;}
+  .module h4{font-size:18.5px; margin-bottom:10px;}
+  .module ul{list-style:none; margin-bottom:14px;}
+  .module ul li{color:var(--text-muted); font-size:15px; padding:4px 0 4px 18px; position:relative;}
+  .module ul li::before{content:'—'; position:absolute; left:0; color:var(--gold-dim);}
+  .module .result{font-family:var(--mono); font-size:12.5px; color:var(--good); letter-spacing:0.02em;}
+  .track-group{display:none;}
+  .track-group.active{display:block;}
+
+  /* Cases */
+  .case-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
+  .case-card{background:var(--ink); padding:34px;}
+  .case-card .tag{font-family:var(--mono); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); margin-bottom:10px; display:block;}
+  .case-card h3{font-size:19px; margin-bottom:14px;}
+  .case-card p.desc{color:var(--text-muted); font-size:14.5px; margin-bottom:22px;}
+  .stat-row{display:grid; grid-template-columns:repeat(4,1fr); gap:14px; border-top:1px solid var(--line); padding-top:20px;}
+  .stat{display:flex; flex-direction:column; gap:4px;}
+  .stat .v{font-family:var(--display); font-size:22px; font-weight:700; color:var(--text);}
+  .stat .l{font-family:var(--mono); font-size:10px; color:var(--text-muted); letter-spacing:0.02em; line-height:1.3;}
+  .case-source{font-family:var(--mono); font-size:11px; color:var(--text-muted); opacity:.7; margin-top:16px; display:block;}
+
+  /* Contratação */
+  .formats{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  .format-card{border:1px solid var(--line); padding:32px 28px; display:flex; flex-direction:column; gap:16px;}
+  .format-card.highlight{border-color:var(--gold);}
+  .format-card h3{font-size:19px;}
+  .format-card .tagline{font-family:var(--mono); font-size:11px; color:var(--gold); letter-spacing:0.08em; text-transform:uppercase;}
+  .format-card p{color:var(--text-muted); font-size:14.5px; flex-grow:1;}
+
+  /* About */
+  .about-grid{display:grid; grid-template-columns:0.95fr 1.05fr; gap:64px; align-items:start;}
+  .about-grid h2{font-size:clamp(26px,3.2vw,36px); margin-bottom:20px;}
+  .about-grid p{color:var(--text-muted); margin-bottom:16px; font-size:16px;}
+  .track-record{display:flex; flex-direction:column;}
+  .tr-item{display:flex; justify-content:space-between; align-items:baseline; padding:18px 0; border-top:1px solid var(--line); gap:20px;}
+  .track-record .tr-item:last-child{border-bottom:1px solid var(--line);}
+  .tr-item .co{font-family:var(--display); font-weight:600; font-size:16px; white-space:nowrap;}
+  .tr-item .desc{color:var(--text-muted); font-size:14px; text-align:right;}
+
+  /* CTA band */
+  .cta-band{text-align:center; padding:110px 0;}
+  .cta-band .eyebrow{justify-content:center;}
+  .cta-band .eyebrow::before{display:none;}
+  .cta-band h2{font-size:clamp(30px,4.4vw,48px); max-width:760px; margin:0 auto 30px;}
+  .cta-band .btn{padding:15px 34px; font-size:15.5px;}
+
+  /* Footer */
+  footer{padding:56px 0 40px;}
+  .foot-grid{display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:30px;}
+  .foot-left .logo{margin-bottom:12px;}
+  .foot-left p{color:var(--text-muted); font-size:14px; max-width:340px;}
+  .foot-right{display:flex; gap:40px; flex-wrap:wrap;}
+  .foot-col h5{font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:0.1em; color:var(--gold); margin-bottom:12px;}
+  .foot-col a{display:block; color:var(--text-muted); font-size:14px; padding:4px 0;}
+  .foot-col a:hover{color:var(--text);}
+  .foot-bottom{border-top:1px solid var(--line); margin-top:48px; padding-top:24px; display:flex; justify-content:space-between; color:var(--text-muted); font-size:12.5px; font-family:var(--mono); flex-wrap:wrap; gap:10px;}
+
+  /* Reveal on scroll */
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1; transform:none;}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:900px){
+    .hero-grid, .problem-grid, .about-grid{grid-template-columns:1fr; gap:44px;}
+    .gateway{order:-1; max-width:340px;}
+    .svc-grid{grid-template-columns:repeat(2,1fr);}
+    .case-grid{grid-template-columns:1fr;}
+    .stat-row{grid-template-columns:repeat(2,1fr);}
+    .formats{grid-template-columns:1fr;}
+    .tr-item{flex-direction:column; align-items:flex-start; gap:6px;}
+    .tr-item .desc{text-align:left;}
+  }
+  @media (max-width:720px){
+    nav ul{
+      position:fixed; inset:76px 0 0 0; background:var(--ink); flex-direction:column; padding:36px 32px; gap:26px;
+      transform:translateY(-110%); transition:transform .3s ease; border-top:1px solid var(--line);
+    }
+    nav ul.open{transform:translateY(0);}
+    nav ul a{font-size:20px;}
+    .nav-toggle{display:block;}
+    .nav .btn-primary{display:none;}
+    nav ul .mobile-cta{display:inline-block; margin-top:10px;}
+    .svc-grid{grid-template-columns:1fr;}
+    section{padding:70px 0;}
+    .wrap{padding:0 22px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="logo">TYNA <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#governanca">Governança</a></li>
+        <li><a href="#trilhas">Trilhas</a></li>
+        <li><a href="#cases">Cases</a></li>
+        <li><a href="#contratacao">Contratação</a></li>
+        <li><a href="#contato" class="btn btn-primary mobile-cta">Falar com um consultor</a></li>
+      </ul>
+    </nav>
+    <a href="#contato" class="btn btn-primary" id="navCta">Falar com um consultor</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" style="border-bottom:1px solid var(--line);">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Consultoria em IA · Governança Corporativa</p>
+        <h1>IA em produção, <em>sob controle.</em></h1>
+        <p class="lead">Levamos inteligência artificial para vendas, marketing, atendimento e operação — com política interna, adequação à LGPD e um AI Gateway que unifica e audita cada ferramenta usada pela empresa.</p>
+        <div class="hero-ctas">
+          <a href="#contato" class="btn btn-primary">Agendar conversa</a>
+          <a href="#servicos" class="btn btn-ghost">Ver serviços</a>
+        </div>
+        <div class="trustbar">
+          <p>IA implementada em produção para</p>
+          <ul>
+            <li>Coca-Cola</li><li>Hering</li><li>iFood</li><li>Stellantis</li><li>Yalo</li><li>Banco do Brasil</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="gateway" role="img" aria-label="Diagrama do AI Gateway conectando Vendas, Marketing, Atendimento e Operação a um hub central de governança">
+        <svg viewBox="0 0 400 400">
+          <circle class="g-ring" cx="200" cy="200" r="178"/>
+          <circle class="g-ring-dash" cx="200" cy="200" r="150" style="transform-origin:200px 200px;"/>
+
+          <!-- connecting lines -->
+          <line class="g-line" x1="200" y1="200" x2="200" y2="70"/>
+          <line class="g-line" x1="200" y1="200" x2="330" y2="150"/>
+          <line class="g-line" x1="200" y1="200" x2="330" y2="255"/>
+          <line class="g-line" x1="200" y1="200" x2="200" y2="335"/>
+          <line class="g-line" x1="200" y1="200" x2="70" y2="255"/>
+          <line class="g-line" x1="200" y1="200" x2="70" y2="150"/>
+
+          <!-- pulses -->
+          <circle class="g-pulse pulse-anim" cx="200" cy="135" r="3"/>
+          <circle class="g-pulse pulse-anim d2" cx="265" cy="175" r="3"/>
+          <circle class="g-pulse pulse-anim d3" cx="265" cy="228" r="3"/>
+          <circle class="g-pulse pulse-anim d4" cx="135" cy="175" r="3"/>
+
+          <!-- outer nodes -->
+          <g>
+            <circle class="g-node-fill" cx="200" cy="70" r="34"/>
+            <text class="g-label" x="200" y="74" text-anchor="middle">LLMs</text>
+          </g>
+          <g>
+            <circle class="g-node-fill" cx="330" cy="150" r="34"/>
+            <text class="g-label" x="330" y="146" text-anchor="middle">VENDAS</text>
+            <text class="g-label" x="330" y="158" text-anchor="middle">B2B</text>
+          </g>
+          <g>
+            <circle class="g-node-fill" cx="330" cy="255" r="34"/>
+            <text class="g-label" x="330" y="259" text-anchor="middle">MARKETING</text>
+          </g>
+          <g>
+            <circle class="g-node-fill" cx="200" cy="335" r="34"/>
+            <text class="g-label" x="200" y="331" text-anchor="middle">ATENDI-</text>
+            <text class="g-label" x="200" y="343" text-anchor="middle">MENTO</text>
+          </g>
+          <g>
+            <circle class="g-node-fill" cx="70" cy="255" r="34"/>
+            <text class="g-label" x="70" y="259" text-anchor="middle">OPERAÇÃO</text>
+          </g>
+          <g>
+            <circle class="g-node-fill" cx="70" cy="150" r="34"/>
+            <text class="g-label" x="70" y="146" text-anchor="middle">CRM /</text>
+            <text class="g-label" x="70" y="158" text-anchor="middle">ERP</text>
+          </g>
+
+          <!-- hub -->
+          <circle class="g-hub-fill" cx="200" cy="200" r="52"/>
+          <text class="g-hub-label" x="200" y="197" text-anchor="middle">AI</text>
+          <text class="g-hub-label" x="200" y="211" text-anchor="middle">GATEWAY</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- GOVERNANÇA / PROBLEMA -->
+  <section id="governanca">
+    <div class="wrap problem-grid">
+      <div class="reveal">
+        <p class="eyebrow">Por que governança</p>
+        <h2>O risco não é a tecnologia. É a ausência de controle.</h2>
+        <p style="color:var(--text-muted); font-size:16px;">A maioria das empresas já usa IA — em ferramentas não homologadas, sem política, sem trilha de auditoria. O trabalho da Tyna é trazer essa adoção para dentro de uma estrutura que a liderança entende, aprova e consegue sustentar.</p>
+      </div>
+      <div class="risk-list reveal">
+        <div class="risk-item">
+          <span class="num">01</span>
+          <div><h4>Shadow AI</h4><p>Times usando ferramentas de IA fora de qualquer política, sem visibilidade para TI, jurídico ou segurança.</p></div>
+        </div>
+        <div class="risk-item">
+          <span class="num">02</span>
+          <div><h4>Vazamento de dados e exposição regulatória</h4><p>Prompts e integrações que trafegam dados pessoais sem base legal — o núcleo da adequação à LGPD.</p></div>
+        </div>
+        <div class="risk-item">
+          <span class="num">03</span>
+          <div><h4>Alucinação sem guardrail</h4><p>Agentes em produção respondendo clientes sem limites de ação, validação ou escalonamento humano definidos.</p></div>
+        </div>
+        <div class="risk-item">
+          <span class="num">04</span>
+          <div><h4>Ferramentas fragmentadas</h4><p>Cada área com seu próprio acesso a modelos de IA, sem custo, uso ou risco unificados — o problema que o AI Gateway resolve.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS -->
+  <section id="servicos">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Serviços</p>
+        <h2>Da política ao agente em produção</h2>
+        <p>Cada frente pode ser contratada isoladamente ou como programa contínuo de governança.</p>
+      </div>
+      <div class="svc-grid reveal">
+        <div class="svc-card">
+          <span class="num">01</span>
+          <h3>Consultoria em IA</h3>
+          <p>Arquitetura e implantação hands-on de agentes e automações — do desenho à integração com CRM, WhatsApp e sistemas internos.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">02</span>
+          <h3>Governança Corporativa de IA</h3>
+          <p>Estrutura, papéis e rituais de um escritório de governança, com matriz de valor × risco para priorização executiva.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">03</span>
+          <h3>Política Interna de IA</h3>
+          <p>Frameworks de referência traduzidos em políticas que as equipes de fato seguem — não documentos guardados na intranet.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">04</span>
+          <h3>Adequação à LGPD</h3>
+          <p>Mapeamento de dados em fluxos de IA, base legal de tratamento e prevenção de vazamento em prompts e bases de conhecimento.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">05</span>
+          <h3>AI Gateway</h3>
+          <p>Unificação de todas as ferramentas de IA da empresa sob um único ponto de acesso, custo, observabilidade e auditoria.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">06</span>
+          <h3>Trilhas de Capacitação</h3>
+          <p>Programas estruturados para Liderança e para Times técnicos — do fundamento de governança à arquitetura de agentes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRILHAS -->
+  <section id="trilhas">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Capacitação</p>
+        <h2>Trilhas de Liderança e de Times</h2>
+        <p>Governança praticada no dia a dia — não apenas documentada. Cada módulo técnico carrega um ângulo de segurança, controle de acesso e auditabilidade.</p>
+      </div>
+
+      <div class="track-tabs reveal">
+        <button class="track-tab active" data-track="lideranca">Trilha Liderança</button>
+        <button class="track-tab" data-track="times">Trilha Times</button>
+      </div>
+
+      <div class="track-group active reveal" data-group="lideranca">
+        <div class="module">
+          <span class="num">L1</span>
+          <div>
+            <h4>Fundamentos de Governança de IA</h4>
+            <ul>
+              <li>Panorama de riscos: alucinação, vazamento de dados, viés, shadow AI e exposição regulatória</li>
+              <li>Frameworks de referência traduzidos em políticas internas praticáveis</li>
+              <li>Estrutura, papéis e rituais de um escritório de Governança de IA</li>
+              <li>Matriz de valor × risco para priorização executiva</li>
+            </ul>
+            <span class="result">Resultado — lideranças aptas a definir políticas e aprovar casos de uso</span>
+          </div>
+        </div>
+        <div class="module">
+          <span class="num">L2</span>
+          <div>
+            <h4>Governança com Foco em Equipes</h4>
+            <ul>
+              <li>Gestão de acesso, permissionamento e políticas de uso por área e perfil</li>
+              <li>Observabilidade e auditoria: logs, trilhas de decisão, rastreabilidade de agentes</li>
+              <li>Catálogo de ferramentas aprovadas e homologação de novas soluções</li>
+            </ul>
+            <span class="result">Resultado — kit operacional de governança pronto para implantação</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="track-group" data-group="times">
+        <div class="module">
+          <span class="num">T1</span>
+          <div>
+            <h4>Prompt Engineering</h4>
+            <ul>
+              <li>Fundamentos e padrões avançados: papéis, contexto, exemplos, cadeias de raciocínio</li>
+              <li>Governança do prompt: prevenção de prompt injection e exposição de dados sensíveis</li>
+            </ul>
+            <span class="result">Resultado — times produtivos com IA generativa desde a primeira semana</span>
+          </div>
+        </div>
+        <div class="module">
+          <span class="num">T2</span>
+          <div>
+            <h4>Spec-Driven Development</h4>
+            <ul>
+              <li>Da intenção de negócio à especificação executável</li>
+              <li>Revisão e versionamento de specs como ativo de governança</li>
+            </ul>
+            <span class="result">Resultado — projetos de IA previsíveis, documentados e auditáveis</span>
+          </div>
+        </div>
+        <div class="module">
+          <span class="num">T3</span>
+          <div>
+            <h4>Harness Engineering</h4>
+            <ul>
+              <li>Harnesses de avaliação: casos de teste, métricas e critérios de aceite</li>
+              <li>Guardrails em produção: limites de ação, validação, fallbacks seguros</li>
+            </ul>
+            <span class="result">Resultado — sistemas de IA testáveis e controláveis</span>
+          </div>
+        </div>
+        <div class="module">
+          <span class="num">T4</span>
+          <div>
+            <h4>Arquitetura de Agentes Conversacionais</h4>
+            <ul>
+              <li>Design de agentes: intenções, fluxos, orquestração e memória</li>
+              <li>Escopo de autonomia, escalonamento humano e monitoramento</li>
+            </ul>
+            <span class="result">Resultado — capacidade interna de desenhar agentes com padrão enterprise</span>
+          </div>
+        </div>
+        <div class="module">
+          <span class="num">T5</span>
+          <div>
+            <h4>RAG — Retrieval-Augmented Generation</h4>
+            <ul>
+              <li>Arquiteturas de referência: ingestão, chunking, embeddings, recuperação e reranking</li>
+              <li>Governança do conhecimento: permissionamento de bases, prevenção de vazamento</li>
+            </ul>
+            <span class="result">Resultado — IA conectada ao conhecimento interno com segurança mensurável</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASES -->
+  <section id="cases">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Cases de sucesso</p>
+        <h2>Resultados reais, em produção</h2>
+        <p>Projetos conduzidos ao longo da trajetória em governança e implantação de IA.</p>
+      </div>
+      <div class="case-grid reveal">
+        <div class="case-card">
+          <span class="tag">Recuperação de carrinho · WhatsApp</span>
+          <h3>Hering</h3>
+          <p class="desc">Recuperação de carrinhos abandonados via automação no WhatsApp integrada à VTEX, com agente de IA de vendas proativo 24/7.</p>
+          <div class="stat-row">
+            <div class="stat"><span class="v">123x</span><span class="l">ROAS DAS CAMPANHAS</span></div>
+            <div class="stat"><span class="v">20%</span><span class="l">TAXA DE CONVERSÃO</span></div>
+            <div class="stat"><span class="v">R$1,5mi</span><span class="l">FATURAMENTO</span></div>
+            <div class="stat"><span class="v">+2.825%</span><span class="l">VS. ANO ANTERIOR</span></div>
+          </div>
+          <span class="case-source">Fonte: omni.chat/blog — case Hering</span>
+        </div>
+
+        <div class="case-card">
+          <span class="tag">Campanha de Natal · Reconhecimento de voz</span>
+          <h3>Coca-Cola</h3>
+          <p class="desc">Assistente virtual reconhecendo, entre milhares de áudios, os que desenhavam a silhueta sonora da garrafa clássica.</p>
+          <div class="stat-row">
+            <div class="stat"><span class="v">94mil</span><span class="l">USUÁRIOS EM 20 DIAS</span></div>
+            <div class="stat"><span class="v">397mil</span><span class="l">ÁUDIOS RECEBIDOS</span></div>
+            <div class="stat"><span class="v">+4mi</span><span class="l">MENSAGENS TRAFEGADAS</span></div>
+            <div class="stat"><span class="v">851</span><span class="l">USUÁRIOS PREMIADOS</span></div>
+          </div>
+          <span class="case-source">Fonte: blip.ai — case Áudios Mágicos</span>
+        </div>
+
+        <div class="case-card">
+          <span class="tag">Vendas B2B · WhatsApp</span>
+          <h3>Yalo</h3>
+          <p class="desc">Agentes de IA como vendedores digitais 24/7, integrados a preço, catálogo, crédito e estoque para pequeno varejo.</p>
+          <div class="stat-row">
+            <div class="stat"><span class="v">US$4bi</span><span class="l">MOVIMENTADOS VIA MSG</span></div>
+            <div class="stat"><span class="v">+4mi</span><span class="l">PONTOS DE VENDA NO BR</span></div>
+            <div class="stat"><span class="v">+40</span><span class="l">PAÍSES DE ATUAÇÃO</span></div>
+            <div class="stat"><span class="v">14–18%</span><span class="l">AUMENTO NAS VENDAS</span></div>
+          </div>
+          <span class="case-source">Fonte: Times Brasil / CNBC, dez. 2025</span>
+        </div>
+
+        <div class="case-card">
+          <span class="tag">Reconhecimento de imagem · Pós-venda</span>
+          <h3>Stellantis</h3>
+          <p class="desc">Agente que recebe a foto do painel pelo WhatsApp, interpreta o alerta e responde na hora — replicado em cinco marcas do grupo.</p>
+          <div class="stat-row">
+            <div class="stat"><span class="v">86,8%</span><span class="l">NPS NO PÓS-VENDA</span></div>
+            <div class="stat"><span class="v">80%</span><span class="l">RESOLUTIVIDADE DIRETA</span></div>
+            <div class="stat"><span class="v">84,2%</span><span class="l">ASSERTIVIDADE DA IA</span></div>
+            <div class="stat"><span class="v">5</span><span class="l">MARCAS ATENDIDAS</span></div>
+          </div>
+          <span class="case-source">Fonte: blip.ai — case Stellantis</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTRATAÇÃO -->
+  <section id="contratacao">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Formatos de contratação</p>
+        <h2>Do workshop pontual ao programa contínuo</h2>
+      </div>
+      <div class="formats reveal">
+        <div class="format-card">
+          <span class="tagline">Ativação rápida</span>
+          <h3>Workshop</h3>
+          <p>Sessão intensiva de 3h em um módulo específico, com exercícios práticos, material de apoio e cases reais.</p>
+        </div>
+        <div class="format-card highlight">
+          <span class="tagline">Programa estruturado</span>
+          <h3>Trilha completa</h3>
+          <p>Sequência de módulos por audiência — Liderança ou Times — com avaliação de aprendizado e plano de aplicação.</p>
+        </div>
+        <div class="format-card">
+          <span class="tagline">Sustentação contínua</span>
+          <h3>Advisory mensal</h3>
+          <p>Office hours, revisão de casos de uso, evolução de políticas e mentoria dos multiplicadores internos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section id="sobre">
+    <div class="wrap about-grid">
+      <div class="reveal">
+        <p class="eyebrow">Quem está por trás</p>
+        <h2>Governança que vem de quem já colocou IA em produção</h2>
+        <p>A Tyna nasce da trajetória de Felipe, consultor de IA com quase uma década dedicada a IA conversacional e automação — de agentes de atendimento e vendas a plataformas de martech e social listening, para marcas como Coca-Cola, Banco do Brasil, Magazine Luiza e Stellantis.</p>
+        <p>Cada módulo técnico da Tyna carrega um ângulo de governança embutido: segurança de dados, controle de acesso, auditabilidade e mitigação de risco — do prompt ao agente em produção.</p>
+        <a href="https://linkedin.com/in/felipelj" class="btn btn-ghost" style="margin-top:10px; display:inline-block;">LinkedIn ↗</a>
+      </div>
+      <div class="track-record reveal">
+        <div class="tr-item"><span class="co">Yalo</span><span class="desc">Agentes de IA B2B para Mondelez, FEMSA e Heineken via WhatsApp</span></div>
+        <div class="tr-item"><span class="co">Blip</span><span class="desc">Gestão de produto de agentes de IA — Coca-Cola, XP, Claro, TIM, iFood</span></div>
+        <div class="tr-item"><span class="co">Stilingue</span><span class="desc">IA proprietária de social listening — mais de 600 clientes monitorados</span></div>
+        <div class="tr-item"><span class="co">Zenvia</span><span class="desc">Plataforma conversacional SaaS — agentes de atendimento e vendas</span></div>
+        <div class="tr-item"><span class="co">Omnichat</span><span class="desc">Agentes de vendas para e-commerce — cases Hering e Biscoitê</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA final -->
+  <section class="cta-band" style="border-bottom:none;">
+    <div class="wrap reveal">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Vamos trazer a IA da sua empresa para dentro de uma estrutura de governança?</h2>
+      <a href="#contato" class="btn btn-primary">Agendar conversa</a>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="#top" class="logo">TYNA <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <a href="mailto:contato@tyna.com.br">contato@tyna.com.br</a>
+          <a href="https://linkedin.com/in/felipelj">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="#servicos">Serviços</a>
+          <a href="#trilhas">Trilhas</a>
+          <a href="#cases">Cases</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const navList = document.getElementById('navList');
+  navToggle.addEventListener('click', () => {
+    const open = navList.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open);
+    navToggle.textContent = open ? '✕' : '☰';
+  });
+  navList.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navList.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', false);
+    navToggle.textContent = '☰';
+  }));
+
+  // Track tabs (Liderança / Times)
+  const tabs = document.querySelectorAll('.track-tab');
+  const groups = document.querySelectorAll('.track-group');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      groups.forEach(g => g.classList.remove('active'));
+      tab.classList.add('active');
+      document.querySelector('.track-group[data-group="' + tab.dataset.track + '"]').classList.add('active');
+    });
+  });
+
+  // Scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
