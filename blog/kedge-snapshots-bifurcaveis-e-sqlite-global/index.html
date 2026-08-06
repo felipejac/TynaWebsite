@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kedge traz snapshots bifurcáveis e SQLite global — Blog Tyna</title>
+<meta name="description" content="Clonar uma VM em execução em segundos e um banco de arquivo único compartilhado entre nós, sem serviço de banco separado.">
+<link rel="canonical" href="https://tyna.com.br/blog/kedge-snapshots-bifurcaveis-e-sqlite-global/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kedge traz snapshots bifurcáveis e SQLite global — Blog Tyna">
+<meta property="og:description" content="Clonar uma VM em execução em segundos e um banco de arquivo único compartilhado entre nós, sem serviço de banco separado.">
+<meta property="og:url" content="https://tyna.com.br/blog/kedge-snapshots-bifurcaveis-e-sqlite-global/">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23411E5A%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23F1592B%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="alternate" type="application/rss+xml" title="Blog Tyna" href="https://tyna.com.br/rss.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=2">
+<link rel="stylesheet" href="../../assets/blog.css?v=2">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Kedge traz snapshots bifurcáveis e SQLite global","description":"Clonar uma VM em execução em segundos e um banco de arquivo único compartilhado entre nós, sem serviço de banco separado.","datePublished":"2026-07-30","dateModified":"2026-07-30","inLanguage":"pt-BR","author":{"@type":"Person","name":"Felipe Jacob","url":"https://tyna.com.br/sobre/"},"publisher":{"@type":"Organization","name":"Tyna","url":"https://tyna.com.br","logo":{"@type":"ImageObject","url":"https://tyna.com.br/assets/logo-tyna.png"}},"mainEntityOfPage":"https://tyna.com.br/blog/kedge-snapshots-bifurcaveis-e-sqlite-global/","keywords":"infraestrutura-em-nuvem, sqlite, ambientes-reprodutiveis, ci-cd, automacao","articleSection":"Ferramentas de Dev"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://tyna.com.br"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tyna.com.br/blog/"},{"@type":"ListItem","position":3,"name":"Ferramentas de Dev","item":"https://tyna.com.br/blog/categoria/dev-tools/"},{"@type":"ListItem","position":4,"name":"Kedge traz snapshots bifurcáveis e SQLite global","item":"https://tyna.com.br/blog/kedge-snapshots-bifurcaveis-e-sqlite-global/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Dá para usar os snapshots com fluxos baseados em Docker?","acceptedAnswer":{"@type":"Answer","text":"Sim. Como o snapshot captura o estado inteiro da VM, é possível rodar contêineres dentro do ambiente bifurcado normalmente."}},{"@type":"Question","name":"O SQLite global é seguro para escrita concorrente de vários agentes?","acceptedAnswer":{"@type":"Answer","text":"Ele suporta leitura concorrente, mas serializa escrita. Para carga com escrita pesada, considere cache intermediário ou um serviço de banco dedicado."}},{"@type":"Question","name":"Como a segurança do banco compartilhado é tratada?","acceptedAnswer":{"@type":"Answer","text":"O arquivo é criptografado em repouso e em trânsito, e o acesso pode ser restrito por políticas, garantindo que só agentes autorizados leiam ou escrevam."}}]}</script>
+<link rel="alternate" hreflang="en" href="https://automationscookbook.com/blog/kedge-fullstack-cloud-with-forkable-vm-snapshots-global-sqli-20260730">
+<link rel="alternate" hreflang="pt-BR" href="https://tyna.com.br/blog/kedge-snapshots-bifurcaveis-e-sqlite-global/">
+<link rel="alternate" hreflang="x-default" href="https://automationscookbook.com/blog/kedge-fullstack-cloud-with-forkable-vm-snapshots-global-sqli-20260730">
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../../" class="logo"><img src="../../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../../#servicos">Serviços</a></li>
+        <li><a href="../../#governanca">Governança</a></li>
+        <li><a href="../../#trilhas">Trilhas</a></li>
+        <li><a href="../../blog/">Blog</a></li>
+        <li><a href="../../sobre/">Sobre</a></li>
+        <li><a href="../../#contato" class="btn btn-primary mobile-cta">Falar com um consultor</a></li>
+      </ul>
+    </nav>
+    <a href="../../#contato" class="btn btn-primary" id="navCta">Falar com um consultor</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+  <article class="post">
+    <div class="wrap post-wrap">
+      <nav class="crumbs" aria-label="Trilha"><a href="../../">Início</a> › <a href="../">Blog</a> › <a href="../categoria/dev-tools/">Ferramentas de Dev</a></nav>
+      <p class="eyebrow">Ferramentas de Dev</p>
+      <h1>Kedge traz snapshots bifurcáveis e SQLite global</h1>
+      <p class="post-meta"><time datetime="2026-07-30">30 de julho de 2026</time> · Por <a href="../../sobre/">Felipe Jacob</a></p>
+      <p class="lead">Clonar uma VM em execução em segundos e um banco de arquivo único compartilhado entre nós, sem serviço de banco separado.</p>
+
+      <aside class="answer-box"><h2>Resposta curta</h2><p>A Kedge lançou uma plataforma de nuvem com duas capacidades novas: snapshots bifurcáveis de máquina virtual, que clonam uma VM em execução em segundos preservando dependências e dados de runtime, e uma camada de SQLite global, um banco de arquivo único que vários nós leem e escrevem, dispensando serviço de banco separado.</p></aside>
+
+      <div class="post-body">
+<h2>O que aconteceu</h2>
+<p>A Kedge lançou uma plataforma de nuvem com duas capacidades novas: snapshots bifurcáveis de máquina virtual e um banco SQLite compartilhado globalmente. Os snapshots permitem clonar uma VM em execução em segundos, preservando dependências instaladas e dados de runtime. A camada de SQLite global oferece um banco de arquivo único que vários nós leem e escrevem simultaneamente, o que dispensa serviço de banco separado.</p>
+<p>Na demonstração, um fluxo de n8n puxava dados do SQLite, bifurcava uma VM para rodar um script Python e gravava o resultado de volta no mesmo banco — tudo publicado em poucos minutos. A empresa enfatiza a redução de carga operacional e a velocidade de iteração para quem constrói pipelines de automação.</p>
+<h2>Por que isso importa para quem constrói</h2>
+<ul>
+<li><strong>Ambiente reprodutível na hora</strong> — snapshots sobem uma VM configurada em segundos. Times conseguem testar modelo ou dependência nova sem tocar em produção, o que elimina o clássico "na minha máquina funciona".</li>
+<li><strong>Menos superfície operacional</strong> — um SQLite compartilhado substitui cluster de banco separado, o que reduz custo e simplifica a escala em carga pequena e média.</li>
+<li><strong>Esteira mais simples</strong> — banco de arquivo único pode ser versionado ou guardado como artefato, o que permite teste determinístico. VMs bifurcadas viram executores descartáveis com estado limpo a cada execução.</li>
+<li><strong>Consistência entre nós</strong> — o SQLite global garante que todos os nós de um fluxo distribuído vejam o mesmo retrato dos dados, o que reduz condição de corrida.</li>
+</ul>
+<h2>A leitura da Tyna</h2>
+<p>O primeiro item é o que resolve um problema real e pouco falado: <strong>reprodutibilidade de ambiente de agente.</strong></p>
+<p>Quando um agente se comporta diferente entre teste e produção, a investigação costuma começar pelo prompt e pelo modelo. Muitas vezes o culpado é a versão de uma biblioteca, uma variável de ambiente ou um dado que existia em um lugar e não no outro. Snapshot que preserva o estado inteiro em execução transforma "não consigo reproduzir" em "clona e olha".</p>
+<p>Mas há uma tensão não resolvida entre as duas capacidades anunciadas, e ela merece atenção antes de adotar.</p>
+<p>O próprio FAQ admite que o SQLite <strong>serializa escrita</strong> — leitura é concorrente, escrita é uma de cada vez. Ao mesmo tempo, o argumento de venda dos snapshots é rodar muitas VMs em paralelo. Juntando as duas: quanto mais você aproveita a bifurcação, mais escritores disputam um gargalo que é serializado por natureza. Funciona bem em carga de leitura pesada e escrita leve; degrada exatamente no cenário que a plataforma incentiva.</p>
+<p>Isso não invalida o produto — delimita onde ele serve. Como executor de teste descartável com banco de leitura compartilhado, encaixa muito bem. Como armazenamento de escrita para dezenas de agentes concorrentes, é escolha errada, e o sinal de que foi errada vai aparecer como lentidão intermitente difícil de diagnosticar.</p>
+<p>Uma nota de segurança: snapshot de VM em execução <strong>captura tudo que estava em memória</strong>, incluindo credencial carregada e dado de cliente em processamento. Clonar e compartilhar esse snapshot com o time é clonar e compartilhar aquilo junto. Vale tratar snapshot com o mesmo cuidado que se trata dump de banco de produção.</p>
+<h2>Perguntas frequentes</h2>
+<p><strong>P: Dá para usar os snapshots com fluxos baseados em Docker?</strong></p>
+<p>R: Sim. Como o snapshot captura o estado inteiro da VM, é possível rodar contêineres dentro do ambiente bifurcado normalmente.</p>
+<p><strong>P: O SQLite global é seguro para escrita concorrente de vários agentes?</strong></p>
+<p>R: Ele suporta leitura concorrente, mas serializa escrita. Para carga com escrita pesada, considere cache intermediário ou um serviço de banco dedicado.</p>
+<p><strong>P: Como a segurança do banco compartilhado é tratada?</strong></p>
+<p>R: O arquivo é criptografado em repouso e em trânsito, e o acesso pode ser restrito por políticas, garantindo que só agentes autorizados leiam ou escrevam.</p>
+      </div>
+
+      
+      <p class="post-source">Versão em inglês: <a href="https://automationscookbook.com/blog/kedge-fullstack-cloud-with-forkable-vm-snapshots-global-sqli-20260730" target="_blank" rel="noopener">Automations Cookbook</a></p>
+
+      <ul class="post-tags"><li>#infraestrutura-em-nuvem</li><li>#sqlite</li><li>#ambientes-reprodutiveis</li><li>#ci-cd</li><li>#automacao</li></ul>
+    </div>
+  </article>
+
+  <section class="related">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow">Leia também</p><h2>Mais sobre Ferramentas de Dev</h2></div>
+      <div class="post-grid"><article class="post-card">
+  <a class="post-card-link" href="../../blog/hyperprobe-depuracao-somente-leitura-em-producao/">
+    <span class="tag">Ferramentas de Dev</span>
+    <h3>HyperProbe: depuração somente leitura em produção</h3>
+    <p class="desc">Agentes que se acoplam a serviços em execução para inspecionar estado sem alterar nada. A ideia é diagnosticar sem arriscar derrubar.</p>
+    <time datetime="2026-08-05">05 de agosto de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../blog/imagens-geradas-por-ia-afastam-leitores/">
+    <span class="tag">Ferramentas de Dev</span>
+    <h3>Imagem gerada por IA está afastando leitor de blog</h3>
+    <p class="desc">Ilustração automática genérica derruba clique e tempo de página. O problema não é a ferramenta, é publicar sem revisar.</p>
+    <time datetime="2026-08-05">05 de agosto de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../blog/cursor-remove-dado-de-custo-do-painel/">
+    <span class="tag">Ferramentas de Dev</span>
+    <h3>Cursor remove o dado de custo do painel e do CSV</h3>
+    <p class="desc">O painel agora mostra só contagem de tokens. Quem auditava gasto direto na plataforma vai precisar calcular por fora.</p>
+    <time datetime="2026-08-02">02 de agosto de 2026</time>
+  </a>
+</article></div>
+    </div>
+  </section>
+
+  <section class="cta-band" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Quer aplicar isso na sua empresa, com governança?</h2>
+      <a href="../../#contato" class="btn btn-primary">Agendar conversa</a>
+    </div>
+  </section>
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../../" class="logo"><img src="../../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <a href="mailto:contato@tyna.com.br">contato@tyna.com.br</a>
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Blog</h5>
+          <a href="../../blog/categoria/ai-agents/">Agentes de IA</a>
+          <a href="../../blog/categoria/llm/">LLMs</a>
+          <a href="../../blog/categoria/dev-tools/">Ferramentas de Dev</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../../sobre/">Sobre</a>
+          <a href="../../blog/">Blog</a>
+          <a href="../../rss.xml">RSS</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/site.js?v=2"></script>
+
+</body>
+</html>

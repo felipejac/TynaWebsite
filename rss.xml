@@ -110,5 +110,69 @@
     <description>Escreve código, roda teste e conversa com microcontroladores e sensores no mesmo fluxo. A promessa é encurtar o caminho até o protótipo.</description>
     <category>Ferramentas de Dev</category>
   </item>
+  <item>
+    <title>Cockpit em Rust para agentes do Claude Code</title>
+    <link>https://tyna.com.br/blog/cockpit-em-rust-para-agentes-do-claude-code/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/cockpit-em-rust-para-agentes-do-claude-code/</guid>
+    <pubDate>Sat, 01 Aug 2026 12:00:00 GMT</pubDate>
+    <description>Interface leve que mostra estado interno, log e prompts do agente em tempo real — e deixa intervir no meio da execução.</description>
+    <category>Agentes de IA</category>
+  </item>
+  <item>
+    <title>Manufact contrata infra sênior para nuvem de manufatura</title>
+    <link>https://tyna.com.br/blog/manufact-contrata-infra-para-nuvem-de-manufatura/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/manufact-contrata-infra-para-nuvem-de-manufatura/</guid>
+    <pubDate>Sat, 01 Aug 2026 12:00:00 GMT</pubDate>
+    <description>Uma vaga que sinaliza a passagem de protótipo para produção — e o que ela indica sobre a base que agentes de IA exigem.</description>
+    <category>Ferramentas de Dev</category>
+  </item>
+  <item>
+    <title>Roteadores de LLM aposentam soluções monolíticas</title>
+    <link>https://tyna.com.br/blog/roteadores-de-llm-aposentam-solucoes-monoliticas/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/roteadores-de-llm-aposentam-solucoes-monoliticas/</guid>
+    <pubDate>Sat, 01 Aug 2026 12:00:00 GMT</pubDate>
+    <description>Um roteador popular anunciou aposentadoria: o desenho monolítico não acompanhou o ritmo de lançamento dos modelos.</description>
+    <category>LLMs</category>
+  </item>
+  <item>
+    <title>Como montar um agente de revisão de código próprio</title>
+    <link>https://tyna.com.br/blog/agente-de-revisao-de-codigo-auto-hospedado/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/agente-de-revisao-de-codigo-auto-hospedado/</guid>
+    <pubDate>Fri, 31 Jul 2026 12:00:00 GMT</pubDate>
+    <description>Guia para rodar revisão automatizada em servidor próprio, mantendo código, pesos do modelo e histórico dentro de casa.</description>
+    <category>Agentes de IA</category>
+  </item>
+  <item>
+    <title>Como deveria ser a interface para agentes de IA</title>
+    <link>https://tyna.com.br/blog/como-deveria-ser-a-interface-para-agentes-de-ia/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/como-deveria-ser-a-interface-para-agentes-de-ia/</guid>
+    <pubDate>Fri, 31 Jul 2026 12:00:00 GMT</pubDate>
+    <description>Discussão no Show HN sobre o que uma boa GUI de orquestração precisa mostrar: estado, telemetria e histórico de decisão.</description>
+    <category>LLMs</category>
+  </item>
+  <item>
+    <title>Grafo de memória compartilhada entre Claude e ChatGPT</title>
+    <link>https://tyna.com.br/blog/grafo-de-memoria-compartilhada-entre-modelos/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/grafo-de-memoria-compartilhada-entre-modelos/</guid>
+    <pubDate>Fri, 31 Jul 2026 12:00:00 GMT</pubDate>
+    <description>Estrutura em memória que guarda histórico e estado da tarefa, consultável por qualquer modelo — sem repassar contexto no prompt.</description>
+    <category>Agentes de IA</category>
+  </item>
+  <item>
+    <title>Destilação do DeepSeek transfere censura junto</title>
+    <link>https://tyna.com.br/blog/destilacao-do-deepseek-transfere-censura/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/destilacao-do-deepseek-transfere-censura/</guid>
+    <pubDate>Thu, 30 Jul 2026 12:00:00 GMT</pubDate>
+    <description>O modelo destilado herdou as regras de filtragem do original. Filtro invisível quebra fluxo que espera texto completo.</description>
+    <category>LLMs</category>
+  </item>
+  <item>
+    <title>Kedge traz snapshots bifurcáveis e SQLite global</title>
+    <link>https://tyna.com.br/blog/kedge-snapshots-bifurcaveis-e-sqlite-global/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/kedge-snapshots-bifurcaveis-e-sqlite-global/</guid>
+    <pubDate>Thu, 30 Jul 2026 12:00:00 GMT</pubDate>
+    <description>Clonar uma VM em execução em segundos e um banco de arquivo único compartilhado entre nós, sem serviço de banco separado.</description>
+    <category>Ferramentas de Dev</category>
+  </item>
 </channel>
 </rss>

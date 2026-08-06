@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grafo de memória compartilhada entre Claude e ChatGPT — Blog Tyna</title>
+<meta name="description" content="Estrutura em memória que guarda histórico e estado da tarefa, consultável por qualquer modelo — sem repassar contexto no prompt.">
+<link rel="canonical" href="https://tyna.com.br/blog/grafo-de-memoria-compartilhada-entre-modelos/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Grafo de memória compartilhada entre Claude e ChatGPT — Blog Tyna">
+<meta property="og:description" content="Estrutura em memória que guarda histórico e estado da tarefa, consultável por qualquer modelo — sem repassar contexto no prompt.">
+<meta property="og:url" content="https://tyna.com.br/blog/grafo-de-memoria-compartilhada-entre-modelos/">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23411E5A%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23F1592B%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="alternate" type="application/rss+xml" title="Blog Tyna" href="https://tyna.com.br/rss.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=2">
+<link rel="stylesheet" href="../../assets/blog.css?v=2">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Grafo de memória compartilhada entre Claude e ChatGPT","description":"Estrutura em memória que guarda histórico e estado da tarefa, consultável por qualquer modelo — sem repassar contexto no prompt.","datePublished":"2026-07-31","dateModified":"2026-07-31","inLanguage":"pt-BR","author":{"@type":"Person","name":"Felipe Jacob","url":"https://tyna.com.br/sobre/"},"publisher":{"@type":"Organization","name":"Tyna","url":"https://tyna.com.br","logo":{"@type":"ImageObject","url":"https://tyna.com.br/assets/logo-tyna.png"}},"mainEntityOfPage":"https://tyna.com.br/blog/grafo-de-memoria-compartilhada-entre-modelos/","keywords":"memoria-compartilhada, agentes-de-ia, mcp, automacao, n8n","articleSection":"Agentes de IA"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://tyna.com.br"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tyna.com.br/blog/"},{"@type":"ListItem","position":3,"name":"Agentes de IA","item":"https://tyna.com.br/blog/categoria/ai-agents/"},{"@type":"ListItem","position":4,"name":"Grafo de memória compartilhada entre Claude e ChatGPT","item":"https://tyna.com.br/blog/grafo-de-memoria-compartilhada-entre-modelos/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Preciso de infraestrutura nova?","acceptedAnswer":{"@type":"Answer","text":"Não. O grafo roda em memória na mesma máquina que hospeda seus agentes, e pode ser embutido no contêiner ou função que já roda sua instância de n8n."}},{"@type":"Question","name":"Funciona com outros modelos além de Claude e ChatGPT?","acceptedAnswer":{"@type":"Answer","text":"A API é genérica. Qualquer modelo que aceite carga de contexto estruturada pode ser conectado, e a comunidade já experimenta com outros."}},{"@type":"Question","name":"Como manter o estado se o serviço reiniciar?","acceptedAnswer":{"@type":"Answer","text":"O grafo pode ser serializado para um armazenamento leve, como Redis ou um arquivo JSON, no desligamento, e recarregado na inicialização. Mantém a velocidade da memória com durabilidade."}}]}</script>
+<link rel="alternate" hreflang="en" href="https://automationscookbook.com/blog/shared-memory-graph-for-claude-chatgpt-over-mcp-20260731">
+<link rel="alternate" hreflang="pt-BR" href="https://tyna.com.br/blog/grafo-de-memoria-compartilhada-entre-modelos/">
+<link rel="alternate" hreflang="x-default" href="https://automationscookbook.com/blog/shared-memory-graph-for-claude-chatgpt-over-mcp-20260731">
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../../" class="logo"><img src="../../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../../#servicos">Serviços</a></li>
+        <li><a href="../../#governanca">Governança</a></li>
+        <li><a href="../../#trilhas">Trilhas</a></li>
+        <li><a href="../../blog/">Blog</a></li>
+        <li><a href="../../sobre/">Sobre</a></li>
+        <li><a href="../../#contato" class="btn btn-primary mobile-cta">Falar com um consultor</a></li>
+      </ul>
+    </nav>
+    <a href="../../#contato" class="btn btn-primary" id="navCta">Falar com um consultor</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+  <article class="post">
+    <div class="wrap post-wrap">
+      <nav class="crumbs" aria-label="Trilha"><a href="../../">Início</a> › <a href="../">Blog</a> › <a href="../categoria/ai-agents/">Agentes de IA</a></nav>
+      <p class="eyebrow">Agentes de IA</p>
+      <h1>Grafo de memória compartilhada entre Claude e ChatGPT</h1>
+      <p class="post-meta"><time datetime="2026-07-31">31 de julho de 2026</time> · Por <a href="../../sobre/">Felipe Jacob</a></p>
+      <p class="lead">Estrutura em memória que guarda histórico e estado da tarefa, consultável por qualquer modelo — sem repassar contexto no prompt.</p>
+
+      <aside class="answer-box"><h2>Resposta curta</h2><p>Um projeto de comunidade disponibilizou um grafo de memória compartilhada que roda sobre MCP e guarda histórico de conversa, estado da tarefa e dados de contexto em memória. Qualquer modelo participante consulta o grafo em vez de receber o contexto inteiro dentro do prompt, o que reduz o tamanho da carga e mantém coerência quando mais de um modelo atua na mesma tarefa.</p></aside>
+
+      <div class="post-body">
+<h2>O que aconteceu</h2>
+<p>A comunidade disponibilizou um grafo de memória compartilhada para Claude e ChatGPT, rodando sobre MCP. O grafo é uma estrutura leve, mantida em memória, que guarda histórico de conversa, estado da tarefa e dados de contexto. Qualquer modelo participante consulta esse grafo, o que dispensa repassar longas cadeias de contexto dentro do prompt. O resultado é resposta mais rápida e coerência preservada quando vários modelos atuam na mesma tarefa.</p>
+<p>A implementação é de código aberto e se encaixa em pilhas existentes. Oferece uma API simples que fluxos de n8n, agentes próprios ou qualquer microsserviço podem chamar para ler ou escrever. Quem adotou cedo relata ganho perceptível ao coordenar dois modelos em um mesmo pipeline.</p>
+<h2>Por que isso importa para quem constrói</h2>
+<ul>
+<li><strong>Menos latência</strong> — enviar o histórico inteiro como prompt infla a carga. O grafo mantém em memória só os nós relevantes, o que reduz o tamanho da requisição.</li>
+<li><strong>Estado consistente entre modelos</strong> — vários modelos leem o mesmo retrato do grafo, o que garante que trabalhem sobre dados idênticos e corta alucinação causada por contexto defasado.</li>
+<li><strong>Fluxo mais simples de desenhar</strong> — vários passos de envio de prompt viram um nó de leitura do grafo, e o editor visual fica mais limpo.</li>
+<li><strong>Colaboração em escala</strong> — quem opera dezenas de agentes pode particionar ou replicar o grafo, escalando na horizontal sem duplicar contexto entre serviços.</li>
+<li><strong>Auditoria e depuração</strong> — o grafo registra o momento de criação de cada nó e as relações de origem, o que torna direto rastrear como um modelo chegou a determinada decisão.</li>
+</ul>
+<h2>A leitura da Tyna</h2>
+<p>O item de auditoria, listado por último, é o que mais deveria interessar a quem opera sob regulação — e conecta com um ponto que já levantamos ao falar de memória sem tokens: <strong>contexto dentro do prompt é praticamente impossível de auditar depois.</strong></p>
+<p>Quando o histórico viaja como texto dentro da requisição, reconstruir o que o modelo viu no momento da decisão exige guardar cada prompt inteiro, e ainda assim você tem um bloco de texto, não um registro estruturado. Com o grafo, cada leitura vira um nó com origem e carimbo de tempo. A diferença entre "acho que ele tinha essa informação" e "às 14h32 ele leu este nó" é a diferença entre passar e não passar numa auditoria.</p>
+<p>Duas ressalvas antes de adotar.</p>
+<p>A primeira é de contenção. Estado compartilhado entre modelos é estado compartilhado — com todos os problemas clássicos de concorrência. Dois agentes escrevendo no mesmo nó em paralelo é uma condição de corrida, e o material não deixa claro qual é a estratégia de resolução.</p>
+<p>A segunda é de privacidade, e é a mais séria. Um grafo comum a Claude e ChatGPT significa que <strong>dado colocado ali por um modelo é enviado ao outro fornecedor</strong> quando o segundo consulta. Se o grafo carrega dado pessoal de cliente, você acabou de criar um compartilhamento entre dois operadores distintos. Isso precisa estar no mapeamento de tratamento, com base legal — não é detalhe de implementação.</p>
+<h2>Perguntas frequentes</h2>
+<p><strong>P: Preciso de infraestrutura nova?</strong></p>
+<p>R: Não. O grafo roda em memória na mesma máquina que hospeda seus agentes, e pode ser embutido no contêiner ou função que já roda sua instância de n8n.</p>
+<p><strong>P: Funciona com outros modelos além de Claude e ChatGPT?</strong></p>
+<p>R: A API é genérica. Qualquer modelo que aceite carga de contexto estruturada pode ser conectado, e a comunidade já experimenta com outros.</p>
+<p><strong>P: Como manter o estado se o serviço reiniciar?</strong></p>
+<p>R: O grafo pode ser serializado para um armazenamento leve, como Redis ou um arquivo JSON, no desligamento, e recarregado na inicialização. Mantém a velocidade da memória com durabilidade.</p>
+      </div>
+
+      
+      <p class="post-source">Versão em inglês: <a href="https://automationscookbook.com/blog/shared-memory-graph-for-claude-chatgpt-over-mcp-20260731" target="_blank" rel="noopener">Automations Cookbook</a></p>
+
+      <ul class="post-tags"><li>#memoria-compartilhada</li><li>#agentes-de-ia</li><li>#mcp</li><li>#automacao</li><li>#n8n</li></ul>
+    </div>
+  </article>
+
+  <section class="related">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow">Leia também</p><h2>Mais sobre Agentes de IA</h2></div>
+      <div class="post-grid"><article class="post-card">
+  <a class="post-card-link" href="../../blog/cloudflare-os-plataforma-aberta-para-agentes-de-ia/">
+    <span class="tag">Agentes de IA</span>
+    <h3>Cloudflare OS: agentes de IA rodando na borda</h3>
+    <p class="desc">A Cloudflare lançou uma plataforma aberta para construir e escalar agentes de IA. O que muda para quem já roda n8n em produção.</p>
+    <time datetime="2026-08-06">06 de agosto de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../blog/zero-mem-memoria-sem-tokens-para-agentes-llm/">
+    <span class="tag">Agentes de IA</span>
+    <h3>Zero-Mem: memória para agentes de LLM sem gastar token</h3>
+    <p class="desc">Uma técnica que separa o acesso à memória da chamada ao modelo e corta até 70% do consumo de tokens sem perder acurácia.</p>
+    <time datetime="2026-08-05">05 de agosto de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../blog/edotenv-ambientes-de-treino-para-trading-quantitativo/">
+    <span class="tag">Agentes de IA</span>
+    <h3>EdotEnv lança ambientes de treino para trading quantitativo</h3>
+    <p class="desc">Sandbox com dinâmica de livro de ofertas e custo de transação para treinar LLMs em estratégia — antes de arriscar capital.</p>
+    <time datetime="2026-08-04">04 de agosto de 2026</time>
+  </a>
+</article></div>
+    </div>
+  </section>
+
+  <section class="cta-band" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Quer aplicar isso na sua empresa, com governança?</h2>
+      <a href="../../#contato" class="btn btn-primary">Agendar conversa</a>
+    </div>
+  </section>
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../../" class="logo"><img src="../../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <a href="mailto:contato@tyna.com.br">contato@tyna.com.br</a>
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Blog</h5>
+          <a href="../../blog/categoria/ai-agents/">Agentes de IA</a>
+          <a href="../../blog/categoria/llm/">LLMs</a>
+          <a href="../../blog/categoria/dev-tools/">Ferramentas de Dev</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../../sobre/">Sobre</a>
+          <a href="../../blog/">Blog</a>
+          <a href="../../rss.xml">RSS</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/site.js?v=2"></script>
+
+</body>
+</html>
