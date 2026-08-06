@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cloudflare OS: a aposta da Cloudflare em rodar agentes de IA na borda — Blog Tyna</title>
+<meta name="description" content="A Cloudflare lançou uma plataforma aberta para construir e escalar agentes de IA. O que muda para quem já roda n8n em produção.">
+<link rel="canonical" href="https://tyna.com.br/blog/cloudflare-os-plataforma-aberta-para-agentes-de-ia/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cloudflare OS: a aposta da Cloudflare em rodar agentes de IA na borda — Blog Tyna">
+<meta property="og:description" content="A Cloudflare lançou uma plataforma aberta para construir e escalar agentes de IA. O que muda para quem já roda n8n em produção.">
+<meta property="og:url" content="https://tyna.com.br/blog/cloudflare-os-plataforma-aberta-para-agentes-de-ia/">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23411E5A%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23F1592B%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="alternate" type="application/rss+xml" title="Blog Tyna" href="https://tyna.com.br/rss.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=2">
+<link rel="stylesheet" href="../../assets/blog.css?v=2">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Cloudflare OS: a aposta da Cloudflare em rodar agentes de IA na borda","description":"A Cloudflare lançou uma plataforma aberta para construir e escalar agentes de IA. O que muda para quem já roda n8n em produção.","datePublished":"2026-08-06","dateModified":"2026-08-06","inLanguage":"pt-BR","author":{"@type":"Person","name":"Felipe Jacob","url":"https://tyna.com.br/sobre/"},"publisher":{"@type":"Organization","name":"Tyna","url":"https://tyna.com.br","logo":{"@type":"ImageObject","url":"https://tyna.com.br/assets/logo-tyna.png"}},"mainEntityOfPage":"https://tyna.com.br/blog/cloudflare-os-plataforma-aberta-para-agentes-de-ia/","keywords":"cloudflare, edge-computing, agentes-de-ia, automacao, n8n, open-source","articleSection":"Agentes de IA","citation":"https://blog.cloudflare.com/cloudflare-os/"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://tyna.com.br"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tyna.com.br/blog/"},{"@type":"ListItem","position":3,"name":"Agentes de IA","item":"https://tyna.com.br/blog/categoria/ai-agents/"},{"@type":"ListItem","position":4,"name":"Cloudflare OS: a aposta da Cloudflare em rodar agentes de IA na borda","item":"https://tyna.com.br/blog/cloudflare-os-plataforma-aberta-para-agentes-de-ia/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Consigo rodar meus workflows atuais do n8n sem reescrever?","acceptedAnswer":{"@type":"Answer","text":"Sim. O Cloudflare OS traz um invólucro de runtime que aceita as definições JSON de workflow do n8n e as executa no ambiente de borda. É preciso pouca configuração, basicamente para conectar as fontes de dados."}},{"@type":"Question","name":"Dá para usar modelos próprios ou só os prontos?","acceptedAnswer":{"@type":"Answer","text":"Dá para hospedar contêineres com o seu modelo ou chamar endpoints externos. O marketplace oferece modelos prontos para tarefas comuns, mas nada impede publicar o seu na borda ou na nuvem."}},{"@type":"Question","name":"Como funciona o custo e o escalonamento?","acceptedAnswer":{"@type":"Answer","text":"A cobrança é por requisição e por GB processado. Em cargas de alto volume e baixa latência, tende a sair mais barato que manter VMs dedicadas. As instâncias de agente escalam sozinhas conforme o tráfego, então você paga pelo uso."}}]}</script>
+<link rel="alternate" hreflang="en" href="https://automationscookbook.com/blog/cloudflare-os-launches-open-platform-for-ai-agents-20260806">
+<link rel="alternate" hreflang="pt-BR" href="https://tyna.com.br/blog/cloudflare-os-plataforma-aberta-para-agentes-de-ia/">
+<link rel="alternate" hreflang="x-default" href="https://automationscookbook.com/blog/cloudflare-os-launches-open-platform-for-ai-agents-20260806">
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../../" class="logo"><img src="../../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../../#servicos">Serviços</a></li>
+        <li><a href="../../#governanca">Governança</a></li>
+        <li><a href="../../#trilhas">Trilhas</a></li>
+        <li><a href="../../blog/">Blog</a></li>
+        <li><a href="../../sobre/">Sobre</a></li>
+        <li><a href="../../#contato" class="btn btn-primary mobile-cta">Falar com um consultor</a></li>
+      </ul>
+    </nav>
+    <a href="../../#contato" class="btn btn-primary" id="navCta">Falar com um consultor</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+  <article class="post">
+    <div class="wrap post-wrap">
+      <nav class="crumbs" aria-label="Trilha"><a href="../../">Início</a> › <a href="../">Blog</a> › <a href="../categoria/ai-agents/">Agentes de IA</a></nav>
+      <p class="eyebrow">Agentes de IA</p>
+      <h1>Cloudflare OS: a aposta da Cloudflare em rodar agentes de IA na borda</h1>
+      <p class="post-meta"><time datetime="2026-08-06">06 de agosto de 2026</time> · Por <a href="../../sobre/">Felipe Jacob</a></p>
+      <p class="lead">A Cloudflare lançou uma plataforma aberta para construir e escalar agentes de IA. O que muda para quem já roda n8n em produção.</p>
+
+      <aside class="answer-box"><h2>Resposta curta</h2><p>O Cloudflare OS é uma plataforma aberta para construir, publicar e escalar agentes de IA rodando na borda da rede da Cloudflare. Reúne runtime unificado, marketplace de componentes prontos e SDKs open source, e aceita definições de workflow do n8n com pouca reconfiguração. O ganho principal é latência: o agente executa perto do usuário, não em um datacenter distante.</p></aside>
+
+      <div class="post-body">
+<h2>O que aconteceu</h2>
+<p>A Cloudflare anunciou o Cloudflare OS, uma plataforma aberta para construir agentes de IA, aplicações e fluxos automatizados. O pacote reúne serviços, APIs e ferramental para publicar agentes em qualquer ponto entre a borda da rede e a nuvem, com escalonamento, segurança e observabilidade já embutidos.</p>
+<p>Três peças sustentam o anúncio: um runtime unificado, um marketplace de componentes reaproveitáveis e ganchos de integração que conectam agentes a serviços externos, bancos de dados e a outros agentes. O código e os SDKs são open source no GitHub, e a plataforma conversa com motores de workflow que já existem — <a href="https://n8n.io" target="_blank" rel="noopener">n8n</a>, Zapier e frameworks próprios de orquestração.</p>
+<p>O movimento acompanha uma virada mais ampla do setor em direção à IA na borda, onde latência e privacidade pesam. Ao oferecer um runtime gerenciado que roda perto de quem usa, a Cloudflare corta o tempo de ida e volta das tarefas conduzidas por agentes e mantém o dado na borda sempre que possível.</p>
+<h2>Por que isso importa para quem constrói</h2>
+<ul>
+<li><strong>Runtime na borda, com escala</strong> — dá para publicar workflows do n8n ou agentes próprios direto na rede da Cloudflare. Em tarefas sensíveis a tempo, como enriquecimento de dados em tempo real ou personalização por usuário, a diferença aparece.</li>
+<li><strong>Uma superfície de API só</strong> — autenticação, armazenamento e mensageria sob um mesmo conjunto de APIs. Menos encanamento para integrar serviços de terceiros, mais tempo na regra de negócio.</li>
+<li><strong>Marketplace de componentes</strong> — uma biblioteca curada de módulos prontos (processamento de linguagem, transformação de dados) que se encaixam em fluxos existentes. Acelera protótipo e derruba a barreira para incluir IA onde ainda não há.</li>
+<li><strong>Observabilidade e segurança de fábrica</strong> — log, tracing e controle de acesso granular vêm ligados. Em ambiente regulado, isso é uma vantagem concreta sobre subir uma VM genérica e montar tudo à mão.</li>
+<li><strong>Flexibilidade de código aberto</strong> — o núcleo é open source. Times podem bifurcar, estender ou embutir o runtime na própria infraestrutura, inclusive em cenário híbrido ou on-premise.</li>
+</ul>
+<p>Na prática: um time que já usa n8n consegue publicar um agente novo no Cloudflare OS para transformações de baixa latência, importar do marketplace um componente de linguagem feito pela comunidade, encadear com as tarefas que já rodam e acompanhar tudo pela pilha de observabilidade da própria Cloudflare.</p>
+<h2>A leitura da Tyna</h2>
+<p>Vale separar o anúncio da decisão. Rodar agente na borda resolve um problema real de latência, mas cria outro de governança: quando a execução se espalha por centenas de pontos de presença, responder "onde esse dado foi processado" deixa de ser trivial — e essa é exatamente a pergunta que a LGPD faz.</p>
+<p>Antes de mover carga para a borda, vale ter mapeado quais fluxos tocam dado pessoal e quais podem rodar em qualquer lugar sem consequência. Latência é um ganho mensurável; rastreabilidade perdida é um passivo que só aparece na auditoria.</p>
+<p>O ponto de código aberto também merece leitura fria. O núcleo ser open source reduz o risco de aprisionamento no runtime, mas o marketplace, a observabilidade e a rede seguem sendo da Cloudflare. Portabilidade real depende de quanto do seu fluxo mora nessas três camadas.</p>
+<h2>Perguntas frequentes</h2>
+<p><strong>P: Consigo rodar meus workflows atuais do n8n sem reescrever?</strong></p>
+<p>R: Sim. O Cloudflare OS traz um invólucro de runtime que aceita as definições JSON de workflow do n8n e as executa no ambiente de borda. É preciso pouca configuração, basicamente para conectar as fontes de dados.</p>
+<p><strong>P: Dá para usar modelos próprios ou só os prontos?</strong></p>
+<p>R: Dá para hospedar contêineres com o seu modelo ou chamar endpoints externos. O marketplace oferece modelos prontos para tarefas comuns, mas nada impede publicar o seu na borda ou na nuvem.</p>
+<p><strong>P: Como funciona o custo e o escalonamento?</strong></p>
+<p>R: A cobrança é por requisição e por GB processado. Em cargas de alto volume e baixa latência, tende a sair mais barato que manter VMs dedicadas. As instâncias de agente escalam sozinhas conforme o tráfego, então você paga pelo uso.</p>
+      </div>
+
+      <p class="post-source">Fonte original: <a href="https://blog.cloudflare.com/cloudflare-os/" target="_blank" rel="noopener nofollow">blog.cloudflare.com</a></p>
+      <p class="post-source">Versão em inglês: <a href="https://automationscookbook.com/blog/cloudflare-os-launches-open-platform-for-ai-agents-20260806" target="_blank" rel="noopener">Automations Cookbook</a></p>
+
+      <ul class="post-tags"><li>#cloudflare</li><li>#edge-computing</li><li>#agentes-de-ia</li><li>#automacao</li><li>#n8n</li><li>#open-source</li></ul>
+    </div>
+  </article>
+
+  <section class="related">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow">Leia também</p><h2>Mais sobre Agentes de IA</h2></div>
+      <div class="post-grid"><article class="post-card">
+  <a class="post-card-link" href="../../blog/zero-mem-memoria-sem-tokens-para-agentes-llm/">
+    <span class="tag">Agentes de IA</span>
+    <h3>Zero-Mem: memória para agentes de LLM sem gastar token</h3>
+    <p class="desc">Uma técnica que separa o acesso à memória da chamada ao modelo e corta até 70% do consumo de tokens sem perder acurácia.</p>
+    <time datetime="2026-08-05">05 de agosto de 2026</time>
+  </a>
+</article></div>
+    </div>
+  </section>
+
+  <section class="cta-band" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Quer aplicar isso na sua empresa, com governança?</h2>
+      <a href="../../#contato" class="btn btn-primary">Agendar conversa</a>
+    </div>
+  </section>
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../../" class="logo"><img src="../../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <a href="mailto:contato@tyna.com.br">contato@tyna.com.br</a>
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Blog</h5>
+          <a href="../../blog/categoria/ai-agents/">Agentes de IA</a>
+          <a href="../../blog/categoria/llm/">LLMs</a>
+          <a href="../../blog/categoria/dev-tools/">Ferramentas de Dev</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../../sobre/">Sobre</a>
+          <a href="../../blog/">Blog</a>
+          <a href="../../rss.xml">RSS</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/site.js?v=2"></script>
+
+</body>
+</html>

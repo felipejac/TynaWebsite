@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Blog Tyna — IA, agentes e automação</title>
+  <link>https://tyna.com.br/blog/</link>
+  <description>Análise de agentes de IA, LLMs e automação para quem coloca sistema em produção.</description>
+  <language>pt-BR</language>
+  <atom:link href="https://tyna.com.br/rss.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Cloudflare OS: a aposta da Cloudflare em rodar agentes de IA na borda</title>
+    <link>https://tyna.com.br/blog/cloudflare-os-plataforma-aberta-para-agentes-de-ia/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/cloudflare-os-plataforma-aberta-para-agentes-de-ia/</guid>
+    <pubDate>Thu, 06 Aug 2026 12:00:00 GMT</pubDate>
+    <description>A Cloudflare lançou uma plataforma aberta para construir e escalar agentes de IA. O que muda para quem já roda n8n em produção.</description>
+    <category>Agentes de IA</category>
+  </item>
+  <item>
+    <title>HyperProbe traz agentes de depuração somente leitura para produção</title>
+    <link>https://tyna.com.br/blog/hyperprobe-depuracao-somente-leitura-em-producao/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/hyperprobe-depuracao-somente-leitura-em-producao/</guid>
+    <pubDate>Wed, 05 Aug 2026 12:00:00 GMT</pubDate>
+    <description>Agentes que se acoplam a serviços em execução para inspecionar estado sem alterar nada. A ideia é diagnosticar sem arriscar derrubar.</description>
+    <category>Ferramentas de Dev</category>
+  </item>
+  <item>
+    <title>Zero-Mem: memória para agentes de LLM sem gastar token</title>
+    <link>https://tyna.com.br/blog/zero-mem-memoria-sem-tokens-para-agentes-llm/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/zero-mem-memoria-sem-tokens-para-agentes-llm/</guid>
+    <pubDate>Wed, 05 Aug 2026 12:00:00 GMT</pubDate>
+    <description>Uma técnica que separa o acesso à memória da chamada ao modelo e corta até 70% do consumo de tokens sem perder acurácia.</description>
+    <category>Agentes de IA</category>
+  </item>
+  <item>
+    <title>LLMs estão recompensando quem entende do assunto</title>
+    <link>https://tyna.com.br/blog/llms-recompensam-especialistas/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/llms-recompensam-especialistas/</guid>
+    <pubDate>Tue, 04 Aug 2026 12:00:00 GMT</pubDate>
+    <description>Modelos respondem melhor a quem pergunta com vocabulário e contexto de especialista. Isso muda onde vale investir em um projeto de IA.</description>
+    <category>LLMs</category>
+  </item>
+  <item>
+    <title>Redigitar o código que a IA escreveu: o antídoto contra dívida cognitiva</title>
+    <link>https://tyna.com.br/blog/redigitar-codigo-de-llm-divida-cognitiva/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/redigitar-codigo-de-llm-divida-cognitiva/</guid>
+    <pubDate>Tue, 04 Aug 2026 12:00:00 GMT</pubDate>
+    <description>Um engenheiro passou a digitar à mão o código gerado por LLM em vez de copiar e colar. Os bugs em produção caíram.</description>
+    <category>LLMs</category>
+  </item>
+</channel>
+</rss>

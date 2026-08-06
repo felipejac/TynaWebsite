@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zero-Mem: memória para agentes de LLM sem gastar token — Blog Tyna</title>
+<meta name="description" content="Uma técnica que separa o acesso à memória da chamada ao modelo e corta até 70% do consumo de tokens sem perder acurácia.">
+<link rel="canonical" href="https://tyna.com.br/blog/zero-mem-memoria-sem-tokens-para-agentes-llm/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Zero-Mem: memória para agentes de LLM sem gastar token — Blog Tyna">
+<meta property="og:description" content="Uma técnica que separa o acesso à memória da chamada ao modelo e corta até 70% do consumo de tokens sem perder acurácia.">
+<meta property="og:url" content="https://tyna.com.br/blog/zero-mem-memoria-sem-tokens-para-agentes-llm/">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23411E5A%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23F1592B%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="alternate" type="application/rss+xml" title="Blog Tyna" href="https://tyna.com.br/rss.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=2">
+<link rel="stylesheet" href="../../assets/blog.css?v=2">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Zero-Mem: memória para agentes de LLM sem gastar token","description":"Uma técnica que separa o acesso à memória da chamada ao modelo e corta até 70% do consumo de tokens sem perder acurácia.","datePublished":"2026-08-05","dateModified":"2026-08-05","inLanguage":"pt-BR","author":{"@type":"Person","name":"Felipe Jacob","url":"https://tyna.com.br/sobre/"},"publisher":{"@type":"Organization","name":"Tyna","url":"https://tyna.com.br","logo":{"@type":"ImageObject","url":"https://tyna.com.br/assets/logo-tyna.png"}},"mainEntityOfPage":"https://tyna.com.br/blog/zero-mem-memoria-sem-tokens-para-agentes-llm/","keywords":"zero-mem, llm, automacao, agentes-de-ia, custo","articleSection":"Agentes de IA","citation":"https://arxiv.org/abs/2607.29377"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://tyna.com.br"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tyna.com.br/blog/"},{"@type":"ListItem","position":3,"name":"Agentes de IA","item":"https://tyna.com.br/blog/categoria/ai-agents/"},{"@type":"ListItem","position":4,"name":"Zero-Mem: memória para agentes de LLM sem gastar token","item":"https://tyna.com.br/blog/zero-mem-memoria-sem-tokens-para-agentes-llm/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Funciona com qualquer provedor de LLM?","acceptedAnswer":{"@type":"Answer","text":"A técnica é agnóstica de modelo. Funciona com qualquer LLM que exponha interface de chamada de função ou de embeddings — OpenAI, Anthropic ou modelos abertos."}},{"@type":"Question","name":"A qualidade das respostas do agente cai?","acceptedAnswer":{"@type":"Answer","text":"A acurácia se mantém no mesmo patamar dos métodos baseados em token. O modelo recebe os mesmos embeddings de contexto, apenas sem o custo em tokens."}},{"@type":"Question","name":"O que preciso mudar nos meus fluxos de n8n?","acceptedAnswer":{"@type":"Answer","text":"Basta acrescentar um passo que consulta o repositório externo antes de chamar o LLM e outro que grava o resultado de volta. O restante do fluxo continua igual."}}]}</script>
+<link rel="alternate" hreflang="en" href="https://automationscookbook.com/blog/zero-mem-zero-token-memory-operations-for-llm-agents-20260805">
+<link rel="alternate" hreflang="pt-BR" href="https://tyna.com.br/blog/zero-mem-memoria-sem-tokens-para-agentes-llm/">
+<link rel="alternate" hreflang="x-default" href="https://automationscookbook.com/blog/zero-mem-zero-token-memory-operations-for-llm-agents-20260805">
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../../" class="logo"><img src="../../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../../#servicos">Serviços</a></li>
+        <li><a href="../../#governanca">Governança</a></li>
+        <li><a href="../../#trilhas">Trilhas</a></li>
+        <li><a href="../../blog/">Blog</a></li>
+        <li><a href="../../sobre/">Sobre</a></li>
+        <li><a href="../../#contato" class="btn btn-primary mobile-cta">Falar com um consultor</a></li>
+      </ul>
+    </nav>
+    <a href="../../#contato" class="btn btn-primary" id="navCta">Falar com um consultor</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+  <article class="post">
+    <div class="wrap post-wrap">
+      <nav class="crumbs" aria-label="Trilha"><a href="../../">Início</a> › <a href="../">Blog</a> › <a href="../categoria/ai-agents/">Agentes de IA</a></nav>
+      <p class="eyebrow">Agentes de IA</p>
+      <h1>Zero-Mem: memória para agentes de LLM sem gastar token</h1>
+      <p class="post-meta"><time datetime="2026-08-05">05 de agosto de 2026</time> · Por <a href="../../sobre/">Felipe Jacob</a></p>
+      <p class="lead">Uma técnica que separa o acesso à memória da chamada ao modelo e corta até 70% do consumo de tokens sem perder acurácia.</p>
+
+      <aside class="answer-box"><h2>Resposta curta</h2><p>Zero-Mem é uma técnica que permite a agentes de LLM ler e gravar memória externa sem consumir tokens. Em vez de trazer o contexto dentro do prompt, o agente conversa direto com um repositório estruturado. Nos testes dos autores, o consumo de tokens caiu até 70% em tarefas típicas, com acurácia equivalente à das abordagens baseadas em prompt.</p></aside>
+
+      <div class="post-body">
+<h2>O que aconteceu</h2>
+<p>O Zero-Mem permite que agentes de LLM leiam e gravem memória externa sem gerar nem consumir token algum. Agentes tradicionais buscam contexto por meio de prompts — e cada pedaço de contexto recuperado entra na conta, somando latência e custo. O Zero-Mem troca esse caminho por uma interface leve, livre de tokens, que fala direto com um repositório estruturado de memória.</p>
+<p>Nos testes descritos, o consumo de tokens caiu até 70% em tarefas típicas de agente, mantendo acurácia comparável à dos métodos baseados em prompt. O tempo de inferência também recuou, com efeito mais pronunciado em agentes que acessam bases de conhecimento grandes ou carregam históricos longos de conversa.</p>
+<h2>Por que isso importa para quem constrói</h2>
+<ul>
+<li><strong>Custo</strong> — 70% menos token significa menos fatura de API em cargas com milhares de requisições diárias. Em operação contínua, é a diferença entre um piloto que fecha a conta e um que não fecha.</li>
+<li><strong>Desempenho</strong> — sem a sobrecarga de tokens, a ida e volta encurta. Isso abre espaço para interação em tempo real em chatbots, atendimento e agentes embarcados.</li>
+<li><strong>Arquitetura mais simples</strong> — desacoplar o acesso à memória do modelo permite trocar o backend de armazenamento — Redis, DynamoDB, cache em memória — sem retreinar nada.</li>
+<li><strong>Escala previsível</strong> — o Zero-Mem cresce de forma linear conforme o repositório aumenta, em vez do crescimento explosivo de tokens que afeta desenhos baseados em prompt.</li>
+<li><strong>Ergonomia</strong> — a superfície de API é mínima, poucas chamadas de função. Encaixar em fluxos de n8n existentes ou em scripts próprios é direto.</li>
+</ul>
+<h2>A leitura da Tyna</h2>
+<p>O número que chama atenção é o de custo, mas o efeito mais interessante é outro: auditabilidade.</p>
+<p>Quando o contexto viaja dentro do prompt, reconstruir depois *o que exatamente* o modelo viu ao tomar uma decisão é trabalhoso — o histórico está diluído em texto. Com a memória em um repositório estruturado e separado, a consulta vira um registro discreto, com carimbo de tempo e chave. Para quem precisa explicar a um auditor por que o agente negou um crédito ou classificou um chamado de determinado jeito, isso vale mais do que os 70%.</p>
+<p>Uma ressalva antes de trocar a arquitetura: o benchmark é dos próprios autores e roda em tarefas típicas. "Acurácia equivalente" em tarefa típica não é a mesma coisa que acurácia equivalente no seu caso de uso. Vale medir com os seus dados antes de mover algo que já funciona.</p>
+<h2>Perguntas frequentes</h2>
+<p><strong>P: Funciona com qualquer provedor de LLM?</strong></p>
+<p>R: A técnica é agnóstica de modelo. Funciona com qualquer LLM que exponha interface de chamada de função ou de embeddings — OpenAI, Anthropic ou modelos abertos.</p>
+<p><strong>P: A qualidade das respostas do agente cai?</strong></p>
+<p>R: A acurácia se mantém no mesmo patamar dos métodos baseados em token. O modelo recebe os mesmos embeddings de contexto, apenas sem o custo em tokens.</p>
+<p><strong>P: O que preciso mudar nos meus fluxos de n8n?</strong></p>
+<p>R: Basta acrescentar um passo que consulta o repositório externo antes de chamar o LLM e outro que grava o resultado de volta. O restante do fluxo continua igual.</p>
+      </div>
+
+      <p class="post-source">Fonte original: <a href="https://arxiv.org/abs/2607.29377" target="_blank" rel="noopener nofollow">arxiv.org</a></p>
+      <p class="post-source">Versão em inglês: <a href="https://automationscookbook.com/blog/zero-mem-zero-token-memory-operations-for-llm-agents-20260805" target="_blank" rel="noopener">Automations Cookbook</a></p>
+
+      <ul class="post-tags"><li>#zero-mem</li><li>#llm</li><li>#automacao</li><li>#agentes-de-ia</li><li>#custo</li></ul>
+    </div>
+  </article>
+
+  <section class="related">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow">Leia também</p><h2>Mais sobre Agentes de IA</h2></div>
+      <div class="post-grid"><article class="post-card">
+  <a class="post-card-link" href="../../blog/cloudflare-os-plataforma-aberta-para-agentes-de-ia/">
+    <span class="tag">Agentes de IA</span>
+    <h3>Cloudflare OS: a aposta da Cloudflare em rodar agentes de IA na borda</h3>
+    <p class="desc">A Cloudflare lançou uma plataforma aberta para construir e escalar agentes de IA. O que muda para quem já roda n8n em produção.</p>
+    <time datetime="2026-08-06">06 de agosto de 2026</time>
+  </a>
+</article></div>
+    </div>
+  </section>
+
+  <section class="cta-band" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Quer aplicar isso na sua empresa, com governança?</h2>
+      <a href="../../#contato" class="btn btn-primary">Agendar conversa</a>
+    </div>
+  </section>
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../../" class="logo"><img src="../../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <a href="mailto:contato@tyna.com.br">contato@tyna.com.br</a>
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Blog</h5>
+          <a href="../../blog/categoria/ai-agents/">Agentes de IA</a>
+          <a href="../../blog/categoria/llm/">LLMs</a>
+          <a href="../../blog/categoria/dev-tools/">Ferramentas de Dev</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../../sobre/">Sobre</a>
+          <a href="../../blog/">Blog</a>
+          <a href="../../rss.xml">RSS</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/site.js?v=2"></script>
+
+</body>
+</html>
