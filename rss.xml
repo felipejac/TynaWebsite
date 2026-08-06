@@ -238,5 +238,13 @@
     <description>Ferramenta aberta treina um modelo aluno sobre as saídas de um professor e entrega acurácia próxima com hospedagem em hardware comum.</description>
     <category>Agentes de IA</category>
   </item>
+  <item>
+    <title>Pico de erros no Claude Opus 5 derruba automações</title>
+    <link>https://tyna.com.br/blog/pico-de-erros-no-claude-opus-5/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/pico-de-erros-no-claude-opus-5/</guid>
+    <pubDate>Mon, 27 Jul 2026 12:00:00 GMT</pubDate>
+    <description>Uma configuração temporária errada no pipeline de inferência elevou a taxa de falha por horas. O que isso ensina sobre dependência única.</description>
+    <category>LLMs</category>
+  </item>
 </channel>
 </rss>

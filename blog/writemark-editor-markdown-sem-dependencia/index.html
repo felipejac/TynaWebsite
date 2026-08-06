@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Writemark: editor Markdown embutido sem dependência — Blog Tyna</title>
+<meta name="description" content="Um único arquivo JavaScript que acrescenta edição Markdown a qualquer página, sem framework nem pacote pesado.">
+<link rel="canonical" href="https://tyna.com.br/blog/writemark-editor-markdown-sem-dependencia/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Writemark: editor Markdown embutido sem dependência — Blog Tyna">
+<meta property="og:description" content="Um único arquivo JavaScript que acrescenta edição Markdown a qualquer página, sem framework nem pacote pesado.">
+<meta property="og:url" content="https://tyna.com.br/blog/writemark-editor-markdown-sem-dependencia/">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23411E5A%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23F1592B%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="alternate" type="application/rss+xml" title="Blog Tyna" href="https://tyna.com.br/rss.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=2">
+<link rel="stylesheet" href="../../assets/blog.css?v=2">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Writemark: editor Markdown embutido sem dependência","description":"Um único arquivo JavaScript que acrescenta edição Markdown a qualquer página, sem framework nem pacote pesado.","datePublished":"2026-07-26","dateModified":"2026-07-26","inLanguage":"pt-BR","author":{"@type":"Person","name":"Felipe Jacob","url":"https://tyna.com.br/sobre/"},"publisher":{"@type":"Organization","name":"Tyna","url":"https://tyna.com.br","logo":{"@type":"ImageObject","url":"https://tyna.com.br/assets/logo-tyna.png"}},"mainEntityOfPage":"https://tyna.com.br/blog/writemark-editor-markdown-sem-dependencia/","keywords":"markdown, web-components, interface, ferramentas-internas, codigo-aberto","articleSection":"Ferramentas de Dev"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://tyna.com.br"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tyna.com.br/blog/"},{"@type":"ListItem","position":3,"name":"Ferramentas de Dev","item":"https://tyna.com.br/blog/categoria/dev-tools/"},{"@type":"ListItem","position":4,"name":"Writemark: editor Markdown embutido sem dependência","item":"https://tyna.com.br/blog/writemark-editor-markdown-sem-dependencia/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Dá para usar em aplicação React ou Vue?","acceptedAnswer":{"@type":"Answer","text":"Sim. O componente web é renderizado como qualquer outro elemento do DOM, e a API funciona por eventos e atributos, sem necessidade de biblioteca intermediária."}},{"@type":"Question","name":"Suporta recursos avançados como tabela ou nota de rodapé?","acceptedAnswer":{"@type":"Answer","text":"O foco é a sintaxe central. Para tabela ou nota de rodapé, é preciso estender o componente ou combiná-lo com outro renderizador."}},{"@type":"Question","name":"O projeto é mantido ativamente?","acceptedAnswer":{"@type":"Answer","text":"É aberto e apresenta commits recentes. Vale acompanhar o repositório se a dependência for para produção."}}]}</script>
+<link rel="alternate" hreflang="en" href="https://automationscookbook.com/blog/writemark-a-dependencyfree-web-component-for-inline-markdown-20260726">
+<link rel="alternate" hreflang="pt-BR" href="https://tyna.com.br/blog/writemark-editor-markdown-sem-dependencia/">
+<link rel="alternate" hreflang="x-default" href="https://automationscookbook.com/blog/writemark-a-dependencyfree-web-component-for-inline-markdown-20260726">
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../../" class="logo"><img src="../../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../../#servicos">Serviços</a></li>
+        <li><a href="../../#governanca">Governança</a></li>
+        <li><a href="../../#trilhas">Trilhas</a></li>
+        <li><a href="../../blog/">Blog</a></li>
+        <li><a href="../../sobre/">Sobre</a></li>
+        <li><a href="../../#contato" class="btn btn-primary mobile-cta">Falar com um consultor</a></li>
+      </ul>
+    </nav>
+    <a href="../../#contato" class="btn btn-primary" id="navCta">Falar com um consultor</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+  <article class="post">
+    <div class="wrap post-wrap">
+      <nav class="crumbs" aria-label="Trilha"><a href="../../">Início</a> › <a href="../">Blog</a> › <a href="../categoria/dev-tools/">Ferramentas de Dev</a></nav>
+      <p class="eyebrow">Ferramentas de Dev</p>
+      <h1>Writemark: editor Markdown embutido sem dependência</h1>
+      <p class="post-meta"><time datetime="2026-07-26">26 de julho de 2026</time> · Por <a href="../../sobre/">Felipe Jacob</a></p>
+      <p class="lead">Um único arquivo JavaScript que acrescenta edição Markdown a qualquer página, sem framework nem pacote pesado.</p>
+
+      <aside class="answer-box"><h2>Resposta curta</h2><p>O Writemark é um componente web de arquivo único que adiciona edição Markdown embutida a qualquer página. Suporta a sintaxe básica, pré-visualização ao vivo e expõe uma API simples de leitura e escrita de conteúdo. Não depende de framework nem de bibliotecas externas, o que mantém o pacote final pequeno.</p></aside>
+
+      <div class="post-body">
+<h2>O que aconteceu</h2>
+<p>Um desenvolvedor publicou no Hacker News o Writemark, um único arquivo JavaScript que acrescenta edição Markdown embutida a qualquer página. O componente renderiza um editor mínimo com suporte à sintaxe básica, pré-visualização ao vivo e uma API limpa para ler e escrever conteúdo.</p>
+<p>O Writemark não tem dependências. Funciona em JavaScript puro e pode ser inserido em qualquer interface, de painel próprio a painel de terceiro. A recepção destacou justamente o caráter leve e direto — especialmente entre quem quer evitar pacote inchado em produção.</p>
+<h2>Por que isso importa para quem constrói</h2>
+<ul>
+<li><strong>Pacote menor</strong> — editores tradicionais de Markdown arrastam bibliotecas pesadas. Um arquivo único mantém a interface enxuta, o que importa em ambiente com restrição de recurso.</li>
+<li><strong>Integração simples</strong> — a API mínima permite conectar o editor ao gerenciamento de estado existente sem escrever adaptador.</li>
+<li><strong>Experiência consistente</strong> — o comportamento é o mesmo em painel de configuração, formulário e demais partes da interface.</li>
+<li><strong>Durabilidade</strong> — não depender de framework reduz a chance de quebrar quando a pilha muda.</li>
+<li><strong>Bom para ferramenta interna</strong> — o tamanho pequeno favorece hospedar por conta própria, o que ajuda a atender política de segurança.</li>
+</ul>
+<h2>A leitura da Tyna</h2>
+<p>O valor aqui não está no editor — está no argumento que ele materializa: <strong>em ferramenta interna, dependência é custo recorrente, não custo único.</strong></p>
+<p>A escolha típica é a inversa. Precisa de editor Markdown, instala o pacote mais popular, resolve em dez minutos. O custo aparece depois: cada atualização de segurança da árvore de dependências vira tarefa, cada mudança de major do framework vira migração, e a auditoria de terceiros passa a incluir componentes que ninguém do time leu.</p>
+<p>Para painel interno usado por vinte pessoas, esse custo raramente se justifica. Um arquivo que você consegue ler inteiro em uma tarde é um arquivo que você consegue auditar, corrigir e manter — e que não some porque alguém arquivou o repositório.</p>
+<p>Onde isso se conecta com IA: painel de agente costuma precisar exatamente disso — campo onde alguém edita um prompt, ajusta uma instrução, escreve uma anotação de revisão. É a interface mais comum e a menos discutida. Se o prompt em produção é editado por um campo de texto simples, sem pré-visualização e sem histórico, a chance de alguém quebrar a formatação e derrubar o comportamento do agente é alta.</p>
+<p>A ressalva honesta é de escopo. O próprio material admite que o componente cobre sintaxe básica — cabeçalho, lista, link, bloco de código. Se o seu caso precisa de tabela, o encaixe não é esse. Vale conferir o requisito antes de adotar pelo argumento de leveza.</p>
+<h2>Perguntas frequentes</h2>
+<p><strong>P: Dá para usar em aplicação React ou Vue?</strong></p>
+<p>R: Sim. O componente web é renderizado como qualquer outro elemento do DOM, e a API funciona por eventos e atributos, sem necessidade de biblioteca intermediária.</p>
+<p><strong>P: Suporta recursos avançados como tabela ou nota de rodapé?</strong></p>
+<p>R: O foco é a sintaxe central. Para tabela ou nota de rodapé, é preciso estender o componente ou combiná-lo com outro renderizador.</p>
+<p><strong>P: O projeto é mantido ativamente?</strong></p>
+<p>R: É aberto e apresenta commits recentes. Vale acompanhar o repositório se a dependência for para produção.</p>
+      </div>
+
+      
+      <p class="post-source">Versão em inglês: <a href="https://automationscookbook.com/blog/writemark-a-dependencyfree-web-component-for-inline-markdown-20260726" target="_blank" rel="noopener">Automations Cookbook</a></p>
+
+      <ul class="post-tags"><li>#markdown</li><li>#web-components</li><li>#interface</li><li>#ferramentas-internas</li><li>#codigo-aberto</li></ul>
+    </div>
+  </article>
+
+  <section class="related">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow">Leia também</p><h2>Mais sobre Ferramentas de Dev</h2></div>
+      <div class="post-grid"><article class="post-card">
+  <a class="post-card-link" href="../../blog/hyperprobe-depuracao-somente-leitura-em-producao/">
+    <span class="tag">Ferramentas de Dev</span>
+    <h3>HyperProbe: depuração somente leitura em produção</h3>
+    <p class="desc">Agentes que se acoplam a serviços em execução para inspecionar estado sem alterar nada. A ideia é diagnosticar sem arriscar derrubar.</p>
+    <time datetime="2026-08-05">05 de agosto de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../blog/imagens-geradas-por-ia-afastam-leitores/">
+    <span class="tag">Ferramentas de Dev</span>
+    <h3>Imagem gerada por IA está afastando leitor de blog</h3>
+    <p class="desc">Ilustração automática genérica derruba clique e tempo de página. O problema não é a ferramenta, é publicar sem revisar.</p>
+    <time datetime="2026-08-05">05 de agosto de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../blog/cursor-remove-dado-de-custo-do-painel/">
+    <span class="tag">Ferramentas de Dev</span>
+    <h3>Cursor remove o dado de custo do painel e do CSV</h3>
+    <p class="desc">O painel agora mostra só contagem de tokens. Quem auditava gasto direto na plataforma vai precisar calcular por fora.</p>
+    <time datetime="2026-08-02">02 de agosto de 2026</time>
+  </a>
+</article></div>
+    </div>
+  </section>
+
+  <section class="cta-band" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Quer aplicar isso na sua empresa, com governança?</h2>
+      <a href="../../#contato" class="btn btn-primary">Agendar conversa</a>
+    </div>
+  </section>
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../../" class="logo"><img src="../../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <a href="mailto:contato@tyna.com.br">contato@tyna.com.br</a>
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Blog</h5>
+          <a href="../../blog/categoria/ai-agents/">Agentes de IA</a>
+          <a href="../../blog/categoria/llm/">LLMs</a>
+          <a href="../../blog/categoria/dev-tools/">Ferramentas de Dev</a>
+          <a href="../../blog/categoria/automation/">Automação</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../../sobre/">Sobre</a>
+          <a href="../../blog/">Blog</a>
+          <a href="../../rss.xml">RSS</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/site.js?v=2"></script>
+
+</body>
+</html>

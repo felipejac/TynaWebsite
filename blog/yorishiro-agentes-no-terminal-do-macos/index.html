@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yorishiro roda agentes de IA no terminal do macOS — Blog Tyna</title>
+<meta name="description" content="Aplicativo aberto para criar, iniciar e conversar com agentes localmente, sem contêiner nem serviço de nuvem.">
+<link rel="canonical" href="https://tyna.com.br/blog/yorishiro-agentes-no-terminal-do-macos/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Yorishiro roda agentes de IA no terminal do macOS — Blog Tyna">
+<meta property="og:description" content="Aplicativo aberto para criar, iniciar e conversar com agentes localmente, sem contêiner nem serviço de nuvem.">
+<meta property="og:url" content="https://tyna.com.br/blog/yorishiro-agentes-no-terminal-do-macos/">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23411E5A%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23F1592B%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="alternate" type="application/rss+xml" title="Blog Tyna" href="https://tyna.com.br/rss.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=2">
+<link rel="stylesheet" href="../../assets/blog.css?v=2">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Yorishiro roda agentes de IA no terminal do macOS","description":"Aplicativo aberto para criar, iniciar e conversar com agentes localmente, sem contêiner nem serviço de nuvem.","datePublished":"2026-07-25","dateModified":"2026-07-25","inLanguage":"pt-BR","author":{"@type":"Person","name":"Felipe Jacob","url":"https://tyna.com.br/sobre/"},"publisher":{"@type":"Organization","name":"Tyna","url":"https://tyna.com.br","logo":{"@type":"ImageObject","url":"https://tyna.com.br/assets/logo-tyna.png"}},"mainEntityOfPage":"https://tyna.com.br/blog/yorishiro-agentes-no-terminal-do-macos/","keywords":"agentes-de-ia, macos, terminal, prototipagem, codigo-aberto","articleSection":"Agentes de IA"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://tyna.com.br"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tyna.com.br/blog/"},{"@type":"ListItem","position":3,"name":"Agentes de IA","item":"https://tyna.com.br/blog/categoria/ai-agents/"},{"@type":"ListItem","position":4,"name":"Yorishiro roda agentes de IA no terminal do macOS","item":"https://tyna.com.br/blog/yorishiro-agentes-no-terminal-do-macos/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Preciso de contêiner ou serviço de nuvem?","acceptedAnswer":{"@type":"Answer","text":"Não. O projeto é deliberadamente leve e roda direto na máquina local."}},{"@type":"Question","name":"O mesmo agente vai para produção sem alteração?","acceptedAnswer":{"@type":"Answer","text":"A proposta é essa — os mesmos binários ou scripts seguem para servidor, esteira ou cluster. Vale conferir que credenciais e escopo de acesso também estejam equivalentes."}},{"@type":"Question","name":"Dá para chamar de dentro de um fluxo de automação?","acceptedAnswer":{"@type":"Answer","text":"Sim. Pode ser invocado por script, por esteira de integração contínua ou por um nó de fluxo."}}]}</script>
+<link rel="alternate" hreflang="en" href="https://automationscookbook.com/blog/yorishiro-macos-terminal-hosting-ai-agents-20260725">
+<link rel="alternate" hreflang="pt-BR" href="https://tyna.com.br/blog/yorishiro-agentes-no-terminal-do-macos/">
+<link rel="alternate" hreflang="x-default" href="https://automationscookbook.com/blog/yorishiro-macos-terminal-hosting-ai-agents-20260725">
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../../" class="logo"><img src="../../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../../#servicos">Serviços</a></li>
+        <li><a href="../../#governanca">Governança</a></li>
+        <li><a href="../../#trilhas">Trilhas</a></li>
+        <li><a href="../../blog/">Blog</a></li>
+        <li><a href="../../sobre/">Sobre</a></li>
+        <li><a href="../../#contato" class="btn btn-primary mobile-cta">Falar com um consultor</a></li>
+      </ul>
+    </nav>
+    <a href="../../#contato" class="btn btn-primary" id="navCta">Falar com um consultor</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+  <article class="post">
+    <div class="wrap post-wrap">
+      <nav class="crumbs" aria-label="Trilha"><a href="../../">Início</a> › <a href="../">Blog</a> › <a href="../categoria/ai-agents/">Agentes de IA</a></nav>
+      <p class="eyebrow">Agentes de IA</p>
+      <h1>Yorishiro roda agentes de IA no terminal do macOS</h1>
+      <p class="post-meta"><time datetime="2026-07-25">25 de julho de 2026</time> · Por <a href="../../sobre/">Felipe Jacob</a></p>
+      <p class="lead">Aplicativo aberto para criar, iniciar e conversar com agentes localmente, sem contêiner nem serviço de nuvem.</p>
+
+      <aside class="answer-box"><h2>Resposta curta</h2><p>O Yorishiro é um aplicativo de terminal para macOS que roda agentes de IA localmente. Permite criar, iniciar e conversar com agentes dentro de uma sessão de terminal, usando ferramentas de linha de comando e recursos da própria máquina. É aberto e leve, dispensando orquestração de contêiner ou serviço de nuvem.</p></aside>
+
+      <div class="post-body">
+<h2>O que aconteceu</h2>
+<p>O Yorishiro é um aplicativo de terminal para macOS que roda agentes de IA localmente. Permite criar, iniciar e conversar com agentes dentro de uma sessão de terminal, usando ferramentas de linha de comando e recursos da própria máquina. O projeto é aberto e leve, e dispensa orquestração de contêiner ou serviço de nuvem.</p>
+<p>A proposta é subir agentes na máquina local, testá-los em tempo real e depois levar os mesmos binários ou scripts para produção — servidor, esteira de integração contínua ou cluster local. Manter o ciclo de vida do agente no terminal reduz atrito de aprendizado e se encaixa no hábito de quem já trabalha ali.</p>
+<h2>Por que isso importa para quem constrói</h2>
+<ul>
+<li><strong>Prototipagem rápida</strong> — ajustar prompt, lógica e integração localmente, sem publicar em ambiente remoto, encurta o ciclo de retorno.</li>
+<li><strong>Consistência entre ambientes</strong> — o mesmo código roda no terminal e em produção, com dependências versionadas.</li>
+<li><strong>Menos operação</strong> — dispensa pilha pesada de orquestração para agente simples, o que mantém a arquitetura enxuta.</li>
+<li><strong>Isolamento</strong> — a caixa de areia do terminal limita a exposição de rede em comparação a contêiner completo, o que ajuda em carga sensível.</li>
+<li><strong>Encaixa no que já existe</strong> — pode ser chamado de script, de esteira ou de nó de fluxo.</li>
+</ul>
+<h2>A leitura da Tyna</h2>
+<p>O argumento mais forte aqui é o de <strong>paridade entre ambientes</strong>, e ele merece uma ressalva importante.</p>
+<p>Rodar o mesmo agente localmente e em produção resolve metade do problema clássico de divergência: mesmas dependências, mesmo código. Mas agente tem uma segunda fonte de divergência que binário não tem — <strong>as credenciais e os dados a que ele tem acesso</strong>. Um agente que na sua máquina lê um arquivo de teste e em produção lê a base de clientes é o mesmo binário com comportamento completamente diferente. A paridade que importa em agente é a de escopo de acesso, não só a de runtime.</p>
+<p>Isso leva ao ponto de segurança, que o material apresenta como vantagem e vale inverter. "Menos exposição de rede que contêiner" é verdade sobre tráfego de entrada. Mas rodar agente direto no terminal da máquina de trabalho significa que ele opera com <strong>as suas permissões de usuário</strong> — acesso ao seu sistema de arquivos, às suas chaves SSH, aos seus tokens salvos. Contêiner é chato justamente porque limita isso. Para prototipar, o atrito menor compensa; para agente que executa comando gerado por modelo, a caixa de areia do terminal é mais frouxa do que o texto sugere.</p>
+<p>Recomendação prática: ótimo para desenvolver e testar. Se for para rodar agente com capacidade de executar comando, vale um usuário separado com permissões mínimas — não a sua conta.</p>
+<h2>Perguntas frequentes</h2>
+<p><strong>P: Preciso de contêiner ou serviço de nuvem?</strong></p>
+<p>R: Não. O projeto é deliberadamente leve e roda direto na máquina local.</p>
+<p><strong>P: O mesmo agente vai para produção sem alteração?</strong></p>
+<p>R: A proposta é essa — os mesmos binários ou scripts seguem para servidor, esteira ou cluster. Vale conferir que credenciais e escopo de acesso também estejam equivalentes.</p>
+<p><strong>P: Dá para chamar de dentro de um fluxo de automação?</strong></p>
+<p>R: Sim. Pode ser invocado por script, por esteira de integração contínua ou por um nó de fluxo.</p>
+      </div>
+
+      
+      <p class="post-source">Versão em inglês: <a href="https://automationscookbook.com/blog/yorishiro-macos-terminal-hosting-ai-agents-20260725" target="_blank" rel="noopener">Automations Cookbook</a></p>
+
+      <ul class="post-tags"><li>#agentes-de-ia</li><li>#macos</li><li>#terminal</li><li>#prototipagem</li><li>#codigo-aberto</li></ul>
+    </div>
+  </article>
+
+  <section class="related">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow">Leia também</p><h2>Mais sobre Agentes de IA</h2></div>
+      <div class="post-grid"><article class="post-card">
+  <a class="post-card-link" href="../../blog/cloudflare-os-plataforma-aberta-para-agentes-de-ia/">
+    <span class="tag">Agentes de IA</span>
+    <h3>Cloudflare OS: agentes de IA rodando na borda</h3>
+    <p class="desc">A Cloudflare lançou uma plataforma aberta para construir e escalar agentes de IA. O que muda para quem já roda n8n em produção.</p>
+    <time datetime="2026-08-06">06 de agosto de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../blog/zero-mem-memoria-sem-tokens-para-agentes-llm/">
+    <span class="tag">Agentes de IA</span>
+    <h3>Zero-Mem: memória para agentes de LLM sem gastar token</h3>
+    <p class="desc">Uma técnica que separa o acesso à memória da chamada ao modelo e corta até 70% do consumo de tokens sem perder acurácia.</p>
+    <time datetime="2026-08-05">05 de agosto de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../blog/edotenv-ambientes-de-treino-para-trading-quantitativo/">
+    <span class="tag">Agentes de IA</span>
+    <h3>EdotEnv lança ambientes de treino para trading quantitativo</h3>
+    <p class="desc">Sandbox com dinâmica de livro de ofertas e custo de transação para treinar LLMs em estratégia — antes de arriscar capital.</p>
+    <time datetime="2026-08-04">04 de agosto de 2026</time>
+  </a>
+</article></div>
+    </div>
+  </section>
+
+  <section class="cta-band" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Quer aplicar isso na sua empresa, com governança?</h2>
+      <a href="../../#contato" class="btn btn-primary">Agendar conversa</a>
+    </div>
+  </section>
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../../" class="logo"><img src="../../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <a href="mailto:contato@tyna.com.br">contato@tyna.com.br</a>
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Blog</h5>
+          <a href="../../blog/categoria/ai-agents/">Agentes de IA</a>
+          <a href="../../blog/categoria/llm/">LLMs</a>
+          <a href="../../blog/categoria/dev-tools/">Ferramentas de Dev</a>
+          <a href="../../blog/categoria/automation/">Automação</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../../sobre/">Sobre</a>
+          <a href="../../blog/">Blog</a>
+          <a href="../../rss.xml">RSS</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/site.js?v=2"></script>
+
+</body>
+</html>
