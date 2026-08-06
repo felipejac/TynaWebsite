@@ -209,6 +209,9 @@
     .tr-item .desc{text-align:left;}
   }
   @media (max-width:720px){
+    /* backdrop-filter cria containing block para descendentes position:fixed,
+       o que fazia o menu se posicionar dentro do header em vez da viewport */
+    header{backdrop-filter:none; background:var(--purple);}
     nav ul{
       position:fixed; inset:76px 0 0 0; background:var(--purple); flex-direction:column; padding:36px 32px; gap:26px;
       transform:translateY(-110%); transition:transform .3s ease; border-top:1px solid var(--purple-line);
