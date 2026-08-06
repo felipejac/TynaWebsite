@@ -1,5 +1,5 @@
 ---
-title: "Redigitar o código que a IA escreveu: o antídoto contra dívida cognitiva"
+title: "Redigitar o código da IA contra a dívida cognitiva"
 description: "Um engenheiro passou a digitar à mão o código gerado por LLM em vez de copiar e colar. Os bugs em produção caíram."
 pubDate: "2026-08-04"
 category: "llm"

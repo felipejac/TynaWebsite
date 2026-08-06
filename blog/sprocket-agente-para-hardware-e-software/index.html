@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sprocket: um agente de IA que também fala com hardware — Blog Tyna</title>
+<meta name="description" content="Escreve código, roda teste e conversa com microcontroladores e sensores no mesmo fluxo. A promessa é encurtar o caminho até o protótipo.">
+<link rel="canonical" href="https://tyna.com.br/blog/sprocket-agente-para-hardware-e-software/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sprocket: um agente de IA que também fala com hardware — Blog Tyna">
+<meta property="og:description" content="Escreve código, roda teste e conversa com microcontroladores e sensores no mesmo fluxo. A promessa é encurtar o caminho até o protótipo.">
+<meta property="og:url" content="https://tyna.com.br/blog/sprocket-agente-para-hardware-e-software/">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23411E5A%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23F1592B%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="alternate" type="application/rss+xml" title="Blog Tyna" href="https://tyna.com.br/rss.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=2">
+<link rel="stylesheet" href="../../assets/blog.css?v=2">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Sprocket: um agente de IA que também fala com hardware","description":"Escreve código, roda teste e conversa com microcontroladores e sensores no mesmo fluxo. A promessa é encurtar o caminho até o protótipo.","datePublished":"2026-08-02","dateModified":"2026-08-02","inLanguage":"pt-BR","author":{"@type":"Person","name":"Felipe Jacob","url":"https://tyna.com.br/sobre/"},"publisher":{"@type":"Organization","name":"Tyna","url":"https://tyna.com.br","logo":{"@type":"ImageObject","url":"https://tyna.com.br/assets/logo-tyna.png"}},"mainEntityOfPage":"https://tyna.com.br/blog/sprocket-agente-para-hardware-e-software/","keywords":"agentes-de-ia, hardware, firmware, prototipagem, edge","articleSection":"Ferramentas de Dev"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://tyna.com.br"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tyna.com.br/blog/"},{"@type":"ListItem","position":3,"name":"Ferramentas de Dev","item":"https://tyna.com.br/blog/categoria/dev-tools/"},{"@type":"ListItem","position":4,"name":"Sprocket: um agente de IA que também fala com hardware","item":"https://tyna.com.br/blog/sprocket-agente-para-hardware-e-software/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"O Sprocket substitui minha esteira de CI/CD?","acceptedAnswer":{"@type":"Answer","text":"Não. Ele complementa. Gera código e testes, mas a saída ainda precisa ser integrada à sua esteira para publicação e monitoramento."}},{"@type":"Question","name":"Dá para usar modelos de hardware próprios?","acceptedAnswer":{"@type":"Answer","text":"A demonstração traz suporte nativo a microcontroladores comuns, e é possível subir descrições próprias de hardware para simulações personalizadas."}},{"@type":"Question","name":"Que linguagens ele gera?","acceptedAnswer":{"@type":"Answer","text":"A versão atual foca em Python e em C/C++ para firmware. O modelo pode ser ajustado para outras linguagens conforme a necessidade."}}]}</script>
+<link rel="alternate" hreflang="en" href="https://automationscookbook.com/blog/sprocket-ai-agent-for-hardware-software-development-20260802">
+<link rel="alternate" hreflang="pt-BR" href="https://tyna.com.br/blog/sprocket-agente-para-hardware-e-software/">
+<link rel="alternate" hreflang="x-default" href="https://automationscookbook.com/blog/sprocket-ai-agent-for-hardware-software-development-20260802">
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../../" class="logo"><img src="../../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../../#servicos">Serviços</a></li>
+        <li><a href="../../#governanca">Governança</a></li>
+        <li><a href="../../#trilhas">Trilhas</a></li>
+        <li><a href="../../blog/">Blog</a></li>
+        <li><a href="../../sobre/">Sobre</a></li>
+        <li><a href="../../#contato" class="btn btn-primary mobile-cta">Falar com um consultor</a></li>
+      </ul>
+    </nav>
+    <a href="../../#contato" class="btn btn-primary" id="navCta">Falar com um consultor</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+  <article class="post">
+    <div class="wrap post-wrap">
+      <nav class="crumbs" aria-label="Trilha"><a href="../../">Início</a> › <a href="../">Blog</a> › <a href="../categoria/dev-tools/">Ferramentas de Dev</a></nav>
+      <p class="eyebrow">Ferramentas de Dev</p>
+      <h1>Sprocket: um agente de IA que também fala com hardware</h1>
+      <p class="post-meta"><time datetime="2026-08-02">02 de agosto de 2026</time> · Por <a href="../../sobre/">Felipe Jacob</a></p>
+      <p class="lead">Escreve código, roda teste e conversa com microcontroladores e sensores no mesmo fluxo. A promessa é encurtar o caminho até o protótipo.</p>
+
+      <aside class="answer-box"><h2>Resposta curta</h2><p>O Sprocket é um agente de IA que escreve código, executa testes e se comunica com microcontroladores e sensores dentro de um mesmo fluxo. A proposta é unir simulação de hardware e teste em dispositivo real, reduzindo o tempo entre descrever uma funcionalidade e ter um protótipo funcional com suíte de testes e scripts de publicação.</p></aside>
+
+      <div class="post-body">
+<h2>O que aconteceu</h2>
+<p>O Sprocket estreou no Show HN se apresentando como agente de IA para desenvolvimento de hardware e software. A demonstração mostra uma IA que escreve código, executa testes e conversa com microcontroladores e sensores. A plataforma promete que o desenvolvedor descreva uma funcionalidade e receba um protótipo funcional, com suíte de testes e scripts de publicação.</p>
+<p>O argumento é preencher a lacuna entre agentes que só lidam com software e a necessidade de hardware de boa parte dos produtos. Ao juntar simulação e teste em dispositivo real num fluxo único, promete encurtar o caminho da ideia ao protótipo.</p>
+<h2>Por que isso importa para quem constrói</h2>
+<ul>
+<li><strong>Do código ao hardware sem trocar de ferramenta</strong> — quem monta fluxos em n8n ou automações próprias costuma alternar entre ferramentas separadas para geração de código, teste unitário e simulação. Interface única reduz troca de contexto.</li>
+<li><strong>Menos teste manual</strong> — o agente gera casos de teste e os executa contra modelos simulados de hardware, o que libera o time de QA para a lógica de nível mais alto.</li>
+<li><strong>Prototipagem para IA na borda</strong> — times que publicam IA em dispositivo conseguem gerar scripts de publicação e validar em hardware real, encurtando o ciclo entre software e firmware.</li>
+<li><strong>Integração com plataformas existentes</strong> — a API pode ser encapsulada em um fluxo de n8n, disparando geração, teste e publicação como parte de uma esteira maior.</li>
+</ul>
+<h2>A leitura da Tyna</h2>
+<p>Hardware impõe uma diferença que costuma ser subestimada por quem vem de software: <strong>a etapa de desfazer não existe</strong>.</p>
+<p>Em software, código errado publicado se reverte com um comando. Firmware errado gravado em mil dispositivos em campo é uma operação de recall. Agente que escreve firmware opera, portanto, num regime de risco distinto do agente que escreve endpoint de API — e a mesma velocidade que impressiona na demonstração é o que amplifica a consequência.</p>
+<p>Isso não é argumento contra a ferramenta. É argumento a favor de um ponto de controle humano obrigatório antes da gravação, e não antes da geração. A parte que precisa de assinatura não é o código proposto; é o que vai para o dispositivo.</p>
+<p>Vale também calibrar a expectativa sobre simulação. Modelo simulado de microcontrolador acerta lógica e erra o que costuma quebrar de verdade em campo: ruído elétrico, variação de temperatura, comportamento de fonte de alimentação sob carga. Teste em simulador é filtro de primeira ordem, não substituto de bancada.</p>
+<h2>Perguntas frequentes</h2>
+<p><strong>P: O Sprocket substitui minha esteira de CI/CD?</strong></p>
+<p>R: Não. Ele complementa. Gera código e testes, mas a saída ainda precisa ser integrada à sua esteira para publicação e monitoramento.</p>
+<p><strong>P: Dá para usar modelos de hardware próprios?</strong></p>
+<p>R: A demonstração traz suporte nativo a microcontroladores comuns, e é possível subir descrições próprias de hardware para simulações personalizadas.</p>
+<p><strong>P: Que linguagens ele gera?</strong></p>
+<p>R: A versão atual foca em Python e em C/C++ para firmware. O modelo pode ser ajustado para outras linguagens conforme a necessidade.</p>
+      </div>
+
+      
+      <p class="post-source">Versão em inglês: <a href="https://automationscookbook.com/blog/sprocket-ai-agent-for-hardware-software-development-20260802" target="_blank" rel="noopener">Automations Cookbook</a></p>
+
+      <ul class="post-tags"><li>#agentes-de-ia</li><li>#hardware</li><li>#firmware</li><li>#prototipagem</li><li>#edge</li></ul>
+    </div>
+  </article>
+
+  <section class="related">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow">Leia também</p><h2>Mais sobre Ferramentas de Dev</h2></div>
+      <div class="post-grid"><article class="post-card">
+  <a class="post-card-link" href="../../blog/hyperprobe-depuracao-somente-leitura-em-producao/">
+    <span class="tag">Ferramentas de Dev</span>
+    <h3>HyperProbe: depuração somente leitura em produção</h3>
+    <p class="desc">Agentes que se acoplam a serviços em execução para inspecionar estado sem alterar nada. A ideia é diagnosticar sem arriscar derrubar.</p>
+    <time datetime="2026-08-05">05 de agosto de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../blog/imagens-geradas-por-ia-afastam-leitores/">
+    <span class="tag">Ferramentas de Dev</span>
+    <h3>Imagem gerada por IA está afastando leitor de blog</h3>
+    <p class="desc">Ilustração automática genérica derruba clique e tempo de página. O problema não é a ferramenta, é publicar sem revisar.</p>
+    <time datetime="2026-08-05">05 de agosto de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../blog/cursor-remove-dado-de-custo-do-painel/">
+    <span class="tag">Ferramentas de Dev</span>
+    <h3>Cursor remove o dado de custo do painel e do CSV</h3>
+    <p class="desc">O painel agora mostra só contagem de tokens. Quem auditava gasto direto na plataforma vai precisar calcular por fora.</p>
+    <time datetime="2026-08-02">02 de agosto de 2026</time>
+  </a>
+</article></div>
+    </div>
+  </section>
+
+  <section class="cta-band" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Quer aplicar isso na sua empresa, com governança?</h2>
+      <a href="../../#contato" class="btn btn-primary">Agendar conversa</a>
+    </div>
+  </section>
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../../" class="logo"><img src="../../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <a href="mailto:contato@tyna.com.br">contato@tyna.com.br</a>
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Blog</h5>
+          <a href="../../blog/categoria/ai-agents/">Agentes de IA</a>
+          <a href="../../blog/categoria/llm/">LLMs</a>
+          <a href="../../blog/categoria/dev-tools/">Ferramentas de Dev</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../../sobre/">Sobre</a>
+          <a href="../../blog/">Blog</a>
+          <a href="../../rss.xml">RSS</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/site.js?v=2"></script>
+
+</body>
+</html>

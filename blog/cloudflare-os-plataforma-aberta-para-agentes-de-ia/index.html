@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cloudflare OS: a aposta da Cloudflare em rodar agentes de IA na borda — Blog Tyna</title>
+<title>Cloudflare OS: agentes de IA rodando na borda — Blog Tyna</title>
 <meta name="description" content="A Cloudflare lançou uma plataforma aberta para construir e escalar agentes de IA. O que muda para quem já roda n8n em produção.">
 <link rel="canonical" href="https://tyna.com.br/blog/cloudflare-os-plataforma-aberta-para-agentes-de-ia/">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Cloudflare OS: a aposta da Cloudflare em rodar agentes de IA na borda — Blog Tyna">
+<meta property="og:title" content="Cloudflare OS: agentes de IA rodando na borda — Blog Tyna">
 <meta property="og:description" content="A Cloudflare lançou uma plataforma aberta para construir e escalar agentes de IA. O que muda para quem já roda n8n em produção.">
 <meta property="og:url" content="https://tyna.com.br/blog/cloudflare-os-plataforma-aberta-para-agentes-de-ia/">
 <meta property="og:locale" content="pt_BR">
@@ -20,8 +20,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../assets/styles.css?v=2">
 <link rel="stylesheet" href="../../assets/blog.css?v=2">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Cloudflare OS: a aposta da Cloudflare em rodar agentes de IA na borda","description":"A Cloudflare lançou uma plataforma aberta para construir e escalar agentes de IA. O que muda para quem já roda n8n em produção.","datePublished":"2026-08-06","dateModified":"2026-08-06","inLanguage":"pt-BR","author":{"@type":"Person","name":"Felipe Jacob","url":"https://tyna.com.br/sobre/"},"publisher":{"@type":"Organization","name":"Tyna","url":"https://tyna.com.br","logo":{"@type":"ImageObject","url":"https://tyna.com.br/assets/logo-tyna.png"}},"mainEntityOfPage":"https://tyna.com.br/blog/cloudflare-os-plataforma-aberta-para-agentes-de-ia/","keywords":"cloudflare, edge-computing, agentes-de-ia, automacao, n8n, open-source","articleSection":"Agentes de IA","citation":"https://blog.cloudflare.com/cloudflare-os/"}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://tyna.com.br"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tyna.com.br/blog/"},{"@type":"ListItem","position":3,"name":"Agentes de IA","item":"https://tyna.com.br/blog/categoria/ai-agents/"},{"@type":"ListItem","position":4,"name":"Cloudflare OS: a aposta da Cloudflare em rodar agentes de IA na borda","item":"https://tyna.com.br/blog/cloudflare-os-plataforma-aberta-para-agentes-de-ia/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Cloudflare OS: agentes de IA rodando na borda","description":"A Cloudflare lançou uma plataforma aberta para construir e escalar agentes de IA. O que muda para quem já roda n8n em produção.","datePublished":"2026-08-06","dateModified":"2026-08-06","inLanguage":"pt-BR","author":{"@type":"Person","name":"Felipe Jacob","url":"https://tyna.com.br/sobre/"},"publisher":{"@type":"Organization","name":"Tyna","url":"https://tyna.com.br","logo":{"@type":"ImageObject","url":"https://tyna.com.br/assets/logo-tyna.png"}},"mainEntityOfPage":"https://tyna.com.br/blog/cloudflare-os-plataforma-aberta-para-agentes-de-ia/","keywords":"cloudflare, edge-computing, agentes-de-ia, automacao, n8n, open-source","articleSection":"Agentes de IA","citation":"https://blog.cloudflare.com/cloudflare-os/"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://tyna.com.br"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tyna.com.br/blog/"},{"@type":"ListItem","position":3,"name":"Agentes de IA","item":"https://tyna.com.br/blog/categoria/ai-agents/"},{"@type":"ListItem","position":4,"name":"Cloudflare OS: agentes de IA rodando na borda","item":"https://tyna.com.br/blog/cloudflare-os-plataforma-aberta-para-agentes-de-ia/"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Consigo rodar meus workflows atuais do n8n sem reescrever?","acceptedAnswer":{"@type":"Answer","text":"Sim. O Cloudflare OS traz um invólucro de runtime que aceita as definições JSON de workflow do n8n e as executa no ambiente de borda. É preciso pouca configuração, basicamente para conectar as fontes de dados."}},{"@type":"Question","name":"Dá para usar modelos próprios ou só os prontos?","acceptedAnswer":{"@type":"Answer","text":"Dá para hospedar contêineres com o seu modelo ou chamar endpoints externos. O marketplace oferece modelos prontos para tarefas comuns, mas nada impede publicar o seu na borda ou na nuvem."}},{"@type":"Question","name":"Como funciona o custo e o escalonamento?","acceptedAnswer":{"@type":"Answer","text":"A cobrança é por requisição e por GB processado. Em cargas de alto volume e baixa latência, tende a sair mais barato que manter VMs dedicadas. As instâncias de agente escalam sozinhas conforme o tráfego, então você paga pelo uso."}}]}</script>
 <link rel="alternate" hreflang="en" href="https://automationscookbook.com/blog/cloudflare-os-launches-open-platform-for-ai-agents-20260806">
 <link rel="alternate" hreflang="pt-BR" href="https://tyna.com.br/blog/cloudflare-os-plataforma-aberta-para-agentes-de-ia/">
@@ -52,7 +52,7 @@
     <div class="wrap post-wrap">
       <nav class="crumbs" aria-label="Trilha"><a href="../../">Início</a> › <a href="../">Blog</a> › <a href="../categoria/ai-agents/">Agentes de IA</a></nav>
       <p class="eyebrow">Agentes de IA</p>
-      <h1>Cloudflare OS: a aposta da Cloudflare em rodar agentes de IA na borda</h1>
+      <h1>Cloudflare OS: agentes de IA rodando na borda</h1>
       <p class="post-meta"><time datetime="2026-08-06">06 de agosto de 2026</time> · Por <a href="../../sobre/">Felipe Jacob</a></p>
       <p class="lead">A Cloudflare lançou uma plataforma aberta para construir e escalar agentes de IA. O que muda para quem já roda n8n em produção.</p>
 
@@ -101,6 +101,14 @@
     <h3>Zero-Mem: memória para agentes de LLM sem gastar token</h3>
     <p class="desc">Uma técnica que separa o acesso à memória da chamada ao modelo e corta até 70% do consumo de tokens sem perder acurácia.</p>
     <time datetime="2026-08-05">05 de agosto de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../blog/edotenv-ambientes-de-treino-para-trading-quantitativo/">
+    <span class="tag">Agentes de IA</span>
+    <h3>EdotEnv lança ambientes de treino para trading quantitativo</h3>
+    <p class="desc">Sandbox com dinâmica de livro de ofertas e custo de transação para treinar LLMs em estratégia — antes de arriscar capital.</p>
+    <time datetime="2026-08-04">04 de agosto de 2026</time>
   </a>
 </article></div>
     </div>

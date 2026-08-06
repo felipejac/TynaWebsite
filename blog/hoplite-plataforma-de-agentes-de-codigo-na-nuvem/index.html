@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hoplite lança plataforma de agentes de código na nuvem — Blog Tyna</title>
+<meta name="description" content="Provisiona, escala e isola agentes de código sob demanda, para o time cuidar da lógica em vez da infraestrutura.">
+<link rel="canonical" href="https://tyna.com.br/blog/hoplite-plataforma-de-agentes-de-codigo-na-nuvem/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hoplite lança plataforma de agentes de código na nuvem — Blog Tyna">
+<meta property="og:description" content="Provisiona, escala e isola agentes de código sob demanda, para o time cuidar da lógica em vez da infraestrutura.">
+<meta property="og:url" content="https://tyna.com.br/blog/hoplite-plataforma-de-agentes-de-codigo-na-nuvem/">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23411E5A%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23F1592B%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="alternate" type="application/rss+xml" title="Blog Tyna" href="https://tyna.com.br/rss.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=2">
+<link rel="stylesheet" href="../../assets/blog.css?v=2">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Hoplite lança plataforma de agentes de código na nuvem","description":"Provisiona, escala e isola agentes de código sob demanda, para o time cuidar da lógica em vez da infraestrutura.","datePublished":"2026-08-03","dateModified":"2026-08-03","inLanguage":"pt-BR","author":{"@type":"Person","name":"Felipe Jacob","url":"https://tyna.com.br/sobre/"},"publisher":{"@type":"Organization","name":"Tyna","url":"https://tyna.com.br","logo":{"@type":"ImageObject","url":"https://tyna.com.br/assets/logo-tyna.png"}},"mainEntityOfPage":"https://tyna.com.br/blog/hoplite-plataforma-de-agentes-de-codigo-na-nuvem/","keywords":"codigo-na-nuvem, agentes-de-ia, automacao, y-combinator, infraestrutura","articleSection":"LLMs"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://tyna.com.br"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tyna.com.br/blog/"},{"@type":"ListItem","position":3,"name":"LLMs","item":"https://tyna.com.br/blog/categoria/llm/"},{"@type":"ListItem","position":4,"name":"Hoplite lança plataforma de agentes de código na nuvem","item":"https://tyna.com.br/blog/hoplite-plataforma-de-agentes-de-codigo-na-nuvem/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"A Hoplite suporta ambiente de execução customizado?","acceptedAnswer":{"@type":"Answer","text":"Sim. É possível indicar imagens Docker ou runtimes próprios, mantendo controle total sobre a execução."}},{"@type":"Question","name":"Como a plataforma lida com escala em carga alta?","acceptedAnswer":{"@type":"Answer","text":"Provisiona instâncias adicionais automaticamente conforme o tráfego, e as políticas de escalonamento podem ser ajustadas."}},{"@type":"Question","name":"Há limite de agentes simultâneos?","acceptedAnswer":{"@type":"Answer","text":"Os planos são flexíveis e os limites podem ser alterados pelo painel ou pela API, conforme a demanda do fluxo."}}]}</script>
+<link rel="alternate" hreflang="en" href="https://automationscookbook.com/blog/hoplite-launches-yc-s26-cloud-coding-agent-platform-20260803">
+<link rel="alternate" hreflang="pt-BR" href="https://tyna.com.br/blog/hoplite-plataforma-de-agentes-de-codigo-na-nuvem/">
+<link rel="alternate" hreflang="x-default" href="https://automationscookbook.com/blog/hoplite-launches-yc-s26-cloud-coding-agent-platform-20260803">
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../../" class="logo"><img src="../../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../../#servicos">Serviços</a></li>
+        <li><a href="../../#governanca">Governança</a></li>
+        <li><a href="../../#trilhas">Trilhas</a></li>
+        <li><a href="../../blog/">Blog</a></li>
+        <li><a href="../../sobre/">Sobre</a></li>
+        <li><a href="../../#contato" class="btn btn-primary mobile-cta">Falar com um consultor</a></li>
+      </ul>
+    </nav>
+    <a href="../../#contato" class="btn btn-primary" id="navCta">Falar com um consultor</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+  <article class="post">
+    <div class="wrap post-wrap">
+      <nav class="crumbs" aria-label="Trilha"><a href="../../">Início</a> › <a href="../">Blog</a> › <a href="../categoria/llm/">LLMs</a></nav>
+      <p class="eyebrow">LLMs</p>
+      <h1>Hoplite lança plataforma de agentes de código na nuvem</h1>
+      <p class="post-meta"><time datetime="2026-08-03">03 de agosto de 2026</time> · Por <a href="../../sobre/">Felipe Jacob</a></p>
+      <p class="lead">Provisiona, escala e isola agentes de código sob demanda, para o time cuidar da lógica em vez da infraestrutura.</p>
+
+      <aside class="answer-box"><h2>Resposta curta</h2><p>A Hoplite, startup da turma S26 da Y Combinator, lançou uma plataforma que provisiona, escala e isola agentes de código na nuvem. O fluxo demonstrado vai do script escrito na IDE ao agente em contêiner rodando em minutos, com destruição automática ao fim. A promessa é remover a necessidade de manter cluster ou esteira dedicada para cada agente.</p></aside>
+
+      <div class="post-body">
+<h2>O que aconteceu</h2>
+<p>A Hoplite, startup da turma S26 da Y Combinator, lançou uma plataforma de agentes de código na nuvem. O serviço provisiona, escala e isola esses agentes, para que os times cuidem da lógica de IA em vez da infraestrutura.</p>
+<p>A demonstração mostrou o fluxo completo: o desenvolvedor escreve um script na IDE de sempre, envia para o GitHub e a Hoplite provisiona um agente em contêiner em poucos minutos. O agente executa o script, devolve o resultado e se destrói — tudo por uma API simples.</p>
+<h2>Por que isso importa para quem constrói</h2>
+<ul>
+<li><strong>Menos carga de operação</strong> — dispensa manter cluster Kubernetes ou esteira de CI/CD para cada agente. A plataforma cuida da publicação e devolve tempo para o trabalho de produto.</li>
+<li><strong>Publicação rápida</strong> — provisionamento em um clique coloca um agente novo no ar em menos de cinco minutos, o que acelera experimentação em produção.</li>
+<li><strong>Segurança e conformidade embutidas</strong> — gestão de segredos, isolamento de rede e verificações de conformidade vêm automáticos.</li>
+<li><strong>Cobrança por uso</strong> — o modelo acompanha o padrão de consumo de agentes, permitindo escalar em pico sem compromisso de longo prazo.</li>
+<li><strong>Integração direta</strong> — a API se encaixa em ferramentas de orquestração como n8n e Airbyte, ou em esteiras próprias.</li>
+</ul>
+<h2>A leitura da Tyna</h2>
+<p>O detalhe mais importante da demonstração é o que ela mostra de passagem: o agente <strong>se destrói ao terminar</strong>.</p>
+<p>Agente efêmero é uma escolha de arquitetura com consequência direta de segurança. Se o processo morre ao fim da tarefa, o comprometimento não persiste, credencial em memória some junto e não sobra máquina esquecida rodando código de um experimento de três meses atrás. Quem já auditou ambiente de automação sabe que a máquina esquecida é a regra, não a exceção.</p>
+<p>O contraponto, e ele é sério, está em depurar. Processo que se destrói leva junto o estado que explicaria a falha. Vale confirmar, antes de adotar, o que fica retido: log, entrada e saída de cada execução, e por quanto tempo. Plataforma que apaga tudo troca um problema operacional por outro — e o segundo aparece justamente no dia do incidente.</p>
+<p>Há ainda a pergunta que toda plataforma gerenciada impõe: o agente roda com quais credenciais e a que ele tem acesso? "Gestão de segredos automática" é conveniente, mas significa que o segredo passa pela infraestrutura de terceiro. Em ambiente sob LGPD, isso precisa constar do mapeamento de operadores, não só da decisão técnica.</p>
+<h2>Perguntas frequentes</h2>
+<p><strong>P: A Hoplite suporta ambiente de execução customizado?</strong></p>
+<p>R: Sim. É possível indicar imagens Docker ou runtimes próprios, mantendo controle total sobre a execução.</p>
+<p><strong>P: Como a plataforma lida com escala em carga alta?</strong></p>
+<p>R: Provisiona instâncias adicionais automaticamente conforme o tráfego, e as políticas de escalonamento podem ser ajustadas.</p>
+<p><strong>P: Há limite de agentes simultâneos?</strong></p>
+<p>R: Os planos são flexíveis e os limites podem ser alterados pelo painel ou pela API, conforme a demanda do fluxo.</p>
+      </div>
+
+      
+      <p class="post-source">Versão em inglês: <a href="https://automationscookbook.com/blog/hoplite-launches-yc-s26-cloud-coding-agent-platform-20260803" target="_blank" rel="noopener">Automations Cookbook</a></p>
+
+      <ul class="post-tags"><li>#codigo-na-nuvem</li><li>#agentes-de-ia</li><li>#automacao</li><li>#y-combinator</li><li>#infraestrutura</li></ul>
+    </div>
+  </article>
+
+  <section class="related">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow">Leia também</p><h2>Mais sobre LLMs</h2></div>
+      <div class="post-grid"><article class="post-card">
+  <a class="post-card-link" href="../../blog/llms-recompensam-especialistas/">
+    <span class="tag">LLMs</span>
+    <h3>LLMs estão recompensando quem entende do assunto</h3>
+    <p class="desc">Modelos respondem melhor a quem pergunta com vocabulário e contexto de especialista. Isso muda onde vale investir em um projeto de IA.</p>
+    <time datetime="2026-08-04">04 de agosto de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../blog/redigitar-codigo-de-llm-divida-cognitiva/">
+    <span class="tag">LLMs</span>
+    <h3>Redigitar o código da IA contra a dívida cognitiva</h3>
+    <p class="desc">Um engenheiro passou a digitar à mão o código gerado por LLM em vez de copiar e colar. Os bugs em produção caíram.</p>
+    <time datetime="2026-08-04">04 de agosto de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../blog/analytics-e-avaliacao-de-sessoes-de-agente-no-mcp/">
+    <span class="tag">LLMs</span>
+    <h3>MCP ganha analytics e avaliação de sessões de agente</h3>
+    <p class="desc">Métricas de latência, taxa de sucesso e critérios próprios de avaliação embutidos direto na sessão do agente.</p>
+    <time datetime="2026-08-03">03 de agosto de 2026</time>
+  </a>
+</article></div>
+    </div>
+  </section>
+
+  <section class="cta-band" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Quer aplicar isso na sua empresa, com governança?</h2>
+      <a href="../../#contato" class="btn btn-primary">Agendar conversa</a>
+    </div>
+  </section>
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../../" class="logo"><img src="../../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <a href="mailto:contato@tyna.com.br">contato@tyna.com.br</a>
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Blog</h5>
+          <a href="../../blog/categoria/ai-agents/">Agentes de IA</a>
+          <a href="../../blog/categoria/llm/">LLMs</a>
+          <a href="../../blog/categoria/dev-tools/">Ferramentas de Dev</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../../sobre/">Sobre</a>
+          <a href="../../blog/">Blog</a>
+          <a href="../../rss.xml">RSS</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/site.js?v=2"></script>
+
+</body>
+</html>

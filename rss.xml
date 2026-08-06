@@ -7,7 +7,7 @@
   <language>pt-BR</language>
   <atom:link href="https://tyna.com.br/rss.xml" rel="self" type="application/rss+xml"/>
   <item>
-    <title>Cloudflare OS: a aposta da Cloudflare em rodar agentes de IA na borda</title>
+    <title>Cloudflare OS: agentes de IA rodando na borda</title>
     <link>https://tyna.com.br/blog/cloudflare-os-plataforma-aberta-para-agentes-de-ia/</link>
     <guid isPermaLink="true">https://tyna.com.br/blog/cloudflare-os-plataforma-aberta-para-agentes-de-ia/</guid>
     <pubDate>Thu, 06 Aug 2026 12:00:00 GMT</pubDate>
@@ -15,11 +15,19 @@
     <category>Agentes de IA</category>
   </item>
   <item>
-    <title>HyperProbe traz agentes de depuração somente leitura para produção</title>
+    <title>HyperProbe: depuração somente leitura em produção</title>
     <link>https://tyna.com.br/blog/hyperprobe-depuracao-somente-leitura-em-producao/</link>
     <guid isPermaLink="true">https://tyna.com.br/blog/hyperprobe-depuracao-somente-leitura-em-producao/</guid>
     <pubDate>Wed, 05 Aug 2026 12:00:00 GMT</pubDate>
     <description>Agentes que se acoplam a serviços em execução para inspecionar estado sem alterar nada. A ideia é diagnosticar sem arriscar derrubar.</description>
+    <category>Ferramentas de Dev</category>
+  </item>
+  <item>
+    <title>Imagem gerada por IA está afastando leitor de blog</title>
+    <link>https://tyna.com.br/blog/imagens-geradas-por-ia-afastam-leitores/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/imagens-geradas-por-ia-afastam-leitores/</guid>
+    <pubDate>Wed, 05 Aug 2026 12:00:00 GMT</pubDate>
+    <description>Ilustração automática genérica derruba clique e tempo de página. O problema não é a ferramenta, é publicar sem revisar.</description>
     <category>Ferramentas de Dev</category>
   </item>
   <item>
@@ -31,6 +39,14 @@
     <category>Agentes de IA</category>
   </item>
   <item>
+    <title>EdotEnv lança ambientes de treino para trading quantitativo</title>
+    <link>https://tyna.com.br/blog/edotenv-ambientes-de-treino-para-trading-quantitativo/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/edotenv-ambientes-de-treino-para-trading-quantitativo/</guid>
+    <pubDate>Tue, 04 Aug 2026 12:00:00 GMT</pubDate>
+    <description>Sandbox com dinâmica de livro de ofertas e custo de transação para treinar LLMs em estratégia — antes de arriscar capital.</description>
+    <category>Agentes de IA</category>
+  </item>
+  <item>
     <title>LLMs estão recompensando quem entende do assunto</title>
     <link>https://tyna.com.br/blog/llms-recompensam-especialistas/</link>
     <guid isPermaLink="true">https://tyna.com.br/blog/llms-recompensam-especialistas/</guid>
@@ -39,12 +55,60 @@
     <category>LLMs</category>
   </item>
   <item>
-    <title>Redigitar o código que a IA escreveu: o antídoto contra dívida cognitiva</title>
+    <title>Redigitar o código da IA contra a dívida cognitiva</title>
     <link>https://tyna.com.br/blog/redigitar-codigo-de-llm-divida-cognitiva/</link>
     <guid isPermaLink="true">https://tyna.com.br/blog/redigitar-codigo-de-llm-divida-cognitiva/</guid>
     <pubDate>Tue, 04 Aug 2026 12:00:00 GMT</pubDate>
     <description>Um engenheiro passou a digitar à mão o código gerado por LLM em vez de copiar e colar. Os bugs em produção caíram.</description>
     <category>LLMs</category>
+  </item>
+  <item>
+    <title>MCP ganha analytics e avaliação de sessões de agente</title>
+    <link>https://tyna.com.br/blog/analytics-e-avaliacao-de-sessoes-de-agente-no-mcp/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/analytics-e-avaliacao-de-sessoes-de-agente-no-mcp/</guid>
+    <pubDate>Mon, 03 Aug 2026 12:00:00 GMT</pubDate>
+    <description>Métricas de latência, taxa de sucesso e critérios próprios de avaliação embutidos direto na sessão do agente.</description>
+    <category>LLMs</category>
+  </item>
+  <item>
+    <title>Hoplite lança plataforma de agentes de código na nuvem</title>
+    <link>https://tyna.com.br/blog/hoplite-plataforma-de-agentes-de-codigo-na-nuvem/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/hoplite-plataforma-de-agentes-de-codigo-na-nuvem/</guid>
+    <pubDate>Mon, 03 Aug 2026 12:00:00 GMT</pubDate>
+    <description>Provisiona, escala e isola agentes de código sob demanda, para o time cuidar da lógica em vez da infraestrutura.</description>
+    <category>LLMs</category>
+  </item>
+  <item>
+    <title>PAC da OpenAI financia site de notícias gerado por IA</title>
+    <link>https://tyna.com.br/blog/pac-da-openai-financia-site-de-noticias-gerado-por-ia/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/pac-da-openai-financia-site-de-noticias-gerado-por-ia/</guid>
+    <pubDate>Mon, 03 Aug 2026 12:00:00 GMT</pubDate>
+    <description>Um comitê ligado à OpenAI banca um site sem revisão humana que ataca críticos do setor. O risco chega ao seu pipeline de dados.</description>
+    <category>LLMs</category>
+  </item>
+  <item>
+    <title>Cursor remove o dado de custo do painel e do CSV</title>
+    <link>https://tyna.com.br/blog/cursor-remove-dado-de-custo-do-painel/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/cursor-remove-dado-de-custo-do-painel/</guid>
+    <pubDate>Sun, 02 Aug 2026 12:00:00 GMT</pubDate>
+    <description>O painel agora mostra só contagem de tokens. Quem auditava gasto direto na plataforma vai precisar calcular por fora.</description>
+    <category>Ferramentas de Dev</category>
+  </item>
+  <item>
+    <title>Astra, da OpenAI, resolve dez problemas em aberto</title>
+    <link>https://tyna.com.br/blog/openai-astra-resolve-dez-problemas-de-matematica/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/openai-astra-resolve-dez-problemas-de-matematica/</guid>
+    <pubDate>Sun, 02 Aug 2026 12:00:00 GMT</pubDate>
+    <description>O modelo produziu provas, gerou contraexemplos e verificou teoremas. O anúncio veio sem métrica publicada.</description>
+    <category>LLMs</category>
+  </item>
+  <item>
+    <title>Sprocket: um agente de IA que também fala com hardware</title>
+    <link>https://tyna.com.br/blog/sprocket-agente-para-hardware-e-software/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/sprocket-agente-para-hardware-e-software/</guid>
+    <pubDate>Sun, 02 Aug 2026 12:00:00 GMT</pubDate>
+    <description>Escreve código, roda teste e conversa com microcontroladores e sensores no mesmo fluxo. A promessa é encurtar o caminho até o protótipo.</description>
+    <category>Ferramentas de Dev</category>
   </item>
 </channel>
 </rss>

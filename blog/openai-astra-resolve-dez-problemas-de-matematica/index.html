@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Astra, da OpenAI, resolve dez problemas em aberto — Blog Tyna</title>
+<meta name="description" content="O modelo produziu provas, gerou contraexemplos e verificou teoremas. O anúncio veio sem métrica publicada.">
+<link rel="canonical" href="https://tyna.com.br/blog/openai-astra-resolve-dez-problemas-de-matematica/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Astra, da OpenAI, resolve dez problemas em aberto — Blog Tyna">
+<meta property="og:description" content="O modelo produziu provas, gerou contraexemplos e verificou teoremas. O anúncio veio sem métrica publicada.">
+<meta property="og:url" content="https://tyna.com.br/blog/openai-astra-resolve-dez-problemas-de-matematica/">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23411E5A%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23F1592B%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="alternate" type="application/rss+xml" title="Blog Tyna" href="https://tyna.com.br/rss.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=2">
+<link rel="stylesheet" href="../../assets/blog.css?v=2">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Astra, da OpenAI, resolve dez problemas em aberto","description":"O modelo produziu provas, gerou contraexemplos e verificou teoremas. O anúncio veio sem métrica publicada.","datePublished":"2026-08-02","dateModified":"2026-08-02","inLanguage":"pt-BR","author":{"@type":"Person","name":"Felipe Jacob","url":"https://tyna.com.br/sobre/"},"publisher":{"@type":"Organization","name":"Tyna","url":"https://tyna.com.br","logo":{"@type":"ImageObject","url":"https://tyna.com.br/assets/logo-tyna.png"}},"mainEntityOfPage":"https://tyna.com.br/blog/openai-astra-resolve-dez-problemas-de-matematica/","keywords":"openai, raciocinio, automacao, n8n, verificacao-formal","articleSection":"LLMs"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://tyna.com.br"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tyna.com.br/blog/"},{"@type":"ListItem","position":3,"name":"LLMs","item":"https://tyna.com.br/blog/categoria/llm/"},{"@type":"ListItem","position":4,"name":"Astra, da OpenAI, resolve dez problemas em aberto","item":"https://tyna.com.br/blog/openai-astra-resolve-dez-problemas-de-matematica/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Consigo integrar o Astra aos meus fluxos de n8n?","acceptedAnswer":{"@type":"Answer","text":"O Astra é interno. Mas a abordagem demonstra que modelos de raciocínio podem ser expostos via API. Quando houver disponibilidade, basta encapsular o endpoint em um nó HTTP e encadear com o restante do fluxo."}},{"@type":"Question","name":"Isso encarece rodar agentes?","acceptedAnswer":{"@type":"Answer","text":"Modelos avançados costumam exigir mais computação, então o custo tende a subir. Maior confiabilidade e menos supervisão manual podem compensar a diferença."}},{"@type":"Question","name":"Como preparar meus dados para um modelo de raciocínio?","acceptedAnswer":{"@type":"Answer","text":"Estruture a entrada como afirmações claras e formais, usando JSON ou linguagem específica de domínio quando possível. Forneça contexto suficiente para o modelo entender restrições e objetivo."}}]}</script>
+<link rel="alternate" hreflang="en" href="https://automationscookbook.com/blog/openai-astra-solves-10-major-math-and-cs-problems-20260802">
+<link rel="alternate" hreflang="pt-BR" href="https://tyna.com.br/blog/openai-astra-resolve-dez-problemas-de-matematica/">
+<link rel="alternate" hreflang="x-default" href="https://automationscookbook.com/blog/openai-astra-solves-10-major-math-and-cs-problems-20260802">
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../../" class="logo"><img src="../../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../../#servicos">Serviços</a></li>
+        <li><a href="../../#governanca">Governança</a></li>
+        <li><a href="../../#trilhas">Trilhas</a></li>
+        <li><a href="../../blog/">Blog</a></li>
+        <li><a href="../../sobre/">Sobre</a></li>
+        <li><a href="../../#contato" class="btn btn-primary mobile-cta">Falar com um consultor</a></li>
+      </ul>
+    </nav>
+    <a href="../../#contato" class="btn btn-primary" id="navCta">Falar com um consultor</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+  <article class="post">
+    <div class="wrap post-wrap">
+      <nav class="crumbs" aria-label="Trilha"><a href="../../">Início</a> › <a href="../">Blog</a> › <a href="../categoria/llm/">LLMs</a></nav>
+      <p class="eyebrow">LLMs</p>
+      <h1>Astra, da OpenAI, resolve dez problemas em aberto</h1>
+      <p class="post-meta"><time datetime="2026-08-02">02 de agosto de 2026</time> · Por <a href="../../sobre/">Felipe Jacob</a></p>
+      <p class="lead">O modelo produziu provas, gerou contraexemplos e verificou teoremas. O anúncio veio sem métrica publicada.</p>
+
+      <aside class="answer-box"><h2>Resposta curta</h2><p>O Astra, modelo interno da OpenAI, resolveu dez problemas de longa data em matemática e ciência da computação, cobrindo teoria dos grafos, desenho de algoritmos e verificação formal. O modelo produziu provas, gerou contraexemplos e verificou teoremas de forma automática. O anúncio foi feito em uma publicação curta em rede social, sem divulgação de métricas detalhadas.</p></aside>
+
+      <div class="post-body">
+<h2>O que aconteceu</h2>
+<p>O Astra, modelo interno da OpenAI, resolveu dez problemas de longa data em matemática e ciência da computação. Os problemas abrangeram teoria dos grafos, desenho de algoritmos e verificação formal. O modelo demonstrou capacidade de produzir provas, gerar contraexemplos e verificar teoremas complexos de forma automática.</p>
+<p>O anúncio saiu em uma publicação curta em rede social. Nenhuma métrica detalhada foi divulgada.</p>
+<h2>Por que isso importa para quem constrói</h2>
+<ul>
+<li><strong>Automação em nível mais alto</strong> — modelos capazes de raciocinar sobre provas permitem delegar decisão complexa. Geração de código, criação de casos de teste e triagem de defeito ficam mais precisas.</li>
+<li><strong>Menos verificação manual</strong> — a verificação de prova mostra que a IA consegue conferir código ou configuração, pegando erro sutil antes da publicação.</li>
+<li><strong>Novos formatos de fluxo</strong> — plataformas como o n8n podem acoplar modelos de raciocínio para montar fluxos autocorretivos, em que o agente ajusta um pipeline ao detectar inconsistência lógica.</li>
+<li><strong>Vantagem competitiva</strong> — quem adota agentes com raciocínio cedo consegue oferecer o que exige inferência lógica profunda: otimização assistida, checagem formal de conformidade, auditoria de segurança avançada.</li>
+</ul>
+<h2>A leitura da Tyna</h2>
+<p>Duas ressalvas antes de qualquer entusiasmo, e elas importam mais que o anúncio.</p>
+<p>A primeira é de evidência. Um resultado divulgado em publicação curta de rede social, sem métrica, sem artigo e sem verificação independente, não é resultado científico — é comunicação. Provas matemáticas são, por natureza, verificáveis: qualquer pessoa com a prova em mãos pode conferir. A ausência dessa publicação, em um domínio onde a verificação seria trivial, é a informação mais relevante do anúncio.</p>
+<p>A segunda é de transferência. "Resolveu problema aberto de teoria dos grafos" e "vai melhorar seu fluxo de triagem de chamado" são afirmações separadas por uma distância que ninguém demonstrou. Problema matemático tem enunciado formal e critério de correção objetivo. O problema da sua empresa tem enunciado ambíguo, dados sujos e critério de sucesso que muda conforme quem pergunta. Modelo bom em raciocínio formal não herda automaticamente competência em raciocínio sobre bagunça.</p>
+<p>Onde isso pode virar prático primeiro: <strong>verificação, não geração.</strong> Um modelo que confere se uma configuração satisfaz um conjunto de regras é imediatamente útil e tem critério de acerto claro — bem diferente de confiar nele para escrever a configuração.</p>
+<h2>Perguntas frequentes</h2>
+<p><strong>P: Consigo integrar o Astra aos meus fluxos de n8n?</strong></p>
+<p>R: O Astra é interno. Mas a abordagem demonstra que modelos de raciocínio podem ser expostos via API. Quando houver disponibilidade, basta encapsular o endpoint em um nó HTTP e encadear com o restante do fluxo.</p>
+<p><strong>P: Isso encarece rodar agentes?</strong></p>
+<p>R: Modelos avançados costumam exigir mais computação, então o custo tende a subir. Maior confiabilidade e menos supervisão manual podem compensar a diferença.</p>
+<p><strong>P: Como preparar meus dados para um modelo de raciocínio?</strong></p>
+<p>R: Estruture a entrada como afirmações claras e formais, usando JSON ou linguagem específica de domínio quando possível. Forneça contexto suficiente para o modelo entender restrições e objetivo.</p>
+      </div>
+
+      
+      <p class="post-source">Versão em inglês: <a href="https://automationscookbook.com/blog/openai-astra-solves-10-major-math-and-cs-problems-20260802" target="_blank" rel="noopener">Automations Cookbook</a></p>
+
+      <ul class="post-tags"><li>#openai</li><li>#raciocinio</li><li>#automacao</li><li>#n8n</li><li>#verificacao-formal</li></ul>
+    </div>
+  </article>
+
+  <section class="related">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow">Leia também</p><h2>Mais sobre LLMs</h2></div>
+      <div class="post-grid"><article class="post-card">
+  <a class="post-card-link" href="../../blog/llms-recompensam-especialistas/">
+    <span class="tag">LLMs</span>
+    <h3>LLMs estão recompensando quem entende do assunto</h3>
+    <p class="desc">Modelos respondem melhor a quem pergunta com vocabulário e contexto de especialista. Isso muda onde vale investir em um projeto de IA.</p>
+    <time datetime="2026-08-04">04 de agosto de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../blog/redigitar-codigo-de-llm-divida-cognitiva/">
+    <span class="tag">LLMs</span>
+    <h3>Redigitar o código da IA contra a dívida cognitiva</h3>
+    <p class="desc">Um engenheiro passou a digitar à mão o código gerado por LLM em vez de copiar e colar. Os bugs em produção caíram.</p>
+    <time datetime="2026-08-04">04 de agosto de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../blog/analytics-e-avaliacao-de-sessoes-de-agente-no-mcp/">
+    <span class="tag">LLMs</span>
+    <h3>MCP ganha analytics e avaliação de sessões de agente</h3>
+    <p class="desc">Métricas de latência, taxa de sucesso e critérios próprios de avaliação embutidos direto na sessão do agente.</p>
+    <time datetime="2026-08-03">03 de agosto de 2026</time>
+  </a>
+</article></div>
+    </div>
+  </section>
+
+  <section class="cta-band" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Quer aplicar isso na sua empresa, com governança?</h2>
+      <a href="../../#contato" class="btn btn-primary">Agendar conversa</a>
+    </div>
+  </section>
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../../" class="logo"><img src="../../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <a href="mailto:contato@tyna.com.br">contato@tyna.com.br</a>
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Blog</h5>
+          <a href="../../blog/categoria/ai-agents/">Agentes de IA</a>
+          <a href="../../blog/categoria/llm/">LLMs</a>
+          <a href="../../blog/categoria/dev-tools/">Ferramentas de Dev</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../../sobre/">Sobre</a>
+          <a href="../../blog/">Blog</a>
+          <a href="../../rss.xml">RSS</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/site.js?v=2"></script>
+
+</body>
+</html>

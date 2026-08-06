@@ -1,5 +1,5 @@
 ---
-title: "Cloudflare OS: a aposta da Cloudflare em rodar agentes de IA na borda"
+title: "Cloudflare OS: agentes de IA rodando na borda"
 description: "A Cloudflare lançou uma plataforma aberta para construir e escalar agentes de IA. O que muda para quem já roda n8n em produção."
 pubDate: "2026-08-06"
 category: "ai-agents"

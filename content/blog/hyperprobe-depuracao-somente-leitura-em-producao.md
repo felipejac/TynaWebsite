@@ -1,5 +1,5 @@
 ---
-title: "HyperProbe traz agentes de depuração somente leitura para produção"
+title: "HyperProbe: depuração somente leitura em produção"
 description: "Agentes que se acoplam a serviços em execução para inspecionar estado sem alterar nada. A ideia é diagnosticar sem arriscar derrubar."
 pubDate: "2026-08-05"
 category: "dev-tools"
