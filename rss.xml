@@ -174,5 +174,69 @@
     <description>Clonar uma VM em execução em segundos e um banco de arquivo único compartilhado entre nós, sem serviço de banco separado.</description>
     <category>Ferramentas de Dev</category>
   </item>
+  <item>
+    <title>Prized: ferramentas internas seguras sem código</title>
+    <link>https://tyna.com.br/blog/prized-ferramentas-internas-seguras-sem-codigo/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/prized-ferramentas-internas-seguras-sem-codigo/</guid>
+    <pubDate>Thu, 30 Jul 2026 12:00:00 GMT</pubDate>
+    <description>Interface low-code com controle de acesso, log de auditoria e criptografia embutidos — para o especialista do negócio construir sozinho.</description>
+    <category>Automação</category>
+  </item>
+  <item>
+    <title>GPT-5.6 contra Claude Fable 5 em IA física</title>
+    <link>https://tyna.com.br/blog/gpt-5-6-contra-claude-fable-5-em-ia-fisica/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/gpt-5-6-contra-claude-fable-5-em-ia-fisica/</guid>
+    <pubDate>Wed, 29 Jul 2026 12:00:00 GMT</pubDate>
+    <description>Um venceu em velocidade por 2%, o outro em raciocínio contextual quando a tarefa muda no meio. A escolha não é óbvia.</description>
+    <category>LLMs</category>
+  </item>
+  <item>
+    <title>Manim roda no navegador via WebGPU</title>
+    <link>https://tyna.com.br/blog/manim-no-navegador-com-webgpu/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/manim-no-navegador-com-webgpu/</guid>
+    <pubDate>Wed, 29 Jul 2026 12:00:00 GMT</pubDate>
+    <description>Animação matemática renderizada no cliente, com desempenho próximo ao nativo e sem servidor no caminho.</description>
+    <category>Ferramentas de Dev</category>
+  </item>
+  <item>
+    <title>Tokenless troca de modelo sozinho para cortar custo</title>
+    <link>https://tyna.com.br/blog/tokenless-troca-automatica-de-modelo/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/tokenless-troca-automatica-de-modelo/</guid>
+    <pubDate>Wed, 29 Jul 2026 12:00:00 GMT</pubDate>
+    <description>A plataforma observa preço e qualidade e migra para um modelo mais barato quando o resultado se mantém. Cada troca fica registrada.</description>
+    <category>LLMs</category>
+  </item>
+  <item>
+    <title>Flashpaper: segredos que se destroem sem banco de dados</title>
+    <link>https://tyna.com.br/blog/flashpaper-segredos-que-se-destroem/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/flashpaper-segredos-que-se-destroem/</guid>
+    <pubDate>Tue, 28 Jul 2026 12:00:00 GMT</pubDate>
+    <description>Compartilhar credencial temporária com leitura única ou prazo de validade, sem armazenar nada em lugar nenhum.</description>
+    <category>Ferramentas de Dev</category>
+  </item>
+  <item>
+    <title>Kimi K3 chega à API de inferência da Telnyx</title>
+    <link>https://tyna.com.br/blog/kimi-k3-disponivel-na-api-da-telnyx/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/kimi-k3-disponivel-na-api-da-telnyx/</guid>
+    <pubDate>Tue, 28 Jul 2026 12:00:00 GMT</pubDate>
+    <description>O modelo passa a ser oferecido como serviço gerenciado, cobrado por uso, na mesma infraestrutura de voz e mensagem da Telnyx.</description>
+    <category>LLMs</category>
+  </item>
+  <item>
+    <title>Score de confiança de LLM não é confiável</title>
+    <link>https://tyna.com.br/blog/score-de-confianca-de-llm-nao-e-confiavel/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/score-de-confianca-de-llm-nao-e-confiavel/</guid>
+    <pubDate>Tue, 28 Jul 2026 12:00:00 GMT</pubDate>
+    <description>Modelos são treinados para gerar texto fluente, não probabilidade calibrada. Fluxo que decide por limiar está apoiado em ruído.</description>
+    <category>LLMs</category>
+  </item>
+  <item>
+    <title>Destilar e servir modelos pela metade do custo</title>
+    <link>https://tyna.com.br/blog/destilar-e-servir-modelos-pela-metade-do-custo/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/destilar-e-servir-modelos-pela-metade-do-custo/</guid>
+    <pubDate>Mon, 27 Jul 2026 12:00:00 GMT</pubDate>
+    <description>Ferramenta aberta treina um modelo aluno sobre as saídas de um professor e entrega acurácia próxima com hospedagem em hardware comum.</description>
+    <category>Agentes de IA</category>
+  </item>
 </channel>
 </rss>

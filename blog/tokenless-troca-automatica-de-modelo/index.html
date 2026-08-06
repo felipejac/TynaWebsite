@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tokenless troca de modelo sozinho para cortar custo — Blog Tyna</title>
+<meta name="description" content="A plataforma observa preço e qualidade e migra para um modelo mais barato quando o resultado se mantém. Cada troca fica registrada.">
+<link rel="canonical" href="https://tyna.com.br/blog/tokenless-troca-automatica-de-modelo/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tokenless troca de modelo sozinho para cortar custo — Blog Tyna">
+<meta property="og:description" content="A plataforma observa preço e qualidade e migra para um modelo mais barato quando o resultado se mantém. Cada troca fica registrada.">
+<meta property="og:url" content="https://tyna.com.br/blog/tokenless-troca-automatica-de-modelo/">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23411E5A%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23F1592B%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="alternate" type="application/rss+xml" title="Blog Tyna" href="https://tyna.com.br/rss.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=2">
+<link rel="stylesheet" href="../../assets/blog.css?v=2">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Tokenless troca de modelo sozinho para cortar custo","description":"A plataforma observa preço e qualidade e migra para um modelo mais barato quando o resultado se mantém. Cada troca fica registrada.","datePublished":"2026-07-29","dateModified":"2026-07-29","inLanguage":"pt-BR","author":{"@type":"Person","name":"Felipe Jacob","url":"https://tyna.com.br/sobre/"},"publisher":{"@type":"Organization","name":"Tyna","url":"https://tyna.com.br","logo":{"@type":"ImageObject","url":"https://tyna.com.br/assets/logo-tyna.png"}},"mainEntityOfPage":"https://tyna.com.br/blog/tokenless-troca-automatica-de-modelo/","keywords":"troca-de-modelo, otimizacao-de-custo, automacao, n8n, observabilidade","articleSection":"LLMs"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://tyna.com.br"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tyna.com.br/blog/"},{"@type":"ListItem","position":3,"name":"LLMs","item":"https://tyna.com.br/blog/categoria/llm/"},{"@type":"ListItem","position":4,"name":"Tokenless troca de modelo sozinho para cortar custo","item":"https://tyna.com.br/blog/tokenless-troca-automatica-de-modelo/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"A troca automática afeta a acurácia das respostas do meu agente?","acceptedAnswer":{"@type":"Answer","text":"A plataforma monitora a qualidade e só troca quando o novo modelo atende aos limiares definidos, o que mantém a acurácia estável."}},{"@type":"Question","name":"Como habilito no meu fluxo de n8n?","acceptedAnswer":{"@type":"Answer","text":"Adicione o nó da Tokenless, ative a alternância automática e defina os limites de custo ou latência. Não é preciso mexer em código."}},{"@type":"Question","name":"Continuo pagando pelos tokens do modelo mais barato?","acceptedAnswer":{"@type":"Answer","text":"Sim. Você paga pelos tokens consumidos pelo modelo ativo. O objetivo é reduzir o custo total ao usar o modelo mais econômico quando cabe."}}]}</script>
+<link rel="alternate" hreflang="en" href="https://automationscookbook.com/blog/tokenless-launches-automatic-model-switching-to-cut-ai-costs-20260729">
+<link rel="alternate" hreflang="pt-BR" href="https://tyna.com.br/blog/tokenless-troca-automatica-de-modelo/">
+<link rel="alternate" hreflang="x-default" href="https://automationscookbook.com/blog/tokenless-launches-automatic-model-switching-to-cut-ai-costs-20260729">
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../../" class="logo"><img src="../../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../../#servicos">Serviços</a></li>
+        <li><a href="../../#governanca">Governança</a></li>
+        <li><a href="../../#trilhas">Trilhas</a></li>
+        <li><a href="../../blog/">Blog</a></li>
+        <li><a href="../../sobre/">Sobre</a></li>
+        <li><a href="../../#contato" class="btn btn-primary mobile-cta">Falar com um consultor</a></li>
+      </ul>
+    </nav>
+    <a href="../../#contato" class="btn btn-primary" id="navCta">Falar com um consultor</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+  <article class="post">
+    <div class="wrap post-wrap">
+      <nav class="crumbs" aria-label="Trilha"><a href="../../">Início</a> › <a href="../">Blog</a> › <a href="../categoria/llm/">LLMs</a></nav>
+      <p class="eyebrow">LLMs</p>
+      <h1>Tokenless troca de modelo sozinho para cortar custo</h1>
+      <p class="post-meta"><time datetime="2026-07-29">29 de julho de 2026</time> · Por <a href="../../sobre/">Felipe Jacob</a></p>
+      <p class="lead">A plataforma observa preço e qualidade e migra para um modelo mais barato quando o resultado se mantém. Cada troca fica registrada.</p>
+
+      <aside class="answer-box"><h2>Resposta curta</h2><p>A Tokenless lançou um recurso que alterna automaticamente entre modelos de IA para reduzir custo. A plataforma acompanha uso e preço e migra para um modelo mais barato quando a qualidade da saída se mantém dentro de limiares definidos. O usuário configura limites de custo ou latência, não precisa alterar código, e cada troca é registrada para auditoria.</p></aside>
+
+      <div class="post-body">
+<h2>O que aconteceu</h2>
+<p>A Tokenless, startup da turma S26 da Y Combinator, acrescentou um recurso que alterna automaticamente entre modelos de IA para reduzir custo. A plataforma acompanha uso e preço e migra para um modelo mais barato quando a qualidade se mantém. A demonstração mostrou o sistema saindo de um modelo caro para um econômico em horário de baixa demanda.</p>
+<p>A mudança vive na API da própria Tokenless. Não exige alteração de código — basta ativar. O usuário define limites de custo ou de latência, e cada troca fica registrada para auditoria.</p>
+<h2>Por que isso importa para quem constrói</h2>
+<ul>
+<li><strong>Escala previsível</strong> — cargas pesadas de inferência ficam dentro do orçamento, e a troca automática evita estouro súbito em pico de tráfego.</li>
+<li><strong>Menos manutenção</strong> — escolher modelo à mão é trabalhoso e sujeito a erro. O time foca na lógica do fluxo em vez de ajustar parâmetro.</li>
+<li><strong>Desempenho consistente</strong> — a plataforma verifica a qualidade da saída, o que ajuda agentes em produção a manter o nível de serviço.</li>
+<li><strong>Trilha de auditoria</strong> — cada troca registrada mostra quando e por que um modelo mais barato foi escolhido, útil para conformidade e depuração.</li>
+<li><strong>Atualização simples</strong> — modelos novos entram automaticamente, sem republicar código.</li>
+</ul>
+<h2>A leitura da Tyna</h2>
+<p>A promessa depende inteiramente de uma frase que passa rápido: <strong>"quando a qualidade se mantém"</strong>. Tudo se resume a como isso é medido.</p>
+<p>Se a verificação de qualidade compara a saída do modelo barato com a do caro, você está pagando os dois para economizar em um — e a economia é menor do que parece. Se ela usa um avaliador automático, esse avaliador tem os próprios limites e vai concordar consigo mesmo em casos onde ambos erram. Se usa amostragem, a troca acontece com base em uma fração das requisições e o resto viaja na fé. Nenhuma dessas abordagens é ruim, mas elas têm perfis de risco muito diferentes, e a decisão de adotar depende de saber qual está em uso.</p>
+<p>Vale também nomear o que a troca automática faz com a <strong>reprodutibilidade</strong>. Se o modelo que responde pode mudar sem aviso, duas execuções idênticas do mesmo fluxo podem produzir saídas diferentes por um motivo que não está no seu código nem nos seus dados. Para geração de texto de marketing, tudo bem. Para uma etapa que classifica risco de crédito ou triagem de chamado, é um problema sério de explicabilidade — o cliente pergunta por que foi negado e a resposta honesta passa a incluir "porque era horário de baixa demanda".</p>
+<p>É por isso que a trilha de auditoria, listada em quarto lugar, deveria estar em primeiro. Ela é o que torna o recurso defensável: sem registro de qual modelo respondeu a qual requisição, você perdeu a capacidade de reconstruir a decisão.</p>
+<p>Recomendação prática: ative por fluxo, não globalmente. Deixe a troca automática onde a variação de saída é tolerável e mantenha modelo fixo onde há consequência para o cliente.</p>
+<h2>Perguntas frequentes</h2>
+<p><strong>P: A troca automática afeta a acurácia das respostas do meu agente?</strong></p>
+<p>R: A plataforma monitora a qualidade e só troca quando o novo modelo atende aos limiares definidos, o que mantém a acurácia estável.</p>
+<p><strong>P: Como habilito no meu fluxo de n8n?</strong></p>
+<p>R: Adicione o nó da Tokenless, ative a alternância automática e defina os limites de custo ou latência. Não é preciso mexer em código.</p>
+<p><strong>P: Continuo pagando pelos tokens do modelo mais barato?</strong></p>
+<p>R: Sim. Você paga pelos tokens consumidos pelo modelo ativo. O objetivo é reduzir o custo total ao usar o modelo mais econômico quando cabe.</p>
+      </div>
+
+      
+      <p class="post-source">Versão em inglês: <a href="https://automationscookbook.com/blog/tokenless-launches-automatic-model-switching-to-cut-ai-costs-20260729" target="_blank" rel="noopener">Automations Cookbook</a></p>
+
+      <ul class="post-tags"><li>#troca-de-modelo</li><li>#otimizacao-de-custo</li><li>#automacao</li><li>#n8n</li><li>#observabilidade</li></ul>
+    </div>
+  </article>
+
+  <section class="related">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow">Leia também</p><h2>Mais sobre LLMs</h2></div>
+      <div class="post-grid"><article class="post-card">
+  <a class="post-card-link" href="../../blog/llms-recompensam-especialistas/">
+    <span class="tag">LLMs</span>
+    <h3>LLMs estão recompensando quem entende do assunto</h3>
+    <p class="desc">Modelos respondem melhor a quem pergunta com vocabulário e contexto de especialista. Isso muda onde vale investir em um projeto de IA.</p>
+    <time datetime="2026-08-04">04 de agosto de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../blog/redigitar-codigo-de-llm-divida-cognitiva/">
+    <span class="tag">LLMs</span>
+    <h3>Redigitar o código da IA contra a dívida cognitiva</h3>
+    <p class="desc">Um engenheiro passou a digitar à mão o código gerado por LLM em vez de copiar e colar. Os bugs em produção caíram.</p>
+    <time datetime="2026-08-04">04 de agosto de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../blog/analytics-e-avaliacao-de-sessoes-de-agente-no-mcp/">
+    <span class="tag">LLMs</span>
+    <h3>MCP ganha analytics e avaliação de sessões de agente</h3>
+    <p class="desc">Métricas de latência, taxa de sucesso e critérios próprios de avaliação embutidos direto na sessão do agente.</p>
+    <time datetime="2026-08-03">03 de agosto de 2026</time>
+  </a>
+</article></div>
+    </div>
+  </section>
+
+  <section class="cta-band" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Quer aplicar isso na sua empresa, com governança?</h2>
+      <a href="../../#contato" class="btn btn-primary">Agendar conversa</a>
+    </div>
+  </section>
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../../" class="logo"><img src="../../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <a href="mailto:contato@tyna.com.br">contato@tyna.com.br</a>
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Blog</h5>
+          <a href="../../blog/categoria/ai-agents/">Agentes de IA</a>
+          <a href="../../blog/categoria/llm/">LLMs</a>
+          <a href="../../blog/categoria/dev-tools/">Ferramentas de Dev</a>
+          <a href="../../blog/categoria/automation/">Automação</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../../sobre/">Sobre</a>
+          <a href="../../blog/">Blog</a>
+          <a href="../../rss.xml">RSS</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/site.js?v=2"></script>
+
+</body>
+</html>

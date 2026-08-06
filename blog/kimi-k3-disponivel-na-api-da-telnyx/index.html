@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kimi K3 chega à API de inferência da Telnyx — Blog Tyna</title>
+<meta name="description" content="O modelo passa a ser oferecido como serviço gerenciado, cobrado por uso, na mesma infraestrutura de voz e mensagem da Telnyx.">
+<link rel="canonical" href="https://tyna.com.br/blog/kimi-k3-disponivel-na-api-da-telnyx/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kimi K3 chega à API de inferência da Telnyx — Blog Tyna">
+<meta property="og:description" content="O modelo passa a ser oferecido como serviço gerenciado, cobrado por uso, na mesma infraestrutura de voz e mensagem da Telnyx.">
+<meta property="og:url" content="https://tyna.com.br/blog/kimi-k3-disponivel-na-api-da-telnyx/">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23411E5A%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23F1592B%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="alternate" type="application/rss+xml" title="Blog Tyna" href="https://tyna.com.br/rss.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=2">
+<link rel="stylesheet" href="../../assets/blog.css?v=2">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Kimi K3 chega à API de inferência da Telnyx","description":"O modelo passa a ser oferecido como serviço gerenciado, cobrado por uso, na mesma infraestrutura de voz e mensagem da Telnyx.","datePublished":"2026-07-28","dateModified":"2026-07-28","inLanguage":"pt-BR","author":{"@type":"Person","name":"Felipe Jacob","url":"https://tyna.com.br/sobre/"},"publisher":{"@type":"Organization","name":"Tyna","url":"https://tyna.com.br","logo":{"@type":"ImageObject","url":"https://tyna.com.br/assets/logo-tyna.png"}},"mainEntityOfPage":"https://tyna.com.br/blog/kimi-k3-disponivel-na-api-da-telnyx/","keywords":"kimi-k3, telnyx, api-de-inferencia, llm, automacao","articleSection":"LLMs"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://tyna.com.br"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tyna.com.br/blog/"},{"@type":"ListItem","position":3,"name":"LLMs","item":"https://tyna.com.br/blog/categoria/llm/"},{"@type":"ListItem","position":4,"name":"Kimi K3 chega à API de inferência da Telnyx","item":"https://tyna.com.br/blog/kimi-k3-disponivel-na-api-da-telnyx/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Como integro o Kimi K3 a um fluxo de n8n?","acceptedAnswer":{"@type":"Answer","text":"Adicione um nó de requisição HTTP apontando para o endpoint da Telnyx e passe o prompt no corpo da requisição. A resposta alimenta os nós seguintes."}},{"@type":"Question","name":"Existe camada gratuita para teste?","acceptedAnswer":{"@type":"Answer","text":"A Telnyx oferece um período de avaliação com créditos limitados, o que permite experimentar antes de assumir custo."}},{"@type":"Question","name":"Dá para rodar o Kimi K3 localmente?","acceptedAnswer":{"@type":"Answer","text":"Não. O modelo só está disponível pela API de inferência da Telnyx. Uso local exigiria acordo de licenciamento à parte com a Kimi."}}]}</script>
+<link rel="alternate" hreflang="en" href="https://automationscookbook.com/blog/kimi-k3-now-available-via-telnyx-inference-api-20260728">
+<link rel="alternate" hreflang="pt-BR" href="https://tyna.com.br/blog/kimi-k3-disponivel-na-api-da-telnyx/">
+<link rel="alternate" hreflang="x-default" href="https://automationscookbook.com/blog/kimi-k3-now-available-via-telnyx-inference-api-20260728">
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../../" class="logo"><img src="../../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../../#servicos">Serviços</a></li>
+        <li><a href="../../#governanca">Governança</a></li>
+        <li><a href="../../#trilhas">Trilhas</a></li>
+        <li><a href="../../blog/">Blog</a></li>
+        <li><a href="../../sobre/">Sobre</a></li>
+        <li><a href="../../#contato" class="btn btn-primary mobile-cta">Falar com um consultor</a></li>
+      </ul>
+    </nav>
+    <a href="../../#contato" class="btn btn-primary" id="navCta">Falar com um consultor</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+  <article class="post">
+    <div class="wrap post-wrap">
+      <nav class="crumbs" aria-label="Trilha"><a href="../../">Início</a> › <a href="../">Blog</a> › <a href="../categoria/llm/">LLMs</a></nav>
+      <p class="eyebrow">LLMs</p>
+      <h1>Kimi K3 chega à API de inferência da Telnyx</h1>
+      <p class="post-meta"><time datetime="2026-07-28">28 de julho de 2026</time> · Por <a href="../../sobre/">Felipe Jacob</a></p>
+      <p class="lead">O modelo passa a ser oferecido como serviço gerenciado, cobrado por uso, na mesma infraestrutura de voz e mensagem da Telnyx.</p>
+
+      <aside class="answer-box"><h2>Resposta curta</h2><p>O Kimi K3 passou a ser oferecido como serviço totalmente gerenciado na API de inferência da Telnyx. Qualquer conta da plataforma acessa o modelo pelos mesmos endpoints REST usados para voz e mensagem, com cobrança por uso, sem custo inicial e sem necessidade de administrar cluster de GPU. Versionamento e atualização do modelo ficam por conta do provedor.</p></aside>
+
+      <div class="post-body">
+<h2>O que aconteceu</h2>
+<p>O Kimi K3, modelo mais recente da Kimi, passou a ser oferecido como serviço totalmente gerenciado na API de inferência da Telnyx. Qualquer conta da plataforma acessa o modelo por endpoints de API para geração de texto, sumarização e demais tarefas usuais. A infraestrutura da Telnyx, já usada para voz e mensagem, sustenta disponibilidade, baixa latência e escala.</p>
+<p>A integração é direta: chamam-se os mesmos endpoints REST dos outros serviços, envia-se o prompt e recebe-se a resposta em tempo real. A cobrança é por uso, sem custo inicial. O serviço cuida de versionamento e atualização do modelo, o que permite prototipar e ir a produção sem administrar cluster de GPU.</p>
+<h2>Por que isso importa para quem constrói</h2>
+<ul>
+<li><strong>Publicação simplificada</strong> — a gestão de GPU fica com o provedor, e o time foca na lógica do fluxo.</li>
+<li><strong>Custo previsível</strong> — pagamento por uso se encaixa em projeto de automação e evita despesa oculta de cluster.</li>
+<li><strong>Latência baixa</strong> — a rede de borda global entrega resposta rápida, o que importa em chatbot e enriquecimento de dado em tempo real.</li>
+<li><strong>Integração com o que já existe</strong> — somar capacidade de LLM à mesma plataforma usada para voz ou mensagem simplifica autenticação, monitoramento e faturamento.</li>
+<li><strong>Escala sem complexidade</strong> — a API acompanha pico de tráfego sem intervenção manual.</li>
+<li><strong>Atualização sem refatoração</strong> — versões novas do modelo aparecem no mesmo endpoint.</li>
+</ul>
+<h2>A leitura da Tyna</h2>
+<p>O que torna esse lançamento diferente de mais um provedor de inferência é a combinação de canais: <strong>a Telnyx já entrega voz e mensagem</strong>. Somar LLM no mesmo lugar resolve uma dor específica de quem monta atendimento no Brasil.</p>
+<p>O padrão de arquitetura mais comum aqui é WhatsApp na frente, LLM no meio e CRM atrás — com três fornecedores, três faturas, três formas de autenticação e três lugares para procurar quando algo quebra às onze da noite. Reduzir isso a menos peças tem valor operacional real, mesmo que o modelo em si não seja o melhor disponível. Sistema com menos fronteiras é sistema com menos lugar onde falhar.</p>
+<p>O contraponto é a concentração. A resposta da terceira pergunta do FAQ é direta: <strong>não dá para rodar o modelo localmente</strong>, o acesso é só pela API da Telnyx. Isso significa que canal de comunicação e camada de inteligência passam a depender do mesmo fornecedor. Uma indisponibilidade não degrada uma função, derruba o atendimento inteiro. Vale medir se a simplificação compensa perder a independência entre as camadas — e, se compensar, ter definido de antemão o que acontece quando o provedor cai.</p>
+<p>Sobre "custo previsível": pagamento por uso é previsível por requisição, não por mês. Em atendimento, o volume responde a campanha de marketing, sazonalidade e crise — justamente quando ninguém está olhando o painel de custo. Vale configurar alerta de consumo antes de ligar em produção, não depois da primeira fatura fora da curva.</p>
+<h2>Perguntas frequentes</h2>
+<p><strong>P: Como integro o Kimi K3 a um fluxo de n8n?</strong></p>
+<p>R: Adicione um nó de requisição HTTP apontando para o endpoint da Telnyx e passe o prompt no corpo da requisição. A resposta alimenta os nós seguintes.</p>
+<p><strong>P: Existe camada gratuita para teste?</strong></p>
+<p>R: A Telnyx oferece um período de avaliação com créditos limitados, o que permite experimentar antes de assumir custo.</p>
+<p><strong>P: Dá para rodar o Kimi K3 localmente?</strong></p>
+<p>R: Não. O modelo só está disponível pela API de inferência da Telnyx. Uso local exigiria acordo de licenciamento à parte com a Kimi.</p>
+      </div>
+
+      
+      <p class="post-source">Versão em inglês: <a href="https://automationscookbook.com/blog/kimi-k3-now-available-via-telnyx-inference-api-20260728" target="_blank" rel="noopener">Automations Cookbook</a></p>
+
+      <ul class="post-tags"><li>#kimi-k3</li><li>#telnyx</li><li>#api-de-inferencia</li><li>#llm</li><li>#automacao</li></ul>
+    </div>
+  </article>
+
+  <section class="related">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow">Leia também</p><h2>Mais sobre LLMs</h2></div>
+      <div class="post-grid"><article class="post-card">
+  <a class="post-card-link" href="../../blog/llms-recompensam-especialistas/">
+    <span class="tag">LLMs</span>
+    <h3>LLMs estão recompensando quem entende do assunto</h3>
+    <p class="desc">Modelos respondem melhor a quem pergunta com vocabulário e contexto de especialista. Isso muda onde vale investir em um projeto de IA.</p>
+    <time datetime="2026-08-04">04 de agosto de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../blog/redigitar-codigo-de-llm-divida-cognitiva/">
+    <span class="tag">LLMs</span>
+    <h3>Redigitar o código da IA contra a dívida cognitiva</h3>
+    <p class="desc">Um engenheiro passou a digitar à mão o código gerado por LLM em vez de copiar e colar. Os bugs em produção caíram.</p>
+    <time datetime="2026-08-04">04 de agosto de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../blog/analytics-e-avaliacao-de-sessoes-de-agente-no-mcp/">
+    <span class="tag">LLMs</span>
+    <h3>MCP ganha analytics e avaliação de sessões de agente</h3>
+    <p class="desc">Métricas de latência, taxa de sucesso e critérios próprios de avaliação embutidos direto na sessão do agente.</p>
+    <time datetime="2026-08-03">03 de agosto de 2026</time>
+  </a>
+</article></div>
+    </div>
+  </section>
+
+  <section class="cta-band" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Quer aplicar isso na sua empresa, com governança?</h2>
+      <a href="../../#contato" class="btn btn-primary">Agendar conversa</a>
+    </div>
+  </section>
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../../" class="logo"><img src="../../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <a href="mailto:contato@tyna.com.br">contato@tyna.com.br</a>
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Blog</h5>
+          <a href="../../blog/categoria/ai-agents/">Agentes de IA</a>
+          <a href="../../blog/categoria/llm/">LLMs</a>
+          <a href="../../blog/categoria/dev-tools/">Ferramentas de Dev</a>
+          <a href="../../blog/categoria/automation/">Automação</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../../sobre/">Sobre</a>
+          <a href="../../blog/">Blog</a>
+          <a href="../../rss.xml">RSS</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/site.js?v=2"></script>
+
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GPT-5.6 contra Claude Fable 5 em IA física — Blog Tyna</title>
+<meta name="description" content="Um venceu em velocidade por 2%, o outro em raciocínio contextual quando a tarefa muda no meio. A escolha não é óbvia.">
+<link rel="canonical" href="https://tyna.com.br/blog/gpt-5-6-contra-claude-fable-5-em-ia-fisica/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GPT-5.6 contra Claude Fable 5 em IA física — Blog Tyna">
+<meta property="og:description" content="Um venceu em velocidade por 2%, o outro em raciocínio contextual quando a tarefa muda no meio. A escolha não é óbvia.">
+<meta property="og:url" content="https://tyna.com.br/blog/gpt-5-6-contra-claude-fable-5-em-ia-fisica/">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23411E5A%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23F1592B%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="alternate" type="application/rss+xml" title="Blog Tyna" href="https://tyna.com.br/rss.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=2">
+<link rel="stylesheet" href="../../assets/blog.css?v=2">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"GPT-5.6 contra Claude Fable 5 em IA física","description":"Um venceu em velocidade por 2%, o outro em raciocínio contextual quando a tarefa muda no meio. A escolha não é óbvia.","datePublished":"2026-07-29","dateModified":"2026-07-29","inLanguage":"pt-BR","author":{"@type":"Person","name":"Felipe Jacob","url":"https://tyna.com.br/sobre/"},"publisher":{"@type":"Organization","name":"Tyna","url":"https://tyna.com.br","logo":{"@type":"ImageObject","url":"https://tyna.com.br/assets/logo-tyna.png"}},"mainEntityOfPage":"https://tyna.com.br/blog/gpt-5-6-contra-claude-fable-5-em-ia-fisica/","keywords":"modelos-de-ia, ia-fisica, automacao, n8n, robotica","articleSection":"LLMs"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://tyna.com.br"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tyna.com.br/blog/"},{"@type":"ListItem","position":3,"name":"LLMs","item":"https://tyna.com.br/blog/categoria/llm/"},{"@type":"ListItem","position":4,"name":"GPT-5.6 contra Claude Fable 5 em IA física","item":"https://tyna.com.br/blog/gpt-5-6-contra-claude-fable-5-em-ia-fisica/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Dá para alternar entre os dois no mesmo fluxo?","acceptedAnswer":{"@type":"Answer","text":"Sim. Lógica condicional em n8n consegue encaminhar a tarefa ao endpoint adequado conforme a complexidade da entrada."}},{"@type":"Question","name":"Qual sai mais barato em alto volume?","acceptedAnswer":{"@type":"Answer","text":"O GPT-5.6 tende a ter custo por token menor em tarefa simples. Se o fluxo exige contexto profundo com frequência, o consumo maior do Claude Fable 5 pode anular a economia."}},{"@type":"Question","name":"Preciso retreinar os modelos para o meu caso?","acceptedAnswer":{"@type":"Answer","text":"Ambos aceitam ajuste fino, mas na maioria dos cenários industriais prompt bem construído com poucos exemplos já adapta o comportamento."}},{"@type":"Question","name":"Como lidar com vídeo ao vivo?","acceptedAnswer":{"@type":"Answer","text":"O endpoint multimodal do Claude Fable 5 interpreta vídeo com mais riqueza. Se velocidade é o que manda, enviar quadros ao GPT-5.6 com conversão leve de imagem para texto costuma bastar."}}]}</script>
+<link rel="alternate" hreflang="en" href="https://automationscookbook.com/blog/gpt56-vs-claude-fable-5-physical-ai-showdown-20260729">
+<link rel="alternate" hreflang="pt-BR" href="https://tyna.com.br/blog/gpt-5-6-contra-claude-fable-5-em-ia-fisica/">
+<link rel="alternate" hreflang="x-default" href="https://automationscookbook.com/blog/gpt56-vs-claude-fable-5-physical-ai-showdown-20260729">
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../../" class="logo"><img src="../../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../../#servicos">Serviços</a></li>
+        <li><a href="../../#governanca">Governança</a></li>
+        <li><a href="../../#trilhas">Trilhas</a></li>
+        <li><a href="../../blog/">Blog</a></li>
+        <li><a href="../../sobre/">Sobre</a></li>
+        <li><a href="../../#contato" class="btn btn-primary mobile-cta">Falar com um consultor</a></li>
+      </ul>
+    </nav>
+    <a href="../../#contato" class="btn btn-primary" id="navCta">Falar com um consultor</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+  <article class="post">
+    <div class="wrap post-wrap">
+      <nav class="crumbs" aria-label="Trilha"><a href="../../">Início</a> › <a href="../">Blog</a> › <a href="../categoria/llm/">LLMs</a></nav>
+      <p class="eyebrow">LLMs</p>
+      <h1>GPT-5.6 contra Claude Fable 5 em IA física</h1>
+      <p class="post-meta"><time datetime="2026-07-29">29 de julho de 2026</time> · Por <a href="../../sobre/">Felipe Jacob</a></p>
+      <p class="lead">Um venceu em velocidade por 2%, o outro em raciocínio contextual quando a tarefa muda no meio. A escolha não é óbvia.</p>
+
+      <aside class="answer-box"><h2>Resposta curta</h2><p>Em uma bateria de tarefas de IA física — manipulação robótica, interpretação de sensor em tempo real e instrução multimodal — o GPT-5.6 pontuou 2% acima do Claude Fable 5 e concluiu tarefas mais rápido em média. O Claude Fable 5 se saiu melhor em raciocínio contextual, mantendo-se mais estável quando a especificação da tarefa mudava durante a execução.</p></aside>
+
+      <div class="post-body">
+<h2>O que aconteceu</h2>
+<p>O GPT-5.6 pontuou 2% acima do Claude Fable 5 em uma bateria de tarefas de IA física: manipulação robótica, interpretação de sensor em tempo real e obediência a instrução multimodal. Concluiu as tarefas mais rápido, em média. O Claude Fable 5 superou o concorrente em raciocínio contextual, mantendo-se mais estável quando a especificação mudava durante a execução.</p>
+<p>Os dois modelos rodaram no mesmo chão de fábrica simulado: dez braços robóticos, uma série de tarefas de pegar e posicionar, e um fluxo de vídeo ao vivo que exigia decisão imediata. As medições cobriram taxa de sucesso, latência, recuperação de erro e adaptação a instrução nova.</p>
+<p>O contraste é nítido. O GPT-5.6 leva em vazão e latência. O Claude Fable 5 se destaca quando o fluxo exige entender contexto que muda ou instrução ambígua.</p>
+<h2>Por que isso importa para quem constrói</h2>
+<ul>
+<li><strong>Fluxo sensível a latência</strong> — a latência menor do GPT-5.6 encurta o ciclo em ação robótica de tempo real, como separação em armazém ou ajuste em linha de montagem.</li>
+<li><strong>Automação rica em contexto</strong> — o raciocínio contextual do Claude Fable 5 reduz erro em agentes que interpretam instrução em mudança, como atendimento adaptando-se a política nova.</li>
+<li><strong>Estratégia híbrida</strong> — encaminhar tarefa rotineira ao mais rápido e trocar para o mais contextual quando a entrada foge do padrão preserva velocidade e ganha robustez.</li>
+<li><strong>Custo versus desempenho</strong> — inferência mais rápida costuma significar custo menor em alto volume, enquanto raciocínio profundo tende a consumir mais tokens.</li>
+<li><strong>Complexidade de integração</strong> — ambos expõem API compatível com nós de n8n, mas recurso multimodal pode exigir pré-processamento que acrescenta latência.</li>
+<li><strong>Durabilidade da escolha</strong> — os provedores estão avançando mais em tratamento de contexto do que em velocidade bruta, o que favorece quem escolhe pensando em complexidade futura.</li>
+</ul>
+<h2>A leitura da Tyna</h2>
+<p>Comece pela margem: <strong>2%</strong>. Sem intervalo de confiança, sem número de execuções e sem descrição do protocolo, essa diferença não sustenta decisão. Repetir a mesma bateria em outro dia pode inverter o resultado. O título trata como disputa; o dado suporta empate em capacidade bruta.</p>
+<p>O achado que de fato importa é o outro, e não aparece no placar: <strong>os dois modelos falham de formas diferentes.</strong> Um degrada em velocidade sob contexto que muda, o outro degrada em estabilidade sob pressão de tempo. Isso é informação de arquitetura, não de ranking — e é o que deveria orientar a escolha.</p>
+<p>Daí a estratégia híbrida mencionada de passagem ser a conclusão mais útil do material. Mas vale completar o que o texto não diz: rotear entre dois modelos <strong>dobra a superfície de teste</strong>. Você passa a ter dois comportamentos para validar, duas curvas de custo, dois modos de falha e uma lógica de roteamento que também pode errar. Só compensa quando a diferença de desempenho entre os caminhos é grande o bastante para pagar essa complexidade — e uma diferença de 2% não é.</p>
+<p>Uma observação sobre o contexto de aplicação. Tudo isso rodou em <strong>fábrica simulada</strong>. Em ambiente físico real, o que costuma derrubar o sistema não é o raciocínio do modelo: é sensor sujo, iluminação que muda, peça fora de posição e rede instável. Escolher modelo por 2% em simulação, quando a variabilidade do mundo real é uma ordem de grandeza maior, é otimizar a variável errada.</p>
+<h2>Perguntas frequentes</h2>
+<p><strong>P: Dá para alternar entre os dois no mesmo fluxo?</strong></p>
+<p>R: Sim. Lógica condicional em n8n consegue encaminhar a tarefa ao endpoint adequado conforme a complexidade da entrada.</p>
+<p><strong>P: Qual sai mais barato em alto volume?</strong></p>
+<p>R: O GPT-5.6 tende a ter custo por token menor em tarefa simples. Se o fluxo exige contexto profundo com frequência, o consumo maior do Claude Fable 5 pode anular a economia.</p>
+<p><strong>P: Preciso retreinar os modelos para o meu caso?</strong></p>
+<p>R: Ambos aceitam ajuste fino, mas na maioria dos cenários industriais prompt bem construído com poucos exemplos já adapta o comportamento.</p>
+<p><strong>P: Como lidar com vídeo ao vivo?</strong></p>
+<p>R: O endpoint multimodal do Claude Fable 5 interpreta vídeo com mais riqueza. Se velocidade é o que manda, enviar quadros ao GPT-5.6 com conversão leve de imagem para texto costuma bastar.</p>
+      </div>
+
+      
+      <p class="post-source">Versão em inglês: <a href="https://automationscookbook.com/blog/gpt56-vs-claude-fable-5-physical-ai-showdown-20260729" target="_blank" rel="noopener">Automations Cookbook</a></p>
+
+      <ul class="post-tags"><li>#modelos-de-ia</li><li>#ia-fisica</li><li>#automacao</li><li>#n8n</li><li>#robotica</li></ul>
+    </div>
+  </article>
+
+  <section class="related">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow">Leia também</p><h2>Mais sobre LLMs</h2></div>
+      <div class="post-grid"><article class="post-card">
+  <a class="post-card-link" href="../../blog/llms-recompensam-especialistas/">
+    <span class="tag">LLMs</span>
+    <h3>LLMs estão recompensando quem entende do assunto</h3>
+    <p class="desc">Modelos respondem melhor a quem pergunta com vocabulário e contexto de especialista. Isso muda onde vale investir em um projeto de IA.</p>
+    <time datetime="2026-08-04">04 de agosto de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../blog/redigitar-codigo-de-llm-divida-cognitiva/">
+    <span class="tag">LLMs</span>
+    <h3>Redigitar o código da IA contra a dívida cognitiva</h3>
+    <p class="desc">Um engenheiro passou a digitar à mão o código gerado por LLM em vez de copiar e colar. Os bugs em produção caíram.</p>
+    <time datetime="2026-08-04">04 de agosto de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../blog/analytics-e-avaliacao-de-sessoes-de-agente-no-mcp/">
+    <span class="tag">LLMs</span>
+    <h3>MCP ganha analytics e avaliação de sessões de agente</h3>
+    <p class="desc">Métricas de latência, taxa de sucesso e critérios próprios de avaliação embutidos direto na sessão do agente.</p>
+    <time datetime="2026-08-03">03 de agosto de 2026</time>
+  </a>
+</article></div>
+    </div>
+  </section>
+
+  <section class="cta-band" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Quer aplicar isso na sua empresa, com governança?</h2>
+      <a href="../../#contato" class="btn btn-primary">Agendar conversa</a>
+    </div>
+  </section>
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../../" class="logo"><img src="../../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <a href="mailto:contato@tyna.com.br">contato@tyna.com.br</a>
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Blog</h5>
+          <a href="../../blog/categoria/ai-agents/">Agentes de IA</a>
+          <a href="../../blog/categoria/llm/">LLMs</a>
+          <a href="../../blog/categoria/dev-tools/">Ferramentas de Dev</a>
+          <a href="../../blog/categoria/automation/">Automação</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../../sobre/">Sobre</a>
+          <a href="../../blog/">Blog</a>
+          <a href="../../rss.xml">RSS</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/site.js?v=2"></script>
+
+</body>
+</html>

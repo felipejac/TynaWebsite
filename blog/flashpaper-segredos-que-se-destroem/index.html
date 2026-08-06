@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flashpaper: segredos que se destroem sem banco de dados — Blog Tyna</title>
+<meta name="description" content="Compartilhar credencial temporária com leitura única ou prazo de validade, sem armazenar nada em lugar nenhum.">
+<link rel="canonical" href="https://tyna.com.br/blog/flashpaper-segredos-que-se-destroem/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flashpaper: segredos que se destroem sem banco de dados — Blog Tyna">
+<meta property="og:description" content="Compartilhar credencial temporária com leitura única ou prazo de validade, sem armazenar nada em lugar nenhum.">
+<meta property="og:url" content="https://tyna.com.br/blog/flashpaper-segredos-que-se-destroem/">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23411E5A%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23F1592B%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="alternate" type="application/rss+xml" title="Blog Tyna" href="https://tyna.com.br/rss.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=2">
+<link rel="stylesheet" href="../../assets/blog.css?v=2">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Flashpaper: segredos que se destroem sem banco de dados","description":"Compartilhar credencial temporária com leitura única ou prazo de validade, sem armazenar nada em lugar nenhum.","datePublished":"2026-07-28","dateModified":"2026-07-28","inLanguage":"pt-BR","author":{"@type":"Person","name":"Felipe Jacob","url":"https://tyna.com.br/sobre/"},"publisher":{"@type":"Organization","name":"Tyna","url":"https://tyna.com.br","logo":{"@type":"ImageObject","url":"https://tyna.com.br/assets/logo-tyna.png"}},"mainEntityOfPage":"https://tyna.com.br/blog/flashpaper-segredos-que-se-destroem/","keywords":"segredos-efemeros, seguranca, automacao, agentes-de-ia, gestao-de-segredos","articleSection":"Ferramentas de Dev"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://tyna.com.br"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tyna.com.br/blog/"},{"@type":"ListItem","position":3,"name":"Ferramentas de Dev","item":"https://tyna.com.br/blog/categoria/dev-tools/"},{"@type":"ListItem","position":4,"name":"Flashpaper: segredos que se destroem sem banco de dados","item":"https://tyna.com.br/blog/flashpaper-segredos-que-se-destroem/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Ainda consigo auditar quem acessou um segredo?","acceptedAnswer":{"@type":"Answer","text":"Sim. O serviço registra os eventos de acesso sem armazenar o segredo em si, o que preserva a auditabilidade enquanto o dado permanece transitório."}},{"@type":"Question","name":"Como funciona a expiração?","acceptedAnswer":{"@type":"Answer","text":"Você define um tempo de vida ou marca o segredo como de uso único. Passado o prazo ou feita a leitura, o sistema apaga automaticamente."}},{"@type":"Question","name":"Serve para segredo compartilhado entre vários serviços?","acceptedAnswer":{"@type":"Answer","text":"Sim. Gera-se um link que qualquer serviço seguinte pode consumir, válido apenas pela janela configurada ou por um único uso."}}]}</script>
+<link rel="alternate" hreflang="en" href="https://automationscookbook.com/blog/flashpaper-selfdestructing-secret-sharing-without-a-database-20260728">
+<link rel="alternate" hreflang="pt-BR" href="https://tyna.com.br/blog/flashpaper-segredos-que-se-destroem/">
+<link rel="alternate" hreflang="x-default" href="https://automationscookbook.com/blog/flashpaper-selfdestructing-secret-sharing-without-a-database-20260728">
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../../" class="logo"><img src="../../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../../#servicos">Serviços</a></li>
+        <li><a href="../../#governanca">Governança</a></li>
+        <li><a href="../../#trilhas">Trilhas</a></li>
+        <li><a href="../../blog/">Blog</a></li>
+        <li><a href="../../sobre/">Sobre</a></li>
+        <li><a href="../../#contato" class="btn btn-primary mobile-cta">Falar com um consultor</a></li>
+      </ul>
+    </nav>
+    <a href="../../#contato" class="btn btn-primary" id="navCta">Falar com um consultor</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+  <article class="post">
+    <div class="wrap post-wrap">
+      <nav class="crumbs" aria-label="Trilha"><a href="../../">Início</a> › <a href="../">Blog</a> › <a href="../categoria/dev-tools/">Ferramentas de Dev</a></nav>
+      <p class="eyebrow">Ferramentas de Dev</p>
+      <h1>Flashpaper: segredos que se destroem sem banco de dados</h1>
+      <p class="post-meta"><time datetime="2026-07-28">28 de julho de 2026</time> · Por <a href="../../sobre/">Felipe Jacob</a></p>
+      <p class="lead">Compartilhar credencial temporária com leitura única ou prazo de validade, sem armazenar nada em lugar nenhum.</p>
+
+      <aside class="answer-box"><h2>Resposta curta</h2><p>O Flashpaper permite compartilhar segredos que se apagam após uma única leitura ou após um prazo definido, sem armazenar o valor em banco de dados. A arquitetura é sem estado e usa provas criptográficas, oferecendo a mesma função de ferramentas tradicionais de compartilhamento de segredo com superfície de ataque menor.</p></aside>
+
+      <div class="post-body">
+<h2>O que aconteceu</h2>
+<p>O Flashpaper, apresentado no Show HN, permite compartilhar segredos que se apagam após uma única leitura ou depois de um prazo definido. O serviço dispensa armazenar o dado sensível em banco. Quando o segredo é consumido, ele desaparece do servidor sem deixar rastro.</p>
+<p>O projeto mira uma dor comum em automação: passar credencial ou token temporário entre serviços sem persistir nada. Usando arquitetura sem estado e provas criptográficas, entrega a mesma função de ferramentas tradicionais com superfície de ataque menor.</p>
+<h2>Por que isso importa para quem constrói</h2>
+<ul>
+<li><strong>Confiança zero no armazenamento</strong> — o segredo nunca fica guardado, o que reduz risco de vazamento acidental ou uso indevido interno. Útil quando agentes rotacionam chaves de API em tempo de execução.</li>
+<li><strong>Conformidade mais simples</strong> — sem banco de segredos, boa parte da carga regulatória de retenção desaparece. O fluxo ainda prova que o segredo foi usado, sem que o valor bruto permaneça.</li>
+<li><strong>Menos operação</strong> — sem banco, não há backup, replicação nem atualização de versão para manter.</li>
+<li><strong>Desempenho</strong> — serviço sem estado escala na horizontal com latência menor, o que ajuda em pipeline de alta vazão que busca credencial nova com frequência.</li>
+</ul>
+<h2>A leitura da Tyna</h2>
+<p>O argumento de conformidade é o mais forte do lote, e vale explicitar por quê: <strong>o dado que você não guarda é o dado que você não precisa proteger, justificar nem reportar em caso de incidente.</strong></p>
+<p>Boa parte do esforço de adequação à LGPD é gasto criando controle em torno de dado armazenado — política de retenção, criptografia em repouso, controle de acesso, plano de resposta a vazamento. Arquitetura que simplesmente não retém corta esse trabalho na origem, em vez de administrá-lo. É a diferença entre construir um cofre melhor e não ter o que guardar.</p>
+<p>O detalhe que sustenta a proposta é a separação entre <strong>registrar o acesso</strong> e <strong>registrar o conteúdo</strong>. O sistema sabe que um segredo foi lido, quando e por quem, sem saber qual era. Isso preserva a auditoria — que é o que o auditor pede — sem criar o passivo. É um padrão que vale copiar para além de segredos: em muitos fluxos, o que precisa ser provado é que algo aconteceu, não o que estava escrito.</p>
+<p>Uma advertência operacional que o material não faz: <strong>leitura única e automação se dão mal por padrão.</strong> Se um fluxo falha e é reexecutado, a segunda tentativa encontra o segredo já consumido e falha de novo — agora por um motivo diferente do original, o que confunde o diagnóstico. Vale desenhar a repetição de tentativa para buscar credencial nova em vez de reusar o link, e tratar "segredo já consumido" como um caso explícito de erro, não como falha genérica de rede.</p>
+<h2>Perguntas frequentes</h2>
+<p><strong>P: Ainda consigo auditar quem acessou um segredo?</strong></p>
+<p>R: Sim. O serviço registra os eventos de acesso sem armazenar o segredo em si, o que preserva a auditabilidade enquanto o dado permanece transitório.</p>
+<p><strong>P: Como funciona a expiração?</strong></p>
+<p>R: Você define um tempo de vida ou marca o segredo como de uso único. Passado o prazo ou feita a leitura, o sistema apaga automaticamente.</p>
+<p><strong>P: Serve para segredo compartilhado entre vários serviços?</strong></p>
+<p>R: Sim. Gera-se um link que qualquer serviço seguinte pode consumir, válido apenas pela janela configurada ou por um único uso.</p>
+      </div>
+
+      
+      <p class="post-source">Versão em inglês: <a href="https://automationscookbook.com/blog/flashpaper-selfdestructing-secret-sharing-without-a-database-20260728" target="_blank" rel="noopener">Automations Cookbook</a></p>
+
+      <ul class="post-tags"><li>#segredos-efemeros</li><li>#seguranca</li><li>#automacao</li><li>#agentes-de-ia</li><li>#gestao-de-segredos</li></ul>
+    </div>
+  </article>
+
+  <section class="related">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow">Leia também</p><h2>Mais sobre Ferramentas de Dev</h2></div>
+      <div class="post-grid"><article class="post-card">
+  <a class="post-card-link" href="../../blog/hyperprobe-depuracao-somente-leitura-em-producao/">
+    <span class="tag">Ferramentas de Dev</span>
+    <h3>HyperProbe: depuração somente leitura em produção</h3>
+    <p class="desc">Agentes que se acoplam a serviços em execução para inspecionar estado sem alterar nada. A ideia é diagnosticar sem arriscar derrubar.</p>
+    <time datetime="2026-08-05">05 de agosto de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../blog/imagens-geradas-por-ia-afastam-leitores/">
+    <span class="tag">Ferramentas de Dev</span>
+    <h3>Imagem gerada por IA está afastando leitor de blog</h3>
+    <p class="desc">Ilustração automática genérica derruba clique e tempo de página. O problema não é a ferramenta, é publicar sem revisar.</p>
+    <time datetime="2026-08-05">05 de agosto de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../blog/cursor-remove-dado-de-custo-do-painel/">
+    <span class="tag">Ferramentas de Dev</span>
+    <h3>Cursor remove o dado de custo do painel e do CSV</h3>
+    <p class="desc">O painel agora mostra só contagem de tokens. Quem auditava gasto direto na plataforma vai precisar calcular por fora.</p>
+    <time datetime="2026-08-02">02 de agosto de 2026</time>
+  </a>
+</article></div>
+    </div>
+  </section>
+
+  <section class="cta-band" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Quer aplicar isso na sua empresa, com governança?</h2>
+      <a href="../../#contato" class="btn btn-primary">Agendar conversa</a>
+    </div>
+  </section>
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../../" class="logo"><img src="../../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <a href="mailto:contato@tyna.com.br">contato@tyna.com.br</a>
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Blog</h5>
+          <a href="../../blog/categoria/ai-agents/">Agentes de IA</a>
+          <a href="../../blog/categoria/llm/">LLMs</a>
+          <a href="../../blog/categoria/dev-tools/">Ferramentas de Dev</a>
+          <a href="../../blog/categoria/automation/">Automação</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../../sobre/">Sobre</a>
+          <a href="../../blog/">Blog</a>
+          <a href="../../rss.xml">RSS</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/site.js?v=2"></script>
+
+</body>
+</html>

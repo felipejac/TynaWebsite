@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manim roda no navegador via WebGPU — Blog Tyna</title>
+<meta name="description" content="Animação matemática renderizada no cliente, com desempenho próximo ao nativo e sem servidor no caminho.">
+<link rel="canonical" href="https://tyna.com.br/blog/manim-no-navegador-com-webgpu/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Manim roda no navegador via WebGPU — Blog Tyna">
+<meta property="og:description" content="Animação matemática renderizada no cliente, com desempenho próximo ao nativo e sem servidor no caminho.">
+<meta property="og:url" content="https://tyna.com.br/blog/manim-no-navegador-com-webgpu/">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23411E5A%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23F1592B%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="alternate" type="application/rss+xml" title="Blog Tyna" href="https://tyna.com.br/rss.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=2">
+<link rel="stylesheet" href="../../assets/blog.css?v=2">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Manim roda no navegador via WebGPU","description":"Animação matemática renderizada no cliente, com desempenho próximo ao nativo e sem servidor no caminho.","datePublished":"2026-07-29","dateModified":"2026-07-29","inLanguage":"pt-BR","author":{"@type":"Person","name":"Felipe Jacob","url":"https://tyna.com.br/sobre/"},"publisher":{"@type":"Organization","name":"Tyna","url":"https://tyna.com.br","logo":{"@type":"ImageObject","url":"https://tyna.com.br/assets/logo-tyna.png"}},"mainEntityOfPage":"https://tyna.com.br/blog/manim-no-navegador-com-webgpu/","keywords":"webgpu, visualizacao, agentes-de-ia, interface, navegador","articleSection":"Ferramentas de Dev"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://tyna.com.br"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tyna.com.br/blog/"},{"@type":"ListItem","position":3,"name":"Ferramentas de Dev","item":"https://tyna.com.br/blog/categoria/dev-tools/"},{"@type":"ListItem","position":4,"name":"Manim roda no navegador via WebGPU","item":"https://tyna.com.br/blog/manim-no-navegador-com-webgpu/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Preciso reescrever meus scripts do Manim?","acceptedAnswer":{"@type":"Answer","text":"O transpilador converte definições de cena em estilo Python para JavaScript. Dá para partir do código existente e adaptar aos poucos, já que a API permanece familiar."}},{"@type":"Question","name":"O WebGPU está estável o bastante para produção?","acceptedAnswer":{"@type":"Answer","text":"Está em fase final de padronização e já vem nos navegadores estáveis mais recentes. Vale testar nos navegadores do seu público e manter alternativa em canvas ou renderização no servidor."}},{"@type":"Question","name":"Dá para integrar ao meu fluxo de n8n?","acceptedAnswer":{"@type":"Answer","text":"Sim. O n8n pode servir uma página que hospeda o canvas ou embutir a animação como imagem em um nó de e-mail. A renderização continua no cliente."}},{"@type":"Question","name":"Funciona em celular?","acceptedAnswer":{"@type":"Answer","text":"O suporte móvel é experimental. Testes iniciais mostram desempenho aceitável em aparelhos recentes, mas para projeto voltado a celular vale prever alternativa."}}]}</script>
+<link rel="alternate" hreflang="en" href="https://automationscookbook.com/blog/manim-runs-in-browser-via-webgpua-new-way-to-render-ai-agent-20260729">
+<link rel="alternate" hreflang="pt-BR" href="https://tyna.com.br/blog/manim-no-navegador-com-webgpu/">
+<link rel="alternate" hreflang="x-default" href="https://automationscookbook.com/blog/manim-runs-in-browser-via-webgpua-new-way-to-render-ai-agent-20260729">
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../../" class="logo"><img src="../../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../../#servicos">Serviços</a></li>
+        <li><a href="../../#governanca">Governança</a></li>
+        <li><a href="../../#trilhas">Trilhas</a></li>
+        <li><a href="../../blog/">Blog</a></li>
+        <li><a href="../../sobre/">Sobre</a></li>
+        <li><a href="../../#contato" class="btn btn-primary mobile-cta">Falar com um consultor</a></li>
+      </ul>
+    </nav>
+    <a href="../../#contato" class="btn btn-primary" id="navCta">Falar com um consultor</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+  <article class="post">
+    <div class="wrap post-wrap">
+      <nav class="crumbs" aria-label="Trilha"><a href="../../">Início</a> › <a href="../">Blog</a> › <a href="../categoria/dev-tools/">Ferramentas de Dev</a></nav>
+      <p class="eyebrow">Ferramentas de Dev</p>
+      <h1>Manim roda no navegador via WebGPU</h1>
+      <p class="post-meta"><time datetime="2026-07-29">29 de julho de 2026</time> · Por <a href="../../sobre/">Felipe Jacob</a></p>
+      <p class="lead">Animação matemática renderizada no cliente, com desempenho próximo ao nativo e sem servidor no caminho.</p>
+
+      <aside class="answer-box"><h2>Resposta curta</h2><p>O Manim passou a rodar inteiramente no navegador usando WebGPU. Animações matemáticas complexas são renderizadas no lado do cliente com desempenho comparável ao de aplicativo nativo, sem servidor de renderização. O pacote inclui editor web, biblioteca de runtime e um transpilador que converte definições de cena em estilo Python para JavaScript.</p></aside>
+
+      <div class="post-body">
+<h2>O que aconteceu</h2>
+<p>O Manim passou a rodar inteiramente no navegador, usando WebGPU. A demonstração mostra animações matemáticas complexas renderizadas no lado do cliente, com velocidade comparável à de aplicativo nativo. Ao acessar a GPU diretamente, o navegador dá conta de milhares de vértices, texturas de alta resolução e sombreamento em tempo real sem servidor no caminho.</p>
+<p>O lançamento reúne um editor web, uma biblioteca de runtime e cenas de exemplo equivalentes às demonstrações clássicas do Manim. O desenvolvedor escreve definições de cena em estilo Python, transpila para JavaScript e vê o resultado na hora em qualquer navegador com WebGPU. Uma API permite embutir o canvas em páginas existentes.</p>
+<h2>Por que isso importa para quem constrói</h2>
+<ul>
+<li><strong>Renderização no cliente elimina carga de servidor</strong> — fluxos que antes enviavam dados de cena para renderizar remotamente passam a gerar o visual localmente, cortando latência e custo de infraestrutura.</li>
+<li><strong>Retorno visual rico para agentes</strong> — agentes podem embutir gráficos animados direto no painel, o que melhora a compreensão do que está acontecendo.</li>
+<li><strong>Consistência entre plataformas</strong> — o WebGPU roda em navegadores modernos, então o mesmo código funciona em desktop, notebook e tablet.</li>
+<li><strong>Extensível com o que você já usa</strong> — a biblioteca combina com React ou Svelte, e as animações viram componentes reaproveitáveis.</li>
+<li><strong>Tende a melhorar</strong> — conforme o WebGPU amadurece e se espalha, o desempenho acompanha.</li>
+</ul>
+<h2>A leitura da Tyna</h2>
+<p>O uso interessante aqui não é ilustrar conteúdo — é <strong>mostrar o raciocínio do agente enquanto ele acontece</strong>.</p>
+<p>O problema recorrente de painel de agente é que ele exibe texto: log, prompt, resposta. Isso funciona para quem construiu o sistema e é quase inútil para quem precisa aprovar ou auditar o que ele faz. Um gestor olhando cem linhas de log não consegue dizer se o agente decidiu bem. O mesmo percurso desenhado como grafo, com o caminho tomado destacado, é legível em segundos.</p>
+<p>Isso conecta com a discussão de interface para agentes: o pedido mais repetido pela comunidade foi ver estado e rastrear decisão. Renderização rica no cliente é uma peça que faltava para isso ser barato — antes, gerar visualização por execução significava servidor de renderização, o que ninguém montava só para depurar.</p>
+<p>Duas ressalvas práticas. A primeira é que renderizar no cliente significa <strong>enviar o dado ao cliente</strong>. Se a animação representa a decisão de um agente sobre dado de cliente, esse dado agora trafega para o navegador de quem abre o painel — o que muda quem precisa ter permissão para vê-lo.</p>
+<p>A segunda é de compatibilidade. O suporte a WebGPU em dispositivo móvel ainda é experimental, e a documentação do próprio projeto reconhece isso. Painel operacional costuma ser aberto no celular justamente na hora do incidente. Se for esse o caso de uso, precisa de alternativa de contingência — não dá para o painel de plantão depender do navegador certo.</p>
+<h2>Perguntas frequentes</h2>
+<p><strong>P: Preciso reescrever meus scripts do Manim?</strong></p>
+<p>R: O transpilador converte definições de cena em estilo Python para JavaScript. Dá para partir do código existente e adaptar aos poucos, já que a API permanece familiar.</p>
+<p><strong>P: O WebGPU está estável o bastante para produção?</strong></p>
+<p>R: Está em fase final de padronização e já vem nos navegadores estáveis mais recentes. Vale testar nos navegadores do seu público e manter alternativa em canvas ou renderização no servidor.</p>
+<p><strong>P: Dá para integrar ao meu fluxo de n8n?</strong></p>
+<p>R: Sim. O n8n pode servir uma página que hospeda o canvas ou embutir a animação como imagem em um nó de e-mail. A renderização continua no cliente.</p>
+<p><strong>P: Funciona em celular?</strong></p>
+<p>R: O suporte móvel é experimental. Testes iniciais mostram desempenho aceitável em aparelhos recentes, mas para projeto voltado a celular vale prever alternativa.</p>
+      </div>
+
+      
+      <p class="post-source">Versão em inglês: <a href="https://automationscookbook.com/blog/manim-runs-in-browser-via-webgpua-new-way-to-render-ai-agent-20260729" target="_blank" rel="noopener">Automations Cookbook</a></p>
+
+      <ul class="post-tags"><li>#webgpu</li><li>#visualizacao</li><li>#agentes-de-ia</li><li>#interface</li><li>#navegador</li></ul>
+    </div>
+  </article>
+
+  <section class="related">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow">Leia também</p><h2>Mais sobre Ferramentas de Dev</h2></div>
+      <div class="post-grid"><article class="post-card">
+  <a class="post-card-link" href="../../blog/hyperprobe-depuracao-somente-leitura-em-producao/">
+    <span class="tag">Ferramentas de Dev</span>
+    <h3>HyperProbe: depuração somente leitura em produção</h3>
+    <p class="desc">Agentes que se acoplam a serviços em execução para inspecionar estado sem alterar nada. A ideia é diagnosticar sem arriscar derrubar.</p>
+    <time datetime="2026-08-05">05 de agosto de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../blog/imagens-geradas-por-ia-afastam-leitores/">
+    <span class="tag">Ferramentas de Dev</span>
+    <h3>Imagem gerada por IA está afastando leitor de blog</h3>
+    <p class="desc">Ilustração automática genérica derruba clique e tempo de página. O problema não é a ferramenta, é publicar sem revisar.</p>
+    <time datetime="2026-08-05">05 de agosto de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../blog/cursor-remove-dado-de-custo-do-painel/">
+    <span class="tag">Ferramentas de Dev</span>
+    <h3>Cursor remove o dado de custo do painel e do CSV</h3>
+    <p class="desc">O painel agora mostra só contagem de tokens. Quem auditava gasto direto na plataforma vai precisar calcular por fora.</p>
+    <time datetime="2026-08-02">02 de agosto de 2026</time>
+  </a>
+</article></div>
+    </div>
+  </section>
+
+  <section class="cta-band" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Quer aplicar isso na sua empresa, com governança?</h2>
+      <a href="../../#contato" class="btn btn-primary">Agendar conversa</a>
+    </div>
+  </section>
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../../" class="logo"><img src="../../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <a href="mailto:contato@tyna.com.br">contato@tyna.com.br</a>
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Blog</h5>
+          <a href="../../blog/categoria/ai-agents/">Agentes de IA</a>
+          <a href="../../blog/categoria/llm/">LLMs</a>
+          <a href="../../blog/categoria/dev-tools/">Ferramentas de Dev</a>
+          <a href="../../blog/categoria/automation/">Automação</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../../sobre/">Sobre</a>
+          <a href="../../blog/">Blog</a>
+          <a href="../../rss.xml">RSS</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/site.js?v=2"></script>
+
+</body>
+</html>
