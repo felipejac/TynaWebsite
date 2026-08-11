@@ -1,71 +1,100 @@
 # Tyna — site institucional
 
-Site estático (HTML/CSS/JS puro, sem build) em `index.html`. Sem dependências — basta subir o arquivo em qualquer host estático.
+Site estático em HTML/CSS/JS puro, sem dependências de runtime. O blog é gerado a partir de
+markdown por um script Node próprio (`tools/build-blog.mjs`).
 
-## 1. Enviar para o repositório (felipejac/TynaWebsite)
+## Como publicar (o único jeito que funciona)
 
-O pacote já vem com o git inicializado, o commit feito e o remote `origin` configurado para
-`https://github.com/felipejac/TynaWebsite.git`. Só falta autenticar e enviar:
-
-```bash
-cd tyna-site
-git push -u origin main
-```
-
-Se o Git pedir usuário/senha, use seu usuário do GitHub e um **Personal Access Token** no lugar da senha
-(Settings → Developer settings → Personal access tokens, no próprio GitHub). Se preferir SSH, troque o remote antes:
+> **Produção NÃO sai do GitHub.** O site é hospedado no **Cloudflare Pages** (projeto
+> `tyna-website`) por **upload direto** da pasta `dist/`. Dar `git push` versiona o código
+> mas **não muda nada em produção** — os dois passos são independentes.
+>
+> O projeto está com `Git Provider: No` (confira em `npx wrangler pages project list`), ou seja,
+> não existe build automático a partir do repositório. Isso já fez dois lotes de posts ficarem
+> commitados e fora do ar por dias.
 
 ```bash
-git remote set-url origin git@github.com:felipejac/TynaWebsite.git
-git push -u origin main
+npm run deploy
 ```
 
-Se o repositório `TynaWebsite` já tiver algum conteúdo (ex.: README criado pelo próprio GitHub), o push
-pode ser rejeitado por divergência de histórico — nesse caso:
+Isso sincroniza `dist/` com os arquivos públicos da raiz e sobe para a Cloudflare. Se você
+mexeu em posts do blog, use o comando que regenera o HTML antes de publicar:
 
 ```bash
-git pull origin main --allow-unrelated-histories
-# resolva algum conflito se aparecer, depois:
-git push -u origin main
+npm run deploy:build
 ```
 
-## 2. Ativar o GitHub Pages
+Depois publique também o código (não é opcional — sem isso o repositório fica atrás de produção):
 
-1. No repositório, vá em **Settings → Pages**
-2. Em **Source**, selecione a branch `main` e a pasta `/ (root)`
-3. Salve — o GitHub publica em `https://felipejac.github.io/TynaWebsite/`
+```bash
+git push origin main
+```
 
-O arquivo `CNAME` já está na raiz com `tyna.com.br` — o GitHub Pages vai reconhecer o domínio customizado automaticamente após o DNS ser configurado (passo 3).
+Comandos disponíveis:
 
-## 3. Apontar o domínio (tyna.com.br) via Cloudflare
+| Comando                | O que faz                                                    |
+|------------------------|--------------------------------------------------------------|
+| `npm run build`        | Regenera `blog/`, `sitemap.xml` e `rss.xml` a partir de `content/blog/*.md` |
+| `npm run check`        | Valida os posts (frontmatter, slugs, links)                   |
+| `npm run deploy`       | Sincroniza `dist/` e publica na Cloudflare Pages              |
+| `npm run deploy:build` | `build` + `deploy` numa tacada                                |
 
-Como o domínio já está registrado, só falta apontar o DNS para o GitHub Pages:
+`node tools/deploy.mjs --dry-run` monta `dist/` sem publicar, se você quiser conferir antes.
 
-**Registros a criar no painel DNS da Cloudflare:**
+### Pré-requisitos do deploy
 
-| Tipo  | Nome | Conteúdo             |
-|-------|------|-----------------------|
-| A     | @    | 185.199.108.153        |
-| A     | @    | 185.199.109.153        |
-| A     | @    | 185.199.110.153        |
-| A     | @    | 185.199.111.153        |
-| CNAME | www  | SEU_USUARIO.github.io |
+- Node 20+ e `npx` disponíveis.
+- Estar autenticado no wrangler (`npx wrangler login`). A conta e o projeto ficam em
+  `.wrangler/cache/pages.json` — conta `e985579164d8779fbc6d07ab5561c722`, projeto `tyna-website`.
 
-Deixe o proxy da Cloudflare (ícone da nuvem) **desativado (DNS only)** até confirmar que o site está no ar — depois pode reativar para usar CDN/SSL da Cloudflare.
+### Conferir se foi ao ar
 
-## 4. Confirmar o domínio no GitHub
+```bash
+npx wrangler pages deployment list --project-name tyna-website
+```
 
-Volte em **Settings → Pages** do repositório, digite `tyna.com.br` no campo **Custom domain** e marque **Enforce HTTPS** assim que o certificado for emitido (pode levar até ~24h na primeira propagação).
+A primeira linha deve ser de agora. Se o commit listado for antigo, alguém esqueceu de publicar.
+No navegador, use Ctrl+F5 ou aba anônima — a Cloudflare serve com `max-age=0` mas o cache local engana.
 
 ## Estrutura
 
 ```
-tyna-site/
-├── index.html   ← site completo (HTML + CSS + JS inline)
-├── CNAME        ← domínio customizado para o GitHub Pages
-└── README.md
+tyna_website/
+├── index.html          ← home (HTML + CSS + JS inline)
+├── sobre/index.html    ← página Sobre
+├── blog/               ← GERADO por tools/build-blog.mjs — não editar à mão
+├── assets/             ← styles.css, blog.css, site.js, logo
+├── content/blog/*.md   ← fonte real dos posts (markdown + frontmatter)
+├── tools/
+│   ├── build-blog.mjs  ← gerador do blog
+│   ├── check-blog.mjs  ← validador dos posts
+│   ├── scaffold-posts.mjs
+│   └── deploy.mjs      ← sincroniza dist/ e publica
+├── dist/               ← saída do deploy (gitignored, descartável)
+├── rss.xml, sitemap.xml← GERADOS pelo build
+└── CNAME               ← herança do GitHub Pages; a Cloudflare não usa
 ```
+
+Os arquivos em `blog/` são commitados, mas são **saída de build**: edite o markdown em
+`content/blog/` e rode `npm run build`. O gerador apaga e recria `blog/` inteiro.
 
 ## Editar conteúdo
 
-Todo o conteúdo (textos, cases, trilhas) está direto no `index.html`, em português, organizado por seção com comentários HTML (`<!-- SERVIÇOS -->`, `<!-- TRILHAS -->` etc.) para localizar rápido.
+- **Home e Sobre**: direto no HTML, organizados por seção com comentários (`<!-- SERVIÇOS -->`,
+  `<!-- TRILHAS -->` etc.).
+- **Posts**: markdown em `content/blog/`, com frontmatter (`title`, `description`, `date`,
+  `category`, `tags`). `node tools/scaffold-posts.mjs` cria o esqueleto.
+
+## Detalhes que já causaram problema
+
+**CTA "Agendar conversa"** — todos os botões apontam para
+`mailto:contato@tyna.com.br?subject=Agendamento%20reuni%C3%A3o%20Tyna`, que abre o cliente de
+e-mail do dispositivo com o assunto preenchido. Cada um está envolvido em
+`<!--email_off-->…<!--/email_off-->`: sem isso a **ofuscação de e-mail da Cloudflare**
+(Scrape Shield) reescreve o `href` para `/cdn-cgi/l/email-protection#…` e o botão só funciona
+depois que o JavaScript dela roda. Mantenha os comentários ao mexer nesses botões — no
+`build-blog.mjs` isso está centralizado no helper `ctaAgendar()`.
+
+**DNS** — `tyna.com.br` aponta para a Cloudflare, com o domínio customizado configurado no
+projeto do Pages. Os registros A do GitHub Pages e o arquivo `CNAME` na raiz são resquício da
+configuração antiga e não têm efeito.

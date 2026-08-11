@@ -11,7 +11,12 @@ const SRC = join(ROOT, 'content', 'blog');
 const OUT = join(ROOT, 'blog');
 const SITE = 'https://tyna.com.br';
 // CTA "Agendar conversa": abre o cliente de e-mail do dispositivo com assunto preenchido.
+// Os comentários email_off desligam a ofuscação de e-mail da Cloudflare (Scrape Shield)
+// nesse trecho — sem eles o href vira /cdn-cgi/l/email-protection e só volta a ser mailto:
+// depois que o JS da Cloudflare roda.
 const MAILTO_CTA = 'mailto:contato@tyna.com.br?subject=Agendamento%20reuni%C3%A3o%20Tyna';
+const ctaAgendar = (cls = '', attrs = '') =>
+  `<!--email_off--><a href="${MAILTO_CTA}" class="btn btn-primary${cls ? ' ' + cls : ''}"${attrs ? ' ' + attrs : ''}>Agendar conversa</a><!--/email_off-->`;
 const ASSET_V = '2';
 
 const CATEGORIES = {
@@ -138,10 +143,10 @@ ${head}</head>
         <li><a href="${up}#trilhas">Trilhas</a></li>
         <li><a href="${up}blog/">Blog</a></li>
         <li><a href="${up}sobre/">Sobre</a></li>
-        <li><a href="${MAILTO_CTA}" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+        <li>${ctaAgendar('mobile-cta')}</li>
       </ul>
     </nav>
-    <a href="${MAILTO_CTA}" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    ${ctaAgendar('', 'id="navCta"')}
     <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
   </div>
 </header>
@@ -285,7 +290,7 @@ ${mdToHtml(p.body)}
     <div class="wrap">
       <p class="eyebrow">Próximo passo</p>
       <h2>Quer aplicar isso na sua empresa, com governança?</h2>
-      <a href="${MAILTO_CTA}" class="btn btn-primary">Agendar conversa</a>
+      ${ctaAgendar()}
     </div>
   </section>
 </main>`;
