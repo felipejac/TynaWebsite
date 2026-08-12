@@ -157,13 +157,13 @@ ${body}
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-left">
-        <a href="${up}" class="logo"><img src="${up}assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <a href="${up}" class="logo"><img src="${up}assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
         <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
       </div>
       <div class="foot-right">
         <div class="foot-col">
           <h5>Contato</h5>
-          <a href="mailto:contato@tyna.com.br">contato@tyna.com.br</a>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
           <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
         </div>
         <div class="foot-col">
