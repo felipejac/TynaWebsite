@@ -19,7 +19,12 @@ const PROJECT = 'tyna-website';
 const BRANCH = 'main';
 
 // O que é público. CNAME, content/, tools/, docs/ e imagens de trabalho ficam de fora.
-const PUBLISH = ['index.html', 'sobre', 'iso-42001', 'blog', 'assets', 'rss.xml', 'sitemap.xml'];
+//
+// `404.html` não é decoração: sem esse arquivo na raiz do deploy, o Cloudflare Pages
+// entra em modo SPA e devolve a home com status 200 para QUALQUER URL inexistente —
+// soft 404 que o Google indexa como conteúdo duplicado. A presença do arquivo é o que
+// desliga esse comportamento; não há botão no painel.
+const PUBLISH = ['index.html', '404.html', 'sobre', 'iso-42001', 'blog', 'assets', 'rss.xml', 'sitemap.xml'];
 
 const args = process.argv.slice(2);
 const has = f => args.includes(f);
