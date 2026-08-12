@@ -11,16 +11,16 @@
 <meta property="og:description" content="Um engenheiro passou a digitar à mão o código gerado por LLM em vez de copiar e colar. Os bugs em produção caíram.">
 <meta property="og:url" content="https://tyna.com.br/blog/redigitar-codigo-de-llm-divida-cognitiva/">
 <meta property="og:locale" content="pt_BR">
-<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna.png">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna-dark.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23411E5A%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23F1592B%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
 <link rel="alternate" type="application/rss+xml" title="Blog Tyna" href="https://tyna.com.br/rss.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../assets/styles.css?v=3">
-<link rel="stylesheet" href="../../assets/blog.css?v=3">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Redigitar o código da IA contra a dívida cognitiva","description":"Um engenheiro passou a digitar à mão o código gerado por LLM em vez de copiar e colar. Os bugs em produção caíram.","datePublished":"2026-08-04","dateModified":"2026-08-04","inLanguage":"pt-BR","author":{"@type":"Person","name":"Felipe Jacob","url":"https://tyna.com.br/sobre/"},"publisher":{"@type":"Organization","name":"Tyna","url":"https://tyna.com.br","logo":{"@type":"ImageObject","url":"https://tyna.com.br/assets/logo-tyna.png"}},"mainEntityOfPage":"https://tyna.com.br/blog/redigitar-codigo-de-llm-divida-cognitiva/","keywords":"automacao, llm, divida-cognitiva, boas-praticas, revisao-de-codigo","articleSection":"LLMs","citation":"https://ankursethi.com"}</script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=4">
+<link rel="stylesheet" href="../../assets/blog.css?v=4">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Redigitar o código da IA contra a dívida cognitiva","description":"Um engenheiro passou a digitar à mão o código gerado por LLM em vez de copiar e colar. Os bugs em produção caíram.","datePublished":"2026-08-04","dateModified":"2026-08-04","inLanguage":"pt-BR","author":{"@type":"Person","name":"Felipe Jacob","url":"https://tyna.com.br/sobre/"},"publisher":{"@type":"Organization","name":"Tyna","url":"https://tyna.com.br","logo":{"@type":"ImageObject","url":"https://tyna.com.br/assets/logo-tyna-dark.png"}},"mainEntityOfPage":"https://tyna.com.br/blog/redigitar-codigo-de-llm-divida-cognitiva/","keywords":"automacao, llm, divida-cognitiva, boas-praticas, revisao-de-codigo","articleSection":"LLMs","citation":"https://ankursethi.com"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://tyna.com.br"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tyna.com.br/blog/"},{"@type":"ListItem","position":3,"name":"LLMs","item":"https://tyna.com.br/blog/categoria/llm/"},{"@type":"ListItem","position":4,"name":"Redigitar o código da IA contra a dívida cognitiva","item":"https://tyna.com.br/blog/redigitar-codigo-de-llm-divida-cognitiva/"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Redigitar compensa em relação a rodar linter automático?","acceptedAnswer":{"@type":"Answer","text":"Os minutos a mais no início costumam se pagar no tempo de depuração que você não gasta depois. Não é substituto de linter — pega uma classe diferente de erro, a de lógica e de premissa."}},{"@type":"Question","name":"Como encaixo isso na esteira de CI/CD?","acceptedAnswer":{"@type":"Answer","text":"Trate a versão redigitada como a fonte de verdade e rode as ferramentas contra ela."}},{"@type":"Question","name":"É viável em base de código grande?","acceptedAnswer":{"@type":"Answer","text":"Como prática geral, não. A recomendação é aplicar em módulos críticos e adotar uma abordagem híbrida no resto."}}]}</script>
 <link rel="alternate" hreflang="en" href="https://automationscookbook.com/blog/manual-retyping-of-llm-code-to-avoid-cognitive-debt-20260804">
@@ -31,7 +31,7 @@
 
 <header>
   <div class="wrap nav">
-    <a href="../../" class="logo"><img src="../../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <a href="../../" class="logo"><img src="../../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
     <nav>
       <ul id="navList">
         <li><a href="../../#servicos">Serviços</a></li>
@@ -135,7 +135,7 @@
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-left">
-        <a href="../../" class="logo"><img src="../../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <a href="../../" class="logo"><img src="../../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
         <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
       </div>
       <div class="foot-right">
@@ -167,7 +167,7 @@
   </div>
 </footer>
 
-<script src="../../assets/site.js?v=3"></script>
+<script src="../../assets/site.js?v=4"></script>
 
 </body>
 </html>

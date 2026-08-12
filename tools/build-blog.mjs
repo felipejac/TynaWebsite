@@ -17,7 +17,7 @@ const SITE = 'https://tyna.com.br';
 const MAILTO_CTA = 'mailto:contato@tyna.com.br?subject=Agendamento%20reuni%C3%A3o%20Tyna';
 const ctaAgendar = (cls = '', attrs = '') =>
   `<!--email_off--><a href="${MAILTO_CTA}" class="btn btn-primary${cls ? ' ' + cls : ''}"${attrs ? ' ' + attrs : ''}>Agendar conversa</a><!--/email_off-->`;
-const ASSET_V = '3';
+const ASSET_V = '4';
 
 const CATEGORIES = {
   'ai-agents': 'Agentes de IA',
@@ -121,13 +121,13 @@ function shell({ title, description, canonical, head = '', body, depth }) {
 <meta property="og:description" content="${escAttr(description)}">
 <meta property="og:url" content="${canonical}">
 <meta property="og:locale" content="pt_BR">
-<meta property="og:image" content="${SITE}/assets/logo-tyna.png">
+<meta property="og:image" content="${SITE}/assets/logo-tyna-dark.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23411E5A%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23F1592B%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
 <link rel="alternate" type="application/rss+xml" title="Blog Tyna" href="${SITE}/rss.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="${up}assets/styles.css?v=${ASSET_V}">
 <link rel="stylesheet" href="${up}assets/blog.css?v=${ASSET_V}">
 ${head}</head>
@@ -135,7 +135,7 @@ ${head}</head>
 
 <header>
   <div class="wrap nav">
-    <a href="${up}" class="logo"><img src="${up}assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <a href="${up}" class="logo"><img src="${up}assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
     <nav>
       <ul id="navList">
         <li><a href="${up}#servicos">Serviços</a></li>
@@ -157,7 +157,7 @@ ${body}
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-left">
-        <a href="${up}" class="logo"><img src="${up}assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <a href="${up}" class="logo"><img src="${up}assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
         <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
       </div>
       <div class="foot-right">
@@ -228,7 +228,7 @@ for (const p of posts) {
     datePublished: p.pubDate, dateModified: p.pubDate,
     inLanguage: 'pt-BR',
     author: { '@type': 'Person', name: 'Felipe Jacob', url: `${SITE}/sobre/` },
-    publisher: { '@type': 'Organization', name: 'Tyna', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}/assets/logo-tyna.png` } },
+    publisher: { '@type': 'Organization', name: 'Tyna', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}/assets/logo-tyna-dark.png` } },
     mainEntityOfPage: canonical,
     keywords: p.tags.join(', '),
     articleSection: CATEGORIES[p.category] || p.category,
