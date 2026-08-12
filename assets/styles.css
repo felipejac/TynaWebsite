@@ -247,6 +247,8 @@
   .steps{border-top:1px solid var(--line);}
   .step{display:grid; grid-template-columns:56px 1fr; gap:26px; padding:28px 0; border-bottom:1px solid var(--line); align-items:start;}
   .step-num{font-family:var(--mono); font-size:24px; color:var(--gold); line-height:1.1;}
+  /* trava a medida do texto: sem isto a linha corre os ~1030px da coluna */
+  .step > div{max-width:760px;}
   .step h3{font-size:19px; margin-bottom:10px;}
   .step p{color:var(--text-muted); font-size:15.5px;}
   .step.is-chave{background:var(--surface); border-left:2px solid var(--gold); padding:28px 26px;}
