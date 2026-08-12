@@ -233,6 +233,49 @@
   .objection p{color:var(--text-muted); font-size:15.5px;}
   .objection p strong{color:var(--text); font-weight:400;}
 
+  /* ---------- ISO 42001 ---------- */
+
+  /* Equivalência entre as normas: 9001 / 27001 / 42001 */
+  .norma-row{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
+  .norma-item{background:var(--ink); padding:26px 24px; display:flex; flex-direction:column; gap:6px;}
+  .norma-item.is-alvo{background:var(--surface);}
+  .norma-code{font-family:var(--display); font-weight:700; font-size:21px; letter-spacing:-0.01em;}
+  .norma-item.is-alvo .norma-code{color:var(--gold);}
+  .norma-for{font-family:var(--mono); font-size:11.5px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted);}
+
+  /* Etapas do processo de certificação */
+  .steps{border-top:1px solid var(--line);}
+  .step{display:grid; grid-template-columns:56px 1fr; gap:26px; padding:28px 0; border-bottom:1px solid var(--line); align-items:start;}
+  .step-num{font-family:var(--mono); font-size:24px; color:var(--gold); line-height:1.1;}
+  .step h3{font-size:19px; margin-bottom:10px;}
+  .step p{color:var(--text-muted); font-size:15.5px;}
+  .step.is-chave{background:var(--surface); border-left:2px solid var(--gold); padding:28px 26px;}
+  .step.is-chave .step-num{color:var(--gold);}
+  .step-flag{
+    display:block; margin-top:14px; font-family:var(--mono); font-size:12.5px;
+    color:var(--good); letter-spacing:0.02em;
+  }
+
+  /* Tabela de prazos */
+  .spec-table{width:100%; border-collapse:collapse; border:1px solid var(--line);}
+  .spec-table th{
+    text-align:left; font-family:var(--mono); font-size:11.5px; letter-spacing:0.1em;
+    text-transform:uppercase; color:var(--text-muted); font-weight:400;
+    padding:15px 22px; background:var(--surface); border-bottom:1px solid var(--line);
+  }
+  .spec-table td{padding:18px 22px; border-bottom:1px solid var(--line); font-size:15px; color:var(--text-muted); vertical-align:top;}
+  .spec-table tr:last-child td{border-bottom:0;}
+  .spec-table td:first-child{width:52%; color:var(--text); font-family:var(--display); font-weight:500; font-size:15.5px;}
+  .spec-table .prazo{color:var(--gold); font-family:var(--mono); font-size:14px;}
+
+  /* Benefícios em resumo */
+  .benefits{list-style:none; display:grid; grid-template-columns:repeat(2,1fr); gap:0 48px;}
+  .benefits li{
+    position:relative; padding:17px 0 17px 26px; border-top:1px solid var(--line);
+    color:var(--text-muted); font-size:15.5px;
+  }
+  .benefits li::before{content:'—'; position:absolute; left:0; top:17px; color:var(--gold-dim);}
+
   /* WhatsApp flutuante */
   .wa-fab{
     position:fixed; right:22px; bottom:22px; z-index:200;
@@ -265,6 +308,16 @@
   .reveal.in{opacity:1; transform:none;}
 
   /* ---------- Responsive ---------- */
+
+  /* Faixa intermediária: o menu ainda é horizontal, mas precisa caber. Sem isto a barra
+     pede ~1014px e o notebook entre 862px e 1014px ganha rolagem lateral. */
+  @media (max-width:1100px){
+    .nav{gap:18px;}
+    .logo span{display:none;}
+    nav ul{gap:20px;}
+    nav ul a{font-size:13.5px;}
+  }
+
   @media (max-width:900px){
     nav ul{gap:24px;}
     .logo span{display:none;}
@@ -291,6 +344,8 @@
     }
     .compare-row p.c-tyna{border-left:2px solid var(--gold); padding-left:15px;}
     .compare-row p.c-tyna .c-tag{color:var(--gold);}
+    .norma-row{grid-template-columns:1fr;}
+    .benefits{grid-template-columns:1fr;}
   }
 
   /* O menu vira hambúrguer antes de 720: com os links + CTA a barra passava de 800px
@@ -330,6 +385,16 @@
     .agent-gov ul{grid-template-columns:1fr; gap:0;}
     .agent-gov li{padding:16px 0;}
     .objection{padding:22px 22px;}
+    .step{grid-template-columns:1fr; gap:10px; padding:24px 0;}
+    .step.is-chave{padding:24px 20px;}
+    .step-num{font-size:20px;}
+    /* tabela de prazos empilha: são só duas colunas, rolagem lateral seria pior */
+    .spec-table, .spec-table tbody, .spec-table tr, .spec-table td{display:block; width:100%;}
+    .spec-table thead{display:none;}
+    .spec-table tr{padding:18px 0; border-bottom:1px solid var(--line);}
+    .spec-table tr:last-child{border-bottom:0;}
+    .spec-table td{border:0; padding:0 20px;}
+    .spec-table td:first-child{width:auto; margin-bottom:7px;}
     /* mais folga do polegar e do rodapé no mobile */
     .wa-fab{right:16px; bottom:16px; width:54px; height:54px;}
     .wa-fab svg{width:29px; height:29px;}

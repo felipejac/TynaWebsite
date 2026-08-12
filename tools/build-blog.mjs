@@ -139,7 +139,7 @@ ${head}</head>
     <nav>
       <ul id="navList">
         <li><a href="${up}#servicos">Serviços</a></li>
-        <li><a href="${up}#governanca">Governança</a></li>
+        <li><a href="${up}iso-42001/">ISO 42001</a></li>
         <li><a href="${up}#trilhas">Trilhas</a></li>
         <li><a href="${up}blog/">Blog</a></li>
         <li><a href="${up}sobre/">Sobre</a></li>
@@ -172,6 +172,7 @@ ${body}
         </div>
         <div class="foot-col">
           <h5>Site</h5>
+          <a href="${up}iso-42001/">ISO 42001</a>
           <a href="${up}sobre/">Sobre</a>
           <a href="${up}blog/">Blog</a>
           <a href="${up}rss.xml">RSS</a>
@@ -362,6 +363,7 @@ for (const [slug, name] of Object.entries(CATEGORIES)) {
 
 const staticPages = [
   { loc: `${SITE}/`, pri: '1.0', freq: 'weekly' },
+  { loc: `${SITE}/iso-42001/`, pri: '0.9', freq: 'monthly' },
   { loc: `${SITE}/sobre/`, pri: '0.8', freq: 'monthly' },
   { loc: `${SITE}/blog/`, pri: '0.9', freq: 'daily' },
   ...Object.keys(CATEGORIES).filter(s => posts.some(p => p.category === s))

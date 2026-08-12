@@ -62,6 +62,7 @@ No navegador, use Ctrl+F5 ou aba anônima — a Cloudflare serve com `max-age=0`
 tyna_website/
 ├── index.html          ← home (HTML + CSS + JS inline)
 ├── sobre/index.html    ← página Sobre
+├── iso-42001/index.html← página de certificação ISO/IEC 42001
 ├── blog/               ← GERADO por tools/build-blog.mjs — não editar à mão
 ├── assets/             ← styles.css, blog.css, site.js, logo
 ├── content/blog/*.md   ← fonte real dos posts (markdown + frontmatter)
@@ -80,8 +81,10 @@ Os arquivos em `blog/` são commitados, mas são **saída de build**: edite o ma
 
 ## Editar conteúdo
 
-- **Home e Sobre**: direto no HTML, organizados por seção com comentários (`<!-- SERVIÇOS -->`,
-  `<!-- TRILHAS -->` etc.).
+- **Home, Sobre e ISO 42001**: direto no HTML, organizados por seção com comentários
+  (`<!-- SERVIÇOS -->`, `<!-- TRILHAS -->` etc.). Página nova na raiz precisa entrar na lista
+  `PUBLISH` do `tools/deploy.mjs` e em `staticPages` do `tools/build-blog.mjs` (sitemap) —
+  sem isso ela não vai para produção e não é indexada.
 - **Posts**: markdown em `content/blog/`, com frontmatter (`title`, `description`, `date`,
   `category`, `tags`). `node tools/scaffold-posts.mjs` cria o esqueleto.
 

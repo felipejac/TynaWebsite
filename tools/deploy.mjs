@@ -19,7 +19,7 @@ const PROJECT = 'tyna-website';
 const BRANCH = 'main';
 
 // O que é público. CNAME, content/, tools/, docs/ e imagens de trabalho ficam de fora.
-const PUBLISH = ['index.html', 'sobre', 'blog', 'assets', 'rss.xml', 'sitemap.xml'];
+const PUBLISH = ['index.html', 'sobre', 'iso-42001', 'blog', 'assets', 'rss.xml', 'sitemap.xml'];
 
 const args = process.argv.slice(2);
 const has = f => args.includes(f);
