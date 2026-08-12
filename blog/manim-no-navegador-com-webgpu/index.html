@@ -11,16 +11,16 @@
 <meta property="og:description" content="Animação matemática renderizada no cliente, com desempenho próximo ao nativo e sem servidor no caminho.">
 <meta property="og:url" content="https://tyna.com.br/blog/manim-no-navegador-com-webgpu/">
 <meta property="og:locale" content="pt_BR">
-<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna.png">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna-dark.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23411E5A%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23F1592B%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
 <link rel="alternate" type="application/rss+xml" title="Blog Tyna" href="https://tyna.com.br/rss.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../assets/styles.css?v=2">
-<link rel="stylesheet" href="../../assets/blog.css?v=2">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Manim roda no navegador via WebGPU","description":"Animação matemática renderizada no cliente, com desempenho próximo ao nativo e sem servidor no caminho.","datePublished":"2026-07-29","dateModified":"2026-07-29","inLanguage":"pt-BR","author":{"@type":"Person","name":"Felipe Jacob","url":"https://tyna.com.br/sobre/"},"publisher":{"@type":"Organization","name":"Tyna","url":"https://tyna.com.br","logo":{"@type":"ImageObject","url":"https://tyna.com.br/assets/logo-tyna.png"}},"mainEntityOfPage":"https://tyna.com.br/blog/manim-no-navegador-com-webgpu/","keywords":"webgpu, visualizacao, agentes-de-ia, interface, navegador","articleSection":"Ferramentas de Dev"}</script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=4">
+<link rel="stylesheet" href="../../assets/blog.css?v=4">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Manim roda no navegador via WebGPU","description":"Animação matemática renderizada no cliente, com desempenho próximo ao nativo e sem servidor no caminho.","datePublished":"2026-07-29","dateModified":"2026-07-29","inLanguage":"pt-BR","author":{"@type":"Person","name":"Felipe Jacob","url":"https://tyna.com.br/sobre/"},"publisher":{"@type":"Organization","name":"Tyna","url":"https://tyna.com.br","logo":{"@type":"ImageObject","url":"https://tyna.com.br/assets/logo-tyna-dark.png"}},"mainEntityOfPage":"https://tyna.com.br/blog/manim-no-navegador-com-webgpu/","keywords":"webgpu, visualizacao, agentes-de-ia, interface, navegador","articleSection":"Ferramentas de Dev"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://tyna.com.br"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tyna.com.br/blog/"},{"@type":"ListItem","position":3,"name":"Ferramentas de Dev","item":"https://tyna.com.br/blog/categoria/dev-tools/"},{"@type":"ListItem","position":4,"name":"Manim roda no navegador via WebGPU","item":"https://tyna.com.br/blog/manim-no-navegador-com-webgpu/"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Preciso reescrever meus scripts do Manim?","acceptedAnswer":{"@type":"Answer","text":"O transpilador converte definições de cena em estilo Python para JavaScript. Dá para partir do código existente e adaptar aos poucos, já que a API permanece familiar."}},{"@type":"Question","name":"O WebGPU está estável o bastante para produção?","acceptedAnswer":{"@type":"Answer","text":"Está em fase final de padronização e já vem nos navegadores estáveis mais recentes. Vale testar nos navegadores do seu público e manter alternativa em canvas ou renderização no servidor."}},{"@type":"Question","name":"Dá para integrar ao meu fluxo de n8n?","acceptedAnswer":{"@type":"Answer","text":"Sim. O n8n pode servir uma página que hospeda o canvas ou embutir a animação como imagem em um nó de e-mail. A renderização continua no cliente."}},{"@type":"Question","name":"Funciona em celular?","acceptedAnswer":{"@type":"Answer","text":"O suporte móvel é experimental. Testes iniciais mostram desempenho aceitável em aparelhos recentes, mas para projeto voltado a celular vale prever alternativa."}}]}</script>
 <link rel="alternate" hreflang="en" href="https://automationscookbook.com/blog/manim-runs-in-browser-via-webgpua-new-way-to-render-ai-agent-20260729">
@@ -31,11 +31,11 @@
 
 <header>
   <div class="wrap nav">
-    <a href="../../" class="logo"><img src="../../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <a href="../../" class="logo"><img src="../../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
     <nav>
       <ul id="navList">
         <li><a href="../../#servicos">Serviços</a></li>
-        <li><a href="../../#governanca">Governança</a></li>
+        <li><a href="../../iso-42001/">ISO 42001</a></li>
         <li><a href="../../#trilhas">Trilhas</a></li>
         <li><a href="../../blog/">Blog</a></li>
         <li><a href="../../sobre/">Sobre</a></li>
@@ -143,7 +143,7 @@
       <div class="foot-right">
         <div class="foot-col">
           <h5>Contato</h5>
-          <a href="mailto:contato@tyna.com.br">contato@tyna.com.br</a>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
           <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
         </div>
         <div class="foot-col">
@@ -155,6 +155,7 @@
         </div>
         <div class="foot-col">
           <h5>Site</h5>
+          <a href="../../iso-42001/">ISO 42001</a>
           <a href="../../sobre/">Sobre</a>
           <a href="../../blog/">Blog</a>
           <a href="../../rss.xml">RSS</a>
@@ -168,7 +169,7 @@
   </div>
 </footer>
 
-<script src="../../assets/site.js?v=2"></script>
+<script src="../../assets/site.js?v=4"></script>
 
 </body>
 </html>

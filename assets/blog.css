@@ -8,14 +8,14 @@
   font-family:var(--mono); font-size:12px; letter-spacing:0.08em; text-transform:uppercase;
   padding:9px 16px; border:1px solid var(--line); border-radius:2px; color:var(--text-muted); transition:all .2s;
 }
-.cat-nav a:hover{border-color:var(--orange); color:var(--text);}
+.cat-nav a:hover{border-color:var(--orange); color:var(--orange-ink);}
 .cat-nav a.on{background:var(--orange); border-color:var(--orange); color:#fff; font-weight:600;}
 
 .post-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
 .post-card{background:var(--ink); transition:background .25s;}
 .post-card:hover{background:var(--surface);}
 .post-card-link{display:flex; flex-direction:column; gap:12px; padding:30px 26px; height:100%;}
-.post-card .tag{font-family:var(--mono); font-size:10.5px; letter-spacing:0.1em; text-transform:uppercase; color:var(--orange);}
+.post-card .tag{font-family:var(--mono); font-size:10.5px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent);}
 .post-card h3{font-size:18px; line-height:1.3;}
 .post-card .desc{color:var(--text-muted); font-size:14.5px; flex-grow:1;}
 .post-card time{font-family:var(--mono); font-size:11px; color:var(--text-muted); letter-spacing:0.04em;}
@@ -24,21 +24,21 @@
 .post{padding:64px 0 20px; border-bottom:none;}
 .post-wrap{max-width:760px;}
 .crumbs{font-family:var(--mono); font-size:11.5px; color:var(--text-muted); letter-spacing:0.04em; margin-bottom:26px;}
-.crumbs a:hover{color:var(--orange);}
+.crumbs a:hover{color:var(--orange-ink);}
 .post h1{font-size:clamp(29px,3.8vw,46px); margin-bottom:16px;}
 .post-meta{font-family:var(--mono); font-size:12px; color:var(--text-muted); margin-bottom:24px; letter-spacing:0.03em;}
 .post-meta a{border-bottom:1px solid var(--line);}
-.post-meta a:hover{color:var(--orange);}
+.post-meta a:hover{color:var(--orange-ink);}
 .post .lead{font-size:19px; color:var(--text-muted); margin-bottom:34px;}
 
 /* Caixa de resposta direta — alvo de AI Overviews e motores de resposta */
 .answer-box{
-  background:var(--surface); border-left:3px solid var(--orange);
+  background:var(--surface); border-left:3px solid var(--accent);
   padding:24px 28px; margin-bottom:40px; border-radius:0 3px 3px 0;
 }
 .answer-box h2{
   font-family:var(--mono); font-size:11px; letter-spacing:0.14em; text-transform:uppercase;
-  color:var(--orange); margin-bottom:10px; font-weight:500;
+  color:var(--accent); margin-bottom:10px; font-weight:500;
 }
 .answer-box p{font-size:16.5px; color:var(--text); margin:0;}
 
@@ -47,17 +47,17 @@
 .post-body p{margin-bottom:18px;}
 .post-body ul,.post-body ol{margin:0 0 22px 22px; display:flex; flex-direction:column; gap:11px;}
 .post-body li{padding-left:4px;}
-.post-body li::marker{color:var(--orange);}
+.post-body li::marker{color:var(--accent);}
 .post-body strong{color:var(--text); font-weight:600;}
-.post-body a{color:var(--orange); border-bottom:1px solid rgba(241,89,43,0.35);}
-.post-body a:hover{border-bottom-color:var(--orange);}
+.post-body a{color:var(--orange-ink); border-bottom:1px solid rgba(191,74,0,0.4);}
+.post-body a:hover{border-bottom-color:var(--orange-ink);}
 .post-body code{font-family:var(--mono); font-size:13.5px; background:var(--surface-2); padding:2px 6px; border-radius:2px;}
 
 .post-source{
   font-family:var(--mono); font-size:12.5px; color:var(--text-muted);
   border-top:1px solid var(--line); padding-top:18px; margin-top:36px;
 }
-.post-source a{color:var(--orange);}
+.post-source a{color:var(--orange-ink);}
 .post-source + .post-source{border-top:0; padding-top:0; margin-top:6px;}
 
 .post-tags{list-style:none; display:flex; gap:9px; flex-wrap:wrap; margin-top:26px;}

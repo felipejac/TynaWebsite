@@ -11,16 +11,16 @@
 <meta property="og:description" content="Sandbox com dinâmica de livro de ofertas e custo de transação para treinar LLMs em estratégia — antes de arriscar capital.">
 <meta property="og:url" content="https://tyna.com.br/blog/edotenv-ambientes-de-treino-para-trading-quantitativo/">
 <meta property="og:locale" content="pt_BR">
-<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna.png">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna-dark.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23411E5A%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23F1592B%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
 <link rel="alternate" type="application/rss+xml" title="Blog Tyna" href="https://tyna.com.br/rss.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../assets/styles.css?v=2">
-<link rel="stylesheet" href="../../assets/blog.css?v=2">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"EdotEnv lança ambientes de treino para trading quantitativo","description":"Sandbox com dinâmica de livro de ofertas e custo de transação para treinar LLMs em estratégia — antes de arriscar capital.","datePublished":"2026-08-04","dateModified":"2026-08-04","inLanguage":"pt-BR","author":{"@type":"Person","name":"Felipe Jacob","url":"https://tyna.com.br/sobre/"},"publisher":{"@type":"Organization","name":"Tyna","url":"https://tyna.com.br","logo":{"@type":"ImageObject","url":"https://tyna.com.br/assets/logo-tyna.png"}},"mainEntityOfPage":"https://tyna.com.br/blog/edotenv-ambientes-de-treino-para-trading-quantitativo/","keywords":"aprendizado-por-reforco, trading-quantitativo, agentes-de-ia, automacao, n8n","articleSection":"Agentes de IA"}</script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=4">
+<link rel="stylesheet" href="../../assets/blog.css?v=4">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"EdotEnv lança ambientes de treino para trading quantitativo","description":"Sandbox com dinâmica de livro de ofertas e custo de transação para treinar LLMs em estratégia — antes de arriscar capital.","datePublished":"2026-08-04","dateModified":"2026-08-04","inLanguage":"pt-BR","author":{"@type":"Person","name":"Felipe Jacob","url":"https://tyna.com.br/sobre/"},"publisher":{"@type":"Organization","name":"Tyna","url":"https://tyna.com.br","logo":{"@type":"ImageObject","url":"https://tyna.com.br/assets/logo-tyna-dark.png"}},"mainEntityOfPage":"https://tyna.com.br/blog/edotenv-ambientes-de-treino-para-trading-quantitativo/","keywords":"aprendizado-por-reforco, trading-quantitativo, agentes-de-ia, automacao, n8n","articleSection":"Agentes de IA"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://tyna.com.br"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tyna.com.br/blog/"},{"@type":"ListItem","position":3,"name":"Agentes de IA","item":"https://tyna.com.br/blog/categoria/ai-agents/"},{"@type":"ListItem","position":4,"name":"EdotEnv lança ambientes de treino para trading quantitativo","item":"https://tyna.com.br/blog/edotenv-ambientes-de-treino-para-trading-quantitativo/"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Consigo conectar a um fluxo de n8n sem escrever código?","acceptedAnswer":{"@type":"Answer","text":"Sim. O SDK é baseado em HTTP e funciona com o nó de requisição HTTP do n8n. Dá para enviar prompts, obter sugestões e recuperar métricas dentro do editor visual."}},{"@type":"Question","name":"Como garantir que as estratégias geradas respeitem os limites de risco?","acceptedAnswer":{"@type":"Answer","text":"A plataforma devolve métricas detalhadas de risco após cada simulação, como perda máxima e valor em risco. Um nó condicional compara esses números com os seus limiares e interrompe a execução se forem excedidos."}},{"@type":"Question","name":"A simulação é realista o bastante para produção?","acceptedAnswer":{"@type":"Answer","text":"A EdotEnv modela profundidade de livro, deslizamento e latência para obter fidelidade alta, mas é posicionada como ferramenta de pesquisa. Uso em produção ainda exige validação em mercado real — o sandbox serve como filtro inicial."}}]}</script>
 <link rel="alternate" hreflang="en" href="https://automationscookbook.com/blog/edotenv-launches-rl-trading-envs-to-train-llms-for-quant-str-20260804">
@@ -31,11 +31,11 @@
 
 <header>
   <div class="wrap nav">
-    <a href="../../" class="logo"><img src="../../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <a href="../../" class="logo"><img src="../../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
     <nav>
       <ul id="navList">
         <li><a href="../../#servicos">Serviços</a></li>
-        <li><a href="../../#governanca">Governança</a></li>
+        <li><a href="../../iso-42001/">ISO 42001</a></li>
         <li><a href="../../#trilhas">Trilhas</a></li>
         <li><a href="../../blog/">Blog</a></li>
         <li><a href="../../sobre/">Sobre</a></li>
@@ -139,7 +139,7 @@
       <div class="foot-right">
         <div class="foot-col">
           <h5>Contato</h5>
-          <a href="mailto:contato@tyna.com.br">contato@tyna.com.br</a>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
           <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
         </div>
         <div class="foot-col">
@@ -151,6 +151,7 @@
         </div>
         <div class="foot-col">
           <h5>Site</h5>
+          <a href="../../iso-42001/">ISO 42001</a>
           <a href="../../sobre/">Sobre</a>
           <a href="../../blog/">Blog</a>
           <a href="../../rss.xml">RSS</a>
@@ -164,7 +165,7 @@
   </div>
 </footer>
 
-<script src="../../assets/site.js?v=2"></script>
+<script src="../../assets/site.js?v=4"></script>
 
 </body>
 </html>
