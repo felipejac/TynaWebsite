@@ -24,7 +24,10 @@ const BRANCH = 'main';
 // entra em modo SPA e devolve a home com status 200 para QUALQUER URL inexistente —
 // soft 404 que o Google indexa como conteúdo duplicado. A presença do arquivo é o que
 // desliga esse comportamento; não há botão no painel.
-const PUBLISH = ['index.html', '404.html', 'sobre', 'iso-42001', 'blog', 'assets', 'rss.xml', 'sitemap.xml'];
+//
+// `googlee855927550ef5bb2.html` é o arquivo de verificação do Google Search Console.
+// Precisa ser servido intacto na raiz; se sair da lista, a propriedade é desverificada.
+const PUBLISH = ['index.html', '404.html', 'googlee855927550ef5bb2.html', 'sobre', 'iso-42001', 'blog', 'assets', 'rss.xml', 'sitemap.xml'];
 
 const args = process.argv.slice(2);
 const has = f => args.includes(f);
