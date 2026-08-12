@@ -64,7 +64,7 @@
     letter-spacing:0.12em; white-space:nowrap; padding-left:12px; border-left:1px solid var(--line);
   }
   nav ul{list-style:none; display:flex; gap:36px;}
-  nav ul a{font-family:var(--display); font-size:14.5px; color:var(--text-muted); transition:color .2s;}
+  nav ul a{font-family:var(--display); font-size:14.5px; font-weight:700; color:var(--text-muted); transition:color .2s;}
   nav ul a:hover, nav ul a:focus-visible{color:var(--text);}
   .btn{
     font-family:var(--display); font-size:14.5px; font-weight:500; padding:11px 22px;
