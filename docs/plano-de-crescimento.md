@@ -123,28 +123,40 @@ conversão do site antes do diagnóstico existir.
 
 ## 3. O que falta — e só você resolve
 
-Nenhuma dessas quatro depende de código. São contas e decisões.
+Duas das quatro que estavam aqui já foram decididas em 13/08/2026 — registro o
+resultado, não ficam mais como pendência em aberto:
+
+- ~~Decidir sobre os 12 posts pausados~~ **Decidido: pausados para sempre.** Não é
+  "por enquanto" — não voltar a levantar o assunto.
+- ~~Consentimento de cookies para o GA4~~ **Decidido: não implementar agora.** O
+  site segue rodando GA4 sem Consent Mode, por decisão explícita do Felipe.
+
+Restam duas, e a primeira é a de maior alavancagem de todo o documento:
 
 1. **Desligar o "managed robots.txt" no painel da Cloudflare.**
    Security → Settings → Bot traffic → desligar "Set your preference to block
    training in robots.txt". Enquanto estiver ligado, a Cloudflare sobrescreve o
    `robots.txt` do repositório na borda, e os 8 crawlers de treinamento continuam
    bloqueados na prática — todo o trabalho de AEO listado acima fica pronto e
-   inacessível até esse toggle mudar. É a pendência de maior alavancagem da lista
-   inteira: zero esforço, destrava um trabalho já feito.
+   inacessível até esse toggle mudar. Zero esforço, destrava um trabalho já feito.
+   **Por que isso é positivo, direto ao ponto:** `robots.txt` é um pedido, não um
+   cadeado — scraper mal-intencionado ignora o arquivo de qualquer jeito, com ou
+   sem o bloqueio. Quem *respeita* `robots.txt` são exatamente as empresas sérias
+   (OpenAI, Anthropic, Google), porque é reputação delas cumprir a regra. Bloquear
+   não impede ninguém ruim de copiar o site; só impede o ChatGPT e o Claude de
+   *aprenderem* que a Tyna existe. O conteúdo bloqueado aqui é texto de blog e copy
+   de marketing — feito para ser lido, não segredo industrial nem dado de cliente.
+   Contraponto honesto: quem vende conteúdo como produto (jornalismo, e-books)
+   tem razão real para bloquear treino, porque é a matéria-prima do negócio. Não é
+   o caso da Tyna — o negócio é consultoria, o conteúdo existe para gerar
+   visibilidade, não licenciamento. Ver seção 6 para a resposta completa.
 
-2. **Decidir sobre os 12 posts pausados** em `content/blog/` (não versionados).
-   Mais conteúdo indexável, mais entradas de cauda longa para busca — mas a decisão
-   de manter pausado é sua e não mexo nisso sem sinal verde.
-
-3. **Consentimento de cookies para o GA4** (Consent Mode v2 ou métrica sem cookie).
-   O site roda GA4 sem camada de consentimento — grava identificador no navegador
-   do visitante sem aviso prévio. Sensível especialmente aqui: a Tyna vende
-   adequação à LGPD, e um lead de compliance que abrir o DevTools percebe.
-
-4. **Perfil de organização consistente** — LinkedIn da empresa e Google Business
-   com o mesmo nome, descrição e URL que o `ai.json` declara. Consistência entre
-   fontes é o que os motores de busca e de resposta usam para confiar na entidade.
+2. **Perfil de organização consistente** — LinkedIn da empresa e Google Business
+   Profile com o mesmo nome, descrição e URL que o `ai.json` declara. Consistência
+   entre fontes é o que os motores de busca e de resposta usam para confiar na
+   entidade. O conteúdo pronto para colar está na seção 7 — a criação da conta em
+   si (LinkedIn, Google) precisa ser feita por você; não crio conta em nome de
+   terceiros.
 
 ---
 
@@ -166,11 +178,11 @@ Nenhuma dessas quatro depende de código. São contas e decisões.
    sitemap ser relido sozinho.
 4. **Renomear o stream do GA4** de "Meu site" para "Tyna — site institucional" —
    evita confundir com a propriedade Automations Cookbook de novo.
+5. **Criar o perfil de organização** (LinkedIn Company + Google Business Profile)
+   com o conteúdo pronto na seção 7 — fecha a pendência #2 da seção 3.
 
 ### Este mês (esforço médio, efeito composto)
 
-5. **Resolver o consentimento de cookies** (pendência #3) — antes de qualquer
-   campanha paga ou remarketing, que dependem dessa infraestrutura de qualquer jeito.
 6. **Adicionar um prompt de compartilhamento ao fim do diagnóstico** — "Compartilhe
    seu resultado" com texto pré-pronto para LinkedIn. Transforma a ferramenta num
    loop: quem responde tem motivo de postar o próprio resultado, o que traz mais
@@ -189,8 +201,8 @@ Nenhuma dessas quatro depende de código. São contas e decisões.
 
 ### Contínuo (compõe com o tempo)
 
-10. **Cadência de publicação** — mesmo pausada por ora, retomar 1–2 posts/semana
-    quando fizer sentido mantém o sitemap vivo e dá ao IndexNow algo para notificar.
+10. ~~Cadência de publicação~~ **Removido em 13/08/2026.** Os 12 posts pausados
+    ficam pausados para sempre (decisão definitiva) — este item não se aplica mais.
 11. **Acompanhar Search Console e Bing Webmaster Tools semanalmente** nas primeiras
     semanas — página indexada vs. enviada, consulta com impressão sem clique,
     posição média. É o sinal mais cedo de que algo está ou não funcionando.
@@ -214,3 +226,101 @@ entram nesta lista, que é para o que move a agulha de crescimento.
 
 Quando uma ação da seção 4 for concluída, mover para a seção 2 com a data, não
 apagar — é assim que o documento também vira o registro do que já foi tentado.
+
+---
+
+## 6. Por que desligar o robots.txt gerenciado da Cloudflare é positivo
+
+Pergunta que o Felipe fez direto, em 13/08/2026: por que isso ajudaria? Resposta
+sem enrolação, com o contraponto incluído — não é decisão óbvia, é uma aposta com
+lado bom e lado ruim, e a decisão final é dele.
+
+**O que o toggle faz de fato.** `robots.txt` é um pedido educado, não uma trava
+técnica. Um scraper mal-intencionado — o que rouba conteúdo para revender, treinar
+modelo pirata, alimentar spam — **ignora `robots.txt` sempre**, com ou sem o
+bloqueio ligado. Ele não lê o arquivo por educação. Quem *de fato* respeita
+`robots.txt` são as empresas grandes e com reputação a zelar: OpenAI, Anthropic,
+Google, Microsoft. Cumprir o protocolo é literalmente a prova pública de que
+seguem regra. Então o bloqueio atual não protege a Tyna de ninguém desonesto — ele
+só impede as empresas idôneas de fazerem o que pediram educadamente para fazer.
+
+**O que se perde mantendo bloqueado.** Cada vez mais, C-level e jurídico perguntam
+para o ChatGPT ou o Gemini antes de pesquisar no Google — "quem faz governança de
+IA no Brasil com experiência real de produção?". Um modelo só cita o que está nos
+dados que ele aprendeu (treino) ou consegue ler ao vivo (busca/citação — essa parte
+já está liberada de qualquer forma). Bloquear treino não afeta a busca ao vivo, mas
+afeta se a Tyna vai estar "na cabeça" do modelo por padrão, sem precisar de busca
+nenhuma. Hoje, tyna.com.br não está.
+
+**O contraponto honesto — quando faria sentido manter bloqueado.** Empresa cujo
+modelo de negócio é o conteúdo em si — jornalismo, curso pago, base de dados
+proprietária — tem motivo real para bloquear: é a matéria-prima do produto, e
+treino de modelo sem compensação é concorrência desleal direta. **Não é o caso da
+Tyna.** O site vende consultoria; o blog e a copy existem para gerar confiança e
+lead, não para serem vendidos como conteúdo. Não há segredo de cliente nem IP
+proprietário nas páginas públicas — o que está lá é, por definição, o que a Tyna já
+decidiu tornar público.
+
+**O tamanho real da aposta.** Não há garantia de que "estar no treino" vira lead —
+ninguém tem prova disso hoje, para nenhuma empresa. É uma aposta de custo zero
+(o conteúdo já é público, já pode ser lido por qualquer humano ou máquina) com
+upside potencial (aparecer como resposta em vez de nunca aparecer) e sem downside
+real identificável, dado que o modelo de negócio da Tyna não é conteúdo. Por isso
+a recomendação é desligar — mas se o motivo for outro (ex.: desconforto em geral
+com IA treinando em texto próprio, independente de cálculo de negócio), essa é uma
+razão legítima e a decisão continua sendo do Felipe.
+
+---
+
+## 7. Perfil de organização consistente — conteúdo pronto para publicar
+
+Pendência #2 da seção 3. **A criação da conta em si precisa ser feita pelo
+Felipe** — não crio conta em nome de terceiros em LinkedIn, Google ou qualquer
+outra plataforma. O que seguiu abaixo é o conteúdo pronto, consistente com o que
+`ai.json` já declara publicamente no site, para colar direto nos dois perfis.
+
+### LinkedIn — Company Page
+
+Se ainda não existe uma página de empresa "Tyna" no LinkedIn (distinta do perfil
+pessoal do Felipe, `linkedin.com/in/felipelj`): criar em
+`linkedin.com/company/setup/new/`.
+
+| Campo | Conteúdo |
+|---|---|
+| Nome | Tyna |
+| URL pública | `linkedin.com/company/tyna` (ou o mais próximo disponível) |
+| Site | `https://tyna.com.br` |
+| Setor | Consultoria de TI e Serviços / Business Consulting and Services |
+| Tamanho da empresa | 1 |
+| Tipo | Privately Held |
+| Tagline (até 120 caracteres) | `IA em produção, sob controle.` |
+| Descrição (About) | `A Tyna é uma consultoria de governança e estratégia de Inteligência Artificial que atua junto à liderança executiva para estruturar a adoção de IA generativa e de agentes de IA com segurança — política interna, adequação à LGPD, AI Gateway e capacitação de lideranças e times. A governança vem de quem já colocou agente de IA em produção para Coca-Cola, Hering, iFood, Stellantis, Yalo e Banco do Brasil, e não de quem apenas audita.` |
+| Logo | `assets/logo-tyna-dark.png` (fundo claro) do repositório |
+| Localização | Brasil |
+
+Depois de criado, adicionar o Felipe como administrador da página e linkar o
+perfil pessoal dele como "Onde trabalho" para reforçar a associação.
+
+### Google Business Profile
+
+Criar em `business.google.com`. Único ponto de atenção real: o Google normalmente
+pede endereço físico ou área de atendimento e verificação (cartão postal, telefone
+ou e-mail, dependendo da categoria) — para uma consultoria sem loja física, usar
+**"Área de atendimento"** em vez de endereço público, e categoria de negócio
+**"Consultor de gestão"** ou **"Consultoria"**.
+
+| Campo | Conteúdo |
+|---|---|
+| Nome da empresa | Tyna |
+| Categoria principal | Consultor de gestão (Management consultant) |
+| Site | `https://tyna.com.br` |
+| Telefone / WhatsApp | +55 11 99722-8945 (o mesmo do botão flutuante do site) |
+| Descrição curta | `Consultoria de governança e estratégia de Inteligência Artificial. Política interna, adequação à LGPD, AI Gateway e capacitação de lideranças e times.` |
+| Área de atendimento | Brasil (ou a região específica que fizer sentido) |
+
+### Depois de criados
+
+Me passe as duas URLs finais (`linkedin.com/company/...` e o link do perfil do
+Google) para eu adicionar como `sameAs` no `ai.json` e no JSON-LD da home — é isso
+que fecha o círculo de consistência entre fontes que motor de busca e motor de
+resposta usam para confiar na entidade.

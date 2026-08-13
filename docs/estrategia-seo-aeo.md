@@ -74,7 +74,7 @@ Política antiga (o que ainda está no ar até o toggle ser desligado):
 
 1. ~~**Google Search Console** — verificar a propriedade `tyna.com.br` e enviar o sitemap.~~ **Feito em 12/08/2026.** Propriedade verificada, sitemap enviado (46 URLs).
 2. ~~**Bing Webmaster Tools**~~ **Feito em 13/08/2026.** Domínio verificado, sitemap processado com sucesso, indexação instantânea via IndexNow configurada e automatizada a cada deploy.
-3. **Perfil de organização** — LinkedIn e Google Business com o mesmo nome, descrição e URL do JSON-LD. Consistência entre fontes é o que os motores usam para confiar na entidade. Ainda não feito.
+3. **Perfil de organização** — LinkedIn e Google Business com o mesmo nome, descrição e URL do JSON-LD. Consistência entre fontes é o que os motores usam para confiar na entidade. Conteúdo pronto para colar em `plano-de-crescimento.md`, seção 7 — falta só criar as contas.
 
 ### Estrutural (próximos 90 dias)
 
