@@ -187,8 +187,16 @@
       if (!document.hidden) pulsar();
     }, INTERVALO);
 
+    // O rótulo "Falar no WhatsApp" ajuda no desktop, onde sobra margem lateral. No
+    // celular ele atravessa o conteúdo — fica por cima do texto que a pessoa está
+    // lendo. Lá vai só o pulso; o ícone do WhatsApp já se explica sozinho.
+    //
+    // A largura é medida quando o balão iria aparecer, e não na carga do script:
+    // no momento do disparo o layout já está resolvido, o que evita depender de
+    // matchMedia avaliado cedo demais.
     setTimeout(() => {
       pulsar();
+      if (window.innerWidth <= 720) return;
       waFab.classList.add('wa-show-tip');
       setTimeout(() => waFab.classList.remove('wa-show-tip'), 4000);
     }, 2600);

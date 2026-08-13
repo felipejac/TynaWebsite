@@ -27,8 +27,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../assets/styles.css?v=7">
-<link rel="stylesheet" href="../../assets/blog.css?v=7">
+<link rel="stylesheet" href="../../assets/styles.css?v=8">
+<link rel="stylesheet" href="../../assets/blog.css?v=8">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Destilar e servir modelos pela metade do custo","description":"Ferramenta aberta treina um modelo aluno sobre as saídas de um professor e entrega acurácia próxima com hospedagem em hardware comum.","datePublished":"2026-07-27","dateModified":"2026-07-27","inLanguage":"pt-BR","author":{"@type":"Person","name":"Felipe Jacob","url":"https://tyna.com.br/sobre/"},"publisher":{"@type":"Organization","name":"Tyna","url":"https://tyna.com.br","logo":{"@type":"ImageObject","url":"https://tyna.com.br/assets/logo-tyna-dark.png"}},"mainEntityOfPage":"https://tyna.com.br/blog/destilar-e-servir-modelos-pela-metade-do-custo/","keywords":"destilacao, otimizacao-de-custo, codigo-aberto, inferencia, n8n","articleSection":"Agentes de IA"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://tyna.com.br"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tyna.com.br/blog/"},{"@type":"ListItem","position":3,"name":"Agentes de IA","item":"https://tyna.com.br/blog/categoria/ai-agents/"},{"@type":"ListItem","position":4,"name":"Destilar e servir modelos pela metade do custo","item":"https://tyna.com.br/blog/destilar-e-servir-modelos-pela-metade-do-custo/"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Funciona com qualquer modelo?","acceptedAnswer":{"@type":"Answer","text":"O projeto mira modelos baseados em transformer que exponham logits ou embeddings. Os exemplos usam modelos de linguagem e de visão conhecidos, mas o script se adapta a outras arquiteturas que suportem o esquema professor-aluno."}},{"@type":"Question","name":"Como a qualidade do destilado se compara ao original?","acceptedAnswer":{"@type":"Answer","text":"Os benchmarks apontam mais de 90% da acurácia do professor em tarefas padrão, com redução de 2 a 3 vezes no tamanho. Em classificação de intenção ou marcação de imagem, a perda tende a ser pequena diante da economia."}},{"@type":"Question","name":"O que preciso para rodar a camada de serviço num fluxo de n8n?","acceptedAnswer":{"@type":"Answer","text":"Uma máquina com pelo menos 4 GB de memória, e GPU para inferência mais rápida. Basta encapsular a API REST em um nó de requisição HTTP e usar a resposta nos nós seguintes."}}]}</script>
@@ -178,7 +178,7 @@
   </div>
 </footer>
 
-<script src="../../assets/site.js?v=7"></script>
+<script src="../../assets/site.js?v=8"></script>
 
 </body>
 </html>

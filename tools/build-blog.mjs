@@ -17,7 +17,7 @@ const SITE = 'https://tyna.com.br';
 const MAILTO_CTA = 'mailto:contato@tyna.com.br?subject=Agendamento%20reuni%C3%A3o%20Tyna';
 const ctaAgendar = (cls = '', attrs = '') =>
   `<!--email_off--><a href="${MAILTO_CTA}" class="btn btn-primary${cls ? ' ' + cls : ''}"${attrs ? ' ' + attrs : ''}>Agendar conversa</a><!--/email_off-->`;
-const ASSET_V = '7';
+const ASSET_V = '8';
 
 const CATEGORIES = {
   'ai-agents': 'Agentes de IA',

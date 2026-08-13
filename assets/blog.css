@@ -76,4 +76,14 @@
   .post{padding:44px 0 10px;}
   .blog-hero{padding:52px 0 34px;}
   .answer-box{padding:20px;}
+
+  /* Alvo de toque de 44px nos filtros de categoria. Esta regra mora aqui, e não em
+     styles.css, porque blog.css carrega depois e venceria a de lá por ordem. */
+  .cat-nav a{padding:13px 16px; min-height:44px; display:inline-flex; align-items:center;}
+  .cat-nav{gap:8px;}
+  /* leitura de artigo no celular: linha um pouco maior e respiro entre parágrafos */
+  .post-body p, .post-body li{font-size:16.5px;}
+  .post .lead{font-size:18px;}
+  .post-meta, .crumbs{font-size:12.5px;}
+  .post-tags li{padding:7px 12px;}
 }

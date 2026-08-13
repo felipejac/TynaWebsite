@@ -37,6 +37,10 @@
     line-height:1.6;
     font-size:17px;
     /* sem -webkit-font-smoothing:antialiased — ele afina o texto sobre fundo claro */
+    /* trava o "font boosting" do Chrome no Android, que infla texto de bloco por
+       conta própria e desalinha layout que já é responsivo */
+    -webkit-text-size-adjust:100%;
+    text-size-adjust:100%;
   }
   img,svg{max-width:100%; display:block;}
   a{color:inherit; text-decoration:none;}
@@ -462,8 +466,15 @@
       transform:translateY(-110%); transition:transform .3s ease; border-top:1px solid var(--line);
     }
     nav ul.open{transform:translateY(0);}
-    nav ul a{font-size:20px;}
-    .nav-toggle{display:block;}
+    /* item de menu vira alvo de toque cheio, não só o texto */
+    nav ul li{display:flex;}
+    nav ul a{font-size:20px; padding:8px 0; width:100%;}
+    /* 44px é o mínimo de alvo de toque recomendado por Apple e Google; o botão
+       tinha 35px, e é o controle mais usado do site no celular */
+    .nav-toggle{
+      display:flex; align-items:center; justify-content:center;
+      width:44px; height:44px; margin-right:-10px;
+    }
     .logo span{display:none;}
     /* só o CTA solto do header some; o filho direto evita apagar o CTA de dentro do menu,
        que perdia em especificidade para `.nav .btn-primary` */
@@ -506,4 +517,32 @@
     .wa-fab svg{width:29px; height:29px;}
     .wa-tip{right:66px; font-size:12.5px; padding:7px 11px;}
     footer{padding-bottom:88px;}
+
+    /* ---- Legibilidade no celular ----
+       Os rótulos em mono foram dimensionados para leitura a distância de monitor.
+       No braço, a 375px, 10px e 11px viram borrão. Subo o piso para 12px e afrouxo
+       o tracking, que é o que mais atrapalha em corpo pequeno. Só no mobile: o
+       desktop continua exatamente como está. */
+    .stat .l{font-size:11.5px; line-height:1.4; letter-spacing:0.04em;}
+    .stat .v{font-size:20px;}
+    .hero-note{font-size:13px; line-height:1.5;}
+    .proof-label{font-size:12px; letter-spacing:0.08em;}
+    .case-source{font-size:12px; opacity:.85;}
+    .eyebrow{font-size:12px; letter-spacing:0.1em; margin-bottom:16px;}
+    .case-card .tag, .post-card .tag{font-size:11.5px; letter-spacing:0.07em;}
+    .foot-bottom{font-size:12px;}
+    .module .result, .step-flag{font-size:13px; line-height:1.5;}
+
+    /* ---- Alvos de toque ----
+       Referência de 44px da Apple e do Google. Links de rodapé estavam com 26px,
+       abas com 36px: erra o toque e o visitante desiste. */
+    .foot-col a{padding:11px 0; font-size:15px;}
+    /* o logotipo também é link (leva para a home) — o alvo era a altura da imagem */
+    .logo{padding:8px 0;}
+    /* piso de 44px em todo botão, inclusive o "Ver resultado" do diagnóstico, que
+       ficava em 42px só pelo padding */
+    .btn{min-height:44px; display:inline-flex; align-items:center; justify-content:center;}
+    .track-tab{padding:13px 18px; font-size:12.5px; min-height:44px;}
+    .track-tabs{gap:8px; flex-wrap:wrap;}
+    .q-opts label{padding:13px 14px; min-height:44px; display:flex; align-items:center; justify-content:center;}
   }
