@@ -13,27 +13,42 @@
         "width": 1222,
         "height": 394
       },
-      "description": "Consultoria em Inteligência Artificial e governança corporativa de IA. Leva IA para produção em vendas, marketing, atendimento e operação, com política interna, adequação à LGPD e um AI Gateway que unifica e audita as ferramentas de IA da empresa.",
+      "description": "Consultoria de governança e estratégia de Inteligência Artificial. Atua junto à liderança executiva para estruturar a adoção de IA generativa e de agentes de IA com segurança, definindo frameworks de compliance, gestão de risco, privacidade de dados e políticas corporativas que alinham a inovação aos objetivos do negócio.",
       "slogan": "IA em produção, sob controle.",
-      "areaServed": { "@type": "Country", "name": "Brasil" },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Brasil"
+      },
       "knowsLanguage": "pt-BR",
-      "founder": { "@id": "https://tyna.com.br/#felipe" },
+      "founder": {
+        "@id": "https://tyna.com.br/#felipe"
+      },
       "knowsAbout": [
-        "Governança corporativa de Inteligência Artificial",
-        "ISO/IEC 42001",
-        "NIST AI Risk Management Framework",
-        "Adequação à LGPD em fluxos de IA",
-        "Shadow AI",
         "AI Gateway",
+        "AI literacy corporativa",
+        "Adequação à LGPD em fluxos de IA",
+        "Arquitetura de agentes conversacionais",
+        "Auditoria de decisão de agente",
+        "Comitê de governança de inteligência artificial",
+        "Compliance e gestão de risco em IA",
+        "Consultoria em governança de IA",
+        "EU AI Act",
+        "Escalonamento humano",
+        "Framework de governança de inteligência artificial",
+        "Governança corporativa de Inteligência Artificial",
         "Governança de agentes autônomos",
         "Guardrails em produção",
-        "Escalonamento humano",
-        "Auditoria de decisão de agente",
-        "Prompt engineering",
-        "Spec-driven development",
         "Harness engineering",
-        "Arquitetura de agentes conversacionais",
-        "Retrieval-Augmented Generation"
+        "ISO/IEC 42001",
+        "Implementação segura de IA generativa em empresas",
+        "Instâncias privadas de LLM em ambiente corporativo",
+        "NIST AI Risk Management Framework",
+        "Políticas de uso aceitável de IA corporativa",
+        "Prompt engineering",
+        "Retrieval-Augmented Generation",
+        "Shadow AI",
+        "Spec-driven development",
+        "Viés algorítmico e explicabilidade"
       ],
       "contactPoint": {
         "@type": "ContactPoint",
@@ -42,64 +57,249 @@
         "availableLanguage": "pt-BR"
       }
     },
-
     {
       "@type": "Person",
       "@id": "https://tyna.com.br/#felipe",
       "name": "Felipe Jacob",
       "url": "https://tyna.com.br/sobre/",
       "jobTitle": "Consultor de Inteligência Artificial",
-      "sameAs": ["https://linkedin.com/in/felipelj"],
+      "sameAs": [
+        "https://linkedin.com/in/felipelj"
+      ],
       "description": "Consultor de IA com quase uma década dedicada a IA conversacional e automação, de agentes de atendimento e vendas a plataformas de martech e social listening.",
-      "worksFor": { "@id": "https://tyna.com.br/#organization" },
+      "worksFor": {
+        "@id": "https://tyna.com.br/#organization"
+      },
       "alumniOf": [
-        { "@type": "Organization", "name": "Yalo" },
-        { "@type": "Organization", "name": "Blip" },
-        { "@type": "Organization", "name": "Stilingue" },
-        { "@type": "Organization", "name": "Zenvia" },
-        { "@type": "Organization", "name": "Omnichat" }
+        {
+          "@type": "Organization",
+          "name": "Yalo"
+        },
+        {
+          "@type": "Organization",
+          "name": "Blip"
+        },
+        {
+          "@type": "Organization",
+          "name": "Stilingue"
+        },
+        {
+          "@type": "Organization",
+          "name": "Zenvia"
+        },
+        {
+          "@type": "Organization",
+          "name": "Omnichat"
+        }
       ]
     },
-
     {
       "@type": "ItemList",
       "@id": "https://tyna.com.br/#servicos",
       "name": "Serviços da Tyna",
       "itemListOrder": "https://schema.org/ItemListOrderAscending",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "item": { "@type": "Service", "name": "Governança Corporativa de IA", "description": "Estrutura, papéis e rituais de um escritório de governança, com matriz de valor por risco para priorização executiva.", "provider": { "@id": "https://tyna.com.br/#organization" } } },
-        { "@type": "ListItem", "position": 2, "item": { "@type": "Service", "name": "AI Gateway", "description": "Todas as ferramentas de IA da empresa sob um único ponto de acesso, custo, observabilidade e auditoria. Resolve shadow AI por controle, não por proibição.", "provider": { "@id": "https://tyna.com.br/#organization" } } },
-        { "@type": "ListItem", "position": 3, "item": { "@type": "Service", "name": "Adequação à LGPD", "description": "Mapeamento de dados em fluxos de IA, base legal de tratamento e prevenção de vazamento em prompts e bases de conhecimento.", "provider": { "@id": "https://tyna.com.br/#organization" } } },
-        { "@type": "ListItem", "position": 4, "item": { "@type": "Service", "name": "Política Interna de IA", "description": "Frameworks de referência traduzidos em políticas que as equipes de fato seguem.", "provider": { "@id": "https://tyna.com.br/#organization" } } },
-        { "@type": "ListItem", "position": 5, "item": { "@type": "Service", "name": "Consultoria em IA", "description": "Arquitetura e implantação hands-on de agentes e automações, do desenho à integração com CRM, WhatsApp e sistemas internos.", "provider": { "@id": "https://tyna.com.br/#organization" } } },
-        { "@type": "ListItem", "position": 6, "item": { "@type": "Service", "name": "Trilhas de Capacitação", "description": "Duas trilhas de liderança (L1 e L2) e cinco de times técnicos (T1 a T5): prompt engineering, spec-driven development, harness engineering, arquitetura de agentes conversacionais e RAG.", "provider": { "@id": "https://tyna.com.br/#organization" } } },
-        { "@type": "ListItem", "position": 7, "item": { "@type": "Service", "name": "Preparação para certificação ISO/IEC 42001", "url": "https://tyna.com.br/iso-42001/", "description": "Condução do diagnóstico à prontidão para certificação em seis etapas: diagnóstico e mapeamento, gap analysis, estruturação do Sistema de Gestão de IA, implementação prática dos controles, auditoria interna e suporte durante a certificação.", "provider": { "@id": "https://tyna.com.br/#organization" } } }
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "Service",
+            "name": "Governança Corporativa de IA",
+            "description": "Estrutura, papéis e rituais de um escritório de governança, com matriz de valor por risco para priorização executiva.",
+            "provider": {
+              "@id": "https://tyna.com.br/#organization"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "Service",
+            "name": "AI Gateway",
+            "description": "Todas as ferramentas de IA da empresa sob um único ponto de acesso, custo, observabilidade e auditoria. Resolve shadow AI por controle, não por proibição.",
+            "provider": {
+              "@id": "https://tyna.com.br/#organization"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "Service",
+            "name": "Adequação à LGPD",
+            "description": "Mapeamento de dados em fluxos de IA, base legal de tratamento e prevenção de vazamento em prompts e bases de conhecimento.",
+            "provider": {
+              "@id": "https://tyna.com.br/#organization"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "Service",
+            "name": "Política Interna de IA",
+            "description": "Frameworks de referência traduzidos em políticas que as equipes de fato seguem.",
+            "provider": {
+              "@id": "https://tyna.com.br/#organization"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@type": "Service",
+            "name": "Consultoria em IA",
+            "description": "Arquitetura e implantação hands-on de agentes e automações, do desenho à integração com CRM, WhatsApp e sistemas internos.",
+            "provider": {
+              "@id": "https://tyna.com.br/#organization"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "item": {
+            "@type": "Service",
+            "name": "Trilhas de Capacitação",
+            "description": "Duas trilhas de liderança (L1 e L2) e cinco de times técnicos (T1 a T5): prompt engineering, spec-driven development, harness engineering, arquitetura de agentes conversacionais e RAG.",
+            "provider": {
+              "@id": "https://tyna.com.br/#organization"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "item": {
+            "@type": "Service",
+            "name": "Preparação para certificação ISO/IEC 42001",
+            "url": "https://tyna.com.br/iso-42001/",
+            "description": "Condução do diagnóstico à prontidão para certificação em seis etapas: diagnóstico e mapeamento, gap analysis, estruturação do Sistema de Gestão de IA, implementação prática dos controles, auditoria interna e suporte durante a certificação.",
+            "provider": {
+              "@id": "https://tyna.com.br/#organization"
+            }
+          }
+        }
       ]
     },
-
+    {
+      "@type": "ItemList",
+      "@id": "https://tyna.com.br/#pilares",
+      "name": "Pilares de governança de IA da Tyna",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Política e diretrizes",
+          "description": "Regras internas para o uso de IA generativa e de LLMs. Entregáveis: manual de uso aceitável de IA, política de privacidade e de propriedade intelectual."
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Gestão de riscos e compliance",
+          "description": "Mitigação de vazamento de dados, de alucinação em processo crítico e de exposição regulatória. Entregáveis: matriz de risco de IA, auditoria de modelos, conformidade com LGPD e com o AI Act europeu."
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Comitê de IA e processos",
+          "description": "Estruturação de quem decide, com que critério e em quanto tempo. Entregáveis: framework do comitê de IA e fluxo de aprovação de casos de uso."
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Capacitação e AI literacy",
+          "description": "Times e lideranças treinados para usar a tecnologia dentro da regra definida. Entregáveis: imersões para C-level, workshops de prompt engineering e de segurança."
+        }
+      ]
+    },
     {
       "@type": "Dataset",
       "@id": "https://tyna.com.br/#casos",
       "name": "Resultados de projetos de IA em produção conduzidos pela Tyna",
       "description": "Métricas publicadas de quatro projetos de IA conversacional em produção, com a fonte de cada número.",
-      "creator": { "@id": "https://tyna.com.br/#organization" },
+      "creator": {
+        "@id": "https://tyna.com.br/#organization"
+      },
       "inLanguage": "pt-BR",
       "license": "https://tyna.com.br/",
       "variableMeasured": [
-        { "@type": "PropertyValue", "name": "Hering — ROAS das campanhas", "value": "123x", "description": "Recuperação de carrinho abandonado por WhatsApp integrada à VTEX.", "citation": "omni.chat/blog" },
-        { "@type": "PropertyValue", "name": "Hering — taxa de conversão", "value": "20%", "citation": "omni.chat/blog" },
-        { "@type": "PropertyValue", "name": "Hering — faturamento", "value": "R$ 1,5 milhão", "citation": "omni.chat/blog" },
-        { "@type": "PropertyValue", "name": "Hering — crescimento sobre o ano anterior", "value": "2825%", "citation": "omni.chat/blog" },
-        { "@type": "PropertyValue", "name": "Yalo — volume movimentado via mensagens", "value": "US$ 4 bilhões", "description": "Agentes de IA como vendedores digitais 24/7 integrados a preço, catálogo, crédito e estoque.", "citation": "Times Brasil / CNBC, dezembro de 2025" },
-        { "@type": "PropertyValue", "name": "Yalo — aumento em vendas", "value": "14% a 18%", "citation": "Times Brasil / CNBC, dezembro de 2025" },
-        { "@type": "PropertyValue", "name": "Stellantis — NPS no pós-venda", "value": "86,8%", "description": "Agente que recebe a foto do painel pelo WhatsApp, interpreta o alerta e responde na hora, replicado em cinco marcas.", "citation": "blip.ai" },
-        { "@type": "PropertyValue", "name": "Stellantis — assertividade da IA", "value": "84,2%", "citation": "blip.ai" },
-        { "@type": "PropertyValue", "name": "Stellantis — resolutividade direta", "value": "80%", "citation": "blip.ai" },
-        { "@type": "PropertyValue", "name": "Coca-Cola — usuários em 20 dias", "value": "94 mil", "description": "Assistente virtual com reconhecimento de voz em campanha de Natal.", "citation": "blip.ai" },
-        { "@type": "PropertyValue", "name": "Coca-Cola — áudios recebidos", "value": "397 mil", "citation": "blip.ai" }
+        {
+          "@type": "PropertyValue",
+          "name": "Hering — ROAS das campanhas",
+          "value": "123x",
+          "description": "Recuperação de carrinho abandonado por WhatsApp integrada à VTEX.",
+          "citation": "omni.chat/blog"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Hering — taxa de conversão",
+          "value": "20%",
+          "citation": "omni.chat/blog"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Hering — faturamento",
+          "value": "R$ 1,5 milhão",
+          "citation": "omni.chat/blog"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Hering — crescimento sobre o ano anterior",
+          "value": "2825%",
+          "citation": "omni.chat/blog"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Yalo — volume movimentado via mensagens",
+          "value": "US$ 4 bilhões",
+          "description": "Agentes de IA como vendedores digitais 24/7 integrados a preço, catálogo, crédito e estoque.",
+          "citation": "Times Brasil / CNBC, dezembro de 2025"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Yalo — aumento em vendas",
+          "value": "14% a 18%",
+          "citation": "Times Brasil / CNBC, dezembro de 2025"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Stellantis — NPS no pós-venda",
+          "value": "86,8%",
+          "description": "Agente que recebe a foto do painel pelo WhatsApp, interpreta o alerta e responde na hora, replicado em cinco marcas.",
+          "citation": "blip.ai"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Stellantis — assertividade da IA",
+          "value": "84,2%",
+          "citation": "blip.ai"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Stellantis — resolutividade direta",
+          "value": "80%",
+          "citation": "blip.ai"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Coca-Cola — usuários em 20 dias",
+          "value": "94 mil",
+          "description": "Assistente virtual com reconhecimento de voz em campanha de Natal.",
+          "citation": "blip.ai"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Coca-Cola — áudios recebidos",
+          "value": "397 mil",
+          "citation": "blip.ai"
+        }
       ]
     },
-
     {
       "@type": "FAQPage",
       "@id": "https://tyna.com.br/#faq",
@@ -107,38 +307,107 @@
       "mainEntity": [
         {
           "@type": "Question",
+          "name": "O que é a Tyna e o que ela faz?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A Tyna é uma consultoria de governança e estratégia de Inteligência Artificial que atua junto à liderança executiva para estruturar a adoção de IA generativa e de agentes de IA com segurança — definindo frameworks de compliance, gestão de risco, privacidade de dados e políticas corporativas. O que a separa das demais é a origem: a governança vem de quem já colocou agente de IA em produção para Coca-Cola, Hering, iFood, Stellantis, Yalo e Banco do Brasil, e não de quem apenas audita."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Por que uma empresa precisa de consultoria de governança de IA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A adoção sem controle de ferramentas de IA — o shadow AI — expõe a empresa a vazamento de dados confidenciais, violação de propriedade intelectual e alucinação em processo crítico. A governança garante que a IA seja implantada de forma escalável, segura e com retorno claro, sem travar a inovação."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Como a Tyna trata o shadow AI nas organizações?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Mapeando as ferramentas não autorizadas em uso pelas equipes, estabelecendo um diagnóstico de maturidade em IA e criando políticas claras de uso aceitável — com alternativas seguras em ambiente corporativo, como instâncias privadas de LLMs sob um AI Gateway que unifica acesso, custo, observabilidade e auditoria."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "A governança de IA substitui a governança de TI tradicional?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Não, complementa. A governança de TI trata de infraestrutura, redes e segurança da informação clássica. A governança de IA lida com as especificidades dos modelos probabilísticos: viés algorítmico, explicabilidade, gestão de prompts, alucinação e uso ético dos dados de treinamento."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Como estruturar um comitê de governança de IA na empresa?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Definindo três coisas antes de qualquer ferramenta: quem decide, com que critério e em quanto tempo. Na prática, isso vira um framework de comitê com papéis e rituais, uma matriz de valor por risco para priorização executiva e um fluxo de aprovação de casos de uso — o que a Tyna entrega no pilar de comitê e processos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Como garantir compliance e LGPD na adoção de LLMs corporativos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Mapeando os dados que trafegam nos fluxos de IA, definindo base legal de tratamento e prevenindo vazamento em prompts e bases de conhecimento. Em agentes autônomos, soma-se a trilha de auditoria da decisão: o que o agente leu, decidiu e executou, recuperável depois do fato."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "O que é a ISO/IEC 42001?",
-          "acceptedAnswer": { "@type": "Answer", "text": "A ISO/IEC 42001:2023 é a primeira norma internacional certificável para Sistemas de Gestão de Inteligência Artificial. Para a IA, é o equivalente ao que a ISO 9001 é para qualidade e a ISO 27001 é para segurança da informação. Ela não trata de um projeto isolado, e sim de como a organização governa todo o ciclo de vida da IA, incluindo gestão de riscos, transparência e explicabilidade, os controles do Anexo A e melhoria contínua." }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A ISO/IEC 42001:2023 é a primeira norma internacional certificável para Sistemas de Gestão de Inteligência Artificial. Para a IA, é o equivalente ao que a ISO 9001 é para qualidade e a ISO 27001 é para segurança da informação. Ela não trata de um projeto isolado, e sim de como a organização governa todo o ciclo de vida da IA, incluindo gestão de riscos, transparência e explicabilidade, os controles do Anexo A e melhoria contínua."
+          }
         },
         {
           "@type": "Question",
           "name": "Quanto tempo leva para se preparar para a certificação ISO 42001?",
-          "acceptedAnswer": { "@type": "Answer", "text": "As referências que o mercado pratica: diagnóstico e gap analysis levam de 3 a 6 semanas; uma empresa que já tem ISO 27001 ou 27701 leva de 4 a 8 meses até a prontidão para certificação; uma empresa começando do zero leva de 8 a 14 meses. A auditoria de certificação é conduzida por organismo acreditado em duas fases, análise documental e auditoria no local, com auditorias de vigilância anuais e recertificação a cada três anos." }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "As referências que o mercado pratica: diagnóstico e gap analysis levam de 3 a 6 semanas; uma empresa que já tem ISO 27001 ou 27701 leva de 4 a 8 meses até a prontidão para certificação; uma empresa começando do zero leva de 8 a 14 meses. A auditoria de certificação é conduzida por organismo acreditado em duas fases, análise documental e auditoria no local, com auditorias de vigilância anuais e recertificação a cada três anos."
+          }
         },
         {
           "@type": "Question",
           "name": "Qual a diferença entre governança de agentes autônomos e política de uso de IA?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Política de uso trata de quem pode usar ferramentas como o ChatGPT dentro da empresa. Governança de agente autônomo trata de sistemas que decidem e agem sozinhos, respondendo ao cliente, aprovando, cobrando ou vendendo. A pergunta deixa de ser quem pode usar e passa a ser até onde o agente vai sem um humano, o que exige definir escopo de autonomia, guardrails em produção, escalonamento humano e auditoria da decisão do agente." }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Política de uso trata de quem pode usar ferramentas como o ChatGPT dentro da empresa. Governança de agente autônomo trata de sistemas que decidem e agem sozinhos, respondendo ao cliente, aprovando, cobrando ou vendendo. A pergunta deixa de ser quem pode usar e passa a ser até onde o agente vai sem um humano, o que exige definir escopo de autonomia, guardrails em produção, escalonamento humano e auditoria da decisão do agente."
+          }
         },
         {
           "@type": "Question",
           "name": "O que é shadow AI?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Shadow AI é o uso de ferramentas de IA por times da empresa fora de qualquer política, sem visibilidade para TI, jurídico ou segurança. Os riscos associados são vazamento de dados e exposição regulatória, alucinação sem guardrail em agentes que já atendem clientes, e ferramentas fragmentadas sem custo, uso ou risco unificados." }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Shadow AI é o uso de ferramentas de IA por times da empresa fora de qualquer política, sem visibilidade para TI, jurídico ou segurança. Os riscos associados são vazamento de dados e exposição regulatória, alucinação sem guardrail em agentes que já atendem clientes, e ferramentas fragmentadas sem custo, uso ou risco unificados."
+          }
         },
         {
           "@type": "Question",
           "name": "O que é um AI Gateway corporativo?",
-          "acceptedAnswer": { "@type": "Answer", "text": "É a unificação de todas as ferramentas de IA da empresa sob um único ponto de acesso, custo, observabilidade e auditoria. Resolve o problema de cada área ter seu próprio acesso a modelos, sem visão consolidada de gasto, uso e risco. Endereça shadow AI por controle, e não por proibição." }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "É a unificação de todas as ferramentas de IA da empresa sob um único ponto de acesso, custo, observabilidade e auditoria. Resolve o problema de cada área ter seu próprio acesso a modelos, sem visão consolidada de gasto, uso e risco. Endereça shadow AI por controle, e não por proibição."
+          }
         },
         {
           "@type": "Question",
           "name": "O que diferencia a Tyna de outras consultorias de governança de IA no Brasil?",
-          "acceptedAnswer": { "@type": "Answer", "text": "A maior parte do mercado vende diagnóstico, política e adequação regulatória sem nunca ter colocado um agente de IA em produção. Na Tyna a implementação e a governança têm a mesma origem: a regra é escrita a partir do comportamento observado do agente em produção. O fundador tem quase uma década em IA conversacional e automação, com IA em produção para Coca-Cola, Hering, iFood, Stellantis, Yalo e Banco do Brasil." }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A maior parte do mercado vende diagnóstico, política e adequação regulatória sem nunca ter colocado um agente de IA em produção. Na Tyna a implementação e a governança têm a mesma origem: a regra é escrita a partir do comportamento observado do agente em produção. O fundador tem quase uma década em IA conversacional e automação, com IA em produção para Coca-Cola, Hering, iFood, Stellantis, Yalo e Banco do Brasil."
+          }
         },
         {
           "@type": "Question",
           "name": "Como a Tyna é contratada?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Em três formatos: workshop intensivo de 3 horas em um módulo específico, trilha completa por audiência de liderança ou de times, e advisory mensal com office hours, revisão de casos de uso e evolução de políticas. O contato inicial é por e-mail em contato@tyna.com.br, em uma conversa de 30 minutos." }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Em três formatos: workshop intensivo de 3 horas em um módulo específico, trilha completa por audiência de liderança ou de times, e advisory mensal com office hours, revisão de casos de uso e evolução de políticas. O contato inicial é por e-mail em contato@tyna.com.br, em uma conversa de 30 minutos."
+          }
         }
       ]
     }

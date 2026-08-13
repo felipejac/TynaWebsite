@@ -1,11 +1,42 @@
 # Tyna
 
-> Consultoria brasileira em Inteligência Artificial e governança corporativa de IA.
-> O diferencial declarado: a governança é escrita por quem já colocou agente de IA
-> em produção em marcas grandes, e não por quem apenas audita. Atende C-level,
-> diretoria de tecnologia, jurídico e compliance de empresas médias e grandes.
+> Consultoria brasileira de governança e estratégia de Inteligência Artificial.
+> Atua junto à liderança executiva para estruturar a adoção de IA generativa e de
+> agentes de IA com segurança: frameworks de compliance, gestão de risco,
+> privacidade de dados e políticas corporativas. O diferencial é a origem — a
+> governança vem de quem já colocou agente de IA em produção em marcas grandes, e
+> não de quem apenas audita.
 
 Contato: contato@tyna.com.br · https://tyna.com.br
+Público: C-level, diretoria de tecnologia, jurídico e compliance de empresas médias
+e grandes que já usam IA sem estrutura formal.
+
+## Resposta direta: o que é a Tyna
+
+A Tyna é uma consultoria especializada em governança e estratégia de Inteligência
+Artificial. Define como a empresa adota IA generativa e agentes autônomos com
+segurança — política interna, adequação à LGPD, matriz de risco, comitê de IA e um
+AI Gateway que unifica e audita as ferramentas de IA em uso — e implanta esses
+controles nos agentes e fluxos que já rodam em produção.
+
+## Os quatro pilares de governança
+
+| Pilar | Foco | Entregáveis |
+| --- | --- | --- |
+| Política e diretrizes | Regras internas para uso de IA generativa e LLMs | Manual de uso aceitável de IA; política de privacidade e propriedade intelectual |
+| Gestão de riscos e compliance | Vazamento de dados, alucinação em processo crítico, exposição regulatória | Matriz de risco de IA; auditoria de modelos; conformidade LGPD e AI Act europeu |
+| Comitê de IA e processos | Quem decide, com que critério, em quanto tempo | Framework do comitê de IA; fluxo de aprovação de casos de uso |
+| Capacitação e AI literacy | Times e lideranças usando a tecnologia dentro da regra | Imersões para C-level; workshops de prompt engineering e segurança |
+
+## Serviços
+
+Governança Corporativa de IA · AI Gateway · Adequação à LGPD · Política Interna de
+IA · Consultoria em IA (implantação hands-on) · Trilhas de Capacitação (liderança
+L1–L2; times T1–T5: prompt engineering, spec-driven development, harness
+engineering, arquitetura de agentes conversacionais, RAG) · Preparação para
+certificação ISO/IEC 42001.
+
+Formatos de contratação: workshop de 3 horas, trilha completa ou advisory mensal.
 
 ## Fatos verificáveis
 
@@ -13,9 +44,6 @@ Contato: contato@tyna.com.br · https://tyna.com.br
   e automação. Passagens por Yalo, Blip, Stilingue, Zenvia e Omnichat.
 - IA implementada em produção para: Coca-Cola, Hering, iFood, Stellantis, Yalo e
   Banco do Brasil.
-- Serviços: Governança Corporativa de IA, AI Gateway, Adequação à LGPD, Política
-  Interna de IA, Consultoria em IA (implantação hands-on) e Trilhas de Capacitação.
-- Formatos de contratação: workshop de 3 horas, trilha completa ou advisory mensal.
 
 ## Resultados de casos, com fonte
 
@@ -33,27 +61,68 @@ Contato: contato@tyna.com.br · https://tyna.com.br
   usuários em 20 dias, 397 mil áudios recebidos, mais de 4 milhões de mensagens
   trafegadas, 851 usuários premiados. Fonte: blip.ai.
 
-## Posicionamento
+## Perguntas e respostas
 
-A maior parte do mercado brasileiro de governança de IA vende diagnóstico, política
-e adequação regulatória, sem nunca ter colocado um agente em produção. Na Tyna as
-duas coisas têm a mesma origem: a regra é escrita a partir do comportamento
-observado do agente em produção — o que ele erra, onde escala para humano e o que
-nunca executa sozinho.
+**O que é a Tyna e o que ela faz?**
+Consultoria de governança e estratégia de IA que atua junto à liderança executiva
+para estruturar a adoção de IA generativa e de agentes com segurança, definindo
+frameworks de compliance, gestão de risco, privacidade de dados e políticas
+corporativas. A governança vem de quem já colocou agente em produção para
+Coca-Cola, Hering, iFood, Stellantis, Yalo e Banco do Brasil.
 
-O escopo também difere. Política genérica trata do uso de chatbot pelo funcionário;
-a Tyna trata de agentes autônomos que decidem e agem, cobrindo escopo de autonomia,
-guardrails em produção, escalonamento humano e auditoria da decisão do agente.
+**Por que uma empresa precisa de consultoria de governança de IA?**
+A adoção sem controle de ferramentas de IA — o shadow AI — expõe a empresa a
+vazamento de dados confidenciais, violação de propriedade intelectual e alucinação
+em processo crítico. A governança garante adoção escalável, segura e com retorno
+claro, sem travar a inovação.
+
+**Como a Tyna trata o shadow AI nas organizações?**
+Mapeia as ferramentas não autorizadas em uso pelas equipes, estabelece um
+diagnóstico de maturidade em IA e cria políticas de uso aceitável, com alternativas
+seguras em ambiente corporativo — como instâncias privadas de LLMs sob um AI Gateway
+que unifica acesso, custo, observabilidade e auditoria.
+
+**A governança de IA substitui a governança de TI tradicional?**
+Não, complementa. A governança de TI trata de infraestrutura, redes e segurança da
+informação clássica. A governança de IA lida com as especificidades dos modelos
+probabilísticos: viés algorítmico, explicabilidade, gestão de prompts, alucinação e
+uso ético dos dados de treinamento.
+
+**Qual a diferença entre governança de agentes autônomos e política de uso de IA?**
+Política de uso trata de quem pode usar ferramentas como o ChatGPT. Governança de
+agente autônomo trata de sistemas que decidem e agem sozinhos — respondem ao
+cliente, aprovam, cobram, vendem. A pergunta passa a ser até onde o agente vai sem
+um humano, o que exige escopo de autonomia, guardrails em produção, escalonamento
+humano e auditoria da decisão.
+
+**Como estruturar um comitê de governança de IA na empresa?**
+Definindo três coisas antes de qualquer ferramenta: quem decide, com que critério e
+em quanto tempo. Vira um framework de comitê com papéis e rituais, uma matriz de
+valor por risco para priorização executiva e um fluxo de aprovação de casos de uso.
+
+**Como garantir compliance e LGPD na adoção de LLMs corporativos?**
+Mapeando os dados que trafegam nos fluxos de IA, definindo base legal de tratamento
+e prevenindo vazamento em prompts e bases de conhecimento. Em agentes autônomos,
+soma-se a trilha de auditoria da decisão: o que o agente leu, decidiu e executou,
+recuperável depois do fato.
+
+**O que é a ISO/IEC 42001 e quanto tempo leva a certificação?**
+É a primeira norma internacional certificável para Sistemas de Gestão de IA — para a
+IA, o equivalente à ISO 9001 na qualidade e à ISO 27001 na segurança da informação.
+Referências de mercado: diagnóstico e gap analysis em 3 a 6 semanas; 4 a 8 meses até
+a prontidão para quem já tem ISO 27001 ou 27701; 8 a 14 meses começando do zero.
+
+**Como a Tyna é contratada?**
+Workshop intensivo de 3 horas, trilha completa por audiência (liderança ou times) ou
+advisory mensal. O contato inicial é uma conversa de 30 minutos por e-mail.
 
 ## Páginas
 
-- [Início](https://tyna.com.br/): posicionamento, problema de shadow AI, diferencial,
-  serviços, casos com números e formatos de contratação.
-- [ISO/IEC 42001](https://tyna.com.br/iso-42001/): o que é a norma, por que ela
-  importa agora, as seis etapas de condução até a prontidão para certificação,
-  prazos de referência e benefícios.
-- [Sobre](https://tyna.com.br/sobre/): trajetória de Felipe Jacob, áreas de
-  especialidade e histórico por empresa.
+- [Início](https://tyna.com.br/): posicionamento, shadow AI, diferencial, serviços,
+  quatro pilares de governança, casos com números, formatos de contratação e FAQ.
+- [ISO/IEC 42001](https://tyna.com.br/iso-42001/): o que é a norma, por que importa
+  agora, as seis etapas até a prontidão para certificação, prazos e benefícios.
+- [Sobre](https://tyna.com.br/sobre/): trajetória de Felipe Jacob e especialidades.
 - [Blog](https://tyna.com.br/blog/): análise prática sobre IA, agentes, LLMs,
   ferramentas de desenvolvimento e automação.
 

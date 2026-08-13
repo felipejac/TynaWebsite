@@ -43,28 +43,55 @@
       "publisher": { "@id": "https://tyna.com.br/#organization" }
     },
     {
+      "@type": "ItemList",
+      "@id": "https://tyna.com.br/#pilares",
+      "name": "Pilares de governança de IA da Tyna",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Política e diretrizes", "description": "Regras internas para o uso de IA generativa e de LLMs. Entregáveis: manual de uso aceitável de IA, política de privacidade e de propriedade intelectual." },
+        { "@type": "ListItem", "position": 2, "name": "Gestão de riscos e compliance", "description": "Mitigação de vazamento de dados, de alucinação em processo crítico e de exposição regulatória. Entregáveis: matriz de risco de IA, auditoria de modelos, conformidade com LGPD e com o AI Act europeu." },
+        { "@type": "ListItem", "position": 3, "name": "Comitê de IA e processos", "description": "Estruturação de quem decide, com que critério e em quanto tempo. Entregáveis: framework do comitê de IA e fluxo de aprovação de casos de uso." },
+        { "@type": "ListItem", "position": 4, "name": "Capacitação e AI literacy", "description": "Times e lideranças treinados para usar a tecnologia dentro da regra definida. Entregáveis: imersões para C-level, workshops de prompt engineering e de segurança." }
+      ]
+    },
+    {
       "@type": "FAQPage",
+      "@id": "https://tyna.com.br/#faq",
       "inLanguage": "pt-BR",
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "O que é shadow AI?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Shadow AI é o uso de ferramentas de IA por times da empresa fora de qualquer política, sem visibilidade para TI, jurídico ou segurança. Os riscos associados são vazamento de dados e exposição regulatória, alucinação sem guardrail em agentes que já atendem clientes, e ferramentas fragmentadas sem custo, uso ou risco unificados." }
+          "name": "O que é a Tyna e o que ela faz?",
+          "acceptedAnswer": { "@type": "Answer", "text": "A Tyna é uma consultoria de governança e estratégia de Inteligência Artificial que atua junto à liderança executiva para estruturar a adoção de IA generativa e de agentes de IA com segurança — definindo frameworks de compliance, gestão de risco, privacidade de dados e políticas corporativas. O que a separa das demais é a origem: a governança vem de quem já colocou agente de IA em produção para Coca-Cola, Hering, iFood, Stellantis, Yalo e Banco do Brasil, e não de quem apenas audita." }
+        },
+        {
+          "@type": "Question",
+          "name": "Por que uma empresa precisa de consultoria de governança de IA?",
+          "acceptedAnswer": { "@type": "Answer", "text": "A adoção sem controle de ferramentas de IA — o shadow AI — expõe a empresa a vazamento de dados confidenciais, violação de propriedade intelectual e alucinação em processo crítico. A governança garante que a IA seja implantada de forma escalável, segura e com retorno claro, sem travar a inovação." }
+        },
+        {
+          "@type": "Question",
+          "name": "Como a Tyna trata o shadow AI nas organizações?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Mapeando as ferramentas não autorizadas em uso pelas equipes, estabelecendo um diagnóstico de maturidade em IA e criando políticas claras de uso aceitável — com alternativas seguras em ambiente corporativo, como instâncias privadas de LLMs sob um AI Gateway que unifica acesso, custo, observabilidade e auditoria." }
+        },
+        {
+          "@type": "Question",
+          "name": "A governança de IA substitui a governança de TI tradicional?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Não, complementa. A governança de TI trata de infraestrutura, redes e segurança da informação clássica. A governança de IA lida com as especificidades dos modelos probabilísticos: viés algorítmico, explicabilidade, gestão de prompts, alucinação e uso ético dos dados de treinamento." }
         },
         {
           "@type": "Question",
           "name": "Qual a diferença entre governança de agentes autônomos e política de uso de IA?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Política de uso trata de quem pode usar ferramentas como o ChatGPT dentro da empresa. Governança de agente autônomo trata de sistemas que decidem e agem sozinhos, respondendo ao cliente, aprovando, cobrando ou vendendo. A pergunta deixa de ser quem pode usar e passa a ser até onde o agente vai sem um humano, o que exige definir escopo de autonomia, guardrails em produção, escalonamento humano e auditoria da decisão do agente." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Política de uso trata de quem pode usar ferramentas como o ChatGPT dentro da empresa. Governança de agente autônomo trata de sistemas que decidem e agem sozinhos — respondem ao cliente, aprovam, cobram, vendem. A pergunta deixa de ser quem pode usar e passa a ser até onde o agente vai sem um humano, o que exige escopo de autonomia, guardrails em produção, escalonamento humano e auditoria da decisão." }
         },
         {
           "@type": "Question",
-          "name": "O que é um AI Gateway corporativo?",
-          "acceptedAnswer": { "@type": "Answer", "text": "É a unificação de todas as ferramentas de IA da empresa sob um único ponto de acesso, custo, observabilidade e auditoria. Resolve o problema de cada área ter seu próprio acesso a modelos, sem visão consolidada de gasto, uso e risco. Endereça shadow AI por controle, e não por proibição." }
+          "name": "Como estruturar um comitê de governança de IA na empresa?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Definindo três coisas antes de qualquer ferramenta: quem decide, com que critério e em quanto tempo. Na prática, isso vira um framework de comitê com papéis e rituais, uma matriz de valor por risco para priorização executiva e um fluxo de aprovação de casos de uso — o que a Tyna entrega no pilar de comitê e processos." }
         },
         {
           "@type": "Question",
           "name": "Como a Tyna é contratada?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Em três formatos: workshop intensivo de 3 horas em um módulo específico, trilha completa por audiência de liderança ou de times, e advisory mensal com office hours, revisão de casos de uso e evolução de políticas. O contato inicial é por e-mail em contato@tyna.com.br, em uma conversa de 30 minutos." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Em três formatos: workshop intensivo de 3 horas em um módulo específico, trilha completa por audiência de liderança ou de times, e advisory mensal com office hours, revisão de casos de uso e evolução de políticas. O contato inicial é uma conversa de 30 minutos por e-mail." }
         }
       ]
     }
@@ -320,6 +347,56 @@
     </div>
   </section>
 
+  <!-- PILARES -->
+  <section id="pilares">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Pilares</p>
+        <h2>Quatro frentes de governança, e o que sai de cada uma</h2>
+        <p>Este é o corte por disciplina. Um programa pode começar por qualquer um dos quatro, conforme o que a empresa já tem de pé.</p>
+      </div>
+      <div class="case-grid reveal">
+        <div class="case-card">
+          <span class="tag">Pilar 01</span>
+          <h3>Política e diretrizes</h3>
+          <p class="desc">Regras internas para o uso de IA generativa e de LLMs, escritas para serem seguidas pelas equipes.</p>
+          <ul class="deliverables">
+            <li>Manual de uso aceitável de IA</li>
+            <li>Política de privacidade e de propriedade intelectual</li>
+          </ul>
+        </div>
+        <div class="case-card">
+          <span class="tag">Pilar 02</span>
+          <h3>Gestão de riscos e compliance</h3>
+          <p class="desc">Mitigação de vazamento de dados, de alucinação em processo crítico e de exposição regulatória.</p>
+          <ul class="deliverables">
+            <li>Matriz de risco de IA</li>
+            <li>Auditoria de modelos</li>
+            <li>Conformidade com LGPD e com o AI Act europeu</li>
+          </ul>
+        </div>
+        <div class="case-card">
+          <span class="tag">Pilar 03</span>
+          <h3>Comitê de IA e processos</h3>
+          <p class="desc">Estruturação de quem decide, com que critério e em quanto tempo — para novo caso de uso não depender de improviso.</p>
+          <ul class="deliverables">
+            <li>Framework do comitê de IA</li>
+            <li>Fluxo de aprovação de casos de uso</li>
+          </ul>
+        </div>
+        <div class="case-card">
+          <span class="tag">Pilar 04</span>
+          <h3>Capacitação e AI literacy</h3>
+          <p class="desc">Times e lideranças treinados para usar a tecnologia dentro da regra que a própria empresa definiu.</p>
+          <ul class="deliverables">
+            <li>Imersões para C-level</li>
+            <li>Workshops de prompt engineering e de segurança</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CASES -->
   <section id="cases">
     <div class="wrap">
@@ -533,6 +610,54 @@
         <div class="tr-item"><span class="co">Stilingue</span><span class="desc">IA proprietária de social listening — mais de 600 clientes monitorados</span></div>
         <div class="tr-item"><span class="co">Zenvia</span><span class="desc">Plataforma conversacional SaaS — agentes de atendimento e vendas</span></div>
         <div class="tr-item"><span class="co">Omnichat</span><span class="desc">Agentes de vendas para e-commerce — cases Hering e Biscoitê</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Perguntas frequentes</p>
+        <h2>O que a diretoria costuma perguntar antes</h2>
+      </div>
+
+      <div class="faq reveal">
+        <div class="faq-item">
+          <h3>O que é a Tyna e o que ela faz?</h3>
+          <p>A Tyna é uma consultoria de governança e estratégia de Inteligência Artificial que atua junto à liderança executiva para estruturar a adoção de IA generativa e de agentes de IA com segurança — definindo frameworks de compliance, gestão de risco, privacidade de dados e políticas corporativas.</p>
+          <p>O que a separa das demais é a origem: a governança vem de quem já colocou agente de IA em produção para Coca-Cola, Hering, iFood, Stellantis, Yalo e Banco do Brasil, e não de quem apenas audita.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Por que uma empresa precisa de consultoria de governança de IA?</h3>
+          <p>A adoção sem controle de ferramentas de IA — o shadow AI — expõe a empresa a vazamento de dados confidenciais, violação de propriedade intelectual e alucinação em processo crítico. A governança garante que a IA seja implantada de forma escalável, segura e com retorno claro, sem travar a inovação.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Como a Tyna trata o shadow AI nas organizações?</h3>
+          <p>Mapeando as ferramentas não autorizadas em uso pelas equipes, estabelecendo um diagnóstico de maturidade em IA e criando políticas claras de uso aceitável — com alternativas seguras em ambiente corporativo, como instâncias privadas de LLMs sob um AI Gateway que unifica acesso, custo, observabilidade e auditoria.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>A governança de IA substitui a governança de TI tradicional?</h3>
+          <p>Não, complementa. A governança de TI trata de infraestrutura, redes e segurança da informação clássica. A governança de IA lida com as especificidades dos modelos probabilísticos: viés algorítmico, explicabilidade, gestão de prompts, alucinação e uso ético dos dados de treinamento.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Qual a diferença entre governança de agentes autônomos e política de uso de IA?</h3>
+          <p>Política de uso trata de quem pode usar ferramentas como o ChatGPT dentro da empresa. Governança de agente autônomo trata de sistemas que decidem e agem sozinhos — respondem ao cliente, aprovam, cobram, vendem. A pergunta deixa de ser quem pode usar e passa a ser até onde o agente vai sem um humano, o que exige escopo de autonomia, guardrails em produção, escalonamento humano e auditoria da decisão.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Como estruturar um comitê de governança de IA na empresa?</h3>
+          <p>Definindo três coisas antes de qualquer ferramenta: quem decide, com que critério e em quanto tempo. Na prática, isso vira um framework de comitê com papéis e rituais, uma matriz de valor por risco para priorização executiva e um fluxo de aprovação de casos de uso — o que a Tyna entrega no pilar de comitê e processos.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Como a Tyna é contratada?</h3>
+          <p>Em três formatos: workshop intensivo de 3 horas em um módulo específico, trilha completa por audiência de liderança ou de times, e advisory mensal com office hours, revisão de casos de uso e evolução de políticas. O contato inicial é uma conversa de 30 minutos por e-mail.</p>
+        </div>
       </div>
     </div>
   </section>

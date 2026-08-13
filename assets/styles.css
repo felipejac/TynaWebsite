@@ -284,6 +284,18 @@
   .spec-table td:first-child{width:52%; color:var(--text); font-family:var(--display); font-weight:500; font-size:15.5px;}
   .spec-table .prazo{color:var(--accent); font-family:var(--mono); font-size:14px;}
 
+  /* Entregáveis dentro de um card de pilar */
+  .deliverables{list-style:none; border-top:1px solid var(--line); padding-top:18px; margin-top:6px;}
+  .deliverables li{color:var(--text-muted); font-size:14.5px; padding:4px 0 4px 18px; position:relative;}
+  .deliverables li::before{content:'—'; position:absolute; left:0; color:var(--accent-soft);}
+
+  /* FAQ visível — o texto precisa estar na página, não só no JSON-LD */
+  .faq{border-top:1px solid var(--line); max-width:880px;}
+  .faq-item{border-bottom:1px solid var(--line); padding:26px 0;}
+  .faq-item h3{font-size:18.5px; margin-bottom:10px;}
+  .faq-item p{color:var(--text-muted); font-size:15.5px;}
+  .faq-item p + p{margin-top:12px;}
+
   /* Benefícios em resumo */
   .benefits{list-style:none; display:grid; grid-template-columns:repeat(2,1fr); gap:0 48px;}
   .benefits li{
