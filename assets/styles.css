@@ -352,6 +352,33 @@
   }
   .benefits li::before{content:'—'; position:absolute; left:0; top:17px; color:var(--accent-soft);}
 
+  /* Plano B do CTA de e-mail: aparece só quando o mailto não abre nada */
+  .mail-fb{
+    position:fixed; inset:0; z-index:300; display:none; align-items:center; justify-content:center;
+    padding:22px; background:rgba(29,29,31,.5);
+  }
+  .mail-fb.on{display:flex;}
+  .mf-card{
+    background:var(--ink); border:1px solid var(--line); border-radius:8px;
+    width:100%; max-width:440px; padding:32px 30px; box-shadow:0 24px 70px rgba(0,0,0,.28);
+    position:relative;
+  }
+  .mf-card h3{font-size:21px; margin-bottom:10px;}
+  .mf-card > p{color:var(--text-muted); font-size:15px; margin-bottom:24px;}
+  .mf-opts{display:flex; flex-direction:column; gap:10px;}
+  .mf-opts .btn{width:100%; text-align:center; font-size:14.5px;}
+  .mf-mail{
+    display:block; width:100%; text-align:center; font-family:var(--mono); font-size:14px;
+    border:1px dashed var(--line); border-radius:980px; padding:12px 18px; color:var(--text);
+    background:none; cursor:pointer; transition:border-color .2s, color .2s;
+  }
+  .mf-mail:hover{border-color:var(--orange); color:var(--orange-ink);}
+  .mf-close{
+    position:absolute; top:14px; right:16px; background:none; border:0; cursor:pointer;
+    font-size:22px; line-height:1; color:var(--text-muted); padding:6px;
+  }
+  .mf-close:hover{color:var(--text);}
+
   /* WhatsApp flutuante */
   .wa-fab{
     position:fixed; right:22px; bottom:22px; z-index:200;

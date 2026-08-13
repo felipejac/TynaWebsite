@@ -34,6 +34,112 @@
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
+  // CTA de e-mail: rede de segurança para o mailto.
+  //
+  // Todo "Agendar conversa" é um mailto:. Isso depende de o visitante ter um cliente
+  // de e-mail configurado — e quem usa Gmail ou Outlook no navegador (o caso do
+  // C-level que este site atende) muitas vezes não tem. Nesse cenário o clique não
+  // faz NADA, sem erro e sem aviso, e o lead some. Reproduzido em MacBook.
+  //
+  // Aqui o mailto continua acontecendo normalmente. Se, passado o tempo limite, a
+  // página ainda estiver visível e com foco, é sinal de que nenhum aplicativo assumiu
+  // o clique: aí abrimos as alternativas que funcionam em qualquer máquina.
+  (function () {
+    var ESPERA_MS = 1200;
+    var painel, timer;
+
+    function partesDoMailto(href) {
+      var sem = href.replace(/^mailto:/i, '');
+      var corte = sem.indexOf('?');
+      var para = decodeURIComponent(corte === -1 ? sem : sem.slice(0, corte));
+      var q = new URLSearchParams(corte === -1 ? '' : sem.slice(corte + 1));
+      return { para: para, assunto: q.get('subject') || '', corpo: q.get('body') || '' };
+    }
+
+    function montar() {
+      if (painel) return painel;
+      painel = document.createElement('div');
+      painel.className = 'mail-fb';
+      painel.setAttribute('role', 'dialog');
+      painel.setAttribute('aria-modal', 'true');
+      painel.setAttribute('aria-label', 'Outras formas de falar com a Tyna');
+      painel.innerHTML =
+        '<div class="mf-card">' +
+          '<button class="mf-close" type="button" aria-label="Fechar">&times;</button>' +
+          '<h3>Seu computador não abriu o e-mail</h3>' +
+          '<p>Isso acontece quando não há um aplicativo de e-mail configurado. Escolha por onde prefere falar — todas as opções abaixo levam à mesma conversa.</p>' +
+          '<div class="mf-opts">' +
+            '<a class="btn btn-primary" data-mf="gmail" target="_blank" rel="noopener">Escrever pelo Gmail</a>' +
+            '<a class="btn btn-ghost" data-mf="outlook" target="_blank" rel="noopener">Escrever pelo Outlook</a>' +
+            '<a class="btn btn-ghost" data-mf="whats" target="_blank" rel="noopener">Falar no WhatsApp</a>' +
+            '<button class="mf-mail" type="button" data-mf="copiar"></button>' +
+          '</div>' +
+        '</div>';
+      document.body.appendChild(painel);
+
+      painel.addEventListener('click', function (e) {
+        if (e.target === painel || e.target.closest('.mf-close')) fechar();
+        var copiar = e.target.closest('[data-mf="copiar"]');
+        if (copiar) {
+          var end = copiar.getAttribute('data-endereco');
+          var pronto = function () { copiar.textContent = 'Endereço copiado'; };
+          if (navigator.clipboard) navigator.clipboard.writeText(end).then(pronto, pronto);
+          else pronto();
+        }
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && painel.classList.contains('on')) fechar();
+      });
+      return painel;
+    }
+
+    function fechar() { if (painel) painel.classList.remove('on'); }
+
+    function abrir(href) {
+      var p = partesDoMailto(href);
+      var el = montar();
+      var q = function (s) { return el.querySelector('[data-mf="' + s + '"]'); };
+
+      q('gmail').href = 'https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(p.para) +
+        '&su=' + encodeURIComponent(p.assunto) + '&body=' + encodeURIComponent(p.corpo);
+      q('outlook').href = 'https://outlook.office.com/mail/deeplink/compose?to=' + encodeURIComponent(p.para) +
+        '&subject=' + encodeURIComponent(p.assunto) + '&body=' + encodeURIComponent(p.corpo);
+      q('whats').href = WA_LINK;
+
+      var btnCopiar = q('copiar');
+      btnCopiar.setAttribute('data-endereco', p.para);
+      btnCopiar.textContent = p.para;
+
+      el.classList.add('on');
+      var primeiro = el.querySelector('.mf-opts .btn');
+      if (primeiro) primeiro.focus();
+
+      if (typeof gtag === 'function') gtag('event', 'cta_email_sem_cliente');
+    }
+
+    // Detecção: em vez de perguntar "a página está focada?" (que é falso em aba de
+    // segundo plano e suprimiria o plano B indevidamente), observamos se a página
+    // PERDE o foco depois do clique. Perder o foco significa que algum aplicativo
+    // assumiu o mailto — nesse caso não fazemos nada. Se nada assumir, abrimos.
+    var assumido = false;
+    function marcarAssumido() { assumido = true; }
+    window.addEventListener('blur', marcarAssumido);
+    window.addEventListener('pagehide', marcarAssumido);
+    document.addEventListener('visibilitychange', function () { if (document.hidden) marcarAssumido(); });
+
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest('a[href^="mailto:"]');
+      if (!a) return;
+      var href = a.getAttribute('href');
+      if (typeof gtag === 'function') gtag('event', 'cta_email_clique');
+      assumido = false;
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        if (!assumido) abrir(href);
+      }, ESPERA_MS);
+    });
+  })();
+
   // WhatsApp flutuante — montado aqui, e não no HTML, para valer em todas as páginas
   // (home, Sobre, índice do blog e os posts) sem duplicar markup nem depender de um
   // rebuild do blog. O CSS mora em styles.css, que todas as páginas já carregam.
