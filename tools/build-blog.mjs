@@ -416,9 +416,16 @@ ${posts.slice(0, 30).map(p => `  <item>
 `);
 
 // robots.txt NÃO é gerado de propósito: a Cloudflare serve um robots.txt
-// gerenciado na borda que sobrescreve qualquer arquivo do origin. A política
-// atual já bloqueia crawlers de treinamento, libera os de busca/citação
-// (OAI-SearchBot, PerplexityBot, Googlebot) e anuncia este sitemap.
+// gerenciado na borda que sobrescreve qualquer arquivo do origin.
 // Para alterar: dash Cloudflare › AI Crawl Control.
+//
+// Conferido em produção em 12/08/2026:
+//  - bloqueados (crawlers de treinamento): GPTBot, ClaudeBot, Google-Extended,
+//    CCBot, Bytespider, Amazonbot, Applebot-Extended, meta-externalagent
+//  - liberados (busca e citação): Googlebot, Bingbot, OAI-SearchBot,
+//    ChatGPT-User, Claude-User, PerplexityBot
+//  - NÃO existe linha `Sitemap:` — o comentário anterior aqui dizia que existia,
+//    e estava errado. O Google recebe o sitemap pelo Search Console; Bing e outros
+//    o descobririam pelo robots.txt, então esse canal está em falta.
 
 console.log(`OK — ${posts.length} posts | ${Object.keys(CATEGORIES).filter(s => posts.some(p => p.category === s)).length} categorias | sitemap + rss`);
