@@ -132,7 +132,7 @@ function shell({ title, description, canonical, head = '', body, depth }) {
 <meta property="og:locale" content="pt_BR">
 <meta property="og:image" content="${SITE}/assets/logo-tyna-dark.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23411E5A%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23F1592B%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
 <link rel="alternate" type="application/rss+xml" title="Blog Tyna" href="${SITE}/rss.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -308,7 +308,10 @@ ${mdToHtml(p.body)}
 
   mkdirSync(join(OUT, p.slug), { recursive: true });
   writeFileSync(join(OUT, p.slug, 'index.html'),
-    shell({ title: `${p.title} — Blog Tyna`, description: p.description, canonical, head, body, depth: 2 }));
+    // " | Tyna" (7 chars) em vez do antigo " — Blog Tyna" (12 chars): o sufixo mais
+    // longo empurrava 22 dos 37 titulos para alem de 60 caracteres, o limite que
+    // Google e Bing toleram sem cortar o titulo no resultado de busca.
+    shell({ title: `${p.title} | Tyna`, description: p.description, canonical, head, body, depth: 2 }));
 }
 
 /* ---------- índice e categorias ---------- */

@@ -4,9 +4,10 @@
 // é este script, que sincroniza dist/ com os arquivos da raiz e sobe via wrangler.
 //
 // Uso:
-//   node tools/deploy.mjs            → sincroniza dist/ e publica
-//   node tools/deploy.mjs --build    → regenera o blog antes (roda build-blog.mjs)
-//   node tools/deploy.mjs --dry-run  → só monta dist/, não publica
+//   node tools/deploy.mjs               → sincroniza dist/ e publica
+//   node tools/deploy.mjs --build       → regenera o blog antes (roda build-blog.mjs)
+//   node tools/deploy.mjs --dry-run     → só monta dist/, não publica
+//   node tools/deploy.mjs --no-indexnow → publica sem notificar o IndexNow ao final
 
 import { execFileSync, execSync } from 'node:child_process';
 import { rmSync, mkdirSync, cpSync, existsSync, readdirSync, statSync } from 'node:fs';
@@ -105,3 +106,16 @@ console.log(`→ publicando em Cloudflare Pages (${PROJECT})`);
 runShell(`npx wrangler pages deploy dist --project-name ${PROJECT} --branch ${BRANCH} --commit-dirty=true`);
 console.log('\n✓ no ar em https://tyna.com.br — confira com Ctrl+F5 (ou aba anônima)');
 if (sujo) console.log('⚠ lembre de commitar e dar push para o repositório não ficar atrás de produção');
+
+/* ---------- 5. avisa o IndexNow (Bing, Yandex...) do que mudou ---------- */
+// Best-effort: o deploy já terminou. Se a rede cair ou o IndexNow rejeitar, isso
+// não desfaz a publicação — só fica sem o aviso instantâneo, o crawler acaba
+// encontrando sozinho de qualquer forma.
+
+if (!has('--no-indexnow')) {
+  try {
+    run(process.execPath, [join(ROOT, 'tools', 'indexnow.mjs'), '--changed']);
+  } catch (e) {
+    console.warn('⚠ aviso ao IndexNow falhou (não afeta o que já foi publicado):', e.message);
+  }
+}
