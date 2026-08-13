@@ -30,12 +30,17 @@ const BRANCH = 'main';
 //
 // `BingSiteAuth.xml` é o mesmo mecanismo, para o Bing Webmaster Tools.
 //
+// `d3bf6674386c4a6e539f5bb870611a6c.txt` é a chave do IndexNow (protocolo de
+// indexação instantânea usado por Bing, Yandex e outros). O conteúdo do arquivo
+// precisa ser exatamente a chave, sem quebra de linha. Ver tools/indexnow.mjs.
+//
 // Camada de AEO (leitura por motores de resposta): `robots.txt` com liberação
 // explícita dos crawlers de IA, `llms.txt` como índice curado e `ai.json` com o
 // grafo de conhecimento em JSON-LD. O robots.txt só chega ao público se o
 // "managed robots.txt" estiver DESLIGADO no painel da Cloudflare.
 const PUBLISH = [
   'index.html', '404.html', 'googlee855927550ef5bb2.html', 'BingSiteAuth.xml',
+  'd3bf6674386c4a6e539f5bb870611a6c.txt',
   'robots.txt', 'llms.txt', 'ai.json',
   'sobre', 'iso-42001', 'diagnostico', 'blog', 'assets', 'rss.xml', 'sitemap.xml',
 ];
