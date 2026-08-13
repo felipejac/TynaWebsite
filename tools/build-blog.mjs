@@ -17,7 +17,7 @@ const SITE = 'https://tyna.com.br';
 const MAILTO_CTA = 'mailto:contato@tyna.com.br?subject=Agendamento%20reuni%C3%A3o%20Tyna';
 const ctaAgendar = (cls = '', attrs = '') =>
   `<!--email_off--><a href="${MAILTO_CTA}" class="btn btn-primary${cls ? ' ' + cls : ''}"${attrs ? ' ' + attrs : ''}>Agendar conversa</a><!--/email_off-->`;
-const ASSET_V = '5';
+const ASSET_V = '6';
 
 const CATEGORIES = {
   'ai-agents': 'Agentes de IA',
@@ -182,6 +182,7 @@ ${body}
         <div class="foot-col">
           <h5>Site</h5>
           <a href="${up}iso-42001/">ISO 42001</a>
+          <a href="${up}diagnostico/">Diagnóstico</a>
           <a href="${up}sobre/">Sobre</a>
           <a href="${up}blog/">Blog</a>
           <a href="${up}rss.xml">RSS</a>
@@ -383,6 +384,7 @@ const maisRecente = lista => lista.map(p => p.pubDate).sort().pop();
 const staticPages = [
   { loc: `${SITE}/`, pri: '1.0', freq: 'weekly', mod: mtime('index.html') },
   { loc: `${SITE}/iso-42001/`, pri: '0.9', freq: 'monthly', mod: mtime('iso-42001/index.html') },
+  { loc: `${SITE}/diagnostico/`, pri: '0.9', freq: 'monthly', mod: mtime('diagnostico/index.html') },
   { loc: `${SITE}/sobre/`, pri: '0.8', freq: 'monthly', mod: mtime('sobre/index.html') },
   { loc: `${SITE}/blog/`, pri: '0.9', freq: 'daily', mod: maisRecente(posts) },
   ...Object.keys(CATEGORIES).filter(s => posts.some(p => p.category === s))

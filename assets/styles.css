@@ -296,6 +296,54 @@
   .faq-item p{color:var(--text-muted); font-size:15.5px;}
   .faq-item p + p{margin-top:12px;}
 
+  /* ---------- Diagnóstico interativo ---------- */
+  .quiz{border-top:1px solid var(--line); max-width:880px;}
+  /* fieldset traz borda e padding do agente de usuário; o reset global só zera margem */
+  .q-item{border:0; border-bottom:1px solid var(--line); padding:26px 0; margin:0; min-width:0;}
+  .q-head{display:grid; grid-template-columns:46px 1fr; gap:16px; align-items:start; margin-bottom:16px;}
+  .q-num{font-family:var(--mono); font-size:13px; color:var(--accent); padding-top:3px;}
+  .q-head h3{font-size:17.5px; font-weight:600; line-height:1.35;}
+  .q-opts{display:flex; gap:10px; flex-wrap:wrap; padding-left:62px;}
+  .q-opts label{
+    font-family:var(--display); font-size:14px; padding:9px 18px; border:1px solid var(--line);
+    border-radius:980px; color:var(--text-muted); cursor:pointer; transition:all .18s; user-select:none;
+  }
+  .q-opts input{position:absolute; opacity:0; width:0; height:0;}
+  .q-opts label:hover{border-color:var(--text-muted); color:var(--text);}
+  .q-opts input:checked + span{color:#fff;}
+  .q-opts label:has(input:checked){background:var(--accent); border-color:var(--accent); color:#fff;}
+  .q-opts input:focus-visible + span{outline:2px solid var(--orange); outline-offset:4px; border-radius:2px;}
+
+  .quiz-bar{
+    position:sticky; bottom:0; background:var(--ink); border-top:1px solid var(--line);
+    padding:18px 0; margin-top:8px; display:flex; align-items:center; gap:18px; flex-wrap:wrap;
+  }
+  /* o botão flutuante do WhatsApp fica fixo no canto e cobriria o "Ver resultado" */
+  @media (max-width:1120px){ .quiz-bar{padding-right:74px;} }
+  .quiz-progress{font-family:var(--mono); font-size:12.5px; color:var(--text-muted);}
+  .quiz-track{flex:1; min-width:120px; height:3px; background:var(--surface-2); border-radius:2px; overflow:hidden;}
+  .quiz-fill{height:100%; width:0; background:var(--orange); transition:width .3s ease;}
+
+  .quiz-result{display:none; border:1px solid var(--line); border-left:2px solid var(--orange); background:var(--surface); padding:34px 32px; margin-top:40px;}
+  .quiz-result.on{display:block;}
+  .score-line{display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; margin-bottom:8px;}
+  .score-v{font-family:var(--display); font-size:44px; font-weight:700; line-height:1; letter-spacing:-0.03em;}
+  .score-max{font-family:var(--mono); font-size:14px; color:var(--text-muted);}
+  .score-band{font-family:var(--mono); font-size:12.5px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent);}
+  .quiz-result h3{font-size:22px; margin:14px 0 10px;}
+  .quiz-result > p{color:var(--text-muted); font-size:16px; max-width:680px;}
+  .gaps{list-style:none; margin:26px 0 30px; border-top:1px solid var(--line);}
+  .gaps li{border-bottom:1px solid var(--line); padding:15px 0 15px 20px; position:relative; font-size:15px;}
+  .gaps li::before{content:'—'; position:absolute; left:0; color:var(--orange);}
+  .gaps li strong{font-weight:600;}
+
+  @media (max-width:720px){
+    .q-head{grid-template-columns:32px 1fr; gap:10px;}
+    .q-opts{padding-left:0;}
+    .q-opts label{flex:1 1 auto; text-align:center; padding:11px 12px;}
+    .quiz-result{padding:26px 22px;}
+  }
+
   /* Benefícios em resumo */
   .benefits{list-style:none; display:grid; grid-template-columns:repeat(2,1fr); gap:0 48px;}
   .benefits li{

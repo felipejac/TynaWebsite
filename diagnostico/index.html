@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diagnóstico de governança de IA — 10 perguntas | Tyna</title>
+<meta name="description" content="Dez perguntas para descobrir onde a governança de IA da sua empresa está exposta: inventário, política, LGPD, comitê, agentes autônomos e capacitação. Resultado na hora, sem cadastro.">
+<link rel="canonical" href="https://tyna.com.br/diagnostico/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Diagnóstico de governança de IA — 10 perguntas">
+<meta property="og:description" content="Em 3 minutos, onde a governança de IA da sua empresa está exposta. Resultado na hora, sem cadastro.">
+<meta property="og:url" content="https://tyna.com.br/diagnostico/">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna-dark.png">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css?v=6">
+<link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Diagnóstico de governança de IA",
+  "url": "https://tyna.com.br/diagnostico/",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Navegador",
+  "inLanguage": "pt-BR",
+  "description": "Autoavaliação de dez perguntas sobre maturidade em governança de Inteligência Artificial: inventário de ferramentas, política interna, base legal na LGPD, ponto único de acesso e auditoria, comitê de decisão, avaliação de risco, escopo de autonomia de agentes, trilha de auditoria e capacitação.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "BRL" },
+  "provider": { "@type": "Organization", "name": "Tyna", "url": "https://tyna.com.br/" }
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><img src="../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../#servicos">Serviços</a></li>
+        <li><a href="../iso-42001/">ISO 42001</a></li>
+        <li><a href="../#cases">Cases</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../sobre/">Sobre</a></li>
+        <li><!--email_off--><a href="mailto:contato@tyna.com.br?subject=Agendamento%20reuni%C3%A3o%20Tyna" class="btn btn-primary mobile-cta">Agendar conversa</a><!--/email_off--></li>
+      </ul>
+    </nav>
+    <!--email_off--><a href="mailto:contato@tyna.com.br?subject=Agendamento%20reuni%C3%A3o%20Tyna" class="btn btn-primary" id="navCta">Agendar conversa</a><!--/email_off-->
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" style="border-bottom:none; padding-bottom:40px;">
+    <div class="wrap">
+      <p class="eyebrow">Diagnóstico</p>
+      <h1 style="max-width:820px;">Onde a governança de IA da sua empresa <em>está exposta.</em></h1>
+      <p class="lead" style="max-width:640px;">Dez perguntas que a diretoria consegue responder sem consultar ninguém. Três minutos, resultado na hora, sem cadastro. É a mesma leitura que fazemos na primeira semana de um projeto.</p>
+    </div>
+  </section>
+
+  <section id="quiz" style="padding-top:20px;">
+    <div class="wrap">
+      <form class="quiz" id="quizForm" aria-label="Diagnóstico de governança de IA"></form>
+
+      <div class="quiz-bar">
+        <span class="quiz-progress" id="quizProgress">0 de 10 respondidas</span>
+        <span class="quiz-track"><span class="quiz-fill" id="quizFill"></span></span>
+        <button type="button" class="btn btn-primary" id="quizBtn" disabled>Ver resultado</button>
+      </div>
+
+      <div class="quiz-result" id="quizResult" role="region" aria-live="polite" tabindex="-1">
+        <p class="score-band" id="scoreBand"></p>
+        <div class="score-line">
+          <span class="score-v" id="scoreV">0</span>
+          <span class="score-max">de 20 pontos</span>
+        </div>
+        <h3 id="scoreTitle"></h3>
+        <p id="scoreText"></p>
+        <ul class="gaps" id="scoreGaps"></ul>
+        <a href="#" class="btn btn-primary" id="scoreCta">Receber o plano de ação por e-mail</a>
+        <p style="color:var(--text-muted); font-size:13.5px; margin-top:16px;">O botão abre seu cliente de e-mail com o resultado já preenchido. Nada é enviado ou armazenado por este site — o cálculo roda no seu navegador.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="como-lemos">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Como lemos o resultado</p>
+        <h2>O que cada faixa significa</h2>
+      </div>
+      <div class="svc-grid reveal">
+        <div class="svc-card">
+          <span class="num">0–7</span>
+          <h3>Exposta</h3>
+          <p>A IA já está em uso, mas fora de qualquer estrutura. O risco aqui não é hipotético: é vazamento de dado, decisão automatizada sem rastro e ferramenta sem dono. Primeiro passo é inventário e política.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">8–14</span>
+          <h3>Em construção</h3>
+          <p>Existe política ou comitê, mas o controle não alcança o que roda em produção. O ponto cego típico é o agente autônomo: ninguém sabe dizer até onde ele vai sem um humano.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">15–20</span>
+          <h3>Estruturada</h3>
+          <p>A governança existe e é praticada. O passo seguinte costuma ser torná-la verificável por terceiros — que é o que a certificação ISO/IEC 42001 resolve.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band" style="border-bottom:none;">
+    <div class="wrap reveal">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Prefere passar o resultado a limpo com quem conduz?</h2>
+      <p style="color:var(--text-muted); font-size:16.5px; max-width:560px; margin:0 auto 30px;">Conversa de 30 minutos, sem formulário. Leve o resultado do diagnóstico e saímos com as duas ou três frentes que destravam mais risco.</p>
+      <!--email_off--><a href="mailto:contato@tyna.com.br?subject=Diagn%C3%B3stico%20de%20governan%C3%A7a%20de%20IA" class="btn btn-primary">Agendar conversa</a><!--/email_off-->
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../" class="logo"><img src="../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../#servicos">Serviços</a>
+          <a href="../iso-42001/">ISO 42001</a>
+          <a href="../diagnostico/">Diagnóstico</a>
+          <a href="../blog/">Blog</a>
+          <a href="../sobre/">Sobre</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<!-- O botão flutuante do WhatsApp é montado por assets/site.js, que roda em todas as páginas -->
+<script src="../assets/site.js?v=6"></script>
+<script>
+(function () {
+  // Diagnóstico: tudo roda no navegador. Nenhuma resposta sai daqui sem o visitante
+  // clicar no CTA, e mesmo então vai pelo cliente de e-mail dele.
+  var PERGUNTAS = [
+    { t: 'Você consegue listar hoje, sem levantamento novo, quais ferramentas de IA cada área usa?', p: 'inventario' },
+    { t: 'Existe política interna de uso de IA publicada, comunicada e com dono definido?', p: 'politica' },
+    { t: 'Os fluxos de IA que trafegam dados pessoais têm base legal mapeada para a LGPD?', p: 'lgpd' },
+    { t: 'Há um ponto único onde se vê acesso, custo e uso de todos os modelos contratados?', p: 'gateway' },
+    { t: 'Existe comitê ou fórum com poder real de aprovar e de barrar um caso de uso?', p: 'comite' },
+    { t: 'Um novo caso de uso passa por avaliação de risco antes de entrar em produção?', p: 'processo' },
+    { t: 'Os agentes que falam com cliente têm limite de ação e gatilho de escalonamento humano definidos?', p: 'agentes' },
+    { t: 'É possível reconstruir depois o que um agente leu, decidiu e executou em um atendimento?', p: 'auditoria' },
+    { t: 'A liderança foi treinada para aprovar e fiscalizar casos de uso de IA?', p: 'lideranca' },
+    { t: 'Os times técnicos foram treinados em segurança do prompt e guardrails de produção?', p: 'times' }
+  ];
+
+  var OPCOES = [{ r: 'Não', v: 0 }, { r: 'Parcialmente', v: 1 }, { r: 'Sim', v: 2 }];
+
+  var LACUNAS = {
+    inventario: ['Inventário de IA', 'sem saber o que roda, nenhuma política é aplicável. É o primeiro entregável de qualquer diagnóstico.'],
+    politica:   ['Política interna de IA', 'a regra existe no papel ou não existe. Sem dono e sem comunicação, ela não muda comportamento.'],
+    lgpd:       ['Base legal e LGPD', 'prompt e integração que trafegam dado pessoal sem base legal mapeada são exposição regulatória direta.'],
+    gateway:    ['AI Gateway', 'sem ponto único de acesso, custo e auditoria, cada área vira uma ilha e o shadow AI não tem como ser medido.'],
+    comite:     ['Comitê de IA', 'sem fórum com poder de barrar, a decisão sobre risco acaba caindo em quem tem pressa de entregar.'],
+    processo:   ['Avaliação de risco', 'caso de uso que chega em produção sem crivo prévio é onde a alucinação vira incidente.'],
+    agentes:    ['Escopo de autonomia', 'agente que fala com cliente sem limite de ação nem escalonamento definido é o ponto cego mais caro.'],
+    auditoria:  ['Trilha de auditoria', 'se não dá para reconstruir a decisão do agente depois do fato, não há como responder a um questionamento.'],
+    lideranca:  ['Capacitação de liderança', 'quem aprova precisa saber o que está aprovando, ou a governança vira carimbo.'],
+    times:      ['Capacitação técnica', 'guardrail e segurança do prompt não se resolvem por política: dependem de quem constrói.']
+  };
+
+  var FAIXAS = [
+    { max: 7,  band: 'Exposta', h: 'A IA já está em uso e a estrutura não acompanhou.',
+      p: 'O quadro é o de adoção sem controle: as ferramentas entraram pela porta das áreas e a empresa não tem como responder o que roda, com que dado e sob qual regra. O caminho mais curto aqui não é comprar tecnologia, é fazer inventário e publicar política com dono.' },
+    { max: 14, band: 'Em construção', h: 'A base existe, mas o controle não alcança a produção.',
+      p: 'Há política, comitê ou alguma estrutura, e ainda assim o que roda no dia a dia escapa. O ponto cego mais comum nessa faixa é o agente autônomo: a política fala de uso de ferramenta por pessoa, e não de sistema que decide sozinho.' },
+    { max: 20, band: 'Estruturada', h: 'A governança é praticada, e não só documentada.',
+      p: 'A empresa está no grupo pequeno que consegue mostrar controle e não apenas intenção. O passo que costuma vir a seguir é tornar isso verificável por terceiros, que é o que a certificação ISO/IEC 42001 resolve diante de conselho, cliente e RFP.' }
+  ];
+
+  var form = document.getElementById('quizForm');
+  var btn = document.getElementById('quizBtn');
+  var prog = document.getElementById('quizProgress');
+  var fill = document.getElementById('quizFill');
+  var box = document.getElementById('quizResult');
+
+  PERGUNTAS.forEach(function (q, i) {
+    var opts = OPCOES.map(function (o) {
+      return '<label><input type="radio" name="q' + i + '" value="' + o.v + '"><span>' + o.r + '</span></label>';
+    }).join('');
+    form.insertAdjacentHTML('beforeend',
+      '<fieldset class="q-item">' +
+        '<div class="q-head"><span class="q-num">' + String(i + 1).padStart(2, '0') + '</span>' +
+        '<h3>' + q.t + '</h3></div>' +
+        '<div class="q-opts">' + opts + '</div>' +
+      '</fieldset>');
+  });
+
+  function respondidas() {
+    return PERGUNTAS.filter(function (_, i) { return form['q' + i].value !== ''; }).length;
+  }
+
+  form.addEventListener('change', function () {
+    var n = respondidas();
+    prog.textContent = n + ' de ' + PERGUNTAS.length + ' respondidas';
+    fill.style.width = (n / PERGUNTAS.length * 100) + '%';
+    btn.disabled = n < PERGUNTAS.length;
+  });
+
+  btn.addEventListener('click', function () {
+    var total = 0, fracas = [];
+    PERGUNTAS.forEach(function (q, i) {
+      var v = parseInt(form['q' + i].value, 10);
+      total += v;
+      if (v < 2) fracas.push(q.p);
+    });
+
+    var faixa = FAIXAS.find(function (f) { return total <= f.max; });
+    document.getElementById('scoreV').textContent = total;
+    document.getElementById('scoreBand').textContent = faixa.band;
+    document.getElementById('scoreTitle').textContent = faixa.h;
+    document.getElementById('scoreText').textContent = faixa.p;
+
+    var ul = document.getElementById('scoreGaps');
+    ul.innerHTML = fracas.length
+      ? fracas.map(function (k) { return '<li><strong>' + LACUNAS[k][0] + '</strong> — ' + LACUNAS[k][1] + '</li>'; }).join('')
+      : '<li><strong>Nenhuma lacuna apontada</strong> — as dez frentes vieram completas. O passo natural é a certificação.</li>';
+
+    var corpo = 'Resultado do diagnóstico de governança de IA\n\n'
+      + 'Pontuação: ' + total + ' de 20 (' + faixa.band + ')\n\n'
+      + 'Respostas:\n'
+      + PERGUNTAS.map(function (q, i) {
+          var v = parseInt(form['q' + i].value, 10);
+          return (i + 1) + '. ' + q.t + '\n   ' + OPCOES[v].r;
+        }).join('\n')
+      + '\n\nGostaria de passar este resultado a limpo em uma conversa.';
+
+    document.getElementById('scoreCta').setAttribute('href',
+      'mailto:contato@tyna.com.br?subject=' + encodeURIComponent('Diagnóstico de governança de IA — ' + total + '/20 (' + faixa.band + ')')
+      + '&body=' + encodeURIComponent(corpo));
+
+    box.classList.add('on');
+    box.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    box.focus({ preventScroll: true });
+
+    if (typeof gtag === 'function') {
+      gtag('event', 'diagnostico_concluido', { pontuacao: total, faixa: faixa.band });
+    }
+  });
+
+  document.getElementById('scoreCta').addEventListener('click', function () {
+    if (typeof gtag === 'function') gtag('event', 'diagnostico_lead', { metodo: 'email' });
+  });
+})();
+</script>
+
+</body>
+</html>

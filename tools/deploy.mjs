@@ -35,7 +35,7 @@ const BRANCH = 'main';
 const PUBLISH = [
   'index.html', '404.html', 'googlee855927550ef5bb2.html',
   'robots.txt', 'llms.txt', 'ai.json',
-  'sobre', 'iso-42001', 'blog', 'assets', 'rss.xml', 'sitemap.xml',
+  'sobre', 'iso-42001', 'diagnostico', 'blog', 'assets', 'rss.xml', 'sitemap.xml',
 ];
 
 const args = process.argv.slice(2);
