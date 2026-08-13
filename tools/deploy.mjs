@@ -28,12 +28,14 @@ const BRANCH = 'main';
 // `googlee855927550ef5bb2.html` é o arquivo de verificação do Google Search Console.
 // Precisa ser servido intacto na raiz; se sair da lista, a propriedade é desverificada.
 //
+// `BingSiteAuth.xml` é o mesmo mecanismo, para o Bing Webmaster Tools.
+//
 // Camada de AEO (leitura por motores de resposta): `robots.txt` com liberação
 // explícita dos crawlers de IA, `llms.txt` como índice curado e `ai.json` com o
 // grafo de conhecimento em JSON-LD. O robots.txt só chega ao público se o
 // "managed robots.txt" estiver DESLIGADO no painel da Cloudflare.
 const PUBLISH = [
-  'index.html', '404.html', 'googlee855927550ef5bb2.html',
+  'index.html', '404.html', 'googlee855927550ef5bb2.html', 'BingSiteAuth.xml',
   'robots.txt', 'llms.txt', 'ai.json',
   'sobre', 'iso-42001', 'diagnostico', 'blog', 'assets', 'rss.xml', 'sitemap.xml',
 ];
