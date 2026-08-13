@@ -2,7 +2,7 @@
 // Lê content/blog/*.md (markdown + frontmatter) e emite HTML pronto em blog/.
 // Sem dependências: roda com `node tools/build-blog.mjs`.
 
-import { readFileSync, readdirSync, writeFileSync, mkdirSync, rmSync, existsSync } from 'node:fs';
+import { readFileSync, readdirSync, writeFileSync, mkdirSync, rmSync, existsSync, statSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -361,13 +361,26 @@ for (const [slug, name] of Object.entries(CATEGORIES)) {
 
 /* ---------- sitemap, rss, robots ---------- */
 
+// lastmod das páginas estáticas sai da data de modificação do próprio arquivo, e o das
+// listagens sai do post mais recente que elas exibem. Carimbar a data do build em tudo
+// faria o lastmod mudar a cada publicação sem o conteúdo ter mudado — e o Google passa
+// a ignorar o campo quando ele se comporta assim.
+const mtime = rel => {
+  try { return statSync(join(ROOT, rel)).mtime.toISOString().slice(0, 10); }
+  catch { return undefined; }
+};
+const maisRecente = lista => lista.map(p => p.pubDate).sort().pop();
+
 const staticPages = [
-  { loc: `${SITE}/`, pri: '1.0', freq: 'weekly' },
-  { loc: `${SITE}/iso-42001/`, pri: '0.9', freq: 'monthly' },
-  { loc: `${SITE}/sobre/`, pri: '0.8', freq: 'monthly' },
-  { loc: `${SITE}/blog/`, pri: '0.9', freq: 'daily' },
+  { loc: `${SITE}/`, pri: '1.0', freq: 'weekly', mod: mtime('index.html') },
+  { loc: `${SITE}/iso-42001/`, pri: '0.9', freq: 'monthly', mod: mtime('iso-42001/index.html') },
+  { loc: `${SITE}/sobre/`, pri: '0.8', freq: 'monthly', mod: mtime('sobre/index.html') },
+  { loc: `${SITE}/blog/`, pri: '0.9', freq: 'daily', mod: maisRecente(posts) },
   ...Object.keys(CATEGORIES).filter(s => posts.some(p => p.category === s))
-    .map(s => ({ loc: `${SITE}/blog/categoria/${s}/`, pri: '0.6', freq: 'weekly' })),
+    .map(s => ({
+      loc: `${SITE}/blog/categoria/${s}/`, pri: '0.6', freq: 'weekly',
+      mod: maisRecente(posts.filter(p => p.category === s)),
+    })),
 ];
 
 writeFileSync(join(ROOT, 'sitemap.xml'),
@@ -375,7 +388,7 @@ writeFileSync(join(ROOT, 'sitemap.xml'),
 <urlset xmlns="http://www.w3.org/1999/xhtml/sitemap" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 </urlset>`.replace(/[\s\S]*/, () => {
     const rows = [
-      ...staticPages.map(p => `  <url><loc>${p.loc}</loc><changefreq>${p.freq}</changefreq><priority>${p.pri}</priority></url>`),
+      ...staticPages.map(p => `  <url><loc>${p.loc}</loc>${p.mod ? `<lastmod>${p.mod}</lastmod>` : ''}<changefreq>${p.freq}</changefreq><priority>${p.pri}</priority></url>`),
       ...posts.map(p => `  <url><loc>${SITE}/blog/${p.slug}/</loc><lastmod>${p.pubDate}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>${p.originalUrl ? `<xhtml:link rel="alternate" hreflang="pt-BR" href="${SITE}/blog/${p.slug}/"/><xhtml:link rel="alternate" hreflang="en" href="${p.originalUrl}"/>` : ''}</url>`),
     ];
     return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${rows.join('\n')}\n</urlset>\n`;

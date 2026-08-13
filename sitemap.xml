@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <url><loc>https://tyna.com.br/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://tyna.com.br/iso-42001/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://tyna.com.br/sobre/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://tyna.com.br/blog/</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://tyna.com.br/blog/categoria/ai-agents/</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://tyna.com.br/blog/categoria/llm/</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://tyna.com.br/blog/categoria/dev-tools/</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://tyna.com.br/blog/categoria/automation/</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tyna.com.br/</loc><lastmod>2026-08-12</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://tyna.com.br/iso-42001/</loc><lastmod>2026-08-12</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://tyna.com.br/sobre/</loc><lastmod>2026-08-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://tyna.com.br/blog/</loc><lastmod>2026-08-06</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://tyna.com.br/blog/categoria/ai-agents/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tyna.com.br/blog/categoria/llm/</loc><lastmod>2026-08-04</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tyna.com.br/blog/categoria/dev-tools/</loc><lastmod>2026-08-05</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tyna.com.br/blog/categoria/automation/</loc><lastmod>2026-07-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://tyna.com.br/blog/cloudflare-os-plataforma-aberta-para-agentes-de-ia/</loc><lastmod>2026-08-06</lastmod><changefreq>monthly</changefreq><priority>0.7</priority><xhtml:link rel="alternate" hreflang="pt-BR" href="https://tyna.com.br/blog/cloudflare-os-plataforma-aberta-para-agentes-de-ia/"/><xhtml:link rel="alternate" hreflang="en" href="https://automationscookbook.com/blog/cloudflare-os-launches-open-platform-for-ai-agents-20260806"/></url>
   <url><loc>https://tyna.com.br/blog/hyperprobe-depuracao-somente-leitura-em-producao/</loc><lastmod>2026-08-05</lastmod><changefreq>monthly</changefreq><priority>0.7</priority><xhtml:link rel="alternate" hreflang="pt-BR" href="https://tyna.com.br/blog/hyperprobe-depuracao-somente-leitura-em-producao/"/><xhtml:link rel="alternate" hreflang="en" href="https://automationscookbook.com/blog/hyperprobe-launches-readonly-debugging-agents-for-production-20260805"/></url>
   <url><loc>https://tyna.com.br/blog/imagens-geradas-por-ia-afastam-leitores/</loc><lastmod>2026-08-05</lastmod><changefreq>monthly</changefreq><priority>0.7</priority><xhtml:link rel="alternate" hreflang="pt-BR" href="https://tyna.com.br/blog/imagens-geradas-por-ia-afastam-leitores/"/><xhtml:link rel="alternate" hreflang="en" href="https://automationscookbook.com/blog/aigenerated-images-deter-readers-from-blog-content-20260805"/></url>
