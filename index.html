@@ -10,6 +10,67 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/styles.css?v=5">
+<link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
+<!-- JSON-LD inline: é daqui que o Google e os motores de resposta leem de fato.
+     O /ai.json tem o grafo completo; aqui fica o essencial da home. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://tyna.com.br/#organization",
+      "name": "Tyna",
+      "url": "https://tyna.com.br/",
+      "email": "contato@tyna.com.br",
+      "logo": "https://tyna.com.br/assets/logo-tyna-dark.png",
+      "description": "Consultoria em Inteligência Artificial e governança corporativa de IA: política interna, adequação à LGPD, AI Gateway e capacitação de lideranças e times.",
+      "slogan": "IA em produção, sob controle.",
+      "areaServed": { "@type": "Country", "name": "Brasil" },
+      "founder": {
+        "@type": "Person",
+        "name": "Felipe Jacob",
+        "url": "https://tyna.com.br/sobre/",
+        "sameAs": ["https://linkedin.com/in/felipelj"]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://tyna.com.br/#website",
+      "url": "https://tyna.com.br/",
+      "name": "Tyna",
+      "inLanguage": "pt-BR",
+      "publisher": { "@id": "https://tyna.com.br/#organization" }
+    },
+    {
+      "@type": "FAQPage",
+      "inLanguage": "pt-BR",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "O que é shadow AI?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Shadow AI é o uso de ferramentas de IA por times da empresa fora de qualquer política, sem visibilidade para TI, jurídico ou segurança. Os riscos associados são vazamento de dados e exposição regulatória, alucinação sem guardrail em agentes que já atendem clientes, e ferramentas fragmentadas sem custo, uso ou risco unificados." }
+        },
+        {
+          "@type": "Question",
+          "name": "Qual a diferença entre governança de agentes autônomos e política de uso de IA?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Política de uso trata de quem pode usar ferramentas como o ChatGPT dentro da empresa. Governança de agente autônomo trata de sistemas que decidem e agem sozinhos, respondendo ao cliente, aprovando, cobrando ou vendendo. A pergunta deixa de ser quem pode usar e passa a ser até onde o agente vai sem um humano, o que exige definir escopo de autonomia, guardrails em produção, escalonamento humano e auditoria da decisão do agente." }
+        },
+        {
+          "@type": "Question",
+          "name": "O que é um AI Gateway corporativo?",
+          "acceptedAnswer": { "@type": "Answer", "text": "É a unificação de todas as ferramentas de IA da empresa sob um único ponto de acesso, custo, observabilidade e auditoria. Resolve o problema de cada área ter seu próprio acesso a modelos, sem visão consolidada de gasto, uso e risco. Endereça shadow AI por controle, e não por proibição." }
+        },
+        {
+          "@type": "Question",
+          "name": "Como a Tyna é contratada?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Em três formatos: workshop intensivo de 3 horas em um módulo específico, trilha completa por audiência de liderança ou de times, e advisory mensal com office hours, revisão de casos de uso e evolução de políticas. O contato inicial é por e-mail em contato@tyna.com.br, em uma conversa de 30 minutos." }
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 

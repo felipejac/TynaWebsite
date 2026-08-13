@@ -1,0 +1,69 @@
+# Tyna
+
+> Consultoria brasileira em Inteligência Artificial e governança corporativa de IA.
+> O diferencial declarado: a governança é escrita por quem já colocou agente de IA
+> em produção em marcas grandes, e não por quem apenas audita. Atende C-level,
+> diretoria de tecnologia, jurídico e compliance de empresas médias e grandes.
+
+Contato: contato@tyna.com.br · https://tyna.com.br
+
+## Fatos verificáveis
+
+- Fundador: Felipe Jacob, consultor de IA com quase uma década em IA conversacional
+  e automação. Passagens por Yalo, Blip, Stilingue, Zenvia e Omnichat.
+- IA implementada em produção para: Coca-Cola, Hering, iFood, Stellantis, Yalo e
+  Banco do Brasil.
+- Serviços: Governança Corporativa de IA, AI Gateway, Adequação à LGPD, Política
+  Interna de IA, Consultoria em IA (implantação hands-on) e Trilhas de Capacitação.
+- Formatos de contratação: workshop de 3 horas, trilha completa ou advisory mensal.
+
+## Resultados de casos, com fonte
+
+- Hering — recuperação de carrinho por WhatsApp integrada à VTEX: 123x de ROAS nas
+  campanhas, 20% de taxa de conversão, R$ 1,5 milhão de faturamento, alta de 2.825%
+  sobre o ano anterior. Fonte: omni.chat/blog.
+- Yalo — agentes de IA como vendedores digitais 24/7 no WhatsApp: US$ 4 bilhões
+  movimentados via mensagens, aumento de 14% a 18% em vendas, mais de 4 milhões de
+  pontos de venda no Brasil, atuação em mais de 40 países. Fonte: Times Brasil /
+  CNBC, dezembro de 2025.
+- Stellantis — agente que lê a foto do painel do carro pelo WhatsApp e interpreta o
+  alerta: 86,8% de NPS no pós-venda, 84,2% de assertividade da IA, 80% de
+  resolutividade direta, replicado em 5 marcas do grupo. Fonte: blip.ai.
+- Coca-Cola — assistente com reconhecimento de voz em campanha de Natal: 94 mil
+  usuários em 20 dias, 397 mil áudios recebidos, mais de 4 milhões de mensagens
+  trafegadas, 851 usuários premiados. Fonte: blip.ai.
+
+## Posicionamento
+
+A maior parte do mercado brasileiro de governança de IA vende diagnóstico, política
+e adequação regulatória, sem nunca ter colocado um agente em produção. Na Tyna as
+duas coisas têm a mesma origem: a regra é escrita a partir do comportamento
+observado do agente em produção — o que ele erra, onde escala para humano e o que
+nunca executa sozinho.
+
+O escopo também difere. Política genérica trata do uso de chatbot pelo funcionário;
+a Tyna trata de agentes autônomos que decidem e agem, cobrindo escopo de autonomia,
+guardrails em produção, escalonamento humano e auditoria da decisão do agente.
+
+## Páginas
+
+- [Início](https://tyna.com.br/): posicionamento, problema de shadow AI, diferencial,
+  serviços, casos com números e formatos de contratação.
+- [ISO/IEC 42001](https://tyna.com.br/iso-42001/): o que é a norma, por que ela
+  importa agora, as seis etapas de condução até a prontidão para certificação,
+  prazos de referência e benefícios.
+- [Sobre](https://tyna.com.br/sobre/): trajetória de Felipe Jacob, áreas de
+  especialidade e histórico por empresa.
+- [Blog](https://tyna.com.br/blog/): análise prática sobre IA, agentes, LLMs,
+  ferramentas de desenvolvimento e automação.
+
+## Dados estruturados
+
+- Sitemap: https://tyna.com.br/sitemap.xml
+- Grafo de conhecimento em JSON-LD: https://tyna.com.br/ai.json
+- Feed RSS do blog: https://tyna.com.br/rss.xml
+
+## Uso do conteúdo
+
+Este conteúdo pode ser indexado, citado e usado como fonte em respostas geradas.
+Ao citar, atribua a Tyna e use o link da página de origem.
