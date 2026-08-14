@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/styles.css?v=9">
+<link rel="stylesheet" href="assets/styles.css?v=10">
 <link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
 <!-- JSON-LD inline: é daqui que o Google e os motores de resposta leem de fato.
      O /ai.json tem o grafo completo; aqui fica o essencial da home. -->
@@ -155,7 +155,59 @@
 
       <div class="gateway" role="img" aria-label="Diagrama do AI Gateway conectando Vendas, Marketing, Atendimento e Operação a um hub central de governança">
         <svg viewBox="0 0 400 400">
+          <defs>
+            <!-- Domo dos nos: foco deslocado para cima e para a esquerda simula uma
+                 fonte de luz unica, a mesma para todos os nos. -->
+            <radialGradient id="gNodeFace" cx="50%" cy="50%" r="64%" fx="32%" fy="26%">
+              <stop offset="0%" stop-color="#FFFFFF"/>
+              <stop offset="50%" stop-color="#F6EFFC"/>
+              <stop offset="100%" stop-color="#D8C3EE"/>
+            </radialGradient>
+
+            <radialGradient id="gHubFace" cx="50%" cy="50%" r="68%" fx="32%" fy="24%">
+              <stop offset="0%" stop-color="#B36BFF"/>
+              <!-- O rótulo branco cai sobre esta faixa. #8A32D8 dava 4,69:1, margem
+                   estreita demais sobre o mínimo de 4,5:1 da WCAG AA. -->
+              <stop offset="42%" stop-color="#8429D0"/>
+              <stop offset="100%" stop-color="#3D1858"/>
+            </radialGradient>
+
+            <radialGradient id="gGloss" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#FFFFFF" stop-opacity=".46"/>
+              <stop offset="55%" stop-color="#FFFFFF" stop-opacity=".20"/>
+              <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+            </radialGradient>
+
+            <radialGradient id="gHalo" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#9333EA" stop-opacity=".30"/>
+              <stop offset="55%" stop-color="#9333EA" stop-opacity=".08"/>
+              <stop offset="100%" stop-color="#9333EA" stop-opacity="0"/>
+            </radialGradient>
+
+            <!-- Um gradiente radial em coordenadas do desenho, centrado no hub, serve
+                 as seis linhas de uma vez: forte onde saem do centro, fraco na borda.
+                 Com gradiente linear seria preciso um por linha, cada um com angulo
+                 proprio. -->
+            <radialGradient id="gWire" gradientUnits="userSpaceOnUse" cx="200" cy="200" r="152">
+              <stop offset="0%" stop-color="#7C2FC0" stop-opacity=".92"/>
+              <stop offset="52%" stop-color="#A855F7" stop-opacity=".62"/>
+              <stop offset="100%" stop-color="#B98FDD" stop-opacity=".48"/>
+            </radialGradient>
+
+            <filter id="gNodeShadow" x="-12%" y="-12%" width="124%" height="124%">
+              <feDropShadow dx="0" dy="3" stdDeviation="4.5" flood-color="#3D1858" flood-opacity=".22"/>
+            </filter>
+            <filter id="gHubShadow" x="-70%" y="-70%" width="240%" height="240%">
+              <feDropShadow dx="0" dy="7" stdDeviation="10" flood-color="#3D1858" flood-opacity=".38"/>
+            </filter>
+          </defs>
+
+          <circle class="g-halo" cx="200" cy="200" r="150"/>
+
+          <!-- aneis -->
+          <circle class="g-ring-soft" cx="200" cy="200" r="88"/>
           <circle class="g-ring" cx="200" cy="200" r="178"/>
+          <circle class="g-ring-dash-2" cx="200" cy="200" r="192" style="transform-origin:200px 200px;"/>
           <circle class="g-ring-dash" cx="200" cy="200" r="150" style="transform-origin:200px 200px;"/>
 
           <!-- connecting lines -->
@@ -167,42 +219,43 @@
           <line class="g-line" x1="200" y1="200" x2="70" y2="150"/>
 
           <!-- pulses -->
+          <circle class="g-pulse-halo halo-anim" cx="200" cy="135" r="5"/>
+          <circle class="g-pulse-halo halo-anim d2" cx="265" cy="175" r="5"/>
+          <circle class="g-pulse-halo halo-anim d3" cx="265" cy="228" r="5"/>
+          <circle class="g-pulse-halo halo-anim d4" cx="135" cy="175" r="5"/>
           <circle class="g-pulse pulse-anim" cx="200" cy="135" r="3"/>
           <circle class="g-pulse pulse-anim d2" cx="265" cy="175" r="3"/>
           <circle class="g-pulse pulse-anim d3" cx="265" cy="228" r="3"/>
           <circle class="g-pulse pulse-anim d4" cx="135" cy="175" r="3"/>
 
-          <!-- outer nodes -->
-          <g>
+          <!-- outer nodes: os circulos levam a sombra em um grupo so, e os rotulos
+               ficam fora dele. Texto atravessado por filtro perde nitidez. -->
+          <g filter="url(#gNodeShadow)">
             <circle class="g-node-fill" cx="200" cy="70" r="34"/>
-            <text class="g-label" x="200" y="74" text-anchor="middle">LLMs</text>
+            <circle class="g-node-fill" cx="330" cy="150" r="34"/>
+            <circle class="g-node-fill" cx="330" cy="255" r="34"/>
+            <circle class="g-node-fill" cx="200" cy="335" r="34"/>
+            <circle class="g-node-fill" cx="70" cy="255" r="34"/>
+            <circle class="g-node-fill" cx="70" cy="150" r="34"/>
           </g>
           <g>
-            <circle class="g-node-fill" cx="330" cy="150" r="34"/>
+            <text class="g-label" x="200" y="74" text-anchor="middle">LLMs</text>
             <text class="g-label" x="330" y="146" text-anchor="middle">VENDAS</text>
             <text class="g-label" x="330" y="158" text-anchor="middle">B2B</text>
-          </g>
-          <g>
-            <circle class="g-node-fill" cx="330" cy="255" r="34"/>
             <text class="g-label" x="330" y="259" text-anchor="middle">MARKETING</text>
-          </g>
-          <g>
-            <circle class="g-node-fill" cx="200" cy="335" r="34"/>
             <text class="g-label" x="200" y="331" text-anchor="middle">ATENDI-</text>
             <text class="g-label" x="200" y="343" text-anchor="middle">MENTO</text>
-          </g>
-          <g>
-            <circle class="g-node-fill" cx="70" cy="255" r="34"/>
             <text class="g-label" x="70" y="259" text-anchor="middle">OPERAÇÃO</text>
-          </g>
-          <g>
-            <circle class="g-node-fill" cx="70" cy="150" r="34"/>
             <text class="g-label" x="70" y="146" text-anchor="middle">CRM /</text>
             <text class="g-label" x="70" y="158" text-anchor="middle">ERP</text>
           </g>
 
           <!-- hub -->
-          <circle class="g-hub-fill" cx="200" cy="200" r="52"/>
+          <g filter="url(#gHubShadow)">
+            <circle class="g-hub-fill" cx="200" cy="200" r="52"/>
+          </g>
+          <circle class="g-hub-edge" cx="200" cy="200" r="52"/>
+          <ellipse class="g-hub-gloss" cx="200" cy="180" rx="30" ry="15"/>
           <text class="g-hub-label" x="200" y="197" text-anchor="middle">AI</text>
           <text class="g-hub-label" x="200" y="211" text-anchor="middle">GATEWAY</text>
         </svg>
@@ -731,7 +784,7 @@
 </footer>
 
 <!-- O botão flutuante do WhatsApp é montado por assets/site.js, que roda em todas as páginas -->
-<script src="assets/site.js?v=9"></script>
+<script src="assets/site.js?v=10"></script>
 
 </body>
 </html>

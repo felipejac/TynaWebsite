@@ -105,23 +105,63 @@
     color:var(--text); opacity:.85;
   }
 
-  /* Gateway diagram */
-  .gateway{position:relative; aspect-ratio:1/1; max-width:480px; margin:0 auto;}
+  /* Diagrama do AI Gateway.
+     A profundidade vem de gradiente e sombra projetada, não de perspectiva: o
+     diagrama continua de frente, que é o que mantém os rótulos legíveis. Os nós
+     ganham domo por gradiente radial deslocado para o alto e à esquerda, como se
+     houvesse uma fonte de luz única.
+
+     Nenhum filtro entra em elemento animado. Filtro sobre algo que gira obriga o
+     navegador a rasterizar de novo a cada quadro; os anéis pontilhados são traço
+     puro, e o brilho dos pulsos é um círculo atrás, não um blur. */
+  /* width:100% é obrigatório aqui. Sem ele, `margin:0 auto` desliga o esticar do
+     grid e a largura vira encolher-para-caber; como o SVG interno é width:100%,
+     não há o que medir e o navegador cai no padrão de 300px do SVG. O diagrama
+     ficava em 300px em qualquer tela, sem nunca alcançar os 480 do max-width. */
+  .gateway{position:relative; aspect-ratio:1/1; width:100%; max-width:480px; margin:0 auto;}
   .gateway svg{width:100%; height:100%; overflow:visible;}
-  .g-ring{fill:none; stroke:var(--line); stroke-width:1;}
-  .g-ring-dash{fill:none; stroke:var(--accent-soft); stroke-width:1; stroke-dasharray:2 6; animation:spin 60s linear infinite;}
+
+  .g-halo{fill:url(#gHalo);}
+  .g-ring{fill:none; stroke:#D9CCE8; stroke-width:1.1;}
+  .g-ring-soft{fill:none; stroke:#E7DDF2; stroke-width:1;}
+  /* stroke-linecap:round transforma o traço curto em ponto de verdade */
+  .g-ring-dash{fill:none; stroke:#9333EA; stroke-width:2.2; stroke-dasharray:0.5 9;
+    stroke-linecap:round; opacity:.85; animation:spin 60s linear infinite;}
+  .g-ring-dash-2{fill:none; stroke:#C77DFF; stroke-width:1.6; stroke-dasharray:0.5 11;
+    stroke-linecap:round; opacity:.5; animation:spinBack 88s linear infinite;}
   @keyframes spin{to{transform:rotate(360deg);}}
-  .g-hub-fill{fill:var(--surface); stroke:var(--accent); stroke-width:1.4;}
-  .g-node-fill{fill:#fff; stroke:var(--line); stroke-width:1.2;}
-  .g-line{stroke:var(--line); stroke-width:1.2;}
-  .g-pulse{fill:var(--orange); opacity:0.9;}
-  .g-label{font-family:var(--mono); font-size:9.5px; fill:var(--text-muted); letter-spacing:0.04em;}
-  .g-hub-label{font-family:var(--mono); font-size:10.5px; fill:var(--accent); letter-spacing:0.08em;}
+  @keyframes spinBack{to{transform:rotate(-360deg);}}
+
+  .g-line{stroke:url(#gWire); stroke-width:2; stroke-linecap:round;}
+  .g-node-fill{fill:url(#gNodeFace); stroke:#A87FCE; stroke-width:1.2;}
+  .g-hub-fill{fill:url(#gHubFace);}
+  .g-hub-edge{fill:none; stroke:#C77DFF; stroke-width:1.2; opacity:.55;}
+  /* Reflexo no alto do hub: é ele que faz o círculo virar esfera. Branco chapado
+     lê como adesivo colado; o gradiente que desvanece nas bordas lê como luz. */
+  .g-hub-gloss{fill:url(#gGloss);}
+
+  .g-pulse{fill:#FF7A1A;}
+  .g-pulse-halo{fill:#FF6600; opacity:.22;}
+  .g-label{font-family:var(--mono); font-size:9.5px; fill:#3B2350; font-weight:500; letter-spacing:0.04em;}
+  .g-hub-label{font-family:var(--mono); font-size:10.5px; fill:#FFFFFF; font-weight:600; letter-spacing:0.08em;}
+
   .pulse-anim{animation:pulse 2.8s ease-in-out infinite;}
   .pulse-anim.d2{animation-delay:.5s;}
   .pulse-anim.d3{animation-delay:1s;}
   .pulse-anim.d4{animation-delay:1.5s;}
   @keyframes pulse{0%,100%{opacity:.35; r:2.5;} 50%{opacity:1; r:4;}}
+  .halo-anim{animation:pulseHalo 2.8s ease-in-out infinite;}
+  .halo-anim.d2{animation-delay:.5s;}
+  .halo-anim.d3{animation-delay:1s;}
+  .halo-anim.d4{animation-delay:1.5s;}
+  @keyframes pulseHalo{0%,100%{opacity:0; r:5;} 50%{opacity:.26; r:10;}}
+
+  /* Quem pede menos movimento no sistema recebe o diagrama parado. Ele continua
+     dizendo a mesma coisa: a informação está na estrutura, não na animação. */
+  @media (prefers-reduced-motion: reduce){
+    .g-ring-dash, .g-ring-dash-2, .pulse-anim, .halo-anim{animation:none;}
+    .halo-anim{opacity:.18;}
+  }
 
   /* ---------- Sections generic ---------- */
   section{padding:100px 0; border-bottom:1px solid var(--line);}
