@@ -140,6 +140,23 @@
     });
   })();
 
+  // Medição dos cliques que vão para o WhatsApp.
+  //
+  // Os CTAs "Agendar conversa" eram mailto: e disparavam cta_email_clique. Agora vão
+  // para o WhatsApp, e sem este bloco a conversão principal do site sairia do GA4 sem
+  // deixar rastro. Um ouvinte delegado cobre tudo de uma vez: os CTAs no corpo da
+  // página e o botão flutuante, que também não era medido antes.
+  //
+  // O parâmetro `origem` separa os dois, porque a leitura é diferente: o flutuante é
+  // impulso, o CTA no corpo vem depois de ler o argumento.
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href*="wa.me/"]');
+    if (!a || typeof gtag !== 'function') return;
+    gtag('event', 'cta_whatsapp_clique', {
+      origem: a.classList.contains('wa-fab') ? 'flutuante' : 'botao',
+    });
+  });
+
   // WhatsApp flutuante — montado aqui, e não no HTML, para valer em todas as páginas
   // (home, Sobre, índice do blog e os posts) sem duplicar markup nem depender de um
   // rebuild do blog. O CSS mora em styles.css, que todas as páginas já carregam.

@@ -10,14 +10,19 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SRC = join(ROOT, 'content', 'blog');
 const OUT = join(ROOT, 'blog');
 const SITE = 'https://tyna.com.br';
-// CTA "Agendar conversa": abre o cliente de e-mail do dispositivo com assunto preenchido.
-// Os comentários email_off desligam a ofuscação de e-mail da Cloudflare (Scrape Shield)
-// nesse trecho — sem eles o href vira /cdn-cgi/l/email-protection e só volta a ser mailto:
-// depois que o JS da Cloudflare roda.
-const MAILTO_CTA = 'mailto:contato@tyna.com.br?subject=Agendamento%20reuni%C3%A3o%20Tyna';
+// CTA "Agendar conversa": abre a conversa no WhatsApp, com a mesma mensagem do botão
+// flutuante. Era mailto:, e mailto: não faz nada em máquina sem cliente de e-mail
+// configurado — o caso do C-level que usa Gmail no navegador. O clique morria em
+// silêncio e o lead sumia. O WhatsApp funciona em qualquer dispositivo.
+//
+// Não precisa mais do wrapper email_off: ele existia só para impedir que a ofuscação
+// de e-mail da Cloudflare (Scrape Shield) transformasse o mailto em
+// /cdn-cgi/l/email-protection. Sem mailto no href, não há o que ofuscar.
+const WA_CTA = 'https://wa.me/5511997228945?text=' +
+  encodeURIComponent('Olá, Felipe. Vim pelo site da Tyna e quero falar sobre governança de IA.');
 const ctaAgendar = (cls = '', attrs = '') =>
-  `<!--email_off--><a href="${MAILTO_CTA}" class="btn btn-primary${cls ? ' ' + cls : ''}"${attrs ? ' ' + attrs : ''}>Agendar conversa</a><!--/email_off-->`;
-const ASSET_V = '8';
+  `<a href="${WA_CTA}" target="_blank" rel="noopener" class="btn btn-primary${cls ? ' ' + cls : ''}"${attrs ? ' ' + attrs : ''}>Agendar conversa</a>`;
+const ASSET_V = '9';
 
 const CATEGORIES = {
   'ai-agents': 'Agentes de IA',
