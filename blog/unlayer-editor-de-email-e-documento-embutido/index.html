@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unlayer põe editor de e-mail e documento no seu app | Tyna</title>
+<meta name="description" content="APIs para embutir construtor de arrastar e soltar dentro do produto, com templates consultáveis por código.">
+<link rel="canonical" href="https://tyna.com.br/blog/unlayer-editor-de-email-e-documento-embutido/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unlayer põe editor de e-mail e documento no seu app | Tyna">
+<meta property="og:description" content="APIs para embutir construtor de arrastar e soltar dentro do produto, com templates consultáveis por código.">
+<meta property="og:url" content="https://tyna.com.br/blog/unlayer-editor-de-email-e-documento-embutido/">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna-dark.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="alternate" type="application/rss+xml" title="Blog Tyna" href="https://tyna.com.br/rss.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=9">
+<link rel="stylesheet" href="../../assets/blog.css?v=9">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Unlayer põe editor de e-mail e documento no seu app","description":"APIs para embutir construtor de arrastar e soltar dentro do produto, com templates consultáveis por código.","datePublished":"2026-07-22","dateModified":"2026-07-22","inLanguage":"pt-BR","author":{"@type":"Person","name":"Felipe Jacob","url":"https://tyna.com.br/sobre/"},"publisher":{"@type":"Organization","name":"Tyna","url":"https://tyna.com.br","logo":{"@type":"ImageObject","url":"https://tyna.com.br/assets/logo-tyna-dark.png"}},"mainEntityOfPage":"https://tyna.com.br/blog/unlayer-editor-de-email-e-documento-embutido/","keywords":"editor, templates, automacao, n8n, interface","articleSection":"Ferramentas de Dev"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://tyna.com.br"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tyna.com.br/blog/"},{"@type":"ListItem","position":3,"name":"Ferramentas de Dev","item":"https://tyna.com.br/blog/categoria/dev-tools/"},{"@type":"ListItem","position":4,"name":"Unlayer põe editor de e-mail e documento no seu app","item":"https://tyna.com.br/blog/unlayer-editor-de-email-e-documento-embutido/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Dá para usar em um fluxo de n8n?","acceptedAnswer":{"@type":"Answer","text":"Sim. Um nó HTTP chama os endpoints REST para buscar ou atualizar template, e o HTML resultante segue para os nós de e-mail ou de geração de PDF."}},{"@type":"Question","name":"Suporta renderização no servidor?","acceptedAnswer":{"@type":"Answer","text":"O editor em si é do lado do cliente, mas há uma API de renderização que converte o HTML salvo em PDF ou outros formatos para uso no servidor."}},{"@type":"Question","name":"Há custo de licenciamento para uso comercial?","acceptedAnswer":{"@type":"Answer","text":"Existe camada gratuita para projeto pequeno. Para uso maior ou comercial, vale consultar a tabela de preços da empresa."}}]}</script>
+<link rel="alternate" hreflang="en" href="https://automationscookbook.com/blog/unlayer-adds-email-document-builders-to-your-app-20260722">
+<link rel="alternate" hreflang="pt-BR" href="https://tyna.com.br/blog/unlayer-editor-de-email-e-documento-embutido/">
+<link rel="alternate" hreflang="x-default" href="https://automationscookbook.com/blog/unlayer-adds-email-document-builders-to-your-app-20260722">
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../../" class="logo"><img src="../../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../../#servicos">Serviços</a></li>
+        <li><a href="../../iso-42001/">ISO 42001</a></li>
+        <li><a href="../../#trilhas">Trilhas</a></li>
+        <li><a href="../../blog/">Blog</a></li>
+        <li><a href="../../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+  <article class="post">
+    <div class="wrap post-wrap">
+      <nav class="crumbs" aria-label="Trilha"><a href="../../">Início</a> › <a href="../">Blog</a> › <a href="../categoria/dev-tools/">Ferramentas de Dev</a></nav>
+      <p class="eyebrow">Ferramentas de Dev</p>
+      <h1>Unlayer põe editor de e-mail e documento no seu app</h1>
+      <p class="post-meta"><time datetime="2026-07-22">22 de julho de 2026</time> · Por <a href="../../sobre/">Felipe Jacob</a></p>
+      <p class="lead">APIs para embutir construtor de arrastar e soltar dentro do produto, com templates consultáveis por código.</p>
+
+      
+
+      <aside class="answer-box"><h2>Resposta curta</h2><p>A Unlayer lançou APIs que permitem embutir seus construtores de arrastar e soltar de e-mail e documento dentro de outras aplicações. O SDK em JavaScript entrega formatação rica, templates e pré-visualização em tempo real. Para automação, o ponto relevante é que o repositório de templates pode ser consultado e atualizado por código, permitindo puxar um modelo, injetar dado dinâmico e enviar o resultado.</p></aside>
+
+      <div class="post-body">
+<h2>O que aconteceu</h2>
+<p>A Unlayer lançou APIs que permitem embutir seus construtores de arrastar e soltar de e-mail e documento dentro de aplicações de terceiros. O construtor oferece formatação rica, templates e pré-visualização em tempo real por um SDK em JavaScript, entregando experiência visual para e-mail de marketing, nota, proposta e outros documentos sem sair da aplicação hospedeira.</p>
+<p>O lançamento mira times de produto que precisam de criação de conteúdo dentro do app sem construir um editor próprio. A empresa afirma integração em minutos, funcionando em navegador e em dispositivo móvel.</p>
+<h2>Por que isso importa para quem constrói</h2>
+<ul>
+<li><strong>Integração rápida de interface</strong> — o SDK entra em um componente React ou Vue com poucas linhas, o que reduz semanas de front-end a dias.</li>
+<li><strong>Experiência consistente</strong> — o mesmo editor atende e-mail e documento, o que ajuda quando agentes geram ou alteram conteúdo em formatos diferentes.</li>
+<li><strong>Templates gerenciáveis por código</strong> — a API expõe um repositório consultável e atualizável, permitindo puxar um modelo, injetar dado dinâmico e enviar.</li>
+<li><strong>Renderização escalável</strong> — o construtor roda no cliente, o que mantém a carga de servidor baixa.</li>
+<li><strong>Extensível para agentes</strong> — rascunho gerado em linguagem natural pode ser entregue ao editor para a formatação final, garantindo saída dentro do padrão da marca.</li>
+<li><strong>Menos manutenção</strong> — terceirizar o editor livra o time de corrigir defeito de formatação e compatibilidade entre navegadores.</li>
+</ul>
+<h2>A leitura da Tyna</h2>
+<p>O item que vale isolar é o penúltimo, porque descreve um padrão de arquitetura que resolve um problema recorrente: <strong>separar o que o modelo gera do que a marca publica.</strong></p>
+<p>O erro comum em automação de conteúdo é pedir ao LLM que produza o HTML final. O resultado funciona nos testes e desanda em produção — a formatação varia entre execuções, o cliente de e-mail renderiza diferente, a cor sai fora do padrão, e um dia chega uma mensagem com estrutura quebrada na caixa do cliente.</p>
+<p>O desenho mais robusto é o oposto: <strong>o modelo produz conteúdo estruturado; o template controla a apresentação.</strong> O LLM devolve texto e campos; o template, que foi aprovado por alguém, decide como aquilo aparece. Assim a variabilidade do modelo fica confinada ao que ele deve variar — a mensagem — e não escapa para a identidade visual.</p>
+<p>Isso tem um efeito prático de governança que costuma passar despercebido: torna revisável o que antes não era. Aprovar um template é possível; aprovar o HTML que um modelo vai gerar amanhã, não.</p>
+<p>A ressalva é a de sempre em editor embutido: o construtor roda no cliente, então o conteúdo em edição passa pelo navegador de quem edita e, dependendo da configuração, pela infraestrutura do fornecedor. Se o documento em questão é uma proposta com dado de cliente, isso entra no mapeamento de tratamento. Vale conferir onde o rascunho é salvo antes de ligar em fluxo com dado real.</p>
+<h2>Perguntas frequentes</h2>
+<p><strong>P: Dá para usar em um fluxo de n8n?</strong></p>
+<p>R: Sim. Um nó HTTP chama os endpoints REST para buscar ou atualizar template, e o HTML resultante segue para os nós de e-mail ou de geração de PDF.</p>
+<p><strong>P: Suporta renderização no servidor?</strong></p>
+<p>R: O editor em si é do lado do cliente, mas há uma API de renderização que converte o HTML salvo em PDF ou outros formatos para uso no servidor.</p>
+<p><strong>P: Há custo de licenciamento para uso comercial?</strong></p>
+<p>R: Existe camada gratuita para projeto pequeno. Para uso maior ou comercial, vale consultar a tabela de preços da empresa.</p>
+      </div>
+
+      
+      <p class="post-source">Versão em inglês: <a href="https://automationscookbook.com/blog/unlayer-adds-email-document-builders-to-your-app-20260722" target="_blank" rel="noopener">Automations Cookbook</a></p>
+
+      <ul class="post-tags"><li>#editor</li><li>#templates</li><li>#automacao</li><li>#n8n</li><li>#interface</li></ul>
+    </div>
+  </article>
+
+  <section class="related">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow">Leia também</p><h2>Mais sobre Ferramentas de Dev</h2></div>
+      <div class="post-grid"><article class="post-card">
+  <a class="post-card-link" href="../../blog/hyperprobe-depuracao-somente-leitura-em-producao/">
+    <span class="tag">Ferramentas de Dev</span>
+    <h3>HyperProbe: depuração somente leitura em produção</h3>
+    <p class="desc">Agentes que se acoplam a serviços em execução para inspecionar estado sem alterar nada. A ideia é diagnosticar sem arriscar derrubar.</p>
+    <time datetime="2026-08-05">05 de agosto de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../blog/imagens-geradas-por-ia-afastam-leitores/">
+    <span class="tag">Ferramentas de Dev</span>
+    <h3>Imagem gerada por IA está afastando leitor de blog</h3>
+    <p class="desc">Ilustração automática genérica derruba clique e tempo de página. O problema não é a ferramenta, é publicar sem revisar.</p>
+    <time datetime="2026-08-05">05 de agosto de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../blog/cursor-remove-dado-de-custo-do-painel/">
+    <span class="tag">Ferramentas de Dev</span>
+    <h3>Cursor remove o dado de custo do painel e do CSV</h3>
+    <p class="desc">O painel agora mostra só contagem de tokens. Quem auditava gasto direto na plataforma vai precisar calcular por fora.</p>
+    <time datetime="2026-08-02">02 de agosto de 2026</time>
+  </a>
+</article></div>
+    </div>
+  </section>
+
+  <section class="cta-band" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Quer aplicar isso na sua empresa, com governança?</h2>
+      <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary">Agendar conversa</a>
+    </div>
+  </section>
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../../" class="logo"><img src="../../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Blog</h5>
+          <a href="../../blog/categoria/governanca/">Governança de IA</a>
+          <a href="../../blog/categoria/ai-agents/">Agentes de IA</a>
+          <a href="../../blog/categoria/llm/">LLMs</a>
+          <a href="../../blog/categoria/dev-tools/">Ferramentas de Dev</a>
+          <a href="../../blog/categoria/automation/">Automação</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../../iso-42001/">ISO 42001</a>
+          <a href="../../diagnostico/">Diagnóstico</a>
+          <a href="../../sobre/">Sobre</a>
+          <a href="../../blog/">Blog</a>
+          <a href="../../rss.xml">RSS</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/site.js?v=9"></script>
+
+</body>
+</html>

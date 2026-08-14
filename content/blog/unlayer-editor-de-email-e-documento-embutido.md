@@ -7,7 +7,7 @@ tags: ["editor","templates","automacao","n8n","interface"]
 sourceName: "Unlayer"
 originalUrl: "https://automationscookbook.com/blog/unlayer-adds-email-document-builders-to-your-app-20260722"
 aeoSummary: "A Unlayer lançou APIs que permitem embutir seus construtores de arrastar e soltar de e-mail e documento dentro de outras aplicações. O SDK em JavaScript entrega formatação rica, templates e pré-visualização em tempo real. Para automação, o ponto relevante é que o repositório de templates pode ser consultado e atualizado por código, permitindo puxar um modelo, injetar dado dinâmico e enviar o resultado."
-draft: true
+draft: false
 ---
 
 ## O que aconteceu

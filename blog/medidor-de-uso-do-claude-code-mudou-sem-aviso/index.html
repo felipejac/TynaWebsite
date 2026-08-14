@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medidor do Claude Code mudou sem aviso | Tyna</title>
+<meta name="description" content="Um desenvolvedor comparou os próprios logs de token e encontrou uma discrepância grande entre consumo registrado e cota queimada.">
+<link rel="canonical" href="https://tyna.com.br/blog/medidor-de-uso-do-claude-code-mudou-sem-aviso/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Medidor do Claude Code mudou sem aviso | Tyna">
+<meta property="og:description" content="Um desenvolvedor comparou os próprios logs de token e encontrou uma discrepância grande entre consumo registrado e cota queimada.">
+<meta property="og:url" content="https://tyna.com.br/blog/medidor-de-uso-do-claude-code-mudou-sem-aviso/">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna-dark.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="alternate" type="application/rss+xml" title="Blog Tyna" href="https://tyna.com.br/rss.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=9">
+<link rel="stylesheet" href="../../assets/blog.css?v=9">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Medidor do Claude Code mudou sem aviso","description":"Um desenvolvedor comparou os próprios logs de token e encontrou uma discrepância grande entre consumo registrado e cota queimada.","datePublished":"2026-07-21","dateModified":"2026-07-21","inLanguage":"pt-BR","author":{"@type":"Person","name":"Felipe Jacob","url":"https://tyna.com.br/sobre/"},"publisher":{"@type":"Organization","name":"Tyna","url":"https://tyna.com.br","logo":{"@type":"ImageObject","url":"https://tyna.com.br/assets/logo-tyna-dark.png"}},"mainEntityOfPage":"https://tyna.com.br/blog/medidor-de-uso-do-claude-code-mudou-sem-aviso/","keywords":"claude-code, controle-de-custo, observabilidade, automacao, dependencia","articleSection":"Ferramentas de Dev"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://tyna.com.br"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tyna.com.br/blog/"},{"@type":"ListItem","position":3,"name":"Ferramentas de Dev","item":"https://tyna.com.br/blog/categoria/dev-tools/"},{"@type":"ListItem","position":4,"name":"Medidor do Claude Code mudou sem aviso","item":"https://tyna.com.br/blog/medidor-de-uso-do-claude-code-mudou-sem-aviso/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Houve confirmação oficial de aumento de preço?","acceptedAnswer":{"@type":"Answer","text":"Não. O relato se baseia nos logs locais do próprio desenvolvedor, não em anúncio do fornecedor. O texto pede um extrato detalhado de uso em vez de afirmar certeza sobre a causa."}},{"@type":"Question","name":"Isso afeta só um modelo ou toda a linha?","acceptedAnswer":{"@type":"Answer","text":"O dado publicado se refere especificamente à contagem visível de tokens de um modelo dentro do Claude Code. Não há dado comparável para os demais."}},{"@type":"Question","name":"Qual a forma mais rápida de reduzir a exposição a esse tipo de risco?","acceptedAnswer":{"@type":"Answer","text":"Encapsular a chamada ao modelo atrás de uma interface única no fluxo, para que trocar de provedor ou separar etapa cara de etapa barata não exija mexer no resto da automação."}}]}</script>
+<link rel="alternate" hreflang="en" href="https://automationscookbook.com/blog/claude-code-token-meter-changed-quietly">
+<link rel="alternate" hreflang="pt-BR" href="https://tyna.com.br/blog/medidor-de-uso-do-claude-code-mudou-sem-aviso/">
+<link rel="alternate" hreflang="x-default" href="https://automationscookbook.com/blog/claude-code-token-meter-changed-quietly">
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../../" class="logo"><img src="../../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../../#servicos">Serviços</a></li>
+        <li><a href="../../iso-42001/">ISO 42001</a></li>
+        <li><a href="../../#trilhas">Trilhas</a></li>
+        <li><a href="../../blog/">Blog</a></li>
+        <li><a href="../../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+  <article class="post">
+    <div class="wrap post-wrap">
+      <nav class="crumbs" aria-label="Trilha"><a href="../../">Início</a> › <a href="../">Blog</a> › <a href="../categoria/dev-tools/">Ferramentas de Dev</a></nav>
+      <p class="eyebrow">Ferramentas de Dev</p>
+      <h1>Medidor do Claude Code mudou sem aviso</h1>
+      <p class="post-meta"><time datetime="2026-07-21">21 de julho de 2026</time> · Por <a href="../../sobre/">Felipe Jacob</a></p>
+      <p class="lead">Um desenvolvedor comparou os próprios logs de token e encontrou uma discrepância grande entre consumo registrado e cota queimada.</p>
+
+      
+
+      <aside class="answer-box"><h2>Resposta curta</h2><p>Um desenvolvedor que usa Claude Code em automação passou a registrar os próprios logs de token ao notar que a cota semanal esvaziava mais rápido. Comparando semanas de trabalho equivalente, encontrou volume visível de tokens muito menor para a mesma cota consumida, além de um caso em que a cota caiu sem nenhuma linha correspondente no log local. Não houve anúncio de mudança de preço.</p></aside>
+
+      <div class="post-body">
+<h2>O que aconteceu</h2>
+<p>Um desenvolvedor que roda Claude Code em ciclos de revisão, tarefas longas de agente e automação local começou a registrar os próprios logs de token depois de notar que a cota semanal esvaziava mais rápido que o habitual. Comparando semanas de trabalho equivalente, o volume visível de tokens de entrada e saída registrado localmente caiu para uma fração do que ele observava antes — na ordem de um sexto — para o que descreve como o mesmo tipo de trabalho, na mesma máquina, pelo mesmo preço de assinatura.</p>
+<p>Incluindo os tokens de criação de cache na conta, a proporção se mantém. De um jeito ou de outro, o custo efetivo por unidade de trabalho útil aparenta ter subido de forma significativa, sem anúncio de mudança de preço.</p>
+<p>O detalhe mais estranho: uma conta nova consumiu parte relevante da cota ao longo de algumas horas <strong>sem nenhuma linha correspondente registrada no log local</strong>. O registro do cliente e o medidor da conta discordam, e não há explicação publicada para a diferença.</p>
+<h2>Por que isso importa para quem constrói</h2>
+<p>Se você roda agente de código dentro de um fluxo de produção — bot de revisão, tarefa agendada de refatoração, triagem conduzida por agente —, isto é risco operacional concreto, não reclamação de preço:</p>
+<ul>
+<li><strong>Seu modelo de custo pode mudar sem registro de alteração.</strong> Um fluxo que cabia confortavelmente na cota no mês passado pode estourar neste mês, com o mesmo código fazendo o mesmo trabalho.</li>
+<li><strong>Log do cliente e medidor do fornecedor podem discordar.</strong> Se você cobra cliente ou acompanha custo por fluxo com base na sua própria contagem, pode estar subestimando o que está sendo cobrado.</li>
+<li><strong>Pilha com um provedor só fica exposta por padrão.</strong> Automação que fixa um fornecedor herda o comportamento de medição, as mudanças de preço e as indisponibilidades dele, sem margem de negociação.</li>
+</ul>
+<h2>A leitura da Tyna</h2>
+<p>Este é o post mais útil do lote inteiro, e por um motivo que vai além do fornecedor específico: <strong>ele mostra o que acontece quando não existe registro independente.</strong></p>
+<p>Repare na estrutura do problema. O desenvolvedor não conseguiu provar que houve mudança de preço — ele conseguiu provar que <strong>os dois lados não batem</strong>. E essa é exatamente a posição em que fica qualquer empresa que confia no painel do fornecedor como fonte única de verdade sobre o próprio consumo. Sem contagem própria, você não tem sequer a discrepância; tem só a fatura.</p>
+<p>A recomendação de registrar tokens fora do painel do fornecedor é barata e quase ninguém faz. Custa uma tabela com data, modelo, fluxo, tokens de entrada e de saída. O retorno aparece em três momentos distintos: quando você precisa atribuir custo por cliente, quando o fornecedor reajusta e você quer saber o impacto real, e quando os números divergem e você precisa de base para reclamar.</p>
+<p>A segunda recomendação — encapsular a chamada ao modelo em um ponto único — merece ser lida como decisão de arquitetura, não como dica. É a diferença entre trocar de fornecedor mudando uma configuração e trocar de fornecedor abrindo trinta fluxos. Isso conecta com o que já discutimos sobre roteadores de LLM e sobre a pausa de captação da DeepSeek: <strong>a camada de modelo é a mais volátil da sua pilha, e a arquitetura deveria refletir isso.</strong></p>
+<p>Uma nota sobre a evidência, que o próprio relato faz questão de marcar: são logs locais de um usuário, não um anúncio nem uma auditoria. O texto original pede ao fornecedor um extrato detalhado de uso em vez de afirmar certeza sobre a causa. Vale manter esse rigor — o achado sólido aqui não é "aumentaram o preço", é "não há como o cliente verificar".</p>
+<h2>Perguntas frequentes</h2>
+<p><strong>P: Houve confirmação oficial de aumento de preço?</strong></p>
+<p>R: Não. O relato se baseia nos logs locais do próprio desenvolvedor, não em anúncio do fornecedor. O texto pede um extrato detalhado de uso em vez de afirmar certeza sobre a causa.</p>
+<p><strong>P: Isso afeta só um modelo ou toda a linha?</strong></p>
+<p>R: O dado publicado se refere especificamente à contagem visível de tokens de um modelo dentro do Claude Code. Não há dado comparável para os demais.</p>
+<p><strong>P: Qual a forma mais rápida de reduzir a exposição a esse tipo de risco?</strong></p>
+<p>R: Encapsular a chamada ao modelo atrás de uma interface única no fluxo, para que trocar de provedor ou separar etapa cara de etapa barata não exija mexer no resto da automação.</p>
+      </div>
+
+      
+      <p class="post-source">Versão em inglês: <a href="https://automationscookbook.com/blog/claude-code-token-meter-changed-quietly" target="_blank" rel="noopener">Automations Cookbook</a></p>
+
+      <ul class="post-tags"><li>#claude-code</li><li>#controle-de-custo</li><li>#observabilidade</li><li>#automacao</li><li>#dependencia</li></ul>
+    </div>
+  </article>
+
+  <section class="related">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow">Leia também</p><h2>Mais sobre Ferramentas de Dev</h2></div>
+      <div class="post-grid"><article class="post-card">
+  <a class="post-card-link" href="../../blog/hyperprobe-depuracao-somente-leitura-em-producao/">
+    <span class="tag">Ferramentas de Dev</span>
+    <h3>HyperProbe: depuração somente leitura em produção</h3>
+    <p class="desc">Agentes que se acoplam a serviços em execução para inspecionar estado sem alterar nada. A ideia é diagnosticar sem arriscar derrubar.</p>
+    <time datetime="2026-08-05">05 de agosto de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../blog/imagens-geradas-por-ia-afastam-leitores/">
+    <span class="tag">Ferramentas de Dev</span>
+    <h3>Imagem gerada por IA está afastando leitor de blog</h3>
+    <p class="desc">Ilustração automática genérica derruba clique e tempo de página. O problema não é a ferramenta, é publicar sem revisar.</p>
+    <time datetime="2026-08-05">05 de agosto de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../blog/cursor-remove-dado-de-custo-do-painel/">
+    <span class="tag">Ferramentas de Dev</span>
+    <h3>Cursor remove o dado de custo do painel e do CSV</h3>
+    <p class="desc">O painel agora mostra só contagem de tokens. Quem auditava gasto direto na plataforma vai precisar calcular por fora.</p>
+    <time datetime="2026-08-02">02 de agosto de 2026</time>
+  </a>
+</article></div>
+    </div>
+  </section>
+
+  <section class="cta-band" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Quer aplicar isso na sua empresa, com governança?</h2>
+      <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary">Agendar conversa</a>
+    </div>
+  </section>
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../../" class="logo"><img src="../../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Blog</h5>
+          <a href="../../blog/categoria/governanca/">Governança de IA</a>
+          <a href="../../blog/categoria/ai-agents/">Agentes de IA</a>
+          <a href="../../blog/categoria/llm/">LLMs</a>
+          <a href="../../blog/categoria/dev-tools/">Ferramentas de Dev</a>
+          <a href="../../blog/categoria/automation/">Automação</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../../iso-42001/">ISO 42001</a>
+          <a href="../../diagnostico/">Diagnóstico</a>
+          <a href="../../sobre/">Sobre</a>
+          <a href="../../blog/">Blog</a>
+          <a href="../../rss.xml">RSS</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/site.js?v=9"></script>
+
+</body>
+</html>

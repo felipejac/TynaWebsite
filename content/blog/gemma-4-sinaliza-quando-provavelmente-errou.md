@@ -7,7 +7,7 @@ tags: ["gemma","autodiagnostico","agentes-de-ia","confiabilidade","n8n"]
 sourceName: "Cactus Hybrid"
 originalUrl: "https://automationscookbook.com/blog/gemma-4-learns-to-flag-its-own-mistakes-with-cactus-hybrid-20260723"
 aeoSummary: "A equipe do Cactus Hybrid ajustou o Gemma 4 com prompts e contraexemplos para acrescentar um sinal de autodiagnóstico. Quando o modelo indica probabilidade alta de erro, o sistema seguinte pode acionar uma alternativa, pedir revisão humana ou buscar dado adicional — o que permite ao fluxo verificar a incerteza antes de agir."
-draft: true
+draft: false
 ---
 
 ## O que aconteceu

@@ -7,7 +7,7 @@ tags: ["modelos-de-peso-aberto","custo-de-ia","automacao","inferencia","n8n"]
 sourceName: "Show HN"
 originalUrl: "https://automationscookbook.com/blog/echo-shows-13-cost-3-faster-ai-results-with-openweight-model-20260724"
 aeoSummary: "O Echo é um framework apresentado no Show HN que usa modelos de peso aberto para entregar texto de qualidade comparável a serviços proprietários com cerca de um terço do custo de inferência. Como os parâmetros são públicos, o modelo roda localmente ou em instâncias baratas, e a otimização do pipeline reduz o tempo de resposta."
-draft: true
+draft: false
 ---
 
 ## O que aconteceu

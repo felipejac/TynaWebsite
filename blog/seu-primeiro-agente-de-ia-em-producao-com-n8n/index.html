@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seu primeiro agente de IA em produção com n8n | Tyna</title>
+<meta name="description" content="Gatilho, recuperação, raciocínio, ação e ponto de controle humano — as cinco peças que quase todo agente real tem.">
+<link rel="canonical" href="https://tyna.com.br/blog/seu-primeiro-agente-de-ia-em-producao-com-n8n/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Seu primeiro agente de IA em produção com n8n | Tyna">
+<meta property="og:description" content="Gatilho, recuperação, raciocínio, ação e ponto de controle humano — as cinco peças que quase todo agente real tem.">
+<meta property="og:url" content="https://tyna.com.br/blog/seu-primeiro-agente-de-ia-em-producao-com-n8n/">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna-dark.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="alternate" type="application/rss+xml" title="Blog Tyna" href="https://tyna.com.br/rss.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=9">
+<link rel="stylesheet" href="../../assets/blog.css?v=9">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Seu primeiro agente de IA em produção com n8n","description":"Gatilho, recuperação, raciocínio, ação e ponto de controle humano — as cinco peças que quase todo agente real tem.","datePublished":"2026-07-21","dateModified":"2026-07-21","inLanguage":"pt-BR","author":{"@type":"Person","name":"Felipe Jacob","url":"https://tyna.com.br/sobre/"},"publisher":{"@type":"Organization","name":"Tyna","url":"https://tyna.com.br","logo":{"@type":"ImageObject","url":"https://tyna.com.br/assets/logo-tyna-dark.png"}},"mainEntityOfPage":"https://tyna.com.br/blog/seu-primeiro-agente-de-ia-em-producao-com-n8n/","keywords":"n8n, agentes-de-ia, rag, tutorial, governanca","articleSection":"Agentes de IA"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://tyna.com.br"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tyna.com.br/blog/"},{"@type":"ListItem","position":3,"name":"Agentes de IA","item":"https://tyna.com.br/blog/categoria/ai-agents/"},{"@type":"ListItem","position":4,"name":"Seu primeiro agente de IA em produção com n8n","item":"https://tyna.com.br/blog/seu-primeiro-agente-de-ia-em-producao-com-n8n/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Preciso de banco vetorial ou recuperar de uma planilha basta?","acceptedAnswer":{"@type":"Answer","text":"Depende do que você recupera. Consulta estruturada — um registro de CRM, uma linha de planilha — não precisa de banco vetorial: uma chamada de API é mais rápida e mais fácil de depurar. Reserve busca vetorial para conteúdo realmente não estruturado, como histórico de chamado ou documentação."}},{"@type":"Question","name":"O que conta como irreversível no ponto de controle?","acceptedAnswer":{"@type":"Answer","text":"Tudo que deixa o seu sistema ao executar: e-mail enviado, pagamento, exclusão de registro e qualquer ação que o cliente veja diretamente. Rascunho interno ou marcação em CRM costumam ser seguros de automatizar."}},{"@type":"Question","name":"Esse formato de cinco peças funciona fora do n8n?","acceptedAnswer":{"@type":"Answer","text":"Sim. É o mesmo formato que um framework de agentes em código produziria, apenas expresso como código em vez de fluxo visual."}}]}</script>
+<link rel="alternate" hreflang="en" href="https://automationscookbook.com/blog/build-your-first-production-ai-agent-with-n8n">
+<link rel="alternate" hreflang="pt-BR" href="https://tyna.com.br/blog/seu-primeiro-agente-de-ia-em-producao-com-n8n/">
+<link rel="alternate" hreflang="x-default" href="https://automationscookbook.com/blog/build-your-first-production-ai-agent-with-n8n">
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../../" class="logo"><img src="../../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../../#servicos">Serviços</a></li>
+        <li><a href="../../iso-42001/">ISO 42001</a></li>
+        <li><a href="../../#trilhas">Trilhas</a></li>
+        <li><a href="../../blog/">Blog</a></li>
+        <li><a href="../../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+  <article class="post">
+    <div class="wrap post-wrap">
+      <nav class="crumbs" aria-label="Trilha"><a href="../../">Início</a> › <a href="../">Blog</a> › <a href="../categoria/ai-agents/">Agentes de IA</a></nav>
+      <p class="eyebrow">Agentes de IA</p>
+      <h1>Seu primeiro agente de IA em produção com n8n</h1>
+      <p class="post-meta"><time datetime="2026-07-21">21 de julho de 2026</time> · Por <a href="../../sobre/">Felipe Jacob</a></p>
+      <p class="lead">Gatilho, recuperação, raciocínio, ação e ponto de controle humano — as cinco peças que quase todo agente real tem.</p>
+
+      
+
+      <aside class="answer-box"><h2>Resposta curta</h2><p>Um agente de n8n em produção costuma ser cinco peças conectadas: um gatilho, uma etapa opcional de recuperação, um nó de raciocínio com LLM, uma ou mais chamadas de ferramenta, e um ponto de controle humano antes de qualquer ação irreversível. A maioria das falhas vem de pular o ponto de controle, não da etapa do modelo.</p></aside>
+
+      <div class="post-body">
+<h2>O formato de um agente de verdade</h2>
+<p>A maioria dos tutoriais mostra um agente como um nó só: o gatilho entra, um nó mágico de IA faz tudo, o resultado sai. Sistema em produção não se parece com isso. Ele tem cinco peças distintas:</p>
+<ol>
+<li><strong>Gatilho</strong> — um webhook, envio de formulário, agendamento ou e-mail recebido.</li>
+<li><strong>Recuperação</strong> (opcional) — buscar o contexto de que o modelo precisa: um registro do CRM, o histórico de um chamado, uma linha de planilha.</li>
+<li><strong>Raciocínio</strong> — a chamada ao modelo que decide o que fazer, dado o gatilho e o contexto recuperado.</li>
+<li><strong>Chamada de ferramenta</strong> — a ação decidida: enviar uma mensagem, atualizar um campo do CRM, criar um evento na agenda.</li>
+<li><strong>Ponto de controle humano</strong> — uma pausa antes de qualquer coisa que não se desfaz (enviar e-mail a cliente, cobrar um cartão, apagar um registro).</li>
+</ol>
+<p>Pule a quinta e você não tem um agente: tem um script sem supervisão com um modelo dentro.</p>
+<h2>Um exemplo concreto</h2>
+<p>Pense em um agente de qualificação de leads. Um formulário é enviado — esse é o gatilho. O fluxo consulta o domínio da empresa em uma base externa — recuperação. Um nó de LLM lê as respostas do formulário junto com esses dados e decide se o lead é qualificado e em que faixa — raciocínio. Então o fluxo cria o registro no CRM e avisa o vendedor — chamada de ferramenta. Ou, se a decisão do modelo for frágil, encaminha para revisão manual em vez de qualificar sozinho — o ponto de controle.</p>
+<p>É o mesmo formato de cinco peças de qualquer automação séria, apenas descrito em termos de agente.</p>
+<h2>Onde os times erram</h2>
+<p><strong>Nenhuma etapa de recuperação.</strong> Alimentar o modelo apenas com o conteúdo do gatilho e pedir que ele "decida" produz saída plausível e sem fundamento. O modelo não conhece as regras de pontuação de lead da sua empresa a menos que você as coloque na frente dele.</p>
+<p><strong>Nenhum critério de incerteza.</strong> Tratar toda saída como final significa que toda alucinação chega ao cliente ou ao sistema de registro. Acrescente um caminho explícito para o caso duvidoso — mesmo um simples, como uma checagem por palavra-chave ou uma segunda chamada mais barata — antes que a decisão vire ação irreversível.</p>
+<p><strong>Um prompt gigante em vez de um fluxo.</strong> Se o seu agente é um único prompt tentando recuperar, decidir e agir de uma vez, você escondeu as cinco peças dentro de um texto em vez de deixá-las inspecionáveis como nós separados. Isso é mais difícil de depurar quando quebra — e vai quebrar.</p>
+<h2>A leitura da Tyna</h2>
+<p>A quinta peça é a que separa piloto de sistema, e vale explicitar o critério que a torna acionável: <strong>irreversível é tudo que sai do seu controle quando executa.</strong></p>
+<p>E-mail enviado, cobrança feita, registro apagado, mensagem que o cliente vê. Criar rascunho interno, marcar um lead, escrever em uma tabela de trabalho — isso se desfaz, e automatizar sem pausa é razoável. A pergunta a fazer para cada ação do fluxo não é "o modelo acerta isso?", é <strong>"se ele errar, dá para desfazer?"</strong>. Onde a resposta for não, entra a pausa.</p>
+<p>O terceiro erro listado é o mais comum em time que está começando, e o mais caro. Um prompt gigante parece mais simples porque tem menos peças na tela. Só que quando ele falha — e ele falha —, não há onde olhar: a recuperação, a decisão e a ação aconteceram dentro da mesma caixa preta. Separar em nós parece burocracia até o primeiro incidente, quando vira a diferença entre "sei exatamente em qual etapa quebrou" e "vou reler o prompt e tentar adivinhar".</p>
+<p>Uma observação sobre a segunda peça, à luz do que já publicamos sobre <strong>scores de confiança não serem confiáveis</strong>: o critério de incerteza mencionado aqui não precisa vir do modelo. Verificação por regra, validação de esquema ou conferência contra uma fonte de verdade costumam ser mais baratas e muito mais previsíveis do que perguntar ao modelo o quanto ele confia em si mesmo.</p>
+<h2>Perguntas frequentes</h2>
+<p><strong>P: Preciso de banco vetorial ou recuperar de uma planilha basta?</strong></p>
+<p>R: Depende do que você recupera. Consulta estruturada — um registro de CRM, uma linha de planilha — não precisa de banco vetorial: uma chamada de API é mais rápida e mais fácil de depurar. Reserve busca vetorial para conteúdo realmente não estruturado, como histórico de chamado ou documentação.</p>
+<p><strong>P: O que conta como irreversível no ponto de controle?</strong></p>
+<p>R: Tudo que deixa o seu sistema ao executar: e-mail enviado, pagamento, exclusão de registro e qualquer ação que o cliente veja diretamente. Rascunho interno ou marcação em CRM costumam ser seguros de automatizar.</p>
+<p><strong>P: Esse formato de cinco peças funciona fora do n8n?</strong></p>
+<p>R: Sim. É o mesmo formato que um framework de agentes em código produziria, apenas expresso como código em vez de fluxo visual.</p>
+      </div>
+
+      
+      <p class="post-source">Versão em inglês: <a href="https://automationscookbook.com/blog/build-your-first-production-ai-agent-with-n8n" target="_blank" rel="noopener">Automations Cookbook</a></p>
+
+      <ul class="post-tags"><li>#n8n</li><li>#agentes-de-ia</li><li>#rag</li><li>#tutorial</li><li>#governanca</li></ul>
+    </div>
+  </article>
+
+  <section class="related">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow">Leia também</p><h2>Mais sobre Agentes de IA</h2></div>
+      <div class="post-grid"><article class="post-card">
+  <a class="post-card-link" href="../../blog/cloudflare-os-plataforma-aberta-para-agentes-de-ia/">
+    <span class="tag">Agentes de IA</span>
+    <h3>Cloudflare OS: agentes de IA rodando na borda</h3>
+    <p class="desc">A Cloudflare lançou uma plataforma aberta para construir e escalar agentes de IA. O que muda para quem já roda n8n em produção.</p>
+    <time datetime="2026-08-06">06 de agosto de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../blog/zero-mem-memoria-sem-tokens-para-agentes-llm/">
+    <span class="tag">Agentes de IA</span>
+    <h3>Zero-Mem: memória para agentes de LLM sem gastar token</h3>
+    <p class="desc">Uma técnica que separa o acesso à memória da chamada ao modelo e corta até 70% do consumo de tokens sem perder acurácia.</p>
+    <time datetime="2026-08-05">05 de agosto de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../blog/edotenv-ambientes-de-treino-para-trading-quantitativo/">
+    <span class="tag">Agentes de IA</span>
+    <h3>EdotEnv lança ambientes de treino para trading quantitativo</h3>
+    <p class="desc">Sandbox com dinâmica de livro de ofertas e custo de transação para treinar LLMs em estratégia — antes de arriscar capital.</p>
+    <time datetime="2026-08-04">04 de agosto de 2026</time>
+  </a>
+</article></div>
+    </div>
+  </section>
+
+  <section class="cta-band" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Quer aplicar isso na sua empresa, com governança?</h2>
+      <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary">Agendar conversa</a>
+    </div>
+  </section>
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../../" class="logo"><img src="../../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Blog</h5>
+          <a href="../../blog/categoria/governanca/">Governança de IA</a>
+          <a href="../../blog/categoria/ai-agents/">Agentes de IA</a>
+          <a href="../../blog/categoria/llm/">LLMs</a>
+          <a href="../../blog/categoria/dev-tools/">Ferramentas de Dev</a>
+          <a href="../../blog/categoria/automation/">Automação</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../../iso-42001/">ISO 42001</a>
+          <a href="../../diagnostico/">Diagnóstico</a>
+          <a href="../../sobre/">Sobre</a>
+          <a href="../../blog/">Blog</a>
+          <a href="../../rss.xml">RSS</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/site.js?v=9"></script>
+
+</body>
+</html>

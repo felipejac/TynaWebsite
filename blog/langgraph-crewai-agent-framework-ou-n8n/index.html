@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LangGraph, CrewAI, Agent Framework ou n8n? | Tyna</title>
+<meta name="description" content="Quatro caminhos para construir agentes, com critérios de escolha que dependem menos da tecnologia e mais de quem vai manter.">
+<link rel="canonical" href="https://tyna.com.br/blog/langgraph-crewai-agent-framework-ou-n8n/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LangGraph, CrewAI, Agent Framework ou n8n? | Tyna">
+<meta property="og:description" content="Quatro caminhos para construir agentes, com critérios de escolha que dependem menos da tecnologia e mais de quem vai manter.">
+<meta property="og:url" content="https://tyna.com.br/blog/langgraph-crewai-agent-framework-ou-n8n/">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna-dark.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="alternate" type="application/rss+xml" title="Blog Tyna" href="https://tyna.com.br/rss.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=9">
+<link rel="stylesheet" href="../../assets/blog.css?v=9">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"LangGraph, CrewAI, Agent Framework ou n8n?","description":"Quatro caminhos para construir agentes, com critérios de escolha que dependem menos da tecnologia e mais de quem vai manter.","datePublished":"2026-07-21","dateModified":"2026-07-21","inLanguage":"pt-BR","author":{"@type":"Person","name":"Felipe Jacob","url":"https://tyna.com.br/sobre/"},"publisher":{"@type":"Organization","name":"Tyna","url":"https://tyna.com.br","logo":{"@type":"ImageObject","url":"https://tyna.com.br/assets/logo-tyna-dark.png"}},"mainEntityOfPage":"https://tyna.com.br/blog/langgraph-crewai-agent-framework-ou-n8n/","keywords":"frameworks, langgraph, crewai, n8n, arquitetura","articleSection":"Agentes de IA"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://tyna.com.br"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tyna.com.br/blog/"},{"@type":"ListItem","position":3,"name":"Agentes de IA","item":"https://tyna.com.br/blog/categoria/ai-agents/"},{"@type":"ListItem","position":4,"name":"LangGraph, CrewAI, Agent Framework ou n8n?","item":"https://tyna.com.br/blog/langgraph-crewai-agent-framework-ou-n8n/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Ainda vale aprender AutoGen?","acceptedAnswer":{"@type":"Answer","text":"Só se você mantém um sistema existente. O desenvolvimento novo migrou para o sucessor, e o AutoGen está em modo de manutenção."}},{"@type":"Question","name":"Dá para usar n8n e LangGraph juntos?","acceptedAnswer":{"@type":"Answer","text":"Sim, é padrão comum. O n8n cuida de gatilho, integrações e o processo em volta; um serviço em LangGraph cuida da parte que exige raciocínio com estado, chamado por um nó HTTP."}},{"@type":"Question","name":"Qual é mais fácil de manter para quem não é engenheiro?","acceptedAnswer":{"@type":"Answer","text":"n8n, com folga — o editor visual foi feito para isso. A configuração por papéis do CrewAI é a segunda mais legível sem base sólida de programação."}}]}</script>
+<link rel="alternate" hreflang="en" href="https://automationscookbook.com/blog/langgraph-vs-crewai-vs-microsoft-agent-framework-vs-n8n-2026">
+<link rel="alternate" hreflang="pt-BR" href="https://tyna.com.br/blog/langgraph-crewai-agent-framework-ou-n8n/">
+<link rel="alternate" hreflang="x-default" href="https://automationscookbook.com/blog/langgraph-vs-crewai-vs-microsoft-agent-framework-vs-n8n-2026">
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../../" class="logo"><img src="../../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../../#servicos">Serviços</a></li>
+        <li><a href="../../iso-42001/">ISO 42001</a></li>
+        <li><a href="../../#trilhas">Trilhas</a></li>
+        <li><a href="../../blog/">Blog</a></li>
+        <li><a href="../../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+  <article class="post">
+    <div class="wrap post-wrap">
+      <nav class="crumbs" aria-label="Trilha"><a href="../../">Início</a> › <a href="../">Blog</a> › <a href="../categoria/ai-agents/">Agentes de IA</a></nav>
+      <p class="eyebrow">Agentes de IA</p>
+      <h1>LangGraph, CrewAI, Agent Framework ou n8n?</h1>
+      <p class="post-meta"><time datetime="2026-07-21">21 de julho de 2026</time> · Por <a href="../../sobre/">Felipe Jacob</a></p>
+      <p class="lead">Quatro caminhos para construir agentes, com critérios de escolha que dependem menos da tecnologia e mais de quem vai manter.</p>
+
+      
+
+      <aside class="answer-box"><h2>Resposta curta</h2><p>LangGraph serve quando é preciso controlar exatamente como o agente transita entre etapas e repete tentativas. CrewAI serve para modelar um time de agentes especialistas com papéis claros. O Microsoft Agent Framework serve a organizações já imersas na pilha Microsoft e Azure que precisam de um SDK único. O n8n serve quando quem mantém o fluxo não é engenheiro de software, ou quando o agente precisa conviver com centenas de integrações de negócio.</p></aside>
+
+      <div class="post-body">
+<h2>A resposta curta</h2>
+<p>Escolha <strong>LangGraph</strong> quando precisar controlar exatamente como o agente transita entre etapas e repete tentativas. Escolha <strong>CrewAI</strong> quando estiver modelando um time de agentes especialistas com papéis claros e quiser que essa estrutura continue legível. Escolha o <strong>Microsoft Agent Framework</strong> quando a organização já vive na pilha Microsoft e Azure e precisa de um SDK único e suportado entre Python, C# e Java. Escolha <strong>n8n</strong> quando quem constrói e mantém o fluxo não é primariamente engenheiro de software, ou quando o agente precisa conviver com centenas de integrações de negócio que você já opera.</p>
+<p>Eles não são excludentes. Um padrão comum em produção é o n8n orquestrar o gatilho de negócio — um webhook, um formulário, um agendamento — e chamar um serviço em LangGraph ou CrewAI para a parte que realmente exige raciocínio em várias etapas.</p>
+<h2>Para que serve cada um</h2>
+<h3>LangGraph — máquina de estados para agentes</h3>
+<p>Modela o agente como um grafo explícito: nós são etapas, arestas são transições e o estado é um objeto tipado que circula entre elas. Isso dá duas coisas que laços de controle implícitos não dão: pausar, inspecionar e retomar a execução em qualquer nó, e garantir que certas transições nunca aconteçam. Quem adota costuma ter batido no limite da abordagem mais simples de chamar o modelo em laço.</p>
+<h3>CrewAI — times multiagente por papel</h3>
+<p>A abstração central é a equipe: um conjunto de agentes, cada um com papel, objetivo e contexto, trabalhando por uma sequência de tarefas. A leitura se aproxima mais de um organograma que de uma máquina de estados, o que facilita entregar a configuração a alguém que não está imerso no código — o arquivo genuinamente descreve o que o sistema faz.</p>
+<h3>Microsoft Agent Framework — o sucessor do AutoGen</h3>
+<p>É para onde vai quem construiu sobre o AutoGen. A proposta é consistência: os mesmos conceitos de orquestração entre os SDKs de Python, C# e Java, integrados ao restante da pilha corporativa da Microsoft. É o padrão pragmático quando compras, revisão de segurança e suporte de longo prazo já apontam para lá.</p>
+<h3>n8n — a camada que conversa com todos</h3>
+<p>O n8n não tenta ser um framework de raciocínio. Ele tenta ser a camada de fluxo que dispara, sequencia e conecta o resto — inclusive chamadas a serviços em LangGraph ou CrewAI. A vantagem é a largura: centenas de integrações prontas que, numa pilha só de código, seriam trabalho sob medida. Quando a lógica do agente é simples — classificar, resumir, encaminhar — mas o processo em volta toca uma dúzia de sistemas, costuma ser o caminho mais rápido até produção.</p>
+<h2>Como decidir de verdade</h2>
+<p>Pergunte <strong>quem mantém isso depois que você entregar</strong>.</p>
+<p>Se for alguém de operações, e não um engenheiro, o fluxo visual vence mesmo sendo menos flexível. Se for um time de engenharia que precisa de controle fino sobre estado e repetição, LangGraph justifica a complexidade. Se o modelo mental é "um time de especialistas com funções diferentes", CrewAI mantém essa estrutura honesta conforme o sistema cresce. Se a organização já tem relação de compras, segurança e suporte com a Microsoft, o Agent Framework remove uma categoria de atrito de aprovação que os outros não removem.</p>
+<h2>A leitura da Tyna</h2>
+<p>O critério proposto — quem mantém depois — é o certo, e vale radicalizá-lo: <strong>essa é praticamente a única pergunta que importa.</strong></p>
+<p>A escolha de framework quase nunca fracassa por limitação técnica. Fracassa porque a pessoa que construiu saiu, mudou de time ou foi alocada em outra prioridade, e quem ficou não consegue mexer. Um sistema em LangGraph impecável mantido por uma equipe de operações é um sistema congelado: ninguém altera, porque ninguém entende, e ele vai apodrecendo até alguém decidir refazer.</p>
+<p>Para a realidade da empresa brasileira média, isso tem uma implicação desconfortável. <strong>Times de engenharia dedicados a manter agente são raros.</strong> O que existe é um time de produto que também cuida de automação, ou uma pessoa de operações que aprendeu a plataforma. Nesse cenário, escolher a ferramenta mais poderosa é escolher a que vai parar de evoluir primeiro.</p>
+<p>Vale acrescentar uma pergunta ao critério: <strong>quando esse framework for descontinuado, quanto do meu sistema vai junto?</strong> Não é hipótese remota — o AutoGen acabou de mostrar como isso acontece com um projeto grande e bem financiado. O padrão híbrido citado no início é a melhor defesa contra isso: manter a lógica de negócio no fluxo, que muda devagar, e isolar o raciocínio em um serviço substituível. Assim a troca de framework atinge uma peça, não o sistema.</p>
+<h2>Perguntas frequentes</h2>
+<p><strong>P: Ainda vale aprender AutoGen?</strong></p>
+<p>R: Só se você mantém um sistema existente. O desenvolvimento novo migrou para o sucessor, e o AutoGen está em modo de manutenção.</p>
+<p><strong>P: Dá para usar n8n e LangGraph juntos?</strong></p>
+<p>R: Sim, é padrão comum. O n8n cuida de gatilho, integrações e o processo em volta; um serviço em LangGraph cuida da parte que exige raciocínio com estado, chamado por um nó HTTP.</p>
+<p><strong>P: Qual é mais fácil de manter para quem não é engenheiro?</strong></p>
+<p>R: n8n, com folga — o editor visual foi feito para isso. A configuração por papéis do CrewAI é a segunda mais legível sem base sólida de programação.</p>
+      </div>
+
+      
+      <p class="post-source">Versão em inglês: <a href="https://automationscookbook.com/blog/langgraph-vs-crewai-vs-microsoft-agent-framework-vs-n8n-2026" target="_blank" rel="noopener">Automations Cookbook</a></p>
+
+      <ul class="post-tags"><li>#frameworks</li><li>#langgraph</li><li>#crewai</li><li>#n8n</li><li>#arquitetura</li></ul>
+    </div>
+  </article>
+
+  <section class="related">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow">Leia também</p><h2>Mais sobre Agentes de IA</h2></div>
+      <div class="post-grid"><article class="post-card">
+  <a class="post-card-link" href="../../blog/cloudflare-os-plataforma-aberta-para-agentes-de-ia/">
+    <span class="tag">Agentes de IA</span>
+    <h3>Cloudflare OS: agentes de IA rodando na borda</h3>
+    <p class="desc">A Cloudflare lançou uma plataforma aberta para construir e escalar agentes de IA. O que muda para quem já roda n8n em produção.</p>
+    <time datetime="2026-08-06">06 de agosto de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../blog/zero-mem-memoria-sem-tokens-para-agentes-llm/">
+    <span class="tag">Agentes de IA</span>
+    <h3>Zero-Mem: memória para agentes de LLM sem gastar token</h3>
+    <p class="desc">Uma técnica que separa o acesso à memória da chamada ao modelo e corta até 70% do consumo de tokens sem perder acurácia.</p>
+    <time datetime="2026-08-05">05 de agosto de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../blog/edotenv-ambientes-de-treino-para-trading-quantitativo/">
+    <span class="tag">Agentes de IA</span>
+    <h3>EdotEnv lança ambientes de treino para trading quantitativo</h3>
+    <p class="desc">Sandbox com dinâmica de livro de ofertas e custo de transação para treinar LLMs em estratégia — antes de arriscar capital.</p>
+    <time datetime="2026-08-04">04 de agosto de 2026</time>
+  </a>
+</article></div>
+    </div>
+  </section>
+
+  <section class="cta-band" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Quer aplicar isso na sua empresa, com governança?</h2>
+      <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary">Agendar conversa</a>
+    </div>
+  </section>
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../../" class="logo"><img src="../../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Blog</h5>
+          <a href="../../blog/categoria/governanca/">Governança de IA</a>
+          <a href="../../blog/categoria/ai-agents/">Agentes de IA</a>
+          <a href="../../blog/categoria/llm/">LLMs</a>
+          <a href="../../blog/categoria/dev-tools/">Ferramentas de Dev</a>
+          <a href="../../blog/categoria/automation/">Automação</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../../iso-42001/">ISO 42001</a>
+          <a href="../../diagnostico/">Diagnóstico</a>
+          <a href="../../sobre/">Sobre</a>
+          <a href="../../blog/">Blog</a>
+          <a href="../../rss.xml">RSS</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/site.js?v=9"></script>
+
+</body>
+</html>

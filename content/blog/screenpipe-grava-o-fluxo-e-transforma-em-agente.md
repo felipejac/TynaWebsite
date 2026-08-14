@@ -7,7 +7,7 @@ tags: ["agentes-de-ia","automacao","interface","prototipagem","n8n"]
 sourceName: "Hacker News"
 originalUrl: "https://automationscookbook.com/blog/screenpipe-yc-s26-record-workflows-to-power-ai-agents-20260723"
 aeoSummary: "A Screenpipe apresentou uma ferramenta que grava a atividade em tela — movimento de mouse, cliques, digitação e contexto de interface — e converte a gravação em um agente reaproveitável, exposto por API. A proposta é reduzir a barreira para criar agentes que operam softwares existentes, inclusive sistemas legados ou de código fechado."
-draft: true
+draft: false
 ---
 
 ## O que aconteceu

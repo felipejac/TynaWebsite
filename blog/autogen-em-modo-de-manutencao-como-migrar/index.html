@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AutoGen em modo de manutenção: quando migrar | Tyna</title>
+<meta name="description" content="A Microsoft fundiu AutoGen e Semantic Kernel em um framework único. O antigo segue recebendo correção, não recursos novos.">
+<link rel="canonical" href="https://tyna.com.br/blog/autogen-em-modo-de-manutencao-como-migrar/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AutoGen em modo de manutenção: quando migrar | Tyna">
+<meta property="og:description" content="A Microsoft fundiu AutoGen e Semantic Kernel em um framework único. O antigo segue recebendo correção, não recursos novos.">
+<meta property="og:url" content="https://tyna.com.br/blog/autogen-em-modo-de-manutencao-como-migrar/">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna-dark.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="alternate" type="application/rss+xml" title="Blog Tyna" href="https://tyna.com.br/rss.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=9">
+<link rel="stylesheet" href="../../assets/blog.css?v=9">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"AutoGen em modo de manutenção: quando migrar","description":"A Microsoft fundiu AutoGen e Semantic Kernel em um framework único. O antigo segue recebendo correção, não recursos novos.","datePublished":"2026-07-21","dateModified":"2026-07-21","inLanguage":"pt-BR","author":{"@type":"Person","name":"Felipe Jacob","url":"https://tyna.com.br/sobre/"},"publisher":{"@type":"Organization","name":"Tyna","url":"https://tyna.com.br","logo":{"@type":"ImageObject","url":"https://tyna.com.br/assets/logo-tyna-dark.png"}},"mainEntityOfPage":"https://tyna.com.br/blog/autogen-em-modo-de-manutencao-como-migrar/","keywords":"autogen, frameworks, agentes-de-ia, migracao, divida-tecnica","articleSection":"Agentes de IA"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://tyna.com.br"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tyna.com.br/blog/"},{"@type":"ListItem","position":3,"name":"Agentes de IA","item":"https://tyna.com.br/blog/categoria/ai-agents/"},{"@type":"ListItem","position":4,"name":"AutoGen em modo de manutenção: quando migrar","item":"https://tyna.com.br/blog/autogen-em-modo-de-manutencao-como-migrar/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Preciso migrar imediatamente?","acceptedAnswer":{"@type":"Answer","text":"Não. Modo de manutenção significa que continua recebendo correção de segurança. Migre no seu tempo, mas não comece projeto novo sobre ele."}},{"@type":"Question","name":"O framework novo substitui também o Semantic Kernel?","acceptedAnswer":{"@type":"Answer","text":"Sim. É a fusão dos dois em um só, então projetos de Semantic Kernel também caminham para lá ao longo do tempo."}},{"@type":"Question","name":"A migração é automatizada ou é reescrita?","acceptedAnswer":{"@type":"Answer","text":"Espere reescrita parcial. Os conceitos centrais atravessam, mas a superfície de API difere o suficiente para exigir novo teste dos fluxos de conversa e das integrações."}}]}</script>
+<link rel="alternate" hreflang="en" href="https://automationscookbook.com/blog/autogen-to-microsoft-agent-framework-migration-guide">
+<link rel="alternate" hreflang="pt-BR" href="https://tyna.com.br/blog/autogen-em-modo-de-manutencao-como-migrar/">
+<link rel="alternate" hreflang="x-default" href="https://automationscookbook.com/blog/autogen-to-microsoft-agent-framework-migration-guide">
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../../" class="logo"><img src="../../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../../#servicos">Serviços</a></li>
+        <li><a href="../../iso-42001/">ISO 42001</a></li>
+        <li><a href="../../#trilhas">Trilhas</a></li>
+        <li><a href="../../blog/">Blog</a></li>
+        <li><a href="../../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+  <article class="post">
+    <div class="wrap post-wrap">
+      <nav class="crumbs" aria-label="Trilha"><a href="../../">Início</a> › <a href="../">Blog</a> › <a href="../categoria/ai-agents/">Agentes de IA</a></nav>
+      <p class="eyebrow">Agentes de IA</p>
+      <h1>AutoGen em modo de manutenção: quando migrar</h1>
+      <p class="post-meta"><time datetime="2026-07-21">21 de julho de 2026</time> · Por <a href="../../sobre/">Felipe Jacob</a></p>
+      <p class="lead">A Microsoft fundiu AutoGen e Semantic Kernel em um framework único. O antigo segue recebendo correção, não recursos novos.</p>
+
+      
+
+      <aside class="answer-box"><h2>Resposta curta</h2><p>A Microsoft fundiu o AutoGen, seu framework de pesquisa para conversas multiagente, com o Semantic Kernel, seu SDK corporativo, e passou a distribuir o resultado como um framework único. O AutoGen entrou em modo de manutenção: continua recebendo correção de segurança, mas recursos novos e projetos novos são direcionados ao sucessor.</p></aside>
+
+      <div class="post-body">
+<h2>O que aconteceu</h2>
+<p>A Microsoft fundiu o AutoGen — seu framework de pesquisa para conversas multiagente — com o Semantic Kernel, seu SDK corporativo de agentes, e passou a distribuir o resultado como um framework único. O AutoGen entrou em modo de manutenção: continua recebendo correção de segurança, mas recursos novos e projetos novos são direcionados ao sucessor.</p>
+<p>Não é uma troca de nome. Os dois projetos tinham centros de gravidade distintos. O AutoGen otimizava para conversas multiagente flexíveis, voltadas a pesquisa. O Semantic Kernel otimizava para consistência de SDK entre Python, C# e Java, com integração mais próxima do Azure. O framework unificado é a tentativa de preservar os padrões de conversa do primeiro dando a eles a história de produção e governança do segundo.</p>
+<h2>O que isso significa se você constrói agentes hoje</h2>
+<p>Para projeto novo, comece pelo sucessor. Começar pelo AutoGen seria construir sobre um caminho que a própria fornecedora já anunciou que está encerrando.</p>
+<p>Para sistema em produção, não há motivo para migração de emergência. Modo de manutenção significa que continua funcionando e continua recebendo correção. Mas vale orçar a migração como dívida técnica planejada, e não como algo a revisitar um dia — a distância entre o framework antigo e o ferramental atual só aumenta.</p>
+<p>O risco prático não é o AutoGen parar de funcionar de repente. É o ecossistema em volta — tutorial, resposta de comunidade, integração de terceiro — passar a assumir o sucessor, o que torna depurar um sistema antigo mais lento a cada trimestre de espera.</p>
+<h2>O que verificar antes de migrar</h2>
+<ul>
+<li><strong>Padrões de conversa multiagente</strong> — os padrões de conversa em grupo e aninhada têm equivalentes no sucessor, mas a superfície de API é diferente o bastante para não ser substituição automática. Planeje reexecutar os testes de fluxo de conversa, não só reimportar.</li>
+<li><strong>Dependências de Azure</strong> — se o time já está imerso no ecossistema, a integração mais próxima é ganho líquido, não só custo de migração.</li>
+<li><strong>Distribuição entre linguagens</strong> — se o time entrega agentes em mais de uma linguagem, a consistência é exatamente a proposta do sucessor. Avalie se esse ganho paga o esforço na sua pilha.</li>
+<li><strong>Integrações de terceiro</strong> — audite de quais plugins ou padrões específicos você depende antes de supor que atravessam a migração sem alteração.</li>
+</ul>
+<p>Se a lógica do seu agente é simples o bastante para ser, na prática, uma chamada de modelo envolvida em repetição de tentativa — sem conversa multiagente, sem estado complexo —, pode sair mais barato reconstruir essa peça do que migrar todo o andaime de um framework mais pesado.</p>
+<h2>A leitura da Tyna</h2>
+<p>O trecho final é o mais valioso do texto e o que mais costuma ser ignorado: <strong>boa parte do que se chama de agente em produção não precisa de framework de agente.</strong></p>
+<p>Vale o teste honesto. Se o seu sistema faz uma chamada de modelo, trata erro e grava o resultado, ele é um script — e um framework multiagente ali dentro é peso morto que agora virou dívida de migração. Frameworks de agente resolvem coordenação entre vários agentes, controle fino de transição de estado e retomada de execução. Se você não tem nenhum desses três problemas, está pagando o custo sem receber o benefício.</p>
+<p>Esse episódio deveria servir de lembrete de custo. <strong>Escolher framework é assumir o cronograma de outra empresa.</strong> Quem construiu sobre o AutoGen tomou uma decisão razoável na época e agora tem trabalho não planejado. Isso não é erro de julgamento; é o preço normal da dependência — e é um preço que vale pagar quando o framework resolve um problema real, e não quando ele foi adotado por ser o que apareceu no tutorial.</p>
+<p>Para quem tem sistema em AutoGen rodando hoje, a decisão prática não é "migrar ou não". É <strong>separar o que precisa do framework do que não precisa.</strong> Frequentemente a parte que justifica a migração é pequena, e o resto sai mais barato reescrito direto.</p>
+<h2>Perguntas frequentes</h2>
+<p><strong>P: Preciso migrar imediatamente?</strong></p>
+<p>R: Não. Modo de manutenção significa que continua recebendo correção de segurança. Migre no seu tempo, mas não comece projeto novo sobre ele.</p>
+<p><strong>P: O framework novo substitui também o Semantic Kernel?</strong></p>
+<p>R: Sim. É a fusão dos dois em um só, então projetos de Semantic Kernel também caminham para lá ao longo do tempo.</p>
+<p><strong>P: A migração é automatizada ou é reescrita?</strong></p>
+<p>R: Espere reescrita parcial. Os conceitos centrais atravessam, mas a superfície de API difere o suficiente para exigir novo teste dos fluxos de conversa e das integrações.</p>
+      </div>
+
+      
+      <p class="post-source">Versão em inglês: <a href="https://automationscookbook.com/blog/autogen-to-microsoft-agent-framework-migration-guide" target="_blank" rel="noopener">Automations Cookbook</a></p>
+
+      <ul class="post-tags"><li>#autogen</li><li>#frameworks</li><li>#agentes-de-ia</li><li>#migracao</li><li>#divida-tecnica</li></ul>
+    </div>
+  </article>
+
+  <section class="related">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow">Leia também</p><h2>Mais sobre Agentes de IA</h2></div>
+      <div class="post-grid"><article class="post-card">
+  <a class="post-card-link" href="../../blog/cloudflare-os-plataforma-aberta-para-agentes-de-ia/">
+    <span class="tag">Agentes de IA</span>
+    <h3>Cloudflare OS: agentes de IA rodando na borda</h3>
+    <p class="desc">A Cloudflare lançou uma plataforma aberta para construir e escalar agentes de IA. O que muda para quem já roda n8n em produção.</p>
+    <time datetime="2026-08-06">06 de agosto de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../blog/zero-mem-memoria-sem-tokens-para-agentes-llm/">
+    <span class="tag">Agentes de IA</span>
+    <h3>Zero-Mem: memória para agentes de LLM sem gastar token</h3>
+    <p class="desc">Uma técnica que separa o acesso à memória da chamada ao modelo e corta até 70% do consumo de tokens sem perder acurácia.</p>
+    <time datetime="2026-08-05">05 de agosto de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../blog/edotenv-ambientes-de-treino-para-trading-quantitativo/">
+    <span class="tag">Agentes de IA</span>
+    <h3>EdotEnv lança ambientes de treino para trading quantitativo</h3>
+    <p class="desc">Sandbox com dinâmica de livro de ofertas e custo de transação para treinar LLMs em estratégia — antes de arriscar capital.</p>
+    <time datetime="2026-08-04">04 de agosto de 2026</time>
+  </a>
+</article></div>
+    </div>
+  </section>
+
+  <section class="cta-band" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Quer aplicar isso na sua empresa, com governança?</h2>
+      <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary">Agendar conversa</a>
+    </div>
+  </section>
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../../" class="logo"><img src="../../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Blog</h5>
+          <a href="../../blog/categoria/governanca/">Governança de IA</a>
+          <a href="../../blog/categoria/ai-agents/">Agentes de IA</a>
+          <a href="../../blog/categoria/llm/">LLMs</a>
+          <a href="../../blog/categoria/dev-tools/">Ferramentas de Dev</a>
+          <a href="../../blog/categoria/automation/">Automação</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../../iso-42001/">ISO 42001</a>
+          <a href="../../diagnostico/">Diagnóstico</a>
+          <a href="../../sobre/">Sobre</a>
+          <a href="../../blog/">Blog</a>
+          <a href="../../rss.xml">RSS</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/site.js?v=9"></script>
+
+</body>
+</html>

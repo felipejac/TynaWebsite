@@ -7,7 +7,7 @@ tags: ["autogen","frameworks","agentes-de-ia","migracao","divida-tecnica"]
 sourceName: "Microsoft"
 originalUrl: "https://automationscookbook.com/blog/autogen-to-microsoft-agent-framework-migration-guide"
 aeoSummary: "A Microsoft fundiu o AutoGen, seu framework de pesquisa para conversas multiagente, com o Semantic Kernel, seu SDK corporativo, e passou a distribuir o resultado como um framework único. O AutoGen entrou em modo de manutenção: continua recebendo correção de segurança, mas recursos novos e projetos novos são direcionados ao sucessor."
-draft: true
+draft: false
 ---
 
 ## O que aconteceu

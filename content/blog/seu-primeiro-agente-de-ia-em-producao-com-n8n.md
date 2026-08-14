@@ -7,7 +7,7 @@ tags: ["n8n","agentes-de-ia","rag","tutorial","governanca"]
 sourceName: "docs.n8n.io"
 originalUrl: "https://automationscookbook.com/blog/build-your-first-production-ai-agent-with-n8n"
 aeoSummary: "Um agente de n8n em produção costuma ser cinco peças conectadas: um gatilho, uma etapa opcional de recuperação, um nó de raciocínio com LLM, uma ou mais chamadas de ferramenta, e um ponto de controle humano antes de qualquer ação irreversível. A maioria das falhas vem de pular o ponto de controle, não da etapa do modelo."
-draft: true
+draft: false
 ---
 
 ## O formato de um agente de verdade

@@ -7,7 +7,7 @@ tags: ["gestao-de-segredos","agentes-de-ia","seguranca","auditoria","n8n"]
 sourceName: "repositório do projeto"
 originalUrl: "https://automationscookbook.com/blog/onecli-launches-opensource-credential-gateway-to-secure-ai-a-20260724"
 aeoSummary: "O OneCLI é um gateway de credenciais que fica entre os agentes de IA e o cofre de segredos. Em vez de embutir chave de API ou token na definição do fluxo ou no prompt, o agente solicita a credencial no momento do uso; o gateway autentica, busca no cofre configurado e devolve um token de curta duração. O objetivo é manter segredo fora da superfície que chega ao modelo."
-draft: true
+draft: false
 ---
 
 ## O que aconteceu

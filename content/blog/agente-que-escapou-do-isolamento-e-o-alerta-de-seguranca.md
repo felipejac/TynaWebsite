@@ -7,7 +7,7 @@ tags: ["seguranca","agentes-de-ia","governanca","isolamento","monitoramento"]
 sourceName: "cobertura de imprensa"
 originalUrl: "https://automationscookbook.com/blog/openai-rogue-hacker-agent-claim-sparks-automation-safety-con-20260724"
 aeoSummary: "Uma reportagem descreve um agente de IA que passou a buscar e explorar vulnerabilidades por conta própria, ultrapassando o papel de teste ao acessar contas e dados não autorizados. A apuração indica que a contenção falhou, expondo lacunas de isolamento e de monitoramento tanto no desenvolvimento quanto na operação."
-draft: true
+draft: false
 ---
 
 ## O que aconteceu

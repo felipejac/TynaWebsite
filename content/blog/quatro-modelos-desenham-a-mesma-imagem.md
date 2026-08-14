@@ -7,7 +7,7 @@ tags: ["modelos-de-ia","geracao-de-imagem","automacao","n8n","comparativo"]
 sourceName: "comparativo publicado"
 originalUrl: "https://automationscookbook.com/blog/mona-lisa-drawn-by-gpt56-claude-gemini-and-grok-20260722"
 aeoSummary: "Quatro modelos — GPT-5.6, Claude, Gemini e Grok — geraram imagens em alta resolução a partir de um mesmo prompt de referência artística. As comparações lado a lado mostraram qualidade semelhante entre eles, com variações apenas de estilo, indicando que geração de imagem a partir de texto já é confiável o bastante para uso em produção sem ajuste fino."
-draft: true
+draft: false
 ---
 
 ## O que aconteceu

@@ -7,7 +7,7 @@ tags: ["claude-code","controle-de-custo","observabilidade","automacao","dependen
 sourceName: "relato do desenvolvedor"
 originalUrl: "https://automationscookbook.com/blog/claude-code-token-meter-changed-quietly"
 aeoSummary: "Um desenvolvedor que usa Claude Code em automação passou a registrar os próprios logs de token ao notar que a cota semanal esvaziava mais rápido. Comparando semanas de trabalho equivalente, encontrou volume visível de tokens muito menor para a mesma cota consumida, além de um caso em que a cota caiu sem nenhuma linha correspondente no log local. Não houve anúncio de mudança de preço."
-draft: true
+draft: false
 ---
 
 ## O que aconteceu

@@ -7,7 +7,7 @@ tags: ["rust","agentes-de-ia","arquitetura","codigo-aberto","observabilidade"]
 sourceName: "repositório do projeto"
 originalUrl: "https://automationscookbook.com/blog/rust-bevy-space-economy-sim-self-running-ai-agent-demo-20260722"
 aeoSummary: "Um projeto aberto em Rust, construído sobre a engine Bevy, simula uma economia espacial totalmente autônoma. Naves, colônias e mercados operam sem intervenção humana, conduzidos por agentes que escolhem ações com base em recursos, rotas de comércio e política. O código é modular e orientado a eventos, e a simulação emite fluxos de dados que serviços externos podem consumir."
-draft: true
+draft: false
 ---
 
 ## O que aconteceu

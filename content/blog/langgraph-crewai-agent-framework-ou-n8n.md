@@ -7,7 +7,7 @@ tags: ["frameworks","langgraph","crewai","n8n","arquitetura"]
 sourceName: "análise comparativa"
 originalUrl: "https://automationscookbook.com/blog/langgraph-vs-crewai-vs-microsoft-agent-framework-vs-n8n-2026"
 aeoSummary: "LangGraph serve quando é preciso controlar exatamente como o agente transita entre etapas e repete tentativas. CrewAI serve para modelar um time de agentes especialistas com papéis claros. O Microsoft Agent Framework serve a organizações já imersas na pilha Microsoft e Azure que precisam de um SDK único. O n8n serve quando quem mantém o fluxo não é engenheiro de software, ou quando o agente precisa conviver com centenas de integrações de negócio."
-draft: true
+draft: false
 ---
 
 ## A resposta curta
