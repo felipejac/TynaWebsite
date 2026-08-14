@@ -20,6 +20,24 @@
 .post-card .desc{color:var(--text-muted); font-size:14.5px; flex-grow:1;}
 .post-card time{font-family:var(--mono); font-size:11px; color:var(--text-muted); letter-spacing:0.04em;}
 
+/* Card em destaque — largura toda, acima da grade, só no índice geral.
+   Mora fora do .post-grid para não herdar a coluna de um terço. */
+.post-card-destaque{border:1px solid var(--line); border-bottom:none; background:var(--ink);}
+.post-card-destaque .post-card-link{display:grid; grid-template-columns:1.15fr 1fr; gap:0; padding:0; align-items:stretch;}
+.destaque-img{display:block; background:#0D1117; overflow:hidden;}
+.destaque-img img{display:block; width:100%; height:100%; object-fit:cover;}
+.destaque-txt{display:flex; flex-direction:column; gap:13px; padding:38px 34px; justify-content:center;}
+.post-card-destaque h2{font-size:29px; line-height:1.2; letter-spacing:-0.01em;}
+.post-card-destaque .desc{color:var(--text-muted); font-size:16px; flex-grow:0;}
+.post-card-destaque .tag{font-family:var(--mono); font-size:10.5px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent);}
+/* O selo precisa vencer o tag da categoria na leitura, daí o laranja da marca. */
+.tag-destaque{color:var(--orange-ink) !important; font-weight:600;}
+.destaque-txt .tag + .tag{margin-top:-9px;}
+
+/* Imagem de topo do post */
+.post-hero{margin:30px 0 34px; border:1px solid var(--line); background:#0D1117; line-height:0;}
+.post-hero img{display:block; width:100%; height:auto;}
+
 /* Post */
 .post{padding:64px 0 20px; border-bottom:none;}
 .post-wrap{max-width:760px;}
@@ -70,12 +88,21 @@
 
 @media (max-width:900px){
   .post-grid{grid-template-columns:repeat(2,1fr);}
+  /* Lado a lado abaixo de 900px espremeria o título do destaque a ponto de quebrar
+     em cinco linhas. Empilhado, a imagem vira capa e o texto respira. */
+  .post-card-destaque .post-card-link{grid-template-columns:1fr;}
+  .destaque-img img{max-height:300px;}
+  .post-card-destaque h2{font-size:25px;}
 }
 @media (max-width:720px){
   .post-grid{grid-template-columns:1fr;}
   .post{padding:44px 0 10px;}
   .blog-hero{padding:52px 0 34px;}
   .answer-box{padding:20px;}
+  .destaque-txt{padding:28px 22px;}
+  .post-card-destaque h2{font-size:22px;}
+  .post-card-destaque .desc{font-size:15px;}
+  .post-hero{margin:24px 0 26px;}
 
   /* Alvo de toque de 44px nos filtros de categoria. Esta regra mora aqui, e não em
      styles.css, porque blog.css carrega depois e venceria a de lá por ordem. */

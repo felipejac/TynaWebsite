@@ -25,6 +25,7 @@ const ctaAgendar = (cls = '', attrs = '') =>
 const ASSET_V = '9';
 
 const CATEGORIES = {
+  'governanca': 'Governança de IA',
   'ai-agents': 'Agentes de IA',
   'llm': 'LLMs',
   'dev-tools': 'Ferramentas de Dev',
@@ -111,7 +112,9 @@ function extractFaq(md) {
 const fmtDate = iso => new Date(iso + 'T12:00:00Z')
   .toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric', timeZone: 'UTC' });
 
-function shell({ title, description, canonical, head = '', body, depth }) {
+// `image` é opcional e vale o caminho relativo à raiz do site (ex.: assets/blog/x.jpg).
+// Sem ele o compartilhamento cai no logo, que é o padrão histórico do blog.
+function shell({ title, description, canonical, head = '', body, depth, image }) {
   const up = '../'.repeat(depth);
   return `<!DOCTYPE html>
 <html lang="pt-BR">
@@ -135,7 +138,7 @@ function shell({ title, description, canonical, head = '', body, depth }) {
 <meta property="og:description" content="${escAttr(description)}">
 <meta property="og:url" content="${canonical}">
 <meta property="og:locale" content="pt_BR">
-<meta property="og:image" content="${SITE}/assets/logo-tyna-dark.png">
+<meta property="og:image" content="${SITE}/${image || 'assets/logo-tyna-dark.png'}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
 <link rel="alternate" type="application/rss+xml" title="Blog Tyna" href="${SITE}/rss.xml">
@@ -233,6 +236,22 @@ const card = (p, up) => `<article class="post-card">
   </a>
 </article>`;
 
+// Card de destaque: ocupa a largura toda no topo do índice, com a imagem do post.
+// Só o índice geral usa — nas páginas de categoria o destaque perderia o sentido de
+// "o que ler primeiro no blog".
+const cardDestaque = (p, up) => `<article class="post-card post-card-destaque">
+  <a class="post-card-link" href="${up}blog/${p.slug}/">
+    ${p.image ? `<span class="destaque-img"><img src="${up}${p.image}" alt="${escAttr(p.imageAlt || p.title)}" width="1200" height="630" loading="eager" decoding="async"></span>` : ''}
+    <span class="destaque-txt">
+      <span class="tag tag-destaque">Em destaque</span>
+      <span class="tag">${CATEGORIES[p.category] || p.category}</span>
+      <h2>${esc(p.title)}</h2>
+      <p class="desc">${esc(p.description)}</p>
+      <time datetime="${p.pubDate}">${fmtDate(p.pubDate)}</time>
+    </span>
+  </a>
+</article>`;
+
 for (const p of posts) {
   const canonical = `${SITE}/blog/${p.slug}/`;
   const related = posts.filter(o => o.slug !== p.slug && o.category === p.category).slice(0, 3);
@@ -282,6 +301,8 @@ for (const p of posts) {
       <p class="post-meta"><time datetime="${p.pubDate}">${fmtDate(p.pubDate)}</time> · Por <a href="../../sobre/">Felipe Jacob</a></p>
       <p class="lead">${esc(p.description)}</p>
 
+      ${p.image ? `<figure class="post-hero"><img src="../../${p.image}" alt="${escAttr(p.imageAlt || p.title)}" width="1200" height="630" loading="eager" decoding="async"></figure>` : ''}
+
       ${p.aeoSummary ? `<aside class="answer-box"><h2>Resposta curta</h2><p>${esc(p.aeoSummary)}</p></aside>` : ''}
 
       <div class="post-body">
@@ -316,7 +337,7 @@ ${mdToHtml(p.body)}
     // " | Tyna" (7 chars) em vez do antigo " — Blog Tyna" (12 chars): o sufixo mais
     // longo empurrava 22 dos 37 titulos para alem de 60 caracteres, o limite que
     // Google e Bing toleram sem cortar o titulo no resultado de busca.
-    shell({ title: `${p.title} | Tyna`, description: p.description, canonical, head, body, depth: 2 }));
+    shell({ title: `${p.title} | Tyna`, description: p.description, canonical, head, body, depth: 2, image: p.image }));
 }
 
 /* ---------- índice e categorias ---------- */
@@ -332,6 +353,11 @@ function listing({ title, description, canonical, heading, sub, items, depth, ac
     })),
   });
 
+  // O destaque só aparece no índice geral. Numa página de categoria ele competiria
+  // com o filtro que a pessoa acabou de aplicar.
+  const destaque = active ? null : items.find(p => p.destaque === 'true');
+  const grade = destaque ? items.filter(p => p !== destaque) : items;
+
   const body = `<main id="top">
   <section class="hero blog-hero">
     <div class="wrap">
@@ -346,7 +372,8 @@ function listing({ title, description, canonical, heading, sub, items, depth, ac
   </section>
   <section>
     <div class="wrap">
-      <div class="post-grid">${items.map(p => card(p, up)).join('\n')}</div>
+      ${destaque ? cardDestaque(destaque, up) : ''}
+      <div class="post-grid">${grade.map(p => card(p, up)).join('\n')}</div>
     </div>
   </section>
 </main>`;
