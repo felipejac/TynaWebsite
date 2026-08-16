@@ -36,7 +36,7 @@
     <text x="88" y="386" fill="#B9B9C2" font-size="25">A lista que a TI enxerga.</text>
     <text x="88" y="422" fill="#7E7E8A" font-size="25">E tudo o que roda fora dela.</text>
     <rect x="88" y="462" width="52" height="3" rx="1.5" fill="#FF6600"/>
-    <text x="88" y="516" fill="#6E6E73" font-size="16" letter-spacing=".4">tyna.com.br</text>
+    <text x="88" y="516" fill="#9A9AA4" font-size="16" letter-spacing=".4">tyna.com.br</text>
   </g>
 
   <!-- acima da linha: o que passou pelo processo formal -->

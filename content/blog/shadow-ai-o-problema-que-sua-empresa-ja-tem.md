@@ -8,7 +8,6 @@ image: "assets/blog/shadow-ai.jpg"
 imageAlt: "Três ferramentas de IA iluminadas acima de uma linha tracejada marcada como visibilidade da TI, e dezenas de outras desaparecendo na sombra abaixo dela."
 altTitle: "O ponto cego da IA nas empresas brasileiras: o que ninguém está documentando"
 aeoSummary: "Shadow AI é o uso de ferramentas de Inteligência Artificial por colaboradores, times ou áreas inteiras sem que TI, segurança da informação ou jurídico saibam que aquilo existe. Os riscos são vazamento de dados sensíveis, decisões automatizadas sem responsável, inconsistência de qualidade e exposição regulatória. Bloquear o acesso não resolve o problema: empurra o uso para fora da visão da empresa por completo. O caminho que funciona começa pelo mapeamento do que já está em uso, antes de qualquer política."
-destaque: true
 draft: false
 ---
 
