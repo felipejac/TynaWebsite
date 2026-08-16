@@ -324,3 +324,141 @@ Me passe as duas URLs finais (`linkedin.com/company/...` e o link do perfil do
 Google) para eu adicionar como `sameAs` no `ai.json` e no JSON-LD da home — é isso
 que fecha o círculo de consistência entre fontes que motor de busca e motor de
 resposta usam para confiar na entidade.
+
+---
+
+## 8. Plano de conteúdo para 7 dias — GA4 + pesquisa de mercado, 16/08/2026
+
+### O que o GA4 diz
+
+Primeira leitura com dado real. O GA4 tem **4 dias de coleta** (12 a 15 de agosto);
+o que segue é a janela inteira que existe.
+
+| Métrica | Valor |
+| --- | --- |
+| Sessões | 36 |
+| Usuários | 20 |
+| Visualizações | 308 |
+| **Busca orgânica** | **0** |
+| **Social** | **0** |
+| **Referência** | **0** |
+| Direto | 36 (100%) |
+
+Por cidade, 22 das 36 sessões saem de **Votorantim** — nós testando. Outras 6 vêm de
+Boardman, Ashburn, Denver e Las Vegas, regiões de datacenter: robô, não gente. Sobram
+**cerca de 8 sessões de tráfego externo em 4 dias**.
+
+### Os dois achados que mudam a conversa
+
+**1. O site tem 50 posts e zero tráfego orgânico. Conteúdo não é o gargalo.**
+Publicar o post 51 não muda o número de sete dias. Falta caminho até o site, não texto
+dentro dele.
+
+**2. O blog fala com quem a Tyna não vende.** Das 50 páginas: 20 em LLMs, 16 em Agentes
+de IA, 12 em Ferramentas de Dev, 1 em Automação e **1 em Governança de IA**. O ICP é
+C-level, jurídico e compliance. O blog é escrito para desenvolvedor.
+
+### Sobre quadruplicar em uma semana
+
+É alcançável, mas não por SEO. Conteúdo novo leva de semanas a meses para ranquear.
+O que move o número em sete dias é **distribuição**. E a base é tão baixa que 4x é um
+número pequeno: de ~14 sessões externas por semana para ~56.
+
+### A munição que a pesquisa trouxe
+
+Números de terceiros, com fonte nomeada, publicados agora. É com isto que o conteúdo
+desta semana é escrito.
+
+| Dado | Fonte |
+| --- | --- |
+| **76%** das empresas brasileiras já têm agentes de IA em produção — acima dos EUA (67%) e da média mundial (62%) | Sinch, *The AI Production Paradox* |
+| **80%** das organizações brasileiras já interromperam ou reverteram uma implementação de IA (média mundial 74%) | Sinch |
+| Em **39%** desses casos houve vazamento de dados ou de informações pessoais | Sinch |
+| A taxa de reversão sobe para **81%** entre as organizações **mais maduras** | Sinch |
+| **98%** das empresas vão aumentar investimento em IA em 2026 | Sinch |
+| Só **27%** no Brasil afirmam ter modelos de governança maduros | Deloitte, *State of AI in the Enterprise* 2026 |
+| **95%** das organizações brasileiras já usam IA | EY, maio de 2026 |
+
+Base da Sinch: 2.527 executivos seniores, dez países, seis setores.
+
+**A tese da Tyna, em números de terceiros:** o Brasil lidera o mundo em colocar agente
+de IA em produção e tem 27% de governança madura. Oito em cada dez já tiveram que
+puxar algo de volta, e em quatro de cada dez dessas vezes vazou dado.
+
+E o detalhe que derruba a objeção mais comum: **a reversão é MAIOR entre as empresas
+mais maduras (81%)**. "Nós somos maduros, está sob controle" para de funcionar como
+resposta.
+
+### A janela que está aberta agora
+
+O recorte Brasil desse estudo saiu na imprensa técnica em **13 e 14 de agosto** — Olhar
+Digital, TI Inside. Procurei e **nenhuma consultoria de governança de IA do segmento
+publicou análise disso.** A cobertura é toda de imprensa, factual, sem leitura de
+governança. Essa janela dura poucos dias.
+
+### A lista, em ordem de retorno por hora gasta
+
+Cada item traz o canal. Conteúdo sem canal não entra — é o erro que produziu 50 posts
+sem leitor.
+
+**1. Análise do estudo Sinch, com o recorte que ninguém fez.** A imprensa noticiou o
+número; ninguém explicou por que a reversão é maior nas empresas mais maduras. A
+resposta é a tese da Tyna: madura em TI não é madura em IA, e quem opera mais agentes
+descobre mais cedo o que falta. Post no blog em Governança de IA + post no LinkedIn.
+*Esforço: 3 horas. É o item de maior retorno e o único com prazo.*
+
+**2. "76% contra 27%" como peça visual.** Um gráfico, duas barras, duas fontes: o Brasil
+lidera em produção e fica em 27% de governança. Post de LinkedIn que se explica sem
+texto. *Esforço: 1 hora.*
+
+**3. O diagnóstico vira post.** Já existe em `/diagnostico/`: 10 perguntas, resultado na
+hora. Melhor ativo do site e ninguém sabe que existe. Post com as 3 perguntas mais
+desconfortáveis e o link. *Esforço: 1 hora.*
+
+**4. "Onde o PL 2338 realmente está."** Verificado: aprovado no Senado em 10/12/2024,
+**parado na Câmara**, aguardando parecer do relator na comissão especial. Não é lei.
+Muito conteúdo por aí está desatualizado ou dá a entender que já vigora. Página de
+status honesto + o que fazer enquanto não vota. *Esforço: meio dia. Cauda longa boa.*
+
+**5. Checklist de mapeamento de Shadow AI.** O método da seção "A leitura da Tyna" do
+artigo publicado — financeiro antes de TI, logs de SSO, perguntar com anistia por
+escrito — vira página com checklist copiável. *Esforço: meio dia.*
+
+**6. "84,2% de assertividade" como post.** O case Stellantis: cerca de 1 em cada 6 casos
+a IA não resolve sozinha, e a solução seguiu com 86,8% de NPS. Ataca a fantasia do
+agente 100% correto, com número e fonte. *Esforço: 2 horas.*
+
+**7. Página "Quanto custa governança de IA".** Ninguém publica preço no segmento. É a
+pergunta mais feita e menos respondida. **Publique as faixas da Tyna, não as do
+mercado** — as faixas de mercado que levantei estão marcadas como estimativa e não
+sustentam publicação. *Esforço: meio dia.*
+
+**8. Template de política de uso de IA.** Maior intenção comercial da categoria: quem
+baixa está montando a política agora. *Esforço: 1 dia.*
+
+**9. Os 12 posts recém-publicados viram 12 posts de LinkedIn.** Um por dia útil, com o
+recorte de governança que o texto original não tem. Conteúdo já pago, distribuição zero.
+*Esforço: 3 horas pelos 12.*
+
+### O item que não é conteúdo, e que responde pela maior parte do resultado
+
+**Vinte mensagens diretas para o ICP com o link do diagnóstico.** Em sete dias isso
+produz mais visita qualificada do que qualquer um dos nove itens acima. Os conteúdos
+existem para dar motivo à mensagem, não para substituí-la.
+
+E segue valendo o que está na seção 3: **LinkedIn Company Page e Google Business Profile
+não existem.** Sem eles não há superfície onde esse conteúdo circule sozinho.
+
+### O que verificar antes de produzir qualquer coisa
+
+Zero orgânico pode ser duas coisas diferentes: o site não está indexado, ou está
+indexado e não ranqueia. **Confira a cobertura no Search Console primeiro** — se o
+problema for indexação, nada nesta lista resolve.
+
+### Fontes
+
+- Sinch, *The AI Production Paradox*: https://sinch.com/news/sinch-releases-ai-production-paradox/
+- Recorte Brasil: https://olhardigital.com.br/2026/08/14/inteligencia-artificial/brasil-supera-eua-na-adocao-de-agentes-de-ia-pelas-empresas/
+- Deloitte, *State of AI in the Enterprise* 2026: https://www.deloitte.com/br/pt/about/press-room/state-of-ai-2026.html
+- EY, adoção de IA no Brasil: https://www.ey.com/pt_br/newsroom/2026/05/ia-brasil-esta-entre-lideres-ranking-adocao-tecnologia
+- PL 2338/2023 no Senado: https://www25.senado.leg.br/web/atividade/materias/-/materia/157233
