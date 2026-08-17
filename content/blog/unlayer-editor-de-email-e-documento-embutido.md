@@ -1,6 +1,6 @@
 ---
 title: "Unlayer põe editor de e-mail e documento no seu app"
-description: "APIs para embutir construtor de arrastar e soltar dentro do produto, com templates consultáveis por código."
+description: "APIs para embutir um construtor de arrastar e soltar dentro do produto, com templates consultáveis por código em vez de presos ao editor."
 pubDate: "2026-07-22"
 category: "dev-tools"
 tags: ["editor","templates","automacao","n8n","interface"]

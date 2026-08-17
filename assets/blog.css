@@ -11,6 +11,11 @@
 .cat-nav a:hover{border-color:var(--orange); color:var(--orange-ink);}
 .cat-nav a.on{background:var(--orange); border-color:var(--orange); color:#fff; font-weight:600;}
 
+/* Texto de abertura da página de categoria. Não é enfeite: sem ele a página fica
+   com menos de 120 palavras e vira conteúdo raso para busca, além de quase idêntica
+   às outras quatro. */
+.cat-intro{max-width:680px; margin-top:26px; color:var(--text-muted); font-size:16.5px; line-height:1.65;}
+
 .post-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
 .post-card{background:var(--ink); transition:background .25s;}
 .post-card:hover{background:var(--surface);}

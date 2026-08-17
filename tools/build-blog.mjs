@@ -22,7 +22,7 @@ const WA_CTA = 'https://wa.me/5511997228945?text=' +
   encodeURIComponent('Olá, Felipe. Vim pelo site da Tyna e quero falar sobre governança de IA.');
 const ctaAgendar = (cls = '', attrs = '') =>
   `<a href="${WA_CTA}" target="_blank" rel="noopener" class="btn btn-primary${cls ? ' ' + cls : ''}"${attrs ? ' ' + attrs : ''}>Agendar conversa</a>`;
-const ASSET_V = '10';
+const ASSET_V = '11';
 
 const CATEGORIES = {
   'governanca': 'Governança de IA',
@@ -30,6 +30,34 @@ const CATEGORIES = {
   'llm': 'LLMs',
   'dev-tools': 'Ferramentas de Dev',
   'automation': 'Automação',
+};
+
+// Texto próprio por categoria. Antes a descrição saía de um molde — "Artigos sobre
+// X: análise prática..." — o que produzia cinco descrições quase idênticas, curtas
+// demais para o SERP, sobre páginas com 47 a 116 palavras de corpo. Página de
+// categoria assim é conteúdo raso e quase-duplicado ao mesmo tempo: o Google escolhe
+// uma e ignora as outras. Com texto próprio, cada uma passa a ter o que ranquear.
+const CAT_META = {
+  'governanca': {
+    desc: 'Governança de IA na prática: política interna, comitê, adequação à LGPD em fluxos de IA e guardrails em agentes que já rodam em produção.',
+    intro: 'Governança de IA é o conjunto de decisões que define até onde a empresa deixa a Inteligência Artificial ir sozinha — e quem responde quando ela erra. Aqui o assunto é tratado de dentro da operação: política que as equipes de fato seguem, comitê com prazo de resposta, adequação à LGPD nos fluxos onde o dado pessoal realmente trafega, e guardrail aplicado em execução, não escrito em documento.',
+  },
+  'ai-agents': {
+    desc: 'Agentes de IA em produção: arquitetura, escopo de autonomia, escalonamento humano e o que costuma quebrar quando o sistema decide sozinho.',
+    intro: 'Agente de IA é diferente de ferramenta de IA: ele decide e age em nome da empresa, sem um leitor humano no meio. Isso muda a pergunta de "quem pode usar" para "até onde ele vai sem um humano". Os textos aqui tratam de arquitetura, escopo de autonomia definido antes da produção, escalonamento com destino e prazo, e trilha de auditoria da decisão.',
+  },
+  'llm': {
+    desc: 'Modelos de linguagem na prática: lançamentos, custo por token, janela de contexto e o que muda de fato no fluxo de quem usa LLM em produção.',
+    intro: 'Todo mês sai um modelo novo, e quase nada disso muda o trabalho de quem já tem algo rodando. O recorte aqui é o do operador: o que mudou em custo, em latência, em janela de contexto e em confiabilidade — e o que é anúncio que não sobrevive ao primeiro caso real.',
+  },
+  'dev-tools': {
+    desc: 'Ferramentas de desenvolvimento com IA: o que cada uma entrega, o que ainda não entrega e como muda o trabalho de quem constrói software.',
+    intro: 'Ferramenta de desenvolvimento com IA envelhece rápido e promete mais do que entrega. Os textos desta seção olham o que a ferramenta faz no fluxo real de trabalho, onde ela ainda exige a pessoa, e o que ela deixa de rastro — inclusive de segredo e de credencial, que é onde a conveniência costuma custar caro.',
+  },
+  'automation': {
+    desc: 'Automação com IA: integração entre sistemas, orquestração de fluxos e o ponto em que automatizar deixa de compensar sem governança.',
+    intro: 'Automatizar com IA é fácil de começar e difícil de sustentar. O que separa um fluxo que dura de um que é desligado em três meses raramente é o modelo: é integração com os sistemas que já existem, tratamento do caso que foge do previsto, e alguém conseguindo explicar depois o que a automação fez.',
+  },
 };
 
 /* ---------- frontmatter ---------- */
@@ -342,7 +370,7 @@ ${mdToHtml(p.body)}
 
 /* ---------- índice e categorias ---------- */
 
-function listing({ title, description, canonical, heading, sub, items, depth, active }) {
+function listing({ title, description, canonical, heading, sub, items, depth, active, intro }) {
   const up = '../'.repeat(depth);
   const head = ld({
     '@context': 'https://schema.org', '@type': 'Blog',
@@ -368,6 +396,7 @@ function listing({ title, description, canonical, heading, sub, items, depth, ac
         <a href="${up}blog/"${!active ? ' class="on"' : ''}>Todos</a>
         ${activeCats().map(([s, n]) => `<a href="${up}blog/categoria/${s}/"${active === s ? ' class="on"' : ''}>${n}</a>`).join('\n        ')}
       </nav>
+      ${intro ? `<p class="cat-intro">${esc(intro)}</p>` : ''}
     </div>
   </section>
   <section>
@@ -394,12 +423,14 @@ for (const [slug, name] of Object.entries(CATEGORIES)) {
   const items = posts.filter(p => p.category === slug);
   if (!items.length) continue;
   mkdirSync(join(OUT, 'categoria', slug), { recursive: true });
+  const meta = CAT_META[slug] || {};
   writeFileSync(join(OUT, 'categoria', slug, 'index.html'), listing({
     title: `${name} — Blog Tyna`,
-    description: `Artigos sobre ${name.toLowerCase()}: análise prática para equipes que colocam IA em produção.`,
+    description: meta.desc || `Artigos sobre ${name.toLowerCase()}: análise prática para equipes que colocam IA em produção.`,
     canonical: `${SITE}/blog/categoria/${slug}/`,
     heading: name,
-    sub: `Tudo que publicamos sobre ${name.toLowerCase()}.`,
+    sub: `Tudo que a Tyna publicou sobre ${name.toLowerCase()}.`,
+    intro: meta.intro,
     items, depth: 3, active: slug,
   }));
 }

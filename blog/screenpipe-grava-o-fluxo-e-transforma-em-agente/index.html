@@ -13,11 +13,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Screenpipe grava o fluxo de tela e transforma em agente | Tyna</title>
-<meta name="description" content="Captura clique, digitação e contexto da interface, costura tudo em um agente reaproveitável e expõe por API.">
+<meta name="description" content="Captura clique, digitação e contexto da interface, costura tudo em um agente reaproveitável e expõe por API — com o custo de privacidade que isso traz.">
 <link rel="canonical" href="https://tyna.com.br/blog/screenpipe-grava-o-fluxo-e-transforma-em-agente/">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Screenpipe grava o fluxo de tela e transforma em agente | Tyna">
-<meta property="og:description" content="Captura clique, digitação e contexto da interface, costura tudo em um agente reaproveitável e expõe por API.">
+<meta property="og:description" content="Captura clique, digitação e contexto da interface, costura tudo em um agente reaproveitável e expõe por API — com o custo de privacidade que isso traz.">
 <meta property="og:url" content="https://tyna.com.br/blog/screenpipe-grava-o-fluxo-e-transforma-em-agente/">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:image" content="https://tyna.com.br/assets/logo-tyna-dark.png">
@@ -27,9 +27,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../assets/styles.css?v=10">
-<link rel="stylesheet" href="../../assets/blog.css?v=10">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Screenpipe grava o fluxo de tela e transforma em agente","description":"Captura clique, digitação e contexto da interface, costura tudo em um agente reaproveitável e expõe por API.","datePublished":"2026-07-23","dateModified":"2026-07-23","inLanguage":"pt-BR","author":{"@type":"Person","name":"Felipe Jacob","url":"https://tyna.com.br/sobre/"},"publisher":{"@type":"Organization","name":"Tyna","url":"https://tyna.com.br","logo":{"@type":"ImageObject","url":"https://tyna.com.br/assets/logo-tyna-dark.png"}},"mainEntityOfPage":"https://tyna.com.br/blog/screenpipe-grava-o-fluxo-e-transforma-em-agente/","keywords":"agentes-de-ia, automacao, interface, prototipagem, n8n","articleSection":"Agentes de IA"}</script>
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/blog.css?v=11">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Screenpipe grava o fluxo de tela e transforma em agente","description":"Captura clique, digitação e contexto da interface, costura tudo em um agente reaproveitável e expõe por API — com o custo de privacidade que isso traz.","datePublished":"2026-07-23","dateModified":"2026-07-23","inLanguage":"pt-BR","author":{"@type":"Person","name":"Felipe Jacob","url":"https://tyna.com.br/sobre/"},"publisher":{"@type":"Organization","name":"Tyna","url":"https://tyna.com.br","logo":{"@type":"ImageObject","url":"https://tyna.com.br/assets/logo-tyna-dark.png"}},"mainEntityOfPage":"https://tyna.com.br/blog/screenpipe-grava-o-fluxo-e-transforma-em-agente/","keywords":"agentes-de-ia, automacao, interface, prototipagem, n8n","articleSection":"Agentes de IA"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://tyna.com.br"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tyna.com.br/blog/"},{"@type":"ListItem","position":3,"name":"Agentes de IA","item":"https://tyna.com.br/blog/categoria/ai-agents/"},{"@type":"ListItem","position":4,"name":"Screenpipe grava o fluxo de tela e transforma em agente","item":"https://tyna.com.br/blog/screenpipe-grava-o-fluxo-e-transforma-em-agente/"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Funciona com aplicação web que exige autenticação?","acceptedAnswer":{"@type":"Answer","text":"Sim. O gravador captura o fluxo de login, e o agente gerado consegue repetir esses passos, lidando com cookies e tokens."}},{"@type":"Question","name":"Como o agente lida com conteúdo dinâmico ou janela que aparece de repente?","acceptedAnswer":{"@type":"Answer","text":"O gravador registra o tempo e o contexto dos elementos dinâmicos, e o agente inclui lógica para esperar ou fechar conforme o comportamento observado."}},{"@type":"Question","name":"Serve para produção ou ainda é experimental?","acceptedAnswer":{"@type":"Answer","text":"Já é usado em projetos piloto. A conversão de gravação em agente é estável o suficiente para carga que não exija garantia estrita de tempo real."}}]}</script>
 <link rel="alternate" hreflang="en" href="https://automationscookbook.com/blog/screenpipe-yc-s26-record-workflows-to-power-ai-agents-20260723">
@@ -63,7 +63,7 @@
       <p class="eyebrow">Agentes de IA</p>
       <h1>Screenpipe grava o fluxo de tela e transforma em agente</h1>
       <p class="post-meta"><time datetime="2026-07-23">23 de julho de 2026</time> · Por <a href="../../sobre/">Felipe Jacob</a></p>
-      <p class="lead">Captura clique, digitação e contexto da interface, costura tudo em um agente reaproveitável e expõe por API.</p>
+      <p class="lead">Captura clique, digitação e contexto da interface, costura tudo em um agente reaproveitável e expõe por API — com o custo de privacidade que isso traz.</p>
 
       
 
@@ -180,7 +180,7 @@
   </div>
 </footer>
 
-<script src="../../assets/site.js?v=10"></script>
+<script src="../../assets/site.js?v=11"></script>
 
 </body>
 </html>

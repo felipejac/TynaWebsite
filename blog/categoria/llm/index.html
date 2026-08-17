@@ -13,11 +13,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LLMs — Blog Tyna</title>
-<meta name="description" content="Artigos sobre llms: análise prática para equipes que colocam IA em produção.">
+<meta name="description" content="Modelos de linguagem na prática: lançamentos, custo por token, janela de contexto e o que muda de fato no fluxo de quem usa LLM em produção.">
 <link rel="canonical" href="https://tyna.com.br/blog/categoria/llm/">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LLMs — Blog Tyna">
-<meta property="og:description" content="Artigos sobre llms: análise prática para equipes que colocam IA em produção.">
+<meta property="og:description" content="Modelos de linguagem na prática: lançamentos, custo por token, janela de contexto e o que muda de fato no fluxo de quem usa LLM em produção.">
 <meta property="og:url" content="https://tyna.com.br/blog/categoria/llm/">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:image" content="https://tyna.com.br/assets/logo-tyna-dark.png">
@@ -27,9 +27,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../../assets/styles.css?v=10">
-<link rel="stylesheet" href="../../../assets/blog.css?v=10">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"Blog Tyna","url":"https://tyna.com.br/blog/","inLanguage":"pt-BR","description":"Artigos sobre llms: análise prática para equipes que colocam IA em produção.","blogPost":[{"@type":"BlogPosting","headline":"LLMs estão recompensando quem entende do assunto","url":"https://tyna.com.br/blog/llms-recompensam-especialistas/","datePublished":"2026-08-04"},{"@type":"BlogPosting","headline":"Redigitar o código da IA contra a dívida cognitiva","url":"https://tyna.com.br/blog/redigitar-codigo-de-llm-divida-cognitiva/","datePublished":"2026-08-04"},{"@type":"BlogPosting","headline":"MCP ganha analytics e avaliação de sessões de agente","url":"https://tyna.com.br/blog/analytics-e-avaliacao-de-sessoes-de-agente-no-mcp/","datePublished":"2026-08-03"},{"@type":"BlogPosting","headline":"Hoplite lança plataforma de agentes de código na nuvem","url":"https://tyna.com.br/blog/hoplite-plataforma-de-agentes-de-codigo-na-nuvem/","datePublished":"2026-08-03"},{"@type":"BlogPosting","headline":"PAC da OpenAI financia site de notícias gerado por IA","url":"https://tyna.com.br/blog/pac-da-openai-financia-site-de-noticias-gerado-por-ia/","datePublished":"2026-08-03"},{"@type":"BlogPosting","headline":"Astra, da OpenAI, resolve dez problemas em aberto","url":"https://tyna.com.br/blog/openai-astra-resolve-dez-problemas-de-matematica/","datePublished":"2026-08-02"},{"@type":"BlogPosting","headline":"Roteadores de LLM aposentam soluções monolíticas","url":"https://tyna.com.br/blog/roteadores-de-llm-aposentam-solucoes-monoliticas/","datePublished":"2026-08-01"},{"@type":"BlogPosting","headline":"Como deveria ser a interface para agentes de IA","url":"https://tyna.com.br/blog/como-deveria-ser-a-interface-para-agentes-de-ia/","datePublished":"2026-07-31"},{"@type":"BlogPosting","headline":"Destilação do DeepSeek transfere censura junto","url":"https://tyna.com.br/blog/destilacao-do-deepseek-transfere-censura/","datePublished":"2026-07-30"},{"@type":"BlogPosting","headline":"GPT-5.6 contra Claude Fable 5 em IA física","url":"https://tyna.com.br/blog/gpt-5-6-contra-claude-fable-5-em-ia-fisica/","datePublished":"2026-07-29"},{"@type":"BlogPosting","headline":"Tokenless troca de modelo sozinho para cortar custo","url":"https://tyna.com.br/blog/tokenless-troca-automatica-de-modelo/","datePublished":"2026-07-29"},{"@type":"BlogPosting","headline":"Kimi K3 chega à API de inferência da Telnyx","url":"https://tyna.com.br/blog/kimi-k3-disponivel-na-api-da-telnyx/","datePublished":"2026-07-28"},{"@type":"BlogPosting","headline":"Score de confiança de LLM não é confiável","url":"https://tyna.com.br/blog/score-de-confianca-de-llm-nao-e-confiavel/","datePublished":"2026-07-28"},{"@type":"BlogPosting","headline":"Pico de erros no Claude Opus 5 derruba automações","url":"https://tyna.com.br/blog/pico-de-erros-no-claude-opus-5/","datePublished":"2026-07-27"},{"@type":"BlogPosting","headline":"Claude 5 aperta o contexto e cria orçamento de tokens","url":"https://tyna.com.br/blog/claude-5-regras-de-engenharia-de-contexto/","datePublished":"2026-07-26"},{"@type":"BlogPosting","headline":"DeepSeek pausa captação após vazamento sobre computação","url":"https://tyna.com.br/blog/deepseek-pausa-captacao-apos-vazamento/","datePublished":"2026-07-26"},{"@type":"BlogPosting","headline":"Claude Opus 5 chega com preço linear e streaming","url":"https://tyna.com.br/blog/lancamento-do-claude-opus-5/","datePublished":"2026-07-25"},{"@type":"BlogPosting","headline":"Agente que escapou do isolamento acende alerta","url":"https://tyna.com.br/blog/agente-que-escapou-do-isolamento-e-o-alerta-de-seguranca/","datePublished":"2026-07-24"},{"@type":"BlogPosting","headline":"Gemma 4 aprende a sinalizar quando provavelmente errou","url":"https://tyna.com.br/blog/gemma-4-sinaliza-quando-provavelmente-errou/","datePublished":"2026-07-23"},{"@type":"BlogPosting","headline":"Quatro modelos desenham a mesma imagem","url":"https://tyna.com.br/blog/quatro-modelos-desenham-a-mesma-imagem/","datePublished":"2026-07-22"}]}</script>
+<link rel="stylesheet" href="../../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../../assets/blog.css?v=11">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"Blog Tyna","url":"https://tyna.com.br/blog/","inLanguage":"pt-BR","description":"Modelos de linguagem na prática: lançamentos, custo por token, janela de contexto e o que muda de fato no fluxo de quem usa LLM em produção.","blogPost":[{"@type":"BlogPosting","headline":"LLMs estão recompensando quem entende do assunto","url":"https://tyna.com.br/blog/llms-recompensam-especialistas/","datePublished":"2026-08-04"},{"@type":"BlogPosting","headline":"Redigitar o código da IA contra a dívida cognitiva","url":"https://tyna.com.br/blog/redigitar-codigo-de-llm-divida-cognitiva/","datePublished":"2026-08-04"},{"@type":"BlogPosting","headline":"MCP ganha analytics e avaliação de sessões de agente","url":"https://tyna.com.br/blog/analytics-e-avaliacao-de-sessoes-de-agente-no-mcp/","datePublished":"2026-08-03"},{"@type":"BlogPosting","headline":"Hoplite lança plataforma de agentes de código na nuvem","url":"https://tyna.com.br/blog/hoplite-plataforma-de-agentes-de-codigo-na-nuvem/","datePublished":"2026-08-03"},{"@type":"BlogPosting","headline":"PAC da OpenAI financia site de notícias gerado por IA","url":"https://tyna.com.br/blog/pac-da-openai-financia-site-de-noticias-gerado-por-ia/","datePublished":"2026-08-03"},{"@type":"BlogPosting","headline":"Astra, da OpenAI, resolve dez problemas em aberto","url":"https://tyna.com.br/blog/openai-astra-resolve-dez-problemas-de-matematica/","datePublished":"2026-08-02"},{"@type":"BlogPosting","headline":"Roteadores de LLM aposentam soluções monolíticas","url":"https://tyna.com.br/blog/roteadores-de-llm-aposentam-solucoes-monoliticas/","datePublished":"2026-08-01"},{"@type":"BlogPosting","headline":"Como deveria ser a interface para agentes de IA","url":"https://tyna.com.br/blog/como-deveria-ser-a-interface-para-agentes-de-ia/","datePublished":"2026-07-31"},{"@type":"BlogPosting","headline":"Destilação do DeepSeek transfere censura junto","url":"https://tyna.com.br/blog/destilacao-do-deepseek-transfere-censura/","datePublished":"2026-07-30"},{"@type":"BlogPosting","headline":"GPT-5.6 contra Claude Fable 5 em IA física","url":"https://tyna.com.br/blog/gpt-5-6-contra-claude-fable-5-em-ia-fisica/","datePublished":"2026-07-29"},{"@type":"BlogPosting","headline":"Tokenless troca de modelo sozinho para cortar custo","url":"https://tyna.com.br/blog/tokenless-troca-automatica-de-modelo/","datePublished":"2026-07-29"},{"@type":"BlogPosting","headline":"Kimi K3 chega à API de inferência da Telnyx","url":"https://tyna.com.br/blog/kimi-k3-disponivel-na-api-da-telnyx/","datePublished":"2026-07-28"},{"@type":"BlogPosting","headline":"Score de confiança de LLM não é confiável","url":"https://tyna.com.br/blog/score-de-confianca-de-llm-nao-e-confiavel/","datePublished":"2026-07-28"},{"@type":"BlogPosting","headline":"Pico de erros no Claude Opus 5 derruba automações","url":"https://tyna.com.br/blog/pico-de-erros-no-claude-opus-5/","datePublished":"2026-07-27"},{"@type":"BlogPosting","headline":"Claude 5 aperta o contexto e cria orçamento de tokens","url":"https://tyna.com.br/blog/claude-5-regras-de-engenharia-de-contexto/","datePublished":"2026-07-26"},{"@type":"BlogPosting","headline":"DeepSeek pausa captação após vazamento sobre computação","url":"https://tyna.com.br/blog/deepseek-pausa-captacao-apos-vazamento/","datePublished":"2026-07-26"},{"@type":"BlogPosting","headline":"Claude Opus 5 chega com preço linear e streaming","url":"https://tyna.com.br/blog/lancamento-do-claude-opus-5/","datePublished":"2026-07-25"},{"@type":"BlogPosting","headline":"Agente que escapou do isolamento acende alerta","url":"https://tyna.com.br/blog/agente-que-escapou-do-isolamento-e-o-alerta-de-seguranca/","datePublished":"2026-07-24"},{"@type":"BlogPosting","headline":"Gemma 4 aprende a sinalizar quando provavelmente errou","url":"https://tyna.com.br/blog/gemma-4-sinaliza-quando-provavelmente-errou/","datePublished":"2026-07-23"},{"@type":"BlogPosting","headline":"Quatro modelos desenham a mesma imagem","url":"https://tyna.com.br/blog/quatro-modelos-desenham-a-mesma-imagem/","datePublished":"2026-07-22"}]}</script>
 </head>
 <body>
 
@@ -56,7 +56,7 @@
     <div class="wrap">
       <p class="eyebrow">Blog · 20 artigos</p>
       <h1>LLMs</h1>
-      <p class="lead" style="max-width:640px;">Tudo que publicamos sobre llms.</p>
+      <p class="lead" style="max-width:640px;">Tudo que a Tyna publicou sobre llms.</p>
       <nav class="cat-nav" aria-label="Categorias">
         <a href="../../../blog/">Todos</a>
         <a href="../../../blog/categoria/governanca/">Governança de IA</a>
@@ -65,6 +65,7 @@
         <a href="../../../blog/categoria/dev-tools/">Ferramentas de Dev</a>
         <a href="../../../blog/categoria/automation/">Automação</a>
       </nav>
+      <p class="cat-intro">Todo mês sai um modelo novo, e quase nada disso muda o trabalho de quem já tem algo rodando. O recorte aqui é o do operador: o que mudou em custo, em latência, em janela de contexto e em confiabilidade — e o que é anúncio que não sobrevive ao primeiro caso real.</p>
     </div>
   </section>
   <section>
@@ -90,7 +91,7 @@
   <a class="post-card-link" href="../../../blog/analytics-e-avaliacao-de-sessoes-de-agente-no-mcp/">
     <span class="tag">LLMs</span>
     <h3>MCP ganha analytics e avaliação de sessões de agente</h3>
-    <p class="desc">Métricas de latência, taxa de sucesso e critérios próprios de avaliação embutidos direto na sessão do agente.</p>
+    <p class="desc">Métricas de latência, taxa de sucesso e critérios próprios de avaliação embutidos direto na sessão do agente, sem instrumentação externa.</p>
     <time datetime="2026-08-03">03 de agosto de 2026</time>
   </a>
 </article>
@@ -114,7 +115,7 @@
   <a class="post-card-link" href="../../../blog/openai-astra-resolve-dez-problemas-de-matematica/">
     <span class="tag">LLMs</span>
     <h3>Astra, da OpenAI, resolve dez problemas em aberto</h3>
-    <p class="desc">O modelo produziu provas, gerou contraexemplos e verificou teoremas. O anúncio veio sem métrica publicada.</p>
+    <p class="desc">O modelo produziu provas, gerou contraexemplos e verificou teoremas. O anúncio veio sem métrica publicada nem forma de reproduzir o resultado.</p>
     <time datetime="2026-08-02">02 de agosto de 2026</time>
   </a>
 </article>
@@ -202,7 +203,7 @@
   <a class="post-card-link" href="../../../blog/lancamento-do-claude-opus-5/">
     <span class="tag">LLMs</span>
     <h3>Claude Opus 5 chega com preço linear e streaming</h3>
-    <p class="desc">Latência menor, entrada multimodal nativa e cobrança que escala com uso em vez de faixa fixa.</p>
+    <p class="desc">Latência menor, entrada multimodal nativa e cobrança que escala com uso em vez de faixa fixa. O que muda para quem já tem agente rodando.</p>
     <time datetime="2026-07-25">25 de julho de 2026</time>
   </a>
 </article>
@@ -272,7 +273,7 @@
   </div>
 </footer>
 
-<script src="../../../assets/site.js?v=10"></script>
+<script src="../../../assets/site.js?v=11"></script>
 
 </body>
 </html>

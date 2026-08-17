@@ -1,6 +1,6 @@
 ---
 title: "OneCLI põe um gateway de credenciais na frente do agente"
-description: "O agente para de carregar chave no prompt e passa a pedir credencial de curta duração no momento do uso."
+description: "O agente para de carregar chave no prompt e passa a pedir credencial de curta duração no momento do uso, com registro de quem pediu o quê."
 pubDate: "2026-07-24"
 category: "dev-tools"
 tags: ["gestao-de-segredos","agentes-de-ia","seguranca","auditoria","n8n"]

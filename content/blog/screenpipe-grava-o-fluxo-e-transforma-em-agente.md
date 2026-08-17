@@ -1,6 +1,6 @@
 ---
 title: "Screenpipe grava o fluxo de tela e transforma em agente"
-description: "Captura clique, digitação e contexto da interface, costura tudo em um agente reaproveitável e expõe por API."
+description: "Captura clique, digitação e contexto da interface, costura tudo em um agente reaproveitável e expõe por API — com o custo de privacidade que isso traz."
 pubDate: "2026-07-23"
 category: "ai-agents"
 tags: ["agentes-de-ia","automacao","interface","prototipagem","n8n"]

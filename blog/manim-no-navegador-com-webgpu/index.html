@@ -13,11 +13,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Manim roda no navegador via WebGPU | Tyna</title>
-<meta name="description" content="Animação matemática renderizada no cliente, com desempenho próximo ao nativo e sem servidor no caminho.">
+<meta name="description" content="Animação matemática renderizada no cliente com WebGPU, desempenho próximo ao nativo e nenhum servidor de renderização no caminho.">
 <link rel="canonical" href="https://tyna.com.br/blog/manim-no-navegador-com-webgpu/">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Manim roda no navegador via WebGPU | Tyna">
-<meta property="og:description" content="Animação matemática renderizada no cliente, com desempenho próximo ao nativo e sem servidor no caminho.">
+<meta property="og:description" content="Animação matemática renderizada no cliente com WebGPU, desempenho próximo ao nativo e nenhum servidor de renderização no caminho.">
 <meta property="og:url" content="https://tyna.com.br/blog/manim-no-navegador-com-webgpu/">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:image" content="https://tyna.com.br/assets/logo-tyna-dark.png">
@@ -27,9 +27,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../assets/styles.css?v=10">
-<link rel="stylesheet" href="../../assets/blog.css?v=10">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Manim roda no navegador via WebGPU","description":"Animação matemática renderizada no cliente, com desempenho próximo ao nativo e sem servidor no caminho.","datePublished":"2026-07-29","dateModified":"2026-07-29","inLanguage":"pt-BR","author":{"@type":"Person","name":"Felipe Jacob","url":"https://tyna.com.br/sobre/"},"publisher":{"@type":"Organization","name":"Tyna","url":"https://tyna.com.br","logo":{"@type":"ImageObject","url":"https://tyna.com.br/assets/logo-tyna-dark.png"}},"mainEntityOfPage":"https://tyna.com.br/blog/manim-no-navegador-com-webgpu/","keywords":"webgpu, visualizacao, agentes-de-ia, interface, navegador","articleSection":"Ferramentas de Dev"}</script>
+<link rel="stylesheet" href="../../assets/styles.css?v=11">
+<link rel="stylesheet" href="../../assets/blog.css?v=11">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Manim roda no navegador via WebGPU","description":"Animação matemática renderizada no cliente com WebGPU, desempenho próximo ao nativo e nenhum servidor de renderização no caminho.","datePublished":"2026-07-29","dateModified":"2026-07-29","inLanguage":"pt-BR","author":{"@type":"Person","name":"Felipe Jacob","url":"https://tyna.com.br/sobre/"},"publisher":{"@type":"Organization","name":"Tyna","url":"https://tyna.com.br","logo":{"@type":"ImageObject","url":"https://tyna.com.br/assets/logo-tyna-dark.png"}},"mainEntityOfPage":"https://tyna.com.br/blog/manim-no-navegador-com-webgpu/","keywords":"webgpu, visualizacao, agentes-de-ia, interface, navegador","articleSection":"Ferramentas de Dev"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://tyna.com.br"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tyna.com.br/blog/"},{"@type":"ListItem","position":3,"name":"Ferramentas de Dev","item":"https://tyna.com.br/blog/categoria/dev-tools/"},{"@type":"ListItem","position":4,"name":"Manim roda no navegador via WebGPU","item":"https://tyna.com.br/blog/manim-no-navegador-com-webgpu/"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Preciso reescrever meus scripts do Manim?","acceptedAnswer":{"@type":"Answer","text":"O transpilador converte definições de cena em estilo Python para JavaScript. Dá para partir do código existente e adaptar aos poucos, já que a API permanece familiar."}},{"@type":"Question","name":"O WebGPU está estável o bastante para produção?","acceptedAnswer":{"@type":"Answer","text":"Está em fase final de padronização e já vem nos navegadores estáveis mais recentes. Vale testar nos navegadores do seu público e manter alternativa em canvas ou renderização no servidor."}},{"@type":"Question","name":"Dá para integrar ao meu fluxo de n8n?","acceptedAnswer":{"@type":"Answer","text":"Sim. O n8n pode servir uma página que hospeda o canvas ou embutir a animação como imagem em um nó de e-mail. A renderização continua no cliente."}},{"@type":"Question","name":"Funciona em celular?","acceptedAnswer":{"@type":"Answer","text":"O suporte móvel é experimental. Testes iniciais mostram desempenho aceitável em aparelhos recentes, mas para projeto voltado a celular vale prever alternativa."}}]}</script>
 <link rel="alternate" hreflang="en" href="https://automationscookbook.com/blog/manim-runs-in-browser-via-webgpua-new-way-to-render-ai-agent-20260729">
@@ -63,7 +63,7 @@
       <p class="eyebrow">Ferramentas de Dev</p>
       <h1>Manim roda no navegador via WebGPU</h1>
       <p class="post-meta"><time datetime="2026-07-29">29 de julho de 2026</time> · Por <a href="../../sobre/">Felipe Jacob</a></p>
-      <p class="lead">Animação matemática renderizada no cliente, com desempenho próximo ao nativo e sem servidor no caminho.</p>
+      <p class="lead">Animação matemática renderizada no cliente com WebGPU, desempenho próximo ao nativo e nenhum servidor de renderização no caminho.</p>
 
       
 
@@ -182,7 +182,7 @@
   </div>
 </footer>
 
-<script src="../../assets/site.js?v=10"></script>
+<script src="../../assets/site.js?v=11"></script>
 
 </body>
 </html>

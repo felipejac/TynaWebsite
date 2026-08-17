@@ -1,6 +1,6 @@
 ---
 title: "Astra, da OpenAI, resolve dez problemas em aberto"
-description: "O modelo produziu provas, gerou contraexemplos e verificou teoremas. O anúncio veio sem métrica publicada."
+description: "O modelo produziu provas, gerou contraexemplos e verificou teoremas. O anúncio veio sem métrica publicada nem forma de reproduzir o resultado."
 pubDate: "2026-08-02"
 category: "llm"
 tags: ["openai","raciocinio","automacao","n8n","verificacao-formal"]

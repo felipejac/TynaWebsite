@@ -95,6 +95,22 @@ try {
   if (sujo) console.log('⚠ há alterações não commitadas — elas VÃO para produção mesmo assim');
 } catch { /* fora de um repo git: segue o deploy */ }
 
+/* ---------- 3.5. barra o deploy se algo quebrar a indexação ---------- */
+// Roda contra o que está em disco, antes de subir. Só ERRO barra: noindex, canonical
+// errado, página fora do sitemap, órfã, título duplicado. Aviso passa, porque custa
+// posição mas não tira do índice — e um portão que reprova por meia dúzia de
+// caracteres de meta description vira portão que alguém desliga.
+if (!has('--no-seo')) {
+  console.log('→ auditoria de SEO (use --no-seo para pular)');
+  try {
+    run(process.execPath, [join(ROOT, 'tools', 'seo-audit.mjs'), '--local']);
+  } catch {
+    console.error('\n✗ deploy abortado: a auditoria encontrou erro que impede indexação.');
+    console.error('  Corrija, ou rode com --no-seo se souber o que está fazendo.\n');
+    process.exit(1);
+  }
+}
+
 if (has('--dry-run')) {
   console.log('→ --dry-run: dist/ pronto, nada publicado');
   process.exit(0);
