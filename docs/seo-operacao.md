@@ -30,6 +30,40 @@ orgânico não vem de bloqueio — vem de o site ser novo, não ter nenhum backl
 ter tempo de rastreio acumulado. Isso importa porque muda o que resolve: nenhuma
 mudança de código produz backlink.
 
+### Confirmado no Search Console em 16/08/2026
+
+O relatório agregado de **Páginas** ainda mostra "dados em processamento" — a
+propriedade foi verificada em 12/08 e o Google leva alguns dias para consolidar. Mas a
+**Inspeção de URL** responde na hora, e ela confirmou o diagnóstico acima.
+
+| Item | Estado |
+| --- | --- |
+| Sitemap `/sitemap.xml` | enviado em 12/08, **status Processado**, última leitura **16/08**, **61 páginas encontradas** |
+| Cliques na Pesquisa (11 a 15/08) | 0 |
+
+Inspeção por URL, amostra de cinco páginas:
+
+| Página | Estado no Google |
+| --- | --- |
+| `/` | **indexada** |
+| `/sobre/` | **indexada** |
+| `/diagnostico/` | **indexada** |
+| `/blog/governanca-madura-reverte-mais-agente-de-ia/` | **indexada** — publicada no mesmo dia |
+| `/iso-42001/` | não indexada: *detectada, mas não rastreada*. Último rastreamento: N/D |
+
+**Quatro de cinco indexadas, incluindo uma publicada horas antes.** O Google está
+rastreando o site ativamente — o número de páginas encontradas no sitemap bate
+exatamente com as 61 da auditoria.
+
+A ISO 42001 era a exceção: descoberta pelo sitemap, nunca buscada. Não é erro, é fila
+de rastreio de site novo. Foi enviada pelo **Solicitar indexação**, que a coloca em
+fila prioritária.
+
+Isso fecha a pergunta que estava aberta desde a primeira leitura do GA4: **o conteúdo
+está sendo indexado.** O zero de orgânico é falta de posição e de demanda, não falta
+de índice — e é por isso que a saída de prazo curto está no plano de distribuição, e
+não aqui.
+
 O que o código pode garantir é que **nada quebre a indexação sem alguém perceber** —
 e é isso que a auditoria faz.
 
