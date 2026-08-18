@@ -5,9 +5,9 @@ tipo: mercado
 tags: [compliance, venda, risco]
 resumo: O PL 2338/2023, o EU AI Act e a migração do discurso de adotar para adotar bem são os gatilhos que fazem a compra de governança de IA acontecer.
 publico: [interno, c-level]
-fonte: docs/analise-concorrentes.md (fontes de terceiros; ver ressalva de verificação abaixo)
-atualizado: 2026-08-14
-confianca: media
+fonte: ficha de tramitação do PL 2338/2023 na Câmara dos Deputados, consultada em 17/08/2026 (dadosabertos.camara.leg.br, proposição 2487262); docs/analise-concorrentes.md para o restante
+atualizado: 2026-08-17
+confianca: alta
 ---
 
 # Gatilhos regulatórios e de mercado
@@ -21,13 +21,26 @@ legislativo é gatilho comercial direto.
 
 ## PL 2338/2023
 
-O marco legal brasileiro de IA. Conforme a análise interna, classifica sistemas por
-risco, cria o SIA e prevê sanções de até R$ 50 milhões, com a ANPD como autoridade
-central.
+O marco legal brasileiro de Inteligência Artificial. O texto aprovado no Senado
+classifica sistemas por nível de risco, veda usos de risco excessivo, assegura
+direitos a quem é afetado por decisão automatizada, cria uma estrutura nacional de
+regulação e prevê sanções que chegam a R$ 50 milhões por infração ou 2% do
+faturamento.
 
-**Ressalva de verificação:** a análise registrou vigência prevista para maio de 2026,
-data que já passou. O estágio atual precisa ser confirmado em fonte primária antes de
-qualquer uso comercial ou publicação. Não afirme o status da lei com base nesta nota.
+**Status verificado em 17/08/2026, em fonte primária:** o PL 2338/2023 **não é lei** e
+nenhum artigo dele está em vigor. Aprovado pelo Plenário do Senado em 10/12/2024, na
+forma do substitutivo do relator Eduardo Gomes (PL-TO). Na Câmara dos Deputados desde
+17/03/2025, em comissão especial, sob relatoria do deputado Aguinaldo Ribeiro (PP-PB),
+com situação registrada como "Aguardando Parecer", em regime de prioridade e
+apreciação final pelo Plenário. Movimentação mais recente registrada: 17/06/2026, de
+apensação de outros projetos. Sem data de votação definida — a votação chegou a ser
+prevista para o fim de 2025 e foi adiada.
+
+Fonte primária, para reconferir antes de usar em proposta ou publicação:
+`https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2487262`.
+**Esta nota tem prazo de validade**: o status muda quando o relator apresentar
+parecer. A mesma informação está publicada em `https://tyna.com.br/pl-2338/`, que
+carrega a data da última conferência — as duas precisam andar juntas.
 
 ## EU AI Act
 
@@ -54,5 +67,6 @@ risco já materializado dentro da empresa, normalmente [[shadow-ai]] descoberto.
 ## Relacionado
 
 - [[iso-42001]]
+- [[shadow-ai]]
 - [[icp]]
 - [[objecoes]]

@@ -178,6 +178,8 @@
   .risk-item .num{padding-top:2px;}
   .risk-item h4{font-size:16.5px; margin-bottom:6px; font-weight:600;}
   .risk-item p{color:var(--text-muted); font-size:15px;}
+  /* link dentro do item de risco: leva para a página que trata daquele risco */
+  .risk-item p a{color:var(--orange-ink); text-decoration:underline; text-underline-offset:3px;}
 
   /* Services */
   .svc-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
@@ -395,6 +397,70 @@
     color:var(--text-muted); font-size:15.5px;
   }
   .benefits li::before{content:'—'; position:absolute; left:0; top:17px; color:var(--accent-soft);}
+  /* a frase de entrada do item é o que a pessoa varre antes de decidir se lê o resto */
+  .benefits li strong{color:var(--text); font-weight:600;}
+
+  /* ---------- Checklist numerado (shadow AI, PL 2338) ----------
+     O número é conteúdo, não enfeite: o passo 8 continua sendo o 8 quando a lista é
+     quebrada em blocos com `start`. Por isso vem do próprio <ol> e é pintado pelo
+     ::marker — navegador que não estiliza ::marker mostra o número no estilo padrão,
+     que é degradação aceitável; número escrito à mão em <span> sairia errado na
+     primeira vez que um item mudasse de lugar. */
+  .check-actions{display:flex; align-items:center; gap:18px; flex-wrap:wrap; margin-bottom:38px;}
+  .check-hint{font-family:var(--mono); font-size:12.5px; color:var(--text-muted); line-height:1.5;}
+  .check-block{margin-bottom:46px;}
+  .check-block:last-of-type{margin-bottom:0;}
+  .check-block h3{font-size:18.5px; margin-bottom:16px; display:flex; align-items:baseline; gap:12px; flex-wrap:wrap;}
+  .check-block-tag{
+    font-family:var(--mono); font-size:11.5px; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--accent); background:var(--surface); border:1px solid var(--purple-line);
+    padding:5px 9px; border-radius:3px;
+  }
+  .check-list{list-style:decimal-leading-zero; padding-left:36px;}
+  .check-list li::marker{font-family:var(--mono); font-size:14px; color:var(--accent);}
+  .check-item{padding:20px 0; border-bottom:1px solid var(--line);}
+  .check-item:first-child{border-top:1px solid var(--line);}
+  .check-item h4{font-family:var(--display); font-size:16.5px; font-weight:600; margin-bottom:8px;}
+  .check-item p{color:var(--text-muted); font-size:15.5px; max-width:760px;}
+  .check-item a{color:var(--orange-ink); text-decoration:underline; text-underline-offset:3px;}
+  .check-item.is-chave{background:var(--surface); border-left:2px solid var(--accent); padding:20px 22px;}
+  /* O texto puro do checklist fica escondido e só aparece quando a cópia automática
+     falha — navegador antigo, permissão negada, página sem foco. Como ele é <pre>,
+     precisa quebrar linha: sem isto as linhas longas empurram a página inteira para
+     fora e criam rolagem horizontal no exato momento em que a pessoa precisa
+     selecionar o texto na mão. */
+  .check-fonte{
+    white-space:pre-wrap; overflow-wrap:anywhere; margin-top:30px; padding:22px 20px;
+    background:var(--surface); border:1px solid var(--line); border-left:2px solid var(--accent);
+    font-family:var(--mono); font-size:13px; line-height:1.7; color:var(--text);
+  }
+
+  /* ---------- Cartão de status (PL 2338) ----------
+     A página inteira depende de uma afirmação com data. O cartão existe para que essa
+     afirmação seja lida antes de qualquer outra coisa, inclusive por quem só passa o
+     olho — e para que a data da última conferência ande sempre colada nela. */
+  .status-card{
+    max-width:760px; margin:4px 0 32px; padding:26px 28px; border-radius:6px;
+    background:var(--surface); border:1px solid var(--line); border-left:3px solid var(--accent);
+  }
+  .status-badge{
+    display:inline-block; margin-bottom:15px; padding:6px 11px; border-radius:3px;
+    font-family:var(--mono); font-size:11.5px; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--ink); background:var(--accent);
+  }
+  .status-line{font-size:16.5px; color:var(--text);}
+  .status-line strong{font-weight:600;}
+  .status-meta{font-family:var(--mono); font-size:12.5px; color:var(--text-muted); line-height:1.55; margin-top:14px;}
+
+  @media (max-width:720px){
+    .check-actions{flex-direction:column; align-items:stretch; gap:12px;}
+    .check-actions .btn{width:100%;}
+    .check-hint{font-size:12px;}
+    .check-list{padding-left:26px;}
+    .check-item.is-chave{padding:18px 16px;}
+    .status-card{padding:22px 20px;}
+    .status-meta{font-size:12px;}
+  }
 
   /* Plano B do CTA de e-mail: aparece só quando o mailto não abre nada */
   .mail-fb{

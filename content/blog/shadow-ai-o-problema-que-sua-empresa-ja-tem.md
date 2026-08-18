@@ -80,3 +80,5 @@ Na prática, três fontes cobrem a maior parte do território:
 Há ainda um detalhe que muda a conversa com a diretoria. O mapeamento quase nunca é aprovado pelo argumento de risco — ele é aprovado quando alguém pergunta quanto a empresa gasta com IA e ninguém consegue somar. O número consolidado costuma surpreender, e é ele que libera orçamento para o resto do programa.
 
 Depois do mapa vem o que o texto chama de ferramentas aprovadas boas o suficiente. Na Tyna isso tem nome e forma: um AI Gateway que unifica acesso, custo, observabilidade e auditoria. E o critério de sucesso não é quantas ferramentas foram bloqueadas — é o caminho autorizado ter ficado mais conveniente que o atalho. Enquanto pedir acesso for mais lento do que abrir uma aba nova, o shadow AI volta.
+
+O roteiro de mapeamento que a Tyna usa está publicado inteiro, com os doze passos na ordem em que funcionam: [checklist de mapeamento de shadow AI](/shadow-ai/).

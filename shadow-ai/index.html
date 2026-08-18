@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shadow AI: como mapear o que ninguém aprovou | Tyna</title>
+<meta name="description" content="Shadow AI é a IA que a empresa usa e não enxerga. O checklist de mapeamento em 12 passos, na ordem que funciona, e o que fazer com o mapa depois.">
+<link rel="canonical" href="https://tyna.com.br/shadow-ai/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Shadow AI: como mapear o que ninguém aprovou">
+<meta property="og:description" content="O checklist de mapeamento em 12 passos, na ordem que funciona — financeiro antes de TI — e o que fazer com o mapa depois de pronto.">
+<meta property="og:url" content="https://tyna.com.br/shadow-ai/">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna-dark.png">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css?v=12">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Como mapear shadow AI em uma empresa",
+  "inLanguage": "pt-BR",
+  "description": "Roteiro de mapeamento do uso não autorizado de ferramentas de Inteligência Artificial dentro de uma organização, em quatro frentes: rastro financeiro, rastro técnico, declaração das pessoas com anistia formal e consolidação em inventário.",
+  "totalTime": "P21D",
+  "step": [
+    { "@type": "HowToStep", "name": "Rastro financeiro", "text": "Levantar cobranças recorrentes no cartão corporativo, reembolsos de assinatura paga em cartão pessoal e contratos de SaaS renovados por área sem passar por compras. É a fonte mais rápida e a menos usada, porque assinatura deixa rastro em fatura mesmo quando não deixa rastro em log." },
+    { "@type": "HowToStep", "name": "Rastro técnico", "text": "Cruzar logs de DNS e de proxy dos últimos 90 dias com uma lista de domínios de ferramentas de IA, revisar os aplicativos de terceiros autorizados no login corporativo do Google Workspace ou do Microsoft Entra ID, listar extensões de navegador com permissão de leitura de página e localizar chaves de API de provedores de modelo em repositórios e variáveis de ambiente." },
+    { "@type": "HowToStep", "name": "Declaração com anistia por escrito", "text": "Publicar um comunicado da liderança garantindo por escrito que ninguém será punido pelo que declarar, e só então aplicar um formulário curto por time perguntando qual ferramenta, para qual tarefa, que tipo de dado entra e com qual conta. Sem a anistia formal, o mapeamento rende uma rodada de respostas e nunca mais." },
+    { "@type": "HowToStep", "name": "Consolidação em inventário", "text": "Reunir tudo em um inventário único com ferramenta, área, dono, tipo de dado que entra, base legal, custo mensal e classificação de risco, e calcular o gasto total com IA. O número consolidado de gasto é o que costuma liberar orçamento para o restante do programa de governança." }
+  ]
+}
+</script>
+<link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "pt-BR",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "O que é shadow AI?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Shadow AI é o uso de ferramentas de Inteligência Artificial por pessoas, times ou áreas inteiras sem que TI, segurança da informação ou jurídico saibam que aquilo existe. Não é má-fé: é gente resolvendo o próprio trabalho com a ferramenta que estava à mão. O problema não é o uso em si, e sim que ninguém sabe qual dado saiu da empresa, para onde foi, nem sob qual contrato." }
+    },
+    {
+      "@type": "Question",
+      "name": "Como descobrir quais ferramentas de IA já são usadas na empresa?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Três fontes cobrem a maior parte do território, nesta ordem: o rastro financeiro, com fatura de cartão corporativo e relatórios de reembolso, que revela assinatura que log nenhum revela; o rastro técnico, com logs de DNS e proxy, aplicativos de terceiros autorizados no login corporativo, extensões de navegador e chaves de API; e a declaração das próprias pessoas, que é a fonte mais rica e só funciona com anistia garantida por escrito pela liderança. Inventário de software tradicional não encontra shadow AI, porque ferramenta de IA em camada gratuita aberta no navegador não instala nada." }
+    },
+    {
+      "@type": "Question",
+      "name": "Bloquear o acesso a ferramentas de IA resolve o shadow AI?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Não. O bloqueio empurra o uso para o celular pessoal, onde não existe log nenhum, e converte um problema visível em um problema invisível. O ganho de produtividade é real e o time não abre mão dele: só para de contar. O critério de sucesso de um programa de governança de IA não é quantas ferramentas foram bloqueadas, e sim o caminho autorizado ter ficado mais conveniente que o atalho. Enquanto pedir acesso for mais lento do que abrir uma aba nova, o shadow AI volta." }
+    },
+    {
+      "@type": "Question",
+      "name": "Qual é o risco de shadow AI diante da LGPD?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Dado pessoal colado em ferramenta pública de IA é tratamento de dado pessoal por um operador que a empresa não contratou, não avaliou e não consegue nomear. Faltam base legal registrada, contrato de operador, avaliação de transferência internacional e trilha para responder a um titular que exerça seus direitos. Em uma fiscalização ou em um incidente, a empresa continua sendo a controladora, e a resposta de que não sabia que aquilo estava em uso não a exime." }
+    },
+    {
+      "@type": "Question",
+      "name": "Quanto tempo leva um mapeamento de shadow AI?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Na experiência da Tyna, de duas a quatro semanas em uma empresa de porte médio. O gargalo quase nunca é técnico: o rastro financeiro e os logs saem em poucos dias, e o que consome o prazo é a agenda das áreas e o tempo entre publicar a anistia por escrito e as pessoas acreditarem nela o suficiente para declarar o que usam." }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><img src="../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../#servicos">Serviços</a></li>
+        <li><a href="../iso-42001/">ISO 42001</a></li>
+        <li><a href="../#cases">Cases</a></li>
+        <li><a href="../#trilhas">Trilhas</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20mapeamento%20de%20shadow%20AI." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20mapeamento%20de%20shadow%20AI." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Shadow AI</p>
+      <h1 style="max-width:900px;">A empresa já usa IA que ela <em>não aprovou e não enxerga.</em></h1>
+      <p class="lead" style="max-width:730px;">Shadow AI é o uso de ferramentas de Inteligência Artificial por pessoas e times sem que TI, segurança ou jurídico saibam que aquilo existe. Não é sabotagem — é gente resolvendo o próprio trabalho com o que estava à mão. O problema é que ninguém sabe qual dado saiu, para onde foi, nem sob qual contrato. Esta página traz o checklist de mapeamento que a Tyna usa, inteiro, para você rodar por conta própria.</p>
+      <div class="hero-ctas">
+        <a href="#checklist" class="btn btn-primary">Ver o checklist</a>
+        <a href="../diagnostico/" class="btn btn-ghost">Fazer o diagnóstico em 3 minutos</a>
+      </div>
+      <div class="stat-row" style="max-width:860px; border-top:0; padding-top:0;">
+        <div class="stat"><span class="v">95%</span><span class="l">DAS ORGANIZAÇÕES BRASILEIRAS JÁ USAM IA</span></div>
+        <div class="stat"><span class="v">27%</span><span class="l">DIZEM TER GOVERNANÇA MADURA</span></div>
+        <div class="stat"><span class="v">80%</span><span class="l">JÁ REVERTERAM UMA IMPLEMENTAÇÃO DE IA</span></div>
+        <div class="stat"><span class="v">39%</span><span class="l">DESSES CASOS COM VAZAMENTO DE DADOS</span></div>
+      </div>
+      <p class="hero-note" style="max-width:860px;">Fontes: EY, adoção de IA no Brasil (maio de 2026); Deloitte, <em>State of AI in the Enterprise</em> 2026; Sinch, <em>The AI Production Paradox</em> — recorte Brasil, base de 2.527 executivos seniores em dez países.</p>
+    </div>
+  </section>
+
+  <!-- POR QUE NÃO APARECE -->
+  <section id="por-que-nao-aparece">
+    <div class="wrap problem-grid">
+      <div class="reveal">
+        <p class="eyebrow">O ponto cego</p>
+        <h2>Inventário de software não encontra shadow AI. Ele foi feito para outra coisa.</h2>
+        <p style="color:var(--text-muted); font-size:16px;">Software deixa rastro: instalação, licença, chamado aberto, pacote no endpoint. Uma ferramenta de IA generativa em camada gratuita, aberta no navegador com login pessoal, não instala nada e não abre chamado nenhum. Quando o mapeamento depende só de telemetria, o resultado é uma lista incompleta apresentada como se fosse completa — e isso é pior do que não ter lista, porque produz confiança onde não deveria haver.</p>
+      </div>
+      <div class="risk-list reveal">
+        <div class="risk-item">
+          <span class="num">01</span>
+          <div><h4>Adoção em minutos, não em meses</h4><p>Um ERP leva meses e passa por comitê. Uma ferramenta de IA leva o tempo de um cadastro com e-mail corporativo — às vezes nem isso, porque tem camada gratuita.</p></div>
+        </div>
+        <div class="risk-item">
+          <span class="num">02</span>
+          <div><h4>O gasto aparece fatiado</h4><p>Assinaturas de US$ 20 a US$ 60 por pessoa passam abaixo de qualquer alçada de aprovação, e chegam ao financeiro como despesa miúda de cartão.</p></div>
+        </div>
+        <div class="risk-item">
+          <span class="num">03</span>
+          <div><h4>O dado sai por texto colado</h4><p>Não há integração para auditar. O vazamento acontece no corpo de um prompt: contrato, base de clientes, currículo, código proprietário.</p></div>
+        </div>
+        <div class="risk-item">
+          <span class="num">04</span>
+          <div><h4>Ninguém pede permissão para o que é grátis</h4><p>Pedir acesso é assumir que precisava de acesso. Enquanto o caminho autorizado for mais lento que a aba nova, o atalho ganha todos os dias.</p></div>
+        </div>
+        <div class="risk-item">
+          <span class="num">05</span>
+          <div><h4>O agente entra no meio do caminho</h4><p>O que começou como consulta pontual vira automação: uma planilha que chama uma API, um fluxo que responde cliente. Sem guardrail e sem escalonamento humano, porque nunca passou por revisão.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHECKLIST -->
+  <section id="checklist">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">O checklist</p>
+        <h2>Doze passos, na ordem que funciona</h2>
+        <p>A ordem não é detalhe. Começar por TI é o erro mais comum: o time de tecnologia entrega o que os sistemas dele enxergam, e o que os sistemas dele enxergam é a menor parte. O financeiro vem primeiro porque assinatura deixa rastro em fatura mesmo quando não deixa rastro em log.</p>
+      </div>
+
+      <div class="check-actions reveal">
+        <button type="button" class="btn btn-primary" id="copiarChecklist">Copiar o checklist</button>
+        <span class="check-hint" id="copiaFeedback" role="status" aria-live="polite">Vai em texto puro, pronto para colar em documento, chamado ou e-mail.</span>
+      </div>
+
+      <div class="check-block reveal">
+        <h3><span class="check-block-tag">Frente 1</span> Rastro financeiro — antes de qualquer log</h3>
+        <ol class="check-list">
+          <li class="check-item">
+            <h4>Fatura do cartão corporativo dos últimos 12 meses</h4>
+            <p>Filtrar cobrança recorrente em dólar abaixo de US$ 100. É a faixa onde mora quase toda assinatura individual de ferramenta de IA, e é justamente a faixa que ninguém revisa linha a linha.</p>
+          </li>
+          <li class="check-item">
+            <h4>Relatórios de reembolso de despesa</h4>
+            <p>Assinatura paga no cartão pessoal e reembolsada depois não aparece em contrato nenhum, não passa por compras e não existe para a TI. Procurar por nome de ferramenta no campo livre de descrição.</p>
+          </li>
+          <li class="check-item">
+            <h4>Contratos de SaaS renovados por área</h4>
+            <p>Ferramenta que entrou como piloto de um time e virou renovação automática. Perguntar a compras quais renovações dos últimos 18 meses não passaram por avaliação de segurança.</p>
+          </li>
+        </ol>
+      </div>
+
+      <div class="check-block reveal">
+        <h3><span class="check-block-tag">Frente 2</span> Rastro técnico — o que os sistemas de fato veem</h3>
+        <ol class="check-list" start="4">
+          <li class="check-item">
+            <h4>Logs de DNS e de proxy dos últimos 90 dias</h4>
+            <p>Cruzar com uma lista de domínios de ferramentas de IA. Não é para bloquear: é para saber quantas pessoas distintas acessam, com que frequência e de que área.</p>
+          </li>
+          <li class="check-item">
+            <h4>Aplicativos de terceiros autorizados no login corporativo</h4>
+            <p>No Google Workspace e no Microsoft Entra ID, o relatório de apps conectados mostra quem clicou em "entrar com" e qual escopo concedeu — inclusive leitura de e-mail e de arquivos do Drive.</p>
+          </li>
+          <li class="check-item">
+            <h4>Extensões de navegador com permissão de leitura de página</h4>
+            <p>Extensão de IA que "resume esta página" lê tudo que está na tela, incluindo o CRM e o sistema interno abertos na aba ao lado.</p>
+          </li>
+          <li class="check-item">
+            <h4>Chaves de API de provedores de modelo</h4>
+            <p>Buscar em repositórios, variáveis de ambiente e automações. Chave viva significa integração rodando: quem criou, com qual cartão, consumindo quanto por mês.</p>
+          </li>
+        </ol>
+      </div>
+
+      <div class="check-block reveal">
+        <h3><span class="check-block-tag">Frente 3</span> As pessoas — com anistia por escrito</h3>
+        <ol class="check-list" start="8">
+          <li class="check-item is-chave">
+            <h4>Comunicado de anistia assinado pela liderança</h4>
+            <p>Antes de perguntar qualquer coisa. Garantia explícita, por escrito, de que ninguém será punido pelo que declarar. Sem isso, os dois passos seguintes rendem uma rodada de respostas e nunca mais — mapeamento que vira caça às bruxas só acontece uma vez.</p>
+            <span class="step-flag">É o passo que a maioria pula, e é o que decide se o resto funciona</span>
+          </li>
+          <li class="check-item">
+            <h4>Formulário curto, por time, com quatro perguntas</h4>
+            <p>Qual ferramenta, para qual tarefa, que tipo de dado entra e com qual conta (corporativa ou pessoal). Quatro campos. Formulário longo derruba a taxa de resposta e é a diferença entre um mapa e uma amostra.</p>
+          </li>
+          <li class="check-item">
+            <h4>Vinte minutos com as áreas de maior pressão por produtividade</h4>
+            <p>Marketing, atendimento, jurídico e comercial costumam liderar. A conversa aberta revela o uso que o formulário não captura, porque a pessoa não considerava aquilo "uma ferramenta de IA".</p>
+          </li>
+        </ol>
+      </div>
+
+      <div class="check-block reveal">
+        <h3><span class="check-block-tag">Frente 4</span> Consolidação — o que faz a diretoria agir</h3>
+        <ol class="check-list" start="11">
+          <li class="check-item">
+            <h4>Um inventário único, com sete colunas</h4>
+            <p>Ferramenta, área, dono nomeado, tipo de dado que entra, base legal, custo por mês e classificação de risco. Uma linha por ferramenta, sem exceção — inclusive as autorizadas, para que o mapa seja o mapa inteiro.</p>
+          </li>
+          <li class="check-item">
+            <h4>O total de gasto com IA, somado</h4>
+            <p>O mapeamento quase nunca é aprovado pelo argumento de risco. Ele é aprovado quando alguém pergunta quanto a empresa gasta com IA e ninguém consegue somar. O número consolidado costuma surpreender, e é ele que libera orçamento para o resto do programa.</p>
+          </li>
+        </ol>
+      </div>
+
+      <pre id="checklistTexto" class="check-fonte" hidden>CHECKLIST DE MAPEAMENTO DE SHADOW AI — Tyna (tyna.com.br/shadow-ai/)
+
+FRENTE 1 — RASTRO FINANCEIRO (antes de qualquer log)
+[ ] 1. Fatura do cartao corporativo dos ultimos 12 meses: filtrar cobranca recorrente em dolar abaixo de US$ 100.
+[ ] 2. Relatorios de reembolso de despesa: assinatura paga no cartao pessoal e reembolsada nao aparece em contrato nenhum.
+[ ] 3. Contratos de SaaS renovados por area: quais renovacoes dos ultimos 18 meses nao passaram por avaliacao de seguranca.
+
+FRENTE 2 — RASTRO TECNICO
+[ ] 4. Logs de DNS e proxy dos ultimos 90 dias cruzados com lista de dominios de ferramentas de IA.
+[ ] 5. Aplicativos de terceiros autorizados no Google Workspace / Microsoft Entra ID: quem clicou em "entrar com" e qual escopo concedeu.
+[ ] 6. Extensoes de navegador com permissao de leitura de pagina.
+[ ] 7. Chaves de API de provedores de modelo em repositorios, variaveis de ambiente e automacoes.
+
+FRENTE 3 — AS PESSOAS (com anistia por escrito)
+[ ] 8. Comunicado de anistia assinado pela lideranca, ANTES de perguntar qualquer coisa.
+[ ] 9. Formulario curto por time, quatro perguntas: qual ferramenta, para qual tarefa, que dado entra, com qual conta.
+[ ] 10. Vinte minutos com as areas de maior pressao por produtividade (marketing, atendimento, juridico, comercial).
+
+FRENTE 4 — CONSOLIDACAO
+[ ] 11. Inventario unico com sete colunas: ferramenta, area, dono, tipo de dado, base legal, custo/mes, risco.
+[ ] 12. O total de gasto com IA, somado. E o numero que costuma liberar orcamento.
+
+REGRA QUE VALE PARA O CHECKLIST INTEIRO
+Bloquear nao resolve: empurra o uso para o celular pessoal, onde nao ha log nenhum.
+O criterio de sucesso nao e quantas ferramentas foram bloqueadas, e sim o caminho
+autorizado ter ficado mais conveniente que o atalho.</pre>
+    </div>
+  </section>
+
+  <!-- DEPOIS DO MAPA -->
+  <section id="depois-do-mapa">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Depois do mapa</p>
+        <h2>O inventário não é o objetivo. É o que torna a decisão possível.</h2>
+        <p>Mapa pronto e nada mudou é o desfecho mais comum de programa de governança de IA. O que vem depois tem uma ordem própria, e ela começa pelo que substitui o atalho — não pelo que o proíbe.</p>
+      </div>
+
+      <div class="steps reveal">
+        <div class="step">
+          <span class="step-num">01</span>
+          <div>
+            <h3>Classificar por dado, não por ferramenta</h3>
+            <p>A mesma ferramenta é inofensiva para gerar título de anúncio e inaceitável para triagem de currículo. O risco está no dado que entra e na decisão que sai, não no logotipo do fornecedor.</p>
+          </div>
+        </div>
+        <div class="step is-chave">
+          <span class="step-num">02</span>
+          <div>
+            <h3>Oferecer a alternativa segura antes de fechar a porta</h3>
+            <p>Instância privada de modelo sob um AI Gateway que unifica acesso, custo, observabilidade e auditoria. É o que torna o caminho autorizado mais conveniente que o atalho — e é a única razão pela qual as pessoas migram.</p>
+            <span class="step-flag">Fechar a porta antes de abrir a outra é o que faz o shadow AI voltar, agora no celular pessoal</span>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <div>
+            <h3>Política de uso aceitável, curta e específica</h3>
+            <p>Que dado pode entrar em qual categoria de ferramenta, quem aprova exceção e em quanto tempo responde. Política que exige leitura de vinte páginas não é lida, e não lida é igual a não existir.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">04</span>
+          <div>
+            <h3>Guardrail em execução, não parágrafo em documento</h3>
+            <p>Um documento que diz "não colar dado de cliente" não impede nada. O que impede é a validação que barra a requisição contendo CPF antes de ela sair do perímetro. Política é lida por pessoas e pode ser ignorada; guardrail é executado pela máquina e não admite exceção silenciosa.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RISCOS -->
+  <section id="riscos">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">O que está em jogo</p>
+        <h2>Os riscos que só aparecem depois</h2>
+      </div>
+      <ul class="benefits reveal">
+        <li><strong>Vazamento sob termos que ninguém leu</strong> — contrato, base de clientes e código colados em ferramenta pública podem alimentar treinamento de terceiros, dependendo dos termos de uso aceitos em um clique.</li>
+        <li><strong>Tratamento de dado pessoal sem base legal registrada</strong> — na LGPD, a empresa segue sendo a controladora. Não saber que a ferramenta estava em uso não a exime, e não há contrato de operador para exibir.</li>
+        <li><strong>Decisão automatizada sem responsável nomeado</strong> — quando a triagem, a recomendação ou a resposta ao cliente saiu de um sistema que ninguém aprovou, não existe dono para explicar o critério.</li>
+        <li><strong>Custo fragmentado e invisível</strong> — dezenas de assinaturas pequenas, nenhuma consolidação, nenhuma negociação por volume, nenhuma noção de quanto a empresa realmente gasta com IA.</li>
+        <li><strong>Agente em produção sem guardrail</strong> — o que começou como consulta pontual vira automação que fala com cliente, sem limite aplicado nem escalonamento humano definido.</li>
+        <li><strong>Prontidão regulatória adiada</strong> — sem inventário não há como classificar sistemas por risco, que é o requisito de partida tanto da <a href="../iso-42001/">ISO/IEC 42001</a> quanto do <a href="../pl-2338/">PL 2338/2023</a>, ainda em tramitação na Câmara.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Perguntas frequentes</p>
+        <h2>Shadow AI, em resposta direta</h2>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-item">
+          <h3>O que é shadow AI?</h3>
+          <p>Shadow AI é o uso de ferramentas de Inteligência Artificial por pessoas, times ou áreas inteiras sem que TI, segurança da informação ou jurídico saibam que aquilo existe. Não é má-fé: é gente resolvendo o próprio trabalho com a ferramenta que estava à mão. O problema não é o uso em si, e sim que ninguém sabe qual dado saiu da empresa, para onde foi, nem sob qual contrato.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Como descobrir quais ferramentas de IA já são usadas na empresa?</h3>
+          <p>Três fontes cobrem a maior parte do território, nesta ordem: o rastro financeiro, com fatura de cartão corporativo e relatórios de reembolso, que revela assinatura que log nenhum revela; o rastro técnico, com logs de DNS e proxy, aplicativos de terceiros autorizados no login corporativo, extensões de navegador e chaves de API; e a declaração das próprias pessoas, que é a fonte mais rica e só funciona com anistia garantida por escrito pela liderança. Inventário de software tradicional não encontra shadow AI, porque ferramenta de IA em camada gratuita aberta no navegador não instala nada.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Bloquear o acesso a ferramentas de IA resolve o shadow AI?</h3>
+          <p>Não. O bloqueio empurra o uso para o celular pessoal, onde não existe log nenhum, e converte um problema visível em um problema invisível. O ganho de produtividade é real e o time não abre mão dele: só para de contar. O critério de sucesso de um programa de governança de IA não é quantas ferramentas foram bloqueadas, e sim o caminho autorizado ter ficado mais conveniente que o atalho. Enquanto pedir acesso for mais lento do que abrir uma aba nova, o shadow AI volta.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Qual é o risco de shadow AI diante da LGPD?</h3>
+          <p>Dado pessoal colado em ferramenta pública de IA é tratamento de dado pessoal por um operador que a empresa não contratou, não avaliou e não consegue nomear. Faltam base legal registrada, contrato de operador, avaliação de transferência internacional e trilha para responder a um titular que exerça seus direitos. Em uma fiscalização ou em um incidente, a empresa continua sendo a controladora, e a resposta de que não sabia que aquilo estava em uso não a exime.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Quanto tempo leva um mapeamento de shadow AI?</h3>
+          <p>Na experiência da Tyna, de duas a quatro semanas em uma empresa de porte médio. O gargalo quase nunca é técnico: o rastro financeiro e os logs saem em poucos dias, e o que consome o prazo é a agenda das áreas e o tempo entre publicar a anistia por escrito e as pessoas acreditarem nela o suficiente para declarar o que usam.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA final -->
+  <section class="cta-band" style="border-bottom:none;">
+    <div class="wrap reveal">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Quer saber o tamanho do problema antes de abrir o checklist?</h2>
+      <p style="color:var(--text-muted); font-size:16.5px; max-width:580px; margin:0 auto 30px;">O diagnóstico de maturidade são dez perguntas e três minutos. No fim, a faixa em que sua empresa está e as lacunas nomeadas uma a uma — sem formulário e sem cadastro.</p>
+      <div class="hero-ctas" style="justify-content:center;">
+        <a href="../diagnostico/" class="btn btn-primary">Fazer o diagnóstico</a>
+        <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pela%20p%C3%A1gina%20de%20shadow%20AI%20e%20quero%20falar%20sobre%20o%20mapeamento." target="_blank" rel="noopener" class="btn btn-ghost">Falar com o Felipe</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../" class="logo"><img src="../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../#servicos">Serviços</a>
+          <a href="../iso-42001/">ISO 42001</a>
+          <a href="./">Shadow AI</a>
+          <a href="../pl-2338/">Marco Legal da IA</a>
+          <a href="../diagnostico/">Diagnóstico</a>
+          <a href="../blog/">Blog</a>
+          <a href="../sobre/">Sobre</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<!-- O botão flutuante do WhatsApp é montado por assets/site.js, que roda em todas as páginas -->
+<script src="../assets/site.js?v=12"></script>
+<script>
+  /* Copiar o checklist. O texto sai de um <pre hidden> em vez de ser remontado a partir
+     do DOM: o que a pessoa cola é exatamente o que foi revisado, sem depender de como as
+     seções estão marcadas hoje. O <pre> vai sem acento de propósito — o destino comum é
+     chamado, planilha e e-mail corporativo, onde a codificação ainda erra. */
+  (function () {
+    var btn = document.getElementById('copiarChecklist');
+    var fonte = document.getElementById('checklistTexto');
+    var aviso = document.getElementById('copiaFeedback');
+    if (!btn || !fonte || !aviso) return;
+
+    var padrao = aviso.textContent;
+    var voltar;
+
+    function feedback(msg) {
+      aviso.textContent = msg;
+      clearTimeout(voltar);
+      voltar = setTimeout(function () { aviso.textContent = padrao; }, 4000);
+    }
+
+    function selecionar() {
+      /* clipboard.writeText exige contexto seguro e permissão; em navegador antigo ou em
+         http a promessa nem existe. Aqui o texto aparece selecionado e o Ctrl+C fica com
+         a pessoa — melhor do que um botão que falha em silêncio. */
+      fonte.hidden = false;
+      var faixa = document.createRange();
+      faixa.selectNodeContents(fonte);
+      var sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(faixa);
+      feedback('Não consegui copiar por aqui — o texto está selecionado, use Ctrl+C.');
+    }
+
+    btn.addEventListener('click', function () {
+      function ok() {
+        feedback('Copiado. São 12 itens em texto puro.');
+        if (typeof gtag === 'function') gtag('event', 'checklist_copiado', { pagina: 'shadow-ai' });
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(fonte.textContent).then(ok, selecionar);
+      } else {
+        selecionar();
+      }
+    });
+  })();
+</script>
+
+</body>
+</html>

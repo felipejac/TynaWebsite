@@ -22,7 +22,7 @@ const WA_CTA = 'https://wa.me/5511997228945?text=' +
   encodeURIComponent('Olá, Felipe. Vim pelo site da Tyna e quero falar sobre governança de IA.');
 const ctaAgendar = (cls = '', attrs = '') =>
   `<a href="${WA_CTA}" target="_blank" rel="noopener" class="btn btn-primary${cls ? ' ' + cls : ''}"${attrs ? ' ' + attrs : ''}>Agendar conversa</a>`;
-const ASSET_V = '11';
+const ASSET_V = '12';
 
 const CATEGORIES = {
   'governanca': 'Governança de IA',
@@ -451,6 +451,10 @@ const staticPages = [
   { loc: `${SITE}/`, pri: '1.0', freq: 'weekly', mod: mtime('index.html') },
   { loc: `${SITE}/iso-42001/`, pri: '0.9', freq: 'monthly', mod: mtime('iso-42001/index.html') },
   { loc: `${SITE}/diagnostico/`, pri: '0.9', freq: 'monthly', mod: mtime('diagnostico/index.html') },
+  { loc: `${SITE}/shadow-ai/`, pri: '0.9', freq: 'monthly', mod: mtime('shadow-ai/index.html') },
+  // a data de modificação importa mais aqui do que nas outras: a página afirma um status
+  // de tramitação com data, e o lastmod é o que sinaliza ao Google que ela foi reconferida
+  { loc: `${SITE}/pl-2338/`, pri: '0.9', freq: 'monthly', mod: mtime('pl-2338/index.html') },
   { loc: `${SITE}/sobre/`, pri: '0.8', freq: 'monthly', mod: mtime('sobre/index.html') },
   { loc: `${SITE}/blog/`, pri: '0.9', freq: 'daily', mod: maisRecente(posts) },
   ...Object.keys(CATEGORIES).filter(s => posts.some(p => p.category === s))

@@ -44,6 +44,21 @@ compondo por trás, para quando alguém do ICP finalmente procurar.
   nomeadas uma a uma, cada uma ligada a um serviço da Tyna. Zero formulário: o CTA
   monta um e-mail com a pontuação e as dez respostas já escritas — o lead chega
   qualificado e com contexto. É o principal ativo de distribuição disponível hoje.
+- **`/shadow-ai/`** (17/08/2026) — página-pilar do tema que abre a conversa comercial.
+  Traz o **checklist de mapeamento em 12 passos publicado inteiro**, na ordem que
+  funciona (rastro financeiro antes de log, rastro técnico, declaração com anistia por
+  escrito, consolidação em inventário), com botão de copiar em texto puro e evento
+  `checklist_copiado` no GA4. FAQ visível com 5 perguntas, espelhada em JSON-LD, mais
+  schema `HowTo`. É a única página do segmento que entrega o método completo em vez de
+  só o alerta — a aposta é que ferramenta circula e alerta não.
+- **`/pl-2338/`** (17/08/2026) — status honesto do Marco Legal da IA, com data e fonte
+  conferível. **Verificado na API de dados abertos da Câmara**, não em notícia: aprovado
+  no Senado em 10/12/2024, na Câmara desde 17/03/2025, comissão especial sob relatoria
+  de Aguinaldo Ribeiro (PP-PB), situação "Aguardando Parecer", última movimentação em
+  17/06/2026. A página traz as duas fontes primárias linkadas para o leitor conferir
+  sozinho, o que o texto aprovado no Senado prevê, e as seis frentes que independem da
+  votação. Muito conteúdo do segmento dá a entender que a lei já vigora; dizer o
+  contrário com link é o diferencial da página.
 - **`/404.html`** própria — corrigiu um soft-404 do Cloudflare Pages que devolvia a
   home (status 200) para qualquer URL inexistente, inclusive slug de post digitado
   errado. Sem isso o Google indexava lixo como conteúdo duplicado.
@@ -187,11 +202,12 @@ Restam duas, e a primeira é a de maior alavancagem de todo o documento:
    seu resultado" com texto pré-pronto para LinkedIn. Transforma a ferramenta num
    loop: quem responde tem motivo de postar o próprio resultado, o que traz mais
    gente para responder.
-7. **Duas ou três páginas-pilar novas**, além de ISO 42001 — candidatas que já
-   estão implícitas no que a Tyna vende: "Governança de agentes autônomos",
-   "Shadow AI: como mapear e controlar", "AI Gateway: o que é e quando faz
-   sentido". Cada uma no mesmo padrão da ISO 42001 (FAQ visível + JSON-LD
-   espelhando o texto).
+7. ~~Duas ou três páginas-pilar novas~~ **Duas publicadas em 17/08/2026**:
+   `/shadow-ai/` e `/pl-2338/`, ambas no padrão da ISO 42001 (FAQ visível + JSON-LD
+   espelhando o texto). Restam duas candidatas do plano original: **"Governança de
+   agentes autônomos"** e **"AI Gateway: o que é e quando faz sentido"** — a segunda
+   é a que fecha o caminho comercial, porque é a alternativa que a página de shadow AI
+   promete e ainda não tem para onde apontar.
 8. **Backlinks reais**: pedir que Hering, Yalo ou outro case linkem de volta a
    partir do próprio canal (case study, post) quando for natural; diretórios
    brasileiros de consultoria/IA; pauta com veículo de tecnologia sobre o
@@ -415,14 +431,17 @@ texto. *Esforço: 1 hora.*
 hora. Melhor ativo do site e ninguém sabe que existe. Post com as 3 perguntas mais
 desconfortáveis e o link. *Esforço: 1 hora.*
 
-**4. "Onde o PL 2338 realmente está."** Verificado: aprovado no Senado em 10/12/2024,
-**parado na Câmara**, aguardando parecer do relator na comissão especial. Não é lei.
-Muito conteúdo por aí está desatualizado ou dá a entender que já vigora. Página de
-status honesto + o que fazer enquanto não vota. *Esforço: meio dia. Cauda longa boa.*
+**4. ~~"Onde o PL 2338 realmente está."~~ Publicado em 17/08/2026** — `/pl-2338/`.
+Status reconferido na API de dados abertos da Câmara no dia da publicação (situação
+"Aguardando Parecer", última movimentação em 17/06/2026), as duas fontes primárias
+linkadas, e as seis frentes que independem da votação. A página carrega a data da
+última conferência: **quando o projeto andar, ela precisa ser atualizada** — é o único
+conteúdo do site com prazo de validade embutido.
 
-**5. Checklist de mapeamento de Shadow AI.** O método da seção "A leitura da Tyna" do
-artigo publicado — financeiro antes de TI, logs de SSO, perguntar com anistia por
-escrito — vira página com checklist copiável. *Esforço: meio dia.*
+**5. ~~Checklist de mapeamento de Shadow AI.~~ Publicado em 17/08/2026** —
+`/shadow-ai/`. O método da seção "A leitura da Tyna" virou os 12 passos em quatro
+frentes, com botão de copiar e evento `checklist_copiado` no GA4 para medir se a
+página está sendo usada como ferramenta ou só lida.
 
 **6. "84,2% de assertividade" como post.** O case Stellantis: cerca de 1 em cada 6 casos
 a IA não resolve sozinha, e a solução seguiu com 86,8% de NPS. Ataca a fantasia do
@@ -448,6 +467,14 @@ existem para dar motivo à mensagem, não para substituí-la.
 
 E segue valendo o que está na seção 3: **LinkedIn Company Page e Google Business Profile
 não existem.** Sem eles não há superfície onde esse conteúdo circule sozinho.
+
+### O canal das duas páginas publicadas
+
+Os textos de LinkedIn das duas páginas estão prontos em
+[distribuicao-paginas-pilar.md](distribuicao-paginas-pilar.md), com ordem sugerida
+(shadow AI primeiro, PL 2338 dois ou três dias depois) e o que medir. **Página
+publicada sem post é a mesma armadilha dos 50 posts sem leitor** — o trabalho de
+escrita está feito, o de distribuição não.
 
 ### O que verificar antes de produzir qualquer coisa
 

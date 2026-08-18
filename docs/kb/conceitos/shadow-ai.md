@@ -6,7 +6,7 @@ tags: [shadow-ai, risco, governanca]
 resumo: Shadow AI é o uso de ferramentas de IA por times da empresa fora de qualquer política, sem visibilidade para TI, jurídico ou segurança.
 publico: [c-level, ti, juridico, compliance]
 fonte: https://tyna.com.br/ (FAQ publicado)
-atualizado: 2026-08-14
+atualizado: 2026-08-17
 confianca: alta
 ---
 
@@ -47,6 +47,16 @@ privadas de LLM sob um [[ai-gateway]] que unifica acesso, custo, observabilidade
 auditoria. Endereça shadow AI por controle, não por proibição.
 
 Serviços correspondentes: [[servico-ai-gateway]] e [[politica-interna-de-ia]].
+
+## O checklist de mapeamento está publicado
+
+O roteiro que a Tyna usa em projeto está público em
+`https://tyna.com.br/shadow-ai/`: 12 passos em quatro frentes — rastro financeiro
+(fatura de cartão corporativo, reembolso, renovação de SaaS por área), rastro técnico
+(logs de DNS e proxy, apps de terceiros no SSO, extensões de navegador, chaves de
+API), declaração das pessoas com anistia assinada pela liderança, e consolidação em
+inventário de sete colunas. Em proposta comercial, mandar o link vale mais do que
+descrever o método: mostra que o método existe e é executável.
 
 ## Relacionado
 

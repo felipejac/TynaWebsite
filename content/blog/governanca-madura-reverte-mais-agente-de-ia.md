@@ -73,7 +73,7 @@ O dado dos 81% é bom para a conversa de governança justamente porque é descon
 
 A primeira é **"nós somos maduros nisso, está sob controle"**. Segundo a pesquisa, as organizações com framework maduro são as que mais reverteram. Maturidade em governança de TI não transfere automaticamente para governança de IA — são objetos diferentes. TI clássica trata de infraestrutura, rede e segurança da informação; IA trata de comportamento probabilístico, viés, explicabilidade e alucinação. Um programa exemplar de ISO 27001 não diz nada sobre o que o agente responde quando o cliente reformula a pergunta.
 
-A segunda é **"então vamos esperar a regulação definir"**. Vale registrar onde a regulação brasileira realmente está: o PL 2338/2023 foi aprovado no Senado em 10 de dezembro de 2024 e **segue na Câmara dos Deputados**, aguardando parecer do relator na comissão especial. Não é lei. Circula muito conteúdo dando a entender que já vigora — não vigora. E os 74% de reversão aconteceram sem nenhuma lei obrigando ninguém a nada, o que é o ponto: o incidente não espera o Diário Oficial.
+A segunda é **"então vamos esperar a regulação definir"**. Vale registrar onde a regulação brasileira realmente está: o [PL 2338/2023](/pl-2338/) foi aprovado no Senado em 10 de dezembro de 2024 e **segue na Câmara dos Deputados**, aguardando parecer do relator na comissão especial. Não é lei. Circula muito conteúdo dando a entender que já vigora — não vigora. E os 74% de reversão aconteceram sem nenhuma lei obrigando ninguém a nada, o que é o ponto: o incidente não espera o Diário Oficial.
 
 Na prática, três coisas separam quem reverte de quem corrige antes:
 
