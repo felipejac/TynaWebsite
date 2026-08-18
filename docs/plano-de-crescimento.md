@@ -162,14 +162,25 @@ resultado, não ficam mais como pendência em aberto:
 - ~~Consentimento de cookies para o GA4~~ **Decidido: não implementar agora.** O
   site segue rodando GA4 sem Consent Mode, por decisão explícita do Felipe.
 
-Restam duas, e a primeira é a de maior alavancagem de todo o documento:
+Uma terceira saiu da lista em 18/08/2026, conferida em produção:
 
-1. **Desligar o "managed robots.txt" no painel da Cloudflare.**
-   Security → Settings → Bot traffic → desligar "Set your preference to block
-   training in robots.txt". Enquanto estiver ligado, a Cloudflare sobrescreve o
-   `robots.txt` do repositório na borda, e os 8 crawlers de treinamento continuam
-   bloqueados na prática — todo o trabalho de AEO listado acima fica pronto e
-   inacessível até esse toggle mudar. Zero esforço, destrava um trabalho já feito.
+- ~~Desligar o "managed robots.txt" no painel da Cloudflare~~ **Resolvido.** O
+  `robots.txt` servido em `tyna.com.br/robots.txt` hoje é **byte a byte igual ao do
+  repositório**, o que significa que a Cloudflare não está mais sobrescrevendo nada.
+  Os 8 crawlers de treinamento estão liberados na prática, e não só no arquivo
+  versionado. Conferido também por requisição real: `/ai-gateway/` responde 200 para
+  Googlebot, Bingbot, GPTBot e PerplexityBot. **Todo o trabalho de AEO listado na
+  seção 2 passou a valer de fato** — era a pendência de maior alavancagem do
+  documento, e ela caiu.
+
+Resta uma, mais o registro histórico do que era a #1:
+
+1. ~~**Desligar o "managed robots.txt" no painel da Cloudflare.**~~ *(feito — ver
+   acima; o texto abaixo fica como registro do porquê da decisão.)*
+   Security → Settings → Bot traffic → "Set your preference to block training in
+   robots.txt". Enquanto estivesse ligado, a Cloudflare sobrescrevia o `robots.txt`
+   do repositório na borda, e os 8 crawlers de treinamento seguiam bloqueados na
+   prática — todo o trabalho de AEO ficava pronto e inacessível.
    **Por que isso é positivo, direto ao ponto:** `robots.txt` é um pedido, não um
    cadeado — scraper mal-intencionado ignora o arquivo de qualquer jeito, com ou
    sem o bloqueio. Quem *respeita* `robots.txt` são exatamente as empresas sérias
@@ -195,8 +206,8 @@ Restam duas, e a primeira é a de maior alavancagem de todo o documento:
 
 ### Esta semana (baixo esforço, alto impacto)
 
-1. **Desligar o robots.txt gerenciado da Cloudflare** (pendência #1 acima). Sem
-   custo, destrava trabalho já pronto.
+1. ~~Desligar o robots.txt gerenciado da Cloudflare~~ **Feito, confirmado em
+   produção em 18/08/2026.** Ver a seção 3.
 2. **Distribuir o diagnóstico ativamente no LinkedIn.** É o ativo de maior
    potencial de conversão que existe hoje, e ainda não foi promovido fora do site.
    Post pessoal do Felipe com o gancho do resultado (não da ferramenta em si) +
@@ -486,7 +497,26 @@ existem para dar motivo à mensagem, não para substituí-la.
 E segue valendo o que está na seção 3: **LinkedIn Company Page e Google Business Profile
 não existem.** Sem eles não há superfície onde esse conteúdo circule sozinho.
 
-### O canal das duas páginas publicadas
+### O que está no ar, e desde quando
+
+Em 18/08/2026 o site foi publicado com as quatro páginas-pilar novas, o hub de guias
+e a limpeza de SEO. Estado verificado na hora da publicação, para servir de marco:
+
+| Verificação | Resultado |
+| --- | --- |
+| Páginas no sitemap | 65, todas respondendo 200 |
+| Auditoria de SEO em produção (`npm run seo`) | **Nenhum problema encontrado** — sem erro e sem aviso |
+| `robots.txt` em produção | idêntico ao do repositório; managed robots.txt desligado |
+| Acesso de crawler a `/ai-gateway/` | 200 para Googlebot, Bingbot, GPTBot e PerplexityBot |
+| IndexNow | sitemap inteiro notificado no fim do deploy, resposta 200 OK |
+| Search Console via `npm run seo:gsc` | **indisponível nesta máquina** — o comando depende do `gcloud`, que não está instalado |
+
+O único passo de indexação que continua manual é **pedir indexação das cinco páginas
+novas no Search Console** (Inspeção de URL → Solicitar indexação). O IndexNow cobre
+Bing, Yandex e outros; o Google não usa o protocolo, e só descobre pelo sitemap, que
+já foi atualizado e relido, ou por esse pedido manual, que antecipa dias de espera.
+
+### O canal das quatro páginas publicadas
 
 Os textos de LinkedIn das duas páginas estão prontos em
 [distribuicao-paginas-pilar.md](distribuicao-paginas-pilar.md), com ordem sugerida
