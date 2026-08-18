@@ -16,6 +16,17 @@
    às outras quatro. */
 .cat-intro{max-width:680px; margin-top:26px; color:var(--text-muted); font-size:16.5px; line-height:1.65;}
 
+/* Fecho das páginas de categoria: liga a listagem aos guias do site. Existe por dois
+   motivos, e os dois valem. Página de categoria com um ou dois posts era conteúdo raso
+   demais para ranquear, e quem chega numa listagem por busca não tem para onde ir
+   depois de olhar os títulos. */
+.cat-guias{border-top:1px solid var(--line); padding:44px 0 0; margin-top:8px;}
+.cat-guias h2{font-size:20px; margin-bottom:14px;}
+.cat-guias p{max-width:760px; color:var(--text-muted); font-size:16px; line-height:1.7;}
+.cat-guias p + p{margin-top:14px;}
+.cat-guias a{color:var(--orange-ink); text-decoration:underline; text-underline-offset:3px;}
+
+
 .post-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
 .post-card{background:var(--ink); transition:background .25s;}
 .post-card:hover{background:var(--surface);}

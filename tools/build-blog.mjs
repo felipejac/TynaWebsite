@@ -22,7 +22,7 @@ const WA_CTA = 'https://wa.me/5511997228945?text=' +
   encodeURIComponent('Olá, Felipe. Vim pelo site da Tyna e quero falar sobre governança de IA.');
 const ctaAgendar = (cls = '', attrs = '') =>
   `<a href="${WA_CTA}" target="_blank" rel="noopener" class="btn btn-primary${cls ? ' ' + cls : ''}"${attrs ? ' ' + attrs : ''}>Agendar conversa</a>`;
-const ASSET_V = '12';
+const ASSET_V = '13';
 
 const CATEGORIES = {
   'governanca': 'Governança de IA',
@@ -39,22 +39,27 @@ const CATEGORIES = {
 // uma e ignora as outras. Com texto próprio, cada uma passa a ter o que ranquear.
 const CAT_META = {
   'governanca': {
+    guias: '<h2>Por onde começar</h2><p>Se o assunto é novo na sua empresa, a ordem que funciona é esta: descobrir o que já está em uso com o <a href="/shadow-ai/">checklist de mapeamento de shadow AI</a>, definir <a href="/governanca-de-agentes/">até onde cada agente vai sem um humano</a>, unificar acesso e auditoria em um <a href="/ai-gateway/">AI Gateway</a> e, quando a governança precisar ser verificável por terceiro, seguir para a <a href="/iso-42001/">ISO/IEC 42001</a>. Sobre a regulação brasileira, o <a href="/pl-2338/">status do PL 2338</a> fica registrado com data e fonte conferível: ele ainda não é lei.</p>',
     desc: 'Governança de IA na prática: política interna, comitê, adequação à LGPD em fluxos de IA e guardrails em agentes que já rodam em produção.',
     intro: 'Governança de IA é o conjunto de decisões que define até onde a empresa deixa a Inteligência Artificial ir sozinha — e quem responde quando ela erra. Aqui o assunto é tratado de dentro da operação: política que as equipes de fato seguem, comitê com prazo de resposta, adequação à LGPD nos fluxos onde o dado pessoal realmente trafega, e guardrail aplicado em execução, não escrito em documento.',
   },
   'ai-agents': {
+    guias: '<h2>Antes de colocar um agente no ar</h2><p>Os textos aqui cobrem o que quebra em produção. O que precisa estar decidido antes está reunido no guia de <a href="/governanca-de-agentes/">governança de agentes de IA</a>: escopo de autonomia, guardrail em execução, escalonamento humano e trilha de auditoria, com um roteiro de dez perguntas para usar em revisão. Para o agente que já está no ar sem ter passado por revisão nenhuma, o caminho é o <a href="/shadow-ai/">mapeamento de shadow AI</a>.</p>',
     desc: 'Agentes de IA em produção: arquitetura, escopo de autonomia, escalonamento humano e o que costuma quebrar quando o sistema decide sozinho.',
     intro: 'Agente de IA é diferente de ferramenta de IA: ele decide e age em nome da empresa, sem um leitor humano no meio. Isso muda a pergunta de "quem pode usar" para "até onde ele vai sem um humano". Os textos aqui tratam de arquitetura, escopo de autonomia definido antes da produção, escalonamento com destino e prazo, e trilha de auditoria da decisão.',
   },
   'llm': {
+    guias: '<h2>Do modelo à operação</h2><p>Escolher modelo é a parte fácil e a que menos dura. O que sustenta o uso de LLM em escala é a camada em volta: um <a href="/ai-gateway/">AI Gateway</a> que unifica acesso, custo, observabilidade e auditoria, e a decisão de <a href="/governanca-de-agentes/">até onde o sistema age sozinho</a>. Quem ainda não sabe quantos modelos e ferramentas a própria empresa usa começa pelo <a href="/shadow-ai/">checklist de mapeamento</a>.</p>',
     desc: 'Modelos de linguagem na prática: lançamentos, custo por token, janela de contexto e o que muda de fato no fluxo de quem usa LLM em produção.',
     intro: 'Todo mês sai um modelo novo, e quase nada disso muda o trabalho de quem já tem algo rodando. O recorte aqui é o do operador: o que mudou em custo, em latência, em janela de contexto e em confiabilidade — e o que é anúncio que não sobrevive ao primeiro caso real.',
   },
   'dev-tools': {
+    guias: '<h2>Ferramenta boa, rastro nenhum</h2><p>Extensão de navegador que lê a tela, assistente conectado ao repositório e chave de API criada no cartão de alguém são exatamente o que o <a href="/shadow-ai/">mapeamento de shadow AI</a> encontra, e quase nunca aparecem em inventário de software. Quando a empresa decide organizar isso sem proibir, a resposta é um <a href="/ai-gateway/">AI Gateway</a>: credencial da empresa, custo por time e registro do que saiu.</p>',
     desc: 'Ferramentas de desenvolvimento com IA: o que cada uma entrega, o que ainda não entrega e como muda o trabalho de quem constrói software.',
     intro: 'Ferramenta de desenvolvimento com IA envelhece rápido e promete mais do que entrega. Os textos desta seção olham o que a ferramenta faz no fluxo real de trabalho, onde ela ainda exige a pessoa, e o que ela deixa de rastro — inclusive de segredo e de credencial, que é onde a conveniência costuma custar caro.',
   },
   'automation': {
+    guias: '<h2>Automação que sobrevive ao terceiro mês</h2><p>O que derruba um fluxo automatizado quase nunca é o modelo: é o caso fora do previsto e a falta de alguém conseguindo explicar depois o que aconteceu. Os dois guias que tratam disso são <a href="/governanca-de-agentes/">governança de agentes de IA</a>, com o critério de escalonamento e a trilha de auditoria, e <a href="/ai-gateway/">AI Gateway</a>, que é onde custo e registro deixam de ser problema de cada fluxo. Para descobrir as automações que já rodam sem ninguém saber, o <a href="/shadow-ai/">checklist de mapeamento</a>.</p><p>Na prática, três perguntas separam a automação que fica da que é desligada. A primeira é o que acontece quando a entrada foge do previsto: se a resposta for "o fluxo quebra e alguém percebe depois", não há operação, há sorte. A segunda é quem é avisado quando ela para, pelo nome, e em quanto tempo. A terceira é se dá para reconstruir, meses depois, o que a automação leu e executou em um caso específico — que é exatamente o que um cliente pede quando contesta, e o que uma auditoria pede sem avisar.</p>',
     desc: 'Automação com IA: integração entre sistemas, orquestração de fluxos e o ponto em que automatizar deixa de compensar sem governança.',
     intro: 'Automatizar com IA é fácil de começar e difícil de sustentar. O que separa um fluxo que dura de um que é desligado em três meses raramente é o modelo: é integração com os sistemas que já existem, tratamento do caso que foge do previsto, e alguém conseguindo explicar depois o que a automação fez.',
   },
@@ -216,8 +221,16 @@ ${body}
           ${activeCats().map(([s, n]) => `<a href="${up}blog/categoria/${s}/">${n}</a>`).join('\n          ')}
         </div>
         <div class="foot-col">
-          <h5>Site</h5>
+          <h5>Guias</h5>
           <a href="${up}iso-42001/">ISO 42001</a>
+          <a href="${up}shadow-ai/">Shadow AI</a>
+          <a href="${up}ai-gateway/">AI Gateway</a>
+          <a href="${up}governanca-de-agentes/">Governança de agentes</a>
+          <a href="${up}pl-2338/">Marco Legal da IA</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="${up}#servicos">Serviços</a>
           <a href="${up}diagnostico/">Diagnóstico</a>
           <a href="${up}sobre/">Sobre</a>
           <a href="${up}blog/">Blog</a>
@@ -370,7 +383,7 @@ ${mdToHtml(p.body)}
 
 /* ---------- índice e categorias ---------- */
 
-function listing({ title, description, canonical, heading, sub, items, depth, active, intro }) {
+function listing({ title, description, canonical, heading, sub, items, depth, active, intro, guias }) {
   const up = '../'.repeat(depth);
   const head = ld({
     '@context': 'https://schema.org', '@type': 'Blog',
@@ -405,6 +418,9 @@ function listing({ title, description, canonical, heading, sub, items, depth, ac
       <div class="post-grid">${grade.map(p => card(p, up)).join('\n')}</div>
     </div>
   </section>
+  ${guias ? `<section class="cat-guias">
+    <div class="wrap">${guias}</div>
+  </section>` : ''}
 </main>`;
 
   return shell({ title, description, canonical, head, body, depth });
@@ -431,6 +447,7 @@ for (const [slug, name] of Object.entries(CATEGORIES)) {
     heading: name,
     sub: `Tudo que a Tyna publicou sobre ${name.toLowerCase()}.`,
     intro: meta.intro,
+    guias: meta.guias,
     items, depth: 3, active: slug,
   }));
 }
@@ -455,6 +472,8 @@ const staticPages = [
   // a data de modificação importa mais aqui do que nas outras: a página afirma um status
   // de tramitação com data, e o lastmod é o que sinaliza ao Google que ela foi reconferida
   { loc: `${SITE}/pl-2338/`, pri: '0.9', freq: 'monthly', mod: mtime('pl-2338/index.html') },
+  { loc: `${SITE}/ai-gateway/`, pri: '0.9', freq: 'monthly', mod: mtime('ai-gateway/index.html') },
+  { loc: `${SITE}/governanca-de-agentes/`, pri: '0.9', freq: 'monthly', mod: mtime('governanca-de-agentes/index.html') },
   { loc: `${SITE}/sobre/`, pri: '0.8', freq: 'monthly', mod: mtime('sobre/index.html') },
   { loc: `${SITE}/blog/`, pri: '0.9', freq: 'daily', mod: maisRecente(posts) },
   ...Object.keys(CATEGORIES).filter(s => posts.some(p => p.category === s))

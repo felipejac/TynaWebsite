@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/styles.css?v=12">
+<link rel="stylesheet" href="../assets/styles.css?v=13">
 <link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
 <script type="application/ld+json">
 {
@@ -51,6 +51,7 @@
     <nav>
       <ul id="navList">
         <li><a href="../#servicos">Serviços</a></li>
+        <li><a href="../#guias">Guias</a></li>
         <li><a href="../iso-42001/">ISO 42001</a></li>
         <li><a href="../#cases">Cases</a></li>
         <li><a href="../blog/">Blog</a></li>
@@ -124,6 +125,29 @@
     </div>
   </section>
 
+  <section id="o-que-mede">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">O que ele mede</p>
+        <h2>As dez dimensões, e por que são estas</h2>
+        <p>Cada pergunta corresponde a um controle que aparece em auditoria, em questionário de segurança de cliente e nos requisitos da ISO/IEC 42001. Não é questionário de marketing: é a lista que a Tyna percorre na primeira semana de um projeto de governança.</p>
+      </div>
+      <ul class="benefits reveal">
+        <li><strong>Inventário</strong> — a empresa sabe quais ferramentas de IA estão em uso, incluindo as que ninguém aprovou.</li>
+        <li><strong>Política de uso</strong> — existe regra escrita sobre que dado pode entrar em qual categoria de ferramenta.</li>
+        <li><strong>Base legal</strong> — os fluxos de IA que tocam dado pessoal têm base legal registrada sob a LGPD.</li>
+        <li><strong>Dono nomeado</strong> — cada sistema de IA tem uma pessoa responsável, e ela é da área de negócio.</li>
+        <li><strong>Classificação de risco</strong> — os sistemas foram separados por criticidade, com critério escrito.</li>
+        <li><strong>Guardrail em produção</strong> — o limite é aplicado na execução, e não apenas descrito em documento.</li>
+        <li><strong>Escalonamento humano</strong> — existe critério que faz o agente parar e chamar uma pessoa.</li>
+        <li><strong>Trilha de auditoria</strong> — dá para reconstruir o que um agente leu, decidiu e executou meses depois.</li>
+        <li><strong>Custo e observabilidade</strong> — a empresa consegue somar quanto gasta com IA, por área.</li>
+        <li><strong>Capacitação</strong> — os times sabem o que podem e o que não podem fazer, e foram treinados nisso.</li>
+      </ul>
+      <p class="reveal" style="color:var(--text-muted); font-size:16px; max-width:760px; margin:34px 0 0;">No fim, o resultado nomeia as lacunas uma a uma e liga cada uma ao que a resolve — o <a href="../shadow-ai/">mapeamento de shadow AI</a> para inventário, o <a href="../ai-gateway/">AI Gateway</a> para custo e auditoria, os <a href="../governanca-de-agentes/">controles de agente</a> para autonomia e escalonamento, a <a href="../iso-42001/">ISO/IEC 42001</a> para tornar tudo verificável por terceiro.</p>
+    </div>
+  </section>
+
   <section class="cta-band" style="border-bottom:none;">
     <div class="wrap reveal">
       <p class="eyebrow">Próximo passo</p>
@@ -149,12 +173,18 @@
           <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
         </div>
         <div class="foot-col">
-          <h5>Site</h5>
-          <a href="../#servicos">Serviços</a>
+          <h5>Guias</h5>
           <a href="../iso-42001/">ISO 42001</a>
           <a href="../shadow-ai/">Shadow AI</a>
+          <a href="../ai-gateway/">AI Gateway</a>
+          <a href="../governanca-de-agentes/">Governança de agentes</a>
           <a href="../pl-2338/">Marco Legal da IA</a>
-          <a href="../diagnostico/">Diagnóstico</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../#servicos">Serviços</a>
+          <a href="../#trilhas">Trilhas</a>
+          <a href="./">Diagnóstico</a>
           <a href="../blog/">Blog</a>
           <a href="../sobre/">Sobre</a>
         </div>
@@ -168,7 +198,7 @@
 </footer>
 
 <!-- O botão flutuante do WhatsApp é montado por assets/site.js, que roda em todas as páginas -->
-<script src="../assets/site.js?v=12"></script>
+<script src="../assets/site.js?v=13"></script>
 <script>
 (function () {
   // Diagnóstico: tudo roda no navegador. Nenhuma resposta sai daqui sem o visitante

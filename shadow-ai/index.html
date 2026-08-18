@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/styles.css?v=12">
+<link rel="stylesheet" href="../assets/styles.css?v=13">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -87,9 +87,9 @@
     <nav>
       <ul id="navList">
         <li><a href="../#servicos">Serviços</a></li>
+        <li><a href="../#guias">Guias</a></li>
         <li><a href="../iso-42001/">ISO 42001</a></li>
         <li><a href="../#cases">Cases</a></li>
-        <li><a href="../#trilhas">Trilhas</a></li>
         <li><a href="../blog/">Blog</a></li>
         <li><a href="../sobre/">Sobre</a></li>
         <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20mapeamento%20de%20shadow%20AI." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
@@ -165,7 +165,7 @@
       </div>
 
       <div class="check-actions reveal">
-        <button type="button" class="btn btn-primary" id="copiarChecklist">Copiar o checklist</button>
+        <button type="button" class="btn btn-primary" data-copiar="checklistTexto" data-aviso="copiaFeedback" data-evento="checklist_copiado" data-pagina="shadow-ai" data-ok="Copiado. São 12 itens em texto puro." id="copiarChecklist">Copiar o checklist</button>
         <span class="check-hint" id="copiaFeedback" role="status" aria-live="polite">Vai em texto puro, pronto para colar em documento, chamado ou e-mail.</span>
       </div>
 
@@ -364,6 +364,33 @@ autorizado ter ficado mais conveniente que o atalho.</pre>
     </div>
   </section>
 
+  <!-- GUIAS RELACIONADOS -->
+  <section id="relacionados">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Continue por aqui</p>
+        <h2>Guias relacionados</h2>
+      </div>
+      <div class="svc-grid reveal">
+        <div class="svc-card">
+          <span class="num">01</span>
+          <h3><a href="../ai-gateway/">AI Gateway</a></h3>
+          <p>O passo seguinte a este. É a alternativa segura que substitui o atalho — sem ela, o mapa fica pronto e nada muda.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">02</span>
+          <h3><a href="../governanca-de-agentes/">Governança de agentes de IA</a></h3>
+          <p>Quando o que o mapeamento encontra não é uma ferramenta, e sim um agente já respondendo cliente sem revisão.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">03</span>
+          <h3><a href="../iso-42001/">ISO/IEC 42001</a></h3>
+          <p>O inventário do checklist é o requisito de partida da norma. Quem mapeou já andou a primeira das seis etapas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA final -->
   <section class="cta-band" style="border-bottom:none;">
     <div class="wrap reveal">
@@ -393,11 +420,17 @@ autorizado ter ficado mais conveniente que o atalho.</pre>
           <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
         </div>
         <div class="foot-col">
-          <h5>Site</h5>
-          <a href="../#servicos">Serviços</a>
+          <h5>Guias</h5>
           <a href="../iso-42001/">ISO 42001</a>
           <a href="./">Shadow AI</a>
+          <a href="../ai-gateway/">AI Gateway</a>
+          <a href="../governanca-de-agentes/">Governança de agentes</a>
           <a href="../pl-2338/">Marco Legal da IA</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../#servicos">Serviços</a>
+          <a href="../#trilhas">Trilhas</a>
           <a href="../diagnostico/">Diagnóstico</a>
           <a href="../blog/">Blog</a>
           <a href="../sobre/">Sobre</a>
@@ -411,54 +444,8 @@ autorizado ter ficado mais conveniente que o atalho.</pre>
   </div>
 </footer>
 
-<!-- O botão flutuante do WhatsApp é montado por assets/site.js, que roda em todas as páginas -->
-<script src="../assets/site.js?v=12"></script>
-<script>
-  /* Copiar o checklist. O texto sai de um <pre hidden> em vez de ser remontado a partir
-     do DOM: o que a pessoa cola é exatamente o que foi revisado, sem depender de como as
-     seções estão marcadas hoje. O <pre> vai sem acento de propósito — o destino comum é
-     chamado, planilha e e-mail corporativo, onde a codificação ainda erra. */
-  (function () {
-    var btn = document.getElementById('copiarChecklist');
-    var fonte = document.getElementById('checklistTexto');
-    var aviso = document.getElementById('copiaFeedback');
-    if (!btn || !fonte || !aviso) return;
-
-    var padrao = aviso.textContent;
-    var voltar;
-
-    function feedback(msg) {
-      aviso.textContent = msg;
-      clearTimeout(voltar);
-      voltar = setTimeout(function () { aviso.textContent = padrao; }, 4000);
-    }
-
-    function selecionar() {
-      /* clipboard.writeText exige contexto seguro e permissão; em navegador antigo ou em
-         http a promessa nem existe. Aqui o texto aparece selecionado e o Ctrl+C fica com
-         a pessoa — melhor do que um botão que falha em silêncio. */
-      fonte.hidden = false;
-      var faixa = document.createRange();
-      faixa.selectNodeContents(fonte);
-      var sel = window.getSelection();
-      sel.removeAllRanges();
-      sel.addRange(faixa);
-      feedback('Não consegui copiar por aqui — o texto está selecionado, use Ctrl+C.');
-    }
-
-    btn.addEventListener('click', function () {
-      function ok() {
-        feedback('Copiado. São 12 itens em texto puro.');
-        if (typeof gtag === 'function') gtag('event', 'checklist_copiado', { pagina: 'shadow-ai' });
-      }
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(fonte.textContent).then(ok, selecionar);
-      } else {
-        selecionar();
-      }
-    });
-  })();
-</script>
+<!-- O botão flutuante do WhatsApp e o botão de copiar são montados por assets/site.js -->
+<script src="../assets/site.js?v=13"></script>
 
 </body>
 </html>

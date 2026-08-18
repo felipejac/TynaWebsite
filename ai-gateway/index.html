@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Gateway: o que é e quando faz sentido | Tyna</title>
+<meta name="description" content="AI Gateway unifica acesso, custo, observabilidade e auditoria das ferramentas de IA da empresa. O que é, quando faz sentido e quando não faz.">
+<link rel="canonical" href="https://tyna.com.br/ai-gateway/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AI Gateway: o que é e quando faz sentido">
+<meta property="og:description" content="Um ponto de acesso, custo, observabilidade e auditoria para toda a IA da empresa. O que é, quando faz sentido, e o caso honesto em que não faz.">
+<meta property="og:url" content="https://tyna.com.br/ai-gateway/">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna-dark.png">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css?v=13">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "AI Gateway corporativo",
+  "serviceType": "Unificação de acesso, custo, observabilidade e auditoria das ferramentas de Inteligência Artificial da empresa",
+  "description": "Implantação de um ponto único de acesso às ferramentas de IA da empresa, com credencial corporativa no lugar de cartão por área, custo consolidado por área e caso de uso, observabilidade das chamadas e trilha de auditoria que sustenta a adequação à LGPD.",
+  "areaServed": "BR",
+  "provider": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/",
+    "email": "contato@tyna.com.br"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://tyna.com.br/" },
+    { "@type": "ListItem", "position": 2, "name": "AI Gateway", "item": "https://tyna.com.br/ai-gateway/" }
+  ]
+}
+</script>
+<link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "pt-BR",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "O que é um AI Gateway corporativo?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Um AI Gateway corporativo é a unificação de todas as ferramentas de Inteligência Artificial da empresa sob um único ponto de acesso, custo, observabilidade e auditoria. Em vez de cada área ter a própria assinatura e o próprio cartão, existe uma credencial da empresa; em vez de o gasto aparecer fatiado em dezenas de cobranças, existe custo por área e por caso de uso; e em vez de ninguém saber que dado saiu para qual fornecedor, existe registro. É a resposta ao shadow AI por controle, e não por proibição." }
+    },
+    {
+      "@type": "Question",
+      "name": "Qual é a diferença entre AI Gateway e política de uso de IA?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Política define o que vale; gateway aplica. Um documento que diz que dado de cliente não pode sair da empresa não impede nada, porque o documento não é lido pelo sistema. O gateway é a camada onde essa regra vira execução: a requisição com CPF é barrada antes de sair do perímetro, a chamada é registrada, o custo é atribuído a um centro de custo. Política sem gateway é intenção; gateway sem política é infraestrutura sem critério. Os dois andam juntos." }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando um AI Gateway não faz sentido?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Em três situações. Quando a empresa usa uma ferramenta só, com um time só e sem dado regulado, o gateway adiciona operação sem resolver problema que exista. Quando ainda não houve mapeamento do que já está em uso, porque unificar o que não foi inventariado só muda o lugar da desorganização. E quando a expectativa da liderança é bloquear: gateway que só nega vira mais um obstáculo a contornar, e o time contorna pelo celular pessoal, onde não há log nenhum." }
+    },
+    {
+      "@type": "Question",
+      "name": "Precisa desenvolver um AI Gateway ou dá para comprar pronto?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Há três caminhos, e a escolha depende de quanto a empresa já opera em produção. Uma camada fina sobre o provedor de modelo resolve credencial única e registro básico com pouco esforço, e costuma ser o começo certo. Um produto de mercado entrega custo, cota e observabilidade prontos, ao custo de mais um fornecedor no perímetro de dados. Construir em casa só se justifica quando existe requisito que nenhum produto atende, como roteamento por classificação de dado ou residência de dados específica, e vira software para manter. O erro comum é começar pelo terceiro caminho antes de existir volume que o justifique." }
+    },
+    {
+      "@type": "Question",
+      "name": "O que medir depois que o AI Gateway entra em operação?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Quatro números. Cobertura, que é a proporção das chamadas de IA da empresa que passam pelo gateway, porque um gateway com metade do tráfego fora dele não é um ponto de controle. Custo por área e por caso de uso, que é o que sustenta decisão de investimento. Latência acrescentada, porque gateway lento empurra o time de volta para o atalho. E a taxa de requisição barrada por guardrail, que mostra se a regra está pegando algo real ou só decorando o fluxo." }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><img src="../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../#servicos">Serviços</a></li>
+        <li><a href="../#guias">Guias</a></li>
+        <li><a href="../iso-42001/">ISO 42001</a></li>
+        <li><a href="../#cases">Cases</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pela%20p%C3%A1gina%20de%20AI%20Gateway%20e%20quero%20falar%20sobre%20o%20projeto." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pela%20p%C3%A1gina%20de%20AI%20Gateway%20e%20quero%20falar%20sobre%20o%20projeto." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">AI Gateway</p>
+      <h1 style="max-width:900px;">Uma porta de entrada para toda a IA da empresa. <em>E um registro de tudo que passa por ela.</em></h1>
+      <p class="lead" style="max-width:740px;">Depois que a empresa descobre quantas ferramentas de IA já estão em uso, vem a pergunta prática: e agora? Bloquear empurra o uso para o celular pessoal. O que funciona é oferecer um caminho autorizado mais conveniente que o atalho — e é isso que um AI Gateway é. Esta página explica o que ele unifica, quando faz sentido, quando não faz, e o que medir depois.</p>
+      <div class="hero-ctas">
+        <a href="#quando" class="btn btn-primary">Quando faz sentido</a>
+        <a href="../shadow-ai/" class="btn btn-ghost">Começar pelo mapeamento</a>
+      </div>
+      <div class="stat-row" style="max-width:860px; border-top:0; padding-top:0;">
+        <div class="stat"><span class="v">1</span><span class="l">CREDENCIAL DA EMPRESA, NÃO CARTÃO POR ÁREA</span></div>
+        <div class="stat"><span class="v">4</span><span class="l">ACESSO, CUSTO, OBSERVABILIDADE E AUDITORIA</span></div>
+        <div class="stat"><span class="v">3</span><span class="l">PERGUNTAS QUE A EMPRESA PASSA A RESPONDER</span></div>
+        <div class="stat"><span class="v">0</span><span class="l">FERRAMENTA BLOQUEADA COMO CRITÉRIO DE SUCESSO</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- O QUE É -->
+  <section id="o-que-e">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">A definição</p>
+        <h2>O que um AI Gateway unifica</h2>
+        <p>Um AI Gateway corporativo é a unificação de todas as ferramentas de Inteligência Artificial da empresa sob um único ponto de acesso, custo, observabilidade e auditoria. Quatro coisas, e vale separar uma da outra — a maioria dos projetos entrega a primeira e para.</p>
+      </div>
+
+      <div class="svc-grid reveal">
+        <div class="svc-card">
+          <span class="num">01</span>
+          <h3>Acesso</h3>
+          <p>Uma credencial da empresa, não um cartão de crédito por área. Entrada e saída de pessoa passam a refletir no acesso à IA, como já acontece com qualquer outro sistema corporativo. Hoje, quem sai da empresa costuma continuar com a assinatura no cartão pessoal.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">02</span>
+          <h3>Custo</h3>
+          <p>Gasto por área, por time e por caso de uso, em um lugar só. É o que permite responder quanto a IA custou no trimestre sem garimpar fatura de cartão — e é o número que costuma liberar o orçamento do resto do programa.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">03</span>
+          <h3>Observabilidade</h3>
+          <p>Que modelo foi chamado, com que volume, para qual finalidade. Sem isso, "a IA está cara" e "a IA está errando" são impressões que ninguém consegue confirmar nem desmentir.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">04</span>
+          <h3>Auditoria</h3>
+          <p>O registro que sustenta a adequação à LGPD e a trilha de auditoria de agente: o que entrou, o que saiu, para qual fornecedor, sob qual base legal. É a diferença entre afirmar conformidade e conseguir demonstrá-la.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AS TRÊS PERGUNTAS -->
+  <section id="tres-perguntas">
+    <div class="wrap problem-grid">
+      <div class="reveal">
+        <p class="eyebrow">O teste prático</p>
+        <h2>Três perguntas que a empresa não consegue responder hoje</h2>
+        <p style="color:var(--text-muted); font-size:16px;">Antes de discutir arquitetura, vale medir a necessidade pelo que falta. Se as três respostas abaixo já existem e são confiáveis, o gateway resolve pouco. Se nenhuma existe, ele é o próximo passo — e o mais barato dos próximos passos.</p>
+      </div>
+      <div class="risk-list reveal">
+        <div class="risk-item">
+          <span class="num">01</span>
+          <div><h4>Quanto gastamos com IA neste trimestre, por área?</h4><p>Sem gateway, a resposta é uma soma manual de faturas de cartão, contratos dispersos e reembolsos — e sai errada, porque o que está no cartão pessoal de alguém não entra na conta.</p></div>
+        </div>
+        <div class="risk-item">
+          <span class="num">02</span>
+          <div><h4>Que dado saiu da empresa, para qual fornecedor?</h4><p>É a pergunta que o jurídico faz quando um cliente exige a lista de suboperadores, e a que a ANPD faria em uma fiscalização. Sem registro, a resposta honesta é "não sei".</p></div>
+        </div>
+        <div class="risk-item">
+          <span class="num">03</span>
+          <div><h4>O que o agente leu e decidiu no atendimento nº 4.312?</h4><p>Quando um cliente contesta uma resposta automatizada, a empresa precisa reconstruir a decisão. Sem trilha, a alternativa é pedir desculpas sem saber o que aconteceu.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUANDO FAZ SENTIDO -->
+  <section id="quando">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Quando faz sentido</p>
+        <h2>Os sinais de que chegou a hora — e os três casos em que não chegou</h2>
+        <p>Vale dizer o que quase nenhum fornecedor diz: AI Gateway não é para toda empresa, nem para todo momento. Implantar cedo demais é adicionar operação para resolver um problema que ainda não existe.</p>
+      </div>
+
+      <ul class="benefits reveal">
+        <li><strong>Mais de uma área com acesso próprio a modelos</strong> — a partir daí, o gasto e o risco deixam de caber na cabeça de uma pessoa.</li>
+        <li><strong>Dado pessoal ou dado de cliente entrando em prompt</strong> — é quando a base legal e o contrato de operador passam a ser exigíveis, e o registro deixa de ser conforto para virar requisito.</li>
+        <li><strong>Algum fluxo de IA já fala com cliente</strong> — o erro do agente chega a quem paga a conta, e a empresa precisa conseguir reconstruir o que ele fez.</li>
+        <li><strong>A fatura de IA já surpreendeu alguém</strong> — o momento clássico: o financeiro pergunta o total, ninguém consegue somar, e o número real assusta.</li>
+        <li><strong>Auditoria, RFP ou cliente perguntaram por escrito</strong> — a partir daqui existe prazo, e prazo sem instrumentação vira resposta evasiva no documento errado.</li>
+      </ul>
+
+      <div class="check-block reveal" style="margin-top:52px;">
+        <h3><span class="check-block-tag">Quando não faz</span> Os três casos em que o gateway atrapalha</h3>
+        <ol class="check-list">
+          <li class="check-item">
+            <h4>Uma ferramenta, um time, nenhum dado regulado</h4>
+            <p>Pouca superfície e pouco risco. Aqui o gateway adiciona operação e latência sem resolver problema que exista. Uma política curta e uma conta corporativa única resolvem melhor.</p>
+          </li>
+          <li class="check-item">
+            <h4>Antes de o mapeamento existir</h4>
+            <p>Unificar o que não foi inventariado só muda o lugar da desorganização — e cria a ilusão perigosa de cobertura, porque o tráfego que continua fora do gateway some do relatório. O <a href="../shadow-ai/">mapeamento de shadow AI</a> vem primeiro, sempre.</p>
+          </li>
+          <li class="check-item is-chave">
+            <h4>Quando a expectativa da liderança é bloquear</h4>
+            <p>Gateway que só nega vira mais um obstáculo a contornar, e o time contorna pelo celular pessoal, onde não há log nenhum. O critério de sucesso não é quantas chamadas foram barradas: é quanto do tráfego real da empresa passou a acontecer dentro dele.</p>
+            <span class="step-flag">Se o projeto for vendido internamente como controle, ele nasce perdendo</span>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO IMPLANTAR -->
+  <section id="como">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Como implantar</p>
+        <h2>Cinco passos, na ordem que evita o abandono</h2>
+        <p>A causa mais comum de um gateway virar prateleira é ordem errada: ligar o controle antes de existir motivo para as pessoas passarem por ele.</p>
+      </div>
+
+      <div class="steps reveal">
+        <div class="step">
+          <span class="step-num">01</span>
+          <div>
+            <h3>Inventário antes de infraestrutura</h3>
+            <p>Sem saber o que já roda, não há como medir cobertura depois — e cobertura é o único número que diz se o gateway virou ponto de controle ou enfeite. O <a href="../shadow-ai/">checklist de mapeamento</a> resolve isso em duas a quatro semanas.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">02</span>
+          <div>
+            <h3>Escolher o caminho pelo tamanho do problema</h3>
+            <p>Camada fina sobre o provedor, produto de mercado ou construção própria. A decisão está na seção seguinte, e ela muda conforme o volume que a empresa já opera — não conforme a ambição do projeto.</p>
+          </div>
+        </div>
+        <div class="step is-chave">
+          <span class="step-num">03</span>
+          <div>
+            <h3>Migrar por conveniência, não por decreto</h3>
+            <p>Acesso mais rápido, modelo melhor, sem pedir cartão e sem abrir chamado. A migração acontece quando o caminho autorizado é o mais fácil; comunicado interno sozinho move pouca gente e queima confiança.</p>
+            <span class="step-flag">É a etapa que decide o resultado — e é a que quase todo projeto pula</span>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">04</span>
+          <div>
+            <h3>Instrumentar custo por caso de uso, não só por time</h3>
+            <p>Custo por time responde quem gastou. Custo por caso de uso responde o que valeu a pena, que é a pergunta que a diretoria realmente faz na hora de renovar o orçamento.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">05</span>
+          <div>
+            <h3>Ligar guardrail e trilha de auditoria</h3>
+            <p>Com o tráfego passando por um lugar só, o limite deixa de ser parágrafo e vira execução: a requisição com dado sensível é barrada antes de sair, e cada chamada fica recuperável depois do fato. É o que sustenta a <a href="../iso-42001/">ISO/IEC 42001</a> e a adequação à LGPD.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUILD VS BUY -->
+  <section id="caminhos">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Comprar ou construir</p>
+        <h2>Os três caminhos, com o custo real de cada um</h2>
+        <p>O erro comum é começar pela construção própria antes de existir volume que a justifique. A ordem natural é da esquerda para a direita, e muita empresa nunca precisa passar da primeira coluna.</p>
+      </div>
+      <div class="reveal">
+        <table class="spec-table">
+          <thead>
+            <tr><th scope="col">Caminho</th><th scope="col">O que entrega, e o que custa</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Camada fina sobre o provedor de modelo</td>
+              <td><span class="prazo">Semanas</span> credencial única, registro básico e atribuição de custo. Não entrega cota por time nem roteamento entre provedores. É o começo certo na maioria dos casos.</td>
+            </tr>
+            <tr>
+              <td>Produto de mercado</td>
+              <td><span class="prazo">Semanas a meses</span> custo, cota, observabilidade e políticas prontos. O custo real é mais um fornecedor dentro do perímetro de dados, o que exige avaliação de terceiro e cláusula de operador.</td>
+            </tr>
+            <tr>
+              <td>Construção própria</td>
+              <td><span class="prazo">Meses</span> só se justifica com requisito que nenhum produto atende — roteamento por classificação de dado, residência de dados específica, integração profunda com identidade. Vira software para manter, com dono e orçamento próprios.</td>
+            </tr>
+            <tr>
+              <td>Em qualquer um dos três</td>
+              <td>A parte cara nunca é o proxy. É a classificação de dado, a política que define o que barrar e a instrumentação de custo por caso de uso — trabalho de governança, não de infraestrutura.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- O QUE MEDIR -->
+  <section id="medir">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Depois de no ar</p>
+        <h2>Os quatro números que dizem se funcionou</h2>
+      </div>
+      <ul class="benefits reveal">
+        <li><strong>Cobertura</strong> — a proporção das chamadas de IA da empresa que passam pelo gateway. Um gateway com metade do tráfego fora dele não é ponto de controle, é relatório parcial apresentado como completo.</li>
+        <li><strong>Custo por área e por caso de uso</strong> — o número que sustenta decisão de investimento, e o único que a diretoria pede sem precisar ser convencida a pedir.</li>
+        <li><strong>Latência acrescentada</strong> — gateway lento empurra o time de volta para o atalho. Se o caminho autorizado ficar perceptivelmente pior, a conveniência trabalha contra a governança.</li>
+        <li><strong>Requisições barradas por guardrail</strong> — mostra se a regra pega algo real. Zero indica regra decorativa; muito alto indica regra mal calibrada, que o time vai contornar.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Perguntas frequentes</p>
+        <h2>AI Gateway, em resposta direta</h2>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-item">
+          <h3>O que é um AI Gateway corporativo?</h3>
+          <p>Um AI Gateway corporativo é a unificação de todas as ferramentas de Inteligência Artificial da empresa sob um único ponto de acesso, custo, observabilidade e auditoria. Em vez de cada área ter a própria assinatura e o próprio cartão, existe uma credencial da empresa; em vez de o gasto aparecer fatiado em dezenas de cobranças, existe custo por área e por caso de uso; e em vez de ninguém saber que dado saiu para qual fornecedor, existe registro. É a resposta ao shadow AI por controle, e não por proibição.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Qual é a diferença entre AI Gateway e política de uso de IA?</h3>
+          <p>Política define o que vale; gateway aplica. Um documento que diz que dado de cliente não pode sair da empresa não impede nada, porque o documento não é lido pelo sistema. O gateway é a camada onde essa regra vira execução: a requisição com CPF é barrada antes de sair do perímetro, a chamada é registrada, o custo é atribuído a um centro de custo. Política sem gateway é intenção; gateway sem política é infraestrutura sem critério. Os dois andam juntos.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Quando um AI Gateway não faz sentido?</h3>
+          <p>Em três situações. Quando a empresa usa uma ferramenta só, com um time só e sem dado regulado, o gateway adiciona operação sem resolver problema que exista. Quando ainda não houve mapeamento do que já está em uso, porque unificar o que não foi inventariado só muda o lugar da desorganização. E quando a expectativa da liderança é bloquear: gateway que só nega vira mais um obstáculo a contornar, e o time contorna pelo celular pessoal, onde não há log nenhum.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Precisa desenvolver um AI Gateway ou dá para comprar pronto?</h3>
+          <p>Há três caminhos, e a escolha depende de quanto a empresa já opera em produção. Uma camada fina sobre o provedor de modelo resolve credencial única e registro básico com pouco esforço, e costuma ser o começo certo. Um produto de mercado entrega custo, cota e observabilidade prontos, ao custo de mais um fornecedor no perímetro de dados. Construir em casa só se justifica quando existe requisito que nenhum produto atende, como roteamento por classificação de dado ou residência de dados específica, e vira software para manter. O erro comum é começar pelo terceiro caminho antes de existir volume que o justifique.</p>
+        </div>
+        <div class="faq-item">
+          <h3>O que medir depois que o AI Gateway entra em operação?</h3>
+          <p>Quatro números. Cobertura, que é a proporção das chamadas de IA da empresa que passam pelo gateway, porque um gateway com metade do tráfego fora dele não é um ponto de controle. Custo por área e por caso de uso, que é o que sustenta decisão de investimento. Latência acrescentada, porque gateway lento empurra o time de volta para o atalho. E a taxa de requisição barrada por guardrail, que mostra se a regra está pegando algo real ou só decorando o fluxo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUIAS RELACIONADOS -->
+  <section id="relacionados">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Continue por aqui</p>
+        <h2>Guias relacionados</h2>
+      </div>
+      <div class="svc-grid reveal">
+        <div class="svc-card">
+          <span class="num">01</span>
+          <h3><a href="../shadow-ai/">Shadow AI: como mapear</a></h3>
+          <p>O passo anterior a este. Checklist de 12 passos para descobrir o que já está em uso antes de unificar qualquer coisa.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">02</span>
+          <h3><a href="../governanca-de-agentes/">Governança de agentes de IA</a></h3>
+          <p>Quando o fluxo deixa de consultar e passa a agir sozinho, o gateway registra — mas quem define até onde o agente vai são outros quatro controles.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">03</span>
+          <h3><a href="../iso-42001/">ISO/IEC 42001</a></h3>
+          <p>A norma certificável que transforma esses controles em sistema de gestão auditável por terceiro.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA final -->
+  <section class="cta-band" style="border-bottom:none;">
+    <div class="wrap reveal">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Sua empresa já consegue responder as três perguntas?</h2>
+      <p style="color:var(--text-muted); font-size:16.5px; max-width:580px; margin:0 auto 30px;">O diagnóstico de maturidade são dez perguntas e três minutos, com as lacunas nomeadas uma a uma. Sem formulário e sem cadastro.</p>
+      <div class="hero-ctas" style="justify-content:center;">
+        <a href="../diagnostico/" class="btn btn-primary">Fazer o diagnóstico</a>
+        <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pela%20p%C3%A1gina%20de%20AI%20Gateway%20e%20quero%20falar%20sobre%20o%20projeto." target="_blank" rel="noopener" class="btn btn-ghost">Falar com o Felipe</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../" class="logo"><img src="../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Guias</h5>
+          <a href="../iso-42001/">ISO 42001</a>
+          <a href="../shadow-ai/">Shadow AI</a>
+          <a href="./">AI Gateway</a>
+          <a href="../governanca-de-agentes/">Governança de agentes</a>
+          <a href="../pl-2338/">Marco Legal da IA</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../#servicos">Serviços</a>
+          <a href="../#trilhas">Trilhas</a>
+          <a href="../diagnostico/">Diagnóstico</a>
+          <a href="../blog/">Blog</a>
+          <a href="../sobre/">Sobre</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<!-- O botão flutuante do WhatsApp é montado por assets/site.js, que roda em todas as páginas -->
+<script src="../assets/site.js?v=13"></script>
+
+</body>
+</html>

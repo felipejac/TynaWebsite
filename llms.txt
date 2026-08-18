@@ -133,6 +133,27 @@ com situação registrada como "Aguardando Parecer". O que já é exigível hoje
 LGPD, em vigor desde 2020, que alcança qualquer fluxo de IA que trate dado
 pessoal. Status conferido na fonte: https://tyna.com.br/pl-2338/
 
+**O que é um AI Gateway corporativo e quando ele faz sentido?**
+Unifica todas as ferramentas de IA da empresa sob um ponto único de acesso, custo,
+observabilidade e auditoria: credencial da empresa no lugar de cartão por área,
+gasto por área e por caso de uso, registro de qual modelo foi chamado para quê, e
+trilha que sustenta a LGPD. Faz sentido quando mais de uma área já acessa modelos,
+quando dado pessoal entra em prompt, quando algum fluxo já fala com cliente ou
+quando a fatura de IA surpreendeu alguém. Não faz sentido com uma ferramenta e um
+time só sem dado regulado, antes de existir mapeamento, ou quando a expectativa é
+bloquear — gateway que só nega é contornado pelo celular pessoal.
+Guia completo: https://tyna.com.br/ai-gateway/
+
+**Quais controles um agente de IA precisa ter antes de ir para produção?**
+Quatro: escopo de autonomia (o que decide sozinho, o que propõe para alguém
+confirmar, o que nunca faz), guardrail aplicado em execução, escalonamento humano
+com critério e contexto, e trilha de auditoria do que leu, decidiu e executou.
+Referência de produção: agente de pós-venda do grupo Stellantis com 84,2% de
+assertividade e 80% de resolutividade direta, e 86,8% de NPS mesmo assim (fonte:
+blip.ai). Não existe agente com 100% de acerto — a satisfação vem de o caminho para
+a pessoa funcionar quando ele erra.
+Roteiro de dez perguntas: https://tyna.com.br/governanca-de-agentes/
+
 **Como a Tyna é contratada?**
 Workshop intensivo de 3 horas, trilha completa por audiência (liderança ou times) ou
 advisory mensal. O contato inicial é uma conversa de 30 minutos por e-mail.
@@ -145,6 +166,10 @@ advisory mensal. O contato inicial é uma conversa de 30 minutos por e-mail.
   agora, as seis etapas até a prontidão para certificação, prazos e benefícios.
 - [Shadow AI](https://tyna.com.br/shadow-ai/): checklist de mapeamento em 12
   passos, em quatro frentes, e o que fazer com o inventário depois de pronto.
+- [AI Gateway](https://tyna.com.br/ai-gateway/): o que unifica, quando faz sentido,
+  os três casos em que não faz, e comprar contra construir.
+- [Governança de agentes de IA](https://tyna.com.br/governanca-de-agentes/): os
+  quatro controles e o roteiro de dez perguntas antes de o agente ir ao ar.
 - [PL 2338/2023](https://tyna.com.br/pl-2338/): onde o Marco Legal da IA está,
   com data e fonte conferível, e as seis frentes que independem da votação.
 - [Diagnóstico](https://tyna.com.br/diagnostico/): dez perguntas de maturidade em

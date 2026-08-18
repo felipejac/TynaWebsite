@@ -188,6 +188,16 @@
   .svc-card .num{opacity:.8;}
   .svc-card h3{font-size:19px;}
   .svc-card p{color:var(--text-muted); font-size:15px; flex-grow:1;}
+  /* Cartão que leva para um guia: o título é o link. Sem afordância visual o cartão
+     parece texto e ninguém clica. O sublinhado fica em roxo suave (identidade) e vira
+     laranja no hover (ação), que é a regra de cor do site — seis títulos laranja de
+     uma vez seriam barulho demais na grade. */
+  .svc-card h3 a{
+    color:var(--text); text-decoration:underline; text-decoration-color:var(--accent-soft);
+    text-underline-offset:4px; text-decoration-thickness:1px;
+    transition:color .2s, text-decoration-color .2s;
+  }
+  .svc-card h3 a:hover, .svc-card h3 a:focus-visible{color:var(--orange-ink); text-decoration-color:var(--orange);}
 
   /* Trilhas ledger */
   .track-tabs{display:flex; gap:10px; margin-bottom:40px;}

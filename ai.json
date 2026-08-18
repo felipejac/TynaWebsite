@@ -331,6 +331,20 @@
         },
         {
           "@type": "WebPage",
+          "@id": "https://tyna.com.br/ai-gateway/",
+          "name": "AI Gateway corporativo — o que é e quando faz sentido",
+          "url": "https://tyna.com.br/ai-gateway/",
+          "description": "O que um AI Gateway unifica (acesso, custo, observabilidade e auditoria), os sinais de que chegou a hora, os três casos em que ele não faz sentido, e a escolha entre camada fina, produto de mercado e construção própria."
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://tyna.com.br/governanca-de-agentes/",
+          "name": "Governança de agentes de IA — até onde o agente vai sozinho",
+          "url": "https://tyna.com.br/governanca-de-agentes/",
+          "description": "Os quatro controles que a política de uso não cobre: escopo de autonomia, guardrail em produção, escalonamento humano e trilha de auditoria. Inclui roteiro de dez perguntas antes de um agente ir ao ar."
+        },
+        {
+          "@type": "WebPage",
           "@id": "https://tyna.com.br/diagnostico/",
           "name": "Diagnóstico de maturidade em governança de IA",
           "url": "https://tyna.com.br/diagnostico/",
@@ -461,6 +475,22 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Não. Em agosto de 2026 o PL 2338/2023 não é lei e nenhum de seus artigos está em vigor. O texto foi aprovado pelo Plenário do Senado em 10 de dezembro de 2024, na forma do substitutivo do relator Eduardo Gomes, e está na Câmara dos Deputados desde 17 de março de 2025, em comissão especial sob relatoria do deputado Aguinaldo Ribeiro, com situação registrada como Aguardando Parecer. O que já é exigível hoje é a LGPD, em vigor desde 2020, que alcança qualquer fluxo de IA que trate dado pessoal. Status detalhado em https://tyna.com.br/pl-2338/"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "O que é um AI Gateway corporativo e quando ele faz sentido?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Um AI Gateway corporativo unifica todas as ferramentas de Inteligência Artificial da empresa sob um único ponto de acesso, custo, observabilidade e auditoria: uma credencial da empresa no lugar de cartão por área, custo por área e por caso de uso, registro de que modelo foi chamado para qual finalidade, e trilha que sustenta a adequação à LGPD. Faz sentido quando mais de uma área já tem acesso próprio a modelos, quando dado pessoal entra em prompt, quando algum fluxo de IA já fala com cliente ou quando a fatura de IA surpreendeu alguém. Não faz sentido em três casos: uma ferramenta com um time só e sem dado regulado; antes de existir mapeamento do que já está em uso; e quando a expectativa da liderança é bloquear, porque gateway que só nega é contornado pelo celular pessoal. Detalhes em https://tyna.com.br/ai-gateway/"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quais controles um agente de IA precisa ter antes de ir para produção?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Quatro. Escopo de autonomia, a lista escrita do que o agente decide sozinho, do que ele propõe para alguém confirmar e do que ele nunca faz, definida antes da produção. Guardrail em produção, limite verificado pela máquina a cada chamada, e não recomendação em documento. Escalonamento humano, com o critério que dispara a passagem para uma pessoa e o caminho pelo qual ela recebe o caso com o contexto inteiro. E trilha de auditoria, o registro recuperável do que o agente leu, decidiu e executou. Referência de produção: um agente de pós-venda do grupo Stellantis opera com 84,2% de assertividade e 80% de resolutividade direta, e ainda assim entrega 86,8% de NPS (fonte: blip.ai) — a satisfação vem de o caminho para a pessoa funcionar quando o agente erra. Roteiro completo em https://tyna.com.br/governanca-de-agentes/"
           }
         }
       ]

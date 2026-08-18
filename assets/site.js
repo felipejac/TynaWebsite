@@ -225,3 +225,54 @@
       waFab.classList.remove('wa-ping');
     });
   }
+
+  // Botão que copia um bloco de texto puro (o checklist de shadow AI, o roteiro de
+  // agentes). O texto vem de um <pre> escondido apontado por data-copiar, e não é
+  // remontado a partir do DOM: o que a pessoa cola é exatamente o que foi revisado,
+  // sem depender de como as seções estão marcadas hoje.
+  //
+  // Estava inline na página de shadow AI. Virou código compartilhado quando a segunda
+  // página passou a precisar do mesmo comportamento — inclusive do plano B, que é a
+  // parte que ninguém lembra de copiar junto.
+  document.querySelectorAll('[data-copiar]').forEach(function (btn) {
+    var fonte = document.getElementById(btn.getAttribute('data-copiar'));
+    var aviso = document.getElementById(btn.getAttribute('data-aviso') || '');
+    if (!fonte || !aviso) return;
+
+    var padrao = aviso.textContent;
+    var voltar;
+
+    function feedback(msg) {
+      aviso.textContent = msg;
+      clearTimeout(voltar);
+      voltar = setTimeout(function () { aviso.textContent = padrao; }, 4000);
+    }
+
+    function selecionar() {
+      // clipboard.writeText exige contexto seguro, permissão e página em foco; em
+      // navegador antigo a promessa nem existe. Aqui o texto aparece selecionado e o
+      // Ctrl+C fica com a pessoa — melhor do que um botão que falha em silêncio.
+      fonte.hidden = false;
+      var faixa = document.createRange();
+      faixa.selectNodeContents(fonte);
+      var sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(faixa);
+      feedback('Não consegui copiar por aqui — o texto está selecionado, use Ctrl+C.');
+    }
+
+    btn.addEventListener('click', function () {
+      function ok() {
+        feedback(btn.getAttribute('data-ok') || 'Copiado.');
+        var evento = btn.getAttribute('data-evento');
+        if (evento && typeof gtag === 'function') {
+          gtag('event', evento, { pagina: btn.getAttribute('data-pagina') || location.pathname });
+        }
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(fonte.textContent).then(ok, selecionar);
+      } else {
+        selecionar();
+      }
+    });
+  });

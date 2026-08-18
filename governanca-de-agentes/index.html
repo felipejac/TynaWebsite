@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Governança de agentes de IA: até onde ele vai sozinho | Tyna</title>
+<meta name="description" content="Governar agente de IA não é política de uso. São quatro controles: escopo de autonomia, guardrail, escalonamento humano e trilha de auditoria.">
+<link rel="canonical" href="https://tyna.com.br/governanca-de-agentes/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Governança de agentes de IA: até onde ele vai sozinho">
+<meta property="og:description" content="Política de uso governa pessoas. Governança de agente governa um sistema que age em nome da empresa — e o erro vira ato antes de virar informação.">
+<meta property="og:url" content="https://tyna.com.br/governanca-de-agentes/">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna-dark.png">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css?v=13">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Governança de agentes autônomos de IA",
+  "serviceType": "Definição de escopo de autonomia, guardrails em produção, escalonamento humano e trilha de auditoria para agentes de Inteligência Artificial",
+  "description": "Estruturação dos controles que definem até onde um agente de IA age sem supervisão humana: escopo de autonomia escrito antes da produção, guardrails aplicados em execução, critério de escalonamento para pessoa e trilha de auditoria do que o agente leu, decidiu e executou.",
+  "areaServed": "BR",
+  "provider": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/",
+    "email": "contato@tyna.com.br"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://tyna.com.br/" },
+    { "@type": "ListItem", "position": 2, "name": "Governança de agentes de IA", "item": "https://tyna.com.br/governanca-de-agentes/" }
+  ]
+}
+</script>
+<link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "pt-BR",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Qual é a diferença entre governança de agentes autônomos e política de uso de IA?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Política de uso governa pessoas usando uma ferramenta: se alguém escreve um prompt ruim, uma pessoa lê a resposta ruim e descarta. Governança de agente governa um sistema agindo em nome da empresa, sem leitor intermediário: o agente responde ao cliente, altera um registro, libera um crédito. O erro vira ato antes de virar informação. Por isso a pergunta deixa de ser quem pode usar e passa a ser até onde o agente vai sem um humano." }
+    },
+    {
+      "@type": "Question",
+      "name": "Quais controles um agente de IA precisa ter antes de ir para produção?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Quatro. Escopo de autonomia, que é a lista escrita do que o agente decide sozinho e do que exige aprovação, definida antes da produção e não depois do primeiro incidente. Guardrail aplicado em execução, que é limite verificado pela máquina e não recomendação em documento. Escalonamento humano, com o critério que dispara a passagem para uma pessoa e o caminho por onde ela recebe o caso com contexto. E trilha de auditoria, que registra o que o agente leu, decidiu e executou, de forma recuperável depois do fato." }
+    },
+    {
+      "@type": "Question",
+      "name": "Qual taxa de acerto é aceitável para um agente de IA em produção?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Não existe agente com 100% de acerto, e projetar como se existisse é o erro de origem. Um agente de pós-venda em produção no grupo Stellantis, que lê a foto do painel do carro enviada por WhatsApp e interpreta o alerta, opera com 84,2% de assertividade e 80% de resolutividade direta, e ainda assim registra 86,8% de NPS, replicado em cinco marcas do grupo, segundo a blip.ai. Aproximadamente um em cada seis casos não se resolve sozinho. A satisfação alta não vem de o agente nunca errar: vem de o caminho para a pessoa existir e funcionar quando ele erra." }
+    },
+    {
+      "@type": "Question",
+      "name": "O que é uma trilha de auditoria de agente de IA?",
+      "acceptedAnswer": { "@type": "Answer", "text": "É o registro recuperável do que o agente leu, decidiu e executou em cada interação: quais documentos e dados entraram no contexto, qual foi a decisão, qual ação foi disparada em qual sistema e em que momento houve escalonamento para uma pessoa. Sem essa trilha, contestação de cliente e pedido de explicação de decisão automatizada não têm resposta possível, e a empresa fica sem como demonstrar conformidade em auditoria, seja sob a LGPD, seja em uma certificação ISO/IEC 42001." }
+    },
+    {
+      "@type": "Question",
+      "name": "Quem deve ser o responsável por um agente de IA na empresa?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Uma pessoa nomeada da área de negócio dona do processo, não o time que construiu o agente. Quem responde pelo atendimento responde pelo agente de atendimento, com apoio técnico de quem o mantém. A razão é prática: as decisões difíceis do agente são decisões de negócio, como até quanto ele pode conceder de desconto ou em que caso ele deve parar e chamar alguém. Deixar o dono na engenharia faz com que essas escolhas sejam feitas por quem não tem mandato para fazê-las." }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><img src="../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../#servicos">Serviços</a></li>
+        <li><a href="../#guias">Guias</a></li>
+        <li><a href="../iso-42001/">ISO 42001</a></li>
+        <li><a href="../#cases">Cases</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pela%20p%C3%A1gina%20de%20governan%C3%A7a%20de%20agentes%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pela%20p%C3%A1gina%20de%20governan%C3%A7a%20de%20agentes%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Governança de agentes de IA</p>
+      <h1 style="max-width:900px;">A pergunta não é quem pode usar. É <em>até onde o agente vai sem um humano.</em></h1>
+      <p class="lead" style="max-width:740px;">Política de uso de IA governa pessoas usando uma ferramenta. Governança de agente governa um sistema que age em nome da empresa — responde ao cliente, altera registro, libera crédito. Não há leitor intermediário para filtrar o erro: ele vira ato antes de virar informação. São problemas diferentes, e o segundo exige quatro controles que a política não cobre.</p>
+      <div class="hero-ctas">
+        <a href="#controles" class="btn btn-primary">Ver os quatro controles</a>
+        <a href="#roteiro" class="btn btn-ghost">Roteiro antes da produção</a>
+      </div>
+      <div class="stat-row" style="max-width:860px; border-top:0; padding-top:0;">
+        <div class="stat"><span class="v">84,2%</span><span class="l">DE ASSERTIVIDADE DO AGENTE EM PRODUÇÃO</span></div>
+        <div class="stat"><span class="v">80%</span><span class="l">DE RESOLUTIVIDADE DIRETA, SEM PESSOA</span></div>
+        <div class="stat"><span class="v">86,8%</span><span class="l">DE NPS NO PÓS-VENDA, MESMO ASSIM</span></div>
+        <div class="stat"><span class="v">5</span><span class="l">MARCAS DO GRUPO COM A SOLUÇÃO REPLICADA</span></div>
+      </div>
+      <p class="hero-note" style="max-width:860px;">Números do agente de pós-venda do grupo Stellantis, que lê a foto do painel do carro enviada por WhatsApp e interpreta o alerta na hora. Fonte: blip.ai. É um projeto conduzido por quem hoje conduz a Tyna.</p>
+    </div>
+  </section>
+
+  <!-- A DIFERENÇA -->
+  <section id="diferenca">
+    <div class="wrap problem-grid">
+      <div class="reveal">
+        <p class="eyebrow">A distinção</p>
+        <h2>Um erro que uma pessoa lê é um rascunho. Um erro que o agente executa é um fato.</h2>
+        <p style="color:var(--text-muted); font-size:16px;">Essa é a diferença inteira, e ela reorganiza tudo o que vem depois. Quando alguém escreve um prompt ruim no ChatGPT, uma pessoa lê a resposta ruim e descarta — o erro morre ali, custou dois minutos. Quando um agente autônomo erra, ele já respondeu ao cliente, já alterou o registro, já liberou o crédito. O controle precisa agir antes, porque depois não há a quem avisar.</p>
+      </div>
+      <div class="risk-list reveal">
+        <div class="risk-item">
+          <span class="num">01</span>
+          <div><h4>O que a política de uso resolve</h4><p>Quem pode usar quais ferramentas, que dado pode ser colado, o que é uso aceitável. Governa comportamento humano, e depende de as pessoas lerem e seguirem.</p></div>
+        </div>
+        <div class="risk-item">
+          <span class="num">02</span>
+          <div><h4>O que ela não alcança</h4><p>Um agente não lê política. Ele executa o que o código e o modelo determinam, na velocidade da requisição, milhares de vezes por dia, sem ninguém entre a decisão e o efeito.</p></div>
+        </div>
+        <div class="risk-item">
+          <span class="num">03</span>
+          <div><h4>Onde a diferença aparece na prática</h4><p>Um documento que diz "o agente não deve prometer prazo de entrega" não impede nada. O que impede é a validação que barra a resposta contendo data quando o prazo não veio do sistema de logística.</p></div>
+        </div>
+        <div class="risk-item">
+          <span class="num">04</span>
+          <div><h4>Por que isso não é teoria</h4><p>Pesquisa da Sinch com 2.527 executivos em dez países aponta que 74% das empresas já reverteram ou desligaram um agente que estava no ar — e que a taxa sobe para 81% entre as que têm governança madura. Reverter é o controle funcionando; o problema é ter descoberto só em produção.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OS QUATRO CONTROLES -->
+  <section id="controles">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Os quatro controles</p>
+        <h2>O que precisa existir antes de o agente falar com alguém</h2>
+        <p>Nenhum dos quatro é documento. Todos são decisões que viram configuração, código ou registro — e é por isso que continuam valendo depois que a apresentação de governança sai da tela.</p>
+      </div>
+
+      <div class="steps reveal">
+        <div class="step">
+          <span class="step-num">01</span>
+          <div>
+            <h3>Escopo de autonomia</h3>
+            <p>A lista do que o agente decide sozinho e do que exige aprovação, escrita antes de ir a produção — não depois do primeiro incidente. Na prática são três faixas: o que ele resolve, o que ele propõe e alguém confirma, e o que ele nunca faz. A terceira faixa é a que ninguém escreve, e é a que evita a manchete.</p>
+          </div>
+        </div>
+        <div class="step is-chave">
+          <span class="step-num">02</span>
+          <div>
+            <h3>Guardrail em produção</h3>
+            <p>Limite aplicado em execução, verificado pela máquina a cada chamada. Validação de saída, faixa de valores permitida, bloqueio de dado sensível, checagem de que o número citado veio de um sistema e não do modelo. Política é lida por pessoas e pode ser ignorada; guardrail é executado e não admite exceção silenciosa.</p>
+            <span class="step-flag">É a distinção que separa governança escrita de governança aplicada</span>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <div>
+            <h3>Escalonamento humano</h3>
+            <p>O critério que dispara a passagem para uma pessoa, e o caminho por onde ela recebe o caso com o contexto inteiro. Escalonamento que joga o cliente numa fila e faz repetir tudo é pior que não escalonar: gasta a paciência que o agente tinha economizado.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">04</span>
+          <div>
+            <h3>Trilha de auditoria da decisão</h3>
+            <p>O que o agente leu, decidiu e executou, recuperável depois do fato: quais dados entraram no contexto, qual foi a decisão, qual ação disparou em qual sistema, quando houve escalonamento. É o que responde a contestação de cliente, a pedido de explicação de decisão automatizada e a auditoria — sob a LGPD hoje, e sob a <a href="../iso-42001/">ISO/IEC 42001</a> quando a empresa buscar certificação.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- O NÚMERO -->
+  <section id="numero">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">O número que derruba a fantasia</p>
+        <h2>84,2% de assertividade. Ou seja: cerca de um em cada seis casos ele não resolve.</h2>
+        <p>Vale olhar de perto um agente que funciona, porque o número real contraria a expectativa que costuma ser vendida em reunião.</p>
+      </div>
+
+      <div class="reveal">
+        <table class="spec-table">
+          <thead>
+            <tr><th scope="col">O que o agente do grupo Stellantis entrega</th><th scope="col">Número</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Assertividade da IA na leitura e interpretação do alerta do painel</td>
+              <td><span class="prazo">84,2%</span></td>
+            </tr>
+            <tr>
+              <td>Resolutividade direta, sem passar por pessoa</td>
+              <td><span class="prazo">80%</span></td>
+            </tr>
+            <tr>
+              <td>NPS no pós-venda, com aquela taxa de erro embutida</td>
+              <td><span class="prazo">86,8%</span></td>
+            </tr>
+            <tr>
+              <td>Marcas do grupo com a solução replicada</td>
+              <td><span class="prazo">5</span></td>
+            </tr>
+            <tr>
+              <td>Fonte</td>
+              <td>blip.ai — projeto conduzido por quem hoje conduz a Tyna</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <ul class="benefits reveal" style="margin-top:44px;">
+        <li><strong>Não existe agente com 100% de acerto</strong> — e projetar como se existisse é o erro de origem, porque toda a arquitetura de exceção deixa de ser construída.</li>
+        <li><strong>O NPS alto não vem da ausência de erro</strong> — vem de o caminho para a pessoa existir e funcionar quando o erro acontece. A satisfação é do sistema inteiro, não do modelo.</li>
+        <li><strong>A pergunta certa em reunião de aprovação</strong> — não é "qual a taxa de acerto", é "o que acontece nos casos que ele não resolve, e quem descobre primeiro: nós ou o cliente".</li>
+        <li><strong>Sem número, não há conversa</strong> — um agente sem medição de assertividade e sem trilha não pode ser melhorado nem defendido; só desligado quando alguém reclamar alto o bastante.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ROTEIRO -->
+  <section id="roteiro">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Antes de aprovar</p>
+        <h2>Dez perguntas para fazer antes de um agente ir ao ar</h2>
+        <p>É o roteiro que a Tyna usa em revisão de agente, e serve tanto para quem constrói quanto para quem aprova. Se três respostas forem "ainda não", o agente ainda não está pronto para falar com cliente.</p>
+      </div>
+
+      <div class="check-actions reveal">
+        <button type="button" class="btn btn-primary" data-copiar="roteiroTexto" data-aviso="copiaFeedback" data-evento="roteiro_agente_copiado" data-pagina="governanca-de-agentes" data-ok="Copiado. São 10 perguntas em texto puro." id="copiarRoteiro">Copiar as 10 perguntas</button>
+        <span class="check-hint" id="copiaFeedback" role="status" aria-live="polite">Vai em texto puro, pronto para colar em pauta de comitê, chamado ou e-mail.</span>
+      </div>
+
+      <div class="check-block reveal">
+        <h3><span class="check-block-tag">Escopo</span> O que ele pode fazer</h3>
+        <ol class="check-list">
+          <li class="check-item">
+            <h4>O que este agente decide sozinho, e o que ele nunca faz?</h4>
+            <p>As duas listas, escritas. Se a segunda estiver vazia, ela não foi pensada — não é que não exista limite.</p>
+          </li>
+          <li class="check-item">
+            <h4>Qual ação irreversível ele consegue disparar?</h4>
+            <p>Enviar mensagem a cliente, alterar cadastro, emitir crédito, cancelar pedido. Toda ação irreversível ou vira faixa de aprovação, ou vira guardrail com limite de valor.</p>
+          </li>
+          <li class="check-item">
+            <h4>Quem é o dono, pelo nome?</h4>
+            <p>Uma pessoa da área de negócio dona do processo, não o time que construiu. As decisões difíceis do agente são decisões de negócio, e quem responde pelo processo precisa ter o mandato.</p>
+          </li>
+        </ol>
+      </div>
+
+      <div class="check-block reveal">
+        <h3><span class="check-block-tag">Dado</span> O que entra e o que sai</h3>
+        <ol class="check-list" start="4">
+          <li class="check-item">
+            <h4>Que dado pessoal entra no contexto, e sob qual base legal?</h4>
+            <p>Registrado antes de subir, não depois que o jurídico perguntar. Vale para o prompt, para a base de conhecimento e para o histórico de conversa.</p>
+          </li>
+          <li class="check-item">
+            <h4>Para quais fornecedores esse dado sai?</h4>
+            <p>Modelo, hospedagem, ferramenta de observabilidade. Cada um é um operador, e cada um precisa de contrato — a lista costuma ser maior do que a memória do time.</p>
+          </li>
+          <li class="check-item">
+            <h4>Qual número o agente pode citar, e de onde ele vem?</h4>
+            <p>Prazo, valor, saldo, disponibilidade. Se vier do modelo, vai estar errado alguma hora; o guardrail precisa exigir origem em sistema.</p>
+          </li>
+        </ol>
+      </div>
+
+      <div class="check-block reveal">
+        <h3><span class="check-block-tag">Falha</span> O que acontece quando dá errado</h3>
+        <ol class="check-list" start="7">
+          <li class="check-item is-chave">
+            <h4>Qual é o critério de escalonamento, e a pessoa recebe o contexto?</h4>
+            <p>Confiança baixa, tema sensível, cliente irritado, terceira repetição da mesma pergunta. E, do outro lado, alguém que recebe o histórico inteiro — não um cliente na fila repetindo tudo de novo.</p>
+            <span class="step-flag">Escalonamento mal feito gasta a paciência que o agente tinha economizado</span>
+          </li>
+          <li class="check-item">
+            <h4>Como descobrimos que ele está errando, sem depender de reclamação?</h4>
+            <p>Amostragem revisada por gente, alerta de taxa de escalonamento, medição de assertividade. Sem isso, o primeiro a saber é sempre o cliente.</p>
+          </li>
+          <li class="check-item">
+            <h4>Conseguimos reconstruir uma interação específica de trinta dias atrás?</h4>
+            <p>O que ele leu, decidiu e executou. É o teste real da trilha de auditoria: se ninguém consegue puxar o caso nº 4.312, a trilha não existe.</p>
+          </li>
+          <li class="check-item">
+            <h4>Como desligamos, e quanto tempo leva?</h4>
+            <p>Botão de desligar, com dono e prazo conhecidos. Reverter é o controle funcionando — desde que a empresa consiga reverter em minutos, e não em uma reunião de emergência de duas horas.</p>
+          </li>
+        </ol>
+      </div>
+
+      <pre id="roteiroTexto" class="check-fonte" hidden>DEZ PERGUNTAS ANTES DE UM AGENTE DE IA IR AO AR — Tyna (tyna.com.br/governanca-de-agentes/)
+
+ESCOPO — O QUE ELE PODE FAZER
+[ ] 1. O que este agente decide sozinho, e o que ele nunca faz? (as duas listas, escritas)
+[ ] 2. Qual acao irreversivel ele consegue disparar? (mensagem a cliente, alteracao de cadastro, credito, cancelamento)
+[ ] 3. Quem e o dono, pelo nome? (pessoa da area de negocio dona do processo, nao o time que construiu)
+
+DADO — O QUE ENTRA E O QUE SAI
+[ ] 4. Que dado pessoal entra no contexto, e sob qual base legal? (prompt, base de conhecimento e historico)
+[ ] 5. Para quais fornecedores esse dado sai? (modelo, hospedagem, observabilidade — cada um e um operador)
+[ ] 6. Qual numero o agente pode citar, e de onde ele vem? (prazo, valor, saldo: exigir origem em sistema)
+
+FALHA — O QUE ACONTECE QUANDO DA ERRADO
+[ ] 7. Qual e o criterio de escalonamento, e a pessoa recebe o contexto inteiro?
+[ ] 8. Como descobrimos que ele esta errando, sem depender de reclamacao? (amostragem, alerta, assertividade)
+[ ] 9. Conseguimos reconstruir uma interacao especifica de 30 dias atras? (o que leu, decidiu e executou)
+[ ] 10. Como desligamos, e quanto tempo leva? (dono e prazo conhecidos)
+
+REGRA QUE VALE PARA O ROTEIRO INTEIRO
+Nao existe agente com 100% de acerto. Um agente de pos-venda em producao opera com
+84,2% de assertividade e ainda assim entrega 86,8% de NPS (fonte: blip.ai). A
+satisfacao nao vem de nunca errar: vem de o caminho para a pessoa existir e funcionar
+quando erra. Se tres respostas acima forem "ainda nao", o agente nao esta pronto para
+falar com cliente.</pre>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Perguntas frequentes</p>
+        <h2>Governança de agentes, em resposta direta</h2>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-item">
+          <h3>Qual é a diferença entre governança de agentes autônomos e política de uso de IA?</h3>
+          <p>Política de uso governa pessoas usando uma ferramenta: se alguém escreve um prompt ruim, uma pessoa lê a resposta ruim e descarta. Governança de agente governa um sistema agindo em nome da empresa, sem leitor intermediário: o agente responde ao cliente, altera um registro, libera um crédito. O erro vira ato antes de virar informação. Por isso a pergunta deixa de ser quem pode usar e passa a ser até onde o agente vai sem um humano.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Quais controles um agente de IA precisa ter antes de ir para produção?</h3>
+          <p>Quatro. Escopo de autonomia, que é a lista escrita do que o agente decide sozinho e do que exige aprovação, definida antes da produção e não depois do primeiro incidente. Guardrail aplicado em execução, que é limite verificado pela máquina e não recomendação em documento. Escalonamento humano, com o critério que dispara a passagem para uma pessoa e o caminho por onde ela recebe o caso com contexto. E trilha de auditoria, que registra o que o agente leu, decidiu e executou, de forma recuperável depois do fato.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Qual taxa de acerto é aceitável para um agente de IA em produção?</h3>
+          <p>Não existe agente com 100% de acerto, e projetar como se existisse é o erro de origem. Um agente de pós-venda em produção no grupo Stellantis, que lê a foto do painel do carro enviada por WhatsApp e interpreta o alerta, opera com 84,2% de assertividade e 80% de resolutividade direta, e ainda assim registra 86,8% de NPS, replicado em cinco marcas do grupo, segundo a blip.ai. Aproximadamente um em cada seis casos não se resolve sozinho. A satisfação alta não vem de o agente nunca errar: vem de o caminho para a pessoa existir e funcionar quando ele erra.</p>
+        </div>
+        <div class="faq-item">
+          <h3>O que é uma trilha de auditoria de agente de IA?</h3>
+          <p>É o registro recuperável do que o agente leu, decidiu e executou em cada interação: quais documentos e dados entraram no contexto, qual foi a decisão, qual ação foi disparada em qual sistema e em que momento houve escalonamento para uma pessoa. Sem essa trilha, contestação de cliente e pedido de explicação de decisão automatizada não têm resposta possível, e a empresa fica sem como demonstrar conformidade em auditoria, seja sob a LGPD, seja em uma certificação ISO/IEC 42001.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Quem deve ser o responsável por um agente de IA na empresa?</h3>
+          <p>Uma pessoa nomeada da área de negócio dona do processo, não o time que construiu o agente. Quem responde pelo atendimento responde pelo agente de atendimento, com apoio técnico de quem o mantém. A razão é prática: as decisões difíceis do agente são decisões de negócio, como até quanto ele pode conceder de desconto ou em que caso ele deve parar e chamar alguém. Deixar o dono na engenharia faz com que essas escolhas sejam feitas por quem não tem mandato para fazê-las.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUIAS RELACIONADOS -->
+  <section id="relacionados">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Continue por aqui</p>
+        <h2>Guias relacionados</h2>
+      </div>
+      <div class="svc-grid reveal">
+        <div class="svc-card">
+          <span class="num">01</span>
+          <h3><a href="../ai-gateway/">AI Gateway</a></h3>
+          <p>Onde a trilha de auditoria e o guardrail deixam de ser projeto por agente e viram infraestrutura compartilhada.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">02</span>
+          <h3><a href="../shadow-ai/">Shadow AI: como mapear</a></h3>
+          <p>Boa parte dos agentes que já rodam na empresa não passou por revisão nenhuma. O checklist encontra esses primeiro.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">03</span>
+          <h3><a href="../pl-2338/">Marco Legal da IA</a></h3>
+          <p>Direito à explicação de decisão automatizada é o ponto do projeto que mais depende de trilha de auditoria existir.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA final -->
+  <section class="cta-band" style="border-bottom:none;">
+    <div class="wrap reveal">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Tem agente da sua empresa no ar sem essas dez respostas?</h2>
+      <p style="color:var(--text-muted); font-size:16.5px; max-width:580px; margin:0 auto 30px;">O diagnóstico de maturidade são dez perguntas e três minutos, com as lacunas nomeadas uma a uma. Sem formulário e sem cadastro.</p>
+      <div class="hero-ctas" style="justify-content:center;">
+        <a href="../diagnostico/" class="btn btn-primary">Fazer o diagnóstico</a>
+        <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pela%20p%C3%A1gina%20de%20governan%C3%A7a%20de%20agentes%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-ghost">Falar com o Felipe</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../" class="logo"><img src="../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Guias</h5>
+          <a href="../iso-42001/">ISO 42001</a>
+          <a href="../shadow-ai/">Shadow AI</a>
+          <a href="../ai-gateway/">AI Gateway</a>
+          <a href="./">Governança de agentes</a>
+          <a href="../pl-2338/">Marco Legal da IA</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../#servicos">Serviços</a>
+          <a href="../#trilhas">Trilhas</a>
+          <a href="../diagnostico/">Diagnóstico</a>
+          <a href="../blog/">Blog</a>
+          <a href="../sobre/">Sobre</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<!-- O botão flutuante do WhatsApp e o botão de copiar são montados por assets/site.js -->
+<script src="../assets/site.js?v=13"></script>
+
+</body>
+</html>

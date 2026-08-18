@@ -59,6 +59,22 @@ compondo por trás, para quando alguém do ICP finalmente procurar.
   sozinho, o que o texto aprovado no Senado prevê, e as seis frentes que independem da
   votação. Muito conteúdo do segmento dá a entender que a lei já vigora; dizer o
   contrário com link é o diferencial da página.
+- **`/ai-gateway/`** (18/08/2026) — a página que faltava para fechar o caminho: a de
+  shadow AI promete uma alternativa segura ao atalho, e agora ela tem para onde
+  apontar. Traz o que o gateway unifica, as três perguntas que a empresa passa a
+  conseguir responder, **os três casos em que ele não faz sentido** (dizer isso é o
+  que diferencia de material de fornecedor), a comparação entre camada fina, produto
+  de mercado e construção própria, e os quatro números que dizem se funcionou.
+- **`/governanca-de-agentes/`** (18/08/2026) — os quatro controles que a política de
+  uso não cobre, com os números reais do case Stellantis no hero (84,2% de
+  assertividade, 80% de resolutividade, 86,8% de NPS, fonte blip.ai). Absorve o item 6
+  da seção 8: o argumento de que **não existe agente com 100% de acerto** vira seção
+  própria. Leva um segundo ativo copiável: dez perguntas para revisão antes de um
+  agente ir ao ar, com evento `roteiro_agente_copiado` no GA4.
+- **Hub de guias na home** (18/08/2026), em `/#guias` — seis cartões ligando a página
+  mais forte do site aos cinco guias e ao diagnóstico. Menu e rodapé padronizados em
+  todas as páginas, com coluna "Guias" inclusive nas 57 páginas geradas do blog, e
+  bloco de fecho por categoria ligando cada listagem aos guias.
 - **`/404.html`** própria — corrigiu um soft-404 do Cloudflare Pages que devolvia a
   home (status 200) para qualquer URL inexistente, inclusive slug de post digitado
   errado. Sem isso o Google indexava lixo como conteúdo duplicado.
@@ -202,12 +218,12 @@ Restam duas, e a primeira é a de maior alavancagem de todo o documento:
    seu resultado" com texto pré-pronto para LinkedIn. Transforma a ferramenta num
    loop: quem responde tem motivo de postar o próprio resultado, o que traz mais
    gente para responder.
-7. ~~Duas ou três páginas-pilar novas~~ **Duas publicadas em 17/08/2026**:
-   `/shadow-ai/` e `/pl-2338/`, ambas no padrão da ISO 42001 (FAQ visível + JSON-LD
-   espelhando o texto). Restam duas candidatas do plano original: **"Governança de
-   agentes autônomos"** e **"AI Gateway: o que é e quando faz sentido"** — a segunda
-   é a que fecha o caminho comercial, porque é a alternativa que a página de shadow AI
-   promete e ainda não tem para onde apontar.
+7. ~~Duas ou três páginas-pilar novas~~ **Concluído. Quatro publicadas**, todas no
+   padrão da ISO 42001 (FAQ visível + JSON-LD espelhando o texto): `/shadow-ai/` e
+   `/pl-2338/` em 17/08/2026, `/ai-gateway/` e `/governanca-de-agentes/` em
+   18/08/2026. Com a ISO 42001, são cinco guias, reunidos em `/#guias` na home.
+   **O que falta agora não é página, é link de fora**: o site tem estrutura interna
+   boa e nenhum backlink — ver item 8.
 8. **Backlinks reais**: pedir que Hering, Yalo ou outro case linkem de volta a
    partir do próprio canal (case study, post) quando for natural; diretórios
    brasileiros de consultoria/IA; pauta com veículo de tecnologia sobre o
@@ -443,9 +459,11 @@ conteúdo do site com prazo de validade embutido.
 frentes, com botão de copiar e evento `checklist_copiado` no GA4 para medir se a
 página está sendo usada como ferramenta ou só lida.
 
-**6. "84,2% de assertividade" como post.** O case Stellantis: cerca de 1 em cada 6 casos
-a IA não resolve sozinha, e a solução seguiu com 86,8% de NPS. Ataca a fantasia do
-agente 100% correto, com número e fonte. *Esforço: 2 horas.*
+**6. ~~"84,2% de assertividade" como post.~~ Virou seção de página em 18/08/2026** —
+o argumento está em `/governanca-de-agentes/`, na seção "O número que derruba a
+fantasia", com a tabela do case e a leitura de que o NPS alto não vem da ausência de
+erro, e sim de o escalonamento funcionar. Como página, tem cauda longa que post de
+blog não tem. **O post de LinkedIn continua valendo** e ainda não foi publicado.
 
 **7. Página "Quanto custa governança de IA".** Ninguém publica preço no segmento. É a
 pergunta mais feita e menos respondida. **Publique as faixas da Tyna, não as do

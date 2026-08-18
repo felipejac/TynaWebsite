@@ -1,17 +1,19 @@
-# Distribuição — páginas-pilar de Shadow AI e PL 2338
+# Distribuição — páginas-pilar
 
-Criado em 17/08/2026, junto com as duas páginas. Conteúdo sem canal não conta: é a
-regra da seção 8 do [plano de crescimento](plano-de-crescimento.md), e foi o que
-produziu 50 posts sem leitor. Este arquivo é o canal das duas páginas novas.
+Criado em 17/08/2026 e ampliado em 18/08/2026, junto com as páginas. Conteúdo sem
+canal não conta: é a regra da seção 8 do [plano de crescimento](plano-de-crescimento.md),
+e foi o que produziu 50 posts sem leitor. Este arquivo é o canal das quatro páginas.
 
-Páginas:
+Páginas (as quatro publicadas em 17 e 18/08/2026):
 
 - https://tyna.com.br/shadow-ai/ — checklist de mapeamento em 12 passos
 - https://tyna.com.br/pl-2338/ — status verificado do Marco Legal da IA
+- https://tyna.com.br/ai-gateway/ — o que unifica, e quando não faz sentido
+- https://tyna.com.br/governanca-de-agentes/ — quatro controles e dez perguntas
 
 **Postar no perfil pessoal do Felipe**, não em página de empresa. Perfil pessoal
-tem alcance orgânico muito maior no LinkedIn, e a autoridade nos dois temas é
-pessoal: quem já colocou agente em produção e quem conferiu a tramitação na fonte.
+tem alcance orgânico muito maior no LinkedIn, e a autoridade nos quatro temas é
+pessoal: quem já colocou agente em produção e quem foi conferir a tramitação na fonte.
 
 ---
 
@@ -106,6 +108,73 @@ segmento faz, e é o que gera confiança.
 
 ---
 
+## Post 3 — AI Gateway (o que ninguém diz)
+
+Ângulo: publicar quando **não** contratar. Todo material sobre AI Gateway é de
+fornecedor, e fornecedor nunca escreve a seção "quando isso não faz sentido". É o
+post que dá credibilidade para os outros dois.
+
+> Uma coisa que consultoria não costuma escrever: na maioria das empresas que me
+> procuram falando em AI Gateway, o gateway não é o próximo passo.
+>
+> Os três casos em que ele atrapalha:
+>
+> 1. Uma ferramenta, um time, nenhum dado regulado. Pouca superfície, pouco risco.
+> Gateway aqui é operação a mais para resolver problema que não existe.
+>
+> 2. Antes de existir mapeamento. Unificar o que ninguém inventariou só muda o lugar
+> da desorganização — e é pior, porque o tráfego que continua fora some do relatório e
+> vira sensação de cobertura.
+>
+> 3. Quando a liderança quer bloquear. Gateway que só nega é contornado pelo celular
+> pessoal, onde não há log nenhum. O critério de sucesso não é quantas chamadas foram
+> barradas: é quanto do tráfego real passou a acontecer dentro dele.
+>
+> Quando faz sentido, o teste é mais simples do que parece. Três perguntas:
+>
+> Quanto gastamos com IA neste trimestre, por área? Que dado saiu da empresa, para
+> qual fornecedor? O que o agente leu e decidiu no atendimento número 4.312?
+>
+> Se as três já têm resposta confiável, o gateway resolve pouco. Se nenhuma tem, ele é
+> o próximo passo — e o mais barato deles.
+>
+> Escrevi o guia inteiro, incluindo a comparação entre camada fina, produto de mercado
+> e construção própria, e os quatro números que dizem se funcionou:
+> tyna.com.br/ai-gateway/
+
+---
+
+## Post 4 — Governança de agentes (84,2%)
+
+Ângulo: o número que contraria a expectativa vendida em reunião. Funciona porque é
+caso real, com fonte, e porque a conclusão é contraintuitiva.
+
+> 84,2% de assertividade.
+>
+> Esse é o número real de um agente de IA em produção que eu ajudei a colocar de pé:
+> o cliente manda a foto do painel do carro pelo WhatsApp, o agente lê o alerta e
+> responde na hora. Rodando em cinco marcas do grupo Stellantis. (fonte: blip.ai)
+>
+> 84,2% significa que **cerca de um em cada seis casos ele não resolve sozinho**.
+>
+> E o NPS do pós-venda é 86,8%.
+>
+> Os dois números convivem, e é isso que quase toda apresentação de IA erra. A
+> satisfação não veio de o agente nunca errar. Veio de existir um caminho para a
+> pessoa — com critério claro de quando acionar e com o contexto inteiro chegando
+> junto, sem o cliente repetir nada.
+>
+> Por isso a pergunta certa numa reunião de aprovação não é "qual a taxa de acerto".
+>
+> É: o que acontece nos casos que ele não resolve, e quem descobre primeiro — nós ou
+> o cliente?
+>
+> Publiquei os quatro controles que sustentam isso (escopo de autonomia, guardrail em
+> execução, escalonamento e trilha de auditoria) e um roteiro de dez perguntas para
+> usar antes de qualquer agente ir ao ar: tyna.com.br/governanca-de-agentes/
+
+---
+
 ## Ordem e ritmo
 
 1. **Post do Shadow AI primeiro.** Tema perene, é ferramenta, e o pedido de salvar
@@ -113,7 +182,10 @@ segmento faz, e é o que gera confiança.
 2. **Post do PL 2338 dois ou três dias depois.** Corrigir informação errada rende
    comentário e alcance, mas é o tipo de post que fica pior se vier logo em seguida
    de outro post técnico do mesmo autor.
-3. **As mensagens diretas continuam sendo o que responde pela maior parte do
+3. **AI Gateway e agentes na segunda semana**, um por semana, na ordem em que
+   aparecem acima. Quatro posts em quatro dias queimam a lista; um por semana mantém
+   presença sem cansar, e cada um deles tem cauda longa própria na busca.
+4. **As mensagens diretas continuam sendo o que responde pela maior parte do
    resultado.** As duas páginas dão motivo para a mensagem — "escrevi o checklist
    que a gente usa, dá uma olhada e me diz se falta alguma frente" abre conversa
    melhor do que qualquer pitch.
