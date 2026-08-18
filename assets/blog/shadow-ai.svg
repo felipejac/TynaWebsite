@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-labelledby="t d">
+  <title id="t">Shadow AI</title>
+  <desc id="d">Três ferramentas de IA iluminadas acima da linha de visibilidade da TI, e dezenas de outras desaparecendo na sombra abaixo dela.</desc>
+
+  <defs>
+    <!-- Luz que cai sobre as ferramentas homologadas. Tudo o que ela não alcança e o
+         que o artigo chama de ponto cego. -->
+    <radialGradient id="luz" cx="50%" cy="0%" r="62%">
+      <stop offset="0%"  stop-color="#C9A968" stop-opacity=".26"/>
+      <stop offset="55%" stop-color="#4A2266" stop-opacity=".16"/>
+      <stop offset="100%" stop-color="#0D1117" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="sombra" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#0D1117" stop-opacity="0"/>
+      <stop offset="72%"  stop-color="#0D1117" stop-opacity=".55"/>
+      <stop offset="100%" stop-color="#0D1117" stop-opacity=".92"/>
+    </linearGradient>
+    <linearGradient id="fio" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#C9A968" stop-opacity="0"/>
+      <stop offset="18%"  stop-color="#C9A968" stop-opacity=".85"/>
+      <stop offset="82%"  stop-color="#C9A968" stop-opacity=".85"/>
+      <stop offset="100%" stop-color="#C9A968" stop-opacity="0"/>
+    </linearGradient>
+    <style>
+      .ui{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
+    </style>
+  </defs>
+
+  <rect width="1200" height="630" fill="#0D1117"/>
+  <rect x="600" y="0" width="600" height="470" fill="url(#luz)"/>
+
+  <!-- texto -->
+  <g class="ui">
+    <text x="88" y="243" fill="#C9A968" font-size="17" font-weight="600" letter-spacing="3.4">GOVERNANÇA DE IA</text>
+    <text x="86" y="330" fill="#FFFFFF" font-size="78" font-weight="700" letter-spacing="-2">Shadow AI</text>
+    <text x="88" y="386" fill="#B9B9C2" font-size="25">A lista que a TI enxerga.</text>
+    <text x="88" y="422" fill="#7E7E8A" font-size="25">E tudo o que roda fora dela.</text>
+    <rect x="88" y="462" width="52" height="3" rx="1.5" fill="#FF6600"/>
+    <text x="88" y="516" fill="#9A9AA4" font-size="16" letter-spacing=".4">tyna.com.br</text>
+  </g>
+
+  <!-- acima da linha: o que passou pelo processo formal -->
+  <g fill="none" stroke="#FFFFFF" stroke-width="2.4">
+    <rect x="741" y="150" width="72" height="72" rx="18"/>
+    <rect x="839" y="150" width="72" height="72" rx="18"/>
+    <rect x="937" y="150" width="72" height="72" rx="18"/>
+  </g>
+  <g fill="#C9A968">
+    <circle cx="777" cy="186" r="7"/>
+    <circle cx="875" cy="186" r="7"/>
+    <circle cx="973" cy="186" r="7"/>
+  </g>
+
+  <!-- A linha de visibilidade. É o eixo da imagem: acima dela o que passou pelo
+       processo formal, abaixo o que ninguém cadastrou. Traço sólido com opacidade,
+       e não stroke com gradiente, que não sobrevive à rasterização. -->
+  <line x1="628" y1="270" x2="1142" y2="270" stroke="#C9A968" stroke-width="2"
+        stroke-dasharray="8 7" opacity=".62"/>
+  <text class="ui" x="885" y="300" fill="#C9A968" font-size="13" font-weight="600"
+        letter-spacing="2.6" text-anchor="middle" opacity=".85">VISIBILIDADE DA TI</text>
+
+  <!-- abaixo: o que ninguém cadastrou -->
+  <g fill="none" stroke="#C3B2D1" stroke-width="2">
+    <g opacity=".50">
+      <rect x="635" y="330" width="46" height="46" rx="12"/><rect x="697" y="330" width="46" height="46" rx="12"/>
+      <rect x="759" y="330" width="46" height="46" rx="12"/><rect x="821" y="330" width="46" height="46" rx="12"/>
+      <rect x="883" y="330" width="46" height="46" rx="12"/><rect x="945" y="330" width="46" height="46" rx="12"/>
+      <rect x="1007" y="330" width="46" height="46" rx="12"/>
+    </g>
+    <g opacity=".32">
+      <rect x="604" y="396" width="46" height="46" rx="12"/><rect x="666" y="396" width="46" height="46" rx="12"/>
+      <rect x="728" y="396" width="46" height="46" rx="12"/><rect x="852" y="396" width="46" height="46" rx="12"/>
+      <rect x="914" y="396" width="46" height="46" rx="12"/><rect x="976" y="396" width="46" height="46" rx="12"/>
+      <rect x="1038" y="396" width="46" height="46" rx="12"/><rect x="1100" y="396" width="46" height="46" rx="12"/>
+    </g>
+    <g opacity=".19">
+      <rect x="635" y="462" width="46" height="46" rx="12"/><rect x="697" y="462" width="46" height="46" rx="12"/>
+      <rect x="759" y="462" width="46" height="46" rx="12"/><rect x="821" y="462" width="46" height="46" rx="12"/>
+      <rect x="883" y="462" width="46" height="46" rx="12"/><rect x="945" y="462" width="46" height="46" rx="12"/>
+      <rect x="1007" y="462" width="46" height="46" rx="12"/><rect x="1069" y="462" width="46" height="46" rx="12"/>
+    </g>
+    <g opacity=".10">
+      <rect x="604" y="528" width="46" height="46" rx="12"/><rect x="666" y="528" width="46" height="46" rx="12"/>
+      <rect x="728" y="528" width="46" height="46" rx="12"/><rect x="790" y="528" width="46" height="46" rx="12"/>
+      <rect x="852" y="528" width="46" height="46" rx="12"/><rect x="914" y="528" width="46" height="46" rx="12"/>
+      <rect x="976" y="528" width="46" height="46" rx="12"/><rect x="1038" y="528" width="46" height="46" rx="12"/>
+      <rect x="1100" y="528" width="46" height="46" rx="12"/>
+    </g>
+  </g>
+
+  <!-- O risco que já está lá embaixo, e que só aparece quando estoura. -->
+  <rect x="790" y="396" width="46" height="46" rx="12" fill="none" stroke="#FF6600" stroke-width="2.4" opacity=".92"/>
+  <circle cx="813" cy="419" r="5" fill="#FF6600"/>
+
+  <rect x="600" y="300" width="600" height="330" fill="url(#sombra)"/>
+</svg>

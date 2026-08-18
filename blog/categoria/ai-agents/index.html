@@ -1,26 +1,35 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Agentes de IA — Blog Tyna</title>
-<meta name="description" content="Artigos sobre agentes de ia: análise prática para equipes que colocam IA em produção.">
+<meta name="description" content="Agentes de IA em produção: arquitetura, escopo de autonomia, escalonamento humano e o que costuma quebrar quando o sistema decide sozinho.">
 <link rel="canonical" href="https://tyna.com.br/blog/categoria/ai-agents/">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Agentes de IA — Blog Tyna">
-<meta property="og:description" content="Artigos sobre agentes de ia: análise prática para equipes que colocam IA em produção.">
+<meta property="og:description" content="Agentes de IA em produção: arquitetura, escopo de autonomia, escalonamento humano e o que costuma quebrar quando o sistema decide sozinho.">
 <meta property="og:url" content="https://tyna.com.br/blog/categoria/ai-agents/">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:image" content="https://tyna.com.br/assets/logo-tyna-dark.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23411E5A%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23F1592B%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
 <link rel="alternate" type="application/rss+xml" title="Blog Tyna" href="https://tyna.com.br/rss.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../../assets/styles.css?v=4">
-<link rel="stylesheet" href="../../../assets/blog.css?v=4">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"Blog Tyna","url":"https://tyna.com.br/blog/","inLanguage":"pt-BR","description":"Artigos sobre agentes de ia: análise prática para equipes que colocam IA em produção.","blogPost":[{"@type":"BlogPosting","headline":"Cloudflare OS: agentes de IA rodando na borda","url":"https://tyna.com.br/blog/cloudflare-os-plataforma-aberta-para-agentes-de-ia/","datePublished":"2026-08-06"},{"@type":"BlogPosting","headline":"Zero-Mem: memória para agentes de LLM sem gastar token","url":"https://tyna.com.br/blog/zero-mem-memoria-sem-tokens-para-agentes-llm/","datePublished":"2026-08-05"},{"@type":"BlogPosting","headline":"EdotEnv lança ambientes de treino para trading quantitativo","url":"https://tyna.com.br/blog/edotenv-ambientes-de-treino-para-trading-quantitativo/","datePublished":"2026-08-04"},{"@type":"BlogPosting","headline":"Cockpit em Rust para agentes do Claude Code","url":"https://tyna.com.br/blog/cockpit-em-rust-para-agentes-do-claude-code/","datePublished":"2026-08-01"},{"@type":"BlogPosting","headline":"Como montar um agente de revisão de código próprio","url":"https://tyna.com.br/blog/agente-de-revisao-de-codigo-auto-hospedado/","datePublished":"2026-07-31"},{"@type":"BlogPosting","headline":"Grafo de memória compartilhada entre Claude e ChatGPT","url":"https://tyna.com.br/blog/grafo-de-memoria-compartilhada-entre-modelos/","datePublished":"2026-07-31"},{"@type":"BlogPosting","headline":"Destilar e servir modelos pela metade do custo","url":"https://tyna.com.br/blog/destilar-e-servir-modelos-pela-metade-do-custo/","datePublished":"2026-07-27"},{"@type":"BlogPosting","headline":"Trellis AI contrata para agentes de acesso à saúde","url":"https://tyna.com.br/blog/trellis-ai-contrata-para-agentes-de-saude/","datePublished":"2026-07-27"},{"@type":"BlogPosting","headline":"SnapState dá estado persistente a fluxos de agente","url":"https://tyna.com.br/blog/snapstate-estado-persistente-para-agentes/","datePublished":"2026-07-25"},{"@type":"BlogPosting","headline":"Yorishiro roda agentes de IA no terminal do macOS","url":"https://tyna.com.br/blog/yorishiro-agentes-no-terminal-do-macos/","datePublished":"2026-07-25"}]}</script>
+<link rel="stylesheet" href="../../../assets/styles.css?v=12">
+<link rel="stylesheet" href="../../../assets/blog.css?v=12">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"Blog Tyna","url":"https://tyna.com.br/blog/","inLanguage":"pt-BR","description":"Agentes de IA em produção: arquitetura, escopo de autonomia, escalonamento humano e o que costuma quebrar quando o sistema decide sozinho.","blogPost":[{"@type":"BlogPosting","headline":"Cloudflare OS: agentes de IA rodando na borda","url":"https://tyna.com.br/blog/cloudflare-os-plataforma-aberta-para-agentes-de-ia/","datePublished":"2026-08-06"},{"@type":"BlogPosting","headline":"Zero-Mem: memória para agentes de LLM sem gastar token","url":"https://tyna.com.br/blog/zero-mem-memoria-sem-tokens-para-agentes-llm/","datePublished":"2026-08-05"},{"@type":"BlogPosting","headline":"EdotEnv lança ambientes de treino para trading quantitativo","url":"https://tyna.com.br/blog/edotenv-ambientes-de-treino-para-trading-quantitativo/","datePublished":"2026-08-04"},{"@type":"BlogPosting","headline":"Cockpit em Rust para agentes do Claude Code","url":"https://tyna.com.br/blog/cockpit-em-rust-para-agentes-do-claude-code/","datePublished":"2026-08-01"},{"@type":"BlogPosting","headline":"Como montar um agente de revisão de código próprio","url":"https://tyna.com.br/blog/agente-de-revisao-de-codigo-auto-hospedado/","datePublished":"2026-07-31"},{"@type":"BlogPosting","headline":"Grafo de memória compartilhada entre Claude e ChatGPT","url":"https://tyna.com.br/blog/grafo-de-memoria-compartilhada-entre-modelos/","datePublished":"2026-07-31"},{"@type":"BlogPosting","headline":"Destilar e servir modelos pela metade do custo","url":"https://tyna.com.br/blog/destilar-e-servir-modelos-pela-metade-do-custo/","datePublished":"2026-07-27"},{"@type":"BlogPosting","headline":"Trellis AI contrata para agentes de acesso à saúde","url":"https://tyna.com.br/blog/trellis-ai-contrata-para-agentes-de-saude/","datePublished":"2026-07-27"},{"@type":"BlogPosting","headline":"SnapState dá estado persistente a fluxos de agente","url":"https://tyna.com.br/blog/snapstate-estado-persistente-para-agentes/","datePublished":"2026-07-25"},{"@type":"BlogPosting","headline":"Yorishiro roda agentes de IA no terminal do macOS","url":"https://tyna.com.br/blog/yorishiro-agentes-no-terminal-do-macos/","datePublished":"2026-07-25"},{"@type":"BlogPosting","headline":"Echo entrega resultado a um terço do custo","url":"https://tyna.com.br/blog/echo-modelos-de-peso-aberto-a-um-terco-do-custo/","datePublished":"2026-07-24"},{"@type":"BlogPosting","headline":"Screenpipe grava o fluxo de tela e transforma em agente","url":"https://tyna.com.br/blog/screenpipe-grava-o-fluxo-e-transforma-em-agente/","datePublished":"2026-07-23"},{"@type":"BlogPosting","headline":"Simulação de economia espacial em Rust roda sozinha","url":"https://tyna.com.br/blog/simulacao-de-economia-espacial-em-rust-e-bevy/","datePublished":"2026-07-22"},{"@type":"BlogPosting","headline":"AutoGen em modo de manutenção: quando migrar","url":"https://tyna.com.br/blog/autogen-em-modo-de-manutencao-como-migrar/","datePublished":"2026-07-21"},{"@type":"BlogPosting","headline":"LangGraph, CrewAI, Agent Framework ou n8n?","url":"https://tyna.com.br/blog/langgraph-crewai-agent-framework-ou-n8n/","datePublished":"2026-07-21"},{"@type":"BlogPosting","headline":"Seu primeiro agente de IA em produção com n8n","url":"https://tyna.com.br/blog/seu-primeiro-agente-de-ia-em-producao-com-n8n/","datePublished":"2026-07-21"}]}</script>
 </head>
 <body>
 
@@ -34,10 +43,10 @@
         <li><a href="../../../#trilhas">Trilhas</a></li>
         <li><a href="../../../blog/">Blog</a></li>
         <li><a href="../../../sobre/">Sobre</a></li>
-        <li><!--email_off--><a href="mailto:contato@tyna.com.br?subject=Agendamento%20reuni%C3%A3o%20Tyna" class="btn btn-primary mobile-cta">Agendar conversa</a><!--/email_off--></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
       </ul>
     </nav>
-    <!--email_off--><a href="mailto:contato@tyna.com.br?subject=Agendamento%20reuni%C3%A3o%20Tyna" class="btn btn-primary" id="navCta">Agendar conversa</a><!--/email_off-->
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
     <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
   </div>
 </header>
@@ -45,20 +54,23 @@
 <main id="top">
   <section class="hero blog-hero">
     <div class="wrap">
-      <p class="eyebrow">Blog · 10 artigos</p>
+      <p class="eyebrow">Blog · 16 artigos</p>
       <h1>Agentes de IA</h1>
-      <p class="lead" style="max-width:640px;">Tudo que publicamos sobre agentes de ia.</p>
+      <p class="lead" style="max-width:640px;">Tudo que a Tyna publicou sobre agentes de ia.</p>
       <nav class="cat-nav" aria-label="Categorias">
         <a href="../../../blog/">Todos</a>
+        <a href="../../../blog/categoria/governanca/">Governança de IA</a>
         <a href="../../../blog/categoria/ai-agents/" class="on">Agentes de IA</a>
         <a href="../../../blog/categoria/llm/">LLMs</a>
         <a href="../../../blog/categoria/dev-tools/">Ferramentas de Dev</a>
         <a href="../../../blog/categoria/automation/">Automação</a>
       </nav>
+      <p class="cat-intro">Agente de IA é diferente de ferramenta de IA: ele decide e age em nome da empresa, sem um leitor humano no meio. Isso muda a pergunta de "quem pode usar" para "até onde ele vai sem um humano". Os textos aqui tratam de arquitetura, escopo de autonomia definido antes da produção, escalonamento com destino e prazo, e trilha de auditoria da decisão.</p>
     </div>
   </section>
   <section>
     <div class="wrap">
+      
       <div class="post-grid"><article class="post-card">
   <a class="post-card-link" href="../../../blog/cloudflare-os-plataforma-aberta-para-agentes-de-ia/">
     <span class="tag">Agentes de IA</span>
@@ -135,8 +147,56 @@
   <a class="post-card-link" href="../../../blog/yorishiro-agentes-no-terminal-do-macos/">
     <span class="tag">Agentes de IA</span>
     <h3>Yorishiro roda agentes de IA no terminal do macOS</h3>
-    <p class="desc">Aplicativo aberto para criar, iniciar e conversar com agentes localmente, sem contêiner nem serviço de nuvem.</p>
+    <p class="desc">Aplicativo aberto para criar, iniciar e conversar com agentes localmente no macOS, sem contêiner, sem serviço de nuvem e sem chave saindo da máquina.</p>
     <time datetime="2026-07-25">25 de julho de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../../blog/echo-modelos-de-peso-aberto-a-um-terco-do-custo/">
+    <span class="tag">Agentes de IA</span>
+    <h3>Echo entrega resultado a um terço do custo</h3>
+    <p class="desc">Framework sobre modelos de peso aberto que promete qualidade comparável com inferência mais rápida e conta bem menor.</p>
+    <time datetime="2026-07-24">24 de julho de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../../blog/screenpipe-grava-o-fluxo-e-transforma-em-agente/">
+    <span class="tag">Agentes de IA</span>
+    <h3>Screenpipe grava o fluxo de tela e transforma em agente</h3>
+    <p class="desc">Captura clique, digitação e contexto da interface, costura tudo em um agente reaproveitável e expõe por API — com o custo de privacidade que isso traz.</p>
+    <time datetime="2026-07-23">23 de julho de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../../blog/simulacao-de-economia-espacial-em-rust-e-bevy/">
+    <span class="tag">Agentes de IA</span>
+    <h3>Simulação de economia espacial em Rust roda sozinha</h3>
+    <p class="desc">Projeto aberto onde naves, colônias e mercados operam sem intervenção humana, conduzidos por agentes que decidem por conta própria.</p>
+    <time datetime="2026-07-22">22 de julho de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../../blog/autogen-em-modo-de-manutencao-como-migrar/">
+    <span class="tag">Agentes de IA</span>
+    <h3>AutoGen em modo de manutenção: quando migrar</h3>
+    <p class="desc">A Microsoft fundiu AutoGen e Semantic Kernel em um framework único. O antigo segue recebendo correção, não recursos novos.</p>
+    <time datetime="2026-07-21">21 de julho de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../../blog/langgraph-crewai-agent-framework-ou-n8n/">
+    <span class="tag">Agentes de IA</span>
+    <h3>LangGraph, CrewAI, Agent Framework ou n8n?</h3>
+    <p class="desc">Quatro caminhos para construir agentes, com critérios de escolha que dependem menos da tecnologia e mais de quem vai manter.</p>
+    <time datetime="2026-07-21">21 de julho de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../../blog/seu-primeiro-agente-de-ia-em-producao-com-n8n/">
+    <span class="tag">Agentes de IA</span>
+    <h3>Seu primeiro agente de IA em produção com n8n</h3>
+    <p class="desc">Gatilho, recuperação, raciocínio, ação e ponto de controle humano — as cinco peças que quase todo agente real tem.</p>
+    <time datetime="2026-07-21">21 de julho de 2026</time>
   </a>
 </article></div>
     </div>
@@ -158,6 +218,7 @@
         </div>
         <div class="foot-col">
           <h5>Blog</h5>
+          <a href="../../../blog/categoria/governanca/">Governança de IA</a>
           <a href="../../../blog/categoria/ai-agents/">Agentes de IA</a>
           <a href="../../../blog/categoria/llm/">LLMs</a>
           <a href="../../../blog/categoria/dev-tools/">Ferramentas de Dev</a>
@@ -166,6 +227,7 @@
         <div class="foot-col">
           <h5>Site</h5>
           <a href="../../../iso-42001/">ISO 42001</a>
+          <a href="../../../diagnostico/">Diagnóstico</a>
           <a href="../../../sobre/">Sobre</a>
           <a href="../../../blog/">Blog</a>
           <a href="../../../rss.xml">RSS</a>
@@ -179,7 +241,7 @@
   </div>
 </footer>
 
-<script src="../../../assets/site.js?v=4"></script>
+<script src="../../../assets/site.js?v=12"></script>
 
 </body>
 </html>

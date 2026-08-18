@@ -1,6 +1,6 @@
 ---
 title: "Claude Opus 5 chega com preço linear e streaming"
-description: "Latência menor, entrada multimodal nativa e cobrança que escala com uso em vez de faixa fixa."
+description: "Latência menor, entrada multimodal nativa e cobrança que escala com uso em vez de faixa fixa. O que muda para quem já tem agente rodando."
 pubDate: "2026-07-25"
 category: "llm"
 tags: ["anthropic","claude-opus-5","agentes-de-ia","automacao","multimodal"]

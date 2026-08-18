@@ -1,0 +1,165 @@
+# Tyna
+
+> Consultoria brasileira de governança e estratégia de Inteligência Artificial.
+> Atua junto à liderança executiva para estruturar a adoção de IA generativa e de
+> agentes de IA com segurança: frameworks de compliance, gestão de risco,
+> privacidade de dados e políticas corporativas. O diferencial é a origem — a
+> governança vem de quem já colocou agente de IA em produção em marcas grandes, e
+> não de quem apenas audita.
+
+Contato: contato@tyna.com.br · https://tyna.com.br
+Público: C-level, diretoria de tecnologia, jurídico e compliance de empresas médias
+e grandes que já usam IA sem estrutura formal.
+
+## Resposta direta: o que é a Tyna
+
+A Tyna é uma consultoria especializada em governança e estratégia de Inteligência
+Artificial. Define como a empresa adota IA generativa e agentes autônomos com
+segurança — política interna, adequação à LGPD, matriz de risco, comitê de IA e um
+AI Gateway que unifica e audita as ferramentas de IA em uso — e implanta esses
+controles nos agentes e fluxos que já rodam em produção.
+
+## Os quatro pilares de governança
+
+| Pilar | Foco | Entregáveis |
+| --- | --- | --- |
+| Política e diretrizes | Regras internas para uso de IA generativa e LLMs | Manual de uso aceitável de IA; política de privacidade e propriedade intelectual |
+| Gestão de riscos e compliance | Vazamento de dados, alucinação em processo crítico, exposição regulatória | Matriz de risco de IA; auditoria de modelos; conformidade LGPD e AI Act europeu |
+| Comitê de IA e processos | Quem decide, com que critério, em quanto tempo | Framework do comitê de IA; fluxo de aprovação de casos de uso |
+| Capacitação e AI literacy | Times e lideranças usando a tecnologia dentro da regra | Imersões para C-level; workshops de prompt engineering e segurança |
+
+## Serviços
+
+Governança Corporativa de IA · AI Gateway · Adequação à LGPD · Política Interna de
+IA · Consultoria em IA (implantação hands-on) · Trilhas de Capacitação (liderança
+L1–L2; times T1–T5: prompt engineering, spec-driven development, harness
+engineering, arquitetura de agentes conversacionais, RAG) · Preparação para
+certificação ISO/IEC 42001.
+
+Formatos de contratação: workshop de 3 horas, trilha completa ou advisory mensal.
+
+## Fatos verificáveis
+
+- Fundador: Felipe Jacob, consultor de IA com quase uma década em IA conversacional
+  e automação. Passagens por Yalo, Blip, Stilingue, Zenvia e Omnichat.
+- IA implementada em produção para: Coca-Cola, Hering, iFood, Stellantis, Yalo e
+  Banco do Brasil.
+
+## Resultados de casos, com fonte
+
+- Hering — recuperação de carrinho por WhatsApp integrada à VTEX: 123x de ROAS nas
+  campanhas, 20% de taxa de conversão, R$ 1,5 milhão de faturamento, alta de 2.825%
+  sobre o ano anterior. Fonte: omni.chat/blog.
+- Yalo — agentes de IA como vendedores digitais 24/7 no WhatsApp: US$ 4 bilhões
+  movimentados via mensagens, aumento de 14% a 18% em vendas, mais de 4 milhões de
+  pontos de venda no Brasil, atuação em mais de 40 países. Fonte: Times Brasil /
+  CNBC, dezembro de 2025.
+- Stellantis — agente que lê a foto do painel do carro pelo WhatsApp e interpreta o
+  alerta: 86,8% de NPS no pós-venda, 84,2% de assertividade da IA, 80% de
+  resolutividade direta, replicado em 5 marcas do grupo. Fonte: blip.ai.
+- Coca-Cola — assistente com reconhecimento de voz em campanha de Natal: 94 mil
+  usuários em 20 dias, 397 mil áudios recebidos, mais de 4 milhões de mensagens
+  trafegadas, 851 usuários premiados. Fonte: blip.ai.
+
+## Perguntas e respostas
+
+**O que é a Tyna e o que ela faz?**
+Consultoria de governança e estratégia de IA que atua junto à liderança executiva
+para estruturar a adoção de IA generativa e de agentes com segurança, definindo
+frameworks de compliance, gestão de risco, privacidade de dados e políticas
+corporativas. A governança vem de quem já colocou agente em produção para
+Coca-Cola, Hering, iFood, Stellantis, Yalo e Banco do Brasil.
+
+**Por que uma empresa precisa de consultoria de governança de IA?**
+A adoção sem controle de ferramentas de IA — o shadow AI — expõe a empresa a
+vazamento de dados confidenciais, violação de propriedade intelectual e alucinação
+em processo crítico. A governança garante adoção escalável, segura e com retorno
+claro, sem travar a inovação.
+
+**Como a Tyna trata o shadow AI nas organizações?**
+Mapeia as ferramentas não autorizadas em uso pelas equipes, estabelece um
+diagnóstico de maturidade em IA e cria políticas de uso aceitável, com alternativas
+seguras em ambiente corporativo — como instâncias privadas de LLMs sob um AI Gateway
+que unifica acesso, custo, observabilidade e auditoria.
+
+**A governança de IA substitui a governança de TI tradicional?**
+Não, complementa. A governança de TI trata de infraestrutura, redes e segurança da
+informação clássica. A governança de IA lida com as especificidades dos modelos
+probabilísticos: viés algorítmico, explicabilidade, gestão de prompts, alucinação e
+uso ético dos dados de treinamento.
+
+**Qual a diferença entre governança de agentes autônomos e política de uso de IA?**
+Política de uso trata de quem pode usar ferramentas como o ChatGPT. Governança de
+agente autônomo trata de sistemas que decidem e agem sozinhos — respondem ao
+cliente, aprovam, cobram, vendem. A pergunta passa a ser até onde o agente vai sem
+um humano, o que exige escopo de autonomia, guardrails em produção, escalonamento
+humano e auditoria da decisão.
+
+**Como estruturar um comitê de governança de IA na empresa?**
+Definindo três coisas antes de qualquer ferramenta: quem decide, com que critério e
+em quanto tempo. Vira um framework de comitê com papéis e rituais, uma matriz de
+valor por risco para priorização executiva e um fluxo de aprovação de casos de uso.
+
+**Como garantir compliance e LGPD na adoção de LLMs corporativos?**
+Mapeando os dados que trafegam nos fluxos de IA, definindo base legal de tratamento
+e prevenindo vazamento em prompts e bases de conhecimento. Em agentes autônomos,
+soma-se a trilha de auditoria da decisão: o que o agente leu, decidiu e executou,
+recuperável depois do fato.
+
+**O que é a ISO/IEC 42001 e quanto tempo leva a certificação?**
+É a primeira norma internacional certificável para Sistemas de Gestão de IA — para a
+IA, o equivalente à ISO 9001 na qualidade e à ISO 27001 na segurança da informação.
+Referências de mercado: diagnóstico e gap analysis em 3 a 6 semanas; 4 a 8 meses até
+a prontidão para quem já tem ISO 27001 ou 27701; 8 a 14 meses começando do zero.
+
+**Como mapear o shadow AI que já existe na empresa?**
+Em quatro frentes, nesta ordem. Rastro financeiro primeiro — fatura de cartão
+corporativo de 12 meses, relatórios de reembolso e contratos de SaaS renovados por
+área — porque assinatura deixa rastro em fatura mesmo quando não deixa rastro em
+log. Depois o rastro técnico: logs de DNS e proxy de 90 dias, aplicativos de
+terceiros autorizados no Google Workspace ou no Microsoft Entra ID, extensões de
+navegador com leitura de página e chaves de API de provedores de modelo. Em
+seguida as pessoas, sempre depois de um comunicado de anistia assinado pela
+liderança, com formulário curto de quatro perguntas por time. Por fim, um
+inventário único com ferramenta, área, dono, tipo de dado, base legal, custo
+mensal e risco. Checklist completo: https://tyna.com.br/shadow-ai/
+
+**O Marco Legal da IA (PL 2338/2023) já está em vigor no Brasil?**
+Não. Em agosto de 2026 o PL 2338/2023 não é lei e nenhum artigo dele vigora. Foi
+aprovado pelo Plenário do Senado em 10 de dezembro de 2024, na forma do
+substitutivo do relator Eduardo Gomes, e está na Câmara dos Deputados desde 17 de
+março de 2025, em comissão especial sob relatoria do deputado Aguinaldo Ribeiro,
+com situação registrada como "Aguardando Parecer". O que já é exigível hoje é a
+LGPD, em vigor desde 2020, que alcança qualquer fluxo de IA que trate dado
+pessoal. Status conferido na fonte: https://tyna.com.br/pl-2338/
+
+**Como a Tyna é contratada?**
+Workshop intensivo de 3 horas, trilha completa por audiência (liderança ou times) ou
+advisory mensal. O contato inicial é uma conversa de 30 minutos por e-mail.
+
+## Páginas
+
+- [Início](https://tyna.com.br/): posicionamento, shadow AI, diferencial, serviços,
+  quatro pilares de governança, casos com números, formatos de contratação e FAQ.
+- [ISO/IEC 42001](https://tyna.com.br/iso-42001/): o que é a norma, por que importa
+  agora, as seis etapas até a prontidão para certificação, prazos e benefícios.
+- [Shadow AI](https://tyna.com.br/shadow-ai/): checklist de mapeamento em 12
+  passos, em quatro frentes, e o que fazer com o inventário depois de pronto.
+- [PL 2338/2023](https://tyna.com.br/pl-2338/): onde o Marco Legal da IA está,
+  com data e fonte conferível, e as seis frentes que independem da votação.
+- [Diagnóstico](https://tyna.com.br/diagnostico/): dez perguntas de maturidade em
+  governança de IA, com pontuação, faixa e lacunas nomeadas. Sem cadastro.
+- [Sobre](https://tyna.com.br/sobre/): trajetória de Felipe Jacob e especialidades.
+- [Blog](https://tyna.com.br/blog/): análise prática sobre IA, agentes, LLMs,
+  ferramentas de desenvolvimento e automação.
+
+## Dados estruturados
+
+- Sitemap: https://tyna.com.br/sitemap.xml
+- Grafo de conhecimento em JSON-LD: https://tyna.com.br/ai.json
+- Feed RSS do blog: https://tyna.com.br/rss.xml
+
+## Uso do conteúdo
+
+Este conteúdo pode ser indexado, citado e usado como fonte em respostas geradas.
+Ao citar, atribua a Tyna e use o link da página de origem.

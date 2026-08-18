@@ -37,6 +37,10 @@
     line-height:1.6;
     font-size:17px;
     /* sem -webkit-font-smoothing:antialiased — ele afina o texto sobre fundo claro */
+    /* trava o "font boosting" do Chrome no Android, que infla texto de bloco por
+       conta própria e desalinha layout que já é responsivo */
+    -webkit-text-size-adjust:100%;
+    text-size-adjust:100%;
   }
   img,svg{max-width:100%; display:block;}
   a{color:inherit; text-decoration:none;}
@@ -64,7 +68,7 @@
     letter-spacing:0.12em; white-space:nowrap; padding-left:12px; border-left:1px solid var(--line);
   }
   nav ul{list-style:none; display:flex; gap:36px;}
-  nav ul a{font-family:var(--display); font-size:14.5px; color:var(--text-muted); transition:color .2s;}
+  nav ul a{font-family:var(--display); font-size:14.5px; font-weight:700; color:var(--text-muted); transition:color .2s;}
   nav ul a:hover, nav ul a:focus-visible{color:var(--text);}
   .btn{
     font-family:var(--display); font-size:14.5px; font-weight:500; padding:11px 22px;
@@ -101,23 +105,63 @@
     color:var(--text); opacity:.85;
   }
 
-  /* Gateway diagram */
-  .gateway{position:relative; aspect-ratio:1/1; max-width:480px; margin:0 auto;}
+  /* Diagrama do AI Gateway.
+     A profundidade vem de gradiente e sombra projetada, não de perspectiva: o
+     diagrama continua de frente, que é o que mantém os rótulos legíveis. Os nós
+     ganham domo por gradiente radial deslocado para o alto e à esquerda, como se
+     houvesse uma fonte de luz única.
+
+     Nenhum filtro entra em elemento animado. Filtro sobre algo que gira obriga o
+     navegador a rasterizar de novo a cada quadro; os anéis pontilhados são traço
+     puro, e o brilho dos pulsos é um círculo atrás, não um blur. */
+  /* width:100% é obrigatório aqui. Sem ele, `margin:0 auto` desliga o esticar do
+     grid e a largura vira encolher-para-caber; como o SVG interno é width:100%,
+     não há o que medir e o navegador cai no padrão de 300px do SVG. O diagrama
+     ficava em 300px em qualquer tela, sem nunca alcançar os 480 do max-width. */
+  .gateway{position:relative; aspect-ratio:1/1; width:100%; max-width:480px; margin:0 auto;}
   .gateway svg{width:100%; height:100%; overflow:visible;}
-  .g-ring{fill:none; stroke:var(--line); stroke-width:1;}
-  .g-ring-dash{fill:none; stroke:var(--accent-soft); stroke-width:1; stroke-dasharray:2 6; animation:spin 60s linear infinite;}
+
+  .g-halo{fill:url(#gHalo);}
+  .g-ring{fill:none; stroke:#D9CCE8; stroke-width:1.1;}
+  .g-ring-soft{fill:none; stroke:#E7DDF2; stroke-width:1;}
+  /* stroke-linecap:round transforma o traço curto em ponto de verdade */
+  .g-ring-dash{fill:none; stroke:#9333EA; stroke-width:2.2; stroke-dasharray:0.5 9;
+    stroke-linecap:round; opacity:.85; animation:spin 60s linear infinite;}
+  .g-ring-dash-2{fill:none; stroke:#C77DFF; stroke-width:1.6; stroke-dasharray:0.5 11;
+    stroke-linecap:round; opacity:.5; animation:spinBack 88s linear infinite;}
   @keyframes spin{to{transform:rotate(360deg);}}
-  .g-hub-fill{fill:var(--surface); stroke:var(--accent); stroke-width:1.4;}
-  .g-node-fill{fill:#fff; stroke:var(--line); stroke-width:1.2;}
-  .g-line{stroke:var(--line); stroke-width:1.2;}
-  .g-pulse{fill:var(--orange); opacity:0.9;}
-  .g-label{font-family:var(--mono); font-size:9.5px; fill:var(--text-muted); letter-spacing:0.04em;}
-  .g-hub-label{font-family:var(--mono); font-size:10.5px; fill:var(--accent); letter-spacing:0.08em;}
+  @keyframes spinBack{to{transform:rotate(-360deg);}}
+
+  .g-line{stroke:url(#gWire); stroke-width:2; stroke-linecap:round;}
+  .g-node-fill{fill:url(#gNodeFace); stroke:#A87FCE; stroke-width:1.2;}
+  .g-hub-fill{fill:url(#gHubFace);}
+  .g-hub-edge{fill:none; stroke:#C77DFF; stroke-width:1.2; opacity:.55;}
+  /* Reflexo no alto do hub: é ele que faz o círculo virar esfera. Branco chapado
+     lê como adesivo colado; o gradiente que desvanece nas bordas lê como luz. */
+  .g-hub-gloss{fill:url(#gGloss);}
+
+  .g-pulse{fill:#FF7A1A;}
+  .g-pulse-halo{fill:#FF6600; opacity:.22;}
+  .g-label{font-family:var(--mono); font-size:9.5px; fill:#3B2350; font-weight:500; letter-spacing:0.04em;}
+  .g-hub-label{font-family:var(--mono); font-size:10.5px; fill:#FFFFFF; font-weight:600; letter-spacing:0.08em;}
+
   .pulse-anim{animation:pulse 2.8s ease-in-out infinite;}
   .pulse-anim.d2{animation-delay:.5s;}
   .pulse-anim.d3{animation-delay:1s;}
   .pulse-anim.d4{animation-delay:1.5s;}
   @keyframes pulse{0%,100%{opacity:.35; r:2.5;} 50%{opacity:1; r:4;}}
+  .halo-anim{animation:pulseHalo 2.8s ease-in-out infinite;}
+  .halo-anim.d2{animation-delay:.5s;}
+  .halo-anim.d3{animation-delay:1s;}
+  .halo-anim.d4{animation-delay:1.5s;}
+  @keyframes pulseHalo{0%,100%{opacity:0; r:5;} 50%{opacity:.26; r:10;}}
+
+  /* Quem pede menos movimento no sistema recebe o diagrama parado. Ele continua
+     dizendo a mesma coisa: a informação está na estrutura, não na animação. */
+  @media (prefers-reduced-motion: reduce){
+    .g-ring-dash, .g-ring-dash-2, .pulse-anim, .halo-anim{animation:none;}
+    .halo-anim{opacity:.18;}
+  }
 
   /* ---------- Sections generic ---------- */
   section{padding:100px 0; border-bottom:1px solid var(--line);}
@@ -134,6 +178,8 @@
   .risk-item .num{padding-top:2px;}
   .risk-item h4{font-size:16.5px; margin-bottom:6px; font-weight:600;}
   .risk-item p{color:var(--text-muted); font-size:15px;}
+  /* link dentro do item de risco: leva para a página que trata daquele risco */
+  .risk-item p a{color:var(--orange-ink); text-decoration:underline; text-underline-offset:3px;}
 
   /* Services */
   .svc-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
@@ -284,6 +330,66 @@
   .spec-table td:first-child{width:52%; color:var(--text); font-family:var(--display); font-weight:500; font-size:15.5px;}
   .spec-table .prazo{color:var(--accent); font-family:var(--mono); font-size:14px;}
 
+  /* Entregáveis dentro de um card de pilar */
+  .deliverables{list-style:none; border-top:1px solid var(--line); padding-top:18px; margin-top:6px;}
+  .deliverables li{color:var(--text-muted); font-size:14.5px; padding:4px 0 4px 18px; position:relative;}
+  .deliverables li::before{content:'—'; position:absolute; left:0; color:var(--accent-soft);}
+
+  /* FAQ visível — o texto precisa estar na página, não só no JSON-LD */
+  .faq{border-top:1px solid var(--line); max-width:880px;}
+  .faq-item{border-bottom:1px solid var(--line); padding:26px 0;}
+  .faq-item h3{font-size:18.5px; margin-bottom:10px;}
+  .faq-item p{color:var(--text-muted); font-size:15.5px;}
+  .faq-item p + p{margin-top:12px;}
+
+  /* ---------- Diagnóstico interativo ---------- */
+  .quiz{border-top:1px solid var(--line); max-width:880px;}
+  /* fieldset traz borda e padding do agente de usuário; o reset global só zera margem */
+  .q-item{border:0; border-bottom:1px solid var(--line); padding:26px 0; margin:0; min-width:0;}
+  .q-head{display:grid; grid-template-columns:46px 1fr; gap:16px; align-items:start; margin-bottom:16px;}
+  .q-num{font-family:var(--mono); font-size:13px; color:var(--accent); padding-top:3px;}
+  .q-head h3{font-size:17.5px; font-weight:600; line-height:1.35;}
+  .q-opts{display:flex; gap:10px; flex-wrap:wrap; padding-left:62px;}
+  .q-opts label{
+    font-family:var(--display); font-size:14px; padding:9px 18px; border:1px solid var(--line);
+    border-radius:980px; color:var(--text-muted); cursor:pointer; transition:all .18s; user-select:none;
+  }
+  .q-opts input{position:absolute; opacity:0; width:0; height:0;}
+  .q-opts label:hover{border-color:var(--text-muted); color:var(--text);}
+  .q-opts input:checked + span{color:#fff;}
+  .q-opts label:has(input:checked){background:var(--accent); border-color:var(--accent); color:#fff;}
+  .q-opts input:focus-visible + span{outline:2px solid var(--orange); outline-offset:4px; border-radius:2px;}
+
+  .quiz-bar{
+    position:sticky; bottom:0; background:var(--ink); border-top:1px solid var(--line);
+    padding:18px 0; margin-top:8px; display:flex; align-items:center; gap:18px; flex-wrap:wrap;
+  }
+  /* o botão flutuante do WhatsApp fica fixo no canto e cobriria o "Ver resultado" */
+  @media (max-width:1120px){ .quiz-bar{padding-right:74px;} }
+  .quiz-progress{font-family:var(--mono); font-size:12.5px; color:var(--text-muted);}
+  .quiz-track{flex:1; min-width:120px; height:3px; background:var(--surface-2); border-radius:2px; overflow:hidden;}
+  .quiz-fill{height:100%; width:0; background:var(--orange); transition:width .3s ease;}
+
+  .quiz-result{display:none; border:1px solid var(--line); border-left:2px solid var(--orange); background:var(--surface); padding:34px 32px; margin-top:40px;}
+  .quiz-result.on{display:block;}
+  .score-line{display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; margin-bottom:8px;}
+  .score-v{font-family:var(--display); font-size:44px; font-weight:700; line-height:1; letter-spacing:-0.03em;}
+  .score-max{font-family:var(--mono); font-size:14px; color:var(--text-muted);}
+  .score-band{font-family:var(--mono); font-size:12.5px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent);}
+  .quiz-result h3{font-size:22px; margin:14px 0 10px;}
+  .quiz-result > p{color:var(--text-muted); font-size:16px; max-width:680px;}
+  .gaps{list-style:none; margin:26px 0 30px; border-top:1px solid var(--line);}
+  .gaps li{border-bottom:1px solid var(--line); padding:15px 0 15px 20px; position:relative; font-size:15px;}
+  .gaps li::before{content:'—'; position:absolute; left:0; color:var(--orange);}
+  .gaps li strong{font-weight:600;}
+
+  @media (max-width:720px){
+    .q-head{grid-template-columns:32px 1fr; gap:10px;}
+    .q-opts{padding-left:0;}
+    .q-opts label{flex:1 1 auto; text-align:center; padding:11px 12px;}
+    .quiz-result{padding:26px 22px;}
+  }
+
   /* Benefícios em resumo */
   .benefits{list-style:none; display:grid; grid-template-columns:repeat(2,1fr); gap:0 48px;}
   .benefits li{
@@ -291,6 +397,97 @@
     color:var(--text-muted); font-size:15.5px;
   }
   .benefits li::before{content:'—'; position:absolute; left:0; top:17px; color:var(--accent-soft);}
+  /* a frase de entrada do item é o que a pessoa varre antes de decidir se lê o resto */
+  .benefits li strong{color:var(--text); font-weight:600;}
+
+  /* ---------- Checklist numerado (shadow AI, PL 2338) ----------
+     O número é conteúdo, não enfeite: o passo 8 continua sendo o 8 quando a lista é
+     quebrada em blocos com `start`. Por isso vem do próprio <ol> e é pintado pelo
+     ::marker — navegador que não estiliza ::marker mostra o número no estilo padrão,
+     que é degradação aceitável; número escrito à mão em <span> sairia errado na
+     primeira vez que um item mudasse de lugar. */
+  .check-actions{display:flex; align-items:center; gap:18px; flex-wrap:wrap; margin-bottom:38px;}
+  .check-hint{font-family:var(--mono); font-size:12.5px; color:var(--text-muted); line-height:1.5;}
+  .check-block{margin-bottom:46px;}
+  .check-block:last-of-type{margin-bottom:0;}
+  .check-block h3{font-size:18.5px; margin-bottom:16px; display:flex; align-items:baseline; gap:12px; flex-wrap:wrap;}
+  .check-block-tag{
+    font-family:var(--mono); font-size:11.5px; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--accent); background:var(--surface); border:1px solid var(--purple-line);
+    padding:5px 9px; border-radius:3px;
+  }
+  .check-list{list-style:decimal-leading-zero; padding-left:36px;}
+  .check-list li::marker{font-family:var(--mono); font-size:14px; color:var(--accent);}
+  .check-item{padding:20px 0; border-bottom:1px solid var(--line);}
+  .check-item:first-child{border-top:1px solid var(--line);}
+  .check-item h4{font-family:var(--display); font-size:16.5px; font-weight:600; margin-bottom:8px;}
+  .check-item p{color:var(--text-muted); font-size:15.5px; max-width:760px;}
+  .check-item a{color:var(--orange-ink); text-decoration:underline; text-underline-offset:3px;}
+  .check-item.is-chave{background:var(--surface); border-left:2px solid var(--accent); padding:20px 22px;}
+  /* O texto puro do checklist fica escondido e só aparece quando a cópia automática
+     falha — navegador antigo, permissão negada, página sem foco. Como ele é <pre>,
+     precisa quebrar linha: sem isto as linhas longas empurram a página inteira para
+     fora e criam rolagem horizontal no exato momento em que a pessoa precisa
+     selecionar o texto na mão. */
+  .check-fonte{
+    white-space:pre-wrap; overflow-wrap:anywhere; margin-top:30px; padding:22px 20px;
+    background:var(--surface); border:1px solid var(--line); border-left:2px solid var(--accent);
+    font-family:var(--mono); font-size:13px; line-height:1.7; color:var(--text);
+  }
+
+  /* ---------- Cartão de status (PL 2338) ----------
+     A página inteira depende de uma afirmação com data. O cartão existe para que essa
+     afirmação seja lida antes de qualquer outra coisa, inclusive por quem só passa o
+     olho — e para que a data da última conferência ande sempre colada nela. */
+  .status-card{
+    max-width:760px; margin:4px 0 32px; padding:26px 28px; border-radius:6px;
+    background:var(--surface); border:1px solid var(--line); border-left:3px solid var(--accent);
+  }
+  .status-badge{
+    display:inline-block; margin-bottom:15px; padding:6px 11px; border-radius:3px;
+    font-family:var(--mono); font-size:11.5px; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--ink); background:var(--accent);
+  }
+  .status-line{font-size:16.5px; color:var(--text);}
+  .status-line strong{font-weight:600;}
+  .status-meta{font-family:var(--mono); font-size:12.5px; color:var(--text-muted); line-height:1.55; margin-top:14px;}
+
+  @media (max-width:720px){
+    .check-actions{flex-direction:column; align-items:stretch; gap:12px;}
+    .check-actions .btn{width:100%;}
+    .check-hint{font-size:12px;}
+    .check-list{padding-left:26px;}
+    .check-item.is-chave{padding:18px 16px;}
+    .status-card{padding:22px 20px;}
+    .status-meta{font-size:12px;}
+  }
+
+  /* Plano B do CTA de e-mail: aparece só quando o mailto não abre nada */
+  .mail-fb{
+    position:fixed; inset:0; z-index:300; display:none; align-items:center; justify-content:center;
+    padding:22px; background:rgba(29,29,31,.5);
+  }
+  .mail-fb.on{display:flex;}
+  .mf-card{
+    background:var(--ink); border:1px solid var(--line); border-radius:8px;
+    width:100%; max-width:440px; padding:32px 30px; box-shadow:0 24px 70px rgba(0,0,0,.28);
+    position:relative;
+  }
+  .mf-card h3{font-size:21px; margin-bottom:10px;}
+  .mf-card > p{color:var(--text-muted); font-size:15px; margin-bottom:24px;}
+  .mf-opts{display:flex; flex-direction:column; gap:10px;}
+  .mf-opts .btn{width:100%; text-align:center; font-size:14.5px;}
+  .mf-mail{
+    display:block; width:100%; text-align:center; font-family:var(--mono); font-size:14px;
+    border:1px dashed var(--line); border-radius:980px; padding:12px 18px; color:var(--text);
+    background:none; cursor:pointer; transition:border-color .2s, color .2s;
+  }
+  .mf-mail:hover{border-color:var(--orange); color:var(--orange-ink);}
+  .mf-close{
+    position:absolute; top:14px; right:16px; background:none; border:0; cursor:pointer;
+    font-size:22px; line-height:1; color:var(--text-muted); padding:6px;
+  }
+  .mf-close:hover{color:var(--text);}
 
   /* WhatsApp flutuante */
   .wa-fab{
@@ -375,8 +572,15 @@
       transform:translateY(-110%); transition:transform .3s ease; border-top:1px solid var(--line);
     }
     nav ul.open{transform:translateY(0);}
-    nav ul a{font-size:20px;}
-    .nav-toggle{display:block;}
+    /* item de menu vira alvo de toque cheio, não só o texto */
+    nav ul li{display:flex;}
+    nav ul a{font-size:20px; padding:8px 0; width:100%;}
+    /* 44px é o mínimo de alvo de toque recomendado por Apple e Google; o botão
+       tinha 35px, e é o controle mais usado do site no celular */
+    .nav-toggle{
+      display:flex; align-items:center; justify-content:center;
+      width:44px; height:44px; margin-right:-10px;
+    }
     .logo span{display:none;}
     /* só o CTA solto do header some; o filho direto evita apagar o CTA de dentro do menu,
        que perdia em especificidade para `.nav .btn-primary` */
@@ -419,4 +623,32 @@
     .wa-fab svg{width:29px; height:29px;}
     .wa-tip{right:66px; font-size:12.5px; padding:7px 11px;}
     footer{padding-bottom:88px;}
+
+    /* ---- Legibilidade no celular ----
+       Os rótulos em mono foram dimensionados para leitura a distância de monitor.
+       No braço, a 375px, 10px e 11px viram borrão. Subo o piso para 12px e afrouxo
+       o tracking, que é o que mais atrapalha em corpo pequeno. Só no mobile: o
+       desktop continua exatamente como está. */
+    .stat .l{font-size:11.5px; line-height:1.4; letter-spacing:0.04em;}
+    .stat .v{font-size:20px;}
+    .hero-note{font-size:13px; line-height:1.5;}
+    .proof-label{font-size:12px; letter-spacing:0.08em;}
+    .case-source{font-size:12px; opacity:.85;}
+    .eyebrow{font-size:12px; letter-spacing:0.1em; margin-bottom:16px;}
+    .case-card .tag, .post-card .tag{font-size:11.5px; letter-spacing:0.07em;}
+    .foot-bottom{font-size:12px;}
+    .module .result, .step-flag{font-size:13px; line-height:1.5;}
+
+    /* ---- Alvos de toque ----
+       Referência de 44px da Apple e do Google. Links de rodapé estavam com 26px,
+       abas com 36px: erra o toque e o visitante desiste. */
+    .foot-col a{padding:11px 0; font-size:15px;}
+    /* o logotipo também é link (leva para a home) — o alvo era a altura da imagem */
+    .logo{padding:8px 0;}
+    /* piso de 44px em todo botão, inclusive o "Ver resultado" do diagnóstico, que
+       ficava em 42px só pelo padding */
+    .btn{min-height:44px; display:inline-flex; align-items:center; justify-content:center;}
+    .track-tab{padding:13px 18px; font-size:12.5px; min-height:44px;}
+    .track-tabs{gap:8px; flex-wrap:wrap;}
+    .q-opts label{padding:13px 14px; min-height:44px; display:flex; align-items:center; justify-content:center;}
   }

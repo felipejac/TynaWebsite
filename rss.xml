@@ -7,6 +7,22 @@
   <language>pt-BR</language>
   <atom:link href="https://tyna.com.br/rss.xml" rel="self" type="application/rss+xml"/>
   <item>
+    <title>Por que quem tem governança madura reverte mais agente de IA</title>
+    <link>https://tyna.com.br/blog/governanca-madura-reverte-mais-agente-de-ia/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/governanca-madura-reverte-mais-agente-de-ia/</guid>
+    <pubDate>Sun, 16 Aug 2026 12:00:00 GMT</pubDate>
+    <description>74% das empresas já desligaram um agente de IA. Entre as que têm governança madura, 81%. O número mais alto não significa o que parece significar.</description>
+    <category>Governança de IA</category>
+  </item>
+  <item>
+    <title>Shadow AI: o problema que sua empresa já tem, mesmo sem saber</title>
+    <link>https://tyna.com.br/blog/shadow-ai-o-problema-que-sua-empresa-ja-tem/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/shadow-ai-o-problema-que-sua-empresa-ja-tem/</guid>
+    <pubDate>Fri, 14 Aug 2026 12:00:00 GMT</pubDate>
+    <description>Shadow AI é o uso de ferramentas de IA sem o conhecimento da empresa — e já acontece na sua. Entenda os riscos reais e o que fazer a respeito.</description>
+    <category>Governança de IA</category>
+  </item>
+  <item>
     <title>Cloudflare OS: agentes de IA rodando na borda</title>
     <link>https://tyna.com.br/blog/cloudflare-os-plataforma-aberta-para-agentes-de-ia/</link>
     <guid isPermaLink="true">https://tyna.com.br/blog/cloudflare-os-plataforma-aberta-para-agentes-de-ia/</guid>
@@ -67,7 +83,7 @@
     <link>https://tyna.com.br/blog/analytics-e-avaliacao-de-sessoes-de-agente-no-mcp/</link>
     <guid isPermaLink="true">https://tyna.com.br/blog/analytics-e-avaliacao-de-sessoes-de-agente-no-mcp/</guid>
     <pubDate>Mon, 03 Aug 2026 12:00:00 GMT</pubDate>
-    <description>Métricas de latência, taxa de sucesso e critérios próprios de avaliação embutidos direto na sessão do agente.</description>
+    <description>Métricas de latência, taxa de sucesso e critérios próprios de avaliação embutidos direto na sessão do agente, sem instrumentação externa.</description>
     <category>LLMs</category>
   </item>
   <item>
@@ -99,7 +115,7 @@
     <link>https://tyna.com.br/blog/openai-astra-resolve-dez-problemas-de-matematica/</link>
     <guid isPermaLink="true">https://tyna.com.br/blog/openai-astra-resolve-dez-problemas-de-matematica/</guid>
     <pubDate>Sun, 02 Aug 2026 12:00:00 GMT</pubDate>
-    <description>O modelo produziu provas, gerou contraexemplos e verificou teoremas. O anúncio veio sem métrica publicada.</description>
+    <description>O modelo produziu provas, gerou contraexemplos e verificou teoremas. O anúncio veio sem métrica publicada nem forma de reproduzir o resultado.</description>
     <category>LLMs</category>
   </item>
   <item>
@@ -195,7 +211,7 @@
     <link>https://tyna.com.br/blog/manim-no-navegador-com-webgpu/</link>
     <guid isPermaLink="true">https://tyna.com.br/blog/manim-no-navegador-com-webgpu/</guid>
     <pubDate>Wed, 29 Jul 2026 12:00:00 GMT</pubDate>
-    <description>Animação matemática renderizada no cliente, com desempenho próximo ao nativo e sem servidor no caminho.</description>
+    <description>Animação matemática renderizada no cliente com WebGPU, desempenho próximo ao nativo e nenhum servidor de renderização no caminho.</description>
     <category>Ferramentas de Dev</category>
   </item>
   <item>
@@ -228,22 +244,6 @@
     <guid isPermaLink="true">https://tyna.com.br/blog/score-de-confianca-de-llm-nao-e-confiavel/</guid>
     <pubDate>Tue, 28 Jul 2026 12:00:00 GMT</pubDate>
     <description>Modelos são treinados para gerar texto fluente, não probabilidade calibrada. Fluxo que decide por limiar está apoiado em ruído.</description>
-    <category>LLMs</category>
-  </item>
-  <item>
-    <title>Destilar e servir modelos pela metade do custo</title>
-    <link>https://tyna.com.br/blog/destilar-e-servir-modelos-pela-metade-do-custo/</link>
-    <guid isPermaLink="true">https://tyna.com.br/blog/destilar-e-servir-modelos-pela-metade-do-custo/</guid>
-    <pubDate>Mon, 27 Jul 2026 12:00:00 GMT</pubDate>
-    <description>Ferramenta aberta treina um modelo aluno sobre as saídas de um professor e entrega acurácia próxima com hospedagem em hardware comum.</description>
-    <category>Agentes de IA</category>
-  </item>
-  <item>
-    <title>Pico de erros no Claude Opus 5 derruba automações</title>
-    <link>https://tyna.com.br/blog/pico-de-erros-no-claude-opus-5/</link>
-    <guid isPermaLink="true">https://tyna.com.br/blog/pico-de-erros-no-claude-opus-5/</guid>
-    <pubDate>Mon, 27 Jul 2026 12:00:00 GMT</pubDate>
-    <description>Uma configuração temporária errada no pipeline de inferência elevou a taxa de falha por horas. O que isso ensina sobre dependência única.</description>
     <category>LLMs</category>
   </item>
 </channel>

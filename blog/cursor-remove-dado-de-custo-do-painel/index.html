@@ -1,25 +1,34 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cursor remove o dado de custo do painel e do CSV — Blog Tyna</title>
+<title>Cursor remove o dado de custo do painel e do CSV | Tyna</title>
 <meta name="description" content="O painel agora mostra só contagem de tokens. Quem auditava gasto direto na plataforma vai precisar calcular por fora.">
 <link rel="canonical" href="https://tyna.com.br/blog/cursor-remove-dado-de-custo-do-painel/">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Cursor remove o dado de custo do painel e do CSV — Blog Tyna">
+<meta property="og:title" content="Cursor remove o dado de custo do painel e do CSV | Tyna">
 <meta property="og:description" content="O painel agora mostra só contagem de tokens. Quem auditava gasto direto na plataforma vai precisar calcular por fora.">
 <meta property="og:url" content="https://tyna.com.br/blog/cursor-remove-dado-de-custo-do-painel/">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:image" content="https://tyna.com.br/assets/logo-tyna-dark.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23411E5A%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23F1592B%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
 <link rel="alternate" type="application/rss+xml" title="Blog Tyna" href="https://tyna.com.br/rss.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../assets/styles.css?v=4">
-<link rel="stylesheet" href="../../assets/blog.css?v=4">
+<link rel="stylesheet" href="../../assets/styles.css?v=12">
+<link rel="stylesheet" href="../../assets/blog.css?v=12">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Cursor remove o dado de custo do painel e do CSV","description":"O painel agora mostra só contagem de tokens. Quem auditava gasto direto na plataforma vai precisar calcular por fora.","datePublished":"2026-08-02","dateModified":"2026-08-02","inLanguage":"pt-BR","author":{"@type":"Person","name":"Felipe Jacob","url":"https://tyna.com.br/sobre/"},"publisher":{"@type":"Organization","name":"Tyna","url":"https://tyna.com.br","logo":{"@type":"ImageObject","url":"https://tyna.com.br/assets/logo-tyna-dark.png"}},"mainEntityOfPage":"https://tyna.com.br/blog/cursor-remove-dado-de-custo-do-painel/","keywords":"cursor, controle-de-custo, automacao, faturamento, observabilidade","articleSection":"Ferramentas de Dev"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://tyna.com.br"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tyna.com.br/blog/"},{"@type":"ListItem","position":3,"name":"Ferramentas de Dev","item":"https://tyna.com.br/blog/categoria/dev-tools/"},{"@type":"ListItem","position":4,"name":"Cursor remove o dado de custo do painel e do CSV","item":"https://tyna.com.br/blog/cursor-remove-dado-de-custo-do-painel/"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Ainda consigo ver custo no painel do Cursor?","acceptedAnswer":{"@type":"Answer","text":"Não. O painel passou a exibir apenas contagem de tokens e metadados da requisição."}},{"@type":"Question","name":"Como recuperar o dado de custo dos meus fluxos?","acceptedAnswer":{"@type":"Answer","text":"Exporte o CSV de uso de tokens e aplique a tabela de preços ou a sua própria fórmula de custo. Como alternativa, integre um serviço de rastreio que consuma a contagem de tokens."}},{"@type":"Question","name":"Isso muda a cobrança?","acceptedAnswer":{"@type":"Answer","text":"Não. A cobrança continua baseada no uso de tokens. A mudança afeta apenas como você visualiza esse dado."}}]}</script>
@@ -39,10 +48,10 @@
         <li><a href="../../#trilhas">Trilhas</a></li>
         <li><a href="../../blog/">Blog</a></li>
         <li><a href="../../sobre/">Sobre</a></li>
-        <li><!--email_off--><a href="mailto:contato@tyna.com.br?subject=Agendamento%20reuni%C3%A3o%20Tyna" class="btn btn-primary mobile-cta">Agendar conversa</a><!--/email_off--></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
       </ul>
     </nav>
-    <!--email_off--><a href="mailto:contato@tyna.com.br?subject=Agendamento%20reuni%C3%A3o%20Tyna" class="btn btn-primary" id="navCta">Agendar conversa</a><!--/email_off-->
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
     <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
   </div>
 </header>
@@ -55,6 +64,8 @@
       <h1>Cursor remove o dado de custo do painel e do CSV</h1>
       <p class="post-meta"><time datetime="2026-08-02">02 de agosto de 2026</time> · Por <a href="../../sobre/">Felipe Jacob</a></p>
       <p class="lead">O painel agora mostra só contagem de tokens. Quem auditava gasto direto na plataforma vai precisar calcular por fora.</p>
+
+      
 
       <aside class="answer-box"><h2>Resposta curta</h2><p>O Cursor retirou a coluna de custo do painel de uso e do arquivo CSV exportado. O que resta são contagem de tokens, carimbo de tempo e identificador de requisição, sem valor monetário. Quem usava a plataforma para auditar gasto precisa converter tokens em reais por conta própria, usando a tabela de preços ou uma ferramenta externa de rastreio de custo.</p></aside>
 
@@ -124,7 +135,7 @@
     <div class="wrap">
       <p class="eyebrow">Próximo passo</p>
       <h2>Quer aplicar isso na sua empresa, com governança?</h2>
-      <!--email_off--><a href="mailto:contato@tyna.com.br?subject=Agendamento%20reuni%C3%A3o%20Tyna" class="btn btn-primary">Agendar conversa</a><!--/email_off-->
+      <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary">Agendar conversa</a>
     </div>
   </section>
 </main>
@@ -144,6 +155,7 @@
         </div>
         <div class="foot-col">
           <h5>Blog</h5>
+          <a href="../../blog/categoria/governanca/">Governança de IA</a>
           <a href="../../blog/categoria/ai-agents/">Agentes de IA</a>
           <a href="../../blog/categoria/llm/">LLMs</a>
           <a href="../../blog/categoria/dev-tools/">Ferramentas de Dev</a>
@@ -152,6 +164,7 @@
         <div class="foot-col">
           <h5>Site</h5>
           <a href="../../iso-42001/">ISO 42001</a>
+          <a href="../../diagnostico/">Diagnóstico</a>
           <a href="../../sobre/">Sobre</a>
           <a href="../../blog/">Blog</a>
           <a href="../../rss.xml">RSS</a>
@@ -165,7 +178,7 @@
   </div>
 </footer>
 
-<script src="../../assets/site.js?v=4"></script>
+<script src="../../assets/site.js?v=12"></script>
 
 </body>
 </html>

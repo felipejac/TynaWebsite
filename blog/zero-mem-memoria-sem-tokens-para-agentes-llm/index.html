@@ -1,25 +1,34 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Zero-Mem: memória para agentes de LLM sem gastar token — Blog Tyna</title>
+<title>Zero-Mem: memória para agentes de LLM sem gastar token | Tyna</title>
 <meta name="description" content="Uma técnica que separa o acesso à memória da chamada ao modelo e corta até 70% do consumo de tokens sem perder acurácia.">
 <link rel="canonical" href="https://tyna.com.br/blog/zero-mem-memoria-sem-tokens-para-agentes-llm/">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Zero-Mem: memória para agentes de LLM sem gastar token — Blog Tyna">
+<meta property="og:title" content="Zero-Mem: memória para agentes de LLM sem gastar token | Tyna">
 <meta property="og:description" content="Uma técnica que separa o acesso à memória da chamada ao modelo e corta até 70% do consumo de tokens sem perder acurácia.">
 <meta property="og:url" content="https://tyna.com.br/blog/zero-mem-memoria-sem-tokens-para-agentes-llm/">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:image" content="https://tyna.com.br/assets/logo-tyna-dark.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23411E5A%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23F1592B%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
 <link rel="alternate" type="application/rss+xml" title="Blog Tyna" href="https://tyna.com.br/rss.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../assets/styles.css?v=4">
-<link rel="stylesheet" href="../../assets/blog.css?v=4">
+<link rel="stylesheet" href="../../assets/styles.css?v=12">
+<link rel="stylesheet" href="../../assets/blog.css?v=12">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Zero-Mem: memória para agentes de LLM sem gastar token","description":"Uma técnica que separa o acesso à memória da chamada ao modelo e corta até 70% do consumo de tokens sem perder acurácia.","datePublished":"2026-08-05","dateModified":"2026-08-05","inLanguage":"pt-BR","author":{"@type":"Person","name":"Felipe Jacob","url":"https://tyna.com.br/sobre/"},"publisher":{"@type":"Organization","name":"Tyna","url":"https://tyna.com.br","logo":{"@type":"ImageObject","url":"https://tyna.com.br/assets/logo-tyna-dark.png"}},"mainEntityOfPage":"https://tyna.com.br/blog/zero-mem-memoria-sem-tokens-para-agentes-llm/","keywords":"zero-mem, llm, automacao, agentes-de-ia, custo","articleSection":"Agentes de IA","citation":"https://arxiv.org/abs/2607.29377"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://tyna.com.br"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tyna.com.br/blog/"},{"@type":"ListItem","position":3,"name":"Agentes de IA","item":"https://tyna.com.br/blog/categoria/ai-agents/"},{"@type":"ListItem","position":4,"name":"Zero-Mem: memória para agentes de LLM sem gastar token","item":"https://tyna.com.br/blog/zero-mem-memoria-sem-tokens-para-agentes-llm/"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Funciona com qualquer provedor de LLM?","acceptedAnswer":{"@type":"Answer","text":"A técnica é agnóstica de modelo. Funciona com qualquer LLM que exponha interface de chamada de função ou de embeddings — OpenAI, Anthropic ou modelos abertos."}},{"@type":"Question","name":"A qualidade das respostas do agente cai?","acceptedAnswer":{"@type":"Answer","text":"A acurácia se mantém no mesmo patamar dos métodos baseados em token. O modelo recebe os mesmos embeddings de contexto, apenas sem o custo em tokens."}},{"@type":"Question","name":"O que preciso mudar nos meus fluxos de n8n?","acceptedAnswer":{"@type":"Answer","text":"Basta acrescentar um passo que consulta o repositório externo antes de chamar o LLM e outro que grava o resultado de volta. O restante do fluxo continua igual."}}]}</script>
@@ -39,10 +48,10 @@
         <li><a href="../../#trilhas">Trilhas</a></li>
         <li><a href="../../blog/">Blog</a></li>
         <li><a href="../../sobre/">Sobre</a></li>
-        <li><!--email_off--><a href="mailto:contato@tyna.com.br?subject=Agendamento%20reuni%C3%A3o%20Tyna" class="btn btn-primary mobile-cta">Agendar conversa</a><!--/email_off--></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
       </ul>
     </nav>
-    <!--email_off--><a href="mailto:contato@tyna.com.br?subject=Agendamento%20reuni%C3%A3o%20Tyna" class="btn btn-primary" id="navCta">Agendar conversa</a><!--/email_off-->
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
     <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
   </div>
 </header>
@@ -55,6 +64,8 @@
       <h1>Zero-Mem: memória para agentes de LLM sem gastar token</h1>
       <p class="post-meta"><time datetime="2026-08-05">05 de agosto de 2026</time> · Por <a href="../../sobre/">Felipe Jacob</a></p>
       <p class="lead">Uma técnica que separa o acesso à memória da chamada ao modelo e corta até 70% do consumo de tokens sem perder acurácia.</p>
+
+      
 
       <aside class="answer-box"><h2>Resposta curta</h2><p>Zero-Mem é uma técnica que permite a agentes de LLM ler e gravar memória externa sem consumir tokens. Em vez de trazer o contexto dentro do prompt, o agente conversa direto com um repositório estruturado. Nos testes dos autores, o consumo de tokens caiu até 70% em tarefas típicas, com acurácia equivalente à das abordagens baseadas em prompt.</p></aside>
 
@@ -124,7 +135,7 @@
     <div class="wrap">
       <p class="eyebrow">Próximo passo</p>
       <h2>Quer aplicar isso na sua empresa, com governança?</h2>
-      <!--email_off--><a href="mailto:contato@tyna.com.br?subject=Agendamento%20reuni%C3%A3o%20Tyna" class="btn btn-primary">Agendar conversa</a><!--/email_off-->
+      <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary">Agendar conversa</a>
     </div>
   </section>
 </main>
@@ -144,6 +155,7 @@
         </div>
         <div class="foot-col">
           <h5>Blog</h5>
+          <a href="../../blog/categoria/governanca/">Governança de IA</a>
           <a href="../../blog/categoria/ai-agents/">Agentes de IA</a>
           <a href="../../blog/categoria/llm/">LLMs</a>
           <a href="../../blog/categoria/dev-tools/">Ferramentas de Dev</a>
@@ -152,6 +164,7 @@
         <div class="foot-col">
           <h5>Site</h5>
           <a href="../../iso-42001/">ISO 42001</a>
+          <a href="../../diagnostico/">Diagnóstico</a>
           <a href="../../sobre/">Sobre</a>
           <a href="../../blog/">Blog</a>
           <a href="../../rss.xml">RSS</a>
@@ -165,7 +178,7 @@
   </div>
 </footer>
 
-<script src="../../assets/site.js?v=4"></script>
+<script src="../../assets/site.js?v=12"></script>
 
 </body>
 </html>

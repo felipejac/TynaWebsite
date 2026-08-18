@@ -2,7 +2,7 @@
 // Lê content/blog/*.md (markdown + frontmatter) e emite HTML pronto em blog/.
 // Sem dependências: roda com `node tools/build-blog.mjs`.
 
-import { readFileSync, readdirSync, writeFileSync, mkdirSync, rmSync, existsSync } from 'node:fs';
+import { readFileSync, readdirSync, writeFileSync, mkdirSync, rmSync, existsSync, statSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -10,20 +10,54 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SRC = join(ROOT, 'content', 'blog');
 const OUT = join(ROOT, 'blog');
 const SITE = 'https://tyna.com.br';
-// CTA "Agendar conversa": abre o cliente de e-mail do dispositivo com assunto preenchido.
-// Os comentários email_off desligam a ofuscação de e-mail da Cloudflare (Scrape Shield)
-// nesse trecho — sem eles o href vira /cdn-cgi/l/email-protection e só volta a ser mailto:
-// depois que o JS da Cloudflare roda.
-const MAILTO_CTA = 'mailto:contato@tyna.com.br?subject=Agendamento%20reuni%C3%A3o%20Tyna';
+// CTA "Agendar conversa": abre a conversa no WhatsApp, com a mesma mensagem do botão
+// flutuante. Era mailto:, e mailto: não faz nada em máquina sem cliente de e-mail
+// configurado — o caso do C-level que usa Gmail no navegador. O clique morria em
+// silêncio e o lead sumia. O WhatsApp funciona em qualquer dispositivo.
+//
+// Não precisa mais do wrapper email_off: ele existia só para impedir que a ofuscação
+// de e-mail da Cloudflare (Scrape Shield) transformasse o mailto em
+// /cdn-cgi/l/email-protection. Sem mailto no href, não há o que ofuscar.
+const WA_CTA = 'https://wa.me/5511997228945?text=' +
+  encodeURIComponent('Olá, Felipe. Vim pelo site da Tyna e quero falar sobre governança de IA.');
 const ctaAgendar = (cls = '', attrs = '') =>
-  `<!--email_off--><a href="${MAILTO_CTA}" class="btn btn-primary${cls ? ' ' + cls : ''}"${attrs ? ' ' + attrs : ''}>Agendar conversa</a><!--/email_off-->`;
-const ASSET_V = '4';
+  `<a href="${WA_CTA}" target="_blank" rel="noopener" class="btn btn-primary${cls ? ' ' + cls : ''}"${attrs ? ' ' + attrs : ''}>Agendar conversa</a>`;
+const ASSET_V = '12';
 
 const CATEGORIES = {
+  'governanca': 'Governança de IA',
   'ai-agents': 'Agentes de IA',
   'llm': 'LLMs',
   'dev-tools': 'Ferramentas de Dev',
   'automation': 'Automação',
+};
+
+// Texto próprio por categoria. Antes a descrição saía de um molde — "Artigos sobre
+// X: análise prática..." — o que produzia cinco descrições quase idênticas, curtas
+// demais para o SERP, sobre páginas com 47 a 116 palavras de corpo. Página de
+// categoria assim é conteúdo raso e quase-duplicado ao mesmo tempo: o Google escolhe
+// uma e ignora as outras. Com texto próprio, cada uma passa a ter o que ranquear.
+const CAT_META = {
+  'governanca': {
+    desc: 'Governança de IA na prática: política interna, comitê, adequação à LGPD em fluxos de IA e guardrails em agentes que já rodam em produção.',
+    intro: 'Governança de IA é o conjunto de decisões que define até onde a empresa deixa a Inteligência Artificial ir sozinha — e quem responde quando ela erra. Aqui o assunto é tratado de dentro da operação: política que as equipes de fato seguem, comitê com prazo de resposta, adequação à LGPD nos fluxos onde o dado pessoal realmente trafega, e guardrail aplicado em execução, não escrito em documento.',
+  },
+  'ai-agents': {
+    desc: 'Agentes de IA em produção: arquitetura, escopo de autonomia, escalonamento humano e o que costuma quebrar quando o sistema decide sozinho.',
+    intro: 'Agente de IA é diferente de ferramenta de IA: ele decide e age em nome da empresa, sem um leitor humano no meio. Isso muda a pergunta de "quem pode usar" para "até onde ele vai sem um humano". Os textos aqui tratam de arquitetura, escopo de autonomia definido antes da produção, escalonamento com destino e prazo, e trilha de auditoria da decisão.',
+  },
+  'llm': {
+    desc: 'Modelos de linguagem na prática: lançamentos, custo por token, janela de contexto e o que muda de fato no fluxo de quem usa LLM em produção.',
+    intro: 'Todo mês sai um modelo novo, e quase nada disso muda o trabalho de quem já tem algo rodando. O recorte aqui é o do operador: o que mudou em custo, em latência, em janela de contexto e em confiabilidade — e o que é anúncio que não sobrevive ao primeiro caso real.',
+  },
+  'dev-tools': {
+    desc: 'Ferramentas de desenvolvimento com IA: o que cada uma entrega, o que ainda não entrega e como muda o trabalho de quem constrói software.',
+    intro: 'Ferramenta de desenvolvimento com IA envelhece rápido e promete mais do que entrega. Os textos desta seção olham o que a ferramenta faz no fluxo real de trabalho, onde ela ainda exige a pessoa, e o que ela deixa de rastro — inclusive de segredo e de credencial, que é onde a conveniência costuma custar caro.',
+  },
+  'automation': {
+    desc: 'Automação com IA: integração entre sistemas, orquestração de fluxos e o ponto em que automatizar deixa de compensar sem governança.',
+    intro: 'Automatizar com IA é fácil de começar e difícil de sustentar. O que separa um fluxo que dura de um que é desligado em três meses raramente é o modelo: é integração com os sistemas que já existem, tratamento do caso que foge do previsto, e alguém conseguindo explicar depois o que a automação fez.',
+  },
 };
 
 /* ---------- frontmatter ---------- */
@@ -106,11 +140,22 @@ function extractFaq(md) {
 const fmtDate = iso => new Date(iso + 'T12:00:00Z')
   .toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric', timeZone: 'UTC' });
 
-function shell({ title, description, canonical, head = '', body, depth }) {
+// `image` é opcional e vale o caminho relativo à raiz do site (ex.: assets/blog/x.jpg).
+// Sem ele o compartilhamento cai no logo, que é o padrão histórico do blog.
+function shell({ title, description, canonical, head = '', body, depth, image }) {
   const up = '../'.repeat(depth);
   return `<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${escAttr(title)}</title>
@@ -121,9 +166,9 @@ function shell({ title, description, canonical, head = '', body, depth }) {
 <meta property="og:description" content="${escAttr(description)}">
 <meta property="og:url" content="${canonical}">
 <meta property="og:locale" content="pt_BR">
-<meta property="og:image" content="${SITE}/assets/logo-tyna-dark.png">
+<meta property="og:image" content="${SITE}/${image || 'assets/logo-tyna-dark.png'}">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23411E5A%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23F1592B%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
 <link rel="alternate" type="application/rss+xml" title="Blog Tyna" href="${SITE}/rss.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -173,6 +218,7 @@ ${body}
         <div class="foot-col">
           <h5>Site</h5>
           <a href="${up}iso-42001/">ISO 42001</a>
+          <a href="${up}diagnostico/">Diagnóstico</a>
           <a href="${up}sobre/">Sobre</a>
           <a href="${up}blog/">Blog</a>
           <a href="${up}rss.xml">RSS</a>
@@ -215,6 +261,22 @@ const card = (p, up) => `<article class="post-card">
     <h3>${esc(p.title)}</h3>
     <p class="desc">${esc(p.description)}</p>
     <time datetime="${p.pubDate}">${fmtDate(p.pubDate)}</time>
+  </a>
+</article>`;
+
+// Card de destaque: ocupa a largura toda no topo do índice, com a imagem do post.
+// Só o índice geral usa — nas páginas de categoria o destaque perderia o sentido de
+// "o que ler primeiro no blog".
+const cardDestaque = (p, up) => `<article class="post-card post-card-destaque">
+  <a class="post-card-link" href="${up}blog/${p.slug}/">
+    ${p.image ? `<span class="destaque-img"><img src="${up}${p.image}" alt="${escAttr(p.imageAlt || p.title)}" width="1200" height="630" loading="eager" decoding="async"></span>` : ''}
+    <span class="destaque-txt">
+      <span class="tag tag-destaque">Em destaque</span>
+      <span class="tag">${CATEGORIES[p.category] || p.category}</span>
+      <h2>${esc(p.title)}</h2>
+      <p class="desc">${esc(p.description)}</p>
+      <time datetime="${p.pubDate}">${fmtDate(p.pubDate)}</time>
+    </span>
   </a>
 </article>`;
 
@@ -267,6 +329,8 @@ for (const p of posts) {
       <p class="post-meta"><time datetime="${p.pubDate}">${fmtDate(p.pubDate)}</time> · Por <a href="../../sobre/">Felipe Jacob</a></p>
       <p class="lead">${esc(p.description)}</p>
 
+      ${p.image ? `<figure class="post-hero"><img src="../../${p.image}" alt="${escAttr(p.imageAlt || p.title)}" width="1200" height="630" loading="eager" decoding="async"></figure>` : ''}
+
       ${p.aeoSummary ? `<aside class="answer-box"><h2>Resposta curta</h2><p>${esc(p.aeoSummary)}</p></aside>` : ''}
 
       <div class="post-body">
@@ -298,12 +362,15 @@ ${mdToHtml(p.body)}
 
   mkdirSync(join(OUT, p.slug), { recursive: true });
   writeFileSync(join(OUT, p.slug, 'index.html'),
-    shell({ title: `${p.title} — Blog Tyna`, description: p.description, canonical, head, body, depth: 2 }));
+    // " | Tyna" (7 chars) em vez do antigo " — Blog Tyna" (12 chars): o sufixo mais
+    // longo empurrava 22 dos 37 titulos para alem de 60 caracteres, o limite que
+    // Google e Bing toleram sem cortar o titulo no resultado de busca.
+    shell({ title: `${p.title} | Tyna`, description: p.description, canonical, head, body, depth: 2, image: p.image }));
 }
 
 /* ---------- índice e categorias ---------- */
 
-function listing({ title, description, canonical, heading, sub, items, depth, active }) {
+function listing({ title, description, canonical, heading, sub, items, depth, active, intro }) {
   const up = '../'.repeat(depth);
   const head = ld({
     '@context': 'https://schema.org', '@type': 'Blog',
@@ -313,6 +380,11 @@ function listing({ title, description, canonical, heading, sub, items, depth, ac
       '@type': 'BlogPosting', headline: p.title, url: `${SITE}/blog/${p.slug}/`, datePublished: p.pubDate,
     })),
   });
+
+  // O destaque só aparece no índice geral. Numa página de categoria ele competiria
+  // com o filtro que a pessoa acabou de aplicar.
+  const destaque = active ? null : items.find(p => p.destaque === 'true');
+  const grade = destaque ? items.filter(p => p !== destaque) : items;
 
   const body = `<main id="top">
   <section class="hero blog-hero">
@@ -324,11 +396,13 @@ function listing({ title, description, canonical, heading, sub, items, depth, ac
         <a href="${up}blog/"${!active ? ' class="on"' : ''}>Todos</a>
         ${activeCats().map(([s, n]) => `<a href="${up}blog/categoria/${s}/"${active === s ? ' class="on"' : ''}>${n}</a>`).join('\n        ')}
       </nav>
+      ${intro ? `<p class="cat-intro">${esc(intro)}</p>` : ''}
     </div>
   </section>
   <section>
     <div class="wrap">
-      <div class="post-grid">${items.map(p => card(p, up)).join('\n')}</div>
+      ${destaque ? cardDestaque(destaque, up) : ''}
+      <div class="post-grid">${grade.map(p => card(p, up)).join('\n')}</div>
     </div>
   </section>
 </main>`;
@@ -349,25 +423,45 @@ for (const [slug, name] of Object.entries(CATEGORIES)) {
   const items = posts.filter(p => p.category === slug);
   if (!items.length) continue;
   mkdirSync(join(OUT, 'categoria', slug), { recursive: true });
+  const meta = CAT_META[slug] || {};
   writeFileSync(join(OUT, 'categoria', slug, 'index.html'), listing({
     title: `${name} — Blog Tyna`,
-    description: `Artigos sobre ${name.toLowerCase()}: análise prática para equipes que colocam IA em produção.`,
+    description: meta.desc || `Artigos sobre ${name.toLowerCase()}: análise prática para equipes que colocam IA em produção.`,
     canonical: `${SITE}/blog/categoria/${slug}/`,
     heading: name,
-    sub: `Tudo que publicamos sobre ${name.toLowerCase()}.`,
+    sub: `Tudo que a Tyna publicou sobre ${name.toLowerCase()}.`,
+    intro: meta.intro,
     items, depth: 3, active: slug,
   }));
 }
 
 /* ---------- sitemap, rss, robots ---------- */
 
+// lastmod das páginas estáticas sai da data de modificação do próprio arquivo, e o das
+// listagens sai do post mais recente que elas exibem. Carimbar a data do build em tudo
+// faria o lastmod mudar a cada publicação sem o conteúdo ter mudado — e o Google passa
+// a ignorar o campo quando ele se comporta assim.
+const mtime = rel => {
+  try { return statSync(join(ROOT, rel)).mtime.toISOString().slice(0, 10); }
+  catch { return undefined; }
+};
+const maisRecente = lista => lista.map(p => p.pubDate).sort().pop();
+
 const staticPages = [
-  { loc: `${SITE}/`, pri: '1.0', freq: 'weekly' },
-  { loc: `${SITE}/iso-42001/`, pri: '0.9', freq: 'monthly' },
-  { loc: `${SITE}/sobre/`, pri: '0.8', freq: 'monthly' },
-  { loc: `${SITE}/blog/`, pri: '0.9', freq: 'daily' },
+  { loc: `${SITE}/`, pri: '1.0', freq: 'weekly', mod: mtime('index.html') },
+  { loc: `${SITE}/iso-42001/`, pri: '0.9', freq: 'monthly', mod: mtime('iso-42001/index.html') },
+  { loc: `${SITE}/diagnostico/`, pri: '0.9', freq: 'monthly', mod: mtime('diagnostico/index.html') },
+  { loc: `${SITE}/shadow-ai/`, pri: '0.9', freq: 'monthly', mod: mtime('shadow-ai/index.html') },
+  // a data de modificação importa mais aqui do que nas outras: a página afirma um status
+  // de tramitação com data, e o lastmod é o que sinaliza ao Google que ela foi reconferida
+  { loc: `${SITE}/pl-2338/`, pri: '0.9', freq: 'monthly', mod: mtime('pl-2338/index.html') },
+  { loc: `${SITE}/sobre/`, pri: '0.8', freq: 'monthly', mod: mtime('sobre/index.html') },
+  { loc: `${SITE}/blog/`, pri: '0.9', freq: 'daily', mod: maisRecente(posts) },
   ...Object.keys(CATEGORIES).filter(s => posts.some(p => p.category === s))
-    .map(s => ({ loc: `${SITE}/blog/categoria/${s}/`, pri: '0.6', freq: 'weekly' })),
+    .map(s => ({
+      loc: `${SITE}/blog/categoria/${s}/`, pri: '0.6', freq: 'weekly',
+      mod: maisRecente(posts.filter(p => p.category === s)),
+    })),
 ];
 
 writeFileSync(join(ROOT, 'sitemap.xml'),
@@ -375,7 +469,7 @@ writeFileSync(join(ROOT, 'sitemap.xml'),
 <urlset xmlns="http://www.w3.org/1999/xhtml/sitemap" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 </urlset>`.replace(/[\s\S]*/, () => {
     const rows = [
-      ...staticPages.map(p => `  <url><loc>${p.loc}</loc><changefreq>${p.freq}</changefreq><priority>${p.pri}</priority></url>`),
+      ...staticPages.map(p => `  <url><loc>${p.loc}</loc>${p.mod ? `<lastmod>${p.mod}</lastmod>` : ''}<changefreq>${p.freq}</changefreq><priority>${p.pri}</priority></url>`),
       ...posts.map(p => `  <url><loc>${SITE}/blog/${p.slug}/</loc><lastmod>${p.pubDate}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>${p.originalUrl ? `<xhtml:link rel="alternate" hreflang="pt-BR" href="${SITE}/blog/${p.slug}/"/><xhtml:link rel="alternate" hreflang="en" href="${p.originalUrl}"/>` : ''}</url>`),
     ];
     return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${rows.join('\n')}\n</urlset>\n`;
@@ -403,9 +497,16 @@ ${posts.slice(0, 30).map(p => `  <item>
 `);
 
 // robots.txt NÃO é gerado de propósito: a Cloudflare serve um robots.txt
-// gerenciado na borda que sobrescreve qualquer arquivo do origin. A política
-// atual já bloqueia crawlers de treinamento, libera os de busca/citação
-// (OAI-SearchBot, PerplexityBot, Googlebot) e anuncia este sitemap.
+// gerenciado na borda que sobrescreve qualquer arquivo do origin.
 // Para alterar: dash Cloudflare › AI Crawl Control.
+//
+// Conferido em produção em 12/08/2026:
+//  - bloqueados (crawlers de treinamento): GPTBot, ClaudeBot, Google-Extended,
+//    CCBot, Bytespider, Amazonbot, Applebot-Extended, meta-externalagent
+//  - liberados (busca e citação): Googlebot, Bingbot, OAI-SearchBot,
+//    ChatGPT-User, Claude-User, PerplexityBot
+//  - NÃO existe linha `Sitemap:` — o comentário anterior aqui dizia que existia,
+//    e estava errado. O Google recebe o sitemap pelo Search Console; Bing e outros
+//    o descobririam pelo robots.txt, então esse canal está em falta.
 
 console.log(`OK — ${posts.length} posts | ${Object.keys(CATEGORIES).filter(s => posts.some(p => p.category === s)).length} categorias | sitemap + rss`);
