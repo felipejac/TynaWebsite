@@ -64,12 +64,85 @@ o fluxo for linear e sem ramificação condicional, o grafo não paga o próprio
 | **API de busca** (Brave ou Tavily) | descoberta de sinal de uso de IA | API oficial, não raspagem de SERP |
 | **Site da empresa** | confirmação de sinal e trecho citável | `robots.txt` respeitado, 2s entre requisições, UA identificado |
 
-**Limitação conhecida:** a BrasilAPI resolve um CNPJ por vez — ela não busca por
-município e CNAE. Para varredura por praça, a fonte é o dump de dados abertos da Receita
-(`dados.gov.br`), carregado uma vez num banco local. Enquanto esse bootstrap não existe,
-a descoberta entra pelo domínio (busca web) e o CNPJ é resolvido depois. As empresas
-descobertas por domínio recebem CNPJ sintético começando em `00`, que não existe em CNPJ
-válido — assim ninguém confunde candidato com empresa identificada.
+---
+
+## A base local do CNPJ (bootstrap)
+
+A BrasilAPI resolve um CNPJ por vez e não busca por município e CNAE. O dump dos Dados
+Abertos da Receita busca — depois de carregado, varrer as três praças vira uma consulta
+SQL.
+
+```bash
+prospector bootstrap --status          # o que já foi carregado, e a competência publicada
+prospector bootstrap --arquivos 1      # ensaio com 10% do volume
+prospector bootstrap                   # carga completa
+```
+
+**A fonte mudou de lugar e não está documentada.** Os caminhos que circulam em tutorial
+e em projeto de GitHub (`arquivos.receitafederal.gov.br/dados/cnpj/dados_abertos_cnpj/...`)
+respondem **404** hoje. A Receita publica por link compartilhado do Nextcloud, e o acesso
+programático é o WebDAV público:
+
+```
+https://arquivos.receitafederal.gov.br/public.php/webdav/<AAAA-MM>/<arquivo>.zip
+```
+
+com Basic auth usando o token do compartilhamento como usuário e senha vazia. Confirmado
+por `PROPFIND` em 18/08/2026; competência mais recente disponível: **2026-08**. Se a
+Receita trocar o link, o sintoma será 401 em vez de 404 — e só o `TOKEN` em
+`bootstrap.py` precisa mudar.
+
+**Volume, medido numa carga real de 19/08/2026** com `--arquivos 1`, ou seja um décimo
+do dump:
+
+| | |
+| --- | --- |
+| linhas lidas | **30.008.723** |
+| no recorte (3 praças + CNAE + situação ativa) | 527.519 |
+| gravadas | **345.674** — São Paulo 309.024, Campinas 23.033, Sorocaba 13.617 |
+| matrizes | 341.212 |
+| com capital ≥ R$ 10 mi | 1.965 |
+| tempo | ~11 minutos |
+
+Extrapolando, a carga completa fica na ordem de **3,5 milhões de estabelecimentos** e
+~28 GB de download. O carregador baixa um ZIP por vez, filtra durante a leitura e apaga o
+arquivo antes do próximo: o pico de disco é o maior ZIP (2,2 GB) e nada passa por memória
+de uma vez. `--arquivos 1` basta para ensaiar.
+
+A diferença entre 527.519 no recorte e 345.674 gravados é esperada com `--arquivos 1`: o
+CNPJ básico de parte dos estabelecimentos está em outro pedaço do arquivo de Empresas, e
+gravar sem razão social só sujaria a base.
+
+**A pegadinha que derruba quem faz isso pela primeira vez:** o campo de município no
+arquivo de Estabelecimentos é o **código da Receita, não o do IBGE**. São Paulo é `7107`
+para a Receita e `3550308` para o IBGE. A tradução sai do próprio `Municipios.zip`,
+casada por nome — conferido na carga real: Campinas `6291`, São Paulo `7107`,
+Sorocaba `7145`.
+
+**Minimização na carga, e é deliberada:** o arquivo de Estabelecimentos traz
+`correio_eletronico`, telefone e fax, e o carregador **não lê nenhum dos três**. Em
+empresa pequena esses campos são o e-mail e o celular pessoal do sócio. São dados
+pessoais, não são necessários para qualificar empresa, e coletar "porque veio junto" é o
+oposto de minimização.
+
+**Matriz e filial.** A base traz estabelecimentos, então uma agência do Itaú em Campinas
+aparece como empresa de Campinas — é Campinas para efeito de endereço, mas quem decide
+sobre governança de IA está na matriz, que não está nesta praça. Por isso
+`buscar_cnpj_local(..., apenas_matriz=True)` costuma ser o que o ICP quer. Na carga de
+ensaio, 341.212 dos 345.674 registros são matriz.
+
+### Domínio → CNPJ, e o que isso ainda não resolve
+
+O dump não traz o site da empresa. O casamento é heurístico, pela marca:
+`magazineluiza.com.br` → `magazineluiza` → casa com `MAGAZINE LUIZA S/A` depois de
+remover espaço e pontuação. Funciona bem para marca forte, falha em holding cuja razão
+social não parece com o site, e recusa decidir quando duas empresas casam com a mesma
+marca. Todo casamento registra um incidente `casamento_heuristico` — é fila de
+conferência humana, não fato.
+
+Empresa descoberta por domínio e ainda não casada recebe CNPJ sintético começando em
+`00`, que não existe em CNPJ válido — assim ninguém confunde candidato com empresa
+identificada.
 
 ---
 
@@ -143,7 +216,8 @@ outubro não são comparáveis e ninguém percebe.
   validado, mas o preenchimento é manual ou por fonte oficial — é a decisão da seção
   anterior, não uma pendência.
 - Não envia nada. Nenhum e-mail, nenhuma mensagem, nenhum formulário preenchido.
-- Não resolve domínio → CNPJ com confiabilidade; depende do bootstrap do dump da Receita.
+- Não resolve domínio → CNPJ com confiabilidade — o casamento por marca é heurístico
+  e fica marcado para conferência humana.
 - Não escreve copy. É a fase 2.
 
 ## Estrutura
@@ -158,6 +232,7 @@ prospector/
 │   ├── extract.py      ← o único nó com LLM, com escopo de autonomia escrito
 │   ├── storage.py      ← SQLite; empresa e pessoa em tabelas separadas
 │   ├── harness.py      ← o loop, os guardrails por nó e o botão de parada
+│   ├── bootstrap.py    ← carga local dos Dados Abertos do CNPJ da Receita
 │   └── cli.py
-└── tests/              ← 54 testes, nenhum toca rede
+└── tests/              ← 68 testes, nenhum toca rede
 ```

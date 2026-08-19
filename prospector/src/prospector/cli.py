@@ -33,6 +33,12 @@ def main(argv: list[str] | None = None) -> int:
 
     sub.add_parser("purgar", help="apaga dado pessoal com retenção vencida")
 
+    b = sub.add_parser("bootstrap", help="carrega a base local do CNPJ (Dados Abertos da Receita)")
+    b.add_argument("--mes", help="competência AAAA-MM; padrão é a mais recente publicada")
+    b.add_argument("--arquivos", type=int, default=10,
+                   help="quantos dos 10 pedaços de cada tabela processar (use 1 para ensaiar)")
+    b.add_argument("--status", action="store_true", help="só mostra o que já foi carregado")
+
     a = p.parse_args(argv)
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
     repo = Repositorio(settings.banco)
@@ -62,6 +68,24 @@ def main(argv: list[str] | None = None) -> int:
         if a.cmd == "opor":
             n = repo.registrar_oposicao(email=a.email, cnpj=a.cnpj)
             print(f"{n} registro(s) marcado(s) com oposição e contato removido")
+            return 0
+
+        if a.cmd == "bootstrap":
+            from .bootstrap import carregar, competencia_mais_recente
+
+            if a.status:
+                linhas = repo.bootstrap_status()
+                if not linhas:
+                    print("nenhuma carga feita — rode `prospector bootstrap`")
+                    print(f"competência mais recente publicada: {competencia_mais_recente()}")
+                    return 0
+                for x in linhas:
+                    print(f"{x['competencia']}  {x['aceitos']:>7} aceitos de {x['lidos']:>10} lidos"
+                          f"  ({x['carregado_em'][:10]})")
+                return 0
+            carga = carregar(repo, mes=a.mes, arquivos=a.arquivos)
+            print(f"competência {carga.mes}: {carga.aceitos} empresa(s) no recorte, "
+                  f"de {carga.lidos} linha(s) lidas ({carga.taxa:.4f}%)")
             return 0
 
         if a.cmd == "purgar":

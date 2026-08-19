@@ -135,6 +135,7 @@ class Prospector:
                 continue
 
             empresa = self._empresa_provisoria(dominio, url_descoberta, sinais)
+            empresa = self._enriquecer_pela_base_local(empresa, s)
             analise = self.extrator.analisar(empresa, paginas, s, self.gr)
             if analise:
                 empresa = Extrator.aplicar(empresa, analise)
@@ -216,6 +217,43 @@ class Prospector:
         return s
 
     # ------------------------------------------------------------------ #
+
+    def _enriquecer_pela_base_local(self, empresa: CompanyData, s: RunState) -> CompanyData:
+        """Troca o CNPJ sintético pelo real quando a base carregada da Receita casa.
+
+        O casamento é por marca e falha em holding cuja razão social não parece com o
+        site — por isso entra com confiança reduzida e registra um incidente do tipo
+        `casamento_heuristico`, que é a fila de conferência humana, não um fato.
+        """
+        if not empresa.dominio:
+            return empresa
+        linha = self.repo.casar_por_dominio(empresa.dominio)
+        if linha is None:
+            return empresa
+
+        from .models import Porte
+
+        d = dict(linha)
+        porte = {"micro": Porte.ME, "pequena": Porte.EPP}.get(d.get("porte") or "", Porte.DESCONHECIDO)
+        capital = d.get("capital_social")
+        if porte is Porte.DESCONHECIDO and capital:
+            porte = Porte.GRANDE if capital >= 10_000_000 else (
+                Porte.MEDIA if capital >= 1_000_000 else Porte.DESCONHECIDO)
+
+        atualizada = empresa.model_copy(update={
+            "cnpj": d["cnpj"],
+            "razao_social": d["razao_social"],
+            "nome_fantasia": d.get("nome_fantasia"),
+            "municipio_ibge": d["municipio_ibge"],
+            "municipio": d["municipio"],
+            "cnae_principal": d["cnae"],
+            "porte": porte,
+            "capital_social": capital,
+            "situacao_cadastral": "ATIVA",  # a carga só aceita situação ativa
+        })
+        s.registrar(Etapa.EXTRAIR, "casamento_heuristico",
+                    f"{empresa.dominio} → {d['razao_social']} (via {d['via']})", d["cnpj"])
+        return atualizada
 
     @staticmethod
     def _empresa_provisoria(dominio: str, url: str, sinais) -> CompanyData:

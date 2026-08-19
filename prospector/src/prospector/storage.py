@@ -72,6 +72,35 @@ CREATE TABLE IF NOT EXISTS leads (
 CREATE INDEX IF NOT EXISTS ix_leads_retencao ON leads(retencao_ate);
 CREATE INDEX IF NOT EXISTS ix_leads_empresa  ON leads(cnpj_empresa);
 
+-- Base local dos Dados Abertos do CNPJ da Receita, recortada nas três praças.
+-- É o que permite varrer por município e CNAE sem depender de API que resolve um por vez.
+-- Não guarda e-mail nem telefone do arquivo de Estabelecimentos: em empresa pequena esses
+-- campos são dado pessoal do sócio, e o pipeline não precisa deles para qualificar empresa.
+CREATE TABLE IF NOT EXISTS cnpj_local (
+    cnpj           TEXT PRIMARY KEY,
+    cnpj_basico    TEXT NOT NULL,
+    razao_social   TEXT NOT NULL,
+    nome_fantasia  TEXT,
+    municipio_ibge TEXT NOT NULL,
+    municipio      TEXT NOT NULL,
+    cnae           TEXT NOT NULL,
+    porte          TEXT,
+    capital_social REAL,
+    matriz         INTEGER NOT NULL DEFAULT 1,
+    data_inicio    TEXT,
+    competencia    TEXT NOT NULL
+);
+CREATE INDEX IF NOT EXISTS ix_cnpj_local_praca ON cnpj_local(municipio_ibge, cnae);
+CREATE INDEX IF NOT EXISTS ix_cnpj_local_porte ON cnpj_local(porte, capital_social DESC);
+
+CREATE TABLE IF NOT EXISTS bootstrap (
+    competencia  TEXT PRIMARY KEY,
+    lidos        INTEGER NOT NULL,
+    aceitos      INTEGER NOT NULL,
+    arquivos     TEXT NOT NULL,
+    carregado_em TEXT NOT NULL
+);
+
 -- Trilha de execução: uma linha por rodada, para comparar rodadas e auditar custo.
 CREATE TABLE IF NOT EXISTS execucoes (
     run_id       TEXT PRIMARY KEY,
@@ -155,6 +184,34 @@ class Repositorio:
         )
         self.con.commit()
 
+    def salvar_cnpj_local(self, **c) -> None:
+        self.con.execute(
+            """INSERT INTO cnpj_local (cnpj, cnpj_basico, razao_social, nome_fantasia,
+                   municipio_ibge, municipio, cnae, porte, capital_social, matriz,
+                   data_inicio, competencia)
+               VALUES (:cnpj,:cnpj_basico,:razao_social,:nome_fantasia,:municipio_ibge,
+                       :municipio,:cnae,:porte,:capital_social,:matriz,:data_inicio,:competencia)
+               ON CONFLICT(cnpj) DO UPDATE SET
+                   razao_social=excluded.razao_social, nome_fantasia=excluded.nome_fantasia,
+                   porte=excluded.porte, capital_social=excluded.capital_social,
+                   competencia=excluded.competencia""",
+            {**c, "matriz": int(c.get("matriz", True))},
+        )
+
+    def registrar_bootstrap(self, competencia: str, lidos: int, aceitos: int,
+                            arquivos: list[str]) -> None:
+        from datetime import datetime, timezone
+
+        self.con.execute(
+            """INSERT INTO bootstrap (competencia, lidos, aceitos, arquivos, carregado_em)
+               VALUES (?,?,?,?,?)
+               ON CONFLICT(competencia) DO UPDATE SET
+                   lidos=excluded.lidos, aceitos=excluded.aceitos,
+                   arquivos=excluded.arquivos, carregado_em=excluded.carregado_em""",
+            (competencia, lidos, aceitos, json.dumps(arquivos), datetime.now(timezone.utc).isoformat()),
+        )
+        self.con.commit()
+
     # ---- leitura ----
 
     def ja_conhecida(self, cnpj: str) -> bool:
@@ -170,6 +227,69 @@ class Repositorio:
             args = (faixa,)
         sql += "ORDER BY p.pontos DESC LIMIT ?"
         return self.con.execute(sql, (*args, limite)).fetchall()
+
+    def bootstrap_status(self) -> list[sqlite3.Row]:
+        return self.con.execute(
+            "SELECT competencia, lidos, aceitos, carregado_em FROM bootstrap "
+            "ORDER BY competencia DESC"
+        ).fetchall()
+
+    def buscar_cnpj_local(self, municipios_ibge: tuple[str, ...],
+                          prefixos_cnae: tuple[str, ...] = (),
+                          capital_minimo: float | None = None,
+                          apenas_matriz: bool = False,
+                          limite: int = 200) -> list[sqlite3.Row]:
+        """Varredura firmográfica que a API pública não faz: município + CNAE + porte.
+
+        Ordena por capital social porque, na ausência de classificação de porte acima de
+        EPP na base da Receita, é o melhor proxy de tamanho disponível.
+
+        `apenas_matriz` costuma ser o que se quer para o ICP: a base traz estabelecimentos,
+        então uma agência do Itaú em Campinas aparece como empresa de Campinas. Ela é
+        Campinas para efeito de endereço, mas quem decide sobre governança de IA está na
+        matriz — e a matriz não está nesta praça.
+        """
+        sql = ["SELECT * FROM cnpj_local WHERE municipio_ibge IN (%s)"
+               % ",".join("?" * len(municipios_ibge))]
+        args: list = list(municipios_ibge)
+        if prefixos_cnae:
+            sql.append("AND (" + " OR ".join("cnae LIKE ?" for _ in prefixos_cnae) + ")")
+            args += [f"{p}%" for p in prefixos_cnae]
+        if capital_minimo is not None:
+            sql.append("AND capital_social >= ?")
+            args.append(capital_minimo)
+        if apenas_matriz:
+            sql.append("AND matriz = 1")
+        sql.append("ORDER BY capital_social DESC NULLS LAST LIMIT ?")
+        args.append(limite)
+        return self.con.execute(" ".join(sql), args).fetchall()
+
+    def casar_por_dominio(self, dominio: str) -> sqlite3.Row | None:
+        """Tenta resolver domínio → CNPJ pela marca. É heurística, e é assumida como tal.
+
+        `magazineluiza.com.br` → "magazineluiza" → casa com "MAGAZINE LUIZA S/A" depois de
+        remover espaço e pontuação. Funciona bem para marca forte e falha em holding com
+        razão social que não parece com o site — por isso o resultado entra com confiança
+        reduzida e fica marcado para confirmação humana, em vez de virar fato.
+
+        O dump da Receita não traz domínio; enquanto não houver fonte que traga, é isto
+        ou nada.
+        """
+        marca = dominio.split(".")[0].lower()
+        if len(marca) < 4:  # sigla curta gera falso positivo demais
+            return None
+        cur = self.con.execute(
+            """SELECT *, 'fantasia' AS via FROM cnpj_local
+               WHERE replace(replace(replace(lower(coalesce(nome_fantasia,'')),' ',''),'.',''),'-','') = ?
+               UNION ALL
+               SELECT *, 'razao' AS via FROM cnpj_local
+               WHERE replace(replace(replace(lower(razao_social),' ',''),'.',''),'-','') LIKE ?
+               LIMIT 2""",
+            (marca, marca + "%"),
+        )
+        linhas = cur.fetchall()
+        # Duas empresas casando com a mesma marca significa ambiguidade: melhor não decidir.
+        return linhas[0] if len(linhas) == 1 else None
 
     # ---- LGPD em operação ----
 
