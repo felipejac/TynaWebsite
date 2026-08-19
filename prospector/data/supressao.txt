@@ -1,0 +1,4 @@
+# Lista de supressão — oposição do titular (art. 18 da LGPD) e bloqueios internos.
+# Uma entrada por linha. E-mail, domínio ou CNPJ (só dígitos). '#' comenta.
+# Consultada ANTES de armazenar e antes de qualquer contato.
+tyna.com.br

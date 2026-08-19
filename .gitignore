@@ -1,2 +1,9 @@
 dist/
 .wrangler/
+
+# Fase 1 do motor de prospecção: banco local e segredos não versionam
+prospector/data/*.db
+prospector/.env
+prospector/.venv/
+prospector/**/__pycache__/
+prospector/.pytest_cache/
