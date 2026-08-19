@@ -65,6 +65,18 @@ comentário, não dispara e-mail.
 Primeira execução, 18/08/2026: **0 link seguido, 0 nofollow, 24 pendentes, 5 não
 verificáveis por robô.** É a base zero contra a qual todo o resto vai ser comparado.
 
+> **Correção importante, do mesmo dia.** A leitura no Semrush mostrou que o domínio tem
+> **94 domínios de referência e 293 backlinks — todos spam**, de rede de venda de PBN,
+> com 78% em Singapura e 95% dos domínios em Authority Score 0–10. Não contradiz o zero
+> acima: são coisas diferentes. Este script mede **link editorial**, e continua não
+> havendo nenhum. O que existe é lixo em volta, anterior à reconstrução do site (primeiro
+> registro em 26/06/2025) e ainda chegando. Detalhe e o que fazer:
+> [analise-seo-semrush.md](analise-seo-semrush.md), seção 2.
+>
+> Isso muda uma coisa nesta lista: a meta deixa de ser vaga. Para competir na SERP de
+> `pl 2338`, o Semrush estima **15 domínios de referência** — é esse o número a
+> perseguir.
+
 ---
 
 ## 3. O mapa de canais, ranqueado pelo ICP

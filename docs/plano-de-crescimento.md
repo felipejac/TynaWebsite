@@ -518,6 +518,23 @@ existem para dar motivo à mensagem, não para substituí-la.
 E segue valendo o que está na seção 3: **LinkedIn Company Page e Google Business Profile
 não existem.** Sem eles não há superfície onde esse conteúdo circule sozinho.
 
+### Leitura de Semrush — 18/08/2026
+
+Primeira análise com dado de terceiro: [analise-seo-semrush.md](analise-seo-semrush.md).
+Três coisas que mudam prioridade:
+
+1. **O domínio tem 94 domínios de referência, todos spam** — rede de venda de PBN,
+   anterior à reconstrução. Não é "zero backlinks", é pior: zero editorial com lixo em
+   volta. Ação: Backlink Audit e conferir ação manual no Search Console.
+2. **Falta a página do termo-cabeça.** `governança de ia` tem 260 buscas/mês, KD 26
+   ("Easy"), e a sexta posição da SERP é ocupada por uma página com autoridade **zero**.
+   São sete guias publicados e nenhum ataca o termo que nomeia a categoria.
+3. **`/pl-2338/` mira o maior cluster do mercado** (4.330 buscas/mês somando variantes),
+   mas o título lidera com "Marco Legal da IA", que tem 90. Correção de uma linha.
+
+Duas afirmações minhas foram corrigidas ali: LGPD+IA é cluster pequeno (240/mês, não
+maior que governança de IA), e "política de uso de IA" tem 20 buscas/mês.
+
 ### O que está no ar, e desde quando
 
 Em 18/08/2026 o site foi publicado com as quatro páginas-pilar novas, o hub de guias
