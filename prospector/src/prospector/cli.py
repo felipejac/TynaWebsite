@@ -33,6 +33,12 @@ def main(argv: list[str] | None = None) -> int:
 
     sub.add_parser("purgar", help="apaga dado pessoal com retenção vencida")
 
+    sl = sub.add_parser("shortlist", help="lista curta de leads, com sinal lido do site")
+    sl.add_argument("--limite", type=int, default=120, help="candidatos do pré-filtro")
+    sl.add_argument("--capital-minimo", type=float, default=1_000_000.0)
+    sl.add_argument("--praca", action="append", choices=[x.name.lower() for x in Praca])
+    sl.add_argument("--saida", default="data/leads-quentes.md")
+
     b = sub.add_parser("bootstrap", help="carrega a base local do CNPJ (Dados Abertos da Receita)")
     b.add_argument("--mes", help="competência AAAA-MM; padrão é a mais recente publicada")
     b.add_argument("--arquivos", type=int, default=10,
@@ -68,6 +74,45 @@ def main(argv: list[str] | None = None) -> int:
         if a.cmd == "opor":
             n = repo.registrar_oposicao(email=a.email, cnpj=a.cnpj)
             print(f"{n} registro(s) marcado(s) com oposição e contato removido")
+            return 0
+
+        if a.cmd == "shortlist":
+            import uuid
+            from pathlib import Path
+
+            from .guardrails import Guardrails, ListaDeSupressao, Orcamento, PolidezHTTP
+            from .icp import CNAE_GATILHO_FORTE, VERSAO
+            from .models import RunState
+            from .shortlist import Shortlist, relatorio
+
+            pracas = tuple(Praca[n.upper()] for n in (a.praca or [])) or tuple(Praca)
+            gr = Guardrails(
+                orcamento=Orcamento(max_requisicoes_http=20_000, max_duracao_s=7200,
+                                    max_chamadas_llm=0, max_custo_usd=0.0),
+                polidez=PolidezHTTP(intervalo_min_s=settings.intervalo_http_s),
+                supressao=ListaDeSupressao.de_arquivo(settings.supressao),
+            )
+            estado = RunState(run_id=uuid.uuid4().hex[:12], icp_versao=VERSAO)
+            prefixos = tuple(sorted(CNAE_GATILHO_FORTE))
+            r = Shortlist(repo, gr).executar(
+                estado,
+                municipios=tuple(p.value for p in pracas),
+                prefixos_cnae=prefixos,
+                capital_minimo=a.capital_minimo,
+                limite_candidatos=a.limite,
+            )
+            comp = repo.bootstrap_status()
+            texto = relatorio(r, {
+                "competencia": comp[0]["competencia"] if comp else "?",
+                "filtro": (f"matriz ativa em {', '.join(p.nome for p in pracas)}, "
+                           f"capital social ≥ R$ {a.capital_minimo/1e6:.0f} mi, "
+                           f"CNAE de gatilho forte (financeiro, seguros, saúde, educação, varejo, atacado)"),
+            })
+            saida = Path(a.saida)
+            saida.parent.mkdir(parents=True, exist_ok=True)
+            saida.write_text(texto, encoding="utf-8")
+            print(f"{r.dominios_resolvidos} de {r.candidatos} domínios resolvidos · "
+                  f"{r.com_sinal} com sinal · relatório em {saida}")
             return 0
 
         if a.cmd == "bootstrap":

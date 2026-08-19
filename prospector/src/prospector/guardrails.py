@@ -49,11 +49,15 @@ class Orcamento:
     max_duracao_s: int = 1800
 
     def conferir(self, estado: RunState) -> None:
-        if estado.chamadas_llm >= self.max_chamadas_llm:
+        # A comparação exige consumo > 0 antes de comparar com o teto. Sem isso, teto
+        # ZERO — que é como se diz "esta rodada não usa LLM" — seria lido como "orçamento
+        # já esgotado" e abortaria na entrada do primeiro nó, sem nada ter acontecido.
+        # Achado rodando a passada de shortlist, que legitimamente não chama modelo nenhum.
+        if estado.chamadas_llm > 0 and estado.chamadas_llm >= self.max_chamadas_llm:
             raise GuardrailViolado(f"teto de chamadas de LLM atingido ({self.max_chamadas_llm})")
-        if estado.requisicoes_http >= self.max_requisicoes_http:
+        if estado.requisicoes_http > 0 and estado.requisicoes_http >= self.max_requisicoes_http:
             raise GuardrailViolado(f"teto de requisições HTTP atingido ({self.max_requisicoes_http})")
-        if estado.custo_llm_usd >= self.max_custo_usd:
+        if estado.custo_llm_usd > 0 and estado.custo_llm_usd >= self.max_custo_usd:
             raise GuardrailViolado(f"teto de custo atingido (US$ {self.max_custo_usd})")
         decorrido = (
             (estado.encerrado_em or _agora()) - estado.iniciado_em
@@ -111,14 +115,42 @@ class PolidezHTTP:
         return rp.can_fetch(USER_AGENT, url)
 
     def _carregar_robots(self, host: str) -> urllib.robotparser.RobotFileParser | None:
+        """Baixa e interpreta o robots.txt do host, com o NOSSO User-Agent.
+
+        `RobotFileParser.read()` busca com o User-Agent do urllib, que a Cloudflare e
+        vários WAFs bloqueiam — e, ao receber 403, o parser marca `disallow_all` e passa a
+        negar **tudo** naquele host. O efeito é um crawler que se recusa a ler boa parte da
+        web corporativa brasileira e não diz por quê: foi assim que 42 sites saíram sem
+        nenhum sinal detectado, e foi assim que ele se recusou a ler o site da própria Tyna.
+
+        A busca aqui é feita por httpx com o UA que nos identifica, e o tratamento segue a
+        RFC 9309: 200 interpreta; 401 e 403 são recusa deliberada e valem como proibição;
+        404 e demais 4xx significam ausência de robots.txt, que libera; erro de rede não
+        determina nada e não deve travar a coleta — a educação nesse caso fica por conta do
+        intervalo entre requisições.
+        """
         if host in self._robots:
             return self._robots[host]
-        rp = urllib.robotparser.RobotFileParser()
+
+        rp: urllib.robotparser.RobotFileParser | None = urllib.robotparser.RobotFileParser()
         rp.set_url(f"https://{host}/robots.txt")
         try:
-            rp.read()
+            import httpx
+
+            r = httpx.get(
+                f"https://{host}/robots.txt",
+                headers={"user-agent": USER_AGENT},
+                timeout=10.0,
+                follow_redirects=True,
+            )
+            if r.status_code == 200:
+                rp.parse(r.text.splitlines())
+            elif r.status_code in (401, 403):
+                rp.disallow_all = True
+            else:
+                rp = None  # sem robots.txt legível: liberado
         except Exception:
-            rp = None  # host sem robots.txt acessível
+            rp = None
         self._robots[host] = rp
         return rp
 

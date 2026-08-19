@@ -59,6 +59,19 @@ class TestOrcamento:
     def test_dentro_do_teto_nao_levanta(self):
         Orcamento().conferir(estado(chamadas_llm=1, custo_llm_usd=0.01))
 
+    def test_teto_zero_com_consumo_zero_nao_aborta(self):
+        """Teto zero é como se declara "esta rodada não usa LLM".
+
+        Antes da correção, `0 >= 0` abortava a rodada na entrada do primeiro nó, sem nada
+        ter acontecido — o que derrubou a primeira passada de shortlist em 1 de 140.
+        """
+        Orcamento(max_chamadas_llm=0, max_custo_usd=0.0).conferir(estado())
+
+    def test_teto_zero_com_consumo_aborta(self):
+        """E se uma chamada escapar num teto zero, aí sim tem que estourar."""
+        with pytest.raises(GuardrailViolado):
+            Orcamento(max_chamadas_llm=0).conferir(estado(chamadas_llm=1))
+
 
 class TestPolidez:
     @pytest.mark.parametrize("url", [
@@ -76,6 +89,55 @@ class TestPolidez:
 
     def test_host_normaliza(self):
         assert PolidezHTTP().host("https://WWW.Exemplo.com.BR/pagina") == "www.exemplo.com.br"
+
+    def test_robots_e_buscado_com_o_nosso_user_agent(self, monkeypatch):
+        """Regressão do bug que cegou o crawler.
+
+        `RobotFileParser.read()` busca com o UA do urllib; Cloudflare devolve 403 e o
+        parser marca disallow_all, negando o host inteiro. O efeito era um crawler que se
+        recusava a ler boa parte da web corporativa brasileira — inclusive o site da
+        própria Tyna — sem dizer por quê.
+        """
+        capturado = {}
+
+        class Resposta:
+            status_code = 200
+            text = "User-agent: *" + chr(10) + "Allow: /" + chr(10)
+
+        def falso_get(url, **kw):
+            capturado["url"] = url
+            capturado["ua"] = kw.get("headers", {}).get("user-agent", "")
+            return Resposta()
+
+        import httpx
+
+        monkeypatch.setattr(httpx, "get", falso_get)
+        p = PolidezHTTP()
+        assert p.permitido("https://exemplo.com.br/pagina")
+        assert capturado["url"] == "https://exemplo.com.br/robots.txt"
+        assert capturado["ua"].startswith("TynaProspector/")
+
+    def test_robots_403_e_respeitado(self, monkeypatch):
+        """403 no robots.txt é recusa deliberada do site e vale como proibição."""
+        class Resposta:
+            status_code = 403
+            text = ""
+
+        import httpx
+
+        monkeypatch.setattr(httpx, "get", lambda url, **kw: Resposta())
+        assert not PolidezHTTP().permitido("https://fechado.com.br/x")
+
+    def test_robots_404_libera(self, monkeypatch):
+        """Ausência de robots.txt libera — é o que a RFC 9309 prevê."""
+        class Resposta:
+            status_code = 404
+            text = ""
+
+        import httpx
+
+        monkeypatch.setattr(httpx, "get", lambda url, **kw: Resposta())
+        assert PolidezHTTP().permitido("https://sem-robots.com.br/x")
 
 
 class TestSupressao:
