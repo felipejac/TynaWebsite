@@ -11,6 +11,7 @@
     "kb:lint": "node tools/kb-lint.mjs",
     "seo": "node tools/seo-audit.mjs",
     "seo:local": "node tools/seo-audit.mjs --local",
-    "seo:gsc": "node tools/seo-audit.mjs --gsc"
+    "seo:gsc": "node tools/seo-audit.mjs --gsc",
+    "backlinks": "node tools/backlinks.mjs"
   }
 }

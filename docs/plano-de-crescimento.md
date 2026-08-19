@@ -246,10 +246,17 @@ Resta uma, mais o registro histórico do que era a #1:
    18/08/2026. Com a ISO 42001, são cinco guias, reunidos em `/#guias` na home.
    **O que falta agora não é página, é link de fora**: o site tem estrutura interna
    boa e nenhum backlink — ver item 8.
-8. **Backlinks reais**: pedir que Hering, Yalo ou outro case linkem de volta a
-   partir do próprio canal (case study, post) quando for natural; diretórios
-   brasileiros de consultoria/IA; pauta com veículo de tecnologia sobre o
-   diferencial "governança de quem implementa".
+8. **Backlinks reais.** Virou estudo próprio em 18/08/2026:
+   [backlinks-estudo.md](backlinks-estudo.md), com a lista operacional em
+   [backlinks-alvos.json](backlinks-alvos.json) e o ciclo automatizado em
+   `npm run backlinks`. **Linha de base medida: zero link seguido.** A conclusão que
+   muda a prioridade: criação automática de backlink em massa é link scheme, e o risco
+   é alto justamente porque o domínio não tem histórico. O que se automatizou foi o
+   ciclo (prospectar, verificar, cobrar, medir) mais a sindicação com canonical, que é
+   a única fonte legitimamente automática. Ordem recomendada, por retorno por hora:
+   diretórios de `llms.txt`, perfis de entidade, um artigo assinado em IT Forum ou TI
+   Inside, pedido de crédito aos parceiros de case, artigo jurídico em JOTA ou
+   Migalhas.
 9. **Repurposing do blog para LinkedIn** — os 37 posts já publicados viram matéria-
    prima para post/carrossel, distribuição praticamente grátis.
 
