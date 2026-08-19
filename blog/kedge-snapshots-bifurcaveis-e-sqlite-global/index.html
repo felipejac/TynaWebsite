@@ -27,8 +27,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../assets/styles.css?v=14">
-<link rel="stylesheet" href="../../assets/blog.css?v=14">
+<link rel="stylesheet" href="../../assets/styles.css?v=15">
+<link rel="stylesheet" href="../../assets/blog.css?v=15">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Kedge traz snapshots bifurcáveis e SQLite global","description":"Clonar uma VM em execução em segundos e um banco de arquivo único compartilhado entre nós, sem serviço de banco separado.","datePublished":"2026-07-30","dateModified":"2026-07-30","inLanguage":"pt-BR","author":{"@type":"Person","name":"Felipe Jacob","url":"https://tyna.com.br/sobre/"},"publisher":{"@type":"Organization","name":"Tyna","url":"https://tyna.com.br","logo":{"@type":"ImageObject","url":"https://tyna.com.br/assets/logo-tyna-dark.png"}},"mainEntityOfPage":"https://tyna.com.br/blog/kedge-snapshots-bifurcaveis-e-sqlite-global/","keywords":"infraestrutura-em-nuvem, sqlite, ambientes-reprodutiveis, ci-cd, automacao","articleSection":"Ferramentas de Dev"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://tyna.com.br"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tyna.com.br/blog/"},{"@type":"ListItem","position":3,"name":"Ferramentas de Dev","item":"https://tyna.com.br/blog/categoria/dev-tools/"},{"@type":"ListItem","position":4,"name":"Kedge traz snapshots bifurcáveis e SQLite global","item":"https://tyna.com.br/blog/kedge-snapshots-bifurcaveis-e-sqlite-global/"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Dá para usar os snapshots com fluxos baseados em Docker?","acceptedAnswer":{"@type":"Answer","text":"Sim. Como o snapshot captura o estado inteiro da VM, é possível rodar contêineres dentro do ambiente bifurcado normalmente."}},{"@type":"Question","name":"O SQLite global é seguro para escrita concorrente de vários agentes?","acceptedAnswer":{"@type":"Answer","text":"Ele suporta leitura concorrente, mas serializa escrita. Para carga com escrita pesada, considere cache intermediário ou um serviço de banco dedicado."}},{"@type":"Question","name":"Como a segurança do banco compartilhado é tratada?","acceptedAnswer":{"@type":"Answer","text":"O arquivo é criptografado em repouso e em trânsito, e o acesso pode ser restrito por políticas, garantindo que só agentes autorizados leiam ou escrevam."}}]}</script>
@@ -165,6 +165,7 @@
         </div>
         <div class="foot-col">
           <h5>Guias</h5>
+          <a href="../../governanca-de-ia/">Governança de IA</a>
           <a href="../../iso-42001/">ISO 42001</a>
           <a href="../../shadow-ai/">Shadow AI</a>
           <a href="../../ai-gateway/">AI Gateway</a>
@@ -190,7 +191,7 @@
   </div>
 </footer>
 
-<script src="../../assets/site.js?v=14"></script>
+<script src="../../assets/site.js?v=15"></script>
 
 </body>
 </html>

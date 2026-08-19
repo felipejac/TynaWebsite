@@ -174,6 +174,18 @@ pessoal sem retenção nem base legal declarada. A LGPD alcança tudo isso desde
 2020, sem depender do PL 2338, e a empresa segue sendo a controladora.
 Guia completo: https://tyna.com.br/lgpd-e-ia/
 
+**O que é governança de IA, e qual a diferença para governança de TI?**
+Governança de IA é o conjunto de decisões que define até onde a empresa deixa a IA
+agir sozinha, com qual dado, sob responsabilidade de quem, e como isso é verificado
+depois: inventário do que já está em uso, classificação por risco, controles
+aplicados na execução e trilha que permite reconstruir o que aconteceu. Não é
+documento nem comitê — os dois são meios. A diferença para a governança de TI é a
+natureza do sistema: TI trata do determinístico, com controle de acesso,
+disponibilidade e mudança; IA trata do probabilístico, e acrescenta viés,
+explicabilidade, alucinação em processo crítico, propriedade do conteúdo gerado e
+uso de dado para treinamento de terceiros. Uma não substitui a outra.
+Guia completo: https://tyna.com.br/governanca-de-ia/
+
 **Como a Tyna é contratada?**
 Workshop intensivo de 3 horas, trilha completa por audiência (liderança ou times) ou
 advisory mensal. O contato inicial é uma conversa de 30 minutos por e-mail.
@@ -182,6 +194,9 @@ advisory mensal. O contato inicial é uma conversa de 30 minutos por e-mail.
 
 - [Início](https://tyna.com.br/): posicionamento, shadow AI, diferencial, serviços,
   quatro pilares de governança, casos com números, formatos de contratação e FAQ.
+- [Governança de IA](https://tyna.com.br/governanca-de-ia/): a definição, a diferença
+  para governança de TI, modelo de maturidade, métricas e as seis etapas. É o hub que
+  liga os demais guias.
 - [ISO/IEC 42001](https://tyna.com.br/iso-42001/): o que é a norma, por que importa
   agora, as seis etapas até a prontidão para certificação, prazos e benefícios.
 - [Shadow AI](https://tyna.com.br/shadow-ai/): checklist de mapeamento em 12

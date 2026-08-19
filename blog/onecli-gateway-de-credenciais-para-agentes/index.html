@@ -27,8 +27,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../assets/styles.css?v=14">
-<link rel="stylesheet" href="../../assets/blog.css?v=14">
+<link rel="stylesheet" href="../../assets/styles.css?v=15">
+<link rel="stylesheet" href="../../assets/blog.css?v=15">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"OneCLI põe um gateway de credenciais na frente do agente","description":"O agente para de carregar chave no prompt e passa a pedir credencial de curta duração no momento do uso, com registro de quem pediu o quê.","datePublished":"2026-07-24","dateModified":"2026-07-24","inLanguage":"pt-BR","author":{"@type":"Person","name":"Felipe Jacob","url":"https://tyna.com.br/sobre/"},"publisher":{"@type":"Organization","name":"Tyna","url":"https://tyna.com.br","logo":{"@type":"ImageObject","url":"https://tyna.com.br/assets/logo-tyna-dark.png"}},"mainEntityOfPage":"https://tyna.com.br/blog/onecli-gateway-de-credenciais-para-agentes/","keywords":"gestao-de-segredos, agentes-de-ia, seguranca, auditoria, n8n","articleSection":"Ferramentas de Dev"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://tyna.com.br"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tyna.com.br/blog/"},{"@type":"ListItem","position":3,"name":"Ferramentas de Dev","item":"https://tyna.com.br/blog/categoria/dev-tools/"},{"@type":"ListItem","position":4,"name":"OneCLI põe um gateway de credenciais na frente do agente","item":"https://tyna.com.br/blog/onecli-gateway-de-credenciais-para-agentes/"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Como integro a um fluxo de n8n existente?","acceptedAnswer":{"@type":"Answer","text":"Um nó de execução de comando roda o binário e captura a saída para os nós seguintes. Também é possível criar um nó próprio que encapsule esse padrão."}},{"@type":"Question","name":"Isso acrescenta latência?","acceptedAnswer":{"@type":"Answer","text":"A ida ao cofre soma algumas centenas de milissegundos, desprezível na maioria dos fluxos por lote ou por webhook. Em caminho crítico, dá para manter o token de curta duração em memória durante a requisição."}},{"@type":"Question","name":"Dá para aplicar controle de acesso por agente?","acceptedAnswer":{"@type":"Answer","text":"Sim. A ferramenta suporta identidade por agente e mapeia cada uma para políticas do cofre, que impõe a permissão adequada."}}]}</script>
@@ -166,6 +166,7 @@
         </div>
         <div class="foot-col">
           <h5>Guias</h5>
+          <a href="../../governanca-de-ia/">Governança de IA</a>
           <a href="../../iso-42001/">ISO 42001</a>
           <a href="../../shadow-ai/">Shadow AI</a>
           <a href="../../ai-gateway/">AI Gateway</a>
@@ -191,7 +192,7 @@
   </div>
 </footer>
 
-<script src="../../assets/site.js?v=14"></script>
+<script src="../../assets/site.js?v=15"></script>
 
 </body>
 </html>

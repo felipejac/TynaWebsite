@@ -22,7 +22,7 @@ const WA_CTA = 'https://wa.me/5511997228945?text=' +
   encodeURIComponent('Olá, Felipe. Vim pelo site da Tyna e quero falar sobre governança de IA.');
 const ctaAgendar = (cls = '', attrs = '') =>
   `<a href="${WA_CTA}" target="_blank" rel="noopener" class="btn btn-primary${cls ? ' ' + cls : ''}"${attrs ? ' ' + attrs : ''}>Agendar conversa</a>`;
-const ASSET_V = '14';
+const ASSET_V = '15';
 
 const CATEGORIES = {
   'governanca': 'Governança de IA',
@@ -222,6 +222,7 @@ ${body}
         </div>
         <div class="foot-col">
           <h5>Guias</h5>
+          <a href="${up}governanca-de-ia/">Governança de IA</a>
           <a href="${up}iso-42001/">ISO 42001</a>
           <a href="${up}shadow-ai/">Shadow AI</a>
           <a href="${up}ai-gateway/">AI Gateway</a>
@@ -468,6 +469,8 @@ const maisRecente = lista => lista.map(p => p.pubDate).sort().pop();
 
 const staticPages = [
   { loc: `${SITE}/`, pri: '1.0', freq: 'weekly', mod: mtime('index.html') },
+  // termo-cabeca da categoria e hub dos demais guias — prioridade acima das outras
+  { loc: `${SITE}/governanca-de-ia/`, pri: '0.95', freq: 'monthly', mod: mtime('governanca-de-ia/index.html') },
   { loc: `${SITE}/iso-42001/`, pri: '0.9', freq: 'monthly', mod: mtime('iso-42001/index.html') },
   { loc: `${SITE}/diagnostico/`, pri: '0.9', freq: 'monthly', mod: mtime('diagnostico/index.html') },
   { loc: `${SITE}/shadow-ai/`, pri: '0.9', freq: 'monthly', mod: mtime('shadow-ai/index.html') },

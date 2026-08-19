@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Governança de IA: o que é e como implementar | Tyna</title>
+<meta name="description" content="Governança de IA define até onde a empresa deixa a IA agir sozinha. O que é, a diferença para governança de TI, as métricas e as seis etapas.">
+<link rel="canonical" href="https://tyna.com.br/governanca-de-ia/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Governança de IA: o que é e como implementar">
+<meta property="og:description" content="A definição, a diferença para governança de TI, o modelo de maturidade, as métricas que quase ninguém publica e as seis etapas de implementação.">
+<meta property="og:url" content="https://tyna.com.br/governanca-de-ia/">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna-dark.png">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css?v=15">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Governança de IA: o que é e como implementar",
+  "inLanguage": "pt-BR",
+  "description": "Definição de governança de Inteligência Artificial, a diferença para a governança de TI tradicional, os quatro pilares, o modelo de maturidade em quatro níveis, as métricas de acompanhamento e as seis etapas de implementação.",
+  "datePublished": "2026-08-18",
+  "dateModified": "2026-08-18",
+  "author": { "@type": "Organization", "name": "Tyna", "url": "https://tyna.com.br/" },
+  "publisher": { "@type": "Organization", "name": "Tyna", "url": "https://tyna.com.br/" },
+  "mainEntityOfPage": "https://tyna.com.br/governanca-de-ia/",
+  "about": { "@type": "Thing", "name": "Governança de Inteligência Artificial" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://tyna.com.br/" },
+    { "@type": "ListItem", "position": 2, "name": "Governança de IA", "item": "https://tyna.com.br/governanca-de-ia/" }
+  ]
+}
+</script>
+<link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "pt-BR",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "O que é governança de IA?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Governança de Inteligência Artificial é o conjunto de decisões que define até onde a empresa deixa a IA agir sozinha, com qual dado, sob responsabilidade de quem, e como isso é verificado depois. Na prática são quatro coisas: um inventário do que já está em uso, uma classificação por risco, controles aplicados na execução e não apenas escritos em política, e uma trilha que permite reconstruir o que aconteceu. Não é um documento nem um comitê: documento e comitê são meios, e sozinhos não mudam o que o sistema faz em produção." }
+    },
+    {
+      "@type": "Question",
+      "name": "Qual é a diferença entre governança de IA e governança de TI?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A governança de TI trata de sistemas determinísticos: dado o mesmo comando, o sistema faz a mesma coisa, e o controle é de acesso, disponibilidade e mudança. A governança de IA trata de sistemas probabilísticos, que podem responder de forma diferente à mesma pergunta e que às vezes inventam. Isso acrescenta preocupações que a governança de TI não tem: viés e discriminação, explicabilidade da decisão, alucinação em processo crítico, propriedade do conteúdo gerado e uso de dado para treinamento de terceiros. Uma não substitui a outra: a de IA se apoia na de TI e trata do que ela não cobre." }
+    },
+    {
+      "@type": "Question",
+      "name": "Como implementar governança de IA em uma empresa?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Em seis etapas, e a ordem importa mais do que parece. Primeiro o inventário do que já está em uso, incluindo o que ninguém aprovou, porque toda decisão seguinte se apoia nessa lista. Depois a classificação por risco, com critério escrito. Em seguida a política de uso aceitável, com a alternativa autorizada ao lado de cada proibição. Depois a alternativa segura de fato disponível, normalmente um AI Gateway que unifica acesso, custo, observabilidade e auditoria. Em seguida os controles em execução, guardrail e escalonamento humano, para os sistemas de maior risco. E por fim a medição contínua, com números definidos antes. Começar pela política, que é o caminho mais comum, produz documento que ninguém segue." }
+    },
+    {
+      "@type": "Question",
+      "name": "Quais são as métricas de governança de IA?",
+      "acceptedAnswer": { "@type": "Answer", "text": "As que dizem se o controle existe na prática: cobertura do inventário, medida pela proporção de sistemas descobertos depois do mapeamento; proporção do tráfego de IA que passa pelo caminho autorizado; percentual de sistemas com dono nomeado da área de negócio; percentual de sistemas de alto risco com trilha de auditoria recuperável; tempo médio de resposta a pedido de exceção, em dias; taxa de escalonamento para humano e tempo até a pessoa assumir; custo de IA por área e por caso de uso; e tempo entre um erro acontecer e a empresa descobrir, com a pergunta de quem descobriu primeiro, a empresa ou o cliente. Contagem de políticas publicadas e de reuniões de comitê não são métricas de governança: são métricas de atividade." }
+    },
+    {
+      "@type": "Question",
+      "name": "Governança de IA precisa de certificação ISO 42001?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Não precisa, e a maioria das empresas começa sem. A ISO/IEC 42001 é a primeira norma internacional certificável para sistemas de gestão de IA, e ela organiza os mesmos elementos que uma governança madura já tem: inventário, classificação de risco, controles, auditoria interna e melhoria contínua. Certificar faz sentido quando a empresa precisa demonstrar a governança para um terceiro, em RFP, auditoria de cliente ou exigência de conselho. Antes disso, o valor está nos controles em si, e não no certificado." }
+    },
+    {
+      "@type": "Question",
+      "name": "A governança de IA muda quando existem agentes autônomos?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Muda de natureza. Política de uso governa pessoas usando ferramentas: se alguém escreve um prompt ruim, uma pessoa lê a resposta e descarta. Agente autônomo age em nome da empresa sem leitor intermediário, respondendo ao cliente, alterando registro ou liberando crédito, e o erro vira ato antes de virar informação. Isso exige quatro controles próprios: escopo de autonomia escrito antes da produção, guardrail aplicado em execução, critério de escalonamento humano e trilha de auditoria da decisão. Empresa que trata agente com política de uso está governando o problema errado." }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><img src="../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../#servicos">Serviços</a></li>
+        <li><a href="../#guias">Guias</a></li>
+        <li><a href="../iso-42001/">ISO 42001</a></li>
+        <li><a href="../#cases">Cases</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pela%20p%C3%A1gina%20de%20governan%C3%A7a%20de%20IA%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pela%20p%C3%A1gina%20de%20governan%C3%A7a%20de%20IA%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Governança de IA</p>
+      <h1 style="max-width:900px;">Governança de IA é decidir <em>até onde a IA vai sozinha.</em></h1>
+      <p class="lead" style="max-width:750px;">Governança de Inteligência Artificial é o conjunto de decisões que define até onde a empresa deixa a IA agir sozinha, com qual dado, sob responsabilidade de quem, e como isso é verificado depois. Não é um documento nem um comitê — documento e comitê são meios, e sozinhos não mudam o que o sistema faz em produção. Esta página reúne a definição, o modelo de maturidade, as métricas e as seis etapas, com o material completo de cada uma.</p>
+      <div class="hero-ctas">
+        <a href="#etapas" class="btn btn-primary">Ver as seis etapas</a>
+        <a href="../diagnostico/" class="btn btn-ghost">Medir a maturidade em 3 minutos</a>
+      </div>
+      <div class="stat-row" style="max-width:860px; border-top:0; padding-top:0;">
+        <div class="stat"><span class="v">95%</span><span class="l">DAS ORGANIZAÇÕES BRASILEIRAS JÁ USAM IA</span></div>
+        <div class="stat"><span class="v">27%</span><span class="l">DIZEM TER GOVERNANÇA MADURA</span></div>
+        <div class="stat"><span class="v">80%</span><span class="l">JÁ REVERTERAM UMA IMPLEMENTAÇÃO DE IA</span></div>
+        <div class="stat"><span class="v">39%</span><span class="l">DESSES CASOS COM VAZAMENTO DE DADOS</span></div>
+      </div>
+      <p class="hero-note" style="max-width:860px;">Fontes: EY, adoção de IA no Brasil (maio de 2026); Deloitte, <em>State of AI in the Enterprise</em> 2026; Sinch, <em>The AI Production Paradox</em> — recorte Brasil, base de 2.527 executivos seniores em dez países.</p>
+    </div>
+  </section>
+
+  <!-- O QUE É -->
+  <section id="o-que-e">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">A definição</p>
+        <h2>O que governança de IA responde, na prática</h2>
+        <p>A definição curta cabe em uma frase, mas ela só vira operação quando se transforma em quatro perguntas que alguém consegue responder com nome, data e evidência.</p>
+      </div>
+
+      <div class="svc-grid reveal">
+        <div class="svc-card">
+          <span class="num">01</span>
+          <h3>O que já está em uso?</h3>
+          <p>A lista de sistemas e ferramentas de IA que rodam hoje na empresa — incluindo os que ninguém aprovou. Sem ela, toda decisão seguinte se aplica só à parte visível do problema.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">02</span>
+          <h3>Qual dado pode entrar?</h3>
+          <p>A classificação da informação por sensibilidade, e o que cada nível pode alimentar. É o que transforma "não use dado sensível" em regra que alguém consegue seguir às três da tarde.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">03</span>
+          <h3>Até onde o sistema decide sozinho?</h3>
+          <p>O limite de autonomia por sistema: o que ele resolve, o que ele propõe para alguém confirmar, e o que ele nunca faz. Escrito antes da produção, não depois do primeiro incidente.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">04</span>
+          <h3>Como provamos depois?</h3>
+          <p>A trilha que permite reconstruir o que o sistema leu, decidiu e executou em um caso específico, meses depois. É o que separa afirmar conformidade de conseguir demonstrá-la.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFERENÇA PARA TI -->
+  <section id="diferenca-ti">
+    <div class="wrap problem-grid">
+      <div class="reveal">
+        <p class="eyebrow">A confusão mais comum</p>
+        <h2>Governança de IA não é governança de TI com outro nome</h2>
+        <p style="color:var(--text-muted); font-size:16px;">A governança de TI trata de sistemas determinísticos: dado o mesmo comando, o sistema faz a mesma coisa, e o controle é de acesso, disponibilidade e mudança. A governança de IA trata de sistemas probabilísticos, que podem responder diferente à mesma pergunta e que às vezes inventam. Uma não substitui a outra — a de IA se apoia na de TI e trata do que ela não cobre.</p>
+      </div>
+      <div class="risk-list reveal">
+        <div class="risk-item">
+          <span class="num">01</span>
+          <div><h4>Viés e discriminação</h4><p>Sistema treinado em decisão passada reproduz a decisão passada, inclusive a que a empresa não quer repetir. Não é falha de acesso nem de disponibilidade — é falha de resultado.</p></div>
+        </div>
+        <div class="risk-item">
+          <span class="num">02</span>
+          <div><h4>Explicabilidade</h4><p>Sistema tradicional tem regra legível. Modelo probabilístico não tem, e a empresa precisa conseguir explicar a decisão mesmo assim — inclusive porque o titular pode exigir revisão.</p></div>
+        </div>
+        <div class="risk-item">
+          <span class="num">03</span>
+          <div><h4>Alucinação em processo crítico</h4><p>O sistema erra com aparência de acerto. Não cai, não gera alerta, não abre chamado: responde com confiança um número que não existe.</p></div>
+        </div>
+        <div class="risk-item">
+          <span class="num">04</span>
+          <div><h4>Dado saindo pelo prompt</h4><p>Não há integração para auditar. O vazamento acontece no corpo de um texto colado, o que nenhum controle de rede enxerga como transferência de dado.</p></div>
+        </div>
+        <div class="risk-item">
+          <span class="num">05</span>
+          <div><h4>Propriedade do que é gerado</h4><p>Quem responde pelo conteúdo que o modelo produziu, e sob qual licença ele foi treinado, são perguntas que a governança de TI nunca precisou fazer.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MATURIDADE -->
+  <section id="maturidade">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Modelo de maturidade</p>
+        <h2>Quatro níveis, e quase toda empresa está nos dois primeiros</h2>
+        <p>O nível não se mede pela quantidade de documento produzido. Mede-se pelo que a empresa consegue responder sem preparar a resposta.</p>
+      </div>
+      <div class="reveal">
+        <table class="spec-table">
+          <thead>
+            <tr><th scope="col">Nível</th><th scope="col">Como se reconhece</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1 · Exposta</td>
+              <td><span class="prazo">Sem inventário</span> a IA já está em uso e ninguém sabe onde. Não há política, ou existe uma que ninguém aplica. O risco não é hipotético: é vazamento, decisão sem rastro e ferramenta sem dono.</td>
+            </tr>
+            <tr>
+              <td>2 · Em construção</td>
+              <td><span class="prazo">Política sem execução</span> existe política ou comitê, mas o controle não alcança o que roda em produção. O ponto cego típico é o agente autônomo: ninguém sabe dizer até onde ele vai sem um humano.</td>
+            </tr>
+            <tr>
+              <td>3 · Estruturada</td>
+              <td><span class="prazo">Controle em execução</span> inventário vivo, classificação por risco, guardrail aplicado, escalonamento definido e trilha recuperável. A governança é praticada, e não só declarada.</td>
+            </tr>
+            <tr>
+              <td>4 · Verificável</td>
+              <td><span class="prazo">Auditável por terceiro</span> o mesmo conjunto, organizado em sistema de gestão que um auditor externo consegue examinar — que é o que a <a href="../iso-42001/">ISO/IEC 42001</a> formaliza.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="reveal" style="color:var(--text-muted); font-size:16px; max-width:760px; margin:30px 0 0;">O <a href="../diagnostico/">diagnóstico de maturidade</a> mede isso em dez perguntas e três minutos, e devolve a faixa com as lacunas nomeadas uma a uma. Sem formulário e sem cadastro.</p>
+    </div>
+  </section>
+
+  <!-- ETAPAS -->
+  <section id="etapas">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Como implementar</p>
+        <h2>Seis etapas, e a ordem importa mais do que parece</h2>
+        <p>O caminho mais comum é começar pela política. É também o que mais produz documento aprovado e ignorado. A ordem abaixo é a que sobrevive ao contato com a operação.</p>
+      </div>
+
+      <div class="steps reveal">
+        <div class="step">
+          <span class="step-num">01</span>
+          <div>
+            <h3>Inventário do que já está em uso</h3>
+            <p>Incluindo o que ninguém aprovou. Toda decisão seguinte se apoia nesta lista, e ela não sai de inventário de software: ferramenta de IA em camada gratuita não instala nada. O caminho está no <a href="../shadow-ai/">checklist de mapeamento de shadow AI</a>, em 12 passos.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">02</span>
+          <div>
+            <h3>Classificação por risco, com critério escrito</h3>
+            <p>Qual sistema decide sobre pessoa, qual recomenda, qual só redige texto interno. O critério importa mais que o rótulo — é ele que sobrevive quando a lista de ferramentas mudar, e é o requisito de partida de qualquer norma.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <div>
+            <h3>Política de uso aceitável, curta e específica</h3>
+            <p>Com uma regra de redação que decide a adesão: toda proibição vem com a alternativa autorizada no mesmo parágrafo. O <a href="../politica-de-uso-de-ia/">template completo está publicado</a>, pronto para adaptar.</p>
+          </div>
+        </div>
+        <div class="step is-chave">
+          <span class="step-num">04</span>
+          <div>
+            <h3>A alternativa segura, disponível de fato</h3>
+            <p>Normalmente um <a href="../ai-gateway/">AI Gateway</a> que unifica acesso, custo, observabilidade e auditoria. É o que torna o caminho autorizado mais conveniente que o atalho — e enquanto pedir acesso for mais lento que abrir uma aba nova, a política perde.</p>
+            <span class="step-flag">É a etapa que a maioria dos programas pula, e é a que decide o resultado</span>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">05</span>
+          <div>
+            <h3>Controles em execução nos sistemas de maior risco</h3>
+            <p>Guardrail verificado pela máquina, critério de escalonamento humano e trilha de auditoria da decisão. Quando o sistema age sozinho, valem os <a href="../governanca-de-agentes/">quatro controles de agente</a>, que a política de uso não cobre.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">06</span>
+          <div>
+            <h3>Medição contínua, com números definidos antes</h3>
+            <p>Sem métrica escolhida no início, o programa é avaliado por percepção — e percepção favorece quem produz documento. A seção seguinte traz os números que valem a pena.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MÉTRICAS -->
+  <section id="metricas">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Como medir</p>
+        <h2>As métricas que dizem se o controle existe fora do papel</h2>
+        <p>Quase ninguém publica isto, e é a parte que a diretoria pergunta primeiro. Contagem de políticas publicadas e de reuniões de comitê não são métricas de governança: são métricas de atividade.</p>
+      </div>
+      <div class="reveal">
+        <table class="spec-table">
+          <thead>
+            <tr><th scope="col">Métrica</th><th scope="col">O que ela revela</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Cobertura do inventário</td>
+              <td>Quantos sistemas de IA foram descobertos <em>depois</em> do mapeamento se dizer pronto. Alto significa que o mapa não é mapa.</td>
+            </tr>
+            <tr>
+              <td>Tráfego pelo caminho autorizado</td>
+              <td>Proporção das chamadas de IA que passam pelo gateway. Metade fora dele não é ponto de controle, é relatório parcial.</td>
+            </tr>
+            <tr>
+              <td>Sistemas com dono nomeado</td>
+              <td>Percentual com uma pessoa da área de negócio responsável. Dono na engenharia significa decisão de negócio tomada por quem não tem mandato.</td>
+            </tr>
+            <tr>
+              <td>Alto risco com trilha recuperável</td>
+              <td>Percentual em que dá para reconstruir um caso específico de meses atrás. É o teste real: se ninguém consegue puxar o caso, a trilha não existe.</td>
+            </tr>
+            <tr>
+              <td>Tempo de resposta a exceção</td>
+              <td>Em dias. É a métrica que mais influencia adesão — quem tem entrega para segunda não espera duas semanas por autorização.</td>
+            </tr>
+            <tr>
+              <td>Taxa de escalonamento e tempo até a pessoa</td>
+              <td>Quantos casos o agente passa adiante, e quanto o cliente espera. Escalonamento que faz repetir tudo é pior que não escalonar.</td>
+            </tr>
+            <tr>
+              <td>Custo por área e por caso de uso</td>
+              <td>Custo por time responde quem gastou; por caso de uso responde o que valeu a pena, que é a pergunta da renovação de orçamento.</td>
+            </tr>
+            <tr>
+              <td>Tempo entre erro e descoberta</td>
+              <td>E quem descobriu primeiro: a empresa ou o cliente. É o número que resume o programa inteiro.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- FRAMEWORKS -->
+  <section id="frameworks">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Referências</p>
+        <h2>Os frameworks, e o que cada um resolve</h2>
+        <p>Nenhum deles é obrigatório hoje no Brasil. Servem como estrutura pronta — a decisão é qual deles a empresa precisa conseguir demonstrar, e para quem.</p>
+      </div>
+      <ul class="benefits reveal">
+        <li><strong><a href="../iso-42001/">ISO/IEC 42001</a></strong> — a primeira norma certificável para sistemas de gestão de IA. É a que vira certificado emitido por organismo acreditado, quando a governança precisa ser verificável por terceiro.</li>
+        <li><strong>NIST AI Risk Management Framework</strong> — estrutura voluntária de gestão de risco, útil como vocabulário comum entre times técnicos e de compliance. Não certifica.</li>
+        <li><strong>EU AI Act</strong> — em vigor desde agosto de 2024, com obrigações escalonadas. Alcança empresa brasileira com operação, subsidiária ou cliente na União Europeia.</li>
+        <li><strong><a href="../pl-2338/">PL 2338/2023</a></strong> — o Marco Legal da IA brasileiro. Aprovado no Senado, ainda em tramitação na Câmara: <strong>não é lei</strong>, e muito material em circulação dá a entender o contrário.</li>
+        <li><strong><a href="../lgpd-e-ia/">LGPD</a></strong> — esta sim já vale, desde 2020, e alcança todo fluxo de IA que trate dado pessoal. É a obrigação real enquanto o resto é preparação.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- AGENTES E SETORES -->
+  <section id="contextos">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Onde o problema muda</p>
+        <h2>Agentes autônomos e setores regulados</h2>
+      </div>
+
+      <div class="steps reveal">
+        <div class="step is-chave">
+          <span class="step-num">01</span>
+          <div>
+            <h3>Quando existem agentes, o problema muda de natureza</h3>
+            <p>Política de uso governa pessoas usando ferramentas — alguém lê a resposta ruim e descarta. Agente age em nome da empresa sem leitor intermediário: responde ao cliente, altera registro, libera crédito. O erro vira ato antes de virar informação, e isso exige quatro controles próprios. Ver <a href="../governanca-de-agentes/">governança de agentes de IA</a>.</p>
+            <span class="step-flag">Empresa que trata agente com política de uso está governando o problema errado</span>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">02</span>
+          <div>
+            <h3>Bancos e serviços financeiros</h3>
+            <p>A camada extra não é a IA: é a regulação setorial que já existe sobre decisão de crédito, prevenção à fraude e retenção de registro. A governança de IA precisa se encaixar nos controles do regulador financeiro, não correr por fora deles.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <div>
+            <h3>Saúde</h3>
+            <p>Dado de saúde é dado pessoal sensível na LGPD, com base legal mais restrita. E a decisão apoiada por IA em contexto clínico exige responsável identificado com clareza maior que em qualquer outro setor.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">04</span>
+          <div>
+            <h3>Setor público</h3>
+            <p>Soma-se o dever de transparência e a exigência de explicação a quem é afetado por decisão automatizada — que na prática significa trilha de auditoria como requisito de entrada, não como refinamento.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFERENCIAL -->
+  <section id="diferencial">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">De onde vem a regra</p>
+        <h2>Governança escrita por quem nunca operou descreve o comportamento que se imagina</h2>
+      </div>
+      <ul class="benefits reveal">
+        <li><strong>O comportamento real aparece em produção</strong> — onde o agente hesita, onde inventa, onde o cliente reformula a pergunta de um jeito que quebra o fluxo. Isso não está em nenhum framework.</li>
+        <li><strong>Reverter é o controle funcionando</strong> — 80% das organizações brasileiras já reverteram uma implementação de IA. A empresa que não reverte, na maioria das vezes, não é a que acertou: é a que não tem como saber.</li>
+        <li><strong>Não existe agente com 100% de acerto</strong> — um agente de pós-venda em produção no grupo Stellantis opera com 84,2% de assertividade e ainda assim entrega 86,8% de NPS. A satisfação vem do escalonamento funcionar, não da ausência de erro (fonte: blip.ai).</li>
+        <li><strong>A governança da Tyna nasce testada</strong> — vem de quem colocou agente de IA em produção para Coca-Cola, Hering, iFood, Stellantis, Yalo e Banco do Brasil, e não de quem apenas audita.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Perguntas frequentes</p>
+        <h2>Governança de IA, em resposta direta</h2>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-item">
+          <h3>O que é governança de IA?</h3>
+          <p>Governança de Inteligência Artificial é o conjunto de decisões que define até onde a empresa deixa a IA agir sozinha, com qual dado, sob responsabilidade de quem, e como isso é verificado depois. Na prática são quatro coisas: um inventário do que já está em uso, uma classificação por risco, controles aplicados na execução e não apenas escritos em política, e uma trilha que permite reconstruir o que aconteceu. Não é um documento nem um comitê: documento e comitê são meios, e sozinhos não mudam o que o sistema faz em produção.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Qual é a diferença entre governança de IA e governança de TI?</h3>
+          <p>A governança de TI trata de sistemas determinísticos: dado o mesmo comando, o sistema faz a mesma coisa, e o controle é de acesso, disponibilidade e mudança. A governança de IA trata de sistemas probabilísticos, que podem responder de forma diferente à mesma pergunta e que às vezes inventam. Isso acrescenta preocupações que a governança de TI não tem: viés e discriminação, explicabilidade da decisão, alucinação em processo crítico, propriedade do conteúdo gerado e uso de dado para treinamento de terceiros. Uma não substitui a outra: a de IA se apoia na de TI e trata do que ela não cobre.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Como implementar governança de IA em uma empresa?</h3>
+          <p>Em seis etapas, e a ordem importa mais do que parece. Primeiro o inventário do que já está em uso, incluindo o que ninguém aprovou, porque toda decisão seguinte se apoia nessa lista. Depois a classificação por risco, com critério escrito. Em seguida a política de uso aceitável, com a alternativa autorizada ao lado de cada proibição. Depois a alternativa segura de fato disponível, normalmente um AI Gateway que unifica acesso, custo, observabilidade e auditoria. Em seguida os controles em execução, guardrail e escalonamento humano, para os sistemas de maior risco. E por fim a medição contínua, com números definidos antes. Começar pela política, que é o caminho mais comum, produz documento que ninguém segue.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Quais são as métricas de governança de IA?</h3>
+          <p>As que dizem se o controle existe na prática: cobertura do inventário, medida pela proporção de sistemas descobertos depois do mapeamento; proporção do tráfego de IA que passa pelo caminho autorizado; percentual de sistemas com dono nomeado da área de negócio; percentual de sistemas de alto risco com trilha de auditoria recuperável; tempo médio de resposta a pedido de exceção, em dias; taxa de escalonamento para humano e tempo até a pessoa assumir; custo de IA por área e por caso de uso; e tempo entre um erro acontecer e a empresa descobrir, com a pergunta de quem descobriu primeiro, a empresa ou o cliente. Contagem de políticas publicadas e de reuniões de comitê não são métricas de governança: são métricas de atividade.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Governança de IA precisa de certificação ISO 42001?</h3>
+          <p>Não precisa, e a maioria das empresas começa sem. A ISO/IEC 42001 é a primeira norma internacional certificável para sistemas de gestão de IA, e ela organiza os mesmos elementos que uma governança madura já tem: inventário, classificação de risco, controles, auditoria interna e melhoria contínua. Certificar faz sentido quando a empresa precisa demonstrar a governança para um terceiro, em RFP, auditoria de cliente ou exigência de conselho. Antes disso, o valor está nos controles em si, e não no certificado.</p>
+        </div>
+        <div class="faq-item">
+          <h3>A governança de IA muda quando existem agentes autônomos?</h3>
+          <p>Muda de natureza. Política de uso governa pessoas usando ferramentas: se alguém escreve um prompt ruim, uma pessoa lê a resposta e descarta. Agente autônomo age em nome da empresa sem leitor intermediário, respondendo ao cliente, alterando registro ou liberando crédito, e o erro vira ato antes de virar informação. Isso exige quatro controles próprios: escopo de autonomia escrito antes da produção, guardrail aplicado em execução, critério de escalonamento humano e trilha de auditoria da decisão. Empresa que trata agente com política de uso está governando o problema errado.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUIAS -->
+  <section id="relacionados">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">O material completo</p>
+        <h2>Cada etapa tem um guia publicado inteiro</h2>
+        <p>Método completo, não teaser: checklist, template e roteiro estão abertos nas páginas abaixo.</p>
+      </div>
+      <div class="svc-grid reveal">
+        <div class="svc-card">
+          <span class="num">01</span>
+          <h3><a href="../shadow-ai/">Shadow AI: como mapear</a></h3>
+          <p>O inventário, em 12 passos e quatro frentes. Financeiro antes de log, anistia antes de pergunta.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">02</span>
+          <h3><a href="../politica-de-uso-de-ia/">Política de uso de IA</a></h3>
+          <p>Template inteiro para copiar, com classificação de dado em três níveis e a regra que decide a adesão.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">03</span>
+          <h3><a href="../ai-gateway/">AI Gateway</a></h3>
+          <p>A alternativa segura: acesso, custo, observabilidade e auditoria em um ponto — e quando não faz sentido.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">04</span>
+          <h3><a href="../governanca-de-agentes/">Governança de agentes de IA</a></h3>
+          <p>Os quatro controles quando o sistema age sozinho, e dez perguntas antes de ir ao ar.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">05</span>
+          <h3><a href="../lgpd-e-ia/">LGPD em fluxos de IA</a></h3>
+          <p>As três portas por onde o dado pessoal entra sem registro, e base legal por finalidade.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">06</span>
+          <h3><a href="../iso-42001/">ISO/IEC 42001</a></h3>
+          <p>As seis etapas até a prontidão para certificação, e os prazos que o mercado pratica.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA final -->
+  <section class="cta-band" style="border-bottom:none;">
+    <div class="wrap reveal">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Em que nível de maturidade sua empresa está?</h2>
+      <p style="color:var(--text-muted); font-size:16.5px; max-width:580px; margin:0 auto 30px;">Dez perguntas, três minutos, resultado na hora: a faixa e as lacunas nomeadas uma a uma. Sem formulário e sem cadastro.</p>
+      <div class="hero-ctas" style="justify-content:center;">
+        <a href="../diagnostico/" class="btn btn-primary">Fazer o diagnóstico</a>
+        <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pela%20p%C3%A1gina%20de%20governan%C3%A7a%20de%20IA%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-ghost">Falar com o Felipe</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../" class="logo"><img src="../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Guias</h5>
+          <a href="./">Governança de IA</a>
+          <a href="../iso-42001/">ISO 42001</a>
+          <a href="../shadow-ai/">Shadow AI</a>
+          <a href="../ai-gateway/">AI Gateway</a>
+          <a href="../governanca-de-agentes/">Governança de agentes</a>
+          <a href="../politica-de-uso-de-ia/">Política de uso de IA</a>
+          <a href="../lgpd-e-ia/">LGPD e IA</a>
+          <a href="../pl-2338/">Marco Legal da IA</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../#servicos">Serviços</a>
+          <a href="../#trilhas">Trilhas</a>
+          <a href="../diagnostico/">Diagnóstico</a>
+          <a href="../blog/">Blog</a>
+          <a href="../sobre/">Sobre</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<!-- O botão flutuante do WhatsApp é montado por assets/site.js, que roda em todas as páginas -->
+<script src="../assets/site.js?v=15"></script>
+
+</body>
+</html>

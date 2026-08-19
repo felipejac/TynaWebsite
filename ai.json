@@ -312,6 +312,13 @@
       "itemListElement": [
         {
           "@type": "WebPage",
+          "@id": "https://tyna.com.br/governanca-de-ia/",
+          "name": "Governança de IA — o que é e como implementar",
+          "url": "https://tyna.com.br/governanca-de-ia/",
+          "description": "Definição de governança de Inteligência Artificial, a diferença para a governança de TI tradicional, modelo de maturidade em quatro níveis, as métricas de acompanhamento e as seis etapas de implementação, com o guia completo de cada etapa."
+        },
+        {
+          "@type": "WebPage",
           "@id": "https://tyna.com.br/iso-42001/",
           "name": "ISO/IEC 42001 — certificação em governança de IA",
           "url": "https://tyna.com.br/iso-42001/",
@@ -373,6 +380,30 @@
       "@id": "https://tyna.com.br/#faq",
       "inLanguage": "pt-BR",
       "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quais são as métricas de governança de IA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "As que dizem se o controle existe fora do papel: cobertura do inventário, medida pela proporção de sistemas descobertos depois de o mapeamento se dizer pronto; proporção do tráfego de IA que passa pelo caminho autorizado; percentual de sistemas com dono nomeado da área de negócio; percentual de sistemas de alto risco com trilha de auditoria recuperável; tempo médio de resposta a pedido de exceção, em dias; taxa de escalonamento para humano e tempo até a pessoa assumir; custo de IA por área e por caso de uso; e tempo entre um erro acontecer e a empresa descobrir, com a pergunta de quem descobriu primeiro, a empresa ou o cliente. Contagem de políticas publicadas e de reuniões de comitê não são métricas de governança: são métricas de atividade."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qual é a diferença entre governança de IA e governança de TI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A governança de TI trata de sistemas determinísticos: dado o mesmo comando, o sistema faz a mesma coisa, e o controle é de acesso, disponibilidade e mudança. A governança de IA trata de sistemas probabilísticos, que podem responder de forma diferente à mesma pergunta e que às vezes inventam. Isso acrescenta preocupações que a governança de TI não tem: viés e discriminação, explicabilidade da decisão, alucinação em processo crítico, propriedade do conteúdo gerado e uso de dado para treinamento de terceiros. Uma não substitui a outra: a governança de IA se apoia na de TI e trata do que ela não cobre."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "O que é governança de IA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Governança de Inteligência Artificial é o conjunto de decisões que define até onde a empresa deixa a IA agir sozinha, com qual dado, sob responsabilidade de quem, e como isso é verificado depois. Na prática são quatro coisas: um inventário do que já está em uso, incluindo o que ninguém aprovou; uma classificação por risco com critério escrito; controles aplicados na execução, e não apenas escritos em política; e uma trilha que permite reconstruir o que o sistema leu, decidiu e executou. Não é um documento nem um comitê: documento e comitê são meios, e sozinhos não mudam o que o sistema faz em produção. Guia completo em https://tyna.com.br/governanca-de-ia/"
+          }
+        },
         {
           "@type": "Question",
           "name": "O que é a Tyna e o que ela faz?",

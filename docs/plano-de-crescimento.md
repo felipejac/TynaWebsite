@@ -82,6 +82,15 @@ compondo por trás, para quando alguém do ICP finalmente procurar.
   em inventário. Mais o erro estrutural de definir base legal por sistema quando ela é
   por finalidade. Fecha uma lacuna de busca grande: "LGPD" é termo muito mais procurado
   que "governança de IA".
+- **`/governanca-de-ia/`** (18/08/2026) — a página do **termo-cabeça da categoria**,
+  construída depois da leitura de Semrush que mostrou a lacuna: 260 buscas/mês, KD 26
+  ("Easy"), e uma SERP em que a sexta posição é ocupada por página com autoridade zero.
+  Cobre as sub-perguntas com volume próprio — o que é, diferença para governança de TI,
+  implementação (70/mês), métricas (70/mês), modelo de maturidade (30/mês), agentic
+  (270/mês somando variantes) e os recortes por setor. Serve de **hub**: 27 links
+  internos para os outros sete guias e para o diagnóstico. 2.718 palavras.
+- **Título de `/pl-2338/` corrigido** (18/08/2026) para liderar com "PL 2338/2023", que é
+  como as 4.330 buscas/mês são escritas — "Marco Legal da IA" tem 90.
 - **Hub de guias na home** (18/08/2026), em `/#guias` — seis cartões ligando a página
   mais forte do site aos cinco guias e ao diagnóstico. Menu e rodapé padronizados em
   todas as páginas, com coluna "Guias" inclusive nas 57 páginas geradas do blog, e

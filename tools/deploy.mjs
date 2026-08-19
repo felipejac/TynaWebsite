@@ -43,7 +43,7 @@ const PUBLISH = [
   'index.html', '404.html', 'googlee855927550ef5bb2.html', 'BingSiteAuth.xml',
   'd3bf6674386c4a6e539f5bb870611a6c.txt',
   'robots.txt', 'llms.txt', 'ai.json',
-  'sobre', 'iso-42001', 'diagnostico', 'shadow-ai', 'pl-2338', 'ai-gateway', 'governanca-de-agentes', 'politica-de-uso-de-ia', 'lgpd-e-ia',
+  'sobre', 'iso-42001', 'diagnostico', 'shadow-ai', 'pl-2338', 'ai-gateway', 'governanca-de-agentes', 'politica-de-uso-de-ia', 'lgpd-e-ia', 'governanca-de-ia',
   'blog', 'assets', 'rss.xml', 'sitemap.xml',
 ];
 
