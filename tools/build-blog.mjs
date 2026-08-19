@@ -22,7 +22,7 @@ const WA_CTA = 'https://wa.me/5511997228945?text=' +
   encodeURIComponent('Olá, Felipe. Vim pelo site da Tyna e quero falar sobre governança de IA.');
 const ctaAgendar = (cls = '', attrs = '') =>
   `<a href="${WA_CTA}" target="_blank" rel="noopener" class="btn btn-primary${cls ? ' ' + cls : ''}"${attrs ? ' ' + attrs : ''}>Agendar conversa</a>`;
-const ASSET_V = '13';
+const ASSET_V = '14';
 
 const CATEGORIES = {
   'governanca': 'Governança de IA',
@@ -226,6 +226,8 @@ ${body}
           <a href="${up}shadow-ai/">Shadow AI</a>
           <a href="${up}ai-gateway/">AI Gateway</a>
           <a href="${up}governanca-de-agentes/">Governança de agentes</a>
+          <a href="${up}politica-de-uso-de-ia/">Política de uso de IA</a>
+          <a href="${up}lgpd-e-ia/">LGPD e IA</a>
           <a href="${up}pl-2338/">Marco Legal da IA</a>
         </div>
         <div class="foot-col">
@@ -474,6 +476,8 @@ const staticPages = [
   { loc: `${SITE}/pl-2338/`, pri: '0.9', freq: 'monthly', mod: mtime('pl-2338/index.html') },
   { loc: `${SITE}/ai-gateway/`, pri: '0.9', freq: 'monthly', mod: mtime('ai-gateway/index.html') },
   { loc: `${SITE}/governanca-de-agentes/`, pri: '0.9', freq: 'monthly', mod: mtime('governanca-de-agentes/index.html') },
+  { loc: `${SITE}/politica-de-uso-de-ia/`, pri: '0.9', freq: 'monthly', mod: mtime('politica-de-uso-de-ia/index.html') },
+  { loc: `${SITE}/lgpd-e-ia/`, pri: '0.9', freq: 'monthly', mod: mtime('lgpd-e-ia/index.html') },
   { loc: `${SITE}/sobre/`, pri: '0.8', freq: 'monthly', mod: mtime('sobre/index.html') },
   { loc: `${SITE}/blog/`, pri: '0.9', freq: 'daily', mod: maisRecente(posts) },
   ...Object.keys(CATEGORIES).filter(s => posts.some(p => p.category === s))

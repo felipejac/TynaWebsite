@@ -29,6 +29,7 @@
         "Adequação à LGPD em fluxos de IA",
         "Arquitetura de agentes conversacionais",
         "Auditoria de decisão de agente",
+        "Base legal de tratamento em fluxos de IA",
         "Comitê de governança de inteligência artificial",
         "Compliance e gestão de risco em IA",
         "Consultoria em governança de IA",
@@ -45,6 +46,7 @@
         "Mapeamento de shadow AI",
         "Marco Legal da Inteligência Artificial (PL 2338/2023)",
         "NIST AI Risk Management Framework",
+        "Política de uso aceitável de IA",
         "Políticas de uso aceitável de IA corporativa",
         "Prompt engineering",
         "Retrieval-Augmented Generation",
@@ -345,6 +347,20 @@
         },
         {
           "@type": "WebPage",
+          "@id": "https://tyna.com.br/politica-de-uso-de-ia/",
+          "name": "Política de uso de IA — template pronto para adaptar",
+          "url": "https://tyna.com.br/politica-de-uso-de-ia/",
+          "description": "Template completo de política interna de uso de Inteligência Artificial, com classificação de dado em três níveis, alternativa autorizada ao lado de cada proibição, regra para conteúdo gerado, aprovação separada para agentes e canal de incidente com anistia."
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://tyna.com.br/lgpd-e-ia/",
+          "name": "LGPD em fluxos de IA — as três portas do dado pessoal",
+          "url": "https://tyna.com.br/lgpd-e-ia/",
+          "description": "Onde o dado pessoal entra em um fluxo de IA sem passar por registro: prompt, base de conhecimento e log de observabilidade. Base legal por finalidade e não por sistema, contrato de operador com o fornecedor do modelo e trilha que torna exercível o direito de revisão de decisão automatizada."
+        },
+        {
+          "@type": "WebPage",
           "@id": "https://tyna.com.br/diagnostico/",
           "name": "Diagnóstico de maturidade em governança de IA",
           "url": "https://tyna.com.br/diagnostico/",
@@ -491,6 +507,22 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Quatro. Escopo de autonomia, a lista escrita do que o agente decide sozinho, do que ele propõe para alguém confirmar e do que ele nunca faz, definida antes da produção. Guardrail em produção, limite verificado pela máquina a cada chamada, e não recomendação em documento. Escalonamento humano, com o critério que dispara a passagem para uma pessoa e o caminho pelo qual ela recebe o caso com o contexto inteiro. E trilha de auditoria, o registro recuperável do que o agente leu, decidiu e executou. Referência de produção: um agente de pós-venda do grupo Stellantis opera com 84,2% de assertividade e 80% de resolutividade direta, e ainda assim entrega 86,8% de NPS (fonte: blip.ai) — a satisfação vem de o caminho para a pessoa funcionar quando o agente erra. Roteiro completo em https://tyna.com.br/governanca-de-agentes/"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "O que precisa ter em uma política de uso de IA corporativa?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sete partes, e nenhuma delas longa: objetivo e alcance; classificação de dado em três níveis, com o que pode entrar em qual categoria de ferramenta; a lista de ferramentas autorizadas e o caminho para pedir uma nova, com prazo de resposta; as proibições, cada uma com a alternativa autorizada no mesmo parágrafo; as regras para conteúdo gerado por IA, incluindo revisão humana antes de uso externo e a exigência de que número e prazo venham de sistema, não do modelo; a regra de que agentes e automações passam por aprovação separada; e os papéis, com dono nomeado, prazo de exceção e canal de incidente com anistia declarada. O motivo mais comum de uma política não ser seguida é proibir sem oferecer caminho — isso não reduz o uso, só reduz o que a empresa enxerga. Template completo em https://tyna.com.br/politica-de-uso-de-ia/"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Onde o dado pessoal entra em um fluxo de IA sem ninguém perceber?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Em três lugares que não se parecem com banco de dados, e por isso não aparecem em inventário. No prompt, quando alguém cola um caso real com nome, documento e histórico para pedir ajuda. Na base de conhecimento, quando um sistema de recuperação é montado sobre pasta compartilhada e indexa tudo, inclusive o que não deveria ser recuperável por qualquer pergunta — permissão de pasta não vira permissão de resposta sozinha. E no log, quando a observabilidade montada para depurar o agente guarda a conversa inteira e vira repositório de dado pessoal sem prazo de retenção nem base legal declarada. A LGPD alcança tudo isso desde 2020, sem depender do PL 2338, e a empresa segue sendo a controladora. Detalhes em https://tyna.com.br/lgpd-e-ia/"
           }
         }
       ]

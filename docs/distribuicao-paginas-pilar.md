@@ -2,17 +2,19 @@
 
 Criado em 17/08/2026 e ampliado em 18/08/2026, junto com as páginas. Conteúdo sem
 canal não conta: é a regra da seção 8 do [plano de crescimento](plano-de-crescimento.md),
-e foi o que produziu 50 posts sem leitor. Este arquivo é o canal das quatro páginas.
+e foi o que produziu 50 posts sem leitor. Este arquivo é o canal das seis páginas.
 
-Páginas (as quatro publicadas em 17 e 18/08/2026):
+Páginas (as seis publicadas em 17 e 18/08/2026):
 
 - https://tyna.com.br/shadow-ai/ — checklist de mapeamento em 12 passos
 - https://tyna.com.br/pl-2338/ — status verificado do Marco Legal da IA
 - https://tyna.com.br/ai-gateway/ — o que unifica, e quando não faz sentido
 - https://tyna.com.br/governanca-de-agentes/ — quatro controles e dez perguntas
+- https://tyna.com.br/politica-de-uso-de-ia/ — template inteiro, copiável
+- https://tyna.com.br/lgpd-e-ia/ — as três portas do dado pessoal
 
 **Postar no perfil pessoal do Felipe**, não em página de empresa. Perfil pessoal
-tem alcance orgânico muito maior no LinkedIn, e a autoridade nos quatro temas é
+tem alcance orgânico muito maior no LinkedIn, e a autoridade nos seis temas é
 pessoal: quem já colocou agente em produção e quem foi conferir a tramitação na fonte.
 
 ---
@@ -175,6 +177,78 @@ caso real, com fonte, e porque a conclusão é contraintuitiva.
 
 ---
 
+## Post 5 — Política de uso de IA (o template aberto)
+
+Ângulo: entregar o documento inteiro, de graça, sem formulário. É o oposto do padrão
+da categoria, onde template é isca de captura de e-mail. Quem copia leva pronto; quem
+precisa adaptar à própria operação é exatamente o lead que interessa.
+
+> A política de IA da sua empresa provavelmente não está sendo seguida. E o motivo
+> cabe em uma frase.
+>
+> Ela proíbe sem dizer o que fazer no lugar.
+>
+> "Não cole dado de cliente em ferramenta pública." Ok. E aí? A pessoa tem uma entrega
+> para hoje e um caso real na mão. Sem alternativa no mesmo parágrafo, a regra não
+> reduz o uso — reduz só o que a empresa consegue enxergar. É assim que shadow AI nasce
+> dentro de empresa que tem política.
+>
+> A regra de redação que muda isso: nenhuma linha proíbe algo sem apontar o caminho
+> autorizado ali mesmo. Se não existir alternativa possível, a proibição precisa
+> explicar por quê — senão é ignorada, e leva as outras junto.
+>
+> As outras três causas, na ordem em que aparecem:
+>
+> Documento longo demais (vinte páginas não são lidas às três da tarde). Ausência de
+> prazo de resposta a exceção (quem tem prazo de projeto não espera duas semanas por
+> autorização). E template copiado sem adaptação — exemplo genérico é reconhecido na
+> primeira leitura, e política que parece genérica não é levada a sério.
+>
+> Publiquei o template inteiro que uso em projeto. Sem formulário, sem e-mail: está na
+> página, dá para copiar e colar. Sete seções, classificação de dado em três níveis, e
+> as três substituições obrigatórias antes de publicar.
+>
+> tyna.com.br/politica-de-uso-de-ia/
+
+---
+
+## Post 6 — LGPD em fluxos de IA (as três portas)
+
+Ângulo: específico e técnico o suficiente para quem é da área reconhecer que o autor
+opera de verdade. As três portas não aparecem em material genérico de LGPD.
+
+> Onde o dado pessoal entra num fluxo de IA? Quase nunca pela porta que o inventário
+> vigia.
+>
+> Três portas, e nenhuma se parece com banco de dados:
+>
+> **1. O prompt.** Alguém cola um caso real para pedir ajuda — e o caso real tem nome,
+> CPF e histórico. O tratamento acontece no instante em que o texto sai do perímetro,
+> sem passar por processo nenhum.
+>
+> **2. A base de conhecimento.** Um RAG montado sobre a pasta compartilhada indexa
+> tudo que está nela. E aqui está a parte que costuma passar batido: permissão de
+> pasta não vira permissão de resposta sozinha. Dado que dependia de saber onde
+> procurar passa a vir sozinho, para quem fizer a pergunta certa.
+>
+> **3. O log.** A observabilidade que o time montou para depurar o agente guarda a
+> conversa inteira. Em semanas, virou um repositório de dado pessoal sem prazo de
+> retenção, sem base legal declarada e às vezes em ferramenta de terceiro contratada
+> pela engenharia.
+>
+> E tem um erro estrutural que aparece em quase todo projeto: base legal definida por
+> sistema, quando ela é por finalidade. "Usamos IA no atendimento" não é finalidade —
+> é lugar. Responder ao cliente é uma finalidade. Treinar modelo com aquele histórico
+> é outra, com outra base. Análise interna é uma terceira.
+>
+> Nada disso depende do Marco Legal da IA, que segue parado na Câmara. A LGPD está em
+> vigor desde 2020 e já alcança tudo isso.
+>
+> Escrevi o que fazer em cada porta, e as seis frentes na ordem que funciona:
+> tyna.com.br/lgpd-e-ia/
+
+---
+
 ## Ordem e ritmo
 
 1. **Post do Shadow AI primeiro.** Tema perene, é ferramenta, e o pedido de salvar
@@ -182,9 +256,10 @@ caso real, com fonte, e porque a conclusão é contraintuitiva.
 2. **Post do PL 2338 dois ou três dias depois.** Corrigir informação errada rende
    comentário e alcance, mas é o tipo de post que fica pior se vier logo em seguida
    de outro post técnico do mesmo autor.
-3. **AI Gateway e agentes na segunda semana**, um por semana, na ordem em que
-   aparecem acima. Quatro posts em quatro dias queimam a lista; um por semana mantém
-   presença sem cansar, e cada um deles tem cauda longa própria na busca.
+3. **Os outros quatro, um por semana**, na ordem em que aparecem acima. Seis posts
+   em seis dias queimam a lista; um por semana mantém presença sem cansar, e cada um
+   tem cauda longa própria na busca. Se for para escolher só dois além dos primeiros:
+   **política de uso** (maior intenção comercial) e **LGPD** (maior volume de busca).
 4. **As mensagens diretas continuam sendo o que responde pela maior parte do
    resultado.** As duas páginas dão motivo para a mensagem — "escrevi o checklist
    que a gente usa, dá uma olhada e me diz se falta alguma frente" abre conversa

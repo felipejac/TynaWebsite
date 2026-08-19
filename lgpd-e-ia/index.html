@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LGPD e IA: onde o dado pessoal entra sem ninguém ver | Tyna</title>
+<meta name="description" content="Os três pontos em que dado pessoal entra num fluxo de IA sem ninguém registrar — prompt, base de conhecimento e log — e o que fazer em cada um.">
+<link rel="canonical" href="https://tyna.com.br/lgpd-e-ia/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="LGPD e IA: onde o dado pessoal entra sem ninguém ver">
+<meta property="og:description" content="Prompt, base de conhecimento e log de observabilidade. Os três pontos em que o dado pessoal entra no fluxo de IA sem passar por registro nenhum.">
+<meta property="og:url" content="https://tyna.com.br/lgpd-e-ia/">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna-dark.png">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css?v=14">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Adequação à LGPD em fluxos de Inteligência Artificial",
+  "serviceType": "Mapeamento de dado pessoal em fluxos de IA, definição de base legal por finalidade e prevenção de vazamento em prompts, bases de conhecimento e logs",
+  "description": "Levantamento dos pontos em que dado pessoal entra em fluxos de Inteligência Artificial, definição de base legal por finalidade de tratamento, contrato de operador com fornecedores de modelo, política de retenção de log e trilha que sustenta o direito à revisão de decisão automatizada.",
+  "areaServed": "BR",
+  "provider": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/",
+    "email": "contato@tyna.com.br"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://tyna.com.br/" },
+    { "@type": "ListItem", "position": 2, "name": "LGPD em fluxos de IA", "item": "https://tyna.com.br/lgpd-e-ia/" }
+  ]
+}
+</script>
+<link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "pt-BR",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "A LGPD se aplica ao uso de Inteligência Artificial?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Sim, integralmente, e desde 2020 — não é preciso esperar o Marco Legal da IA. A LGPD não regula tecnologia, regula tratamento de dado pessoal, e um prompt contendo nome, CPF ou histórico de cliente é tratamento de dado pessoal como qualquer outro. Valem as mesmas exigências de sempre: base legal por finalidade, contrato com o operador, avaliação de transferência internacional, atendimento aos direitos do titular e registro das operações. A empresa que envia o dado continua sendo a controladora, e desconhecer que a ferramenta estava em uso não a exime." }
+    },
+    {
+      "@type": "Question",
+      "name": "Onde o dado pessoal entra em um fluxo de IA sem ninguém perceber?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Em três lugares. No prompt, quando alguém cola um caso real para pedir ajuda e o caso real tem nome, documento e histórico. Na base de conhecimento, quando um sistema de recuperação é montado sobre uma pasta compartilhada e indexa tudo que está lá, inclusive o que nunca deveria ser recuperável por qualquer pessoa que faça uma pergunta. E no log, quando a observabilidade montada para depurar o agente guarda a conversa inteira e vira um repositório de dado pessoal que ninguém declarou. Os três são invisíveis para o inventário tradicional, porque nenhum deles se parece com um banco de dados." }
+    },
+    {
+      "@type": "Question",
+      "name": "Qual é a base legal para usar dado pessoal em IA?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Depende da finalidade, e é aí que a maioria dos projetos erra: define base legal por sistema, quando ela é por finalidade de tratamento. Usar IA no atendimento não é uma finalidade. Responder à solicitação de um cliente é uma finalidade e costuma se apoiar em execução de contrato; usar o mesmo histórico para treinar ou ajustar modelo é outra finalidade, com outra base, e normalmente exige análise própria; usar para análise interna agregada é uma terceira. O mesmo dado, no mesmo fluxo, pode ter bases diferentes conforme o que se faz com ele." }
+    },
+    {
+      "@type": "Question",
+      "name": "O fornecedor do modelo de IA é operador de dados?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Em geral sim, quando trata dado pessoal em nome da empresa, e isso exige contrato com as cláusulas de operador, avaliação de segurança e registro na lista de suboperadores que clientes corporativos costumam pedir. Três pontos merecem leitura atenta nos termos: se o conteúdo enviado pode ser usado para treinar modelos do fornecedor, por quanto tempo o conteúdo fica retido, e em que país ele é processado, o que aciona as regras de transferência internacional. Camada gratuita e conta pessoal costumam ter termos diferentes, e piores, do que o plano corporativo do mesmo produto." }
+    },
+    {
+      "@type": "Question",
+      "name": "Como atender ao direito de revisão de decisão automatizada?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Com trilha de auditoria e pessoa nomeada. A LGPD assegura ao titular pedir revisão de decisão tomada unicamente com base em tratamento automatizado que afete seus interesses, e responder a isso exige reconstruir o caso específico: quais dados entraram, qual foi a decisão e qual critério a produziu. Sem registro recuperável por interação, não existe resposta possível — só desculpa. Por isso, em fluxo que decide sobre pessoas, a trilha não é refinamento técnico: é o que torna o direito exercível." }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><img src="../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../#servicos">Serviços</a></li>
+        <li><a href="../#guias">Guias</a></li>
+        <li><a href="../iso-42001/">ISO 42001</a></li>
+        <li><a href="../#cases">Cases</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pela%20p%C3%A1gina%20de%20LGPD%20em%20fluxos%20de%20IA%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pela%20p%C3%A1gina%20de%20LGPD%20em%20fluxos%20de%20IA%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">LGPD em fluxos de IA</p>
+      <h1 style="max-width:900px;">O dado pessoal não entra pela porta da frente. <em>Entra por três.</em></h1>
+      <p class="lead" style="max-width:740px;">A LGPD não regula tecnologia: regula tratamento de dado pessoal. Por isso ela já alcança todo fluxo de IA da sua empresa, desde 2020, sem depender do Marco Legal da IA. O problema prático é que o dado pessoal entra em pontos que não se parecem com banco de dados — e por isso não aparecem em inventário nenhum. São três, e esta página trata de cada um.</p>
+      <div class="hero-ctas">
+        <a href="#tres-portas" class="btn btn-primary">Ver as três portas</a>
+        <a href="#base-legal" class="btn btn-ghost">Base legal por finalidade</a>
+      </div>
+      <div class="stat-row" style="max-width:860px; border-top:0; padding-top:0;">
+        <div class="stat"><span class="v">2020</span><span class="l">LGPD EM VIGOR — NÃO DEPENDE DO PL 2338</span></div>
+        <div class="stat"><span class="v">3</span><span class="l">PONTOS DE ENTRADA INVISÍVEIS AO INVENTÁRIO</span></div>
+        <div class="stat"><span class="v">39%</span><span class="l">DAS REVERSÕES DE IA COM VAZAMENTO DE DADO</span></div>
+        <div class="stat"><span class="v">1</span><span class="l">CONTROLADORA: A EMPRESA, SEMPRE</span></div>
+      </div>
+      <p class="hero-note" style="max-width:860px;">Os 39% são do recorte Brasil da pesquisa Sinch, <em>The AI Production Paradox</em>: entre as organizações que interromperam ou reverteram uma implementação de IA, foi a fatia em que houve vazamento de dados ou de informações pessoais. Base de 2.527 executivos seniores em dez países.</p>
+    </div>
+  </section>
+
+  <!-- AS TRÊS PORTAS -->
+  <section id="tres-portas">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Onde ele entra</p>
+        <h2>Três portas que o inventário tradicional não enxerga</h2>
+        <p>Nenhuma das três se parece com um banco de dados, e é exatamente por isso que passam. Em todas, o tratamento acontece antes de qualquer registro existir.</p>
+      </div>
+
+      <div class="steps reveal">
+        <div class="step">
+          <span class="step-num">01</span>
+          <div>
+            <h3>No prompt</h3>
+            <p>Alguém cola um caso real para pedir ajuda — e o caso real tem nome, documento, endereço, histórico de atendimento. Não é má-fé: é a forma mais rápida de conseguir uma resposta útil. O tratamento acontece no instante em que o texto sai do perímetro, sem passar por processo nenhum.</p>
+            <p style="margin-top:10px;"><strong>O que resolve:</strong> caminho autorizado que aceite esse dado (instância privada sob <a href="../ai-gateway/">AI Gateway</a>), e a classificação de dado escrita na <a href="../politica-de-uso-de-ia/">política de uso</a>, para que a pessoa saiba antes de colar.</p>
+          </div>
+        </div>
+        <div class="step is-chave">
+          <span class="step-num">02</span>
+          <div>
+            <h3>Na base de conhecimento</h3>
+            <p>Um sistema de recuperação montado sobre a pasta compartilhada indexa tudo que está nela — inclusive o que nunca deveria ser recuperável por qualquer pessoa que faça uma pergunta. É a porta mais perigosa das três, porque muda a natureza do acesso: dado que dependia de saber onde procurar passa a vir sozinho, em resposta a uma pergunta em linguagem natural.</p>
+            <span class="step-flag">Permissão de pasta não vira permissão de resposta sozinha — precisa ser reimplementada na recuperação</span>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <div>
+            <h3>No log</h3>
+            <p>A observabilidade montada para depurar o agente guarda a conversa inteira. Em semanas, vira um repositório de dado pessoal que ninguém declarou, sem prazo de retenção, sem base legal registrada e frequentemente em ferramenta de terceiro contratada pela engenharia. O log nasce como necessidade técnica e vira passivo jurídico sem que ninguém tome uma decisão a respeito.</p>
+            <p style="margin-top:10px;"><strong>O que resolve:</strong> prazo de retenção definido, mascaramento de identificador no registro e o log entrando no inventário como qualquer outra base.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BASE LEGAL -->
+  <section id="base-legal">
+    <div class="wrap problem-grid">
+      <div class="reveal">
+        <p class="eyebrow">O erro estrutural</p>
+        <h2>Base legal é por finalidade. Quase todo projeto define por sistema.</h2>
+        <p style="color:var(--text-muted); font-size:16px;">"Usamos IA no atendimento" não é uma finalidade — é um lugar. Dentro do mesmo fluxo convivem tratamentos diferentes, com bases diferentes, e a resposta muda conforme o que se faz com o dado. É a distinção que costuma faltar quando o jurídico é chamado depois que o sistema já está no ar.</p>
+      </div>
+      <div class="risk-list reveal">
+        <div class="risk-item">
+          <span class="num">01</span>
+          <div><h4>Responder à solicitação do cliente</h4><p>Finalidade direta do atendimento, normalmente apoiada em execução de contrato. É a única das quatro que a maioria das empresas tem documentada.</p></div>
+        </div>
+        <div class="risk-item">
+          <span class="num">02</span>
+          <div><h4>Treinar ou ajustar modelo com o histórico</h4><p>Outra finalidade, outra base, e a que mais aparece nos termos de uso da ferramenta sem ninguém ter lido. Exige análise própria e decisão consciente, não herdada do contrato de atendimento.</p></div>
+        </div>
+        <div class="risk-item">
+          <span class="num">03</span>
+          <div><h4>Análise interna e métrica de qualidade</h4><p>Terceira finalidade. Costuma caber em legítimo interesse, mas legítimo interesse exige avaliação registrada — e é justamente o registro que falta quando alguém pergunta.</p></div>
+        </div>
+        <div class="risk-item">
+          <span class="num">04</span>
+          <div><h4>Decidir sobre a pessoa</h4><p>Triagem, score, priorização, recusa. É a faixa que aciona o direito de revisão de decisão automatizada, e a que exige trilha capaz de reconstruir o caso específico.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- O QUE FAZER -->
+  <section id="o-que-fazer">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">O caminho</p>
+        <h2>Seis frentes, e a ordem importa</h2>
+        <p>Começar pelo contrato com o fornecedor é o erro mais comum: assina-se o contrato certo para um fluxo que ninguém mapeou. O mapa vem primeiro.</p>
+      </div>
+      <div class="reveal">
+        <table class="spec-table">
+          <thead>
+            <tr><th scope="col">Frente</th><th scope="col">O que precisa existir ao final</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1. Inventário dos fluxos de IA</td>
+              <td>A lista do que já roda, incluindo o que ninguém aprovou. Sem ela, tudo o que vem depois cobre só a parte visível. Ponto de partida: o <a href="../shadow-ai/">checklist de mapeamento</a>.</td>
+            </tr>
+            <tr>
+              <td>2. Dado por fluxo, nas três portas</td>
+              <td>Que dado pessoal entra por prompt, por base de conhecimento e por log — em cada fluxo, nomeando os campos, não a categoria.</td>
+            </tr>
+            <tr>
+              <td>3. Base legal por finalidade</td>
+              <td>Uma linha por finalidade de tratamento, não por sistema. Com a avaliação registrada quando a base for legítimo interesse.</td>
+            </tr>
+            <tr>
+              <td>4. Contrato de operador e suboperadores</td>
+              <td>Cláusulas de operador com o fornecedor do modelo, leitura dos termos sobre treinamento e retenção, e a lista de suboperadores que clientes corporativos pedem em auditoria.</td>
+            </tr>
+            <tr>
+              <td>5. Transferência internacional</td>
+              <td>Em que país o conteúdo é processado, e sob qual mecanismo de transferência. A maioria dos provedores de modelo processa fora do Brasil.</td>
+            </tr>
+            <tr>
+              <td>6. Direitos do titular e retenção</td>
+              <td>Como responder a acesso, correção, eliminação e <strong>revisão de decisão automatizada</strong> — e o prazo de retenção de prompt, base e log, com alguém responsável por aplicá-lo.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <ul class="benefits reveal" style="margin-top:44px;">
+        <li><strong>A empresa é sempre a controladora</strong> — o fornecedor do modelo é operador. Não saber que a ferramenta estava em uso não transfere responsabilidade nem exime de nada.</li>
+        <li><strong>Camada gratuita costuma ter termos piores</strong> — o mesmo produto, em conta pessoal, frequentemente permite uso do conteúdo para treinamento que o plano corporativo veda.</li>
+        <li><strong>Anonimizar antes de enviar resolve mais do que parece</strong> — boa parte dos casos de uso não precisa do nome do titular para funcionar, e ninguém tinha parado para perguntar.</li>
+        <li><strong>Log é base de dados</strong> — trate com prazo de retenção e mascaramento, ou ele vira o maior repositório não declarado de dado pessoal da operação.</li>
+        <li><strong>Sem trilha não há direito de revisão</strong> — o titular pode pedir revisão de decisão automatizada; sem registro por interação, a empresa não tem o que responder. Ver <a href="../governanca-de-agentes/">governança de agentes</a>.</li>
+        <li><strong>Isso já vale, e o PL 2338 não</strong> — o <a href="../pl-2338/">Marco Legal da IA</a> segue em tramitação na Câmara. A LGPD, não: está em vigor e alcança tudo o que está nesta página.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Perguntas frequentes</p>
+        <h2>LGPD e IA, em resposta direta</h2>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-item">
+          <h3>A LGPD se aplica ao uso de Inteligência Artificial?</h3>
+          <p>Sim, integralmente, e desde 2020 — não é preciso esperar o Marco Legal da IA. A LGPD não regula tecnologia, regula tratamento de dado pessoal, e um prompt contendo nome, CPF ou histórico de cliente é tratamento de dado pessoal como qualquer outro. Valem as mesmas exigências de sempre: base legal por finalidade, contrato com o operador, avaliação de transferência internacional, atendimento aos direitos do titular e registro das operações. A empresa que envia o dado continua sendo a controladora, e desconhecer que a ferramenta estava em uso não a exime.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Onde o dado pessoal entra em um fluxo de IA sem ninguém perceber?</h3>
+          <p>Em três lugares. No prompt, quando alguém cola um caso real para pedir ajuda e o caso real tem nome, documento e histórico. Na base de conhecimento, quando um sistema de recuperação é montado sobre uma pasta compartilhada e indexa tudo que está lá, inclusive o que nunca deveria ser recuperável por qualquer pessoa que faça uma pergunta. E no log, quando a observabilidade montada para depurar o agente guarda a conversa inteira e vira um repositório de dado pessoal que ninguém declarou. Os três são invisíveis para o inventário tradicional, porque nenhum deles se parece com um banco de dados.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Qual é a base legal para usar dado pessoal em IA?</h3>
+          <p>Depende da finalidade, e é aí que a maioria dos projetos erra: define base legal por sistema, quando ela é por finalidade de tratamento. Usar IA no atendimento não é uma finalidade. Responder à solicitação de um cliente é uma finalidade e costuma se apoiar em execução de contrato; usar o mesmo histórico para treinar ou ajustar modelo é outra finalidade, com outra base, e normalmente exige análise própria; usar para análise interna agregada é uma terceira. O mesmo dado, no mesmo fluxo, pode ter bases diferentes conforme o que se faz com ele.</p>
+        </div>
+        <div class="faq-item">
+          <h3>O fornecedor do modelo de IA é operador de dados?</h3>
+          <p>Em geral sim, quando trata dado pessoal em nome da empresa, e isso exige contrato com as cláusulas de operador, avaliação de segurança e registro na lista de suboperadores que clientes corporativos costumam pedir. Três pontos merecem leitura atenta nos termos: se o conteúdo enviado pode ser usado para treinar modelos do fornecedor, por quanto tempo o conteúdo fica retido, e em que país ele é processado, o que aciona as regras de transferência internacional. Camada gratuita e conta pessoal costumam ter termos diferentes, e piores, do que o plano corporativo do mesmo produto.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Como atender ao direito de revisão de decisão automatizada?</h3>
+          <p>Com trilha de auditoria e pessoa nomeada. A LGPD assegura ao titular pedir revisão de decisão tomada unicamente com base em tratamento automatizado que afete seus interesses, e responder a isso exige reconstruir o caso específico: quais dados entraram, qual foi a decisão e qual critério a produziu. Sem registro recuperável por interação, não existe resposta possível — só desculpa. Por isso, em fluxo que decide sobre pessoas, a trilha não é refinamento técnico: é o que torna o direito exercível.</p>
+        </div>
+      </div>
+      <p class="status-meta reveal" style="max-width:760px; margin-top:34px;">Esta página trata de governança e de operação, não substitui análise jurídica do caso concreto. A Tyna estrutura os controles; a validação de base legal e de contrato é feita com o jurídico da empresa.</p>
+    </div>
+  </section>
+
+  <!-- GUIAS RELACIONADOS -->
+  <section id="relacionados">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Continue por aqui</p>
+        <h2>Guias relacionados</h2>
+      </div>
+      <div class="svc-grid reveal">
+        <div class="svc-card">
+          <span class="num">01</span>
+          <h3><a href="../ai-gateway/">AI Gateway</a></h3>
+          <p>É onde o registro do que trafega deixa de ser projeto por fluxo e passa a existir por padrão — inclusive para a trilha que a LGPD exige.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">02</span>
+          <h3><a href="../politica-de-uso-de-ia/">Política de uso de IA</a></h3>
+          <p>A classificação de dado em três níveis é o que faz a regra chegar antes do prompt, e não depois do incidente.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">03</span>
+          <h3><a href="../pl-2338/">Marco Legal da IA</a></h3>
+          <p>O que muda quando o PL 2338 for votado — e por que a LGPD já exige hoje boa parte do que ele vai formalizar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA final -->
+  <section class="cta-band" style="border-bottom:none;">
+    <div class="wrap reveal">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Sua empresa sabe por quais portas o dado pessoal está saindo?</h2>
+      <p style="color:var(--text-muted); font-size:16.5px; max-width:580px; margin:0 auto 30px;">O diagnóstico de maturidade são dez perguntas e três minutos, com as lacunas nomeadas uma a uma. Sem formulário e sem cadastro.</p>
+      <div class="hero-ctas" style="justify-content:center;">
+        <a href="../diagnostico/" class="btn btn-primary">Fazer o diagnóstico</a>
+        <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pela%20p%C3%A1gina%20de%20LGPD%20em%20fluxos%20de%20IA%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-ghost">Falar com o Felipe</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../" class="logo"><img src="../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Guias</h5>
+          <a href="../iso-42001/">ISO 42001</a>
+          <a href="../shadow-ai/">Shadow AI</a>
+          <a href="../ai-gateway/">AI Gateway</a>
+          <a href="../governanca-de-agentes/">Governança de agentes</a>
+          <a href="../politica-de-uso-de-ia/">Política de uso de IA</a>
+          <a href="./">LGPD e IA</a>
+          <a href="../pl-2338/">Marco Legal da IA</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../#servicos">Serviços</a>
+          <a href="../#trilhas">Trilhas</a>
+          <a href="../diagnostico/">Diagnóstico</a>
+          <a href="../blog/">Blog</a>
+          <a href="../sobre/">Sobre</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<!-- O botão flutuante do WhatsApp é montado por assets/site.js, que roda em todas as páginas -->
+<script src="../assets/site.js?v=14"></script>
+
+</body>
+</html>

@@ -27,8 +27,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../assets/styles.css?v=13">
-<link rel="stylesheet" href="../../assets/blog.css?v=13">
+<link rel="stylesheet" href="../../assets/styles.css?v=14">
+<link rel="stylesheet" href="../../assets/blog.css?v=14">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Cloudflare OS: agentes de IA rodando na borda","description":"A Cloudflare lançou uma plataforma aberta para construir e escalar agentes de IA. O que muda para quem já roda n8n em produção.","datePublished":"2026-08-06","dateModified":"2026-08-06","inLanguage":"pt-BR","author":{"@type":"Person","name":"Felipe Jacob","url":"https://tyna.com.br/sobre/"},"publisher":{"@type":"Organization","name":"Tyna","url":"https://tyna.com.br","logo":{"@type":"ImageObject","url":"https://tyna.com.br/assets/logo-tyna-dark.png"}},"mainEntityOfPage":"https://tyna.com.br/blog/cloudflare-os-plataforma-aberta-para-agentes-de-ia/","keywords":"cloudflare, edge-computing, agentes-de-ia, automacao, n8n, open-source","articleSection":"Agentes de IA","citation":"https://blog.cloudflare.com/cloudflare-os/"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://tyna.com.br"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tyna.com.br/blog/"},{"@type":"ListItem","position":3,"name":"Agentes de IA","item":"https://tyna.com.br/blog/categoria/ai-agents/"},{"@type":"ListItem","position":4,"name":"Cloudflare OS: agentes de IA rodando na borda","item":"https://tyna.com.br/blog/cloudflare-os-plataforma-aberta-para-agentes-de-ia/"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Consigo rodar meus workflows atuais do n8n sem reescrever?","acceptedAnswer":{"@type":"Answer","text":"Sim. O Cloudflare OS traz um invólucro de runtime que aceita as definições JSON de workflow do n8n e as executa no ambiente de borda. É preciso pouca configuração, basicamente para conectar as fontes de dados."}},{"@type":"Question","name":"Dá para usar modelos próprios ou só os prontos?","acceptedAnswer":{"@type":"Answer","text":"Dá para hospedar contêineres com o seu modelo ou chamar endpoints externos. O marketplace oferece modelos prontos para tarefas comuns, mas nada impede publicar o seu na borda ou na nuvem."}},{"@type":"Question","name":"Como funciona o custo e o escalonamento?","acceptedAnswer":{"@type":"Answer","text":"A cobrança é por requisição e por GB processado. Em cargas de alto volume e baixa latência, tende a sair mais barato que manter VMs dedicadas. As instâncias de agente escalam sozinhas conforme o tráfego, então você paga pelo uso."}}]}</script>
@@ -169,6 +169,8 @@
           <a href="../../shadow-ai/">Shadow AI</a>
           <a href="../../ai-gateway/">AI Gateway</a>
           <a href="../../governanca-de-agentes/">Governança de agentes</a>
+          <a href="../../politica-de-uso-de-ia/">Política de uso de IA</a>
+          <a href="../../lgpd-e-ia/">LGPD e IA</a>
           <a href="../../pl-2338/">Marco Legal da IA</a>
         </div>
         <div class="foot-col">
@@ -188,7 +190,7 @@
   </div>
 </footer>
 
-<script src="../../assets/site.js?v=13"></script>
+<script src="../../assets/site.js?v=14"></script>
 
 </body>
 </html>

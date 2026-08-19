@@ -71,6 +71,17 @@ compondo por trás, para quando alguém do ICP finalmente procurar.
   da seção 8: o argumento de que **não existe agente com 100% de acerto** vira seção
   própria. Leva um segundo ativo copiável: dez perguntas para revisão antes de um
   agente ir ao ar, com evento `roteiro_agente_copiado` no GA4.
+- **`/politica-de-uso-de-ia/`** (18/08/2026) — item 8 da seção 8, o de maior intenção
+  comercial da categoria: quem procura template de política está montando a política
+  agora. Publica o **template inteiro, copiável**, com a regra que decide adesão —
+  toda proibição vem com a alternativa autorizada no mesmo parágrafo — e classificação
+  de dado em três níveis. Evento `politica_copiada` no GA4.
+- **`/lgpd-e-ia/`** (18/08/2026) — as três portas por onde o dado pessoal entra num
+  fluxo de IA sem passar por registro: prompt, base de conhecimento e log de
+  observabilidade. Nenhuma se parece com banco de dados, e é por isso que não aparecem
+  em inventário. Mais o erro estrutural de definir base legal por sistema quando ela é
+  por finalidade. Fecha uma lacuna de busca grande: "LGPD" é termo muito mais procurado
+  que "governança de IA".
 - **Hub de guias na home** (18/08/2026), em `/#guias` — seis cartões ligando a página
   mais forte do site aos cinco guias e ao diagnóstico. Menu e rodapé padronizados em
   todas as páginas, com coluna "Guias" inclusive nas 57 páginas geradas do blog, e
@@ -481,8 +492,11 @@ pergunta mais feita e menos respondida. **Publique as faixas da Tyna, não as do
 mercado** — as faixas de mercado que levantei estão marcadas como estimativa e não
 sustentam publicação. *Esforço: meio dia.*
 
-**8. Template de política de uso de IA.** Maior intenção comercial da categoria: quem
-baixa está montando a política agora. *Esforço: 1 dia.*
+**8. ~~Template de política de uso de IA.~~ Publicado em 18/08/2026** —
+`/politica-de-uso-de-ia/`. O template está na página inteiro e copiável, em vez de
+atrás de formulário: mesma escolha do diagnóstico e do checklist de shadow AI. Quem
+copia leva o documento pronto; quem precisa adaptar à operação é exatamente o lead
+que interessa.
 
 **9. Os 12 posts recém-publicados viram 12 posts de LinkedIn.** Um por dia útil, com o
 recorte de governança que o texto original não tem. Conteúdo já pago, distribuição zero.

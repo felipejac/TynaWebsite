@@ -27,8 +27,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../assets/styles.css?v=13">
-<link rel="stylesheet" href="../../assets/blog.css?v=13">
+<link rel="stylesheet" href="../../assets/styles.css?v=14">
+<link rel="stylesheet" href="../../assets/blog.css?v=14">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Cockpit em Rust para agentes do Claude Code","description":"Interface leve que mostra estado interno, log e prompts do agente em tempo real — e deixa intervir no meio da execução.","datePublished":"2026-08-01","dateModified":"2026-08-01","inLanguage":"pt-BR","author":{"@type":"Person","name":"Felipe Jacob","url":"https://tyna.com.br/sobre/"},"publisher":{"@type":"Organization","name":"Tyna","url":"https://tyna.com.br","logo":{"@type":"ImageObject","url":"https://tyna.com.br/assets/logo-tyna-dark.png"}},"mainEntityOfPage":"https://tyna.com.br/blog/cockpit-em-rust-para-agentes-do-claude-code/","keywords":"rust, agentes-de-ia, observabilidade, claude-code, codigo-aberto","articleSection":"Agentes de IA"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://tyna.com.br"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tyna.com.br/blog/"},{"@type":"ListItem","position":3,"name":"Agentes de IA","item":"https://tyna.com.br/blog/categoria/ai-agents/"},{"@type":"ListItem","position":4,"name":"Cockpit em Rust para agentes do Claude Code","item":"https://tyna.com.br/blog/cockpit-em-rust-para-agentes-do-claude-code/"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Dá para usar com agentes que não sejam do Claude?","acceptedAnswer":{"@type":"Answer","text":"O cockpit foi construído em torno da API do Claude Code, mas o desenho modular permite escrever adaptadores para outros agentes de LLM com pouco esforço."}},{"@type":"Question","name":"Rodar o cockpit acrescenta latência às respostas?","acceptedAnswer":{"@type":"Answer","text":"Ele opera como processo separado e se comunica por socket leve. A sobrecarga típica fica abaixo de 5 ms, desprezível para a maioria das cargas."}},{"@type":"Question","name":"Como integro ao meu fluxo de n8n?","acceptedAnswer":{"@type":"Answer","text":"Dá para expor o cockpit como endpoint REST e chamá-lo de um nó HTTP, ou embutir a interface no seu painel atual."}}]}</script>
@@ -168,6 +168,8 @@
           <a href="../../shadow-ai/">Shadow AI</a>
           <a href="../../ai-gateway/">AI Gateway</a>
           <a href="../../governanca-de-agentes/">Governança de agentes</a>
+          <a href="../../politica-de-uso-de-ia/">Política de uso de IA</a>
+          <a href="../../lgpd-e-ia/">LGPD e IA</a>
           <a href="../../pl-2338/">Marco Legal da IA</a>
         </div>
         <div class="foot-col">
@@ -187,7 +189,7 @@
   </div>
 </footer>
 
-<script src="../../assets/site.js?v=13"></script>
+<script src="../../assets/site.js?v=14"></script>
 
 </body>
 </html>

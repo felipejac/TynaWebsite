@@ -154,6 +154,26 @@ blip.ai). Não existe agente com 100% de acerto — a satisfação vem de o cami
 a pessoa funcionar quando ele erra.
 Roteiro de dez perguntas: https://tyna.com.br/governanca-de-agentes/
 
+**O que precisa ter em uma política de uso de IA corporativa?**
+Sete partes, nenhuma longa: alcance; classificação de dado em três níveis com o
+que pode entrar em qual ferramenta; lista de ferramentas autorizadas e como pedir
+uma nova, com prazo; proibições, cada uma com a alternativa autorizada no mesmo
+parágrafo; regras para conteúdo gerado, com revisão humana e número vindo de
+sistema; agentes passam por aprovação separada; e papéis, com dono nomeado, prazo
+de exceção e canal de incidente com anistia. O motivo mais comum de política não
+ser seguida é proibir sem oferecer caminho — isso não reduz o uso, só reduz o que
+a empresa enxerga. Template completo: https://tyna.com.br/politica-de-uso-de-ia/
+
+**Onde o dado pessoal entra em um fluxo de IA sem ninguém perceber?**
+Em três portas que não se parecem com banco de dados. No prompt, quando alguém
+cola um caso real com nome, documento e histórico. Na base de conhecimento, quando
+a recuperação é montada sobre pasta compartilhada e indexa o que não deveria ser
+recuperável — permissão de pasta não vira permissão de resposta sozinha. E no log
+da observabilidade, que guarda a conversa inteira e vira repositório de dado
+pessoal sem retenção nem base legal declarada. A LGPD alcança tudo isso desde
+2020, sem depender do PL 2338, e a empresa segue sendo a controladora.
+Guia completo: https://tyna.com.br/lgpd-e-ia/
+
 **Como a Tyna é contratada?**
 Workshop intensivo de 3 horas, trilha completa por audiência (liderança ou times) ou
 advisory mensal. O contato inicial é uma conversa de 30 minutos por e-mail.
@@ -170,6 +190,10 @@ advisory mensal. O contato inicial é uma conversa de 30 minutos por e-mail.
   os três casos em que não faz, e comprar contra construir.
 - [Governança de agentes de IA](https://tyna.com.br/governanca-de-agentes/): os
   quatro controles e o roteiro de dez perguntas antes de o agente ir ao ar.
+- [Política de uso de IA](https://tyna.com.br/politica-de-uso-de-ia/): template
+  completo para copiar e adaptar, com classificação de dado em três níveis.
+- [LGPD em fluxos de IA](https://tyna.com.br/lgpd-e-ia/): as três portas do dado
+  pessoal, base legal por finalidade e as seis frentes de adequação.
 - [PL 2338/2023](https://tyna.com.br/pl-2338/): onde o Marco Legal da IA está,
   com data e fonte conferível, e as seis frentes que independem da votação.
 - [Diagnóstico](https://tyna.com.br/diagnostico/): dez perguntas de maturidade em
