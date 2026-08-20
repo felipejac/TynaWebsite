@@ -92,26 +92,25 @@ por `PROPFIND` em 18/08/2026; competência mais recente disponível: **2026-08**
 Receita trocar o link, o sintoma será 401 em vez de 404 — e só o `TOKEN` em
 `bootstrap.py` precisa mudar.
 
-**Volume, medido numa carga real de 19/08/2026** com `--arquivos 1`, ou seja um décimo
-do dump:
+**Carga completa, medida em 19/08/2026:**
 
 | | |
 | --- | --- |
-| linhas lidas | **30.008.723** |
-| no recorte (3 praças + CNAE + situação ativa) | 527.519 |
-| gravadas | **345.674** — São Paulo 309.024, Campinas 23.033, Sorocaba 13.617 |
-| matrizes | 341.212 |
-| com capital ≥ R$ 10 mi | 1.965 |
-| tempo | ~11 minutos |
+| linhas lidas | **72.789.638** (o dump inteiro) |
+| gravadas no recorte | **1.262.932** — São Paulo 1.122.575, Campinas 89.703, Sorocaba 50.654 |
+| matrizes | 1.208.495 |
+| descartadas por falta de empresa correspondente | 0 |
+| download | ~28 GB |
+| tempo | ~35 minutos |
 
-Extrapolando, a carga completa fica na ordem de **3,5 milhões de estabelecimentos** e
-~28 GB de download. O carregador baixa um ZIP por vez, filtra durante a leitura e apaga o
-arquivo antes do próximo: o pico de disco é o maior ZIP (2,2 GB) e nada passa por memória
-de uma vez. `--arquivos 1` basta para ensaiar.
+A gravação é **incremental, em duas fases**: os estabelecimentos entram durante a leitura
+de cada arquivo, e o nome e o capital da empresa entram depois, por `UPDATE`. Acumular
+1,2 milhão de registros num dict Python antes de gravar custa vários GB de RAM e derruba
+a máquina no meio de um download de 28 GB — a versão de ensaio fazia isso e só não
+quebrou porque processava um décimo. O pico de disco é o maior ZIP (2,2 GB), porque cada
+arquivo é apagado antes do próximo.
 
-A diferença entre 527.519 no recorte e 345.674 gravados é esperada com `--arquivos 1`: o
-CNPJ básico de parte dos estabelecimentos está em outro pedaço do arquivo de Empresas, e
-gravar sem razão social só sujaria a base.
+`--arquivos 1` processa só o primeiro pedaço de cada tabela e basta para ensaiar.
 
 **A pegadinha que derruba quem faz isso pela primeira vez:** o campo de município no
 arquivo de Estabelecimentos é o **código da Receita, não o do IBGE**. São Paulo é `7107`
@@ -128,8 +127,14 @@ oposto de minimização.
 **Matriz e filial.** A base traz estabelecimentos, então uma agência do Itaú em Campinas
 aparece como empresa de Campinas — é Campinas para efeito de endereço, mas quem decide
 sobre governança de IA está na matriz, que não está nesta praça. Por isso
-`buscar_cnpj_local(..., apenas_matriz=True)` costuma ser o que o ICP quer. Na carga de
-ensaio, 341.212 dos 345.674 registros são matriz.
+`buscar_cnpj_local(..., apenas_matriz=True)` costuma ser o que o ICP quer.
+
+**Capital social é autodeclarado e ninguém confere.** A base tem "bancos" de nome genérico
+declarando R$ 18 bi, três deles com o mesmo número redondo — padrão de empresa de fachada.
+Ordenar por capital põe fachada no topo: ele serve como filtro grosso de porte, não como
+ranking. O filtro que separa operação de veículo societário com mais eficácia é
+`exigir_fantasia=True`: SPE e holding raramente declaram nome fantasia, marca sempre
+declara. Foi ele que fez a lista curta saltar de 1 para 20 prioritários.
 
 ### Domínio → CNPJ, e o que isso ainda não resolve
 
@@ -172,6 +177,7 @@ cp .env.example .env    # preencha PROSPECTOR_LIA_REF e a chave de busca
 ```
 
 ```bash
+prospector shortlist --limite 700            # lista curta com sinal lido do site
 prospector rodar --seco                      # ensaio completo, nada gravado
 prospector rodar --praca campinas --revisar  # para antes de armazenar
 prospector listar --faixa prioritario

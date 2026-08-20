@@ -92,6 +92,7 @@ CREATE TABLE IF NOT EXISTS cnpj_local (
 );
 CREATE INDEX IF NOT EXISTS ix_cnpj_local_praca ON cnpj_local(municipio_ibge, cnae);
 CREATE INDEX IF NOT EXISTS ix_cnpj_local_porte ON cnpj_local(porte, capital_social DESC);
+CREATE INDEX IF NOT EXISTS ix_cnpj_local_basico ON cnpj_local(cnpj_basico);
 
 CREATE TABLE IF NOT EXISTS bootstrap (
     competencia  TEXT PRIMARY KEY,
@@ -198,6 +199,45 @@ class Repositorio:
             {**c, "matriz": int(c.get("matriz", True))},
         )
 
+    def inserir_estabelecimento(self, **c) -> None:
+        """Fase 1 da carga: grava o estabelecimento com razão social ainda vazia.
+
+        A carga completa casa ~5,3 milhões de estabelecimentos. Acumular isso num dict
+        Python antes de gravar custa alguns GB de RAM e derruba a máquina no meio de um
+        download de 28 GB — por isso a gravação é incremental, e o nome da empresa entra
+        depois, por UPDATE.
+        """
+        self.con.execute(
+            """INSERT INTO cnpj_local (cnpj, cnpj_basico, razao_social, nome_fantasia,
+                   municipio_ibge, municipio, cnae, porte, capital_social, matriz,
+                   data_inicio, competencia)
+               VALUES (:cnpj,:cnpj_basico,'',:nome_fantasia,:municipio_ibge,
+                       :municipio,:cnae,NULL,NULL,:matriz,:data_inicio,:competencia)
+               ON CONFLICT(cnpj) DO UPDATE SET
+                   nome_fantasia=excluded.nome_fantasia, cnae=excluded.cnae,
+                   competencia=excluded.competencia""",
+            {**c, "matriz": int(c.get("matriz", True))},
+        )
+
+    def completar_empresa(self, cnpj_basico: str, razao_social: str,
+                          capital_social: float | None, porte: str | None) -> int:
+        """Fase 2: preenche os dados da empresa nos estabelecimentos já gravados."""
+        cur = self.con.execute(
+            "UPDATE cnpj_local SET razao_social=?, capital_social=?, porte=? "
+            "WHERE cnpj_basico=? AND razao_social=''",
+            (razao_social, capital_social, porte, cnpj_basico),
+        )
+        return cur.rowcount
+
+    def descartar_incompletos(self) -> int:
+        """Fase 3: estabelecimento sem empresa correspondente só sujaria a base."""
+        cur = self.con.execute("DELETE FROM cnpj_local WHERE razao_social = ''")
+        self.con.commit()
+        return cur.rowcount
+
+    def commit(self) -> None:
+        self.con.commit()
+
     def registrar_bootstrap(self, competencia: str, lidos: int, aceitos: int,
                             arquivos: list[str]) -> None:
         from datetime import datetime, timezone
@@ -238,6 +278,7 @@ class Repositorio:
                           prefixos_cnae: tuple[str, ...] = (),
                           capital_minimo: float | None = None,
                           apenas_matriz: bool = False,
+                          exigir_fantasia: bool = False,
                           limite: int = 200) -> list[sqlite3.Row]:
         """Varredura firmográfica que a API pública não faz: município + CNAE + porte.
 
@@ -260,6 +301,10 @@ class Repositorio:
             args.append(capital_minimo)
         if apenas_matriz:
             sql.append("AND matriz = 1")
+        if exigir_fantasia:
+            # Empresa com nome fantasia declarado tende a ser operação com marca; SPE e
+            # veículo societário raramente têm. É o filtro mais barato contra fachada.
+            sql.append("AND nome_fantasia IS NOT NULL AND length(trim(nome_fantasia)) > 2")
         sql.append("ORDER BY capital_social DESC NULLS LAST LIMIT ?")
         args.append(limite)
         return self.con.execute(" ".join(sql), args).fetchall()

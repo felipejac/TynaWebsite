@@ -17,6 +17,7 @@ Quatro classes de limite:
 
 from __future__ import annotations
 
+import threading
 import time
 import urllib.robotparser
 from dataclasses import dataclass, field
@@ -93,11 +94,17 @@ USER_AGENT = (
 
 @dataclass
 class PolidezHTTP:
-    """Um crawler educado: robots.txt, intervalo por host e identificação honesta."""
+    """Um crawler educado: robots.txt, intervalo por host e identificação honesta.
+
+    Seguro para uso concorrente. O intervalo é **por host**, então rastrear hosts
+    diferentes em paralelo não deixa de ser educado — o que seria falta de educação é
+    disparar várias requisições ao mesmo host, e isso continua serializado.
+    """
 
     intervalo_min_s: float = 2.0
     _ultimo_acesso: dict[str, float] = field(default_factory=dict)
     _robots: dict[str, urllib.robotparser.RobotFileParser | None] = field(default_factory=dict)
+    _trava: threading.Lock = field(default_factory=threading.Lock)
 
     def host(self, url: str) -> str:
         return urlparse(url).netloc.lower()
@@ -129,8 +136,9 @@ class PolidezHTTP:
         determina nada e não deve travar a coleta — a educação nesse caso fica por conta do
         intervalo entre requisições.
         """
-        if host in self._robots:
-            return self._robots[host]
+        with self._trava:
+            if host in self._robots:
+                return self._robots[host]
 
         rp: urllib.robotparser.RobotFileParser | None = urllib.robotparser.RobotFileParser()
         rp.set_url(f"https://{host}/robots.txt")
@@ -151,18 +159,21 @@ class PolidezHTTP:
                 rp = None  # sem robots.txt legível: liberado
         except Exception:
             rp = None
-        self._robots[host] = rp
+        with self._trava:
+            self._robots[host] = rp
         return rp
 
     def aguardar(self, url: str) -> None:
         """Segura a requisição até o intervalo mínimo daquele host ter passado."""
         h = self.host(url)
-        ultimo = self._ultimo_acesso.get(h)
+        with self._trava:
+            ultimo = self._ultimo_acesso.get(h)
         if ultimo is not None:
             espera = self.intervalo_min_s - (time.monotonic() - ultimo)
             if espera > 0:
                 time.sleep(espera)
-        self._ultimo_acesso[h] = time.monotonic()
+        with self._trava:
+            self._ultimo_acesso[h] = time.monotonic()
 
 
 # --------------------------------------------------------------------------- #

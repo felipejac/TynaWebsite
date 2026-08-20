@@ -25,6 +25,7 @@ from __future__ import annotations
 
 import logging
 import re
+import threading
 import unicodedata
 from dataclasses import dataclass, field
 
@@ -151,6 +152,44 @@ class Shortlist:
         except Exception:
             return False
 
+    def _processar(self, d: dict, r: Resultado, estado: RunState,
+                   max_paginas: int) -> ScoredCompany | None:
+        """Trabalho de um candidato. Roda numa thread; toca só o próprio host."""
+        dominio = None
+        for cand in candidatos_de_dominio(d["razao_social"], d.get("nome_fantasia")):
+            with self._trava:
+                r.dominios_tentados += 1
+                estado.requisicoes_http += 1
+            if self.gr.supressao.bloqueado(dominio=cand):
+                continue
+            if self.resolve(cand):
+                dominio = cand
+                break
+        if not dominio:
+            return None
+
+        with self._trava:
+            if dominio in self._ja_usados:
+                log.info("%s: mesmo domínio de %s — agrupado",
+                         d["razao_social"][:34], self._ja_usados[dominio])
+                return None
+            self._ja_usados[dominio] = d["razao_social"]
+            r.dominios_resolvidos += 1
+
+        paginas = self.site.coletar(dominio, estado, self.gr, max_paginas=max_paginas)
+        if not paginas:
+            return None
+        sinais = FonteSite.detectar_sinais(paginas)
+        with self._trava:
+            r.sites_lidos += 1
+            if sinais:
+                r.com_sinal += 1
+
+        pontuada = icp.pontuar(self._empresa(d, dominio, sinais))
+        log.info("%s → %s: %d pts (%s)", d["razao_social"][:34], dominio,
+                 pontuada.pontos, pontuada.faixa.value)
+        return pontuada
+
     def executar(
         self,
         estado: RunState,
@@ -159,60 +198,45 @@ class Shortlist:
         capital_minimo: float = 1_000_000.0,
         limite_candidatos: int = 120,
         max_paginas: int = 3,
+        paralelismo: int = 8,
     ) -> Resultado:
+        """Roda a passada. Hosts diferentes em paralelo; o mesmo host, nunca.
+
+        O gargalo é espera de rede — resolução de domínio que expira, página lenta,
+        intervalo de cortesia. Serializar isso fazia ~19 segundos por candidato; com oito
+        threads em hosts distintos, a passada cabe em minutos sem deixar de ser educada,
+        porque o intervalo de `PolidezHTTP` continua sendo por host.
+        """
+        from concurrent.futures import ThreadPoolExecutor, as_completed
+
         r = Resultado()
+        self._trava = threading.Lock()
+        self._ja_usados: dict[str, str] = {}
+
         linhas = self.repo.buscar_cnpj_local(
             municipios, prefixos_cnae, capital_minimo=capital_minimo,
-            apenas_matriz=True, limite=limite_candidatos,
+            apenas_matriz=True, exigir_fantasia=True, limite=limite_candidatos,
         )
         r.candidatos = len(linhas)
-        log.info("pré-filtro firmográfico: %d candidato(s)", r.candidatos)
+        log.info("pré-filtro firmográfico: %d candidato(s), %d thread(s)",
+                 r.candidatos, paralelismo)
 
-        # Grupo econômico entra na base com vários CNPJs — SAFRA LEASING e SAFRA PHONE
-        # resolvem para o mesmo safra.com.br. Sem deduplicar por domínio, o mesmo site é
-        # rastreado duas vezes e o relatório mostra a mesma empresa como dois leads.
-        ja_usados: dict[str, str] = {}
-
-        for i, linha in enumerate(linhas, 1):
-            d = dict(linha)
-            try:
-                self.gr.antes_do_no(estado, Etapa.EXTRAIR)
-            except Exception:
-                log.warning("guardrail interrompeu a passada em %d/%d", i, r.candidatos)
-                break
-
-            dominio = None
-            for cand in candidatos_de_dominio(d["razao_social"], d.get("nome_fantasia")):
-                r.dominios_tentados += 1
-                if self.gr.supressao.bloqueado(dominio=cand):
+        with ThreadPoolExecutor(max_workers=paralelismo) as pool:
+            futuros = {
+                pool.submit(self._processar, dict(l), r, estado, max_paginas): l
+                for l in linhas
+            }
+            for n, fut in enumerate(as_completed(futuros), 1):
+                try:
+                    p = fut.result()
+                except Exception as e:  # um host ruim não derruba a passada
+                    estado.registrar(Etapa.EXTRAIR, "falha_candidato",
+                                     f"{type(e).__name__}: {e}")
                     continue
-                estado.requisicoes_http += 1
-                if self.resolve(cand):
-                    dominio = cand
-                    break
-            if not dominio:
-                continue
-            if dominio in ja_usados:
-                log.info("[%d/%d] %s: mesmo domínio de %s — agrupado", i, r.candidatos,
-                         d["razao_social"][:34], ja_usados[dominio])
-                continue
-            ja_usados[dominio] = d["razao_social"]
-            r.dominios_resolvidos += 1
-
-            paginas = self.site.coletar(dominio, estado, self.gr, max_paginas=max_paginas)
-            if not paginas:
-                continue
-            r.sites_lidos += 1
-
-            sinais = FonteSite.detectar_sinais(paginas)
-            if sinais:
-                r.com_sinal += 1
-
-            empresa = self._empresa(d, dominio, sinais)
-            pontuada = icp.pontuar(empresa)
-            r.pontuadas.append(pontuada)
-            log.info("[%d/%d] %s → %s: %d pts (%s)", i, r.candidatos,
-                     d["razao_social"][:34], dominio, pontuada.pontos, pontuada.faixa.value)
+                if p is not None:
+                    r.pontuadas.append(p)
+                if n % 50 == 0:
+                    log.info("progresso: %d/%d candidatos", n, r.candidatos)
 
         r.pontuadas.sort(key=lambda p: -p.pontos)
         return r

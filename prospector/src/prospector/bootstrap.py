@@ -217,15 +217,17 @@ def carregar(
     municipios = resolver_municipios(mes, tmp)
     log.info("municípios do recorte resolvidos: %d código(s) da Receita", len(municipios))
 
-    # ---- passo 1: estabelecimentos das três praças ----
-    # Vem primeiro porque é ele que define o conjunto de CNPJ básicos que interessa;
-    # o arquivo de Empresas é então filtrado por esse conjunto, e não o contrário.
-    estabelecimentos: dict[str, dict] = {}
+    # ---- passo 1: estabelecimentos das três praças, gravados direto ----
+    # Vem primeiro porque define o conjunto de CNPJ básicos que interessa. A gravação é
+    # incremental de propósito: a carga completa casa milhões de estabelecimentos, e
+    # acumular isso em dict antes de gravar custa vários GB de RAM e derruba a máquina no
+    # meio de um download de 28 GB.
     for i in range(arquivos):
         nome = f"Estabelecimentos{i}.zip"
-        log.info("baixando %s", nome)
+        log.info("[%d/%d] baixando %s", i + 1, arquivos, nome)
         caminho = _baixar(mes, nome, tmp / nome)
         carga.arquivos.append(nome)
+        no_arquivo = 0
         try:
             for linha in _linhas(caminho):
                 carga.lidos += 1
@@ -242,59 +244,71 @@ def carregar(
                 if cnae[:2] not in prefixos:
                     continue
                 basico = linha[EST_CNPJ_BASICO].strip()
-                estabelecimentos[basico] = {
-                    "cnpj": basico + linha[EST_ORDEM].strip() + linha[EST_DV].strip(),
-                    "nome_fantasia": linha[EST_NOME_FANTASIA].strip() or None,
-                    "cnae": cnae,
-                    "municipio_ibge": praca.value,
-                    "municipio": praca.nome,
-                    "matriz": linha[EST_MATRIZ_FILIAL].strip() == "1",
-                    "data_inicio": linha[EST_DATA_INICIO].strip() or None,
-                }
+                repo.inserir_estabelecimento(
+                    cnpj=basico + linha[EST_ORDEM].strip() + linha[EST_DV].strip(),
+                    cnpj_basico=basico,
+                    nome_fantasia=linha[EST_NOME_FANTASIA].strip() or None,
+                    cnae=cnae,
+                    municipio_ibge=praca.value,
+                    municipio=praca.nome,
+                    matriz=linha[EST_MATRIZ_FILIAL].strip() == "1",
+                    data_inicio=linha[EST_DATA_INICIO].strip() or None,
+                    competencia=mes,
+                )
+                no_arquivo += 1
+                if no_arquivo % 20_000 == 0:
+                    repo.commit()
                 # Note o que NÃO é lido: correio_eletronico, telefone e fax.
+            repo.commit()
         finally:
             caminho.unlink(missing_ok=True)
-        log.info("  acumulado: %d estabelecimento(s) no recorte", len(estabelecimentos))
+        log.info("  %s: +%d no recorte (%d linhas lidas no total)", nome, no_arquivo, carga.lidos)
 
-    # ---- passo 2: dados da empresa para os básicos encontrados ----
+    # ---- passo 2: dados da empresa para os básicos gravados ----
+    # O conjunto de básicos pendentes fica em memória (uma string de 8 caracteres por
+    # empresa) para evitar disparar um UPDATE por linha lida: o arquivo de Empresas tem
+    # dezenas de milhões de registros e quase nenhum interessa.
+    pendentes = {
+        r[0] for r in repo.con.execute(
+            "SELECT DISTINCT cnpj_basico FROM cnpj_local WHERE razao_social = ''")
+    }
+    log.info("básicos pendentes de nome: %d", len(pendentes))
+
     for i in range(arquivos):
-        if not estabelecimentos:
-            break
         nome = f"Empresas{i}.zip"
-        log.info("baixando %s", nome)
+        log.info("[%d/%d] baixando %s", i + 1, arquivos, nome)
         caminho = _baixar(mes, nome, tmp / nome)
         carga.arquivos.append(nome)
+        casados = 0
         try:
             for linha in _linhas(caminho):
                 if len(linha) <= EMP_PORTE:
                     continue
-                basico = linha[EMP_CNPJ_BASICO].strip()
-                alvo = estabelecimentos.get(basico)
-                if alvo is None:
+                if linha[EMP_CNPJ_BASICO].strip() not in pendentes:
                     continue
-                alvo["razao_social"] = linha[EMP_RAZAO].strip()
-                alvo["capital_social"] = _valor(linha[EMP_CAPITAL])
-                alvo["porte_receita"] = PORTE_RECEITA.get(linha[EMP_PORTE].strip(), "desconhecido")
+                n = repo.completar_empresa(
+                    linha[EMP_CNPJ_BASICO].strip(),
+                    linha[EMP_RAZAO].strip(),
+                    _valor(linha[EMP_CAPITAL]),
+                    PORTE_RECEITA.get(linha[EMP_PORTE].strip(), "desconhecido"),
+                )
+                casados += n
+                if casados and casados % 20_000 == 0:
+                    repo.commit()
+            repo.commit()
         finally:
             caminho.unlink(missing_ok=True)
+        log.info("  %s: %d estabelecimento(s) completado(s)", nome, casados)
 
-    # ---- passo 3: gravação ----
-    for basico, d in estabelecimentos.items():
-        if "razao_social" not in d:
-            # Estabelecimento sem empresa correspondente nos arquivos processados.
-            # Acontece quando `arquivos` < 10; gravar sem razão social só suja a base.
-            continue
-        repo.salvar_cnpj_local(
-            cnpj=d["cnpj"], cnpj_basico=basico, razao_social=d["razao_social"],
-            nome_fantasia=d["nome_fantasia"], municipio_ibge=d["municipio_ibge"],
-            municipio=d["municipio"], cnae=d["cnae"], porte=d["porte_receita"],
-            capital_social=d["capital_social"], matriz=d["matriz"],
-            data_inicio=d["data_inicio"], competencia=mes,
-        )
-        carga.aceitos += 1
+    # ---- passo 3: descarta o que ficou sem empresa ----
+    descartados = repo.descartar_incompletos()
+    carga.aceitos = repo.con.execute(
+        "SELECT count(*) FROM cnpj_local WHERE competencia = ?", (mes,)
+    ).fetchone()[0]
+    log.info("descartados por falta de empresa correspondente: %d", descartados)
 
     repo.registrar_bootstrap(mes, carga.lidos, carga.aceitos, carga.arquivos)
-    log.info("carga concluída: %d de %d linhas (%.4f%%)", carga.aceitos, carga.lidos, carga.taxa)
+    log.info("carga concluída: %d na base, de %d linhas lidas", carga.aceitos, carga.lidos)
     return carga
 
 
