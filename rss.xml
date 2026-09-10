@@ -7,6 +7,14 @@
   <language>pt-BR</language>
   <atom:link href="https://tyna.com.br/rss.xml" rel="self" type="application/rss+xml"/>
   <item>
+    <title>O que acontece com o dado depois que seu time cola no ChatGPT</title>
+    <link>https://tyna.com.br/blog/o-que-acontece-com-o-dado-que-seu-time-cola-no-chatgpt/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/o-que-acontece-com-o-dado-que-seu-time-cola-no-chatgpt/</guid>
+    <pubDate>Thu, 10 Sep 2026 12:00:00 GMT</pubDate>
+    <description>Cinco cenários que vazam dado todo dia, os três caminhos técnicos pelos quais a informação escapa, e o que muda — e o que não muda — no plano corporativo.</description>
+    <category>Governança de IA</category>
+  </item>
+  <item>
     <title>Por que quem tem governança madura reverte mais agente de IA</title>
     <link>https://tyna.com.br/blog/governanca-madura-reverte-mais-agente-de-ia/</link>
     <guid isPermaLink="true">https://tyna.com.br/blog/governanca-madura-reverte-mais-agente-de-ia/</guid>
@@ -236,14 +244,6 @@
     <guid isPermaLink="true">https://tyna.com.br/blog/kimi-k3-disponivel-na-api-da-telnyx/</guid>
     <pubDate>Tue, 28 Jul 2026 12:00:00 GMT</pubDate>
     <description>O modelo passa a ser oferecido como serviço gerenciado, cobrado por uso, na mesma infraestrutura de voz e mensagem da Telnyx.</description>
-    <category>LLMs</category>
-  </item>
-  <item>
-    <title>Score de confiança de LLM não é confiável</title>
-    <link>https://tyna.com.br/blog/score-de-confianca-de-llm-nao-e-confiavel/</link>
-    <guid isPermaLink="true">https://tyna.com.br/blog/score-de-confianca-de-llm-nao-e-confiavel/</guid>
-    <pubDate>Tue, 28 Jul 2026 12:00:00 GMT</pubDate>
-    <description>Modelos são treinados para gerar texto fluente, não probabilidade calibrada. Fluxo que decide por limiar está apoiado em ruído.</description>
     <category>LLMs</category>
   </item>
 </channel>

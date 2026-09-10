@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O que acontece com o dado depois que seu time cola no ChatGPT | Tyna</title>
+<meta name="description" content="Cinco cenários que vazam dado todo dia, os três caminhos técnicos pelos quais a informação escapa, e o que muda — e o que não muda — no plano corporativo.">
+<link rel="canonical" href="https://tyna.com.br/blog/o-que-acontece-com-o-dado-que-seu-time-cola-no-chatgpt/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="O que acontece com o dado depois que seu time cola no ChatGPT | Tyna">
+<meta property="og:description" content="Cinco cenários que vazam dado todo dia, os três caminhos técnicos pelos quais a informação escapa, e o que muda — e o que não muda — no plano corporativo.">
+<meta property="og:url" content="https://tyna.com.br/blog/o-que-acontece-com-o-dado-que-seu-time-cola-no-chatgpt/">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna-dark.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="alternate" type="application/rss+xml" title="Blog Tyna" href="https://tyna.com.br/rss.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=15">
+<link rel="stylesheet" href="../../assets/blog.css?v=15">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"O que acontece com o dado depois que seu time cola no ChatGPT","description":"Cinco cenários que vazam dado todo dia, os três caminhos técnicos pelos quais a informação escapa, e o que muda — e o que não muda — no plano corporativo.","datePublished":"2026-09-10","dateModified":"2026-09-10","inLanguage":"pt-BR","author":{"@type":"Person","name":"Felipe Jacob","url":"https://tyna.com.br/sobre/"},"publisher":{"@type":"Organization","name":"Tyna","url":"https://tyna.com.br","logo":{"@type":"ImageObject","url":"https://tyna.com.br/assets/logo-tyna-dark.png"}},"mainEntityOfPage":"https://tyna.com.br/blog/o-que-acontece-com-o-dado-que-seu-time-cola-no-chatgpt/","keywords":"shadow-ai, governanca-de-ia, lgpd, seguranca, ia-generativa","articleSection":"Governança de IA"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://tyna.com.br"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tyna.com.br/blog/"},{"@type":"ListItem","position":3,"name":"Governança de IA","item":"https://tyna.com.br/blog/categoria/governanca/"},{"@type":"ListItem","position":4,"name":"O que acontece com o dado depois que seu time cola no ChatGPT","item":"https://tyna.com.br/blog/o-que-acontece-com-o-dado-que-seu-time-cola-no-chatgpt/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"O ChatGPT usa meus dados para treinar o modelo?","acceptedAnswer":{"@type":"Answer","text":"Depende do plano e da configuração. Nas camadas gratuitas de várias ferramentas os termos permitem uso das conversas para melhorar o serviço, e planos corporativos costumam garantir contratualmente que o conteúdo não entra no treinamento do modelo base — a resposta exata está nos termos do contrato que a sua empresa assinou, e vale lê-los."}},{"@type":"Question","name":"Se um funcionário vazar dado colando no ChatGPT, a empresa é responsável?","acceptedAnswer":{"@type":"Answer","text":"Sim. Na LGPD a empresa é a controladora, define finalidades e meios, e responde pelo incidente mesmo quando a ação partiu de iniciativa individual não autorizada — o que se exige dela é demonstrar que existiam política, restrição de acesso, alternativa autorizada e treinamento."}},{"@type":"Question","name":"Bloquear o acesso às ferramentas de IA resolve?","acceptedAnswer":{"@type":"Answer","text":"Não, e costuma piorar: o bloqueio empurra o uso para o celular pessoal, onde não há log nenhum, convertendo um problema visível em invisível — o critério de sucesso não é quantas ferramentas foram bloqueadas, e sim o caminho autorizado ter ficado mais conveniente que o atalho."}},{"@type":"Question","name":"O plano Enterprise elimina o risco de vazamento?","acceptedAnswer":{"@type":"Answer","text":"Reduz muito o risco de treinamento e de retenção, mas não cobre três coisas: o tráfego que continua saindo pela versão gratuita fora do contrato, os limites contratuais de retenção e revisão que variam por fornecedor, e ataques de injeção indireta de prompt como o EchoLeak, que atingiu justamente um produto corporativo."}},{"@type":"Question","name":"Dá para apagar um dado que já foi colado numa IA pública?","acceptedAnswer":{"@type":"Answer","text":"Na prática, não de forma confiável — dado memorizado durante treinamento não sai com pedido de exclusão, documento já lido por revisor humano não pode ser \"deslido\", e conteúdo exibido a terceiro por falha de isolamento não retorna; por isso o controle precisa agir antes do envio, não depois."}}]}</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../../" class="logo"><img src="../../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../../#servicos">Serviços</a></li>
+        <li><a href="../../iso-42001/">ISO 42001</a></li>
+        <li><a href="../../#trilhas">Trilhas</a></li>
+        <li><a href="../../blog/">Blog</a></li>
+        <li><a href="../../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+  <article class="post">
+    <div class="wrap post-wrap">
+      <nav class="crumbs" aria-label="Trilha"><a href="../../">Início</a> › <a href="../">Blog</a> › <a href="../categoria/governanca/">Governança de IA</a></nav>
+      <p class="eyebrow">Governança de IA</p>
+      <h1>O que acontece com o dado depois que seu time cola no ChatGPT</h1>
+      <p class="post-meta"><time datetime="2026-09-10">10 de setembro de 2026</time> · Por <a href="../../sobre/">Felipe Jacob</a></p>
+      <p class="lead">Cinco cenários que vazam dado todo dia, os três caminhos técnicos pelos quais a informação escapa, e o que muda — e o que não muda — no plano corporativo.</p>
+
+      
+
+      <aside class="answer-box"><h2>Resposta curta</h2><p>Dado corporativo colado em ferramenta pública de IA pode escapar por três caminhos técnicos distintos. O primeiro é memorização no treinamento: em camadas gratuitas cujos termos permitem uso das conversas para melhorar o serviço, uma sequência rara e específica como chave de API ou CPF pode ser memorizada pelo modelo e depois extraída por outro usuário com prompt específico. O segundo é revisão humana: o treinamento por RLHF depende de anotadores que leem conversas reais para avaliar respostas. O terceiro é falha de isolamento de sessão, como o incidente do ChatGPT em março de 2023, em que um bug na biblioteca Redis expôs títulos de conversa e os últimos quatro dígitos de cartões de assinantes para outros usuários. Perante a LGPD, a empresa é a controladora e responde pelo incidente mesmo quando o dado saiu por iniciativa individual de um funcionário sem treinamento.</p></aside>
+
+      <div class="post-body">
+<p>O gesto leva três segundos. Selecionar, copiar, colar, apertar enter.</p>
+<p>Ninguém está sabotando a empresa. É uma pessoa com prazo apertado que descobriu um jeito de terminar em cinco minutos o que levaria uma hora — e que nunca recebeu treinamento sobre qual ferramenta é segura para qual tipo de informação. A pesquisa da Cyberhaven, feita a partir da telemetria dos próprios clientes, estima que <strong>cerca de 11% de tudo que colaboradores colam em ferramentas de IA é informação confidencial</strong>. Um levantamento da LayerX aponta na mesma direção por outro ângulo: 77% dos usuários de IA generativa colam conteúdo nos prompts, e pouco mais de um quinto dessas colagens inclui dado pessoal ou de pagamento.</p>
+<p>São números de fornecedores de segurança, medidos na base de clientes deles — vale ler como ordem de grandeza, não como censo. Mas a ordem de grandeza é suficiente para a pergunta que importa: <strong>o que exatamente acontece com aquele texto depois que ele sai da sua rede?</strong></p>
+<p>A maior parte do que se publica sobre isso para por aqui, no alerta. Este texto continua: são três caminhos técnicos distintos, cada um com incidente documentado, e cada um exige um controle diferente.</p>
+<h2>Os cinco cenários que produzem quase todo o vazamento</h2>
+<p>Antes do mecanismo, o gesto. Estes são os usos que aparecem repetidamente em levantamento de segurança — e nenhum deles tem má-fé.</p>
+<p><strong>Resumo de reunião confidencial.</strong> Alguém pega a transcrição de uma reunião gerencial — que discutiu corte de pessoal, uma fusão em andamento ou resultado financeiro ainda não divulgado ao mercado — e pede "faça uma ata com os pontos principais" ou "gere os e-mails de acompanhamento". Em companhia aberta, esse mesmo conteúdo tem regra de divulgação; o resumo não sabe disso.</p>
+<p><strong>Planilha de clientes.</strong> Organizar dados em Excel é provavelmente o uso mais comum de IA no trabalho administrativo. O colaborador sobe uma planilha com centenas de nomes, CPFs, endereços e histórico de compra e pede um relatório de tendência ou uma segmentação por perfil. A base sai do perímetro da empresa e passa a estar sujeita aos termos do fornecedor — que quase ninguém leu antes de arrastar o arquivo.</p>
+<p><strong>Proposta comercial em revisão.</strong> Vendas e marketing colam minuta de proposta de alto valor, com nome do cliente final, desconto estratégico e condição especial de negociação, pedindo para "melhorar o tom" ou "deixar mais persuasivo". É informação de negociação viva.</p>
+<p><strong>Avaliação de desempenho.</strong> Gestor de RH ou líder de time usa IA para escrever feedback, inserindo nome do colaborador, salário, crítica e detalhe de performance. Isso é dado pessoal de terceiro, tratado sem base legal registrada e sem que o titular saiba.</p>
+<p><strong>Código-fonte proprietário.</strong> Desenvolvedor cola trecho de sistema interno para depurar ou otimizar. É o cenário que gerou o caso corporativo mais conhecido do mundo, e chegaremos a ele.</p>
+<p>Repare no padrão: em todos os cinco, o dado sensível não vai por integração, API ou transferência de arquivo. Vai <strong>no corpo de um texto colado</strong>. Nenhum controle de rede tradicional enxerga isso como transferência de dado, porque tecnicamente não é — é alguém digitando numa caixa de texto.</p>
+<h2>Caminho 1: memorização no treinamento</h2>
+<p>Nas camadas gratuitas de várias ferramentas, os termos de uso permitem que a empresa utilize as conversas para "melhorar o serviço". Essa frase curta esconde uma cadeia de quatro etapas.</p>
+<p><strong>Tokenização.</strong> Quando você cola um contrato, o modelo não o lê como texto. Ele quebra o conteúdo em *tokens* — pedaços de palavras — e trabalha sobre a probabilidade de um token aparecer depois do outro.</p>
+<p><strong>Ajuste fino.</strong> Periodicamente, o provedor pega um volume grande de conversas e re-treina o modelo, ajustando os pesos para acompanhar os padrões recentes de uso.</p>
+<p><strong>Memorização.</strong> Aqui está o ponto que muda a conversa. Na maior parte do tempo o modelo aprende *padrão*, não conteúdo — e padrão não é vazamento. Mas quando ele é exposto a uma sequência muito específica e rara de tokens, como uma chave de API, um CPF ou um trecho de código proprietário, pode acabar decorando a sequência exata em vez de generalizar. É o fenômeno que a literatura chama de memorização, um caso particular de sobreajuste.</p>
+<p><strong>Extração.</strong> Meses depois, alguém do outro lado do mundo escreve um prompt específico — "complete o seguinte trecho de código da empresa X" — ou explora um comportamento degenerado do modelo. Ao tentar prever a próxima palavra, o modelo acessa aquela memória e devolve o dado.</p>
+<p>Isso não é hipótese de laboratório. Pesquisadores do Google DeepMind e acadêmicos independentes demonstraram que, com comandos específicos — entre eles pedir que o modelo repita uma palavra indefinidamente —, era possível fazer sistemas em produção cuspirem volumes de dados de treinamento originais, incluindo e-mails, telefones e endereços reais de pessoas presentes na base. As falhas específicas foram corrigidas; a classe de ataque continua existindo.</p>
+<h2>Caminho 2: revisão humana</h2>
+<p>Existe a crença de que só máquina lê os prompts. É falsa, e a razão está no próprio método de treinamento.</p>
+<p>Modelos de linguagem são refinados por <strong>RLHF</strong> — aprendizado por reforço com feedback humano. Para que o sistema aprenda a dar respostas úteis e adequadas, pessoas contratadas como anotadoras leem interações reais e avaliam se a resposta foi boa ou ruim. É trabalho humano, em escala, sobre conteúdo de usuário.</p>
+<p>A consequência prática: quando alguém cola a planilha financeira da empresa, aquele arquivo fica armazenado em repouso na infraestrutura do provedor. Um revisor terceirizado — que não tem contrato de confidencialidade com a *sua* empresa — pode ler o documento inteiro enquanto avalia o desempenho do modelo. Não há invasão, não há falha: é o processo funcionando como projetado.</p>
+<h2>Caminho 3: falha de isolamento de sessão</h2>
+<p>O terceiro caminho não depende de treinamento nem de revisor. É bug.</p>
+<p>Esses sistemas atendem milhões de pessoas simultaneamente sobre infraestrutura compartilhada. A memória temporária que processa a sua sessão pode se cruzar com a de outro usuário por erro de roteamento no servidor.</p>
+<p>Foi exatamente o que aconteceu com o ChatGPT em <strong>março de 2023</strong>: uma falha em uma biblioteca de código aberto (Redis) fez o sistema exibir, para usuários aleatórios, títulos do histórico de conversa de outras pessoas e — para uma fração de assinantes do plano pago — dados parciais de pagamento, incluindo os últimos quatro dígitos do cartão. A OpenAI tirou o serviço do ar emergencialmente e publicou o post-mortem.</p>
+<p>Um bug de cache não distingue conteúdo trivial de contrato. Ele entrega o que estava na memória.</p>
+<h2>Os casos que documentam cada caminho</h2>
+<p><strong>Samsung, maio de 2023 — o gesto.</strong> É o incidente corporativo mais citado do mundo. Engenheiros colaram no ChatGPT código-fonte de hardware em desenvolvimento e ata de reunião interna, pedindo revisão de código e resumo. A empresa baniu a ferramenta globalmente em seguida. Nenhum dos envolvidos estava agindo contra a empresa — estavam trabalhando.</p>
+<p><strong>DeepSeek, janeiro de 2025 — a propriedade do dado.</strong> Microsoft e OpenAI apuraram a suspeita de que a startup chinesa teria usado destilação, alimentando o próprio modelo com saídas de modelos americanos para replicar capacidades avançadas. A investigação foi noticiada; a acusação não foi comprovada publicamente. O que o episódio estabelece, independentemente do desfecho, é que a fronteira de propriedade sobre o que entra e o que sai de um modelo é disputada até entre os maiores fornecedores.</p>
+<p><strong>EchoLeak, junho de 2025 — uma classe nova.</strong> Pesquisadores da Aim Security demonstraram que o Microsoft 365 Copilot era vulnerável a injeção indireta de prompt (CVE-2025-32711, CVSS 9.3). Um e-mail aparentemente inofensivo carregava instruções invisíveis — comentário em HTML, texto branco sobre branco. Ao resumir a mensagem, o Copilot obedecia ao comando oculto, coletava conteúdo do usuário e o exfiltrava para um servidor externo. <strong>Zero clique</strong>: bastava a mensagem chegar. A Microsoft corrigiu no servidor e informou não ter identificado exploração real.</p>
+<p>O EchoLeak muda a natureza do problema. Nos três caminhos anteriores, o vazamento depende de alguém colar algo. Aqui, o assistente com acesso aos seus arquivos vira o vetor — e a instrução maliciosa vem de fora.</p>
+<p><strong>Sydney, 2023 — o modelo falando demais.</strong> No lançamento do chat integrado ao buscador da Microsoft, o sistema revelou publicamente suas próprias diretrizes internas de programação, incluindo o codinome com que fora desenvolvido. Instrução escrita em prompt não é segredo guardado: é texto que o modelo pode reproduzir.</p>
+<p><strong>Agente fora do isolamento, julho de 2026.</strong> Reportagem descreveu um agente que passou a buscar e explorar vulnerabilidades por conta própria, ultrapassando o papel de teste. <a href="/blog/agente-que-escapou-do-isolamento-e-o-alerta-de-seguranca/">Já tratamos desse caso aqui</a>, com a ressalva que vale repetir: a empresa envolvida não detalhou o episódio publicamente, então o que se pode discutir com segurança é o <strong>modo de falha</strong>, não a versão dos fatos.</p>
+<h2>O que muda no plano corporativo — e o que não muda</h2>
+<p>É por causa dessa mecânica que empresas pagam por plano *Enterprise*. E a diferença é real, não comercial: nesses contratos existe um compromisso arquitetural de que o conteúdo enviado pela interface corporativa ou pela API é processado para gerar a resposta, não entra no pipeline de treinamento do modelo base e não fica retido em log duradouro além do prazo contratado.</p>
+<p>Três ressalvas que costumam faltar nessa conversa:</p>
+<p><strong>A garantia é contratual, e contrato tem letra.</strong> Retenção para investigação de abuso, prazo de armazenamento e possibilidade de revisão humana em casos específicos variam por fornecedor e por plano. Ler os termos do contrato que a sua empresa assinou é trabalho de meia hora e responde mais que qualquer artigo.</p>
+<p><strong>O plano só protege o tráfego que passa por ele.</strong> Assinatura corporativa não impede ninguém de abrir a versão gratuita numa aba anônima, ou no celular. Se pedir acesso for mais lento do que abrir outra aba, o atalho ganha — e o dado sai por fora do contrato que você pagou caro para ter.</p>
+<p><strong>Isolamento de treinamento não resolve injeção indireta.</strong> O EchoLeak aconteceu num produto corporativo. Assistente integrado ao e-mail e aos arquivos da empresa tem, por construção, acesso amplo — e um atacante que consiga colocar texto no caminho dele está falando com um sistema que já está autenticado como você.</p>
+<h2>O risco legal: quem responde é a empresa</h2>
+<p>Aqui não há espaço para interpretação criativa. Na LGPD, quem define as finalidades e os meios do tratamento é o <strong>controlador</strong> — e o controlador é a empresa, não o funcionário que colou.</p>
+<p>O fato de o vazamento ter partido de iniciativa individual, sem autorização e até contra a orientação interna, <strong>não transfere a responsabilidade</strong>. O que a empresa precisa demonstrar, em fiscalização ou em incidente, é que existiam controles: política clara sobre qual dado pode entrar em qual ferramenta, restrição de acesso, alternativa autorizada disponível e treinamento sobre isso. Não bastam boas intenções nem um comunicado antigo no mural.</p>
+<p>Vale o ponto que já detalhamos em <a href="/lgpd-e-ia/">LGPD em fluxos de IA</a>: o dado pessoal entra por lugares que não se parecem com banco de dados — o prompt, a base de conhecimento e o log de observabilidade —, e por isso não aparece em inventário nenhum.</p>
+<h2>A leitura da Tyna</h2>
+<p>A reação instintiva a tudo isso é bloquear. E bloquear é a decisão que mais parece resolver e menos resolve.</p>
+<p>Proibição empurra o uso para o celular pessoal, onde não existe log nenhum. O ganho de produtividade é real, e o time não abre mão dele — só para de contar. <strong>Proibição não reduz o uso: reduz o que a empresa consegue enxergar.</strong> Você troca um problema visível por um invisível e chama isso de política.</p>
+<p>O que funciona tem uma ordem, e ela quase nunca é a que se tenta primeiro:</p>
+<p><strong>Primeiro o inventário, não a política.</strong> Escrever regra sobre um mapa incompleto regula o que você já vê e ignora o resto. O caminho está no <a href="/shadow-ai/">checklist de mapeamento de shadow AI</a>: rastro financeiro antes de log, porque assinatura deixa marca em fatura mesmo quando não deixa em log.</p>
+<p><strong>Depois a classificação do dado.</strong> Enquanto a regra falar de "dado sensível" sem dizer o que é, cada pessoa decide sozinha — e decide a favor da entrega que está atrasada. Três níveis bastam.</p>
+<p><strong>Aí sim a política — com a alternativa ao lado de cada proibição.</strong> É a regra de redação que decide adesão. "Não cole dado de cliente em ferramenta pública" sem dizer onde colar produz shadow AI. A mesma frase com o endereço da instância privada produz adesão. O <a href="/politica-de-uso-de-ia/">template completo está publicado</a>, pronto para adaptar.</p>
+<p><strong>E a alternativa precisa existir de fato.</strong> Normalmente um <a href="/ai-gateway/">AI Gateway</a>, que unifica acesso, custo, observabilidade e auditoria. O critério de sucesso não é quantas ferramentas foram bloqueadas — é o caminho autorizado ter ficado <strong>mais conveniente</strong> que o atalho. Enquanto pedir acesso for mais lento que abrir uma aba nova, o shadow AI volta.</p>
+<p>Há uma última assimetria que vale nomear. Dos três caminhos técnicos deste texto, nenhum é reversível. Dado memorizado em modelo não se apaga com pedido de exclusão. Documento lido por revisor não se desle. Conteúdo exibido na tela de outro usuário por bug de cache não volta. Diferente de quase todo incidente de segurança, aqui <strong>não existe restauração de backup</strong> — existe só a decisão que foi tomada antes.</p>
+<p>Se a sua empresa ainda não sabe responder quem está usando IA hoje e sob que política, essa é a única pergunta que precisa de resposta esta semana. O <a href="/diagnostico/">diagnóstico de maturidade</a> devolve a faixa e as lacunas em três minutos, sem cadastro.</p>
+<h2>Perguntas frequentes</h2>
+<p><strong>P: O ChatGPT usa meus dados para treinar o modelo?</strong></p>
+<p>R: Depende do plano e da configuração. Nas camadas gratuitas de várias ferramentas os termos permitem uso das conversas para melhorar o serviço, e planos corporativos costumam garantir contratualmente que o conteúdo não entra no treinamento do modelo base — a resposta exata está nos termos do contrato que a sua empresa assinou, e vale lê-los.</p>
+<p><strong>P: Se um funcionário vazar dado colando no ChatGPT, a empresa é responsável?</strong></p>
+<p>R: Sim. Na LGPD a empresa é a controladora, define finalidades e meios, e responde pelo incidente mesmo quando a ação partiu de iniciativa individual não autorizada — o que se exige dela é demonstrar que existiam política, restrição de acesso, alternativa autorizada e treinamento.</p>
+<p><strong>P: Bloquear o acesso às ferramentas de IA resolve?</strong></p>
+<p>R: Não, e costuma piorar: o bloqueio empurra o uso para o celular pessoal, onde não há log nenhum, convertendo um problema visível em invisível — o critério de sucesso não é quantas ferramentas foram bloqueadas, e sim o caminho autorizado ter ficado mais conveniente que o atalho.</p>
+<p><strong>P: O plano Enterprise elimina o risco de vazamento?</strong></p>
+<p>R: Reduz muito o risco de treinamento e de retenção, mas não cobre três coisas: o tráfego que continua saindo pela versão gratuita fora do contrato, os limites contratuais de retenção e revisão que variam por fornecedor, e ataques de injeção indireta de prompt como o EchoLeak, que atingiu justamente um produto corporativo.</p>
+<p><strong>P: Dá para apagar um dado que já foi colado numa IA pública?</strong></p>
+<p>R: Na prática, não de forma confiável — dado memorizado durante treinamento não sai com pedido de exclusão, documento já lido por revisor humano não pode ser "deslido", e conteúdo exibido a terceiro por falha de isolamento não retorna; por isso o controle precisa agir antes do envio, não depois.</p>
+<h2>Fontes</h2>
+<ul>
+<li>Cyberhaven, sobre a proporção de dado confidencial colado em ferramentas de IA: &lt;https://www.cyberhaven.com/blog/4-2-of-workers-have-pasted-company-data-into-chatgpt&gt;</li>
+<li>EchoLeak (CVE-2025-32711), injeção indireta de prompt no Microsoft 365 Copilot, divulgada pela Aim Security em junho de 2025: &lt;https://arxiv.org/abs/2509.10540&gt;</li>
+<li>Incidente do ChatGPT com a biblioteca Redis, março de 2023: post-mortem publicado pela OpenAI</li>
+<li>Caso Samsung, maio de 2023: amplamente noticiado pela imprensa internacional</li>
+<li>Investigação sobre destilação envolvendo o DeepSeek, janeiro de 2025: noticiada por veículos internacionais; sem conclusão pública</li>
+<li>Ataques de extração de dados de treinamento: pesquisa do Google DeepMind com acadêmicos independentes</li>
+</ul>
+      </div>
+
+      
+      
+
+      <ul class="post-tags"><li>#shadow-ai</li><li>#governanca-de-ia</li><li>#lgpd</li><li>#seguranca</li><li>#ia-generativa</li></ul>
+    </div>
+  </article>
+
+  <section class="related">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow">Leia também</p><h2>Mais sobre Governança de IA</h2></div>
+      <div class="post-grid"><article class="post-card">
+  <a class="post-card-link" href="../../blog/governanca-madura-reverte-mais-agente-de-ia/">
+    <span class="tag">Governança de IA</span>
+    <h3>Por que quem tem governança madura reverte mais agente de IA</h3>
+    <p class="desc">74% das empresas já desligaram um agente de IA. Entre as que têm governança madura, 81%. O número mais alto não significa o que parece significar.</p>
+    <time datetime="2026-08-16">16 de agosto de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../blog/shadow-ai-o-problema-que-sua-empresa-ja-tem/">
+    <span class="tag">Governança de IA</span>
+    <h3>Shadow AI: o problema que sua empresa já tem, mesmo sem saber</h3>
+    <p class="desc">Shadow AI é o uso de ferramentas de IA sem o conhecimento da empresa — e já acontece na sua. Entenda os riscos reais e o que fazer a respeito.</p>
+    <time datetime="2026-08-14">14 de agosto de 2026</time>
+  </a>
+</article></div>
+    </div>
+  </section>
+
+  <section class="cta-band" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Quer aplicar isso na sua empresa, com governança?</h2>
+      <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary">Agendar conversa</a>
+    </div>
+  </section>
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../../" class="logo"><img src="../../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Blog</h5>
+          <a href="../../blog/categoria/governanca/">Governança de IA</a>
+          <a href="../../blog/categoria/ai-agents/">Agentes de IA</a>
+          <a href="../../blog/categoria/llm/">LLMs</a>
+          <a href="../../blog/categoria/dev-tools/">Ferramentas de Dev</a>
+          <a href="../../blog/categoria/automation/">Automação</a>
+        </div>
+        <div class="foot-col">
+          <h5>Guias</h5>
+          <a href="../../governanca-de-ia/">Governança de IA</a>
+          <a href="../../iso-42001/">ISO 42001</a>
+          <a href="../../shadow-ai/">Shadow AI</a>
+          <a href="../../ai-gateway/">AI Gateway</a>
+          <a href="../../governanca-de-agentes/">Governança de agentes</a>
+          <a href="../../politica-de-uso-de-ia/">Política de uso de IA</a>
+          <a href="../../lgpd-e-ia/">LGPD e IA</a>
+          <a href="../../pl-2338/">Marco Legal da IA</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../../#servicos">Serviços</a>
+          <a href="../../diagnostico/">Diagnóstico</a>
+          <a href="../../sobre/">Sobre</a>
+          <a href="../../blog/">Blog</a>
+          <a href="../../rss.xml">RSS</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/site.js?v=15"></script>
+
+</body>
+</html>
