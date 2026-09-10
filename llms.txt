@@ -144,6 +144,20 @@ time só sem dado regulado, antes de existir mapeamento, ou quando a expectativa
 bloquear — gateway que só nega é contornado pelo celular pessoal.
 Guia completo: https://tyna.com.br/ai-gateway/
 
+**Quantas ferramentas de AI Gateway existem, e como escolher entre elas?**
+O mapeamento da Tyna, com corte em setembro de 2026, cataloga 124: 41 open source
+self-hosted, 22 hospedadas/SaaS, 18 de API management corporativo, 13 roteadores
+inteligentes, 11 gateways de MCP e agentes, 9 do ecossistema chinês, 5 nativas de
+nuvem e 5 de inferência em Kubernetes. Por entrega: 77 self-hosted, 24 SaaS, 21
+híbridas. Por abertura: 73 abertas, 11 open core, 35 fechadas. Por status: 107
+ativas, 3 inativas, 2 arquivadas, 2 adquiridas. 62 não declaram licença de forma
+confirmável e 55 não têm país de origem identificado. O corte que decide não é lista
+de recursos: é o problema (custo, registro ou failover), se o dado pode sair do
+perímetro, quem opera daqui a um ano e se a ferramenta ainda vai existir no fim do
+contrato. Roteador escolhe modelo; gateway controla acesso, custo, log e política —
+nem todo roteador é gateway.
+Tabela filtrável e CSV: https://tyna.com.br/ai-gateway/comparativo/
+
 **Quais controles um agente de IA precisa ter antes de ir para produção?**
 Quatro: escopo de autonomia (o que decide sozinho, o que propõe para alguém
 confirmar, o que nunca faz), guardrail aplicado em execução, escalonamento humano
@@ -203,6 +217,9 @@ advisory mensal. O contato inicial é uma conversa de 30 minutos por e-mail.
   passos, em quatro frentes, e o que fazer com o inventário depois de pronto.
 - [AI Gateway](https://tyna.com.br/ai-gateway/): o que unifica, quando faz sentido,
   os três casos em que não faz, e comprar contra construir.
+- [Comparativo de AI Gateways](https://tyna.com.br/ai-gateway/comparativo/): 124
+  ferramentas em tabela filtrável — categoria, entrega, código aberto, licença,
+  mantenedor, origem, status e cobrança, com corte em setembro de 2026 e CSV aberto.
 - [Governança de agentes de IA](https://tyna.com.br/governanca-de-agentes/): os
   quatro controles e o roteiro de dez perguntas antes de o agente ir ao ar.
 - [Política de uso de IA](https://tyna.com.br/politica-de-uso-de-ia/): template

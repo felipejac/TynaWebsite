@@ -22,7 +22,7 @@ const WA_CTA = 'https://wa.me/5511997228945?text=' +
   encodeURIComponent('Olá, Felipe. Vim pelo site da Tyna e quero falar sobre governança de IA.');
 const ctaAgendar = (cls = '', attrs = '') =>
   `<a href="${WA_CTA}" target="_blank" rel="noopener" class="btn btn-primary${cls ? ' ' + cls : ''}"${attrs ? ' ' + attrs : ''}>Agendar conversa</a>`;
-const ASSET_V = '15';
+const ASSET_V = '16';
 
 const CATEGORIES = {
   'governanca': 'Governança de IA',
@@ -226,6 +226,7 @@ ${body}
           <a href="${up}iso-42001/">ISO 42001</a>
           <a href="${up}shadow-ai/">Shadow AI</a>
           <a href="${up}ai-gateway/">AI Gateway</a>
+          <a href="${up}ai-gateway/comparativo/">Comparativo de gateways</a>
           <a href="${up}governanca-de-agentes/">Governança de agentes</a>
           <a href="${up}politica-de-uso-de-ia/">Política de uso de IA</a>
           <a href="${up}lgpd-e-ia/">LGPD e IA</a>
@@ -478,6 +479,9 @@ const staticPages = [
   // de tramitação com data, e o lastmod é o que sinaliza ao Google que ela foi reconferida
   { loc: `${SITE}/pl-2338/`, pri: '0.9', freq: 'monthly', mod: mtime('pl-2338/index.html') },
   { loc: `${SITE}/ai-gateway/`, pri: '0.9', freq: 'monthly', mod: mtime('ai-gateway/index.html') },
+  // o comparativo tem data de corte declarada na própria página: o lastmod é o que
+  // avisa o buscador de que a tabela foi reconferida, e não só republicada
+  { loc: `${SITE}/ai-gateway/comparativo/`, pri: '0.85', freq: 'monthly', mod: mtime('ai-gateway/comparativo/index.html') },
   { loc: `${SITE}/governanca-de-agentes/`, pri: '0.9', freq: 'monthly', mod: mtime('governanca-de-agentes/index.html') },
   { loc: `${SITE}/politica-de-uso-de-ia/`, pri: '0.9', freq: 'monthly', mod: mtime('politica-de-uso-de-ia/index.html') },
   { loc: `${SITE}/lgpd-e-ia/`, pri: '0.9', freq: 'monthly', mod: mtime('lgpd-e-ia/index.html') },

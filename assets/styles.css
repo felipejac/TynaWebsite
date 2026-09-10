@@ -662,3 +662,142 @@
     .track-tabs{gap:8px; flex-wrap:wrap;}
     .q-opts label{padding:13px 14px; min-height:44px; display:flex; align-items:center; justify-content:center;}
   }
+
+  /* ---------- Comparativo de AI Gateways (/ai-gateway/comparativo/) ----------
+     A tabela inteira já vem no HTML: são 124 linhas renderizadas pelo servidor, e o
+     JavaScript só esconde, mostra e reordena o que já está lá. Isso é o que faz a
+     página valer para quem chega sem JS e para o rastreador que indexa antes de
+     executar script — uma tabela montada no cliente seria uma página vazia para os dois. */
+
+  .sr-only{
+    position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+    overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0;
+  }
+
+  /* Barra de filtros. Gruda no topo abaixo do header para que a pessoa possa mudar o
+     filtro no meio da tabela sem rolar 124 linhas de volta. */
+  .cmp-bar{
+    position:sticky; top:64px; z-index:20; margin-bottom:0;
+    background:rgba(255,255,255,0.94); backdrop-filter:saturate(180%) blur(12px);
+    border:1px solid var(--line); border-bottom:0; padding:18px 20px 16px;
+    display:flex; flex-wrap:wrap; gap:12px 14px; align-items:flex-end;
+  }
+  .cmp-bar input[type="search"], .cmp-bar select{
+    font-family:var(--body); font-size:14.5px; color:var(--text);
+    background:var(--ink); border:1px solid var(--line); border-radius:4px;
+    padding:10px 12px; min-height:42px; width:100%;
+  }
+  .cmp-bar input[type="search"]:focus-visible, .cmp-bar select:focus-visible,
+  .cmp-sort:focus-visible, .cmp-exp:focus-visible{
+    outline:2px solid var(--orange); outline-offset:2px;
+  }
+  .cmp-busca{flex:1 1 260px; min-width:220px;}
+  .cmp-f{flex:1 1 160px; min-width:150px; display:flex; flex-direction:column; gap:6px;}
+  .cmp-f > span, .cmp-busca > span:not(.sr-only){
+    font-family:var(--mono); font-size:11px; letter-spacing:0.12em;
+    text-transform:uppercase; color:var(--text-muted);
+  }
+  .cmp-acoes{display:flex; gap:10px; align-items:center; flex:0 0 auto;}
+  .cmp-acoes .btn{font-size:13.5px; padding:10px 16px;}
+
+  .cmp-status{
+    display:flex; flex-wrap:wrap; gap:8px 16px; align-items:baseline;
+    padding:12px 20px; border:1px solid var(--line); border-bottom:0;
+    background:var(--surface); font-family:var(--mono); font-size:13px; color:var(--text-muted);
+  }
+  .cmp-status strong{color:var(--text); font-weight:600;}
+
+  .cmp-scroll{overflow-x:auto; border:1px solid var(--line);}
+  .cmp-table{width:100%; border-collapse:collapse; min-width:900px; font-size:14.5px;}
+  .cmp-table thead th{
+    position:sticky; top:0; z-index:10; padding:0;
+    background:var(--surface-2); border-bottom:1px solid var(--line); text-align:left;
+  }
+  .cmp-sort{
+    display:flex; align-items:center; gap:6px; width:100%;
+    padding:13px 16px; background:none; border:0; cursor:pointer;
+    font-family:var(--mono); font-size:11.5px; letter-spacing:0.11em;
+    text-transform:uppercase; color:var(--text); text-align:left;
+  }
+  .cmp-sort::after{content:'↕'; opacity:.35; font-size:12px;}
+  .cmp-sort[data-dir="asc"]::after{content:'↑'; opacity:1; color:var(--accent);}
+  .cmp-sort[data-dir="desc"]::after{content:'↓'; opacity:1; color:var(--accent);}
+
+  .cmp-row > th, .cmp-row > td{
+    padding:14px 16px; border-bottom:1px solid var(--line);
+    vertical-align:top; text-align:left; font-weight:400; color:var(--text-muted);
+  }
+  .cmp-row > th{position:relative; padding-left:44px; min-width:220px;}
+  .cmp-row.aberta > th, .cmp-row.aberta > td{border-bottom-color:transparent; background:var(--surface);}
+  .cmp-nome{
+    display:block; font-family:var(--display); font-weight:600;
+    font-size:15.5px; color:var(--text); letter-spacing:-0.01em;
+  }
+  .cmp-nome a{color:var(--text); border-bottom:1px solid var(--purple-line);}
+  .cmp-nome a:hover{color:var(--orange-ink); border-bottom-color:var(--orange);}
+  .cmp-emp{display:block; font-family:var(--mono); font-size:12px; color:var(--text-muted); margin-top:3px;}
+  .cmp-exp{
+    position:absolute; left:12px; top:12px; width:24px; height:24px;
+    display:flex; align-items:center; justify-content:center; cursor:pointer;
+    background:var(--ink); border:1px solid var(--line); border-radius:3px;
+    font-family:var(--mono); font-size:14px; line-height:1; color:var(--accent);
+  }
+  .cmp-exp:hover{border-color:var(--accent);}
+  .cmp-tag{
+    display:inline-block; padding:4px 9px; border-radius:3px;
+    background:var(--purple-line); color:var(--purple);
+    font-family:var(--mono); font-size:11.5px; line-height:1.4;
+  }
+  .cmp-mark{display:inline-flex; align-items:baseline; gap:7px;}
+  .cmp-mark::before{content:''; width:7px; height:7px; border-radius:50%; flex:0 0 auto; background:var(--text-muted);}
+  .cmp-mark.m-ok::before{background:var(--good);}
+  .cmp-mark.m-aviso::before{background:var(--orange);}
+  .cmp-mark.m-fim::before{background:var(--text-muted); box-shadow:inset 0 0 0 2px var(--surface);}
+  .cmp-mark.m-neutro::before{background:var(--accent-soft);}
+  .cmp-mark.m-vazio::before{background:transparent; box-shadow:inset 0 0 0 1px var(--line);}
+
+  .cmp-det > td{padding:0 16px 18px 44px; border-bottom:1px solid var(--line); background:var(--surface);}
+  .cmp-det dl{display:grid; grid-template-columns:170px 1fr; gap:8px 18px; max-width:900px;}
+  .cmp-det dt{
+    font-family:var(--mono); font-size:11.5px; letter-spacing:0.1em;
+    text-transform:uppercase; color:var(--accent); padding-top:2px;
+  }
+  .cmp-det dd{font-size:14.5px; color:var(--text);}
+  .cmp-det dd a{color:var(--orange-ink); border-bottom:1px solid var(--orange); overflow-wrap:anywhere;}
+  .cmp-vazio{color:var(--text-muted); font-style:italic;}
+
+  .cmp-nada{padding:48px 20px; text-align:center; color:var(--text-muted); border:1px solid var(--line); border-top:0;}
+  .cmp-legenda{
+    margin-top:14px; font-family:var(--mono); font-size:12.5px;
+    color:var(--text-muted); line-height:1.8;
+  }
+
+  @media (max-width:860px){
+    /* Sem thead: cada linha vira um cartão e cada célula carrega o próprio rótulo.
+       Ler tabela de sete colunas arrastando de lado no celular é o mesmo que não ler. */
+    .cmp-bar{position:static; padding:16px;}
+    .cmp-scroll{overflow-x:visible;}
+    .cmp-table{min-width:0; display:block;}
+    .cmp-table thead{display:none;}
+    .cmp-table tbody{display:block;}
+    .cmp-row, .cmp-det{display:block;}
+    .cmp-row{padding:16px 16px 14px; border-bottom:1px solid var(--line);}
+    .cmp-row > th, .cmp-row > td{
+      display:flex; gap:12px; align-items:baseline; justify-content:space-between;
+      padding:5px 0; border-bottom:0; min-width:0;
+    }
+    .cmp-row > th{padding-left:34px; padding-bottom:10px; display:block;}
+    .cmp-exp{left:0; top:14px;}
+    .cmp-row > td::before{
+      content:attr(data-r); flex:0 0 42%;
+      font-family:var(--mono); font-size:11px; letter-spacing:0.1em;
+      text-transform:uppercase; color:var(--text-muted);
+    }
+    .cmp-row > td{text-align:right;}
+    .cmp-row > td > *{text-align:left;}
+    .cmp-det > td{display:block; padding:0 16px 18px;}
+    .cmp-det dl{grid-template-columns:1fr; gap:3px;}
+    .cmp-det dt{margin-top:10px;}
+    .cmp-acoes{width:100%;}
+    .cmp-acoes .btn{flex:1;}
+  }

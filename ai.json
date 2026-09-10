@@ -346,6 +346,22 @@
           "description": "O que um AI Gateway unifica (acesso, custo, observabilidade e auditoria), os sinais de que chegou a hora, os três casos em que ele não faz sentido, e a escolha entre camada fina, produto de mercado e construção própria."
         },
         {
+          "@type": "Dataset",
+          "@id": "https://tyna.com.br/ai-gateway/comparativo/",
+          "name": "Comparativo de AI Gateways — 124 ferramentas (setembro de 2026)",
+          "url": "https://tyna.com.br/ai-gateway/comparativo/",
+          "inLanguage": "pt-BR",
+          "license": "https://creativecommons.org/licenses/by/4.0/",
+          "isAccessibleForFree": true,
+          "temporalCoverage": "2026-09",
+          "description": "Tabela filtrável com 124 ferramentas de AI Gateway, roteamento de LLM e API management de IA. Campos: categoria, forma de entrega, código aberto, licença, empresa mantenedora, país de origem, status de manutenção, modelo de cobrança e destaques. Distribuição por categoria: 41 open source/self-hosted, 22 hospedadas/SaaS, 18 enterprise/API management, 13 roteadores inteligentes, 11 gateways de MCP e agentes, 9 do ecossistema chinês, 5 nativas de nuvem e 5 de inferência em Kubernetes. Por entrega: 77 self-hosted, 24 SaaS, 21 híbridas. Por abertura: 73 abertas, 11 open core, 35 fechadas. Por status em setembro de 2026: 107 ativas, 3 inativas, 2 arquivadas, 2 adquiridas. 62 ferramentas não declaram licença de forma confirmável e 55 não têm país de origem identificado — lacunas marcadas como 'a verificar' em vez de preenchidas por estimativa.",
+          "distribution": {
+            "@type": "DataDownload",
+            "encodingFormat": "text/csv",
+            "contentUrl": "https://tyna.com.br/ai-gateway/comparativo/ai-gateways-set-2026.csv"
+          }
+        },
+        {
           "@type": "WebPage",
           "@id": "https://tyna.com.br/governanca-de-agentes/",
           "name": "Governança de agentes de IA — até onde o agente vai sozinho",
