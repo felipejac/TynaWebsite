@@ -22,7 +22,7 @@ const WA_CTA = 'https://wa.me/5511997228945?text=' +
   encodeURIComponent('Olá, Felipe. Vim pelo site da Tyna e quero falar sobre governança de IA.');
 const ctaAgendar = (cls = '', attrs = '') =>
   `<a href="${WA_CTA}" target="_blank" rel="noopener" class="btn btn-primary${cls ? ' ' + cls : ''}"${attrs ? ' ' + attrs : ''}>Agendar conversa</a>`;
-const ASSET_V = '16';
+const ASSET_V = '17';
 
 const CATEGORIES = {
   'governanca': 'Governança de IA',
@@ -189,6 +189,7 @@ ${head}</head>
     <nav>
       <ul id="navList">
         <li><a href="${up}#servicos">Serviços</a></li>
+        <li><a href="${up}ai-gateway/comparativo/">AI Gateway</a></li>
         <li><a href="${up}iso-42001/">ISO 42001</a></li>
         <li><a href="${up}#trilhas">Trilhas</a></li>
         <li><a href="${up}blog/">Blog</a></li>
