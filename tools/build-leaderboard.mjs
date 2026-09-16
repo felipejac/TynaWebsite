@@ -562,6 +562,7 @@ ${faq.map(([q, a]) => `        <div class="faq-item">\n          <h3>${esc(q)}</
           <a href="../diagnostico/">Diagnóstico</a>
           <a href="../blog/">Blog</a>
           <a href="../sobre/">Sobre</a>
+          <a href="../politica-de-privacidade/">Política de privacidade</a>
         </div>
       </div>
     </div>

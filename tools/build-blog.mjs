@@ -254,6 +254,7 @@ ${body}
           <a href="${up}#servicos">Serviços</a>
           <a href="${up}diagnostico/">Diagnóstico</a>
           <a href="${up}sobre/">Sobre</a>
+          <a href="${up}politica-de-privacidade/">Política de privacidade</a>
           <a href="${up}blog/">Blog</a>
           <a href="${up}rss.xml">RSS</a>
         </div>
@@ -514,6 +515,7 @@ const staticPages = [
   { loc: `${SITE}/politica-de-uso-de-ia/`, pri: '0.9', freq: 'monthly', mod: mtime('politica-de-uso-de-ia/index.html') },
   { loc: `${SITE}/lgpd-e-ia/`, pri: '0.9', freq: 'monthly', mod: mtime('lgpd-e-ia/index.html') },
   { loc: `${SITE}/sobre/`, pri: '0.8', freq: 'monthly', mod: mtime('sobre/index.html') },
+  { loc: `${SITE}/politica-de-privacidade/`, pri: '0.3', freq: 'yearly', mod: mtime('politica-de-privacidade/index.html') },
   { loc: `${SITE}/blog/`, pri: '0.9', freq: 'daily', mod: maisRecente(posts) },
   ...Object.keys(CATEGORIES).filter(s => posts.some(p => p.category === s))
     .map(s => ({
