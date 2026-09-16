@@ -1,5 +1,6 @@
 ---
 title: "Shadow AI: o problema que sua empresa já tem, mesmo sem saber"
+seoTitle: "Shadow AI: o problema que sua empresa já tem"
 description: "Shadow AI é o uso de ferramentas de IA sem o conhecimento da empresa — e já acontece na sua. Entenda os riscos reais e o que fazer a respeito."
 pubDate: "2026-08-14"
 category: "governanca"

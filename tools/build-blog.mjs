@@ -22,7 +22,7 @@ const WA_CTA = 'https://wa.me/5511997228945?text=' +
   encodeURIComponent('Olá, Felipe. Vim pelo site da Tyna e quero falar sobre governança de IA.');
 const ctaAgendar = (cls = '', attrs = '') =>
   `<a href="${WA_CTA}" target="_blank" rel="noopener" class="btn btn-primary${cls ? ' ' + cls : ''}"${attrs ? ' ' + attrs : ''}>Agendar conversa</a>`;
-const ASSET_V = '19';
+const ASSET_V = '20';
 
 const CATEGORIES = {
   'governanca': 'Governança de IA',
@@ -190,9 +190,7 @@ function shell({ title, description, canonical, head = '', body, depth, image })
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
 <link rel="alternate" type="application/rss+xml" title="Blog Tyna" href="${SITE}/rss.xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preload" href="/assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="${up}assets/styles.css?v=${ASSET_V}">
 <link rel="stylesheet" href="${up}assets/blog.css?v=${ASSET_V}">
 ${head}</head>
@@ -200,7 +198,7 @@ ${head}</head>
 
 <header>
   <div class="wrap nav">
-    <a href="${up}" class="logo"><img src="${up}assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <a href="${up}" class="logo"><img src="${up}assets/logo-tyna-dark-sm.png" alt="Tyna" width="211" height="68"> <span>IA &amp; GOVERNANÇA</span></a>
     <nav>
       <ul id="navList">
         <li><a href="${up}#servicos">Serviços</a></li>
@@ -223,22 +221,22 @@ ${body}
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-left">
-        <a href="${up}" class="logo"><img src="${up}assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <a href="${up}" class="logo"><img src="${up}assets/logo-tyna-sm.png" alt="Tyna" width="211" height="68"> <span>IA &amp; GOVERNANÇA</span></a>
         <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
       </div>
       <div class="foot-right">
         <div class="foot-col">
-          <h5>Contato</h5>
+          <p class="foot-h">Contato</p>
           <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener">WhatsApp</a>
           <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
         </div>
         <div class="foot-col">
-          <h5>Blog</h5>
+          <p class="foot-h">Blog</p>
           ${activeCats(comerciais).map(([s, n]) => `<a href="${up}blog/categoria/${s}/">${n}</a>`).join('\n          ')}
           <a href="${up}blog/radar/">Radar</a>
         </div>
         <div class="foot-col">
-          <h5>Guias</h5>
+          <p class="foot-h">Guias</p>
           <a href="${up}governanca-de-ia/">Governança de IA</a>
           <a href="${up}iso-42001/">ISO 42001</a>
           <a href="${up}shadow-ai/">Shadow AI</a>
@@ -251,7 +249,7 @@ ${body}
           <a href="${up}pl-2338/">Marco Legal da IA</a>
         </div>
         <div class="foot-col">
-          <h5>Site</h5>
+          <p class="foot-h">Site</p>
           <a href="${up}#servicos">Serviços</a>
           <a href="${up}diagnostico/">Diagnóstico</a>
           <a href="${up}sobre/">Sobre</a>
@@ -354,7 +352,7 @@ for (const p of posts) {
     headline: p.title, description: p.description,
     datePublished: p.pubDate, dateModified: p.pubDate,
     inLanguage: 'pt-BR',
-    author: { '@type': 'Person', name: 'Felipe Jacob', url: `${SITE}/sobre/` },
+    author: { '@type': 'Person', '@id': `${SITE}/sobre/#felipe-jacob`, name: 'Felipe Jacob', url: `${SITE}/sobre/` },
     publisher: { '@type': 'Organization', name: 'Tyna', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}/assets/logo-tyna-dark.png` } },
     url: canonical,
     mainEntityOfPage: canonical,
@@ -432,7 +430,7 @@ ${comLinksAtualizados(mdToHtml(p.body))}
     // " | Tyna" (7 chars) em vez do antigo " — Blog Tyna" (12 chars): o sufixo mais
     // longo empurrava 22 dos 37 titulos para alem de 60 caracteres, o limite que
     // Google e Bing toleram sem cortar o titulo no resultado de busca.
-    shell({ title: `${p.title} | Tyna`, description: p.description, canonical, head, body, depth, image: p.image }));
+    shell({ title: `${p.seoTitle || p.title} | Tyna`, description: p.description, canonical, head, body, depth, image: p.image }));
 }
 
 /* ---------- índice e categorias ---------- */
@@ -440,7 +438,13 @@ ${comLinksAtualizados(mdToHtml(p.body))}
 function listing({ title, description, canonical, heading, sub, items, depth, active, intro, guias, secao = 'comercial' }) {
   const up = '../'.repeat(depth);
   const cfg = SECOES[secao];
-  const head = ld({
+  const trilhaListagem = [
+    { '@type': 'ListItem', position: 1, name: 'Início', item: `${SITE}/` },
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE}/blog/` },
+    ...(secao === RADAR ? [{ '@type': 'ListItem', position: 3, name: 'Radar', item: `${SITE}/blog/radar/` }] : []),
+  ];
+  if (active) trilhaListagem.push({ '@type': 'ListItem', position: trilhaListagem.length + 1, name: CATEGORIES[active] || active, item: canonical });
+  const head = ld({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: trilhaListagem }) + ld({
     '@context': 'https://schema.org', '@type': 'Blog',
     name: secao === RADAR ? 'Radar Tyna' : 'Blog Tyna', url: `${SITE}/${cfg.base}`, inLanguage: 'pt-BR',
     description,

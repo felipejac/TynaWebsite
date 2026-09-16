@@ -1,5 +1,6 @@
 ---
 title: "Por que quem tem governança madura reverte mais agente de IA"
+seoTitle: "Por que governança madura reverte mais agentes de IA"
 description: "74% das empresas já desligaram um agente de IA. Entre as que têm governança madura, 81%. O número mais alto não significa o que parece significar."
 pubDate: "2026-08-16"
 category: "governanca"

@@ -1,5 +1,6 @@
 ---
 title: "O que acontece com o dado depois que seu time cola no ChatGPT"
+seoTitle: "O que acontece com o dado que o time cola no ChatGPT"
 description: "Cinco cenários que vazam dado todo dia, os três caminhos técnicos pelos quais a informação escapa, e o que muda — e o que não muda — no plano corporativo."
 pubDate: "2026-09-10"
 category: "governanca"

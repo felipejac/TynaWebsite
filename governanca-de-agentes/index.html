@@ -23,10 +23,8 @@
 <meta property="og:locale" content="pt_BR">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/styles.css?v=19">
+<link rel="preload" href="/assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/styles.css?v=20">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -88,12 +86,35 @@
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Governança de agentes de IA: até onde ele vai sozinho",
+  "url": "https://tyna.com.br/governanca-de-agentes/",
+  "inLanguage": "pt-BR",
+  "datePublished": "2026-08-18",
+  "dateModified": "2026-08-18",
+  "author": {
+    "@type": "Person",
+    "@id": "https://tyna.com.br/sobre/#felipe-jacob",
+    "name": "Felipe Jacob",
+    "url": "https://tyna.com.br/sobre/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://tyna.com.br/#organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  }
+}
+</script>
 </head>
 <body>
 
 <header>
   <div class="wrap nav">
-    <a href="../" class="logo"><img src="../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <a href="../" class="logo"><img src="../assets/logo-tyna-dark-sm.png" alt="Tyna" width="211" height="68"> <span>IA &amp; GOVERNANÇA</span></a>
     <nav>
       <ul id="navList">
         <li><a href="../#servicos">Serviços</a></li>
@@ -119,6 +140,7 @@
       <p class="eyebrow">Governança de agentes de IA</p>
       <h1 style="max-width:900px;">A pergunta não é quem pode usar. É <em>até onde o agente vai sem um humano.</em></h1>
       <p class="lead" style="max-width:740px;">Política de uso de IA governa pessoas usando uma ferramenta. Governança de agente governa um sistema que age em nome da empresa — responde ao cliente, altera registro, libera crédito. Não há leitor intermediário para filtrar o erro: ele vira ato antes de virar informação. São problemas diferentes, e o segundo exige quatro controles que a política não cobre.</p>
+      <p class="hero-note byline">Atualizado em <time datetime="2026-08-18">18 de agosto de 2026</time> · Por <a href="../sobre/">Felipe Jacob</a></p>
       <div class="hero-ctas">
         <a href="#controles" class="btn btn-primary">Ver os quatro controles</a>
         <a href="#roteiro" class="btn btn-ghost">Roteiro antes da produção</a>
@@ -144,19 +166,19 @@
       <div class="risk-list reveal">
         <div class="risk-item">
           <span class="num">01</span>
-          <div><h4>O que a política de uso resolve</h4><p>Quem pode usar quais ferramentas, que dado pode ser colado, o que é uso aceitável. Governa comportamento humano, e depende de as pessoas lerem e seguirem.</p></div>
+          <div><h3>O que a política de uso resolve</h3><p>Quem pode usar quais ferramentas, que dado pode ser colado, o que é uso aceitável. Governa comportamento humano, e depende de as pessoas lerem e seguirem.</p></div>
         </div>
         <div class="risk-item">
           <span class="num">02</span>
-          <div><h4>O que ela não alcança</h4><p>Um agente não lê política. Ele executa o que o código e o modelo determinam, na velocidade da requisição, milhares de vezes por dia, sem ninguém entre a decisão e o efeito.</p></div>
+          <div><h3>O que ela não alcança</h3><p>Um agente não lê política. Ele executa o que o código e o modelo determinam, na velocidade da requisição, milhares de vezes por dia, sem ninguém entre a decisão e o efeito.</p></div>
         </div>
         <div class="risk-item">
           <span class="num">03</span>
-          <div><h4>Onde a diferença aparece na prática</h4><p>Um documento que diz "o agente não deve prometer prazo de entrega" não impede nada. O que impede é a validação que barra a resposta contendo data quando o prazo não veio do sistema de logística.</p></div>
+          <div><h3>Onde a diferença aparece na prática</h3><p>Um documento que diz "o agente não deve prometer prazo de entrega" não impede nada. O que impede é a validação que barra a resposta contendo data quando o prazo não veio do sistema de logística.</p></div>
         </div>
         <div class="risk-item">
           <span class="num">04</span>
-          <div><h4>Por que isso não é teoria</h4><p>Pesquisa da Sinch com 2.527 executivos em dez países aponta que 74% das empresas já reverteram ou desligaram um agente que estava no ar — e que a taxa sobe para 81% entre as que têm governança madura. Reverter é o controle funcionando; o problema é ter descoberto só em produção.</p></div>
+          <div><h3>Por que isso não é teoria</h3><p>Pesquisa da Sinch com 2.527 executivos em dez países aponta que 74% das empresas já reverteram ou desligaram um agente que estava no ar — e que a taxa sobe para 81% entre as que têm governança madura. Reverter é o controle funcionando; o problema é ter descoberto só em produção.</p></div>
         </div>
       </div>
     </div>
@@ -431,17 +453,17 @@ falar com cliente.</pre>
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-left">
-        <a href="../" class="logo"><img src="../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <a href="../" class="logo"><img src="../assets/logo-tyna-sm.png" alt="Tyna" width="211" height="68"> <span>IA &amp; GOVERNANÇA</span></a>
         <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
       </div>
       <div class="foot-right">
         <div class="foot-col">
-          <h5>Contato</h5>
+          <p class="foot-h">Contato</p>
           <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener">WhatsApp</a>
           <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
         </div>
         <div class="foot-col">
-          <h5>Guias</h5>
+          <p class="foot-h">Guias</p>
           <a href="../governanca-de-ia/">Governança de IA</a>
           <a href="../iso-42001/">ISO 42001</a>
           <a href="../shadow-ai/">Shadow AI</a>
@@ -454,7 +476,7 @@ falar com cliente.</pre>
           <a href="../pl-2338/">Marco Legal da IA</a>
         </div>
         <div class="foot-col">
-          <h5>Site</h5>
+          <p class="foot-h">Site</p>
           <a href="../#servicos">Serviços</a>
           <a href="../#trilhas">Trilhas</a>
           <a href="../diagnostico/">Diagnóstico</a>
@@ -472,7 +494,7 @@ falar com cliente.</pre>
 </footer>
 
 <!-- O botão flutuante do WhatsApp e o botão de copiar são montados por assets/site.js -->
-<script src="../assets/site.js?v=19"></script>
+<script src="../assets/site.js?v=20"></script>
 
 </body>
 </html>

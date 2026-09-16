@@ -58,7 +58,8 @@ for (const file of files) {
 
   // limites de SEO
   if (d.description && d.description.length > 165) aviso(file, `description com ${d.description.length} caracteres (ideal ≤ 160)`);
-  if (d.title && d.title.length > 65) aviso(file, `title com ${d.title.length} caracteres (ideal ≤ 60)`);
+  const tituloBusca = d.seoTitle || d.title;
+  if (tituloBusca && tituloBusca.length > 65) aviso(file, `title de busca com ${tituloBusca.length} caracteres (ideal ≤ 60; use seoTitle)`);
   if (d.aeoSummary && d.aeoSummary.split(/\s+/).length < 25) aviso(file, 'aeoSummary curto demais para ser citável');
 
   // duplicidade

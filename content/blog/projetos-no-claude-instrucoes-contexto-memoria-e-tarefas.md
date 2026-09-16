@@ -1,5 +1,6 @@
 ---
 title: "Projetos no Claude: o que colocar em instruções, contexto, memória e tarefas programadas"
+seoTitle: "Projetos no Claude: instruções, contexto, memória e tarefas"
 description: "Instruções, contexto, memória e tarefas programadas têm funções diferentes nos projetos do Claude. O que vai em cada campo, com modelos prontos para adaptar."
 pubDate: "2026-09-16"
 category: "automation"

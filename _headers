@@ -1,0 +1,4 @@
+# Cloudflare Pages. CSS e JS mudam de URL a cada versão (?v=N) e fontes e logos têm
+# nome próprio, então podem ficar em cache por 30 dias em vez das 4 horas padrão.
+/assets/*
+  Cache-Control: public, max-age=2592000

@@ -23,10 +23,8 @@
 <meta property="og:locale" content="pt_BR">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/styles.css?v=19">
+<link rel="preload" href="/assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/styles.css?v=20">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -54,7 +52,7 @@
 
 <header>
   <div class="wrap nav">
-    <a href="../" class="logo"><img src="../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <a href="../" class="logo"><img src="../assets/logo-tyna-dark-sm.png" alt="Tyna" width="211" height="68"> <span>IA &amp; GOVERNANÇA</span></a>
     <nav>
       <ul id="navList">
         <li><a href="../#servicos">Serviços</a></li>
@@ -201,7 +199,6 @@
       <h3 style="font-size:21px; margin:10px 0 16px;">6. Recursos de terceiros carregados pelas páginas</h3>
       <table class="spec-table">
         <tbody>
-          <tr><td>Fontes tipográficas</td><td>As páginas carregam fontes do Google Fonts. Para entregar o arquivo, o Google recebe o endereço IP e o navegador de quem visita.</td></tr>
           <tr><td>LLM Leaderboard</td><td>A página <a href="../llm-leaderboard/" style="color:var(--orange-ink); border-bottom:1px solid var(--orange);">/llm-leaderboard/</a> busca o ranking atualizado na API do Automations Cookbook, projeto do mesmo fundador. Essa requisição envia ao servidor do Automations Cookbook o endereço IP e o navegador de quem visita, e nenhum outro dado.</td></tr>
           <tr><td>Links externos</td><td>Links para outros sites, como fontes citadas e ferramentas comparadas, levam a páginas com políticas de privacidade próprias, que esta política não cobre.</td></tr>
         </tbody>
@@ -234,23 +231,23 @@
       <div class="risk-list">
         <div class="risk-item">
           <span class="num">01</span>
-          <div><h4>Google LLC</h4><p>Estatística de uso (Google Analytics 4) e fontes tipográficas (Google Fonts). Os dados podem ser processados fora do Brasil.</p></div>
+          <div><h3>Google LLC</h3><p>Estatística de uso (Google Analytics 4). Os dados podem ser processados fora do Brasil.</p></div>
         </div>
         <div class="risk-item">
           <span class="num">02</span>
-          <div><h4>Cloudflare, Inc.</h4><p>Hospedagem, entrega e segurança do site, com servidores distribuídos em vários países.</p></div>
+          <div><h3>Cloudflare, Inc.</h3><p>Hospedagem, entrega e segurança do site, com servidores distribuídos em vários países.</p></div>
         </div>
         <div class="risk-item">
           <span class="num">03</span>
-          <div><h4>WhatsApp (Meta Platforms)</h4><p>Aplicativo usado nas conversas iniciadas por você, sob os termos e a política de privacidade do próprio WhatsApp.</p></div>
+          <div><h3>WhatsApp (Meta Platforms)</h3><p>Aplicativo usado nas conversas iniciadas por você, sob os termos e a política de privacidade do próprio WhatsApp.</p></div>
         </div>
         <div class="risk-item">
           <span class="num">04</span>
-          <div><h4>Autoridades</h4><p>Quando houver obrigação legal, ordem judicial ou requisição de autoridade competente, limitado ao estritamente exigido.</p></div>
+          <div><h3>Autoridades</h3><p>Quando houver obrigação legal, ordem judicial ou requisição de autoridade competente, limitado ao estritamente exigido.</p></div>
         </div>
         <div class="risk-item">
           <span class="num">05</span>
-          <div><h4>Transferência internacional</h4><p>Google e Cloudflare podem processar dados fora do Brasil. Essa transferência se apoia nos termos de proteção de dados oferecidos por esses fornecedores, nas hipóteses do art. 33 da LGPD.</p></div>
+          <div><h3>Transferência internacional</h3><p>Google e Cloudflare podem processar dados fora do Brasil. Essa transferência se apoia nos termos de proteção de dados oferecidos por esses fornecedores, nas hipóteses do art. 33 da LGPD.</p></div>
         </div>
       </div>
     </div>
@@ -313,17 +310,17 @@
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-left">
-        <a href="../" class="logo"><img src="../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <a href="../" class="logo"><img src="../assets/logo-tyna-sm.png" alt="Tyna" width="211" height="68"> <span>IA &amp; GOVERNANÇA</span></a>
         <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
       </div>
       <div class="foot-right">
         <div class="foot-col">
-          <h5>Contato</h5>
+          <p class="foot-h">Contato</p>
           <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener">WhatsApp</a>
           <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
         </div>
         <div class="foot-col">
-          <h5>Guias</h5>
+          <p class="foot-h">Guias</p>
           <a href="../governanca-de-ia/">Governança de IA</a>
           <a href="../iso-42001/">ISO 42001</a>
           <a href="../shadow-ai/">Shadow AI</a>
@@ -336,7 +333,7 @@
           <a href="../pl-2338/">Marco Legal da IA</a>
         </div>
         <div class="foot-col">
-          <h5>Site</h5>
+          <p class="foot-h">Site</p>
           <a href="../#servicos">Serviços</a>
           <a href="../#trilhas">Trilhas</a>
           <a href="../diagnostico/">Diagnóstico</a>
@@ -354,7 +351,7 @@
 </footer>
 
 <!-- O botão flutuante do WhatsApp é montado por assets/site.js, que roda em todas as páginas -->
-<script src="../assets/site.js?v=19"></script>
+<script src="../assets/site.js?v=20"></script>
 
 </body>
 </html>
