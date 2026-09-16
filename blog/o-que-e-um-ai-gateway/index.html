@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O que é um AI Gateway (e o que ele resolve) | Tyna</title>
+<meta name="description" content="AI Gateway não é mais uma ferramenta — é o ponto único de acesso, custo e auditoria por onde as outras passam. O que ele resolve, na prática.">
+<link rel="canonical" href="https://tyna.com.br/blog/o-que-e-um-ai-gateway/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="O que é um AI Gateway (e o que ele resolve) | Tyna">
+<meta property="og:description" content="AI Gateway não é mais uma ferramenta — é o ponto único de acesso, custo e auditoria por onde as outras passam. O que ele resolve, na prática.">
+<meta property="og:url" content="https://tyna.com.br/blog/o-que-e-um-ai-gateway/">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna-dark.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="alternate" type="application/rss+xml" title="Blog Tyna" href="https://tyna.com.br/rss.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=18">
+<link rel="stylesheet" href="../../assets/blog.css?v=18">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"O que é um AI Gateway (e o que ele resolve)","description":"AI Gateway não é mais uma ferramenta — é o ponto único de acesso, custo e auditoria por onde as outras passam. O que ele resolve, na prática.","datePublished":"2026-09-11","dateModified":"2026-09-11","inLanguage":"pt-BR","author":{"@type":"Person","name":"Felipe Jacob","url":"https://tyna.com.br/sobre/"},"publisher":{"@type":"Organization","name":"Tyna","url":"https://tyna.com.br","logo":{"@type":"ImageObject","url":"https://tyna.com.br/assets/logo-tyna-dark.png"}},"mainEntityOfPage":"https://tyna.com.br/blog/o-que-e-um-ai-gateway/","keywords":"ai-gateway, governanca-de-ia, shadow-ai, custo-de-ia, auditoria","articleSection":"Governança de IA"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://tyna.com.br"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tyna.com.br/blog/"},{"@type":"ListItem","position":3,"name":"Governança de IA","item":"https://tyna.com.br/blog/categoria/governanca/"},{"@type":"ListItem","position":4,"name":"O que é um AI Gateway (e o que ele resolve)","item":"https://tyna.com.br/blog/o-que-e-um-ai-gateway/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"AI Gateway é a mesma coisa que um provedor de modelo, tipo a API da OpenAI direto?","acceptedAnswer":{"@type":"Answer","text":"Não — o gateway fica entre a empresa e os provedores de modelo, unificando o acesso a vários deles sob uma única credencial, um único ponto de custo e uma única trilha de auditoria, em vez de a empresa se conectar a cada provedor separadamente."}},{"@type":"Question","name":"Um AI Gateway substitui a necessidade de uma política de uso de IA?","acceptedAnswer":{"@type":"Answer","text":"Não substitui — ele é onde a política vira algo aplicado tecnicamente. A política decide o que é permitido; o gateway é o ponto por onde dá para verificar, e em parte aplicar, se essa regra está sendo seguida na prática."}},{"@type":"Question","name":"Pequenas e médias empresas também precisam de AI Gateway, ou é só para empresa grande?","acceptedAnswer":{"@type":"Answer","text":"Depende de quantas ferramentas de IA diferentes já estão em uso, não do tamanho da empresa — uma empresa média com meia dúzia de ferramentas sem controle central tem o mesmo problema de visibilidade e custo que uma empresa grande, só que descoberto mais tarde, porque tem menos gente perguntando."}}]}</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../../" class="logo"><img src="../../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../../#servicos">Serviços</a></li>
+        <li><a href="../../ai-gateway/comparativo/">AI Gateway</a></li>
+        <li><a href="../../iso-42001/">ISO 42001</a></li>
+        <li><a href="../../#trilhas">Trilhas</a></li>
+        <li><a href="../../blog/">Blog</a></li>
+        <li><a href="../../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+  <article class="post">
+    <div class="wrap post-wrap">
+      <nav class="crumbs" aria-label="Trilha"><a href="../../">Início</a> › <a href="../">Blog</a> › <a href="../categoria/governanca/">Governança de IA</a></nav>
+      <p class="eyebrow">Governança de IA</p>
+      <h1>O que é um AI Gateway (e o que ele resolve)</h1>
+      <p class="post-meta"><time datetime="2026-09-11">11 de setembro de 2026</time> · Por <a href="../../sobre/">Felipe Jacob</a></p>
+      <p class="lead">AI Gateway não é mais uma ferramenta — é o ponto único de acesso, custo e auditoria por onde as outras passam. O que ele resolve, na prática.</p>
+
+      
+
+      <aside class="answer-box"><h2>Resposta curta</h2><p>Um AI Gateway é a camada técnica que centraliza o acesso a modelos e ferramentas de IA numa empresa, unificando autenticação, controle de custo por time, observabilidade do que está sendo usado e trilha de auditoria do que foi enviado e recebido. Ele resolve o problema que política sozinha não resolve: fazer o caminho autorizado ser tão conveniente quanto o atalho, o que é a única forma de shadow AI parar de crescer sem proibir nada.</p></aside>
+
+      <div class="post-body">
+<p>"AI Gateway" virou um dos termos mais usados e menos explicados na conversa de governança de IA. Aparece em toda proposta de consultoria e em toda RFP de segurança, e na maioria das vezes ninguém para para dizer, em uma frase, o que é: um ponto único por onde todo acesso a modelo e ferramenta de IA passa, em vez de cada time contratar e configurar o seu.</p>
+<h2>O problema que ele resolve</h2>
+<p>Sem gateway, o padrão em qualquer empresa de porte médio para cima é o mesmo: cada área assina a ferramenta que resolve o problema dela, com a chave de API de alguém, no cartão de alguém, sem que ninguém centralize o que está sendo gasto, o que está sendo enviado ou quem tem acesso a quê. Quando dá para somar — e raramente dá, sem gateway — o número de ferramentas em uso costuma ser bem maior do que a lista formal que TI apresenta. É o mesmo fenômeno que tratamos no <a href="/shadow-ai/">mapeamento de shadow AI</a>: o problema não é imaginário, é só invisível até alguém procurar.</p>
+<p>Um AI Gateway resolve isso tecnicamente, não só documentando a regra. Toda chamada a um modelo — da OpenAI, da Anthropic, do Google ou de um modelo aberto rodando internamente — passa por um único ponto, com uma única credencial gerenciada pela empresa, não pela pessoa.</p>
+<h2>O que ele entrega, na prática</h2>
+<p><strong>Acesso unificado.</strong> Uma credencial da empresa por trás de todos os modelos contratados, em vez de uma chave de API por pessoa ou por time — o que também resolve o problema de uma pessoa sair da empresa levando o acesso, literalmente, no próprio cadastro pessoal.</p>
+<p><strong>Custo por time, por projeto, por modelo.</strong> A pergunta que toda diretoria eventualmente faz — quanto a empresa está gastando com IA — só tem resposta com um ponto único de medição. Sem gateway, a resposta é uma soma de faturas de cartão corporativo, incompleta por definição.</p>
+<p><strong>Observabilidade real.</strong> Não apenas quanto foi gasto, mas o quê foi enviado, para qual modelo, por qual time — a diferença entre saber que a ferramenta existe e saber o que está de fato passando por ela.</p>
+<p><strong>Trilha de auditoria.</strong> Cada chamada fica registrada e é recuperável depois. Quando um cliente questiona uma decisão automatizada, ou uma auditoria pergunta o que um agente fez em um caso específico, essa é a diferença entre reconstruir a resposta e não ter como reconstruir nada.</p>
+<p><strong>Guardrail aplicado no ponto de passagem.</strong> Como todo tráfego passa pelo mesmo lugar, é o ponto natural para aplicar o controle — bloquear um tipo de dado saindo para um modelo específico, por exemplo — sem depender de cada ferramenta implementar isso por conta própria.</p>
+<h2>Quando faz sentido implementar um</h2>
+<p>Não é questão de tamanho de empresa — é de quantas ferramentas e modelos diferentes já estão em uso, mesmo que informalmente. Se a resposta honesta para "quantas ferramentas de IA a empresa usa hoje" é "não sei ao certo", esse já é o sinal. Empresas que ainda usam uma ou duas ferramentas homologadas, com contrato único, sentem menos essa dor — mas esse número costuma crescer mais rápido do que qualquer outra categoria de software já cresceu, então a pergunta não é se vai ser necessário, é quando.</p>
+<h2>A leitura da Tyna</h2>
+<p>O erro mais comum ao avaliar AI Gateway é tratá-lo como projeto de TI, isolado da política de uso. Os dois são a mesma decisão em duas camadas: a <a href="/blog/politica-de-uso-de-ia-o-que-precisa-ter/">política de uso de IA</a> diz o que pode e o que não pode; o gateway é onde essa regra vira algo que roda de verdade, em vez de depender de alguém lembrar dela. Implementar o gateway sem revisar a política produz uma ferramenta tecnicamente robusta aplicando uma regra que ninguém atualizou. Escrever a política sem o gateway produz exatamente o padrão que vemos com mais frequência: o documento existe, ninguém tem como verificar se está sendo seguido.</p>
+<p>Vale reduzir a expectativa em um ponto: gateway não elimina shadow AI sozinho. Ele reduz o motivo de existir, porque o caminho autorizado passa a ser tão rápido quanto o atalho — e essa é a única condição, na nossa experiência, que muda o comportamento de forma duradoura. Proibir sem oferecer alternativa conveniente historicamente não funciona; tratamos disso com mais detalhe <a href="/shadow-ai/">no texto sobre shadow AI</a>.</p>
+<h2>Perguntas frequentes</h2>
+<p><strong>P: AI Gateway é a mesma coisa que um provedor de modelo, tipo a API da OpenAI direto?</strong></p>
+<p>R: Não — o gateway fica entre a empresa e os provedores de modelo, unificando o acesso a vários deles sob uma única credencial, um único ponto de custo e uma única trilha de auditoria, em vez de a empresa se conectar a cada provedor separadamente.</p>
+<p><strong>P: Um AI Gateway substitui a necessidade de uma política de uso de IA?</strong></p>
+<p>R: Não substitui — ele é onde a política vira algo aplicado tecnicamente. A política decide o que é permitido; o gateway é o ponto por onde dá para verificar, e em parte aplicar, se essa regra está sendo seguida na prática.</p>
+<p><strong>P: Pequenas e médias empresas também precisam de AI Gateway, ou é só para empresa grande?</strong></p>
+<p>R: Depende de quantas ferramentas de IA diferentes já estão em uso, não do tamanho da empresa — uma empresa média com meia dúzia de ferramentas sem controle central tem o mesmo problema de visibilidade e custo que uma empresa grande, só que descoberto mais tarde, porque tem menos gente perguntando.</p>
+      </div>
+
+      
+      
+
+      <ul class="post-tags"><li>#ai-gateway</li><li>#governanca-de-ia</li><li>#shadow-ai</li><li>#custo-de-ia</li><li>#auditoria</li></ul>
+    </div>
+  </article>
+
+  <section class="related">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow">Leia também</p><h2>Mais sobre Governança de IA</h2></div>
+      <div class="post-grid"><article class="post-card">
+  <a class="post-card-link" href="../../blog/como-estruturar-um-comite-de-ia/">
+    <span class="tag">Governança de IA</span>
+    <h3>Como estruturar um comitê de IA</h3>
+    <p class="desc">A maioria dos comitês de IA se reúne e não decide nada. O que separa um comitê com poder real de um que só documenta o que já foi decidido.</p>
+    <time datetime="2026-09-11">11 de setembro de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../blog/politica-de-uso-de-ia-o-que-precisa-ter/">
+    <span class="tag">Governança de IA</span>
+    <h3>Política de uso de IA: o que ela precisa ter</h3>
+    <p class="desc">A maioria das políticas de uso de IA nunca é lida depois de assinada. O que separa a que funciona da que vira arquivo morto.</p>
+    <time datetime="2026-09-11">11 de setembro de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../blog/o-que-acontece-com-o-dado-que-seu-time-cola-no-chatgpt/">
+    <span class="tag">Governança de IA</span>
+    <h3>O que acontece com o dado depois que seu time cola no ChatGPT</h3>
+    <p class="desc">Cinco cenários que vazam dado todo dia, os três caminhos técnicos pelos quais a informação escapa, e o que muda — e o que não muda — no plano corporativo.</p>
+    <time datetime="2026-09-10">10 de setembro de 2026</time>
+  </a>
+</article></div>
+    </div>
+  </section>
+
+  <section class="cta-band" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Quer aplicar isso na sua empresa, com governança?</h2>
+      <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary">Agendar conversa</a>
+    </div>
+  </section>
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../../" class="logo"><img src="../../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Blog</h5>
+          <a href="../../blog/categoria/governanca/">Governança de IA</a>
+          <a href="../../blog/categoria/ai-agents/">Agentes de IA</a>
+          <a href="../../blog/categoria/llm/">LLMs</a>
+          <a href="../../blog/categoria/dev-tools/">Ferramentas de Dev</a>
+          <a href="../../blog/categoria/automation/">Automação</a>
+        </div>
+        <div class="foot-col">
+          <h5>Guias</h5>
+          <a href="../../governanca-de-ia/">Governança de IA</a>
+          <a href="../../iso-42001/">ISO 42001</a>
+          <a href="../../shadow-ai/">Shadow AI</a>
+          <a href="../../ai-gateway/">AI Gateway</a>
+          <a href="../../ai-gateway/comparativo/">Comparativo de gateways</a>
+          <a href="../../llm-leaderboard/">LLM Leaderboard</a>
+          <a href="../../governanca-de-agentes/">Governança de agentes</a>
+          <a href="../../politica-de-uso-de-ia/">Política de uso de IA</a>
+          <a href="../../lgpd-e-ia/">LGPD e IA</a>
+          <a href="../../pl-2338/">Marco Legal da IA</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../../#servicos">Serviços</a>
+          <a href="../../diagnostico/">Diagnóstico</a>
+          <a href="../../sobre/">Sobre</a>
+          <a href="../../blog/">Blog</a>
+          <a href="../../rss.xml">RSS</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/site.js?v=18"></script>
+
+</body>
+</html>

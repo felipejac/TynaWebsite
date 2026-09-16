@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <url><loc>https://tyna.com.br/</loc><lastmod>2026-09-11</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://tyna.com.br/governanca-de-ia/</loc><lastmod>2026-09-11</lastmod><changefreq>monthly</changefreq><priority>0.95</priority></url>
-  <url><loc>https://tyna.com.br/iso-42001/</loc><lastmod>2026-09-11</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://tyna.com.br/diagnostico/</loc><lastmod>2026-09-11</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://tyna.com.br/shadow-ai/</loc><lastmod>2026-09-11</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://tyna.com.br/pl-2338/</loc><lastmod>2026-09-11</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://tyna.com.br/ai-gateway/</loc><lastmod>2026-09-11</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://tyna.com.br/ai-gateway/comparativo/</loc><lastmod>2026-09-11</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://tyna.com.br/governanca-de-agentes/</loc><lastmod>2026-09-11</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://tyna.com.br/politica-de-uso-de-ia/</loc><lastmod>2026-09-11</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://tyna.com.br/lgpd-e-ia/</loc><lastmod>2026-09-11</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://tyna.com.br/sobre/</loc><lastmod>2026-09-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://tyna.com.br/blog/</loc><lastmod>2026-09-10</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://tyna.com.br/blog/categoria/governanca/</loc><lastmod>2026-09-10</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tyna.com.br/</loc><lastmod>2026-09-16</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://tyna.com.br/governanca-de-ia/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.95</priority></url>
+  <url><loc>https://tyna.com.br/iso-42001/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://tyna.com.br/diagnostico/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://tyna.com.br/shadow-ai/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://tyna.com.br/pl-2338/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://tyna.com.br/ai-gateway/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://tyna.com.br/ai-gateway/comparativo/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://tyna.com.br/llm-leaderboard/</loc><lastmod>2026-09-16</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://tyna.com.br/governanca-de-agentes/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://tyna.com.br/politica-de-uso-de-ia/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://tyna.com.br/lgpd-e-ia/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://tyna.com.br/sobre/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://tyna.com.br/blog/</loc><lastmod>2026-09-11</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://tyna.com.br/blog/categoria/governanca/</loc><lastmod>2026-09-11</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://tyna.com.br/blog/categoria/ai-agents/</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://tyna.com.br/blog/categoria/llm/</loc><lastmod>2026-08-04</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://tyna.com.br/blog/categoria/dev-tools/</loc><lastmod>2026-08-05</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://tyna.com.br/blog/categoria/automation/</loc><lastmod>2026-07-30</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tyna.com.br/blog/como-estruturar-um-comite-de-ia/</loc><lastmod>2026-09-11</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://tyna.com.br/blog/o-que-e-um-ai-gateway/</loc><lastmod>2026-09-11</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://tyna.com.br/blog/politica-de-uso-de-ia-o-que-precisa-ter/</loc><lastmod>2026-09-11</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://tyna.com.br/blog/o-que-acontece-com-o-dado-que-seu-time-cola-no-chatgpt/</loc><lastmod>2026-09-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://tyna.com.br/blog/governanca-madura-reverte-mais-agente-de-ia/</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://tyna.com.br/blog/shadow-ai-o-problema-que-sua-empresa-ja-tem/</loc><lastmod>2026-08-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>

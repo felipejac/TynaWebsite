@@ -801,3 +801,75 @@
     .cmp-acoes{width:100%;}
     .cmp-acoes .btn{flex:1;}
   }
+
+  /* ---------- LLM Leaderboard (/llm-leaderboard/) ----------
+     As 100 primeiras linhas chegam no HTML; assets/leaderboard.js troca pela lista
+     completa. A tabela rola de lado dentro do próprio contêiner, com a coluna do
+     modelo fixa: dez colunas numéricas não viram cartão legível no celular. */
+
+  .lb-controles{display:flex; flex-direction:column; gap:14px; margin-bottom:16px;}
+  .lb-barra-busca{display:flex; flex-wrap:wrap; gap:10px 18px; align-items:center; justify-content:space-between;}
+  .lb-busca{flex:1 1 300px; max-width:520px;}
+  .lb-busca input{
+    width:100%; min-height:44px; padding:10px 14px; font-family:var(--body); font-size:15px; color:var(--text);
+    background:var(--ink); border:1px solid var(--line); border-radius:4px;
+  }
+  .lb-busca input:focus-visible{outline:2px solid var(--orange); outline-offset:2px;}
+  .lb-contagem{font-family:var(--mono); font-size:13px; color:var(--text-muted);}
+  .lb-chips{display:flex; flex-wrap:wrap; gap:8px;}
+  .lb-chip{
+    display:inline-flex; align-items:center; gap:6px; min-height:34px; padding:6px 12px; cursor:pointer;
+    font-family:var(--body); font-size:13px; font-weight:600; color:var(--text-muted);
+    background:var(--ink); border:1px solid var(--line); border-radius:999px;
+  }
+  .lb-chip span{font-family:var(--mono); font-size:11px; color:var(--text-muted); opacity:.8;}
+  .lb-chip:hover{border-color:var(--accent-soft); color:var(--text);}
+  .lb-chip.ativo{background:var(--purple-line); border-color:var(--accent-soft); color:var(--purple);}
+  .lb-chip:focus-visible, .lb-th:focus-visible{outline:2px solid var(--orange); outline-offset:2px;}
+
+  .lb-scroll{overflow-x:auto; border:1px solid var(--line); -webkit-overflow-scrolling:touch;}
+  .lb-table{width:100%; min-width:1080px; border-collapse:collapse; font-size:14px;}
+  .lb-table.lb-mini{min-width:640px;}
+  .lb-table thead th{
+    padding:12px 14px; text-align:left; white-space:nowrap; background:var(--surface-2);
+    border-bottom:1px solid var(--line); font-family:var(--mono); font-size:11px; font-weight:500;
+    letter-spacing:0.1em; text-transform:uppercase; color:var(--text);
+  }
+  .lb-table td, .lb-table tbody th{padding:12px 14px; border-bottom:1px solid var(--line); vertical-align:middle; text-align:left;}
+  .lb-table tbody tr:last-child td, .lb-table tbody tr:last-child th{border-bottom:0;}
+  .lb-table tbody tr:hover td, .lb-table tbody tr:hover th{background:var(--surface);}
+  .lb-mini a{color:var(--text); border-bottom:1px solid var(--purple-line);}
+  .lb-mini a:hover{color:var(--orange-ink); border-bottom-color:var(--orange);}
+
+  .lb-th{
+    all:unset; cursor:pointer; display:inline-flex; align-items:center; gap:5px;
+    font:inherit; letter-spacing:inherit; text-transform:inherit;
+  }
+  .lb-th::after{content:'↕'; opacity:.35;}
+  th[aria-sort="descending"] .lb-th::after{content:'↓'; opacity:1; color:var(--accent);}
+  th[aria-sort="ascending"] .lb-th::after{content:'↑'; opacity:1; color:var(--accent);}
+  .lb-table thead th.lb-ativa{color:var(--accent);}
+  .lb-table td.lb-ativa{background:rgba(74,34,102,0.035);}
+
+  .lb-pos{width:44px; text-align:center !important; font-family:var(--mono); font-size:13px; color:var(--text-muted);}
+  .lb-table tbody tr:nth-child(-n+3) .lb-pos{color:var(--accent); font-weight:500;}
+  /* coluna do modelo fica visível enquanto os números rolam de lado */
+  .lb-modelo{position:sticky; left:0; z-index:1; min-width:250px; max-width:320px; background:var(--ink); box-shadow:1px 0 0 var(--line);}
+  .lb-table thead th.lb-modelo{background:var(--surface-2); z-index:2;}
+  .lb-modelo a{display:block; font-family:var(--display); font-weight:600; font-size:14.5px; line-height:1.35; color:var(--text);}
+  .lb-modelo a:hover{color:var(--orange-ink);}
+  .lb-modelo span{display:block; margin-top:2px; font-family:var(--mono); font-size:11.5px; color:var(--text-muted);}
+  .lb-num{text-align:right !important; white-space:nowrap;}
+  .lb-table td.lb-num{min-width:104px;}
+  .lb-v{display:block; font-variant-numeric:tabular-nums; color:var(--text);}
+  .lb-sem{color:var(--line);}
+  .lb-barra{display:block; margin:6px 0 0 auto; width:72px; height:3px; border-radius:2px; background:var(--surface-2); position:relative; overflow:hidden;}
+  .lb-barra::after{content:''; position:absolute; inset:0 auto 0 0; width:var(--p,0%); background:var(--accent);}
+  .lb-data{white-space:nowrap; font-family:var(--mono); font-size:12px; color:var(--text-muted);}
+  .lb-pe{display:flex; flex-direction:column; align-items:flex-start; gap:6px; margin-top:18px;}
+
+  @media (max-width:720px){
+    .lb-modelo{min-width:170px; max-width:200px;}
+    .lb-modelo a{font-size:13.5px;}
+    .lb-table td, .lb-table tbody th, .lb-table thead th{padding:10px 10px;}
+  }

@@ -26,7 +26,23 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/styles.css?v=17">
+<link rel="stylesheet" href="../assets/styles.css?v=18">
+<style>
+  /* Captura opcional de WhatsApp na tela de resultado do diagnóstico.
+     Escopo local à página — reaproveita as variáveis de assets/styles.css
+     e o mesmo padrão visual de .cmp-bar input[type="search"]. */
+  .quiz-whats{margin-top:30px; padding-top:26px; border-top:1px solid var(--line);}
+  .quiz-whats .qw-lead{font-weight:600; margin-bottom:4px; color:var(--text);}
+  .quiz-whats .qw-sub{color:var(--text-muted); font-size:13.5px; margin-bottom:16px; max-width:520px;}
+  .qw-row{display:flex; gap:10px; flex-wrap:wrap;}
+  .qw-row input[type="tel"]{
+    font-family:var(--body); font-size:14.5px; color:var(--text);
+    background:var(--ink); border:1px solid var(--line); border-radius:4px;
+    padding:10px 12px; min-height:42px; flex:1 1 220px; min-width:200px;
+  }
+  .qw-row input[type="tel"]:focus-visible{outline:2px solid var(--orange); outline-offset:2px;}
+  .qw-row .btn{flex:0 0 auto;}
+</style>
 <link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
 <script type="application/ld+json">
 {
@@ -96,6 +112,15 @@
         <ul class="gaps" id="scoreGaps"></ul>
         <a href="#" class="btn btn-primary" id="scoreCta">Receber o plano de ação por e-mail</a>
         <p style="color:var(--text-muted); font-size:13.5px; margin-top:16px;">O botão abre seu cliente de e-mail com o resultado já preenchido. Nada é enviado ou armazenado por este site — o cálculo roda no seu navegador.</p>
+
+        <div class="quiz-whats">
+          <p class="qw-lead">Quer que eu comente esse resultado pessoalmente?</p>
+          <p class="qw-sub">Deixa seu WhatsApp — eu chamo você com a leitura já pronta, sem passar pelo cliente de e-mail. Campo opcional; nada é enviado até você mandar a mensagem.</p>
+          <div class="qw-row">
+            <input type="tel" id="whatsInput" placeholder="(11) 91234-5678" inputmode="tel" aria-label="Seu WhatsApp, opcional">
+            <button type="button" class="btn btn-primary" id="whatsSubmit">Chamar no WhatsApp</button>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -180,6 +205,7 @@
           <a href="../shadow-ai/">Shadow AI</a>
           <a href="../ai-gateway/">AI Gateway</a>
           <a href="../ai-gateway/comparativo/">Comparativo de gateways</a>
+          <a href="../llm-leaderboard/">LLM Leaderboard</a>
           <a href="../governanca-de-agentes/">Governança de agentes</a>
           <a href="../politica-de-uso-de-ia/">Política de uso de IA</a>
           <a href="../lgpd-e-ia/">LGPD e IA</a>
@@ -203,7 +229,7 @@
 </footer>
 
 <!-- O botão flutuante do WhatsApp é montado por assets/site.js, que roda em todas as páginas -->
-<script src="../assets/site.js?v=17"></script>
+<script src="../assets/site.js?v=18"></script>
 <script>
 (function () {
   // Diagnóstico: tudo roda no navegador. Nenhuma resposta sai daqui sem o visitante
@@ -250,6 +276,7 @@
   var prog = document.getElementById('quizProgress');
   var fill = document.getElementById('quizFill');
   var box = document.getElementById('quizResult');
+  var ultimoTotal = null, ultimaFaixa = null;
 
   PERGUNTAS.forEach(function (q, i) {
     var opts = OPCOES.map(function (o) {
@@ -283,6 +310,8 @@
     });
 
     var faixa = FAIXAS.find(function (f) { return total <= f.max; });
+    ultimoTotal = total;
+    ultimaFaixa = faixa;
     document.getElementById('scoreV').textContent = total;
     document.getElementById('scoreBand').textContent = faixa.band;
     document.getElementById('scoreTitle').textContent = faixa.h;
@@ -317,6 +346,23 @@
 
   document.getElementById('scoreCta').addEventListener('click', function () {
     if (typeof gtag === 'function') gtag('event', 'diagnostico_lead', { metodo: 'email' });
+  });
+
+  // Captura opcional de WhatsApp na tela de resultado. Continua sem cadastro no
+  // servidor: o número digitado só viaja dentro da mensagem pré-preenchida do
+  // WhatsApp, que o visitante ainda precisa decidir enviar — mesma promessa de
+  // "nada sai daqui sem uma ação sua" do restante da página.
+  document.getElementById('whatsSubmit').addEventListener('click', function () {
+    if (ultimoTotal === null) return;
+    var numero = document.getElementById('whatsInput').value.trim();
+    var corpo = 'Vim pelo diagnóstico de governança de IA da Tyna.\n\n'
+      + 'Pontuação: ' + ultimoTotal + ' de 20 (' + ultimaFaixa.band + ')\n'
+      + (numero ? 'Meu WhatsApp para retorno: ' + numero + '\n' : '')
+      + '\nQuero comentar esse resultado com você.';
+    window.open('https://wa.me/5511997228945?text=' + encodeURIComponent(corpo), '_blank', 'noopener');
+    if (typeof gtag === 'function') {
+      gtag('event', 'diagnostico_lead', { metodo: 'whatsapp_direto', com_numero: numero ? 'sim' : 'nao' });
+    }
   });
 })();
 </script>

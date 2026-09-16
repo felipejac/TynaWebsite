@@ -362,6 +362,25 @@
           }
         },
         {
+          "@type": "Dataset",
+          "@id": "https://tyna.com.br/llm-leaderboard/",
+          "name": "LLM Leaderboard — ranking dos modelos de IA",
+          "url": "https://tyna.com.br/llm-leaderboard/",
+          "inLanguage": "pt-BR",
+          "isAccessibleForFree": true,
+          "description": "Ranking de mais de 600 modelos de linguagem por Artificial Analysis Intelligence Index, índices de código e agêntico, velocidade de saída, latência até o primeiro token, tempo de resposta completa e preço estimado por milhão de tokens. Atualizado toda semana. Inclui destaques por critério, o melhor modelo de cada empresa e respostas diretas sobre qual é o melhor modelo de IA, o melhor para programação, o mais barato e o mais rápido.",
+          "creator": {
+            "@type": "Organization",
+            "name": "Artificial Analysis",
+            "url": "https://artificialanalysis.ai/"
+          },
+          "distribution": {
+            "@type": "DataDownload",
+            "encodingFormat": "application/json",
+            "contentUrl": "https://tyna.com.br/llm-leaderboard/modelos.json"
+          }
+        },
+        {
           "@type": "WebPage",
           "@id": "https://tyna.com.br/governanca-de-agentes/",
           "name": "Governança de agentes de IA — até onde o agente vai sozinho",

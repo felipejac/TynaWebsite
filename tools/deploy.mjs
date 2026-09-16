@@ -43,7 +43,7 @@ const PUBLISH = [
   'index.html', '404.html', 'googlee855927550ef5bb2.html', 'BingSiteAuth.xml',
   'd3bf6674386c4a6e539f5bb870611a6c.txt',
   'robots.txt', 'llms.txt', 'ai.json',
-  'sobre', 'iso-42001', 'diagnostico', 'shadow-ai', 'pl-2338', 'ai-gateway', 'governanca-de-agentes', 'politica-de-uso-de-ia', 'lgpd-e-ia', 'governanca-de-ia',
+  'sobre', 'iso-42001', 'diagnostico', 'shadow-ai', 'pl-2338', 'ai-gateway', 'governanca-de-agentes', 'politica-de-uso-de-ia', 'lgpd-e-ia', 'governanca-de-ia', 'llm-leaderboard',
   'blog', 'assets', 'rss.xml', 'sitemap.xml',
 ];
 
@@ -58,6 +58,9 @@ const capture = (cmd, cmdArgs) => execFileSync(cmd, cmdArgs, { cwd: ROOT, encodi
 /* ---------- 1. build opcional do blog ---------- */
 
 if (has('--build')) {
+  // antes do blog: o sitemap gerado por build-blog lê a data da coleta no snapshot
+  console.log('→ atualizando /llm-leaderboard/ a partir da API do Automations Cookbook');
+  run(process.execPath, [join(ROOT, 'tools', 'build-leaderboard.mjs')]);
   console.log('→ regenerando blog/ a partir de content/blog/');
   run(process.execPath, [join(ROOT, 'tools', 'build-blog.mjs')]);
 }

@@ -22,7 +22,7 @@ const WA_CTA = 'https://wa.me/5511997228945?text=' +
   encodeURIComponent('Olá, Felipe. Vim pelo site da Tyna e quero falar sobre governança de IA.');
 const ctaAgendar = (cls = '', attrs = '') =>
   `<a href="${WA_CTA}" target="_blank" rel="noopener" class="btn btn-primary${cls ? ' ' + cls : ''}"${attrs ? ' ' + attrs : ''}>Agendar conversa</a>`;
-const ASSET_V = '17';
+const ASSET_V = '18';
 
 const CATEGORIES = {
   'governanca': 'Governança de IA',
@@ -228,6 +228,7 @@ ${body}
           <a href="${up}shadow-ai/">Shadow AI</a>
           <a href="${up}ai-gateway/">AI Gateway</a>
           <a href="${up}ai-gateway/comparativo/">Comparativo de gateways</a>
+          <a href="${up}llm-leaderboard/">LLM Leaderboard</a>
           <a href="${up}governanca-de-agentes/">Governança de agentes</a>
           <a href="${up}politica-de-uso-de-ia/">Política de uso de IA</a>
           <a href="${up}lgpd-e-ia/">LGPD e IA</a>
@@ -469,6 +470,14 @@ const mtime = rel => {
 };
 const maisRecente = lista => lista.map(p => p.pubDate).sort().pop();
 
+function dataDoLeaderboard() {
+  try {
+    return JSON.parse(readFileSync(join(ROOT, 'tools', 'dados', 'llm-leaderboard.json'), 'utf8')).meta.fetchedAt.slice(0, 10);
+  } catch {
+    return mtime('llm-leaderboard/index.html');
+  }
+}
+
 const staticPages = [
   { loc: `${SITE}/`, pri: '1.0', freq: 'weekly', mod: mtime('index.html') },
   // termo-cabeca da categoria e hub dos demais guias — prioridade acima das outras
@@ -483,6 +492,9 @@ const staticPages = [
   // o comparativo tem data de corte declarada na própria página: o lastmod é o que
   // avisa o buscador de que a tabela foi reconferida, e não só republicada
   { loc: `${SITE}/ai-gateway/comparativo/`, pri: '0.85', freq: 'monthly', mod: mtime('ai-gateway/comparativo/index.html') },
+  // o leaderboard é regravado a cada build mesmo sem dado novo; o lastmod honesto é a
+  // data da coleta gravada no snapshot, e não o mtime do arquivo
+  { loc: `${SITE}/llm-leaderboard/`, pri: '0.9', freq: 'weekly', mod: dataDoLeaderboard() },
   { loc: `${SITE}/governanca-de-agentes/`, pri: '0.9', freq: 'monthly', mod: mtime('governanca-de-agentes/index.html') },
   { loc: `${SITE}/politica-de-uso-de-ia/`, pri: '0.9', freq: 'monthly', mod: mtime('politica-de-uso-de-ia/index.html') },
   { loc: `${SITE}/lgpd-e-ia/`, pri: '0.9', freq: 'monthly', mod: mtime('lgpd-e-ia/index.html') },

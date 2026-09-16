@@ -7,6 +7,30 @@
   <language>pt-BR</language>
   <atom:link href="https://tyna.com.br/rss.xml" rel="self" type="application/rss+xml"/>
   <item>
+    <title>Como estruturar um comitê de IA</title>
+    <link>https://tyna.com.br/blog/como-estruturar-um-comite-de-ia/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/como-estruturar-um-comite-de-ia/</guid>
+    <pubDate>Fri, 11 Sep 2026 12:00:00 GMT</pubDate>
+    <description>A maioria dos comitês de IA se reúne e não decide nada. O que separa um comitê com poder real de um que só documenta o que já foi decidido.</description>
+    <category>Governança de IA</category>
+  </item>
+  <item>
+    <title>O que é um AI Gateway (e o que ele resolve)</title>
+    <link>https://tyna.com.br/blog/o-que-e-um-ai-gateway/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/o-que-e-um-ai-gateway/</guid>
+    <pubDate>Fri, 11 Sep 2026 12:00:00 GMT</pubDate>
+    <description>AI Gateway não é mais uma ferramenta — é o ponto único de acesso, custo e auditoria por onde as outras passam. O que ele resolve, na prática.</description>
+    <category>Governança de IA</category>
+  </item>
+  <item>
+    <title>Política de uso de IA: o que ela precisa ter</title>
+    <link>https://tyna.com.br/blog/politica-de-uso-de-ia-o-que-precisa-ter/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/politica-de-uso-de-ia-o-que-precisa-ter/</guid>
+    <pubDate>Fri, 11 Sep 2026 12:00:00 GMT</pubDate>
+    <description>A maioria das políticas de uso de IA nunca é lida depois de assinada. O que separa a que funciona da que vira arquivo morto.</description>
+    <category>Governança de IA</category>
+  </item>
+  <item>
     <title>O que acontece com o dado depois que seu time cola no ChatGPT</title>
     <link>https://tyna.com.br/blog/o-que-acontece-com-o-dado-que-seu-time-cola-no-chatgpt/</link>
     <guid isPermaLink="true">https://tyna.com.br/blog/o-que-acontece-com-o-dado-que-seu-time-cola-no-chatgpt/</guid>
@@ -221,30 +245,6 @@
     <pubDate>Wed, 29 Jul 2026 12:00:00 GMT</pubDate>
     <description>Animação matemática renderizada no cliente com WebGPU, desempenho próximo ao nativo e nenhum servidor de renderização no caminho.</description>
     <category>Ferramentas de Dev</category>
-  </item>
-  <item>
-    <title>Tokenless troca de modelo sozinho para cortar custo</title>
-    <link>https://tyna.com.br/blog/tokenless-troca-automatica-de-modelo/</link>
-    <guid isPermaLink="true">https://tyna.com.br/blog/tokenless-troca-automatica-de-modelo/</guid>
-    <pubDate>Wed, 29 Jul 2026 12:00:00 GMT</pubDate>
-    <description>A plataforma observa preço e qualidade e migra para um modelo mais barato quando o resultado se mantém. Cada troca fica registrada.</description>
-    <category>LLMs</category>
-  </item>
-  <item>
-    <title>Flashpaper: segredos que se destroem sem banco de dados</title>
-    <link>https://tyna.com.br/blog/flashpaper-segredos-que-se-destroem/</link>
-    <guid isPermaLink="true">https://tyna.com.br/blog/flashpaper-segredos-que-se-destroem/</guid>
-    <pubDate>Tue, 28 Jul 2026 12:00:00 GMT</pubDate>
-    <description>Compartilhar credencial temporária com leitura única ou prazo de validade, sem armazenar nada em lugar nenhum.</description>
-    <category>Ferramentas de Dev</category>
-  </item>
-  <item>
-    <title>Kimi K3 chega à API de inferência da Telnyx</title>
-    <link>https://tyna.com.br/blog/kimi-k3-disponivel-na-api-da-telnyx/</link>
-    <guid isPermaLink="true">https://tyna.com.br/blog/kimi-k3-disponivel-na-api-da-telnyx/</guid>
-    <pubDate>Tue, 28 Jul 2026 12:00:00 GMT</pubDate>
-    <description>O modelo passa a ser oferecido como serviço gerenciado, cobrado por uso, na mesma infraestrutura de voz e mensagem da Telnyx.</description>
-    <category>LLMs</category>
   </item>
 </channel>
 </rss>
