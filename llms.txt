@@ -7,7 +7,7 @@
 > governança vem de quem já colocou agente de IA em produção em marcas grandes, e
 > não de quem apenas audita.
 
-Contato: contato@tyna.com.br · https://tyna.com.br
+Contato: WhatsApp +55 11 99722-8945 (https://wa.me/5511997228945) · https://tyna.com.br
 Público: C-level, diretoria de tecnologia, jurídico e compliance de empresas médias
 e grandes que já usam IA sem estrutura formal.
 
@@ -241,8 +241,14 @@ advisory mensal. O contato inicial é uma conversa de 30 minutos por e-mail.
 - [Diagnóstico](https://tyna.com.br/diagnostico/): dez perguntas de maturidade em
   governança de IA, com pontuação, faixa e lacunas nomeadas. Sem cadastro.
 - [Sobre](https://tyna.com.br/sobre/): trajetória de Felipe Jacob e especialidades.
-- [Blog](https://tyna.com.br/blog/): análise prática sobre IA, agentes, LLMs,
-  ferramentas de desenvolvimento e automação.
+- [Blog](https://tyna.com.br/blog/): análise própria da Tyna sobre governança de IA —
+  política de uso, comitê de IA, AI Gateway, LGPD, shadow AI e agentes em produção.
+- [Radar](https://tyna.com.br/blog/radar/): notícias de agentes de IA, LLMs,
+  ferramentas de desenvolvimento e automação, traduzidas do Automations Cookbook e
+  comentadas pela Tyna.
+- [Política de privacidade](https://tyna.com.br/politica-de-privacidade/): dados
+  tratados, finalidades, bases legais da LGPD, retenção, compartilhamento, direitos
+  do titular e canal do encarregado.
 
 ## Dados estruturados
 

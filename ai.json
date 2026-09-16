@@ -236,72 +236,66 @@
           "@type": "PropertyValue",
           "name": "Hering — ROAS das campanhas",
           "value": "123x",
-          "description": "Recuperação de carrinho abandonado por WhatsApp integrada à VTEX.",
-          "citation": "omni.chat/blog"
+          "description": "Recuperação de carrinho abandonado por WhatsApp integrada à VTEX."
         },
         {
           "@type": "PropertyValue",
           "name": "Hering — taxa de conversão",
-          "value": "20%",
-          "citation": "omni.chat/blog"
+          "value": "20%"
         },
         {
           "@type": "PropertyValue",
           "name": "Hering — faturamento",
-          "value": "R$ 1,5 milhão",
-          "citation": "omni.chat/blog"
+          "value": "R$ 1,5 milhão"
         },
         {
           "@type": "PropertyValue",
           "name": "Hering — crescimento sobre o ano anterior",
-          "value": "2825%",
-          "citation": "omni.chat/blog"
+          "value": "2825%"
         },
         {
           "@type": "PropertyValue",
           "name": "Yalo — volume movimentado via mensagens",
           "value": "US$ 4 bilhões",
-          "description": "Agentes de IA como vendedores digitais 24/7 integrados a preço, catálogo, crédito e estoque.",
-          "citation": "Times Brasil / CNBC, dezembro de 2025"
+          "description": "Agentes de IA como vendedores digitais 24/7 integrados a preço, catálogo, crédito e estoque."
         },
         {
           "@type": "PropertyValue",
           "name": "Yalo — aumento em vendas",
-          "value": "14% a 18%",
-          "citation": "Times Brasil / CNBC, dezembro de 2025"
+          "value": "14% a 18%"
         },
         {
           "@type": "PropertyValue",
           "name": "Stellantis — NPS no pós-venda",
           "value": "86,8%",
-          "description": "Agente que recebe a foto do painel pelo WhatsApp, interpreta o alerta e responde na hora, replicado em cinco marcas.",
-          "citation": "blip.ai"
+          "description": "Agente que recebe a foto do painel pelo WhatsApp, interpreta o alerta e responde na hora, replicado em cinco marcas."
         },
         {
           "@type": "PropertyValue",
           "name": "Stellantis — assertividade da IA",
-          "value": "84,2%",
-          "citation": "blip.ai"
+          "value": "84,2%"
         },
         {
           "@type": "PropertyValue",
           "name": "Stellantis — resolutividade direta",
-          "value": "80%",
-          "citation": "blip.ai"
+          "value": "80%"
         },
         {
           "@type": "PropertyValue",
           "name": "Coca-Cola — usuários em 20 dias",
           "value": "94 mil",
-          "description": "Assistente virtual com reconhecimento de voz em campanha de Natal.",
-          "citation": "blip.ai"
+          "description": "Assistente virtual com reconhecimento de voz em campanha de Natal."
         },
         {
           "@type": "PropertyValue",
           "name": "Coca-Cola — áudios recebidos",
-          "value": "397 mil",
-          "citation": "blip.ai"
+          "value": "397 mil"
         }
+      ],
+      "citation": [
+        "omni.chat/blog",
+        "Times Brasil / CNBC, dezembro de 2025",
+        "blip.ai"
       ]
     },
     {

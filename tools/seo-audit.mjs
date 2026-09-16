@@ -133,7 +133,14 @@ function urlsDoSitemap() {
 
 // Toda página publicada precisa estar no sitemap. Uma página fora dele depende de
 // ser descoberta por link, o que num site novo e sem backlink quase não acontece.
+//
+// "Publicada" é o que está na lista PUBLISH de tools/deploy.mjs, e não qualquer
+// index.html em disco: esqueleto de página que ainda não foi escrita (as páginas
+// comerciais, por exemplo) fica no repositório de propósito, fora do deploy e do
+// sitemap, e não pode travar a publicação do resto.
 function paginasEmDisco() {
+  const publicados = readFileSync(join(RAIZ, 'tools', 'deploy.mjs'), 'utf8')
+    .match(/const PUBLISH = \[([\s\S]*?)\];/)[1].match(/'([^']+)'/g).map((s) => s.slice(1, -1));
   const achadas = [];
   const anda = (dir) => {
     for (const nome of readdirSync(dir)) {
@@ -142,7 +149,11 @@ function paginasEmDisco() {
       else if (nome === 'index.html') achadas.push(p);
     }
   };
-  anda(RAIZ);
+  if (existsSync(join(RAIZ, 'index.html'))) achadas.push(join(RAIZ, 'index.html'));
+  for (const item of publicados) {
+    const p = join(RAIZ, item);
+    if (existsSync(p) && statSync(p).isDirectory()) anda(p);
+  }
   return achadas.map((p) => {
     const rel = relative(RAIZ, p).replace(/\\/g, '/').replace(/index\.html$/, '');
     return `${SITE}/${rel}`;

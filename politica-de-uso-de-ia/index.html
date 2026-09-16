@@ -30,22 +30,6 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "HowTo",
-  "name": "Como escrever uma política de uso de IA que as equipes sigam",
-  "inLanguage": "pt-BR",
-  "description": "Roteiro para redigir e implantar uma política interna de uso de Inteligência Artificial: classificação de dado em três níveis, alternativa autorizada ao lado de cada proibição, regra para conteúdo gerado, aprovação de agentes, canal de incidente com anistia e dono nomeado com prazo de resposta a exceção.",
-  "totalTime": "P14D",
-  "step": [
-    { "@type": "HowToStep", "name": "Classificar o dado em três níveis", "text": "Separar a informação da empresa em público, interno e restrito, e dizer para cada nível o que pode entrar em qual categoria de ferramenta de IA. Sem essa classificação, toda regra vira genérica e cada pessoa interpreta de um jeito." },
-    { "@type": "HowToStep", "name": "Escrever cada proibição com a alternativa ao lado", "text": "Toda regra que restringe algo precisa apontar o caminho autorizado no mesmo parágrafo. Dizer para não colar contrato em ferramenta pública sem dizer onde colar produz shadow AI; a mesma frase com o endereço da instância privada produz adesão." },
-    { "@type": "HowToStep", "name": "Definir dono, prazo de exceção e canal de incidente", "text": "Uma pessoa responsável pela política, um prazo máximo para responder a um pedido de exceção e um canal de reporte de incidente com anistia declarada. Política sem prazo de resposta é contornada no primeiro projeto urgente." },
-    { "@type": "HowToStep", "name": "Publicar com anistia e revisar a cada trimestre", "text": "Anunciar junto com a garantia de que ninguém será punido pelo uso anterior à política, e marcar revisão trimestral. Ferramenta de IA muda mais rápido que ciclo anual de política." }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://tyna.com.br/" },
@@ -84,6 +68,45 @@
       "@type": "Question",
       "name": "Com que frequência a política de uso de IA deve ser revisada?",
       "acceptedAnswer": { "@type": "Answer", "text": "A cada trimestre, e não a cada ano. Ferramenta de IA muda de recurso, de termos de uso e de política de treinamento em prazo muito menor que o ciclo anual de revisão de norma interna. Uma política que cita ferramentas por nome fica desatualizada em meses, e política desatualizada perde autoridade rápido: quando o time percebe que a regra fala de uma versão que não existe mais, o resto do documento também deixa de ser levado a sério." }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Quatro passos entre o documento pronto e o comportamento mudado",
+  "inLanguage": "pt-BR",
+  "description": "Publicar na intranet e mandar um e-mail é o método mais usado, e o de menor efeito. O que muda comportamento é outra coisa.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Ter a alternativa pronta antes de anunciar a regra",
+      "text": "Se a instância privada ainda não existe no dia do anúncio, a política nasce como proibição pura — e proibição pura empurra o uso para o celular pessoal, onde não há registro nenhum.",
+      "url": "https://tyna.com.br/politica-de-uso-de-ia/#implantar"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Anunciar com anistia, por escrito",
+      "text": "Ninguém será punido pelo uso anterior à política nem por reportar incidente. Sem isso, o time não declara o que já usa, a empresa não descobre o que existe e a política passa a valer sobre um mapa incompleto.",
+      "url": "https://tyna.com.br/politica-de-uso-de-ia/#implantar"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Responder exceção em dias, não em semanas",
+      "text": "O prazo de resposta é a parte da política que mais influencia adesão. Quem tem entrega para segunda-feira não espera duas semanas por autorização: contorna e segue.",
+      "url": "https://tyna.com.br/politica-de-uso-de-ia/#implantar"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Revisar a cada 90 dias",
+      "text": "Ferramenta de IA muda recurso, termos de uso e política de treinamento em prazo menor que o ciclo anual de norma interna. Política que cita uma versão que não existe mais perde autoridade — e leva o resto do documento junto.",
+      "url": "https://tyna.com.br/politica-de-uso-de-ia/#implantar"
     }
   ]
 }

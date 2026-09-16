@@ -234,7 +234,8 @@ ${body}
         </div>
         <div class="foot-col">
           <h5>Blog</h5>
-          ${activeCats().map(([s, n]) => `<a href="${up}blog/categoria/${s}/">${n}</a>`).join('\n          ')}
+          ${activeCats(comerciais).map(([s, n]) => `<a href="${up}blog/categoria/${s}/">${n}</a>`).join('\n          ')}
+          <a href="${up}blog/radar/">Radar</a>
         </div>
         <div class="foot-col">
           <h5>Guias</h5>
@@ -274,7 +275,7 @@ ${body}
 `;
 }
 
-const activeCats = () => Object.entries(CATEGORIES).filter(([s]) => posts.some(p => p.category === s));
+const activeCats = (lista = posts) => Object.entries(CATEGORIES).filter(([s]) => lista.some(p => p.category === s));
 
 const ld = obj => `<script type="application/ld+json">${JSON.stringify(obj)}</script>\n`;
 
@@ -285,13 +286,37 @@ const posts = readdirSync(SRC).filter(f => f.endsWith('.md')).map(file => {
   return { ...data, slug: file.replace(/\.md$/, ''), body, faq: extractFaq(body), tags: data.tags || [] };
 }).filter(p => p.draft !== 'true').sort((a, b) => b.pubDate.localeCompare(a.pubDate));
 
+// Dois blogs debaixo de /blog/. O comercial é análise própria da Tyna — o que o
+// cliente lê antes de contratar. O Radar é notícia traduzida do Automations Cookbook
+// e comentada. Misturados, o índice que devia vender governança abria com lançamento
+// de modelo. A regra padrão é a origem do texto (tradução tem originalUrl); um post
+// pode declarar `secao: "radar"` ou `secao: "comercial"` no frontmatter para decidir.
+// Mudar um post de seção muda a URL: o _redirects gerado abaixo cobre a URL antiga.
+const RADAR = 'radar';
+for (const p of posts) {
+  p.secao = p.secao === RADAR || p.secao === 'comercial' ? p.secao : (p.originalUrl ? RADAR : 'comercial');
+  p.path = p.secao === RADAR ? `blog/radar/${p.slug}/` : `blog/${p.slug}/`;
+}
+const comerciais = posts.filter(p => p.secao !== RADAR);
+const radar = posts.filter(p => p.secao === RADAR);
+const SECOES = {
+  comercial: { base: 'blog/', nome: 'Blog', lista: comerciais },
+  [RADAR]: { base: 'blog/radar/', nome: 'Radar', lista: radar },
+};
+
 if (existsSync(OUT)) rmSync(OUT, { recursive: true });
 mkdirSync(OUT, { recursive: true });
 
 /* ---------- páginas de post ---------- */
 
+// Texto de post linka outros posts por /blog/<slug>/. Post que foi para o Radar mudou
+// de endereço; o 301 resolveria, mas link interno passando por redirecionamento
+// desperdiça rastreamento e é o tipo de coisa que ninguém nota até virar cadeia.
+const comLinksAtualizados = html => radar.reduce(
+  (h, r) => h.split(`href="/blog/${r.slug}/"`).join(`href="/${r.path}"`), html);
+
 const card = (p, up) => `<article class="post-card">
-  <a class="post-card-link" href="${up}blog/${p.slug}/">
+  <a class="post-card-link" href="${up}${p.path}">
     <span class="tag">${CATEGORIES[p.category] || p.category}</span>
     <h3>${esc(p.title)}</h3>
     <p class="desc">${esc(p.description)}</p>
@@ -303,7 +328,7 @@ const card = (p, up) => `<article class="post-card">
 // Só o índice geral usa — nas páginas de categoria o destaque perderia o sentido de
 // "o que ler primeiro no blog".
 const cardDestaque = (p, up) => `<article class="post-card post-card-destaque">
-  <a class="post-card-link" href="${up}blog/${p.slug}/">
+  <a class="post-card-link" href="${up}${p.path}">
     ${p.image ? `<span class="destaque-img"><img src="${up}${p.image}" alt="${escAttr(p.imageAlt || p.title)}" width="1200" height="630" loading="eager" decoding="async"></span>` : ''}
     <span class="destaque-txt">
       <span class="tag tag-destaque">Em destaque</span>
@@ -316,8 +341,13 @@ const cardDestaque = (p, up) => `<article class="post-card post-card-destaque">
 </article>`;
 
 for (const p of posts) {
-  const canonical = `${SITE}/blog/${p.slug}/`;
-  const related = posts.filter(o => o.slug !== p.slug && o.category === p.category).slice(0, 3);
+  const secao = SECOES[p.secao];
+  const canonical = `${SITE}/${p.path}`;
+  const depth = p.secao === RADAR ? 3 : 2;
+  const up = '../'.repeat(depth);
+  // relacionados ficam na mesma seção: post comercial não empurra notícia, e vice-versa
+  const mesmaSecao = secao.lista.filter(o => o.slug !== p.slug);
+  const related = [...mesmaSecao.filter(o => o.category === p.category), ...mesmaSecao.filter(o => o.category !== p.category)].slice(0, 3);
 
   let head = ld({
     '@context': 'https://schema.org', '@type': 'BlogPosting',
@@ -326,7 +356,9 @@ for (const p of posts) {
     inLanguage: 'pt-BR',
     author: { '@type': 'Person', name: 'Felipe Jacob', url: `${SITE}/sobre/` },
     publisher: { '@type': 'Organization', name: 'Tyna', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}/assets/logo-tyna-dark.png` } },
+    url: canonical,
     mainEntityOfPage: canonical,
+    ...(p.image ? { image: `${SITE}/${p.image}` } : {}),
     keywords: p.tags.join(', '),
     articleSection: CATEGORIES[p.category] || p.category,
     ...(p.sourceUrl ? { citation: p.sourceUrl } : {}),
@@ -336,8 +368,8 @@ for (const p of posts) {
     '@context': 'https://schema.org', '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Início', item: SITE },
-      { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE}/blog/` },
-      { '@type': 'ListItem', position: 3, name: CATEGORIES[p.category] || p.category, item: `${SITE}/blog/categoria/${p.category}/` },
+      { '@type': 'ListItem', position: 2, name: secao.nome, item: `${SITE}/${secao.base}` },
+      { '@type': 'ListItem', position: 3, name: CATEGORIES[p.category] || p.category, item: `${SITE}/${secao.base}categoria/${p.category}/` },
       { '@type': 'ListItem', position: 4, name: p.title, item: canonical },
     ],
   });
@@ -358,18 +390,18 @@ for (const p of posts) {
   const body = `<main id="top">
   <article class="post">
     <div class="wrap post-wrap">
-      <nav class="crumbs" aria-label="Trilha"><a href="../../">Início</a> › <a href="../">Blog</a> › <a href="../categoria/${p.category}/">${CATEGORIES[p.category] || p.category}</a></nav>
+      <nav class="crumbs" aria-label="Trilha"><a href="${up}">Início</a> › <a href="${up}${secao.base}">${secao.nome}</a> › <a href="${up}${secao.base}categoria/${p.category}/">${CATEGORIES[p.category] || p.category}</a></nav>
       <p class="eyebrow">${CATEGORIES[p.category] || p.category}</p>
       <h1>${esc(p.title)}</h1>
-      <p class="post-meta"><time datetime="${p.pubDate}">${fmtDate(p.pubDate)}</time> · Por <a href="../../sobre/">Felipe Jacob</a></p>
+      <p class="post-meta"><time datetime="${p.pubDate}">${fmtDate(p.pubDate)}</time> · Por <a href="${up}sobre/">Felipe Jacob</a></p>
       <p class="lead">${esc(p.description)}</p>
 
-      ${p.image ? `<figure class="post-hero"><img src="../../${p.image}" alt="${escAttr(p.imageAlt || p.title)}" width="1200" height="630" loading="eager" decoding="async"></figure>` : ''}
+      ${p.image ? `<figure class="post-hero"><img src="${up}${p.image}" alt="${escAttr(p.imageAlt || p.title)}" width="1200" height="630" loading="eager" decoding="async"></figure>` : ''}
 
       ${p.aeoSummary ? `<aside class="answer-box"><h2>Resposta curta</h2><p>${esc(p.aeoSummary)}</p></aside>` : ''}
 
       <div class="post-body">
-${mdToHtml(p.body)}
+${comLinksAtualizados(mdToHtml(p.body))}
       </div>
 
       ${p.sourceUrl ? `<p class="post-source">Fonte original: <a href="${escAttr(p.sourceUrl)}" target="_blank" rel="noopener nofollow">${esc(p.sourceName || p.sourceUrl)}</a></p>` : ''}
@@ -382,7 +414,7 @@ ${mdToHtml(p.body)}
   ${related.length ? `<section class="related">
     <div class="wrap">
       <div class="section-head"><p class="eyebrow">Leia também</p><h2>Mais sobre ${CATEGORIES[p.category] || p.category}</h2></div>
-      <div class="post-grid">${related.map(r => card(r, '../../')).join('\n')}</div>
+      <div class="post-grid">${related.map(r => card(r, up)).join('\n')}</div>
     </div>
   </section>` : ''}
 
@@ -395,24 +427,25 @@ ${mdToHtml(p.body)}
   </section>
 </main>`;
 
-  mkdirSync(join(OUT, p.slug), { recursive: true });
-  writeFileSync(join(OUT, p.slug, 'index.html'),
+  mkdirSync(join(ROOT, p.path), { recursive: true });
+  writeFileSync(join(ROOT, p.path, 'index.html'),
     // " | Tyna" (7 chars) em vez do antigo " — Blog Tyna" (12 chars): o sufixo mais
     // longo empurrava 22 dos 37 titulos para alem de 60 caracteres, o limite que
     // Google e Bing toleram sem cortar o titulo no resultado de busca.
-    shell({ title: `${p.title} | Tyna`, description: p.description, canonical, head, body, depth: 2, image: p.image }));
+    shell({ title: `${p.title} | Tyna`, description: p.description, canonical, head, body, depth, image: p.image }));
 }
 
 /* ---------- índice e categorias ---------- */
 
-function listing({ title, description, canonical, heading, sub, items, depth, active, intro, guias }) {
+function listing({ title, description, canonical, heading, sub, items, depth, active, intro, guias, secao = 'comercial' }) {
   const up = '../'.repeat(depth);
+  const cfg = SECOES[secao];
   const head = ld({
     '@context': 'https://schema.org', '@type': 'Blog',
-    name: 'Blog Tyna', url: `${SITE}/blog/`, inLanguage: 'pt-BR',
+    name: secao === RADAR ? 'Radar Tyna' : 'Blog Tyna', url: `${SITE}/${cfg.base}`, inLanguage: 'pt-BR',
     description,
     blogPost: items.slice(0, 20).map(p => ({
-      '@type': 'BlogPosting', headline: p.title, url: `${SITE}/blog/${p.slug}/`, datePublished: p.pubDate,
+      '@type': 'BlogPosting', headline: p.title, url: `${SITE}/${p.path}`, datePublished: p.pubDate,
     })),
   });
 
@@ -424,12 +457,13 @@ function listing({ title, description, canonical, heading, sub, items, depth, ac
   const body = `<main id="top">
   <section class="hero blog-hero">
     <div class="wrap">
-      <p class="eyebrow">Blog · ${items.length} ${items.length === 1 ? 'artigo' : 'artigos'}</p>
+      <p class="eyebrow">${cfg.nome} · ${items.length} ${items.length === 1 ? 'artigo' : 'artigos'}</p>
       <h1>${esc(heading)}</h1>
       <p class="lead" style="max-width:640px;">${esc(sub)}</p>
       <nav class="cat-nav" aria-label="Categorias">
-        <a href="${up}blog/"${!active ? ' class="on"' : ''}>Todos</a>
-        ${activeCats().map(([s, n]) => `<a href="${up}blog/categoria/${s}/"${active === s ? ' class="on"' : ''}>${n}</a>`).join('\n        ')}
+        <a href="${up}${cfg.base}"${!active ? ' class="on"' : ''}>Todos</a>
+        ${activeCats(cfg.lista).map(([s, n]) => `<a href="${up}${cfg.base}categoria/${s}/"${active === s ? ' class="on"' : ''}>${n}</a>`).join('\n        ')}
+        ${secao === RADAR ? `<a href="${up}blog/">Blog da Tyna →</a>` : `<a href="${up}blog/radar/">Radar →</a>`}
       </nav>
       ${intro ? `<p class="cat-intro">${esc(intro)}</p>` : ''}
     </div>
@@ -449,29 +483,46 @@ function listing({ title, description, canonical, heading, sub, items, depth, ac
 }
 
 writeFileSync(join(OUT, 'index.html'), listing({
-  title: 'Blog — IA, agentes e automação | Tyna',
-  description: 'Análise de agentes de IA, LLMs e automação para quem coloca sistema em produção. Notícia destrinchada, sem hype, com o que muda na prática.',
+  title: 'Blog — governança de IA na prática | Tyna',
+  description: 'Análise própria da Tyna sobre governança de IA: política de uso, comitê, AI Gateway, LGPD e agentes em produção, escrita por quem implanta.',
   canonical: `${SITE}/blog/`,
-  heading: 'IA em produção, destrinchada.',
-  sub: 'Agentes, LLMs e ferramentas de automação — o que saiu, o que muda no seu fluxo e o que ignorar.',
-  items: posts, depth: 1, active: null,
+  heading: 'Governança de IA, na prática.',
+  sub: 'Política de uso, comitê, AI Gateway, LGPD e agentes em produção — análise própria da Tyna, escrita por quem implanta e não só audita.',
+  items: comerciais, depth: 1, active: null, secao: 'comercial',
 }));
 
-for (const [slug, name] of Object.entries(CATEGORIES)) {
-  const items = posts.filter(p => p.category === slug);
-  if (!items.length) continue;
-  mkdirSync(join(OUT, 'categoria', slug), { recursive: true });
-  const meta = CAT_META[slug] || {};
-  writeFileSync(join(OUT, 'categoria', slug, 'index.html'), listing({
-    title: `${name} — Blog Tyna`,
-    description: meta.desc || `Artigos sobre ${name.toLowerCase()}: análise prática para equipes que colocam IA em produção.`,
-    canonical: `${SITE}/blog/categoria/${slug}/`,
-    heading: name,
-    sub: `Tudo que a Tyna publicou sobre ${name.toLowerCase()}.`,
-    intro: meta.intro,
-    guias: meta.guias,
-    items, depth: 3, active: slug,
-  }));
+mkdirSync(join(OUT, 'radar'), { recursive: true });
+writeFileSync(join(OUT, 'radar', 'index.html'), listing({
+  title: 'Radar — IA, agentes e automação | Tyna',
+  description: 'Notícias de agentes de IA, LLMs e automação traduzidas e comentadas pela Tyna. O que saiu, o que muda no fluxo de quem usa IA em produção e o que ignorar.',
+  canonical: `${SITE}/blog/radar/`,
+  heading: 'IA em produção, destrinchada.',
+  sub: 'Agentes, LLMs e ferramentas de automação — o que saiu, o que muda no seu fluxo e o que ignorar.',
+  items: radar, depth: 2, active: null, secao: RADAR,
+}));
+
+for (const [secao, cfg] of Object.entries(SECOES)) {
+  for (const [slug, name] of Object.entries(CATEGORIES)) {
+    const items = cfg.lista.filter(p => p.category === slug);
+    if (!items.length) continue;
+    mkdirSync(join(ROOT, cfg.base, 'categoria', slug), { recursive: true });
+    const meta = CAT_META[slug] || {};
+    const noRadar = secao === RADAR;
+    writeFileSync(join(ROOT, cfg.base, 'categoria', slug, 'index.html'), listing({
+      title: noRadar ? `${name} — Radar Tyna` : `${name} — Blog Tyna`,
+      // a descrição do Radar é própria: a mesma categoria existe nas duas seções, e
+      // duas páginas com a mesma descrição competem entre si no resultado de busca
+      description: noRadar
+        ? `Notícias sobre ${name.toLowerCase()} traduzidas e comentadas pela Tyna: o que saiu, o que muda na prática e o que ignorar. Radar do blog da Tyna.`
+        : (meta.desc || `Artigos sobre ${name.toLowerCase()}: análise prática para equipes que colocam IA em produção.`),
+      canonical: `${SITE}/${cfg.base}categoria/${slug}/`,
+      heading: noRadar ? `${name} no Radar` : name,
+      sub: noRadar ? `Notícias sobre ${name.toLowerCase()}, traduzidas e comentadas.` : `Tudo que a Tyna publicou sobre ${name.toLowerCase()}.`,
+      intro: meta.intro,
+      guias: meta.guias,
+      items, depth: noRadar ? 4 : 3, active: slug, secao,
+    }));
+  }
 }
 
 /* ---------- sitemap, rss, robots ---------- */
@@ -516,12 +567,14 @@ const staticPages = [
   { loc: `${SITE}/lgpd-e-ia/`, pri: '0.9', freq: 'monthly', mod: mtime('lgpd-e-ia/index.html') },
   { loc: `${SITE}/sobre/`, pri: '0.8', freq: 'monthly', mod: mtime('sobre/index.html') },
   { loc: `${SITE}/politica-de-privacidade/`, pri: '0.3', freq: 'yearly', mod: mtime('politica-de-privacidade/index.html') },
-  { loc: `${SITE}/blog/`, pri: '0.9', freq: 'daily', mod: maisRecente(posts) },
-  ...Object.keys(CATEGORIES).filter(s => posts.some(p => p.category === s))
+  { loc: `${SITE}/blog/`, pri: '0.9', freq: 'weekly', mod: maisRecente(comerciais) },
+  { loc: `${SITE}/blog/radar/`, pri: '0.6', freq: 'daily', mod: maisRecente(radar) },
+  ...Object.values(SECOES).flatMap(cfg => Object.keys(CATEGORIES)
+    .filter(s => cfg.lista.some(p => p.category === s))
     .map(s => ({
-      loc: `${SITE}/blog/categoria/${s}/`, pri: '0.6', freq: 'weekly',
-      mod: maisRecente(posts.filter(p => p.category === s)),
-    })),
+      loc: `${SITE}/${cfg.base}categoria/${s}/`, pri: cfg.base === 'blog/' ? '0.6' : '0.5', freq: 'weekly',
+      mod: maisRecente(cfg.lista.filter(p => p.category === s)),
+    }))),
 ];
 
 writeFileSync(join(ROOT, 'sitemap.xml'),
@@ -530,7 +583,7 @@ writeFileSync(join(ROOT, 'sitemap.xml'),
 </urlset>`.replace(/[\s\S]*/, () => {
     const rows = [
       ...staticPages.map(p => `  <url><loc>${p.loc}</loc>${p.mod ? `<lastmod>${p.mod}</lastmod>` : ''}<changefreq>${p.freq}</changefreq><priority>${p.pri}</priority></url>`),
-      ...posts.map(p => `  <url><loc>${SITE}/blog/${p.slug}/</loc><lastmod>${p.pubDate}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>${p.originalUrl ? `<xhtml:link rel="alternate" hreflang="pt-BR" href="${SITE}/blog/${p.slug}/"/><xhtml:link rel="alternate" hreflang="en" href="${p.originalUrl}"/>` : ''}</url>`),
+      ...posts.map(p => `  <url><loc>${SITE}/${p.path}</loc><lastmod>${p.pubDate}</lastmod><changefreq>monthly</changefreq><priority>${p.secao === RADAR ? '0.5' : '0.8'}</priority>${p.originalUrl ? `<xhtml:link rel="alternate" hreflang="pt-BR" href="${SITE}/${p.path}"/><xhtml:link rel="alternate" hreflang="en" href="${p.originalUrl}"/>` : ''}</url>`),
     ];
     return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${rows.join('\n')}\n</urlset>\n`;
   }));
@@ -546,8 +599,8 @@ writeFileSync(join(ROOT, 'rss.xml'),
   <atom:link href="${SITE}/rss.xml" rel="self" type="application/rss+xml"/>
 ${posts.slice(0, 30).map(p => `  <item>
     <title>${esc(p.title)}</title>
-    <link>${SITE}/blog/${p.slug}/</link>
-    <guid isPermaLink="true">${SITE}/blog/${p.slug}/</guid>
+    <link>${SITE}/${p.path}</link>
+    <guid isPermaLink="true">${SITE}/${p.path}</guid>
     <pubDate>${new Date(p.pubDate + 'T12:00:00Z').toUTCString()}</pubDate>
     <description>${esc(p.description)}</description>
     <category>${CATEGORIES[p.category] || p.category}</category>
@@ -569,4 +622,20 @@ ${posts.slice(0, 30).map(p => `  <item>
 //    e estava errado. O Google recebe o sitemap pelo Search Console; Bing e outros
 //    o descobririam pelo robots.txt, então esse canal está em falta.
 
-console.log(`OK — ${posts.length} posts | ${Object.keys(CATEGORIES).filter(s => posts.some(p => p.category === s)).length} categorias | sitemap + rss`);
+/* ---------- _redirects (Cloudflare Pages) ---------- */
+
+// Toda URL que um post já teve continua respondendo, com 301 para a atual. Cobre as
+// duas formas (com e sem barra final), porque o link que circula por aí não escolhe.
+// Categoria que ficou sem post comercial vai para a mesma categoria no Radar.
+const regras = [];
+const par = (de, para) => { regras.push(`${de} ${para} 301`); regras.push(`${de.replace(/\/$/, '')} ${para} 301`); };
+for (const p of radar) par(`/blog/${p.slug}/`, `/${p.path}`);
+for (const [s] of Object.entries(CATEGORIES)) {
+  if (!comerciais.some(p => p.category === s) && radar.some(p => p.category === s)) {
+    par(`/blog/categoria/${s}/`, `/blog/radar/categoria/${s}/`);
+  }
+}
+writeFileSync(join(ROOT, '_redirects'),
+  `# Gerado por tools/build-blog.mjs — não edite à mão.\n# Posts do Radar moveram de /blog/<slug>/ para /blog/radar/<slug>/.\n${regras.join('\n')}\n`);
+
+console.log(`OK — ${posts.length} posts (${comerciais.length} no blog, ${radar.length} no Radar) | ${regras.length} redirects | ${Object.keys(CATEGORIES).filter(s => posts.some(p => p.category === s)).length} categorias | sitemap + rss`);
