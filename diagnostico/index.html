@@ -110,12 +110,12 @@
         <h3 id="scoreTitle"></h3>
         <p id="scoreText"></p>
         <ul class="gaps" id="scoreGaps"></ul>
-        <a href="#" class="btn btn-primary" id="scoreCta">Receber o plano de ação por e-mail</a>
-        <p style="color:var(--text-muted); font-size:13.5px; margin-top:16px;">O botão abre seu cliente de e-mail com o resultado já preenchido. Nada é enviado ou armazenado por este site — o cálculo roda no seu navegador.</p>
+        <a href="#" class="btn btn-primary" id="scoreCta" target="_blank" rel="noopener">Receber o plano de ação no WhatsApp</a>
+        <p style="color:var(--text-muted); font-size:13.5px; margin-top:16px;">O botão abre o WhatsApp com o resultado já preenchido. Nada é enviado ou armazenado por este site — o cálculo roda no seu navegador, e a mensagem só sai quando você enviar.</p>
 
         <div class="quiz-whats">
           <p class="qw-lead">Quer que eu comente esse resultado pessoalmente?</p>
-          <p class="qw-sub">Deixa seu WhatsApp — eu chamo você com a leitura já pronta, sem passar pelo cliente de e-mail. Campo opcional; nada é enviado até você mandar a mensagem.</p>
+          <p class="qw-sub">Deixa seu WhatsApp — eu chamo você com a leitura já pronta. Campo opcional; nada é enviado até você mandar a mensagem.</p>
           <div class="qw-row">
             <input type="tel" id="whatsInput" placeholder="(11) 91234-5678" inputmode="tel" aria-label="Seu WhatsApp, opcional">
             <button type="button" class="btn btn-primary" id="whatsSubmit">Chamar no WhatsApp</button>
@@ -195,7 +195,7 @@
       <div class="foot-right">
         <div class="foot-col">
           <h5>Contato</h5>
-          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener">WhatsApp</a>
           <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
         </div>
         <div class="foot-col">
@@ -233,7 +233,7 @@
 <script>
 (function () {
   // Diagnóstico: tudo roda no navegador. Nenhuma resposta sai daqui sem o visitante
-  // clicar no CTA, e mesmo então vai pelo cliente de e-mail dele.
+  // clicar no CTA, e mesmo então vai pelo WhatsApp dele, numa mensagem que ele mesmo envia.
   var PERGUNTAS = [
     { t: 'Você consegue listar hoje, sem levantamento novo, quais ferramentas de IA cada área usa?', p: 'inventario' },
     { t: 'Existe política interna de uso de IA publicada, comunicada e com dono definido?', p: 'politica' },
@@ -332,8 +332,7 @@
       + '\n\nGostaria de passar este resultado a limpo em uma conversa.';
 
     document.getElementById('scoreCta').setAttribute('href',
-      'mailto:contato@tyna.com.br?subject=' + encodeURIComponent('Diagnóstico de governança de IA — ' + total + '/20 (' + faixa.band + ')')
-      + '&body=' + encodeURIComponent(corpo));
+      'https://wa.me/5511997228945?text=' + encodeURIComponent('Olá, Felipe. ' + corpo));
 
     box.classList.add('on');
     box.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -345,7 +344,7 @@
   });
 
   document.getElementById('scoreCta').addEventListener('click', function () {
-    if (typeof gtag === 'function') gtag('event', 'diagnostico_lead', { metodo: 'email' });
+    if (typeof gtag === 'function') gtag('event', 'diagnostico_lead', { metodo: 'whatsapp' });
   });
 
   // Captura opcional de WhatsApp na tela de resultado. Continua sem cadastro no
