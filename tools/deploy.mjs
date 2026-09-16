@@ -10,7 +10,7 @@
 //   node tools/deploy.mjs --no-indexnow → publica sem notificar o IndexNow ao final
 
 import { execFileSync, execSync } from 'node:child_process';
-import { rmSync, mkdirSync, cpSync, existsSync, readdirSync, statSync } from 'node:fs';
+import { rmSync, mkdirSync, cpSync, existsSync, readdirSync, statSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -76,6 +76,45 @@ if (faltando.length) {
 rmSync(DIST, { recursive: true, force: true });
 mkdirSync(DIST);
 for (const p of PUBLISH) cpSync(join(ROOT, p), join(DIST, p), { recursive: true });
+
+/* ---------- 2.5. CSS embutido no HTML publicado ---------- */
+// O <link> para styles.css era o último recurso que bloqueava a renderização
+// (150–320 ms no Lighthouse mobile). Com 13 KB comprimidos, embutir o CSS em cada
+// página custa menos que a ida e volta extra, e elimina o bloqueio sem o piscar de
+// página sem estilo que o carregamento assíncrono causaria.
+//
+// A troca acontece só em dist/: os arquivos-fonte continuam com o <link>, que é o
+// que o servidor local e as ferramentas de auditoria leem. Caminho relativo dentro
+// do CSS (as fontes em url('fonts/...')) é reescrito para absoluto, porque dentro
+// do HTML ele passaria a ser resolvido a partir da página, e não de /assets/.
+const cssEmbutido = new Map();
+function cssDe(arquivo) {
+  if (!cssEmbutido.has(arquivo)) {
+    const bruto = readFileSync(join(ROOT, 'assets', arquivo), 'utf8');
+    cssEmbutido.set(arquivo, bruto
+      .replace(/\/\*[\s\S]*?\*\//g, '')
+      .replace(/url\((['"]?)(?![a-z]+:|\/|#)/gi, 'url($1/assets/')
+      .replace(/\s+/g, ' ')
+      .replace(/\s*([{};])\s*/g, '$1')
+      .replace(/<\/style/gi, '<\\/style')
+      .trim());
+  }
+  return cssEmbutido.get(arquivo);
+}
+const LINK_CSS = /<link rel="stylesheet" href="[^"]*assets\/(styles|blog)\.css\?v=\d+">/g;
+let embutidas = 0;
+const embutir = dir => {
+  for (const e of readdirSync(dir)) {
+    const p = join(dir, e);
+    if (statSync(p).isDirectory()) { embutir(p); continue; }
+    if (!e.endsWith('.html')) continue;
+    const html = readFileSync(p, 'utf8');
+    const novo = html.replace(LINK_CSS, (_, nome) => `<style>${cssDe(`${nome}.css`)}</style>`);
+    if (novo !== html) { writeFileSync(p, novo); embutidas++; }
+  }
+};
+embutir(DIST);
+console.log(`→ CSS embutido em ${embutidas} páginas (styles.css ${Math.round(cssDe('styles.css').length / 1024)} KB, blog.css ${Math.round(cssDe('blog.css').length / 1024)} KB)`);
 
 const contarHtml = dir => readdirSync(dir).reduce((n, e) => {
   const p = join(dir, e);

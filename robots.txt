@@ -10,9 +10,11 @@
 # Caminho: dash Cloudflare › Security › Settings › Bot traffic ›
 #          "Set your preference to block training in robots.txt" › desligar.
 
-# Content Signals: permissão explícita para busca, resposta em tempo real e treino.
+# Regra geral: tudo liberado. A permissão para busca, resposta e treino por IA está
+# declarada abaixo, crawler por crawler. A linha `Content-Signal` saiu em 16/09/2026:
+# não faz parte do padrão do robots.txt (RFC 9309), o Google a ignora e o Lighthouse
+# a reportava como diretiva desconhecida, o que derrubava a nota de SEO.
 User-agent: *
-Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Allow: /
 
 # ---------- Buscadores ----------
