@@ -86,6 +86,10 @@
 .post-body a{color:var(--orange-ink); border-bottom:1px solid rgba(191,74,0,0.4);}
 .post-body a:hover{border-bottom-color:var(--orange-ink);}
 .post-body code{font-family:var(--mono); font-size:13.5px; background:var(--surface-2); padding:2px 6px; border-radius:2px;}
+/* Modelo para copiar (prompt, instrução, arquivo): quebra a linha em vez de rolar de
+   lado, porque quem copia no celular precisa ver o texto inteiro para selecionar. */
+.post-body .post-code{margin:4px 0 28px; padding:20px 22px; background:var(--surface); border:1px solid var(--line); border-left:2px solid var(--accent); font-family:var(--mono); font-size:13.5px; line-height:1.75; color:var(--text); white-space:pre-wrap; overflow-wrap:anywhere;}
+.post-body .post-code code{background:none; padding:0; font-size:inherit; border-radius:0;}
 
 .post-source{
   font-family:var(--mono); font-size:12.5px; color:var(--text-muted);
@@ -126,6 +130,7 @@
   .cat-nav{gap:8px;}
   /* leitura de artigo no celular: linha um pouco maior e respiro entre parágrafos */
   .post-body p, .post-body li{font-size:16.5px;}
+  .post-body .post-code{padding:16px 16px; font-size:12.5px;}
   .post .lead{font-size:18px;}
   .post-meta, .crumbs{font-size:12.5px;}
   .post-tags li{padding:7px 12px;}

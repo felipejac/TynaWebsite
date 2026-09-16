@@ -22,7 +22,7 @@ const WA_CTA = 'https://wa.me/5511997228945?text=' +
   encodeURIComponent('Olá, Felipe. Vim pelo site da Tyna e quero falar sobre governança de IA.');
 const ctaAgendar = (cls = '', attrs = '') =>
   `<a href="${WA_CTA}" target="_blank" rel="noopener" class="btn btn-primary${cls ? ' ' + cls : ''}"${attrs ? ' ' + attrs : ''}>Agendar conversa</a>`;
-const ASSET_V = '18';
+const ASSET_V = '19';
 
 const CATEGORIES = {
   'governanca': 'Governança de IA',
@@ -100,9 +100,24 @@ function inline(s) {
 function mdToHtml(md) {
   const out = [];
   let list = null;
+  // bloco cercado por ``` — conteúdo literal: sem trim, sem inline, linhas em branco preservadas.
+  // Existe para modelos de prompt e de arquivo que o leitor copia e cola como estão.
+  let code = null;
   const closeList = () => { if (list) { out.push(`</${list}>`); list = null; } };
 
   for (const rawLine of md.split(/\r?\n/)) {
+    if (code) {
+      if (/^\s*```\s*$/.test(rawLine)) {
+        while (code.length && !code[code.length - 1].trim()) code.pop();
+        out.push(`<pre class="post-code"><code>${esc(code.join('\n'))}</code></pre>`);
+        code = null;
+      } else {
+        code.push(rawLine);
+      }
+      continue;
+    }
+    if (/^\s*```/.test(rawLine)) { closeList(); code = []; continue; }
+
     const line = rawLine.trim();
     if (!line) { closeList(); continue; }
 

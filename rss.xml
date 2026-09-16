@@ -7,6 +7,14 @@
   <language>pt-BR</language>
   <atom:link href="https://tyna.com.br/rss.xml" rel="self" type="application/rss+xml"/>
   <item>
+    <title>Projetos no Claude: o que colocar em instruções, contexto, memória e tarefas programadas</title>
+    <link>https://tyna.com.br/blog/projetos-no-claude-instrucoes-contexto-memoria-e-tarefas/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/projetos-no-claude-instrucoes-contexto-memoria-e-tarefas/</guid>
+    <pubDate>Wed, 16 Sep 2026 12:00:00 GMT</pubDate>
+    <description>Instruções, contexto, memória e tarefas programadas têm funções diferentes nos projetos do Claude. O que vai em cada campo, com modelos prontos para adaptar.</description>
+    <category>Automação</category>
+  </item>
+  <item>
     <title>Como estruturar um comitê de IA</title>
     <link>https://tyna.com.br/blog/como-estruturar-um-comite-de-ia/</link>
     <guid isPermaLink="true">https://tyna.com.br/blog/como-estruturar-um-comite-de-ia/</guid>
@@ -237,14 +245,6 @@
     <pubDate>Wed, 29 Jul 2026 12:00:00 GMT</pubDate>
     <description>Um venceu em velocidade por 2%, o outro em raciocínio contextual quando a tarefa muda no meio. A escolha não é óbvia.</description>
     <category>LLMs</category>
-  </item>
-  <item>
-    <title>Manim roda no navegador via WebGPU</title>
-    <link>https://tyna.com.br/blog/manim-no-navegador-com-webgpu/</link>
-    <guid isPermaLink="true">https://tyna.com.br/blog/manim-no-navegador-com-webgpu/</guid>
-    <pubDate>Wed, 29 Jul 2026 12:00:00 GMT</pubDate>
-    <description>Animação matemática renderizada no cliente com WebGPU, desempenho próximo ao nativo e nenhum servidor de renderização no caminho.</description>
-    <category>Ferramentas de Dev</category>
   </item>
 </channel>
 </rss>

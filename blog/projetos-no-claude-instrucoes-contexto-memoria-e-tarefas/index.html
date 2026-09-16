@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projetos no Claude: o que colocar em instruções, contexto, memória e tarefas programadas | Tyna</title>
+<meta name="description" content="Instruções, contexto, memória e tarefas programadas têm funções diferentes nos projetos do Claude. O que vai em cada campo, com modelos prontos para adaptar.">
+<link rel="canonical" href="https://tyna.com.br/blog/projetos-no-claude-instrucoes-contexto-memoria-e-tarefas/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Projetos no Claude: o que colocar em instruções, contexto, memória e tarefas programadas | Tyna">
+<meta property="og:description" content="Instruções, contexto, memória e tarefas programadas têm funções diferentes nos projetos do Claude. O que vai em cada campo, com modelos prontos para adaptar.">
+<meta property="og:url" content="https://tyna.com.br/blog/projetos-no-claude-instrucoes-contexto-memoria-e-tarefas/">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna-dark.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="alternate" type="application/rss+xml" title="Blog Tyna" href="https://tyna.com.br/rss.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=19">
+<link rel="stylesheet" href="../../assets/blog.css?v=19">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Projetos no Claude: o que colocar em instruções, contexto, memória e tarefas programadas","description":"Instruções, contexto, memória e tarefas programadas têm funções diferentes nos projetos do Claude. O que vai em cada campo, com modelos prontos para adaptar.","datePublished":"2026-09-16","dateModified":"2026-09-16","inLanguage":"pt-BR","author":{"@type":"Person","name":"Felipe Jacob","url":"https://tyna.com.br/sobre/"},"publisher":{"@type":"Organization","name":"Tyna","url":"https://tyna.com.br","logo":{"@type":"ImageObject","url":"https://tyna.com.br/assets/logo-tyna-dark.png"}},"mainEntityOfPage":"https://tyna.com.br/blog/projetos-no-claude-instrucoes-contexto-memoria-e-tarefas/","keywords":"claude, claude-cowork, projetos, engenharia-de-prompt, tarefas-programadas, automacao","articleSection":"Automação"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://tyna.com.br"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tyna.com.br/blog/"},{"@type":"ListItem","position":3,"name":"Automação","item":"https://tyna.com.br/blog/categoria/automation/"},{"@type":"ListItem","position":4,"name":"Projetos no Claude: o que colocar em instruções, contexto, memória e tarefas programadas","item":"https://tyna.com.br/blog/projetos-no-claude-instrucoes-contexto-memoria-e-tarefas/"}]}</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../../" class="logo"><img src="../../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../../#servicos">Serviços</a></li>
+        <li><a href="../../ai-gateway/comparativo/">AI Gateway</a></li>
+        <li><a href="../../iso-42001/">ISO 42001</a></li>
+        <li><a href="../../#trilhas">Trilhas</a></li>
+        <li><a href="../../blog/">Blog</a></li>
+        <li><a href="../../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+  <article class="post">
+    <div class="wrap post-wrap">
+      <nav class="crumbs" aria-label="Trilha"><a href="../../">Início</a> › <a href="../">Blog</a> › <a href="../categoria/automation/">Automação</a></nav>
+      <p class="eyebrow">Automação</p>
+      <h1>Projetos no Claude: o que colocar em instruções, contexto, memória e tarefas programadas</h1>
+      <p class="post-meta"><time datetime="2026-09-16">16 de setembro de 2026</time> · Por <a href="../../sobre/">Felipe Jacob</a></p>
+      <p class="lead">Instruções, contexto, memória e tarefas programadas têm funções diferentes nos projetos do Claude. O que vai em cada campo, com modelos prontos para adaptar.</p>
+
+      
+
+      <aside class="answer-box"><h2>Resposta curta</h2><p>Um projeto no Claude tem quatro campos com funções distintas: instruções definem como o Claude trabalha e só devem conter regras permanentes; contexto reúne o material de referência que ele consulta; memória guarda as decisões tomadas durante o trabalho e vale só para aquele projeto; e tarefas programadas executam trabalhos recorrentes na nuvem, com conectores e arquivos da conta Claude. Misturar essas funções é o que faz as respostas ficarem genéricas com o tempo.</p></aside>
+
+      <div class="post-body">
+<p>Quase todo mundo começa um projeto no Claude do mesmo jeito: cola um parágrafo no campo de instruções, sobe dois ou três PDFs e começa a conversar. Na primeira semana, funciona. Na terceira, as respostas estão genéricas, o Claude repete perguntas que você já respondeu e os documentos de referência ficaram desatualizados sem que ninguém percebesse.</p>
+<p>O problema quase nunca está no modelo. Está na configuração. Um projeto tem quatro campos, e cada um cumpre uma função diferente. Quando essas funções se misturam — regras no contexto, briefing nas instruções —, o Claude perde a noção do que é norma, do que é consulta e do que é histórico.</p>
+<p>Este guia explica o que vai em cada campo e traz modelos prontos para adaptar.</p>
+<h2>Onde ficam esses campos</h2>
+<p>No Claude Cowork, os projetos reúnem tarefas relacionadas em espaços de trabalho próprios, cada um com seus arquivos, contexto, instruções e memória. Eles funcionam da mesma forma no Cowork e no chat do Claude, mas é no Cowork que os quatro campos aparecem juntos. O recurso exige a versão mais recente do Claude Desktop, segundo a <a href="https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork" target="_blank" rel="noopener">central de ajuda da Anthropic</a>.</p>
+<p>Quem já tem projetos no chat não precisa recomeçar: na importação, o Cowork copia os arquivos e as instruções do projeto existente para o novo. Uma divisão que costuma funcionar bem é usar o chat para pensar e pesquisar, e o Cowork para produzir.</p>
+<h2>Instruções: como o Claude deve trabalhar</h2>
+<p>Neste campo você define tom, formatação e regras que valem para todas as tarefas do projeto. Como o texto acompanha cada conversa, ele só deve conter o que não muda. Descrição de cliente, lista de serviços e histórico de negociação ficam fora daqui.</p>
+<p>Um bom texto de instruções responde a cinco perguntas: qual é o papel do Claude, qual é o objetivo do projeto, quem vai ler o resultado, como deve ser o texto e o que ele nunca deve fazer. Escreva em frases imperativas e específicas. "Seja claro" não orienta ninguém. "Abra cada documento com a tese principal em até duas frases" orienta.</p>
+<p>O modelo abaixo é de um projeto de consultoria em IA voltado a prospecção e propostas comerciais:</p>
+<pre class="post-code"><code>Papel
+Você atua como consultor sênior de estratégia em IA para empresas B2B brasileiras de médio porte. Seu trabalho é apoiar a prospecção, o diagnóstico e a elaboração de propostas.
+
+Objetivo
+Transformar conversas iniciais em propostas com escopo fechado e valor de negócio mensurável.
+
+Público
+Diretores de operações, marketing e vendas: pouco técnicos, com pouco tempo e que decidem com base em impacto, prazo e risco.
+
+Estilo
+- Português brasileiro, prosa direta e frases declarativas.
+- Todo documento abre com a tese principal em até duas frases.
+- Sem emoji e sem jargão vazio.
+- Termos técnicos só quando necessários, explicados na primeira ocorrência.
+
+Padrões de entrega
+- Propostas seguem esta ordem: contexto, problema, solução, escopo, fora do escopo, cronograma, premissas e investimento.
+- Todo benefício citado vem acompanhado da métrica que vai medi-lo.
+- Prazos são apresentados em faixas, com as premissas explícitas.
+
+Regras
+- Não invente dados, cases ou números. Se faltar informação, pergunte antes de redigir.
+- Sinalize riscos de LGPD sempre que a solução envolver dados pessoais.
+- Quando uma recomendação não tiver base sólida, diga isso.
+- Consulte os arquivos de contexto antes de citar serviços, preços ou metodologia.</code></pre>
+<p>A última regra é a mais importante: ela liga as instruções ao contexto e impede que o Claude preencha lacunas com suposições.</p>
+<h2>Contexto: o que o Claude deve consultar</h2>
+<p>Aqui entram as referências. O campo aceita uma pasta do computador, um projeto do chat vinculado ou uma URL colada. Portfólio, tabela de preços, metodologia, cases, guia de marca e modelos de documento ficam neste campo.</p>
+<p>Duas práticas fazem diferença. A primeira é manter um assunto por arquivo, com nome descritivo: um PDF de 60 páginas com tudo junto é mais difícil de consultar do que sete arquivos curtos. A segunda é criar um arquivo-índice que explique o que existe e qual fonte prevalece em caso de conflito:</p>
+<pre class="post-code"><code>00-LEIA-PRIMEIRO.md
+
+Material de referência oficial da consultoria. Em caso de conflito entre arquivos, vale o de data mais recente.
+
+- 01-portfolio-servicos.md: serviços, entregáveis e formatos de contratação
+- 02-tabela-precos-2026.md: faixas de investimento. Não cite valores fora desta tabela.
+- 03-metodologia.md: etapas do diagnóstico e da implementação, com duração típica
+- 04-cases.md: projetos autorizados para citação, com resultados
+- 05-icp.md: perfil de cliente ideal e critérios de desqualificação
+- 06-modelo-proposta.md: estrutura de proposta aprovada
+- 07-objecoes.md: objeções comuns e respostas validadas
+
+Revisão trimestral de preços e cases. Última revisão: [data].</code></pre>
+<p>Outro detalhe útil: a pasta que guarda o contexto não precisa ser a mesma em que os resultados são salvos. Isso ajuda quando vários projetos consultam a mesma pasta de referência e cada um entrega em um lugar diferente, como mostra <a href="https://thesignal.substack.com/p/how-to-setup-projects-in-claude" target="_blank" rel="noopener">este guia do The Signal</a>.</p>
+<h2>Memória: o que já foi decidido</h2>
+<p>A memória guarda o contexto do trabalho feito dentro do projeto. Ela vale só para aquele projeto e vem ativada por padrão. Diferentemente das instruções, esse campo não é preenchido de uma vez: ele se forma com o uso.</p>
+<p>Você influencia a memória pelo que diz durante o trabalho. Pedidos explícitos geram registros mais úteis do que deixar o Claude deduzir:</p>
+<pre class="post-code"><code>Registre: a Empresa X tem ciclo de aprovação de 45 dias e exige parecer jurídico antes da assinatura.
+
+Registre como padrão deste projeto: propostas acima de [valor] sempre incluem uma fase-piloto paga.
+
+Corrija: o serviço de governança agora se chama "Programa de Governança de IA".
+
+Esqueça a negociação com a Empresa Y. O processo foi encerrado.</code></pre>
+<p>Vale registrar decisões, padrões aprovados, correções que você repete com frequência e o status de clientes em andamento. Não vale registrar rascunhos, dados sensíveis ou qualquer coisa que já esteja nos arquivos de contexto: informação duplicada em dois lugares acaba divergindo.</p>
+<p>Como a memória não passa de um projeto para outro, clientes e frentes de trabalho diferentes devem ter projetos separados.</p>
+<h2>Tarefas programadas: o que roda sem você</h2>
+<p>Com as tarefas programadas, você descreve um trabalho uma vez e o Claude o executa no horário definido, entregando relatórios, briefings e resumos. Dentro de um projeto, essas tarefas pertencem só àquele projeto.</p>
+<p>Antes de configurar, vale conhecer três características do recurso, descritas na <a href="https://support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-claude-cowork" target="_blank" rel="noopener">documentação de tarefas programadas</a>:</p>
+<ul>
+<li><strong>Rodam na nuvem.</strong> A tarefa executa no horário marcado mesmo com o computador em repouso ou o Claude Desktop fechado.</li>
+<li><strong>Trabalham com conectores e arquivos da conta.</strong> Elas não podem ser vinculadas a uma pasta do computador, e uma tarefa que dependa de arquivos ou aplicativos locais só roda localmente. Por isso, arquivos citados nos prompts, como <code>05-icp.md</code>, precisam estar salvos na sua conta Claude.</li>
+<li><strong>Exigem plano pago.</strong> O recurso está disponível nos planos Pro, Max, Team e Enterprise, com frequência por hora, diária, semanal, em dias úteis ou manual.</li>
+</ul>
+<p>Como ninguém acompanha a execução, o prompt precisa se sustentar sozinho: deve dizer o que pesquisar, em quais fontes, em que formato entregar e o que ignorar. Três exemplos:</p>
+<h3>Radar semanal de mercado (segunda-feira, 8h)</h3>
+<pre class="post-code"><code>Pesquise as notícias dos últimos 7 dias sobre adoção de IA generativa em empresas brasileiras, regulação de IA no Brasil e lançamentos de ferramentas de IA para atendimento, vendas e marketing.
+
+Entregue no máximo 8 itens. Para cada um: o fato em uma frase, a fonte com link e uma linha sobre como isso afeta a conversa com clientes.
+
+Ignore conteúdo promocional, rankings sem metodologia e notícias com mais de 7 dias. Se um tema não tiver novidade na semana, informe isso em uma linha.</code></pre>
+<h3>Lista de prospecção (quarta-feira, 9h)</h3>
+<pre class="post-code"><code>Com base em 05-icp.md, identifique até 10 empresas brasileiras com sinais recentes de interesse em IA: vagas na área, expansão, rodada de investimento ou declarações de executivos nos últimos 14 dias.
+
+Para cada empresa, informe: nome, setor, porte estimado, sinal encontrado (com link) e um gancho de abordagem em uma frase.
+
+Exclua as empresas que se enquadrem nos critérios de desqualificação. Não invente contatos nem dados que não estejam em fontes públicas.</code></pre>
+<h3>Revisão de objeções (sexta-feira, 10h)</h3>
+<pre class="post-code"><code>Leia 07-objecoes.md e pesquise argumentos recentes sobre custo, risco e retorno de projetos de IA.
+
+Sugira até 3 ajustes nas respostas existentes e até 2 objeções novas, cada uma com a fonte que motivou a sugestão.
+
+Não altere o arquivo. Entregue as sugestões para aprovação.</code></pre>
+<p>A última linha do terceiro exemplo segue uma boa regra para qualquer tarefa automática: tudo o que altera material oficial passa por aprovação humana.</p>
+<h2>Como os quatro campos se completam</h2>
+<p>Cada campo responde a uma pergunta:</p>
+<ul>
+<li><strong>Instruções:</strong> como trabalhar.</li>
+<li><strong>Contexto:</strong> o que consultar.</li>
+<li><strong>Memória:</strong> o que já foi decidido.</li>
+<li><strong>Tarefas programadas:</strong> o que acontece sem você.</li>
+</ul>
+<p>Quando uma informação parece caber em dois campos, pergunte com que frequência ela muda. Regras permanentes vão para as instruções. Material de referência vai para o contexto. Fatos que surgem do trabalho diário ficam na memória.</p>
+<p>Nenhuma dessas configurações fica certa na primeira versão. Leia os resultados das primeiras execuções, anote o que faltou e o que sobrou, e ajuste. Um projeto bem configurado é resultado de três ou quatro rodadas desse ajuste.</p>
+<h2>A leitura da Tyna</h2>
+<p>Os quatro campos de um projeto são uma versão em miniatura do que uma empresa precisa para usar IA com controle. As instruções equivalem à <a href="/politica-de-uso-de-ia/">política de uso de IA</a>: regras escritas, que valem para toda tarefa. O contexto é a fonte oficial, com dono e data de revisão. A memória é o registro de decisões. E as tarefas programadas são automação — o ponto em que, sem revisão humana, o erro se repete toda semana sem ninguém ver, como tratamos em <a href="/governanca-de-agentes/">governança de agentes de IA</a>.</p>
+<p>Dois cuidados valem para qualquer time que adote esse modelo. O primeiro é a LGPD: memória e arquivos de contexto são lugares por onde dado pessoal entra sem que ninguém decida, como nome de contato, telefone e detalhes de negociação. A regra de não registrar dados sensíveis deve valer também para dados pessoais de clientes, e o assunto está detalhado em <a href="/lgpd-e-ia/">LGPD e IA</a>. O segundo é a responsabilidade: quando o projeto vira ferramenta do time, alguém precisa responder pela revisão trimestral do contexto. Sem dono, o arquivo-índice envelhece e o Claude passa a citar preço antigo com toda a confiança.</p>
+      </div>
+
+      
+      
+
+      <ul class="post-tags"><li>#claude</li><li>#claude-cowork</li><li>#projetos</li><li>#engenharia-de-prompt</li><li>#tarefas-programadas</li><li>#automacao</li></ul>
+    </div>
+  </article>
+
+  <section class="related">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow">Leia também</p><h2>Mais sobre Automação</h2></div>
+      <div class="post-grid"><article class="post-card">
+  <a class="post-card-link" href="../../blog/prized-ferramentas-internas-seguras-sem-codigo/">
+    <span class="tag">Automação</span>
+    <h3>Prized: ferramentas internas seguras sem código</h3>
+    <p class="desc">Interface low-code com controle de acesso, log de auditoria e criptografia embutidos — para o especialista do negócio construir sozinho.</p>
+    <time datetime="2026-07-30">30 de julho de 2026</time>
+  </a>
+</article></div>
+    </div>
+  </section>
+
+  <section class="cta-band" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Quer aplicar isso na sua empresa, com governança?</h2>
+      <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary">Agendar conversa</a>
+    </div>
+  </section>
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../../" class="logo"><img src="../../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Blog</h5>
+          <a href="../../blog/categoria/governanca/">Governança de IA</a>
+          <a href="../../blog/categoria/ai-agents/">Agentes de IA</a>
+          <a href="../../blog/categoria/llm/">LLMs</a>
+          <a href="../../blog/categoria/dev-tools/">Ferramentas de Dev</a>
+          <a href="../../blog/categoria/automation/">Automação</a>
+        </div>
+        <div class="foot-col">
+          <h5>Guias</h5>
+          <a href="../../governanca-de-ia/">Governança de IA</a>
+          <a href="../../iso-42001/">ISO 42001</a>
+          <a href="../../shadow-ai/">Shadow AI</a>
+          <a href="../../ai-gateway/">AI Gateway</a>
+          <a href="../../ai-gateway/comparativo/">Comparativo de gateways</a>
+          <a href="../../llm-leaderboard/">LLM Leaderboard</a>
+          <a href="../../governanca-de-agentes/">Governança de agentes</a>
+          <a href="../../politica-de-uso-de-ia/">Política de uso de IA</a>
+          <a href="../../lgpd-e-ia/">LGPD e IA</a>
+          <a href="../../pl-2338/">Marco Legal da IA</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../../#servicos">Serviços</a>
+          <a href="../../diagnostico/">Diagnóstico</a>
+          <a href="../../sobre/">Sobre</a>
+          <a href="../../blog/">Blog</a>
+          <a href="../../rss.xml">RSS</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/site.js?v=19"></script>
+
+</body>
+</html>
