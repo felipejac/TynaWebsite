@@ -1,250 +1,459 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
-  <title>Blog Tyna — IA, agentes e automação</title>
-  <link>https://tyna.com.br/blog/</link>
-  <description>Análise de agentes de IA, LLMs e automação para quem coloca sistema em produção.</description>
+  <title>Tyna - Governança de IA</title>
+  <link>https://tyna.com.br</link>
+  <description>Governança de IA na prática — política de uso, AI Gateway, LGPD e agentes em produção — e o Radar de notícias de IA, agentes e automação comentadas pela Tyna.</description>
   <language>pt-BR</language>
+  <lastBuildDate>Wed, 16 Sep 2026 15:00:00 +0000</lastBuildDate>
   <atom:link href="https://tyna.com.br/rss.xml" rel="self" type="application/rss+xml"/>
   <item>
-    <title>Projetos no Claude: o que colocar em instruções, contexto, memória e tarefas programadas</title>
+    <title>Projetos no Claude: instruções, contexto, memória e tarefas</title>
     <link>https://tyna.com.br/blog/projetos-no-claude-instrucoes-contexto-memoria-e-tarefas/</link>
     <guid isPermaLink="true">https://tyna.com.br/blog/projetos-no-claude-instrucoes-contexto-memoria-e-tarefas/</guid>
-    <pubDate>Wed, 16 Sep 2026 12:00:00 GMT</pubDate>
+    <pubDate>Wed, 16 Sep 2026 15:00:00 +0000</pubDate>
     <description>Instruções, contexto, memória e tarefas programadas têm funções diferentes nos projetos do Claude. O que vai em cada campo, com modelos prontos para adaptar.</description>
-    <category>Automação</category>
+    <category>Blog</category>
   </item>
   <item>
     <title>Como estruturar um comitê de IA</title>
     <link>https://tyna.com.br/blog/como-estruturar-um-comite-de-ia/</link>
     <guid isPermaLink="true">https://tyna.com.br/blog/como-estruturar-um-comite-de-ia/</guid>
-    <pubDate>Fri, 11 Sep 2026 12:00:00 GMT</pubDate>
+    <pubDate>Fri, 11 Sep 2026 15:00:00 +0000</pubDate>
     <description>A maioria dos comitês de IA se reúne e não decide nada. O que separa um comitê com poder real de um que só documenta o que já foi decidido.</description>
-    <category>Governança de IA</category>
+    <category>Blog</category>
   </item>
   <item>
     <title>O que é um AI Gateway (e o que ele resolve)</title>
     <link>https://tyna.com.br/blog/o-que-e-um-ai-gateway/</link>
     <guid isPermaLink="true">https://tyna.com.br/blog/o-que-e-um-ai-gateway/</guid>
-    <pubDate>Fri, 11 Sep 2026 12:00:00 GMT</pubDate>
+    <pubDate>Fri, 11 Sep 2026 15:00:00 +0000</pubDate>
     <description>AI Gateway não é mais uma ferramenta — é o ponto único de acesso, custo e auditoria por onde as outras passam. O que ele resolve, na prática.</description>
-    <category>Governança de IA</category>
+    <category>Blog</category>
   </item>
   <item>
     <title>Política de uso de IA: o que ela precisa ter</title>
     <link>https://tyna.com.br/blog/politica-de-uso-de-ia-o-que-precisa-ter/</link>
     <guid isPermaLink="true">https://tyna.com.br/blog/politica-de-uso-de-ia-o-que-precisa-ter/</guid>
-    <pubDate>Fri, 11 Sep 2026 12:00:00 GMT</pubDate>
+    <pubDate>Fri, 11 Sep 2026 15:00:00 +0000</pubDate>
     <description>A maioria das políticas de uso de IA nunca é lida depois de assinada. O que separa a que funciona da que vira arquivo morto.</description>
-    <category>Governança de IA</category>
+    <category>Blog</category>
   </item>
   <item>
-    <title>O que acontece com o dado depois que seu time cola no ChatGPT</title>
+    <title>O que acontece com o dado que o time cola no ChatGPT</title>
     <link>https://tyna.com.br/blog/o-que-acontece-com-o-dado-que-seu-time-cola-no-chatgpt/</link>
     <guid isPermaLink="true">https://tyna.com.br/blog/o-que-acontece-com-o-dado-que-seu-time-cola-no-chatgpt/</guid>
-    <pubDate>Thu, 10 Sep 2026 12:00:00 GMT</pubDate>
+    <pubDate>Thu, 10 Sep 2026 15:00:00 +0000</pubDate>
     <description>Cinco cenários que vazam dado todo dia, os três caminhos técnicos pelos quais a informação escapa, e o que muda — e o que não muda — no plano corporativo.</description>
-    <category>Governança de IA</category>
+    <category>Blog</category>
   </item>
   <item>
-    <title>Por que quem tem governança madura reverte mais agente de IA</title>
+    <title>Por que governança madura reverte mais agentes de IA</title>
     <link>https://tyna.com.br/blog/governanca-madura-reverte-mais-agente-de-ia/</link>
     <guid isPermaLink="true">https://tyna.com.br/blog/governanca-madura-reverte-mais-agente-de-ia/</guid>
-    <pubDate>Sun, 16 Aug 2026 12:00:00 GMT</pubDate>
+    <pubDate>Sun, 16 Aug 2026 15:00:00 +0000</pubDate>
     <description>74% das empresas já desligaram um agente de IA. Entre as que têm governança madura, 81%. O número mais alto não significa o que parece significar.</description>
-    <category>Governança de IA</category>
+    <category>Blog</category>
   </item>
   <item>
-    <title>Shadow AI: o problema que sua empresa já tem, mesmo sem saber</title>
+    <title>Shadow AI: o problema que sua empresa já tem</title>
     <link>https://tyna.com.br/blog/shadow-ai-o-problema-que-sua-empresa-ja-tem/</link>
     <guid isPermaLink="true">https://tyna.com.br/blog/shadow-ai-o-problema-que-sua-empresa-ja-tem/</guid>
-    <pubDate>Fri, 14 Aug 2026 12:00:00 GMT</pubDate>
+    <pubDate>Fri, 14 Aug 2026 15:00:00 +0000</pubDate>
     <description>Shadow AI é o uso de ferramentas de IA sem o conhecimento da empresa — e já acontece na sua. Entenda os riscos reais e o que fazer a respeito.</description>
-    <category>Governança de IA</category>
+    <category>Blog</category>
   </item>
   <item>
     <title>Cloudflare OS: agentes de IA rodando na borda</title>
     <link>https://tyna.com.br/blog/radar/cloudflare-os-plataforma-aberta-para-agentes-de-ia/</link>
     <guid isPermaLink="true">https://tyna.com.br/blog/radar/cloudflare-os-plataforma-aberta-para-agentes-de-ia/</guid>
-    <pubDate>Thu, 06 Aug 2026 12:00:00 GMT</pubDate>
+    <pubDate>Thu, 06 Aug 2026 15:00:00 +0000</pubDate>
     <description>A Cloudflare lançou uma plataforma aberta para construir e escalar agentes de IA. O que muda para quem já roda n8n em produção.</description>
-    <category>Agentes de IA</category>
+    <category>Radar</category>
   </item>
   <item>
     <title>HyperProbe: depuração somente leitura em produção</title>
     <link>https://tyna.com.br/blog/radar/hyperprobe-depuracao-somente-leitura-em-producao/</link>
     <guid isPermaLink="true">https://tyna.com.br/blog/radar/hyperprobe-depuracao-somente-leitura-em-producao/</guid>
-    <pubDate>Wed, 05 Aug 2026 12:00:00 GMT</pubDate>
+    <pubDate>Wed, 05 Aug 2026 15:00:00 +0000</pubDate>
     <description>Agentes que se acoplam a serviços em execução para inspecionar estado sem alterar nada. A ideia é diagnosticar sem arriscar derrubar.</description>
-    <category>Ferramentas de Dev</category>
+    <category>Radar</category>
   </item>
   <item>
     <title>Imagem gerada por IA está afastando leitor de blog</title>
     <link>https://tyna.com.br/blog/radar/imagens-geradas-por-ia-afastam-leitores/</link>
     <guid isPermaLink="true">https://tyna.com.br/blog/radar/imagens-geradas-por-ia-afastam-leitores/</guid>
-    <pubDate>Wed, 05 Aug 2026 12:00:00 GMT</pubDate>
+    <pubDate>Wed, 05 Aug 2026 15:00:00 +0000</pubDate>
     <description>Ilustração automática genérica derruba clique e tempo de página. O problema não é a ferramenta, é publicar sem revisar.</description>
-    <category>Ferramentas de Dev</category>
+    <category>Radar</category>
   </item>
   <item>
     <title>Zero-Mem: memória para agentes de LLM sem gastar token</title>
     <link>https://tyna.com.br/blog/radar/zero-mem-memoria-sem-tokens-para-agentes-llm/</link>
     <guid isPermaLink="true">https://tyna.com.br/blog/radar/zero-mem-memoria-sem-tokens-para-agentes-llm/</guid>
-    <pubDate>Wed, 05 Aug 2026 12:00:00 GMT</pubDate>
+    <pubDate>Wed, 05 Aug 2026 15:00:00 +0000</pubDate>
     <description>Uma técnica que separa o acesso à memória da chamada ao modelo e corta até 70% do consumo de tokens sem perder acurácia.</description>
-    <category>Agentes de IA</category>
+    <category>Radar</category>
   </item>
   <item>
     <title>EdotEnv lança ambientes de treino para trading quantitativo</title>
     <link>https://tyna.com.br/blog/radar/edotenv-ambientes-de-treino-para-trading-quantitativo/</link>
     <guid isPermaLink="true">https://tyna.com.br/blog/radar/edotenv-ambientes-de-treino-para-trading-quantitativo/</guid>
-    <pubDate>Tue, 04 Aug 2026 12:00:00 GMT</pubDate>
+    <pubDate>Tue, 04 Aug 2026 15:00:00 +0000</pubDate>
     <description>Sandbox com dinâmica de livro de ofertas e custo de transação para treinar LLMs em estratégia — antes de arriscar capital.</description>
-    <category>Agentes de IA</category>
+    <category>Radar</category>
   </item>
   <item>
     <title>LLMs estão recompensando quem entende do assunto</title>
     <link>https://tyna.com.br/blog/radar/llms-recompensam-especialistas/</link>
     <guid isPermaLink="true">https://tyna.com.br/blog/radar/llms-recompensam-especialistas/</guid>
-    <pubDate>Tue, 04 Aug 2026 12:00:00 GMT</pubDate>
+    <pubDate>Tue, 04 Aug 2026 15:00:00 +0000</pubDate>
     <description>Modelos respondem melhor a quem pergunta com vocabulário e contexto de especialista. Isso muda onde vale investir em um projeto de IA.</description>
-    <category>LLMs</category>
+    <category>Radar</category>
   </item>
   <item>
     <title>Redigitar o código da IA contra a dívida cognitiva</title>
     <link>https://tyna.com.br/blog/radar/redigitar-codigo-de-llm-divida-cognitiva/</link>
     <guid isPermaLink="true">https://tyna.com.br/blog/radar/redigitar-codigo-de-llm-divida-cognitiva/</guid>
-    <pubDate>Tue, 04 Aug 2026 12:00:00 GMT</pubDate>
+    <pubDate>Tue, 04 Aug 2026 15:00:00 +0000</pubDate>
     <description>Um engenheiro passou a digitar à mão o código gerado por LLM em vez de copiar e colar. Os bugs em produção caíram.</description>
-    <category>LLMs</category>
+    <category>Radar</category>
   </item>
   <item>
     <title>MCP ganha analytics e avaliação de sessões de agente</title>
     <link>https://tyna.com.br/blog/radar/analytics-e-avaliacao-de-sessoes-de-agente-no-mcp/</link>
     <guid isPermaLink="true">https://tyna.com.br/blog/radar/analytics-e-avaliacao-de-sessoes-de-agente-no-mcp/</guid>
-    <pubDate>Mon, 03 Aug 2026 12:00:00 GMT</pubDate>
+    <pubDate>Mon, 03 Aug 2026 15:00:00 +0000</pubDate>
     <description>Métricas de latência, taxa de sucesso e critérios próprios de avaliação embutidos direto na sessão do agente, sem instrumentação externa.</description>
-    <category>LLMs</category>
+    <category>Radar</category>
   </item>
   <item>
     <title>Hoplite lança plataforma de agentes de código na nuvem</title>
     <link>https://tyna.com.br/blog/radar/hoplite-plataforma-de-agentes-de-codigo-na-nuvem/</link>
     <guid isPermaLink="true">https://tyna.com.br/blog/radar/hoplite-plataforma-de-agentes-de-codigo-na-nuvem/</guid>
-    <pubDate>Mon, 03 Aug 2026 12:00:00 GMT</pubDate>
+    <pubDate>Mon, 03 Aug 2026 15:00:00 +0000</pubDate>
     <description>Provisiona, escala e isola agentes de código sob demanda, para o time cuidar da lógica em vez da infraestrutura.</description>
-    <category>LLMs</category>
+    <category>Radar</category>
   </item>
   <item>
     <title>PAC da OpenAI financia site de notícias gerado por IA</title>
     <link>https://tyna.com.br/blog/radar/pac-da-openai-financia-site-de-noticias-gerado-por-ia/</link>
     <guid isPermaLink="true">https://tyna.com.br/blog/radar/pac-da-openai-financia-site-de-noticias-gerado-por-ia/</guid>
-    <pubDate>Mon, 03 Aug 2026 12:00:00 GMT</pubDate>
+    <pubDate>Mon, 03 Aug 2026 15:00:00 +0000</pubDate>
     <description>Um comitê ligado à OpenAI banca um site sem revisão humana que ataca críticos do setor. O risco chega ao seu pipeline de dados.</description>
-    <category>LLMs</category>
+    <category>Radar</category>
   </item>
   <item>
     <title>Cursor remove o dado de custo do painel e do CSV</title>
     <link>https://tyna.com.br/blog/radar/cursor-remove-dado-de-custo-do-painel/</link>
     <guid isPermaLink="true">https://tyna.com.br/blog/radar/cursor-remove-dado-de-custo-do-painel/</guid>
-    <pubDate>Sun, 02 Aug 2026 12:00:00 GMT</pubDate>
+    <pubDate>Sun, 02 Aug 2026 15:00:00 +0000</pubDate>
     <description>O painel agora mostra só contagem de tokens. Quem auditava gasto direto na plataforma vai precisar calcular por fora.</description>
-    <category>Ferramentas de Dev</category>
+    <category>Radar</category>
   </item>
   <item>
     <title>Astra, da OpenAI, resolve dez problemas em aberto</title>
     <link>https://tyna.com.br/blog/radar/openai-astra-resolve-dez-problemas-de-matematica/</link>
     <guid isPermaLink="true">https://tyna.com.br/blog/radar/openai-astra-resolve-dez-problemas-de-matematica/</guid>
-    <pubDate>Sun, 02 Aug 2026 12:00:00 GMT</pubDate>
+    <pubDate>Sun, 02 Aug 2026 15:00:00 +0000</pubDate>
     <description>O modelo produziu provas, gerou contraexemplos e verificou teoremas. O anúncio veio sem métrica publicada nem forma de reproduzir o resultado.</description>
-    <category>LLMs</category>
+    <category>Radar</category>
   </item>
   <item>
     <title>Sprocket: um agente de IA que também fala com hardware</title>
     <link>https://tyna.com.br/blog/radar/sprocket-agente-para-hardware-e-software/</link>
     <guid isPermaLink="true">https://tyna.com.br/blog/radar/sprocket-agente-para-hardware-e-software/</guid>
-    <pubDate>Sun, 02 Aug 2026 12:00:00 GMT</pubDate>
+    <pubDate>Sun, 02 Aug 2026 15:00:00 +0000</pubDate>
     <description>Escreve código, roda teste e conversa com microcontroladores e sensores no mesmo fluxo. A promessa é encurtar o caminho até o protótipo.</description>
-    <category>Ferramentas de Dev</category>
+    <category>Radar</category>
   </item>
   <item>
     <title>Cockpit em Rust para agentes do Claude Code</title>
     <link>https://tyna.com.br/blog/radar/cockpit-em-rust-para-agentes-do-claude-code/</link>
     <guid isPermaLink="true">https://tyna.com.br/blog/radar/cockpit-em-rust-para-agentes-do-claude-code/</guid>
-    <pubDate>Sat, 01 Aug 2026 12:00:00 GMT</pubDate>
+    <pubDate>Sat, 01 Aug 2026 15:00:00 +0000</pubDate>
     <description>Interface leve que mostra estado interno, log e prompts do agente em tempo real — e deixa intervir no meio da execução.</description>
-    <category>Agentes de IA</category>
+    <category>Radar</category>
   </item>
   <item>
     <title>Manufact contrata infra sênior para nuvem de manufatura</title>
     <link>https://tyna.com.br/blog/radar/manufact-contrata-infra-para-nuvem-de-manufatura/</link>
     <guid isPermaLink="true">https://tyna.com.br/blog/radar/manufact-contrata-infra-para-nuvem-de-manufatura/</guid>
-    <pubDate>Sat, 01 Aug 2026 12:00:00 GMT</pubDate>
+    <pubDate>Sat, 01 Aug 2026 15:00:00 +0000</pubDate>
     <description>Uma vaga que sinaliza a passagem de protótipo para produção — e o que ela indica sobre a base que agentes de IA exigem.</description>
-    <category>Ferramentas de Dev</category>
+    <category>Radar</category>
   </item>
   <item>
     <title>Roteadores de LLM aposentam soluções monolíticas</title>
     <link>https://tyna.com.br/blog/radar/roteadores-de-llm-aposentam-solucoes-monoliticas/</link>
     <guid isPermaLink="true">https://tyna.com.br/blog/radar/roteadores-de-llm-aposentam-solucoes-monoliticas/</guid>
-    <pubDate>Sat, 01 Aug 2026 12:00:00 GMT</pubDate>
+    <pubDate>Sat, 01 Aug 2026 15:00:00 +0000</pubDate>
     <description>Um roteador popular anunciou aposentadoria: o desenho monolítico não acompanhou o ritmo de lançamento dos modelos.</description>
-    <category>LLMs</category>
+    <category>Radar</category>
   </item>
   <item>
     <title>Como montar um agente de revisão de código próprio</title>
     <link>https://tyna.com.br/blog/radar/agente-de-revisao-de-codigo-auto-hospedado/</link>
     <guid isPermaLink="true">https://tyna.com.br/blog/radar/agente-de-revisao-de-codigo-auto-hospedado/</guid>
-    <pubDate>Fri, 31 Jul 2026 12:00:00 GMT</pubDate>
+    <pubDate>Fri, 31 Jul 2026 15:00:00 +0000</pubDate>
     <description>Guia para rodar revisão automatizada em servidor próprio, mantendo código, pesos do modelo e histórico dentro de casa.</description>
-    <category>Agentes de IA</category>
+    <category>Radar</category>
   </item>
   <item>
     <title>Como deveria ser a interface para agentes de IA</title>
     <link>https://tyna.com.br/blog/radar/como-deveria-ser-a-interface-para-agentes-de-ia/</link>
     <guid isPermaLink="true">https://tyna.com.br/blog/radar/como-deveria-ser-a-interface-para-agentes-de-ia/</guid>
-    <pubDate>Fri, 31 Jul 2026 12:00:00 GMT</pubDate>
+    <pubDate>Fri, 31 Jul 2026 15:00:00 +0000</pubDate>
     <description>Discussão no Show HN sobre o que uma boa GUI de orquestração precisa mostrar: estado, telemetria e histórico de decisão.</description>
-    <category>LLMs</category>
+    <category>Radar</category>
   </item>
   <item>
     <title>Grafo de memória compartilhada entre Claude e ChatGPT</title>
     <link>https://tyna.com.br/blog/radar/grafo-de-memoria-compartilhada-entre-modelos/</link>
     <guid isPermaLink="true">https://tyna.com.br/blog/radar/grafo-de-memoria-compartilhada-entre-modelos/</guid>
-    <pubDate>Fri, 31 Jul 2026 12:00:00 GMT</pubDate>
+    <pubDate>Fri, 31 Jul 2026 15:00:00 +0000</pubDate>
     <description>Estrutura em memória que guarda histórico e estado da tarefa, consultável por qualquer modelo — sem repassar contexto no prompt.</description>
-    <category>Agentes de IA</category>
+    <category>Radar</category>
   </item>
   <item>
     <title>Destilação do DeepSeek transfere censura junto</title>
     <link>https://tyna.com.br/blog/radar/destilacao-do-deepseek-transfere-censura/</link>
     <guid isPermaLink="true">https://tyna.com.br/blog/radar/destilacao-do-deepseek-transfere-censura/</guid>
-    <pubDate>Thu, 30 Jul 2026 12:00:00 GMT</pubDate>
+    <pubDate>Thu, 30 Jul 2026 15:00:00 +0000</pubDate>
     <description>O modelo destilado herdou as regras de filtragem do original. Filtro invisível quebra fluxo que espera texto completo.</description>
-    <category>LLMs</category>
+    <category>Radar</category>
   </item>
   <item>
     <title>Kedge traz snapshots bifurcáveis e SQLite global</title>
     <link>https://tyna.com.br/blog/radar/kedge-snapshots-bifurcaveis-e-sqlite-global/</link>
     <guid isPermaLink="true">https://tyna.com.br/blog/radar/kedge-snapshots-bifurcaveis-e-sqlite-global/</guid>
-    <pubDate>Thu, 30 Jul 2026 12:00:00 GMT</pubDate>
+    <pubDate>Thu, 30 Jul 2026 15:00:00 +0000</pubDate>
     <description>Clonar uma VM em execução em segundos e um banco de arquivo único compartilhado entre nós, sem serviço de banco separado.</description>
-    <category>Ferramentas de Dev</category>
+    <category>Radar</category>
   </item>
   <item>
     <title>Prized: ferramentas internas seguras sem código</title>
     <link>https://tyna.com.br/blog/radar/prized-ferramentas-internas-seguras-sem-codigo/</link>
     <guid isPermaLink="true">https://tyna.com.br/blog/radar/prized-ferramentas-internas-seguras-sem-codigo/</guid>
-    <pubDate>Thu, 30 Jul 2026 12:00:00 GMT</pubDate>
+    <pubDate>Thu, 30 Jul 2026 15:00:00 +0000</pubDate>
     <description>Interface low-code com controle de acesso, log de auditoria e criptografia embutidos — para o especialista do negócio construir sozinho.</description>
-    <category>Automação</category>
+    <category>Radar</category>
   </item>
   <item>
     <title>GPT-5.6 contra Claude Fable 5 em IA física</title>
     <link>https://tyna.com.br/blog/radar/gpt-5-6-contra-claude-fable-5-em-ia-fisica/</link>
     <guid isPermaLink="true">https://tyna.com.br/blog/radar/gpt-5-6-contra-claude-fable-5-em-ia-fisica/</guid>
-    <pubDate>Wed, 29 Jul 2026 12:00:00 GMT</pubDate>
+    <pubDate>Wed, 29 Jul 2026 15:00:00 +0000</pubDate>
     <description>Um venceu em velocidade por 2%, o outro em raciocínio contextual quando a tarefa muda no meio. A escolha não é óbvia.</description>
-    <category>LLMs</category>
+    <category>Radar</category>
+  </item>
+  <item>
+    <title>Manim roda no navegador via WebGPU</title>
+    <link>https://tyna.com.br/blog/radar/manim-no-navegador-com-webgpu/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/radar/manim-no-navegador-com-webgpu/</guid>
+    <pubDate>Wed, 29 Jul 2026 15:00:00 +0000</pubDate>
+    <description>Animação matemática renderizada no cliente com WebGPU, desempenho próximo ao nativo e nenhum servidor de renderização no caminho.</description>
+    <category>Radar</category>
+  </item>
+  <item>
+    <title>Tokenless troca de modelo sozinho para cortar custo</title>
+    <link>https://tyna.com.br/blog/radar/tokenless-troca-automatica-de-modelo/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/radar/tokenless-troca-automatica-de-modelo/</guid>
+    <pubDate>Wed, 29 Jul 2026 15:00:00 +0000</pubDate>
+    <description>A plataforma observa preço e qualidade e migra para um modelo mais barato quando o resultado se mantém. Cada troca fica registrada.</description>
+    <category>Radar</category>
+  </item>
+  <item>
+    <title>Flashpaper: segredos que se destroem sem banco de dados</title>
+    <link>https://tyna.com.br/blog/radar/flashpaper-segredos-que-se-destroem/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/radar/flashpaper-segredos-que-se-destroem/</guid>
+    <pubDate>Tue, 28 Jul 2026 15:00:00 +0000</pubDate>
+    <description>Compartilhar credencial temporária com leitura única ou prazo de validade, sem armazenar nada em lugar nenhum.</description>
+    <category>Radar</category>
+  </item>
+  <item>
+    <title>Kimi K3 chega à API de inferência da Telnyx</title>
+    <link>https://tyna.com.br/blog/radar/kimi-k3-disponivel-na-api-da-telnyx/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/radar/kimi-k3-disponivel-na-api-da-telnyx/</guid>
+    <pubDate>Tue, 28 Jul 2026 15:00:00 +0000</pubDate>
+    <description>O modelo passa a ser oferecido como serviço gerenciado, cobrado por uso, na mesma infraestrutura de voz e mensagem da Telnyx.</description>
+    <category>Radar</category>
+  </item>
+  <item>
+    <title>Score de confiança de LLM não é confiável</title>
+    <link>https://tyna.com.br/blog/radar/score-de-confianca-de-llm-nao-e-confiavel/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/radar/score-de-confianca-de-llm-nao-e-confiavel/</guid>
+    <pubDate>Tue, 28 Jul 2026 15:00:00 +0000</pubDate>
+    <description>Modelos são treinados para gerar texto fluente, não probabilidade calibrada. Fluxo que decide por limiar está apoiado em ruído.</description>
+    <category>Radar</category>
+  </item>
+  <item>
+    <title>Destilar e servir modelos pela metade do custo</title>
+    <link>https://tyna.com.br/blog/radar/destilar-e-servir-modelos-pela-metade-do-custo/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/radar/destilar-e-servir-modelos-pela-metade-do-custo/</guid>
+    <pubDate>Mon, 27 Jul 2026 15:00:00 +0000</pubDate>
+    <description>Ferramenta aberta treina um modelo aluno sobre as saídas de um professor e entrega acurácia próxima com hospedagem em hardware comum.</description>
+    <category>Radar</category>
+  </item>
+  <item>
+    <title>Pico de erros no Claude Opus 5 derruba automações</title>
+    <link>https://tyna.com.br/blog/radar/pico-de-erros-no-claude-opus-5/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/radar/pico-de-erros-no-claude-opus-5/</guid>
+    <pubDate>Mon, 27 Jul 2026 15:00:00 +0000</pubDate>
+    <description>Uma configuração temporária errada no pipeline de inferência elevou a taxa de falha por horas. O que isso ensina sobre dependência única.</description>
+    <category>Radar</category>
+  </item>
+  <item>
+    <title>Trellis AI contrata para agentes de acesso à saúde</title>
+    <link>https://tyna.com.br/blog/radar/trellis-ai-contrata-para-agentes-de-saude/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/radar/trellis-ai-contrata-para-agentes-de-saude/</guid>
+    <pubDate>Mon, 27 Jul 2026 15:00:00 +0000</pubDate>
+    <description>Agentes que ajudam paciente a atravessar convênio, agendamento e prontuário — com privacidade e conformidade no caminho.</description>
+    <category>Radar</category>
+  </item>
+  <item>
+    <title>Claude 5 aperta o contexto e cria orçamento de tokens</title>
+    <link>https://tyna.com.br/blog/radar/claude-5-regras-de-engenharia-de-contexto/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/radar/claude-5-regras-de-engenharia-de-contexto/</guid>
+    <pubDate>Sun, 26 Jul 2026 15:00:00 +0000</pubDate>
+    <description>Limites mais rígidos, truncamento explícito em vez de silencioso e um modo de orçamento por requisição. Mais restrito e mais previsível.</description>
+    <category>Radar</category>
+  </item>
+  <item>
+    <title>DeepSeek pausa captação após vazamento sobre computação</title>
+    <link>https://tyna.com.br/blog/radar/deepseek-pausa-captacao-apos-vazamento/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/radar/deepseek-pausa-captacao-apos-vazamento/</guid>
+    <pubDate>Sun, 26 Jul 2026 15:00:00 +0000</pubDate>
+    <description>Uma transcrição vazada expôs preocupação da liderança com a distância de capacidade computacional. Investidores recuaram.</description>
+    <category>Radar</category>
+  </item>
+  <item>
+    <title>Writemark: editor Markdown embutido sem dependência</title>
+    <link>https://tyna.com.br/blog/radar/writemark-editor-markdown-sem-dependencia/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/radar/writemark-editor-markdown-sem-dependencia/</guid>
+    <pubDate>Sun, 26 Jul 2026 15:00:00 +0000</pubDate>
+    <description>Um único arquivo JavaScript que acrescenta edição Markdown a qualquer página, sem framework nem pacote pesado.</description>
+    <category>Radar</category>
+  </item>
+  <item>
+    <title>Claude Opus 5 chega com preço linear e streaming</title>
+    <link>https://tyna.com.br/blog/radar/lancamento-do-claude-opus-5/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/radar/lancamento-do-claude-opus-5/</guid>
+    <pubDate>Sat, 25 Jul 2026 15:00:00 +0000</pubDate>
+    <description>Latência menor, entrada multimodal nativa e cobrança que escala com uso em vez de faixa fixa. O que muda para quem já tem agente rodando.</description>
+    <category>Radar</category>
+  </item>
+  <item>
+    <title>SnapState dá estado persistente a fluxos de agente</title>
+    <link>https://tyna.com.br/blog/radar/snapstate-estado-persistente-para-agentes/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/radar/snapstate-estado-persistente-para-agentes/</guid>
+    <pubDate>Sat, 25 Jul 2026 15:00:00 +0000</pubDate>
+    <description>Camada leve que guarda contexto, progresso e resultado intermediário entre execuções, com uma linha de código.</description>
+    <category>Radar</category>
+  </item>
+  <item>
+    <title>Yorishiro roda agentes de IA no terminal do macOS</title>
+    <link>https://tyna.com.br/blog/radar/yorishiro-agentes-no-terminal-do-macos/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/radar/yorishiro-agentes-no-terminal-do-macos/</guid>
+    <pubDate>Sat, 25 Jul 2026 15:00:00 +0000</pubDate>
+    <description>Aplicativo aberto para criar, iniciar e conversar com agentes localmente no macOS, sem contêiner, sem serviço de nuvem e sem chave saindo da máquina.</description>
+    <category>Radar</category>
+  </item>
+  <item>
+    <title>Agente que escapou do isolamento acende alerta</title>
+    <link>https://tyna.com.br/blog/radar/agente-que-escapou-do-isolamento-e-o-alerta-de-seguranca/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/radar/agente-que-escapou-do-isolamento-e-o-alerta-de-seguranca/</guid>
+    <pubDate>Fri, 24 Jul 2026 15:00:00 +0000</pubDate>
+    <description>Relato de um agente que buscou e explorou vulnerabilidades por conta própria, indo além do papel de teste. A contenção falhou.</description>
+    <category>Radar</category>
+  </item>
+  <item>
+    <title>Echo entrega resultado a um terço do custo</title>
+    <link>https://tyna.com.br/blog/radar/echo-modelos-de-peso-aberto-a-um-terco-do-custo/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/radar/echo-modelos-de-peso-aberto-a-um-terco-do-custo/</guid>
+    <pubDate>Fri, 24 Jul 2026 15:00:00 +0000</pubDate>
+    <description>Framework sobre modelos de peso aberto que promete qualidade comparável com inferência mais rápida e conta bem menor.</description>
+    <category>Radar</category>
+  </item>
+  <item>
+    <title>OneCLI põe um gateway de credenciais na frente do agente</title>
+    <link>https://tyna.com.br/blog/radar/onecli-gateway-de-credenciais-para-agentes/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/radar/onecli-gateway-de-credenciais-para-agentes/</guid>
+    <pubDate>Fri, 24 Jul 2026 15:00:00 +0000</pubDate>
+    <description>O agente para de carregar chave no prompt e passa a pedir credencial de curta duração no momento do uso, com registro de quem pediu o quê.</description>
+    <category>Radar</category>
+  </item>
+  <item>
+    <title>Gemma 4 aprende a sinalizar quando provavelmente errou</title>
+    <link>https://tyna.com.br/blog/radar/gemma-4-sinaliza-quando-provavelmente-errou/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/radar/gemma-4-sinaliza-quando-provavelmente-errou/</guid>
+    <pubDate>Thu, 23 Jul 2026 15:00:00 +0000</pubDate>
+    <description>Ajuste fino acrescentou um sinal de autodiagnóstico: o modelo indica alta probabilidade de erro e o fluxo decide o que fazer.</description>
+    <category>Radar</category>
+  </item>
+  <item>
+    <title>Screenpipe grava o fluxo de tela e transforma em agente</title>
+    <link>https://tyna.com.br/blog/radar/screenpipe-grava-o-fluxo-e-transforma-em-agente/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/radar/screenpipe-grava-o-fluxo-e-transforma-em-agente/</guid>
+    <pubDate>Thu, 23 Jul 2026 15:00:00 +0000</pubDate>
+    <description>Captura clique, digitação e contexto da interface, costura tudo em um agente reaproveitável e expõe por API — com o custo de privacidade que isso traz.</description>
+    <category>Radar</category>
+  </item>
+  <item>
+    <title>Quatro modelos desenham a mesma imagem</title>
+    <link>https://tyna.com.br/blog/radar/quatro-modelos-desenham-a-mesma-imagem/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/radar/quatro-modelos-desenham-a-mesma-imagem/</guid>
+    <pubDate>Wed, 22 Jul 2026 15:00:00 +0000</pubDate>
+    <description>GPT-5.6, Claude, Gemini e Grok geraram a mesma cena a partir do mesmo prompt. As diferenças foram menores do que se esperava.</description>
+    <category>Radar</category>
+  </item>
+  <item>
+    <title>Simulação de economia espacial em Rust roda sozinha</title>
+    <link>https://tyna.com.br/blog/radar/simulacao-de-economia-espacial-em-rust-e-bevy/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/radar/simulacao-de-economia-espacial-em-rust-e-bevy/</guid>
+    <pubDate>Wed, 22 Jul 2026 15:00:00 +0000</pubDate>
+    <description>Projeto aberto onde naves, colônias e mercados operam sem intervenção humana, conduzidos por agentes que decidem por conta própria.</description>
+    <category>Radar</category>
+  </item>
+  <item>
+    <title>Unlayer põe editor de e-mail e documento no seu app</title>
+    <link>https://tyna.com.br/blog/radar/unlayer-editor-de-email-e-documento-embutido/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/radar/unlayer-editor-de-email-e-documento-embutido/</guid>
+    <pubDate>Wed, 22 Jul 2026 15:00:00 +0000</pubDate>
+    <description>APIs para embutir um construtor de arrastar e soltar dentro do produto, com templates consultáveis por código em vez de presos ao editor.</description>
+    <category>Radar</category>
+  </item>
+  <item>
+    <title>AutoGen em modo de manutenção: quando migrar</title>
+    <link>https://tyna.com.br/blog/radar/autogen-em-modo-de-manutencao-como-migrar/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/radar/autogen-em-modo-de-manutencao-como-migrar/</guid>
+    <pubDate>Tue, 21 Jul 2026 15:00:00 +0000</pubDate>
+    <description>A Microsoft fundiu AutoGen e Semantic Kernel em um framework único. O antigo segue recebendo correção, não recursos novos.</description>
+    <category>Radar</category>
+  </item>
+  <item>
+    <title>LangGraph, CrewAI, Agent Framework ou n8n?</title>
+    <link>https://tyna.com.br/blog/radar/langgraph-crewai-agent-framework-ou-n8n/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/radar/langgraph-crewai-agent-framework-ou-n8n/</guid>
+    <pubDate>Tue, 21 Jul 2026 15:00:00 +0000</pubDate>
+    <description>Quatro caminhos para construir agentes, com critérios de escolha que dependem menos da tecnologia e mais de quem vai manter.</description>
+    <category>Radar</category>
+  </item>
+  <item>
+    <title>Medidor do Claude Code mudou sem aviso</title>
+    <link>https://tyna.com.br/blog/radar/medidor-de-uso-do-claude-code-mudou-sem-aviso/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/radar/medidor-de-uso-do-claude-code-mudou-sem-aviso/</guid>
+    <pubDate>Tue, 21 Jul 2026 15:00:00 +0000</pubDate>
+    <description>Um desenvolvedor comparou os próprios logs de token e encontrou uma discrepância grande entre consumo registrado e cota queimada.</description>
+    <category>Radar</category>
+  </item>
+  <item>
+    <title>Seu primeiro agente de IA em produção com n8n</title>
+    <link>https://tyna.com.br/blog/radar/seu-primeiro-agente-de-ia-em-producao-com-n8n/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/radar/seu-primeiro-agente-de-ia-em-producao-com-n8n/</guid>
+    <pubDate>Tue, 21 Jul 2026 15:00:00 +0000</pubDate>
+    <description>Gatilho, recuperação, raciocínio, ação e ponto de controle humano — as cinco peças que quase todo agente real tem.</description>
+    <category>Radar</category>
   </item>
 </channel>
 </rss>

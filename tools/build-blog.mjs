@@ -189,7 +189,7 @@ function shell({ title, description, canonical, head = '', body, depth, image })
 <meta property="og:image" content="${SITE}/${image || 'assets/logo-tyna-dark.png'}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
-<link rel="alternate" type="application/rss+xml" title="Blog Tyna" href="${SITE}/rss.xml">
+<link rel="alternate" type="application/rss+xml" title="Feed RSS Tyna" href="https://tyna.com.br/rss.xml" />
 <link rel="preload" href="/assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="${up}assets/styles.css?v=${ASSET_V}">
 <link rel="stylesheet" href="${up}assets/blog.css?v=${ASSET_V}">
@@ -371,6 +371,10 @@ for (const p of posts) {
       { '@type': 'ListItem', position: 4, name: p.title, item: canonical },
     ],
   });
+
+  // data de publicação no <head>: é a primeira fonte que tools/generate-rss.mjs consulta
+  head += `<meta property="article:published_time" content="${p.pubDate}">
+`;
 
   if (p.faq.length) {
     head += ld({
@@ -592,26 +596,8 @@ writeFileSync(join(ROOT, 'sitemap.xml'),
     return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${rows.join('\n')}\n</urlset>\n`;
   }));
 
-writeFileSync(join(ROOT, 'rss.xml'),
-  `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-<channel>
-  <title>Blog Tyna — IA, agentes e automação</title>
-  <link>${SITE}/blog/</link>
-  <description>Análise de agentes de IA, LLMs e automação para quem coloca sistema em produção.</description>
-  <language>pt-BR</language>
-  <atom:link href="${SITE}/rss.xml" rel="self" type="application/rss+xml"/>
-${posts.slice(0, 30).map(p => `  <item>
-    <title>${esc(p.title)}</title>
-    <link>${SITE}/${p.path}</link>
-    <guid isPermaLink="true">${SITE}/${p.path}</guid>
-    <pubDate>${new Date(p.pubDate + 'T12:00:00Z').toUTCString()}</pubDate>
-    <description>${esc(p.description)}</description>
-    <category>${CATEGORIES[p.category] || p.category}</category>
-  </item>`).join('\n')}
-</channel>
-</rss>
-`);
+// rss.xml é gerado por tools/generate-rss.mjs, que lê o HTML final dos artigos gerados
+// acima. Fica fora deste arquivo para existir uma única fonte do feed.
 
 // robots.txt NÃO é gerado de propósito: a Cloudflare serve um robots.txt
 // gerenciado na borda que sobrescreve qualquer arquivo do origin.
@@ -642,4 +628,4 @@ for (const [s] of Object.entries(CATEGORIES)) {
 writeFileSync(join(ROOT, '_redirects'),
   `# Gerado por tools/build-blog.mjs — não edite à mão.\n# Posts do Radar moveram de /blog/<slug>/ para /blog/radar/<slug>/.\n${regras.join('\n')}\n`);
 
-console.log(`OK — ${posts.length} posts (${comerciais.length} no blog, ${radar.length} no Radar) | ${regras.length} redirects | ${Object.keys(CATEGORIES).filter(s => posts.some(p => p.category === s)).length} categorias | sitemap + rss`);
+console.log(`OK — ${posts.length} posts (${comerciais.length} no blog, ${radar.length} no Radar) | ${regras.length} redirects | ${Object.keys(CATEGORIES).filter(s => posts.some(p => p.category === s)).length} categorias | sitemap`);

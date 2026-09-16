@@ -63,6 +63,9 @@ if (has('--build')) {
   run(process.execPath, [join(ROOT, 'tools', 'build-leaderboard.mjs')]);
   console.log('→ regenerando blog/ a partir de content/blog/');
   run(process.execPath, [join(ROOT, 'tools', 'build-blog.mjs')]);
+  // o feed lê o HTML que o build do blog acabou de gerar, então vem depois dele
+  console.log('→ gerando rss.xml a partir do HTML dos artigos');
+  run(process.execPath, [join(ROOT, 'tools', 'generate-rss.mjs')]);
 }
 
 /* ---------- 2. sincroniza dist/ ---------- */
