@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // No computador (localhost) o GA4 não coleta: preview e testes não viram visita.
+  if (['localhost', '127.0.0.1', '[::1]'].indexOf(location.hostname) > -1) window['ga-disable-G-DQS0KMDT3G'] = true;
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Treinamento de IA para empresas: liderança e times | Tyna</title>
+<meta name="description" content="Capacitação em IA aplicada ao negócio: o que a liderança precisa para aprovar casos de uso e o que os times precisam para usar IA sem vazar dado da empresa.">
+<link rel="canonical" href="https://tyna.com.br/treinamento-de-ia-para-empresas/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Treinamento de IA para empresas: liderança e times">
+<meta property="og:description" content="Duas trilhas de capacitação em IA: a liderança que aprova e fiscaliza, e os times que usam no dia a dia. Dentro de um projeto de governança de 4 a 6 meses.">
+<meta property="og:url" content="https://tyna.com.br/treinamento-de-ia-para-empresas/">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna-dark.png">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="preload" href="/assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/styles.css?v=20">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Treinamento de IA para empresas",
+  "serviceType": "Capacitação corporativa em Inteligência Artificial",
+  "description": "Capacitação em IA aplicada ao negócio em duas trilhas: liderança, para aprovar e fiscalizar casos de uso, e times, para usar IA no dia a dia dentro da política da empresa. Conduzido dentro de um projeto de governança de IA com duração média de 4 a 6 meses.",
+  "areaServed": "BR",
+  "provider": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/",
+    "email": "contato@tyna.com.br"
+  }
+}
+</script>
+<link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "pt-BR",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Quanto tempo dura um projeto de governança de IA com treinamento?",
+      "acceptedAnswer": { "@type": "Answer", "text": "De 4 a 6 meses em média, e o que define o prazo é a velocidade de decisão da própria empresa, não o tamanho do material. O projeto tem oito fases: diagnóstico, homologação de ferramentas, escolha da plataforma, implementação de guardrails, criação da política interna de uso, lançamento do escritório de IA, treinamento das equipes e go live da plataforma. O treinamento entra depois que a política existe, porque treinar sem regra publicada é ensinar um comportamento que ninguém consegue cobrar depois." }
+    },
+    {
+      "@type": "Question",
+      "name": "Quanto custa o treinamento de IA para empresas?",
+      "acceptedAnswer": { "@type": "Answer", "text": "O preço depende das etapas contratadas. A Tyna trabalha com proposta customizada de acordo com a necessidade de cada empresa: há quem contrate o projeto inteiro, das oito fases, e há quem contrate só a capacitação porque já tem política publicada e ferramentas homologadas. A conversa inicial de 30 minutos serve para definir esse escopo antes de qualquer proposta." }
+    },
+    {
+      "@type": "Question",
+      "name": "Dá para treinar os times antes de ter política de uso de IA?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Dá, mas rende pouco. Sem política publicada, o treinamento vira demonstração de ferramenta: as pessoas aprendem a escrever um prompt melhor e continuam sem saber que dado pode entrar, em qual ferramenta e quem aprova um caso novo. Por isso a ordem do projeto coloca a política e a homologação das ferramentas antes da capacitação, e é também por isso que o template de política de uso de IA está publicado aberto no site." }
+    },
+    {
+      "@type": "Question",
+      "name": "Qual a diferença entre a trilha de liderança e a trilha de times?",
+      "acceptedAnswer": { "@type": "Answer", "text": "As perguntas são diferentes. A liderança precisa decidir: que caso de uso aprovar, com que critério de risco, o que exigir de um fornecedor de modelo, como cobrar retorno e quando barrar. Os times precisam operar: o que pode entrar em qual ferramenta, como reconhecer uma resposta que não dá para confiar, quando escalar para um humano e o que fazer quando a ferramenta certa não existe. Treinar os dois grupos com o mesmo conteúdo é o erro mais comum, e o resultado é liderança que aprova no escuro e time que usa no escuro." }
+    },
+    {
+      "@type": "Question",
+      "name": "Como medir se o treinamento de IA funcionou?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Não é pela nota de satisfação da turma. Os sinais que importam aparecem na operação: quantos casos de uso novos passaram pelo fluxo de aprovação em vez de entrar por fora, quantas ferramentas não homologadas continuam em uso depois do treinamento, quanto tempo leva entre um pedido de caso de uso e a decisão, e quantos incidentes de dado sensível em ferramenta pública aparecem no período. São as mesmas métricas que sustentam a governança de IA, e elas existem antes e depois do treinamento para permitir a comparação." }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "As oito fases do projeto, e onde o treinamento entra",
+  "inLanguage": "pt-BR",
+  "description": "A capacitação não é um evento solto: é a sétima fase de um projeto de governança de IA com duração média de 4 a 6 meses.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Diagnóstico",
+      "text": "Levantamento do que a empresa já usa de IA, incluindo o que ninguém aprovou, e do nível de maturidade de cada área.",
+      "url": "https://tyna.com.br/treinamento-de-ia-para-empresas/#fases"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Homologação de ferramentas",
+      "text": "Definição de quais ferramentas de IA ficam autorizadas, em que contexto e com qual classificação de dado.",
+      "url": "https://tyna.com.br/treinamento-de-ia-para-empresas/#fases"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Escolha da plataforma",
+      "text": "Seleção da plataforma que vai concentrar o uso corporativo de IA, com os critérios de custo, segurança e auditoria decididos antes da contratação.",
+      "url": "https://tyna.com.br/treinamento-de-ia-para-empresas/#fases"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Implementação de guardrails",
+      "text": "Controles que limitam o que a IA pode ler, responder e executar, aplicados na plataforma e nos fluxos que já rodam.",
+      "url": "https://tyna.com.br/treinamento-de-ia-para-empresas/#fases"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 5,
+      "name": "Criação da política interna de uso",
+      "text": "A regra escrita, publicada e com dono: o que pode, o que não pode e qual é a alternativa autorizada em cada proibição.",
+      "url": "https://tyna.com.br/treinamento-de-ia-para-empresas/#fases"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 6,
+      "name": "Lançamento do escritório de IA",
+      "text": "A estrutura que decide daqui para frente: quem aprova caso de uso, com que critério e em quanto tempo.",
+      "url": "https://tyna.com.br/treinamento-de-ia-para-empresas/#fases"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 7,
+      "name": "Treinamento das equipes",
+      "text": "Capacitação da liderança e dos times na regra que passou a valer e nas ferramentas que passaram a ser as autorizadas.",
+      "url": "https://tyna.com.br/treinamento-de-ia-para-empresas/#fases"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 8,
+      "name": "Go live da plataforma",
+      "text": "Entrada em operação com a regra publicada, os guardrails ativos, o escritório de IA funcionando e as equipes treinadas.",
+      "url": "https://tyna.com.br/treinamento-de-ia-para-empresas/#fases"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Início",
+      "item": "https://tyna.com.br/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Treinamento de IA para empresas",
+      "item": "https://tyna.com.br/treinamento-de-ia-para-empresas/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Treinamento de IA para empresas",
+  "url": "https://tyna.com.br/treinamento-de-ia-para-empresas/",
+  "inLanguage": "pt-BR",
+  "datePublished": "2026-09-17",
+  "dateModified": "2026-09-17",
+  "author": {
+    "@type": "Person",
+    "@id": "https://tyna.com.br/sobre/#felipe-jacob",
+    "name": "Felipe Jacob",
+    "url": "https://tyna.com.br/sobre/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://tyna.com.br/#organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  }
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><img src="../assets/logo-tyna-dark-sm.png" alt="Tyna" width="211" height="68"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../#servicos">Serviços</a></li>
+        <li><a href="../#guias">Guias</a></li>
+        <li><a href="../ai-gateway/comparativo/">AI Gateway</a></li>
+        <li><a href="../iso-42001/">ISO 42001</a></li>
+        <li><a href="../#cases">Cases</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20treinamento%20de%20IA%20para%20a%20minha%20empresa." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20treinamento%20de%20IA%20para%20a%20minha%20empresa." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Treinamento de IA</p>
+      <h1 style="max-width:900px;">Treinamento de IA para empresas, <em>da diretoria ao time que executa.</em></h1>
+      <p class="lead" style="max-width:740px;">Treinar a ferramenta não muda comportamento. O time sai sabendo escrever um prompt melhor e continua sem saber que dado pode entrar, em qual ferramenta e quem aprova um caso novo. A capacitação da Tyna trata das duas perguntas que sobram: o que a liderança precisa para aprovar e fiscalizar, e o que os times precisam para usar IA sem vazar dado da empresa.</p>
+      <p class="hero-note byline">Atualizado em <time datetime="2026-09-17">17 de setembro de 2026</time> · Por <a href="../sobre/">Felipe Jacob</a></p>
+      <div class="hero-ctas">
+        <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20treinamento%20de%20IA%20para%20a%20minha%20empresa." target="_blank" rel="noopener" class="btn btn-primary">Agendar conversa</a>
+        <a href="#fases" class="btn btn-ghost">Ver as oito fases</a>
+      </div>
+      <div class="stat-row" style="max-width:820px; border-top:0; padding-top:0;">
+        <div class="stat"><span class="v">2</span><span class="l">TRILHAS: LIDERANÇA E TIMES</span></div>
+        <div class="stat"><span class="v">8</span><span class="l">FASES DO PROJETO, DO DIAGNÓSTICO AO GO LIVE</span></div>
+        <div class="stat"><span class="v">4–6</span><span class="l">MESES DE DURAÇÃO MÉDIA</span></div>
+        <div class="stat"><span class="v">7ª</span><span class="l">FASE: É ONDE O TREINAMENTO ENTRA</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POR QUE FALHA -->
+  <section id="por-que-falha">
+    <div class="wrap problem-grid">
+      <div class="reveal">
+        <p class="eyebrow">O diagnóstico</p>
+        <h2>Treinamento de ferramenta ensina a usar. Não ensina a decidir.</h2>
+        <p style="color:var(--text-muted); font-size:16px;">A maior parte do que o mercado chama de treinamento de IA é demonstração de produto: uma tela, um prompt, um resultado impressionante. Passa a sensação de que a empresa está capacitada e não muda nenhuma das decisões que causam incidente.</p>
+      </div>
+      <div class="risk-list reveal">
+        <div class="risk-item">
+          <span class="num">01</span>
+          <div><h3>Ensina a ferramenta, não o limite</h3><p>Sem classificação de dado, a pessoa aprende a colar mais rápido o que ela não deveria colar. É assim que o <a href="../shadow-ai/">shadow AI</a> cresce logo depois de um treinamento bem avaliado.</p></div>
+        </div>
+        <div class="risk-item">
+          <span class="num">02</span>
+          <div><h3>Trata liderança e time como a mesma plateia</h3><p>Quem aprova precisa de critério de risco; quem executa precisa de regra prática. Conteúdo único deixa os dois grupos decidindo no escuro, cada um do seu jeito.</p></div>
+        </div>
+        <div class="risk-item">
+          <span class="num">03</span>
+          <div><h3>Acontece antes de existir regra</h3><p>Treinar sem <a href="../politica-de-uso-de-ia/">política de uso publicada</a> é ensinar um comportamento que ninguém consegue cobrar depois, porque não há documento que sustente a cobrança.</p></div>
+        </div>
+        <div class="risk-item">
+          <span class="num">04</span>
+          <div><h3>Termina no certificado</h3><p>Sem métrica de operação, não há como saber se mudou algo. O sinal de que funcionou não é a nota da turma: é caso de uso entrando pelo fluxo de aprovação em vez de entrar por fora.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRILHAS -->
+  <section id="trilhas">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">As duas trilhas</p>
+        <h2>Quem aprova e quem executa não têm a mesma dúvida</h2>
+        <p>Por isso o conteúdo é separado. Uma empresa pode contratar as duas trilhas ou só a que falta.</p>
+      </div>
+
+      <div class="svc-grid reveal">
+        <div class="svc-card">
+          <span class="num">01</span>
+          <h3>Liderança: aprovar, fiscalizar e cobrar</h3>
+          <p>Como ler um caso de uso de IA e decidir: qual risco aceitar, o que exigir de um fornecedor de modelo, quando barrar e o que cobrar de retorno. Inclui o critério que o <a href="../governanca-de-ia/">comitê de IA</a> passa a usar para aprovar sem depender de opinião técnica isolada.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">02</span>
+          <h3>Times: usar sem vazar dado</h3>
+          <p>O que pode entrar em qual ferramenta, como reconhecer uma resposta em que não dá para confiar, quando escalar para um humano e o que fazer quando a ferramenta autorizada não resolve — que é o momento em que o atalho não homologado costuma nascer.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">03</span>
+          <h3>Times técnicos: guardrail e segurança do prompt</h3>
+          <p>Para quem constrói: onde o guardrail é aplicado, o que registrar para permitir auditoria depois e como tratar os casos em que o <a href="../governanca-de-agentes/">agente age sozinho</a> e o erro vira fato, não rascunho.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FASES -->
+  <section id="fases">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Onde o treinamento entra</p>
+        <h2>As oito fases do projeto, na ordem que funciona</h2>
+        <p>A capacitação é a sétima fase, e não a primeira. A ordem existe porque treinar antes de ter ferramenta homologada e regra publicada é ensinar sobre um cenário que vai mudar na semana seguinte.</p>
+      </div>
+
+      <div class="steps reveal">
+        <div class="step">
+          <span class="step-num">01</span>
+          <div>
+            <h3>Diagnóstico</h3>
+            <p>O que a empresa já usa de IA, incluindo o que ninguém aprovou, e a maturidade de cada área. É a fotografia que define o tamanho do projeto.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">02</span>
+          <div>
+            <h3>Homologação de ferramentas</h3>
+            <p>Quais ferramentas ficam autorizadas, em que contexto e para qual classificação de dado. Sem essa lista, nenhuma regra posterior é aplicável.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <div>
+            <h3>Escolha da plataforma</h3>
+            <p>A plataforma que vai concentrar o uso corporativo, com custo, segurança e auditoria decididos antes da contratação — e não descobertos na primeira fatura.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">04</span>
+          <div>
+            <h3>Implementação de guardrails</h3>
+            <p>Os controles que limitam o que a IA pode ler, responder e executar, aplicados na plataforma e nos fluxos que já estão rodando.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">05</span>
+          <div>
+            <h3>Criação da política interna de uso</h3>
+            <p>A regra escrita, publicada e com dono, no formato que faz política ser seguida: nenhuma proibição sem a alternativa autorizada ao lado.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">06</span>
+          <div>
+            <h3>Lançamento do escritório de IA</h3>
+            <p>A estrutura que decide daqui para frente: quem aprova caso de uso, com que critério e em quanto tempo responde.</p>
+          </div>
+        </div>
+        <div class="step is-chave">
+          <span class="step-num">07</span>
+          <div>
+            <h3>Treinamento das equipes</h3>
+            <p>Liderança e times capacitados na regra que passou a valer e nas ferramentas que passaram a ser as autorizadas — com o material referindo a política da empresa, não um exemplo genérico.</p>
+            <span class="step-flag">É aqui que a governança deixa o documento e vira comportamento</span>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">08</span>
+          <div>
+            <h3>Go live da plataforma</h3>
+            <p>Entrada em operação com regra publicada, guardrails ativos, escritório de IA funcionando e equipes treinadas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRAZO E ESCOPO -->
+  <section id="prazo">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Prazo e escopo</p>
+        <h2>De 4 a 6 meses, conforme a velocidade da empresa</h2>
+        <p>O que define o prazo não é o volume de material: é quanto tempo a empresa leva para decidir o que fica autorizado e quem assina a regra.</p>
+      </div>
+      <div class="reveal">
+        <table class="spec-table">
+          <thead>
+            <tr><th scope="col">Pergunta</th><th scope="col">Resposta</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Duração do projeto completo</td>
+              <td><span class="prazo">4 a 6 meses</span> em média, das oito fases</td>
+            </tr>
+            <tr>
+              <td>O que faz variar</td>
+              <td>A velocidade de decisão de cada empresa, não o tamanho do time</td>
+            </tr>
+            <tr>
+              <td>Escopo</td>
+              <td>Projeto inteiro ou só as etapas que faltam, para quem já tem política e ferramentas definidas</td>
+            </tr>
+            <tr>
+              <td>Investimento</td>
+              <td>Proposta customizada, conforme as etapas contratadas e a necessidade de cada empresa</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO MEDIR -->
+  <section id="medir">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Depois do treinamento</p>
+        <h2>Os sinais de que mudou alguma coisa</h2>
+      </div>
+      <ul class="benefits reveal">
+        <li>Casos de uso novos entrando pelo fluxo de aprovação, em vez de aparecerem prontos</li>
+        <li>Queda no uso de ferramenta não homologada, medida no mesmo levantamento do diagnóstico</li>
+        <li>Tempo entre o pedido de um caso de uso e a decisão do escritório de IA</li>
+        <li>Menos incidentes de dado sensível em ferramenta pública no período</li>
+        <li>Liderança conseguindo explicar, sem apoio técnico, por que aprovou ou barrou um caso</li>
+        <li>Times sabendo dizer qual é a alternativa autorizada quando a proibição aparece</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Perguntas frequentes</p>
+        <h2>Treinamento de IA, em resposta direta</h2>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-item">
+          <h3>Quanto tempo dura um projeto de governança de IA com treinamento?</h3>
+          <p>De 4 a 6 meses em média, e o que define o prazo é a velocidade de decisão da própria empresa, não o tamanho do material. O projeto tem oito fases: diagnóstico, homologação de ferramentas, escolha da plataforma, implementação de guardrails, criação da política interna de uso, lançamento do escritório de IA, treinamento das equipes e go live da plataforma. O treinamento entra depois que a política existe, porque treinar sem regra publicada é ensinar um comportamento que ninguém consegue cobrar depois.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Quanto custa o treinamento de IA para empresas?</h3>
+          <p>O preço depende das etapas contratadas. A Tyna trabalha com proposta customizada de acordo com a necessidade de cada empresa: há quem contrate o projeto inteiro, das oito fases, e há quem contrate só a capacitação porque já tem política publicada e ferramentas homologadas. A conversa inicial de 30 minutos serve para definir esse escopo antes de qualquer proposta.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Dá para treinar os times antes de ter política de uso de IA?</h3>
+          <p>Dá, mas rende pouco. Sem política publicada, o treinamento vira demonstração de ferramenta: as pessoas aprendem a escrever um prompt melhor e continuam sem saber que dado pode entrar, em qual ferramenta e quem aprova um caso novo. Por isso a ordem do projeto coloca a política e a homologação das ferramentas antes da capacitação, e é também por isso que o template de política de uso de IA está publicado aberto no site.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Qual a diferença entre a trilha de liderança e a trilha de times?</h3>
+          <p>As perguntas são diferentes. A liderança precisa decidir: que caso de uso aprovar, com que critério de risco, o que exigir de um fornecedor de modelo, como cobrar retorno e quando barrar. Os times precisam operar: o que pode entrar em qual ferramenta, como reconhecer uma resposta que não dá para confiar, quando escalar para um humano e o que fazer quando a ferramenta certa não existe. Treinar os dois grupos com o mesmo conteúdo é o erro mais comum, e o resultado é liderança que aprova no escuro e time que usa no escuro.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Como medir se o treinamento de IA funcionou?</h3>
+          <p>Não é pela nota de satisfação da turma. Os sinais que importam aparecem na operação: quantos casos de uso novos passaram pelo fluxo de aprovação em vez de entrar por fora, quantas ferramentas não homologadas continuam em uso depois do treinamento, quanto tempo leva entre um pedido de caso de uso e a decisão, e quantos incidentes de dado sensível em ferramenta pública aparecem no período. São as mesmas métricas que sustentam a governança de IA, e elas existem antes e depois do treinamento para permitir a comparação.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUIAS RELACIONADOS -->
+  <section id="relacionados">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Continue por aqui</p>
+        <h2>Guias relacionados</h2>
+      </div>
+      <div class="svc-grid reveal">
+        <div class="svc-card">
+          <span class="num">01</span>
+          <h3><a href="../politica-de-uso-de-ia/">Modelo de política de uso de IA</a></h3>
+          <p>O template inteiro para copiar e adaptar. É a fase que vem antes da capacitação, e sem ela o treinamento não tem o que cobrar.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">02</span>
+          <h3><a href="../governanca-de-ia/">Governança de IA</a></h3>
+          <p>O hub dos guias: o que é, os níveis de maturidade e as métricas que dizem se o controle existe fora do papel.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">03</span>
+          <h3><a href="../diagnostico/">Teste de maturidade</a></h3>
+          <p>Dez perguntas, resultado na hora e sem cadastro, para saber em que fase do projeto sua empresa entraria.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA final -->
+  <section class="cta-band" style="border-bottom:none;">
+    <div class="wrap reveal">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Sua empresa precisa de treinamento, ou de regra antes?</h2>
+      <p style="color:var(--text-muted); font-size:16.5px; max-width:560px; margin:0 auto 30px;">Em 30 minutos dá para saber qual das oito fases é a sua, e o que a proposta precisa cobrir. Conversa direto com quem conduz o trabalho.</p>
+      <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20treinamento%20de%20IA%20para%20a%20minha%20empresa." target="_blank" rel="noopener" class="btn btn-primary">Agendar conversa</a>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../" class="logo"><img src="../assets/logo-tyna-sm.png" alt="Tyna" width="211" height="68"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio. Governança de IA começa com Dados, Processos e Pessoas.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <p class="foot-h">Contato</p>
+          <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener">WhatsApp</a>
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <p class="foot-h">Guias</p>
+          <a href="../governanca-de-ia/">Governança de IA</a>
+          <a href="../iso-42001/">ISO 42001</a>
+          <a href="../shadow-ai/">Shadow AI</a>
+          <a href="../ai-gateway/">AI Gateway</a>
+          <a href="../ai-gateway/comparativo/">Comparativo de gateways</a>
+          <a href="../llm-leaderboard/">LLM Leaderboard</a>
+          <a href="../governanca-de-agentes/">Governança de agentes</a>
+          <a href="../politica-de-uso-de-ia/">Política de uso de IA</a>
+          <a href="./">Treinamento de IA</a>
+          <a href="../lgpd-e-ia/">LGPD e IA</a>
+          <a href="../pl-2338/">Marco Legal da IA</a>
+        </div>
+        <div class="foot-col">
+          <p class="foot-h">Site</p>
+          <a href="../#servicos">Serviços</a>
+          <a href="../#trilhas">Trilhas</a>
+          <a href="../diagnostico/">Diagnóstico</a>
+          <a href="../blog/">Blog</a>
+          <a href="../sobre/">Sobre</a>
+          <a href="../politica-de-privacidade/">Política de privacidade</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<!-- O botão flutuante do WhatsApp é montado por assets/site.js, que roda em todas as páginas -->
+<script src="../assets/site.js?v=20"></script>
+
+</body>
+</html>

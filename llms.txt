@@ -234,6 +234,9 @@ advisory mensal. O contato inicial é uma conversa de 30 minutos por e-mail.
   quatro controles e o roteiro de dez perguntas antes de o agente ir ao ar.
 - [Política de uso de IA](https://tyna.com.br/politica-de-uso-de-ia/): template
   completo para copiar e adaptar, com classificação de dado em três níveis.
+- [Treinamento de IA para empresas](https://tyna.com.br/treinamento-de-ia-para-empresas/):
+  capacitação em duas trilhas, liderança e times, e as oito fases do projeto de
+  governança — de 4 a 6 meses, com o treinamento na sétima fase.
 - [LGPD em fluxos de IA](https://tyna.com.br/lgpd-e-ia/): as três portas do dado
   pessoal, base legal por finalidade e as seis frentes de adequação.
 - [PL 2338/2023](https://tyna.com.br/pl-2338/): onde o Marco Legal da IA está,

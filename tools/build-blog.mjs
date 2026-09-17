@@ -247,6 +247,7 @@ ${body}
           <a href="${up}llm-leaderboard/">LLM Leaderboard</a>
           <a href="${up}governanca-de-agentes/">Governança de agentes</a>
           <a href="${up}politica-de-uso-de-ia/">Política de uso de IA</a>
+          <a href="${up}treinamento-de-ia-para-empresas/">Treinamento de IA</a>
           <a href="${up}lgpd-e-ia/">LGPD e IA</a>
           <a href="${up}pl-2338/">Marco Legal da IA</a>
         </div>
@@ -574,6 +575,7 @@ const staticPages = [
   { loc: `${SITE}/llm-leaderboard/`, pri: '0.9', freq: 'weekly', mod: dataDoLeaderboard() },
   { loc: `${SITE}/governanca-de-agentes/`, pri: '0.9', freq: 'monthly', mod: mtime('governanca-de-agentes/index.html') },
   { loc: `${SITE}/politica-de-uso-de-ia/`, pri: '0.9', freq: 'monthly', mod: mtime('politica-de-uso-de-ia/index.html') },
+  { loc: `${SITE}/treinamento-de-ia-para-empresas/`, pri: '0.9', freq: 'monthly', mod: mtime('treinamento-de-ia-para-empresas/index.html') },
   { loc: `${SITE}/lgpd-e-ia/`, pri: '0.9', freq: 'monthly', mod: mtime('lgpd-e-ia/index.html') },
   { loc: `${SITE}/sobre/`, pri: '0.8', freq: 'monthly', mod: mtime('sobre/index.html') },
   { loc: `${SITE}/politica-de-privacidade/`, pri: '0.3', freq: 'yearly', mod: mtime('politica-de-privacidade/index.html') },
