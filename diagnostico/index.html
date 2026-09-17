@@ -295,7 +295,7 @@
   var prog = document.getElementById('quizProgress');
   var fill = document.getElementById('quizFill');
   var box = document.getElementById('quizResult');
-  var ultimoTotal = null, ultimaFaixa = null;
+  var ultimoTotal = null, ultimaFaixa = null, ultimasLacunas = [];
 
   PERGUNTAS.forEach(function (q, i) {
     var opts = OPCOES.map(function (o) {
@@ -331,6 +331,7 @@
     var faixa = FAIXAS.find(function (f) { return total <= f.max; });
     ultimoTotal = total;
     ultimaFaixa = faixa;
+    ultimasLacunas = fracas.map(function (k) { return LACUNAS[k][0]; });
     document.getElementById('scoreV').textContent = total;
     document.getElementById('scoreBand').textContent = faixa.band;
     document.getElementById('scoreTitle').textContent = faixa.h;
@@ -375,6 +376,7 @@
     var numero = document.getElementById('whatsInput').value.trim();
     var corpo = 'Vim pelo diagnóstico de governança de IA da Tyna.\n\n'
       + 'Pontuação: ' + ultimoTotal + ' de 20 (' + ultimaFaixa.band + ')\n'
+      + 'Lacunas: ' + (ultimasLacunas.length ? ultimasLacunas.join(', ') : 'nenhuma') + '\n'
       + (numero ? 'Meu WhatsApp para retorno: ' + numero + '\n' : '')
       + '\nQuero comentar esse resultado com você.';
     window.open('https://wa.me/5511997228945?text=' + encodeURIComponent(corpo), '_blank', 'noopener');
