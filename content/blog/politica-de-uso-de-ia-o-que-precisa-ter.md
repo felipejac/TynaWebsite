@@ -1,6 +1,7 @@
 ---
-title: "Política de uso de IA: o que ela precisa ter"
-description: "A maioria das políticas de uso de IA nunca é lida depois de assinada. O que separa a que funciona da que vira arquivo morto."
+title: "O teste que diz se a sua política de uso de IA é real"
+seoTitle: "O teste que diz se a política de uso de IA é real"
+description: "Uma pergunta separa a política que decide da que enfeita: ela responde o que fazer no momento de colar um contrato num chatbot? O teste e o que fazer depois."
 pubDate: "2026-09-11"
 category: "governanca"
 tags: ["politica-de-uso-de-ia","governanca-de-ia","lgpd","shadow-ai","compliance"]
@@ -54,3 +55,5 @@ R: Uma pessoa nomeada, não uma área inteira — geralmente alguém de risco, s
 
 **P: Política de uso de IA e política de segurança da informação são a mesma coisa?**
 R: Não. Segurança da informação trata de acesso, rede e dado; uso de IA trata também de comportamento probabilístico, alucinação e decisão automatizada — uma política de IA que só copia a estrutura da política de segurança deixa de fora exatamente os riscos que são específicos de IA.
+
+Se o que falta é o documento em si, o [modelo de política de uso de IA](/politica-de-uso-de-ia/) está publicado inteiro para copiar e adaptar, com a classificação de dado em três níveis e a regra de redação que faz a política ser seguida. Depois de publicada, ela só muda comportamento com [treinamento das equipes](/treinamento-de-ia-para-empresas/).

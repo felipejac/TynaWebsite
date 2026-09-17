@@ -1,6 +1,7 @@
 ---
-title: "O que é um AI Gateway (e o que ele resolve)"
-description: "AI Gateway não é mais uma ferramenta — é o ponto único de acesso, custo e auditoria por onde as outras passam. O que ele resolve, na prática."
+title: "AI Gateway explicado para quem decide"
+seoTitle: "AI Gateway explicado para quem decide na empresa"
+description: "O resumo que cabe numa reunião de diretoria: o que um AI Gateway centraliza, o que muda no custo e na auditoria e quando ele ainda não faz sentido."
 pubDate: "2026-09-11"
 category: "governanca"
 tags: ["ai-gateway","governanca-de-ia","shadow-ai","custo-de-ia","auditoria"]
@@ -48,3 +49,5 @@ R: Não substitui — ele é onde a política vira algo aplicado tecnicamente. A
 
 **P: Pequenas e médias empresas também precisam de AI Gateway, ou é só para empresa grande?**
 R: Depende de quantas ferramentas de IA diferentes já estão em uso, não do tamanho da empresa — uma empresa média com meia dúzia de ferramentas sem controle central tem o mesmo problema de visibilidade e custo que uma empresa grande, só que descoberto mais tarde, porque tem menos gente perguntando.
+
+O guia completo, com os cinco passos de implantação, os três caminhos possíveis e o custo real de cada um, está em [AI Gateway: o que é, para que serve e quando adotar](/ai-gateway/). Para comparar ferramentas antes de decidir, a tabela com [124 AI Gateways](/ai-gateway/comparativo/) traz entrega, licença, origem e cobrança de cada uma.

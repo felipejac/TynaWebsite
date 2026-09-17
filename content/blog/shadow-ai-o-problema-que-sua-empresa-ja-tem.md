@@ -1,7 +1,7 @@
 ---
-title: "Shadow AI: o problema que sua empresa já tem, mesmo sem saber"
-seoTitle: "Shadow AI: o problema que sua empresa já tem"
-description: "Shadow AI é o uso de ferramentas de IA sem o conhecimento da empresa — e já acontece na sua. Entenda os riscos reais e o que fazer a respeito."
+title: "O ponto cego da IA nas empresas brasileiras"
+seoTitle: "Shadow AI: o ponto cego da IA nas empresas brasileiras"
+description: "O uso de IA que nunca passou pela TI já é o padrão nas empresas brasileiras. Por que cresce mais rápido que qualquer política e por que bloquear piora."
 pubDate: "2026-08-14"
 category: "governanca"
 tags: ["shadow-ai","governanca-de-ia","lgpd","marco-legal-da-ia","ia-generativa"]
