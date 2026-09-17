@@ -133,53 +133,49 @@
      Nenhum filtro entra em elemento animado. Filtro sobre algo que gira obriga o
      navegador a rasterizar de novo a cada quadro; os anéis pontilhados são traço
      puro, e o brilho dos pulsos é um círculo atrás, não um blur. */
-  /* width:100% é obrigatório aqui. Sem ele, `margin:0 auto` desliga o esticar do
-     grid e a largura vira encolher-para-caber; como o SVG interno é width:100%,
-     não há o que medir e o navegador cai no padrão de 300px do SVG. O diagrama
-     ficava em 300px em qualquer tela, sem nunca alcançar os 480 do max-width. */
-  .gateway{position:relative; aspect-ratio:1/1; width:100%; max-width:480px; margin:0 auto;}
-  .gateway svg{width:100%; height:100%; overflow:visible;}
-
-  .g-halo{fill:url(#gHalo);}
-  .g-ring{fill:none; stroke:#D9CCE8; stroke-width:1.1;}
-  .g-ring-soft{fill:none; stroke:#E7DDF2; stroke-width:1;}
-  /* stroke-linecap:round transforma o traço curto em ponto de verdade */
-  .g-ring-dash{fill:none; stroke:#9333EA; stroke-width:2.2; stroke-dasharray:0.5 9;
-    stroke-linecap:round; opacity:.85; animation:spin 60s linear infinite;}
-  .g-ring-dash-2{fill:none; stroke:#C77DFF; stroke-width:1.6; stroke-dasharray:0.5 11;
-    stroke-linecap:round; opacity:.5; animation:spinBack 88s linear infinite;}
-  @keyframes spin{to{transform:rotate(360deg);}}
-  @keyframes spinBack{to{transform:rotate(-360deg);}}
-
-  .g-line{stroke:url(#gWire); stroke-width:2; stroke-linecap:round;}
-  .g-node-fill{fill:url(#gNodeFace); stroke:#A87FCE; stroke-width:1.2;}
-  .g-hub-fill{fill:url(#gHubFace);}
-  .g-hub-edge{fill:none; stroke:#C77DFF; stroke-width:1.2; opacity:.55;}
-  /* Reflexo no alto do hub: é ele que faz o círculo virar esfera. Branco chapado
-     lê como adesivo colado; o gradiente que desvanece nas bordas lê como luz. */
-  .g-hub-gloss{fill:url(#gGloss);}
-
-  .g-pulse{fill:#FF7A1A;}
-  .g-pulse-halo{fill:#FF6600; opacity:.22;}
-  .g-label{font-family:var(--mono); font-size:9.5px; fill:#3B2350; font-weight:500; letter-spacing:0.04em;}
-  .g-hub-label{font-family:var(--mono); font-size:10.5px; fill:#FFFFFF; font-weight:600; letter-spacing:0.08em;}
-
-  .pulse-anim{animation:pulse 2.8s ease-in-out infinite;}
-  .pulse-anim.d2{animation-delay:.5s;}
-  .pulse-anim.d3{animation-delay:1s;}
-  .pulse-anim.d4{animation-delay:1.5s;}
-  @keyframes pulse{0%,100%{opacity:.35; r:2.5;} 50%{opacity:1; r:4;}}
-  .halo-anim{animation:pulseHalo 2.8s ease-in-out infinite;}
-  .halo-anim.d2{animation-delay:.5s;}
-  .halo-anim.d3{animation-delay:1s;}
-  .halo-anim.d4{animation-delay:1.5s;}
-  @keyframes pulseHalo{0%,100%{opacity:0; r:5;} 50%{opacity:.26; r:10;}}
-
-  /* Quem pede menos movimento no sistema recebe o diagrama parado. Ele continua
-     dizendo a mesma coisa: a informação está na estrutura, não na animação. */
-  @media (prefers-reduced-motion: reduce){
-    .g-ring-dash, .g-ring-dash-2, .pulse-anim, .halo-anim{animation:none;}
-    .halo-anim{opacity:.18;}
+  /* Console do AI Gateway no hero. Tema escuro de propósito: é uma "tela" sobre a
+     página clara. As linhas têm 42px fixos porque o @keyframes anda de 42 em 42 —
+     mudou a altura da linha, recalcule os valores. */
+  .gw-console{--gc-bg:#121118; --gc-bg2:#17151F; --gc-line:#2E2A3A; --gc-text:#E5E1EC; --gc-muted:#A6A1B3; --gc-subtle:#8E889C;
+    width:100%; max-width:560px; margin:0 auto; background:var(--gc-bg); border:1px solid var(--gc-line); border-radius:14px;
+    overflow:hidden; box-shadow:0 40px 80px -40px rgba(20,10,30,.55); font-family:var(--mono);}
+  .gc-bar{height:44px; padding:0 16px; display:flex; align-items:center; justify-content:space-between; gap:12px; border-bottom:1px solid var(--gc-line); background:var(--gc-bg2);}
+  .gc-dots{display:flex; gap:6px;}
+  .gc-dots i{width:10px; height:10px; border-radius:50%; background:#3A3647;}
+  .gc-title{font-size:12px; color:var(--gc-muted);}
+  .gc-tag{display:flex; align-items:center; gap:6px; font-size:10px; letter-spacing:.08em; color:var(--gc-subtle);}
+  .gc-live{width:6px; height:6px; border-radius:50%; background:#4ADE80; animation:gcPulse 1.6s ease-in-out infinite;}
+  @keyframes gcPulse{0%,100%{opacity:1; box-shadow:0 0 0 0 rgba(74,222,128,.6);} 50%{opacity:.55; box-shadow:0 0 0 5px rgba(74,222,128,0);}}
+  .gc-body{padding:20px 20px 16px; font-size:12.5px;}
+  .gc-row, .gc-track li{display:grid; grid-template-columns:62px 88px minmax(0,1fr) 114px; gap:12px; align-items:center; padding:0 10px;}
+  .gc-row span, .gc-track li span{white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+  .gc-head{padding-bottom:10px; color:#8A8499; font-size:10.5px; letter-spacing:.08em;}
+  .gc-head span{color:inherit;}
+  .gc-viewport{height:252px; overflow:hidden;
+    -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 36px,#000 calc(100% - 36px),transparent 100%);
+    mask-image:linear-gradient(to bottom,transparent 0,#000 36px,#000 calc(100% - 36px),transparent 100%);}
+  .gc-track{list-style:none; margin:0; padding:0; animation:gcScroll 22s cubic-bezier(.65,0,.35,1) infinite; will-change:transform;}
+  .gc-viewport:hover .gc-track{animation-play-state:paused;}
+  .gc-track li{height:42px; border-radius:6px;}
+  .gc-track li:nth-child(odd){background:var(--gc-bg2);}
+  .gc-hora{color:var(--gc-subtle);}
+  .gc-area{color:var(--gc-text);}
+  .gc-origem{color:var(--gc-muted);}
+  .gc-ok{color:#4ADE80;} .gc-mask{color:#FBBF24;} .gc-human{color:#B79CFF;} .gc-block{color:#F87171;}
+  @keyframes gcScroll{0%,9%{transform:translateY(0);} 12.5%,21.5%{transform:translateY(-42px);} 25%,34%{transform:translateY(-84px);}
+    37.5%,46.5%{transform:translateY(-126px);} 50%,59%{transform:translateY(-168px);} 62.5%,71.5%{transform:translateY(-210px);}
+    75%,84%{transform:translateY(-252px);} 87.5%,96.5%{transform:translateY(-294px);} 100%{transform:translateY(-336px);}}
+  .gc-legend{margin:0; padding:16px 20px; border-top:1px solid var(--gc-line); display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:8px; background:var(--gc-bg2);}
+  .gc-legend div{display:flex; flex-direction:column; gap:4px; min-width:0;}
+  .gc-legend dt{font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--gc-subtle);}
+  .gc-legend dd{margin:0; font-family:var(--body); font-size:13px; color:var(--gc-text);}
+  @media (prefers-reduced-motion: reduce){ .gc-track, .gc-live{animation:none;} }
+  /* telas estreitas: some HORA e ORIGEM, a legenda vai para 2 colunas */
+  @media (max-width:640px){
+    .gc-body{padding:14px 12px 12px;}
+    .gc-row, .gc-track li{grid-template-columns:minmax(0,1fr) auto;}
+    .gc-hora, .gc-origem{display:none;}
+    .gc-legend{grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px 8px;}
   }
 
   /* ---------- Sections generic ---------- */
@@ -275,7 +271,7 @@
      as cores são declaradas aqui sobre o #242423. O logotipo volta a ser o
      branco original (o escuro do header sumiria neste fundo). */
   footer{background:#242423; color:#fff; padding:64px 0 40px;}
-  .foot-grid{display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:30px;}
+  .foot-grid{display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:30px;}
   .foot-left .logo{margin-bottom:12px;}
   .foot-left .logo img{height:30px;}
   .foot-left .logo span{color:rgba(255,255,255,0.6); border-left-color:rgba(255,255,255,0.22);}
@@ -564,8 +560,6 @@
     nav ul{gap:16px;}
     .logo span{display:none;}
     .hero-grid, .problem-grid, .about-grid{grid-template-columns:1fr; gap:44px;}
-    /* headline e CTA primeiro: o diagrama é apoio, não abertura */
-    .gateway{max-width:340px;}
     .svc-grid{grid-template-columns:repeat(2,1fr);}
     .case-grid{grid-template-columns:1fr;}
     .stat-row{grid-template-columns:repeat(2,1fr);}

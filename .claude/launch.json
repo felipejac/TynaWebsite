@@ -4,8 +4,20 @@
     {
       "name": "site",
       "runtimeExecutable": "python",
-      "runtimeArgs": ["-m", "http.server", "4173"],
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "4173"
+      ],
       "port": 4173
+    },
+    {
+      "name": "editor",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "tools/editor.mjs"
+      ],
+      "port": 4180
     }
   ]
 }
