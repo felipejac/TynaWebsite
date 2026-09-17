@@ -287,6 +287,8 @@ const html = `<!DOCTYPE html>
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
+  // No computador (localhost) o GA4 não coleta: preview e testes não viram visita.
+  if (['localhost', '127.0.0.1', '[::1]'].indexOf(location.hostname) > -1) window['ga-disable-G-DQS0KMDT3G'] = true;
   gtag('config', 'G-DQS0KMDT3G');
 </script>
 <meta charset="UTF-8">
