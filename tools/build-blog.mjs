@@ -494,7 +494,7 @@ function listing({ title, description, canonical, heading, sub, items, depth, ac
 
 writeFileSync(join(OUT, 'index.html'), listing({
   title: 'Blog — governança de IA na prática | Tyna',
-  description: 'Análise própria da Tyna sobre governança de IA: política de uso, comitê, AI Gateway, LGPD e agentes em produção, escrita por quem implanta.',
+  description: 'Política de uso, comitê de IA, AI Gateway, LGPD e agentes em produção — escrito por quem implanta, não por quem só escreve sobre implantação.',
   canonical: `${SITE}/blog/`,
   heading: 'Governança de IA, na prática.',
   sub: 'Política de uso, comitê, AI Gateway, LGPD e agentes em produção — análise própria da Tyna, escrita por quem implanta e não só audita.',
@@ -504,7 +504,7 @@ writeFileSync(join(OUT, 'index.html'), listing({
 mkdirSync(join(OUT, 'radar'), { recursive: true });
 writeFileSync(join(OUT, 'radar', 'index.html'), listing({
   title: 'Radar — IA, agentes e automação | Tyna',
-  description: 'Notícias de agentes de IA, LLMs e automação traduzidas e comentadas pela Tyna. O que saiu, o que muda no fluxo de quem usa IA em produção e o que ignorar.',
+  description: 'Agentes, LLMs e automação: o que saiu esta semana, o que muda no fluxo de quem usa IA em produção e o que dá para ignorar. Traduzido e comentado.',
   canonical: `${SITE}/blog/radar/`,
   heading: 'IA em produção, destrinchada.',
   sub: 'Agentes, LLMs e ferramentas de automação — o que saiu, o que muda no seu fluxo e o que ignorar.',
