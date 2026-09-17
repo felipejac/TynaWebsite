@@ -503,7 +503,7 @@ writeFileSync(join(OUT, 'index.html'), listing({
 
 mkdirSync(join(OUT, 'radar'), { recursive: true });
 writeFileSync(join(OUT, 'radar', 'index.html'), listing({
-  title: 'Radar — IA, agentes e automação | Tyna',
+  title: 'Radar de IA: notícias de agentes, LLMs e automação | Tyna',
   description: 'Agentes, LLMs e automação: o que saiu esta semana, o que muda no fluxo de quem usa IA em produção e o que dá para ignorar. Traduzido e comentado.',
   canonical: `${SITE}/blog/radar/`,
   heading: 'IA em produção, destrinchada.',

@@ -232,7 +232,7 @@ const faq = [
 /* 7. página                                                                     */
 /* ---------------------------------------------------------------------------- */
 
-const titulo = 'LLM Leaderboard 2026: ranking dos modelos de IA | Tyna';
+const titulo = 'LLM Leaderboard 2026: ranking dos melhores modelos de IA | Tyna';
 const descricao = `Atualizado toda semana: ${modelos.length} modelos da OpenAI, Anthropic, Google e DeepSeek ranqueados por inteligência, código, velocidade, latência e preço.`;
 const whats = 'https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20LLM%20Leaderboard%20e%20quero%20falar%20sobre%20IA%20na%20minha%20empresa.';
 
