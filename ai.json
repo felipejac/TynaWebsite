@@ -255,14 +255,24 @@
         },
         {
           "@type": "PropertyValue",
-          "name": "Yalo — volume movimentado via mensagens",
-          "value": "US$ 4 bilhões",
-          "description": "Agentes de IA como vendedores digitais 24/7 integrados a preço, catálogo, crédito e estoque."
+          "name": "iFood — aumento de conversão no cadastro de restaurantes",
+          "value": "26%",
+          "description": "Autocadastro de restaurantes no WhatsApp com IA montando o cardápio automaticamente, etapa em que a maioria dos parceiros desistia."
         },
         {
           "@type": "PropertyValue",
-          "name": "Yalo — aumento em vendas",
-          "value": "14% a 18%"
+          "name": "iFood — CSAT no WhatsApp",
+          "value": "97%"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "iFood — parceiros destravados pela IA",
+          "value": "34%"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "iFood — queda no abandono do fluxo",
+          "value": "76%"
         },
         {
           "@type": "PropertyValue",

@@ -50,10 +50,10 @@ Formatos de contratação: workshop de 3 horas, trilha completa ou advisory mens
 - Hering — recuperação de carrinho por WhatsApp integrada à VTEX: 123x de ROAS nas
   campanhas, 20% de taxa de conversão, R$ 1,5 milhão de faturamento, alta de 2.825%
   sobre o ano anterior. Fonte: omni.chat/blog.
-- Yalo — agentes de IA como vendedores digitais 24/7 no WhatsApp: US$ 4 bilhões
-  movimentados via mensagens, aumento de 14% a 18% em vendas, mais de 4 milhões de
-  pontos de venda no Brasil, atuação em mais de 40 países. Fonte: Times Brasil /
-  CNBC, dezembro de 2025.
+- iFood — autocadastro de restaurantes no WhatsApp, com IA montando o cardápio
+  automaticamente na etapa em que a maioria dos parceiros desistia: 26% de aumento
+  de conversão, 97% de CSAT no WhatsApp, 34% dos parceiros destravados pela IA e
+  queda de 76% no abandono do fluxo.
 - Stellantis — agente que lê a foto do painel do carro pelo WhatsApp e interpreta o
   alerta: 86,8% de NPS no pós-venda, 84,2% de assertividade da IA, 80% de
   resolutividade direta, replicado em 5 marcas do grupo. Fonte: blip.ai.
