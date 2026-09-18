@@ -1,4 +1,4 @@
-# Status dos backlinks — 2026-08-19
+# Status dos backlinks — 2026-09-17
 
 Gerado por `npm run backlinks`. Não editar à mão: a lista de alvos fica em
 [backlinks-alvos.json](backlinks-alvos.json) e o raciocínio em

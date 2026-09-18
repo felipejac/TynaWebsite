@@ -22,7 +22,7 @@ const WA_CTA = 'https://wa.me/5511997228945?text=' +
   encodeURIComponent('Olá, Felipe. Vim pelo site da Tyna e quero falar sobre governança de IA.');
 const ctaAgendar = (cls = '', attrs = '') =>
   `<a href="${WA_CTA}" target="_blank" rel="noopener" class="btn btn-primary${cls ? ' ' + cls : ''}"${attrs ? ' ' + attrs : ''}>Agendar conversa</a>`;
-const ASSET_V = '20';
+const ASSET_V = '21';
 
 const CATEGORIES = {
   'governanca': 'Governança de IA',
@@ -105,18 +105,44 @@ function mdToHtml(md) {
   let code = null;
   const closeList = () => { if (list) { out.push(`</${list}>`); list = null; } };
 
+  let lang = '';
+  // tabela em pipes: | a | b | seguida da linha de trac,os. Sem ela, comparacao vira lista solta.
+  let tabela = null;
+  const fechaTabela = () => {
+    if (!tabela) return;
+    const linha = (cels, tag) => `<tr>${cels.map(c => `<${tag}${tag === 'th' ? ' scope="col"' : ''}>${inline(c)}</${tag}>`).join('')}</tr>`;
+    out.push(`<div class="post-table-wrap"><table class="post-table"><thead>${linha(tabela.head, 'th')}</thead>`
+      + `<tbody>${tabela.rows.map(r => linha(r, 'td')).join('')}</tbody></table></div>`);
+    tabela = null;
+  };
+  const celulas = l => l.replace(/^\||\|$/g, '').split('|').map(c => c.trim());
+
   for (const rawLine of md.split(/\r?\n/)) {
     if (code) {
       if (/^\s*```\s*$/.test(rawLine)) {
         while (code.length && !code[code.length - 1].trim()) code.pop();
-        out.push(`<pre class="post-code"><code>${esc(code.join('\n'))}</code></pre>`);
+        // O botao de copiar e montado por assets/site.js: sem JS, o bloco continua
+        // legivel e selecionavel, que e o comportamento que importa.
+        out.push(`<div class="post-snippet"${lang ? ` data-lang="${escAttr(lang)}"` : ''}>`
+          + `<pre class="post-code"><code>${esc(code.join('\n'))}</code></pre></div>`);
         code = null;
+        lang = '';
       } else {
         code.push(rawLine);
       }
       continue;
     }
-    if (/^\s*```/.test(rawLine)) { closeList(); code = []; continue; }
+    const abre = rawLine.match(/^\s*```\s*([a-zA-Z0-9#+._-]*)\s*$/);
+    if (abre) { closeList(); fechaTabela(); code = []; lang = abre[1] || ''; continue; }
+
+    if (/^\s*\|.*\|\s*$/.test(rawLine)) {
+      const cels = celulas(rawLine.trim());
+      if (!tabela) { closeList(); tabela = { head: cels, rows: [], sep: false }; continue; }
+      if (!tabela.sep && cels.every(c => /^:?-{2,}:?$/.test(c))) { tabela.sep = true; continue; }
+      tabela.rows.push(cels);
+      continue;
+    }
+    fechaTabela();
 
     const line = rawLine.trim();
     if (!line) { closeList(); continue; }
@@ -140,6 +166,7 @@ function mdToHtml(md) {
     out.push(`<p>${inline(line)}</p>`);
   }
   closeList();
+  fechaTabela();
   return out.join('\n');
 }
 

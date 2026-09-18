@@ -91,6 +91,27 @@
 .post-body .post-code{margin:4px 0 28px; padding:20px 22px; background:var(--surface); border:1px solid var(--line); border-left:2px solid var(--accent); font-family:var(--mono); font-size:13.5px; line-height:1.75; color:var(--text); white-space:pre-wrap; overflow-wrap:anywhere;}
 .post-body .post-code code{background:none; padding:0; font-size:inherit; border-radius:0;}
 
+/* Bloco de código com barra: rótulo da linguagem à esquerda, botão de copiar à direita.
+   A barra só aparece quando o markdown declarou a linguagem (```yaml, ```bash...). */
+.post-body .post-snippet{margin:4px 0 28px; position:relative;}
+.post-body .post-snippet .post-code{margin:0;}
+.post-body .post-snippet .snippet-bar{
+  display:flex; align-items:center; justify-content:space-between; gap:12px;
+  padding:8px 14px; background:var(--surface-2); border:1px solid var(--line); border-bottom:0;
+  font-family:var(--mono); font-size:11.5px; letter-spacing:0.06em; text-transform:uppercase;
+  color:var(--text-muted);
+}
+.post-body .post-snippet .snippet-copy{
+  font-family:var(--mono); font-size:11.5px; letter-spacing:0.06em; text-transform:uppercase;
+  background:none; border:1px solid var(--line); border-radius:2px; color:var(--text-muted);
+  padding:5px 12px; min-height:30px; cursor:pointer; transition:color .2s, border-color .2s;
+}
+.post-body .post-snippet .snippet-copy:hover{color:var(--orange-ink); border-color:var(--orange);}
+.post-body .post-snippet .snippet-copy:focus-visible{outline:2px solid var(--orange); outline-offset:2px;}
+.post-body .post-snippet .snippet-copy.ok{color:var(--good, #166534); border-color:currentColor;}
+/* código de programa rola de lado: quebrar linha de comando muda o que a pessoa copia visualmente */
+.post-body .post-snippet[data-lang] .post-code{white-space:pre; overflow-x:auto;}
+
 .post-source{
   font-family:var(--mono); font-size:12.5px; color:var(--text-muted);
   border-top:1px solid var(--line); padding-top:18px; margin-top:36px;

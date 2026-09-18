@@ -27,8 +27,8 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
 <link rel="alternate" type="application/rss+xml" title="Feed RSS Tyna" href="https://tyna.com.br/rss.xml" />
 <link rel="preload" href="/assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../assets/styles.css?v=20">
-<link rel="stylesheet" href="../../assets/blog.css?v=20">
+<link rel="stylesheet" href="../../assets/styles.css?v=21">
+<link rel="stylesheet" href="../../assets/blog.css?v=21">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Projetos no Claude: o que colocar em instruções, contexto, memória e tarefas programadas","description":"Instruções, contexto, memória e tarefas programadas têm funções diferentes nos projetos do Claude. O que vai em cada campo, com modelos prontos para adaptar.","datePublished":"2026-09-16","dateModified":"2026-09-16","inLanguage":"pt-BR","author":{"@type":"Person","@id":"https://tyna.com.br/sobre/#felipe-jacob","name":"Felipe Jacob","url":"https://tyna.com.br/sobre/"},"publisher":{"@type":"Organization","name":"Tyna","url":"https://tyna.com.br","logo":{"@type":"ImageObject","url":"https://tyna.com.br/assets/logo-tyna-dark.png"}},"url":"https://tyna.com.br/blog/projetos-no-claude-instrucoes-contexto-memoria-e-tarefas/","mainEntityOfPage":"https://tyna.com.br/blog/projetos-no-claude-instrucoes-contexto-memoria-e-tarefas/","keywords":"claude, claude-cowork, projetos, engenharia-de-prompt, tarefas-programadas, automacao","articleSection":"Automação"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://tyna.com.br"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tyna.com.br/blog/"},{"@type":"ListItem","position":3,"name":"Automação","item":"https://tyna.com.br/blog/categoria/automation/"},{"@type":"ListItem","position":4,"name":"Projetos no Claude: o que colocar em instruções, contexto, memória e tarefas programadas","item":"https://tyna.com.br/blog/projetos-no-claude-instrucoes-contexto-memoria-e-tarefas/"}]}</script>
 <meta property="article:published_time" content="2026-09-16">
@@ -78,7 +78,7 @@
 <p>Neste campo você define tom, formatação e regras que valem para todas as tarefas do projeto. Como o texto acompanha cada conversa, ele só deve conter o que não muda. Descrição de cliente, lista de serviços e histórico de negociação ficam fora daqui.</p>
 <p>Um bom texto de instruções responde a cinco perguntas: qual é o papel do Claude, qual é o objetivo do projeto, quem vai ler o resultado, como deve ser o texto e o que ele nunca deve fazer. Escreva em frases imperativas e específicas. "Seja claro" não orienta ninguém. "Abra cada documento com a tese principal em até duas frases" orienta.</p>
 <p>O modelo abaixo é de um projeto de consultoria em IA voltado a prospecção e propostas comerciais:</p>
-<pre class="post-code"><code>Papel
+<div class="post-snippet"><pre class="post-code"><code>Papel
 Você atua como consultor sênior de estratégia em IA para empresas B2B brasileiras de médio porte. Seu trabalho é apoiar a prospecção, o diagnóstico e a elaboração de propostas.
 
 Objetivo
@@ -102,12 +102,12 @@ Regras
 - Não invente dados, cases ou números. Se faltar informação, pergunte antes de redigir.
 - Sinalize riscos de LGPD sempre que a solução envolver dados pessoais.
 - Quando uma recomendação não tiver base sólida, diga isso.
-- Consulte os arquivos de contexto antes de citar serviços, preços ou metodologia.</code></pre>
+- Consulte os arquivos de contexto antes de citar serviços, preços ou metodologia.</code></pre></div>
 <p>A última regra é a mais importante: ela liga as instruções ao contexto e impede que o Claude preencha lacunas com suposições.</p>
 <h2>Contexto: o que o Claude deve consultar</h2>
 <p>Aqui entram as referências. O campo aceita uma pasta do computador, um projeto do chat vinculado ou uma URL colada. Portfólio, tabela de preços, metodologia, cases, guia de marca e modelos de documento ficam neste campo.</p>
 <p>Duas práticas fazem diferença. A primeira é manter um assunto por arquivo, com nome descritivo: um PDF de 60 páginas com tudo junto é mais difícil de consultar do que sete arquivos curtos. A segunda é criar um arquivo-índice que explique o que existe e qual fonte prevalece em caso de conflito:</p>
-<pre class="post-code"><code>00-LEIA-PRIMEIRO.md
+<div class="post-snippet"><pre class="post-code"><code>00-LEIA-PRIMEIRO.md
 
 Material de referência oficial da consultoria. Em caso de conflito entre arquivos, vale o de data mais recente.
 
@@ -119,18 +119,18 @@ Material de referência oficial da consultoria. Em caso de conflito entre arquiv
 - 06-modelo-proposta.md: estrutura de proposta aprovada
 - 07-objecoes.md: objeções comuns e respostas validadas
 
-Revisão trimestral de preços e cases. Última revisão: [data].</code></pre>
+Revisão trimestral de preços e cases. Última revisão: [data].</code></pre></div>
 <p>Outro detalhe útil: a pasta que guarda o contexto não precisa ser a mesma em que os resultados são salvos. Isso ajuda quando vários projetos consultam a mesma pasta de referência e cada um entrega em um lugar diferente, como mostra <a href="https://thesignal.substack.com/p/how-to-setup-projects-in-claude" target="_blank" rel="noopener">este guia do The Signal</a>.</p>
 <h2>Memória: o que já foi decidido</h2>
 <p>A memória guarda o contexto do trabalho feito dentro do projeto. Ela vale só para aquele projeto e vem ativada por padrão. Diferentemente das instruções, esse campo não é preenchido de uma vez: ele se forma com o uso.</p>
 <p>Você influencia a memória pelo que diz durante o trabalho. Pedidos explícitos geram registros mais úteis do que deixar o Claude deduzir:</p>
-<pre class="post-code"><code>Registre: a Empresa X tem ciclo de aprovação de 45 dias e exige parecer jurídico antes da assinatura.
+<div class="post-snippet"><pre class="post-code"><code>Registre: a Empresa X tem ciclo de aprovação de 45 dias e exige parecer jurídico antes da assinatura.
 
 Registre como padrão deste projeto: propostas acima de [valor] sempre incluem uma fase-piloto paga.
 
 Corrija: o serviço de governança agora se chama "Programa de Governança de IA".
 
-Esqueça a negociação com a Empresa Y. O processo foi encerrado.</code></pre>
+Esqueça a negociação com a Empresa Y. O processo foi encerrado.</code></pre></div>
 <p>Vale registrar decisões, padrões aprovados, correções que você repete com frequência e o status de clientes em andamento. Não vale registrar rascunhos, dados sensíveis ou qualquer coisa que já esteja nos arquivos de contexto: informação duplicada em dois lugares acaba divergindo.</p>
 <p>Como a memória não passa de um projeto para outro, clientes e frentes de trabalho diferentes devem ter projetos separados.</p>
 <h2>Tarefas programadas: o que roda sem você</h2>
@@ -143,23 +143,23 @@ Esqueça a negociação com a Empresa Y. O processo foi encerrado.</code></pre>
 </ul>
 <p>Como ninguém acompanha a execução, o prompt precisa se sustentar sozinho: deve dizer o que pesquisar, em quais fontes, em que formato entregar e o que ignorar. Três exemplos:</p>
 <h3>Radar semanal de mercado (segunda-feira, 8h)</h3>
-<pre class="post-code"><code>Pesquise as notícias dos últimos 7 dias sobre adoção de IA generativa em empresas brasileiras, regulação de IA no Brasil e lançamentos de ferramentas de IA para atendimento, vendas e marketing.
+<div class="post-snippet"><pre class="post-code"><code>Pesquise as notícias dos últimos 7 dias sobre adoção de IA generativa em empresas brasileiras, regulação de IA no Brasil e lançamentos de ferramentas de IA para atendimento, vendas e marketing.
 
 Entregue no máximo 8 itens. Para cada um: o fato em uma frase, a fonte com link e uma linha sobre como isso afeta a conversa com clientes.
 
-Ignore conteúdo promocional, rankings sem metodologia e notícias com mais de 7 dias. Se um tema não tiver novidade na semana, informe isso em uma linha.</code></pre>
+Ignore conteúdo promocional, rankings sem metodologia e notícias com mais de 7 dias. Se um tema não tiver novidade na semana, informe isso em uma linha.</code></pre></div>
 <h3>Lista de prospecção (quarta-feira, 9h)</h3>
-<pre class="post-code"><code>Com base em 05-icp.md, identifique até 10 empresas brasileiras com sinais recentes de interesse em IA: vagas na área, expansão, rodada de investimento ou declarações de executivos nos últimos 14 dias.
+<div class="post-snippet"><pre class="post-code"><code>Com base em 05-icp.md, identifique até 10 empresas brasileiras com sinais recentes de interesse em IA: vagas na área, expansão, rodada de investimento ou declarações de executivos nos últimos 14 dias.
 
 Para cada empresa, informe: nome, setor, porte estimado, sinal encontrado (com link) e um gancho de abordagem em uma frase.
 
-Exclua as empresas que se enquadrem nos critérios de desqualificação. Não invente contatos nem dados que não estejam em fontes públicas.</code></pre>
+Exclua as empresas que se enquadrem nos critérios de desqualificação. Não invente contatos nem dados que não estejam em fontes públicas.</code></pre></div>
 <h3>Revisão de objeções (sexta-feira, 10h)</h3>
-<pre class="post-code"><code>Leia 07-objecoes.md e pesquise argumentos recentes sobre custo, risco e retorno de projetos de IA.
+<div class="post-snippet"><pre class="post-code"><code>Leia 07-objecoes.md e pesquise argumentos recentes sobre custo, risco e retorno de projetos de IA.
 
 Sugira até 3 ajustes nas respostas existentes e até 2 objeções novas, cada uma com a fonte que motivou a sugestão.
 
-Não altere o arquivo. Entregue as sugestões para aprovação.</code></pre>
+Não altere o arquivo. Entregue as sugestões para aprovação.</code></pre></div>
 <p>A última linha do terceiro exemplo segue uma boa regra para qualquer tarefa automática: tudo o que altera material oficial passa por aprovação humana.</p>
 <h2>Como os quatro campos se completam</h2>
 <p>Cada campo responde a uma pergunta:</p>
@@ -187,6 +187,14 @@ Não altere o arquivo. Entregue as sugestões para aprovação.</code></pre>
     <div class="wrap">
       <div class="section-head"><p class="eyebrow">Leia também</p><h2>Mais sobre Automação</h2></div>
       <div class="post-grid"><article class="post-card">
+  <a class="post-card-link" href="../../blog/como-criar-agente-de-ia-com-seguranca/">
+    <span class="tag">Governança de IA</span>
+    <h3>Como criar um agente de IA para sua empresa, com segurança</h3>
+    <p class="desc">O que realmente protege os dados da empresa num agente de IA, o que não está protegido e o passo a passo da criação, campo por campo, com código pronto.</p>
+    <time datetime="2026-09-18">18 de setembro de 2026</time>
+  </a>
+</article>
+<article class="post-card">
   <a class="post-card-link" href="../../blog/como-estruturar-um-comite-de-ia/">
     <span class="tag">Governança de IA</span>
     <h3>Como estruturar um comitê de IA</h3>
@@ -199,14 +207,6 @@ Não altere o arquivo. Entregue as sugestões para aprovação.</code></pre>
     <span class="tag">Governança de IA</span>
     <h3>AI Gateway explicado para quem decide</h3>
     <p class="desc">O resumo que cabe numa reunião de diretoria: o que um AI Gateway centraliza, o que muda no custo e na auditoria e quando ele ainda não faz sentido.</p>
-    <time datetime="2026-09-11">11 de setembro de 2026</time>
-  </a>
-</article>
-<article class="post-card">
-  <a class="post-card-link" href="../../blog/politica-de-uso-de-ia-o-que-precisa-ter/">
-    <span class="tag">Governança de IA</span>
-    <h3>O teste que diz se a sua política de uso de IA é real</h3>
-    <p class="desc">Uma pergunta separa a política que decide da que enfeita: ela responde o que fazer no momento de colar um contrato num chatbot? O teste e o que fazer depois.</p>
     <time datetime="2026-09-11">11 de setembro de 2026</time>
   </a>
 </article></div>
@@ -273,7 +273,7 @@ Não altere o arquivo. Entregue as sugestões para aprovação.</code></pre>
   </div>
 </footer>
 
-<script src="../../assets/site.js?v=20"></script>
+<script src="../../assets/site.js?v=21"></script>
 
 </body>
 </html>

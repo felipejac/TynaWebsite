@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // No computador (localhost) o GA4 não coleta: preview e testes não viram visita.
+  if (['localhost', '127.0.0.1', '[::1]'].indexOf(location.hostname) > -1) window['ga-disable-G-DQS0KMDT3G'] = true;
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Como criar um agente de IA para empresa com segurança | Tyna</title>
+<meta name="description" content="O que realmente protege os dados da empresa num agente de IA, o que não está protegido e o passo a passo da criação, campo por campo, com código pronto.">
+<link rel="canonical" href="https://tyna.com.br/blog/como-criar-agente-de-ia-com-seguranca/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Como criar um agente de IA para empresa com segurança | Tyna">
+<meta property="og:description" content="O que realmente protege os dados da empresa num agente de IA, o que não está protegido e o passo a passo da criação, campo por campo, com código pronto.">
+<meta property="og:url" content="https://tyna.com.br/blog/como-criar-agente-de-ia-com-seguranca/">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna-dark.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="alternate" type="application/rss+xml" title="Feed RSS Tyna" href="https://tyna.com.br/rss.xml" />
+<link rel="preload" href="/assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/styles.css?v=21">
+<link rel="stylesheet" href="../../assets/blog.css?v=21">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Como criar um agente de IA para sua empresa, com segurança","description":"O que realmente protege os dados da empresa num agente de IA, o que não está protegido e o passo a passo da criação, campo por campo, com código pronto.","datePublished":"2026-09-18","dateModified":"2026-09-18","inLanguage":"pt-BR","author":{"@type":"Person","@id":"https://tyna.com.br/sobre/#felipe-jacob","name":"Felipe Jacob","url":"https://tyna.com.br/sobre/"},"publisher":{"@type":"Organization","name":"Tyna","url":"https://tyna.com.br","logo":{"@type":"ImageObject","url":"https://tyna.com.br/assets/logo-tyna-dark.png"}},"url":"https://tyna.com.br/blog/como-criar-agente-de-ia-com-seguranca/","mainEntityOfPage":"https://tyna.com.br/blog/como-criar-agente-de-ia-com-seguranca/","keywords":"agentes-de-ia, seguranca-da-informacao, governanca-de-ia, claude, api, lgpd","articleSection":"Governança de IA"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://tyna.com.br"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tyna.com.br/blog/"},{"@type":"ListItem","position":3,"name":"Governança de IA","item":"https://tyna.com.br/blog/categoria/governanca/"},{"@type":"ListItem","position":4,"name":"Como criar um agente de IA para sua empresa, com segurança","item":"https://tyna.com.br/blog/como-criar-agente-de-ia-com-seguranca/"}]}</script>
+<meta property="article:published_time" content="2026-09-18">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Os dados da minha empresa são usados para treinar o modelo?","acceptedAnswer":{"@type":"Answer","text":"Em produtos comerciais — Claude for Work e uso da API, inclusive via Bedrock e Vertex — a Anthropic não usa entradas e saídas para treinar modelos por padrão. Isso muda se alguém reportar feedback explicitamente ou optar por permitir esse uso. Nas contas individuais Free, Pro e Max valem os termos de consumidor, que são outro regime. Por isso a primeira verificação de segurança não é técnica: é saber sob qual contrato cada conta da empresa opera."}},{"@type":"Question","name":"Qual é o erro de configuração mais comum em agente de IA corporativo?","acceptedAnswer":{"@type":"Answer","text":"Subir com os padrões de fábrica. O conjunto de ferramentas do agente vem com `always_allow`, o que significa executar bash, escrever arquivos e buscar na web sem pedir aprovação. Um agente com acesso a sistemas reais deveria usar avaliação por chamada no conjunto e `always_ask` nas ferramentas de efeito irreversível."}},{"@type":"Question","name":"Dá para usar agente de IA em dado sensível com exigência de retenção zero?","acceptedAnswer":{"@type":"Answer","text":"Não com o Managed Agents. Ele é stateful por desenho — guarda histórico de conversa, estado do sandbox e saídas no servidor — e por isso não é elegível a Zero Data Retention nem à cobertura de BAA de HIPAA. Para retenção zero, o caminho é a Messages API com loop de agente próprio. A alternativa intermediária é apagar sessões e arquivos por API como rotina."}},{"@type":"Question","name":"Quando vale a pena hospedar o sandbox na própria infraestrutura?","acceptedAnswer":{"@type":"Answer","text":"Quando há exigência regulatória de residência de dados ou de retenção. No sandbox auto-hospedado, o conteúdo da conversa e as saídas de ferramentas permanecem no seu ambiente, e a Anthropic não tem visibilidade sobre o que acontece depois da entrega. Em troca, imagem do sandbox, egresso de rede, armazenamento, rotação de chave e isolamento de cargas não confiáveis passam a ser responsabilidade sua. Sem exigência regulatória, é custo sem retorno."}}]}</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../../" class="logo"><img src="../../assets/logo-tyna-dark-sm.png" alt="Tyna" width="211" height="68"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../../#servicos">Serviços</a></li>
+        <li><a href="../../ai-gateway/comparativo/">AI Gateway</a></li>
+        <li><a href="../../iso-42001/">ISO 42001</a></li>
+        <li><a href="../../#trilhas">Trilhas</a></li>
+        <li><a href="../../blog/">Blog</a></li>
+        <li><a href="../../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+  <article class="post">
+    <div class="wrap post-wrap">
+      <nav class="crumbs" aria-label="Trilha"><a href="../../">Início</a> › <a href="../../blog/">Blog</a> › <a href="../../blog/categoria/governanca/">Governança de IA</a></nav>
+      <p class="eyebrow">Governança de IA</p>
+      <h1>Como criar um agente de IA para sua empresa, com segurança</h1>
+      <p class="post-meta"><time datetime="2026-09-18">18 de setembro de 2026</time> · Por <a href="../../sobre/">Felipe Jacob</a></p>
+      <p class="lead">O que realmente protege os dados da empresa num agente de IA, o que não está protegido e o passo a passo da criação, campo por campo, com código pronto.</p>
+
+      
+
+      <aside class="answer-box"><h2>Resposta curta</h2><p>A proteção dos dados de uma empresa num agente de IA depende menos do fornecedor escolhido e mais de sob qual contrato a conta opera — termos de consumidor ou termos comerciais — e de como o agente foi configurado. Os cinco mecanismos que fazem o trabalho são isolamento por workspace, política de permissão por ferramenta, execução em sandbox gerenciado ou próprio, fixação da geografia de inferência e rastro de auditoria por evento. O erro mais comum é subir o agente com os padrões de fábrica: o conjunto de ferramentas já vem liberado para executar bash, escrever arquivos e buscar na web sem pedir aprovação a ninguém.</p></aside>
+
+      <div class="post-body">
+<p>A pergunta que todo diretor de tecnologia faz quando alguém propõe colocar um agente de IA para rodar sobre dados internos é sempre a mesma: para onde vão esses dados. A resposta depende menos de qual fornecedor você escolhe e mais de sob qual contrato a sua conta opera e de como o agente foi configurado.</p>
+<p>Este artigo cobre as duas coisas. Primeiro, o que de fato protege os dados de uma empresa num agente construído no Claude Platform, incluindo o que não está protegido. Depois, o passo a passo da criação do agente, campo por campo.</p>
+<h2>A linha que separa tudo não é entre fornecedores</h2>
+<p>O divisor decisivo é entre termos de consumidor e termos comerciais. Nas contas individuais — Free, Pro e Max — as atualizações de termos de consumidor se aplicam a esses planos, inclusive quando o Claude Code é usado a partir dessas contas, e não se aplicam aos serviços sob os Termos Comerciais, incluindo Claude for Work, Claude for Government, Claude for Education e o uso da API, inclusive via terceiros como Amazon Bedrock e Vertex AI. Nas contas comerciais, a regra é outra: por padrão, a Anthropic não usa entradas ou saídas de produtos comerciais para treinar modelos, e isso só muda se alguém reportar feedback explicitamente ou optar por permitir esse uso.</p>
+<p>Essa diferença tem consequência prática. Um funcionário que cola um contrato de cliente no Claude a partir da conta pessoal dele está operando sob um regime de dados; o mesmo contrato processado por um agente na plataforma opera sob outro. A auditoria de <a href="/shadow-ai/">shadow AI</a> — contas pessoais usadas para trabalho — costuma ser o achado mais desconfortável de qualquer diagnóstico de governança.</p>
+<p>O ponto vale contra o marketing de qualquer fornecedor, inclusive o da Anthropic: não é o preço do plano que define a proteção. É o contrato.</p>
+<h2>Os cinco mecanismos que fazem o trabalho</h2>
+<p><strong>Isolamento por workspace.</strong> O workspace é a unidade de contenção da plataforma. Toda requisição roda em exatamente um workspace e só acessa recursos daquele workspace. Chaves de API podem ser limitadas a um único workspace, e arquivos, batches e skills são escopados por workspace. Os caches de prompt também são isolados. Cada workspace pode ter seu próprio teto de gasto mensal, seus próprios limites de taxa e papéis distintos por membro, de quem só usa o playground a quem administra.</p>
+<p><strong>Políticas de permissão por ferramenta.</strong> Aqui está o controle mais importante e o mais mal configurado. Cada conjunto de ferramentas do agente recebe uma política que decide se a ferramenta executa sozinha, pausa esperando aprovação ou é avaliada chamada a chamada pelo servidor. São três valores: <code>always_allow</code>, <code>always_ask</code> e <code>auto</code>. O detalhe que mais gera susto: o conjunto de ferramentas do agente tem <code>always_allow</code> como padrão, enquanto conjuntos MCP têm <code>always_ask</code>. Ou seja, um agente criado sem configuração explícita executa bash, escreve arquivos e busca na web sem pedir nada a ninguém.</p>
+<p><strong>Execução em sandbox, própria ou da Anthropic.</strong> As sessões rodam num sandbox na nuvem da Anthropic ou num sandbox auto-hospedado na infraestrutura da própria empresa. A segunda opção existe para requisitos de compliance e residência de dados, e muda o modelo de responsabilidade: no auto-hospedado, o conteúdo da conversa e as saídas das ferramentas passam pelo seu worker e permanecem no seu ambiente, e a Anthropic não tem visibilidade sobre o que o worker faz com esse conteúdo depois da entrega. Em troca, imagem do sandbox, controles de egresso de rede, armazenamento e rotação da chave de serviço e isolamento de cargas não confiáveis passam a ser seus.</p>
+<p><strong>Fixação da geografia de inferência.</strong> O agente pode ser fixado numa geografia com o campo <code>inference_geo</code>, que aceita <code>us</code> ou <code>global</code>. A validação é dura: o pin é checado quando o agente é salvo, quando uma sessão é criada e a cada turno servido, e nunca é dispensado, porque os workspaces dependem disso para compliance e residência de dados.</p>
+<p><strong>Rastro de auditoria.</strong> Cada evento de uso de ferramenta carrega <code>evaluated_permission</code>, com o resultado da checagem — allow, ask ou deny — e, na maioria dos casos, um objeto de avaliação que nomeia a política que produziu aquele resultado. Dá para reconstruir, depois do fato, por que cada ação aconteceu. Fora isso, o feed de atividade retém dados por seis anos e a Compliance API expõe transcrições e conteúdo organizacional.</p>
+<h2>O que não está protegido</h2>
+<p>Três limitações precisam estar na mesa antes de qualquer decisão.</p>
+<p>A primeira, e a mais relevante: o Managed Agents é stateful por desenho. As sessões são longas, retomam depois de pausas e armazenam histórico de conversa, estado do sandbox e saídas no servidor. Por isso, não é atualmente elegível a Zero Data Retention nem à cobertura de BAA de HIPAA. A contrapartida é que você mantém controle sobre esses dados e pode apagar sessões, e separadamente apagar arquivos enviados, a qualquer momento pela API. Se a sua exigência regulatória é retenção zero, o caminho é a Messages API com o seu próprio loop de agente.</p>
+<p>A segunda: a política <code>auto</code> não é um ponto de controle humano. A documentação é explícita ao dizer que, se o servidor determinar que a chamada é segura, ela roda antes que qualquer pessoa veja, e os efeitos podem não ser reversíveis. Quando uma pessoa precisa revisar antes, o valor correto é <code>always_ask</code>.</p>
+<p>A terceira: intenção declarada pesa na avaliação. O que você envia em eventos <code>user.message</code> conta como sua intenção e pode levar o servidor a permitir uma chamada que negaria de outro modo. O servidor não toma instruções de resultados de ferramentas, páginas buscadas ou respostas de servidores MCP, mas, se você repassa entrada de usuário final não confiável dentro de <code>user.message</code>, essa entrada é lida como sua intenção. Para agentes expostos a usuários externos, isso significa configurar <code>always_ask</code> nas ferramentas que você não deixaria aquele usuário executar sem revisão.</p>
+<h2>Comparação direta</h2>
+<div class="post-table-wrap"><table class="post-table"><thead><tr><th scope="col"></th><th scope="col">Conta individual</th><th scope="col">Claude Code</th><th scope="col">Agente no Claude Platform</th></tr></thead><tbody><tr><td>Contrato</td><td>Termos de consumidor</td><td>Depende da conta</td><td>Termos comerciais</td></tr><tr><td>Treinamento nos seus dados</td><td>Controlado por configuração</td><td>Não sob termos comerciais</td><td>Não por padrão</td></tr><tr><td>Onde o código executa</td><td>Não executa código da empresa</td><td>Máquina do desenvolvedor</td><td>Sandbox gerenciado ou próprio</td></tr><tr><td>Controle de permissão</td><td>Do usuário, na hora</td><td>Do desenvolvedor, na hora</td><td>Declarado na configuração</td></tr><tr><td>Isolamento administrativo</td><td>Nenhum</td><td>Workspace criado automaticamente</td><td>Workspace com papéis e tetos</td></tr><tr><td>Quem responde pelo dado</td><td>O funcionário</td><td>O desenvolvedor</td><td>A organização</td></tr></tbody></table></div>
+<p>A diferença que mais importa está na penúltima linha. No Claude Code, quem decide se um comando roda é a pessoa sentada na frente do terminal, no momento em que a pergunta aparece. No agente de plataforma, essa decisão é tomada antes, por escrito, versionada, e passa a valer para todas as execuções. É a diferença entre confiar no julgamento individual e codificar uma política.</p>
+<h2>Criando o agente, campo por campo</h2>
+<p>O exemplo é um extrator estruturado: recebe texto bruto e devolve JSON validado contra um schema. É um bom caso de uso inicial porque o escopo é estreito e o critério de sucesso é objetivo.</p>
+<p>Antes de começar, três pré-requisitos: uma chave de API, o cabeçalho de beta <code>managed-agents-2026-04-01</code> em todas as requisições e acesso ao Managed Agents, que vem habilitado por padrão para contas de API. O recurso está em beta, e comportamentos podem ser refinados entre versões.</p>
+<h3>Passo 1: criar o workspace antes do agente</h3>
+<p>Essa etapa costuma ser pulada e é a que mais custa depois. No console, em Settings › Workspaces, crie um workspace dedicado ao agente e defina teto de gasto e limites de taxa — só administradores da organização podem criar workspaces. Depois, gere uma chave escopada àquele workspace. É isso que impede que um erro de configuração consuma a cota de produção da empresa inteira ou acesse arquivos de outro projeto.</p>
+<p>Adicione ao workspace apenas quem precisa, com o menor papel que resolve. Membros comuns da organização não entram automaticamente: precisam ser adicionados um a um.</p>
+<h3>Passo 2: escrever a definição do agente</h3>
+<p>O agente é uma configuração reutilizável e versionada que define persona e capacidades, reunindo modelo, prompt de sistema, ferramentas, servidores MCP e skills. Você cria uma vez e referencia por ID em cada sessão.</p>
+<div class="post-snippet" data-lang="yaml"><pre class="post-code"><code>name: Structured extractor
+description: Parses unstructured text into a typed JSON schema.
+model:
+  id: claude-opus-5
+  effort: low
+system: |-
+  You extract structured data from unstructured text. Given raw input
+  (emails, PDFs, logs, transcripts, scraped HTML) and a target JSON schema:
+
+  1. Read the schema first. Note required vs optional fields, enums, and
+     format constraints (dates, currencies, IDs). The schema is the
+     contract — never emit a key it doesn't define.
+  2. Scan the input for each field. Prefer explicit values over inferred
+     ones. If a required field is genuinely absent, use null rather than
+     guessing. If the schema itself is absent, do not guess it either:
+     propose one and ask before you extract.
+  3. Normalize as you extract: trim whitespace, coerce dates to ISO 8601,
+     strip currency symbols into numeric + code, collapse enum synonyms
+     to their canonical value.
+  4. Emit a single JSON object (or array, if the schema is a list) that
+     validates against the schema. No prose, no markdown fences — just
+     the JSON.
+
+  When the input is ambiguous, pick the most conservative interpretation
+  and note the ambiguity in a top-level "_extraction_notes" field only if
+  the schema allows additionalProperties.
+tools:
+  - type: agent_toolset_20260401
+    default_config:
+      permission_policy:
+        type: auto
+metadata:
+  template: structured-extractor</code></pre></div>
+<p><strong>name</strong> é obrigatório e é o nome legível do agente. Vale tratar como identificador operacional: quem for ler um log de auditoria seis meses depois precisa saber do que se trata sem abrir a configuração. Não pode ser limpo depois.</p>
+<p><strong>description</strong> descreve o que o agente faz. É opcional e pode ser limpo passando <code>null</code>. Num ambiente com vários agentes, é o que distingue "Structured extractor" de "Invoice parser" para quem não escreveu nenhum dos dois.</p>
+<p><strong>model</strong> é obrigatório e aceita uma string com o ID ou um objeto. São suportados os modelos Claude 4.5 e posteriores. A forma de objeto é o que libera os campos <code>speed</code>, <code>effort</code> e <code>inference_geo</code>, e por isso é a forma que vale usar por padrão em contexto corporativo: sem ela, não há como fixar geografia de inferência.</p>
+<p><strong>model.effort</strong> controla o nível de esforço e aceita <code>low</code>, <code>medium</code>, <code>high</code>, <code>xhigh</code> ou <code>max</code>, como string ou objeto. O exemplo usa <code>low</code> porque extração estruturada contra um schema conhecido é tarefa de execução, não de raciocínio aberto: esforço alto aqui gasta mais e não melhora o resultado. Existe uma armadilha na atualização — se você mudar o <code>id</code> do modelo e omitir <code>effort</code>, o valor volta ao padrão do novo modelo. Se o <code>id</code> continua o mesmo, omitir <code>effort</code> preserva o que estava lá.</p>
+<p><strong>system</strong> é o prompt de sistema que define comportamento e persona, e é distinto das mensagens de usuário, que descrevem o trabalho a ser feito. A separação importa mais do que parece: o que você põe em <code>system</code> vale para todas as sessões e não muda; o que a aplicação envia como evento de usuário é a tarefa específica. Prompt de sistema que descreve uma tarefa é erro de arquitetura, não de redação.</p>
+<p>O prompt do exemplo faz três coisas que valem copiar. Ele estabelece um contrato explícito: o schema manda, nunca emita uma chave que ele não defina. Ele dá uma instrução de fallback para dado ausente, <code>null</code> em vez de chute, que é a regra que separa extração confiável de alucinação educada. E ele manda o agente parar e perguntar quando o próprio schema não veio, em vez de inventar um.</p>
+<p><strong>tools</strong> define as ferramentas disponíveis, combinando o conjunto pré-construído, ferramentas MCP e ferramentas customizadas. O <code>agent_toolset_20260401</code> é o conjunto pré-construído: bash, operações de arquivo, busca e fetch na web.</p>
+<p>O bloco <code>default_config.permission_policy</code> é o campo de segurança da configuração. O exemplo usa <code>auto</code>, que faz o servidor avaliar cada chamada considerando a ferramenta, a entrada e o conteúdo da sessão até aquele ponto, com três desfechos: a chamada roda, é negada ou pausa esperando aprovação. Quando é negada, o agente recebe um resultado de erro e o seu cliente não pode sobrepor a negação. Nenhum conjunto de ferramentas usa <code>auto</code> por padrão: é preciso pedir.</p>
+<p><strong>metadata</strong> aceita pares chave-valor arbitrários para rastreamento próprio. O exemplo marca <code>template: structured-extractor</code>, o que permite agrupar agentes criados a partir do mesmo molde. Metadados são mesclados por chave na atualização: chaves enviadas são adicionadas ou atualizadas, chaves omitidas são preservadas, e para apagar uma chave você a define como <code>null</code>.</p>
+<h3>Passo 3: apertar as permissões</h3>
+<p>A configuração acima é razoável para um extrator que só lê texto. Para qualquer agente com acesso a sistemas reais, o padrão que recomendo é liberar o conjunto por avaliação e exigir confirmação humana nas ferramentas de efeito irreversível:</p>
+<div class="post-snippet" data-lang="yaml"><pre class="post-code"><code>tools:
+  - type: agent_toolset_20260401
+    default_config:
+      permission_policy:
+        type: auto
+    configs:
+      - name: bash
+        permission_policy:
+          type: always_ask</code></pre></div>
+<p>O array <code>configs</code> sobrescreve o padrão para ferramentas individuais. Sessões em execução mantêm a configuração com que foram criadas; mudanças valem para sessões criadas depois. Isso significa que endurecer a política não interrompe o que está rodando — e também que não adianta apertar a configuração no meio de um incidente.</p>
+<p>Quando uma chamada pausa, a sessão emite um evento de uso de ferramenta e para com status <code>requires_action</code>, aguardando indefinidamente. A resposta vai num evento <code>user.tool_confirmation</code> com <code>allow</code> ou <code>deny</code>, e <code>deny_message</code> para explicar a recusa — texto que chega ao agente e orienta a próxima tentativa.</p>
+<h3>Passo 4: escolher o formato</h3>
+<p>O YAML acima não é o único jeito de criar o agente, e a escolha do formato tem implicação organizacional.</p>
+<p><strong>YAML pela CLI.</strong> Há duas variantes. O comando <code>ant beta:agents create</code> aceita YAML puro via heredoc. Já o <code>ant apply</code> trabalha com um arquivo Markdown que traz a configuração em frontmatter e o prompt de sistema no corpo, abaixo dos três traços:</p>
+<div class="post-snippet" data-lang="markdown"><pre class="post-code"><code>---
+name: Structured extractor
+model:
+  id: claude-opus-5
+  effort: low
+tools:
+  - type: agent_toolset_20260401
+---
+
+You extract structured data from unstructured text...</code></pre></div>
+<p>Esse é o formato que faz sentido para uma equipe: o arquivo vive no repositório, passa por pull request e é aplicado por um job de CI. Com <code>ant apply</code>, você edita o arquivo e roda o comando de novo, e o apply cuida do controle de versão.</p>
+<p><strong>cURL.</strong> É a forma canônica, útil para entender o que está acontecendo e para ambientes sem SDK:</p>
+<div class="post-snippet" data-lang="bash"><pre class="post-code"><code>curl -fsSL https://api.anthropic.com/v1/agents \
+  -H "x-api-key: $ANTHROPIC_API_KEY" \
+  -H "anthropic-version: 2023-06-01" \
+  -H "anthropic-beta: managed-agents-2026-04-01" \
+  -H "content-type: application/json" \
+  -d '{
+    "name": "Structured extractor",
+    "model": {"id": "claude-opus-5", "effort": "low"},
+    "system": "You extract structured data from unstructured text...",
+    "tools": [{
+      "type": "agent_toolset_20260401",
+      "default_config": {"permission_policy": {"type": "auto"}}
+    }]
+  }'</code></pre></div>
+<p><strong>Python.</strong></p>
+<div class="post-snippet" data-lang="python"><pre class="post-code"><code>agent = client.beta.agents.create(
+    name="Structured extractor",
+    model={"id": "claude-opus-5", "effort": "low"},
+    system="You extract structured data from unstructured text...",
+    tools=[{
+        "type": "agent_toolset_20260401",
+        "default_config": {"permission_policy": {"type": "auto"}},
+    }],
+)</code></pre></div>
+<p><strong>TypeScript.</strong></p>
+<div class="post-snippet" data-lang="typescript"><pre class="post-code"><code>const agent = await client.beta.agents.create({
+  name: "Structured extractor",
+  model: { id: "claude-opus-5", effort: "low" },
+  system: "You extract structured data from unstructured text...",
+  tools: [{
+    type: "agent_toolset_20260401",
+    default_config: { permission_policy: { type: "auto" } }
+  }]
+});</code></pre></div>
+<p>Há SDKs também para C#, Go, Java, PHP e Ruby. A recomendação prática: use YAML em arquivo para a definição que a empresa mantém, e SDK para o código que cria sessões. Configuração declarativa em repositório e chamada imperativa em runtime resolvem problemas diferentes.</p>
+<h3>Passo 5: versionar e arquivar</h3>
+<p>A resposta da criação devolve <code>id</code>, <code>version</code>, <code>created_at</code>, <code>updated_at</code> e preenche com os padrões os campos de modelo que você omitiu. A versão começa em 1 e sobe a cada atualização que muda a configuração. Se a atualização não produz mudança, nenhuma versão nova é criada.</p>
+<p>Duas regras de atualização merecem atenção. Campos de array — <code>tools</code>, <code>mcp_servers</code>, <code>skills</code> — são substituídos por inteiro pelo novo array: enviar um <code>tools</code> incompleto não adiciona ferramentas, apaga as que faltaram. E o campo <code>version</code> é opcional — enviá-lo garante concorrência otimista, com erro 409 se alguém mudou o agente no intervalo; omiti-lo aplica a atualização incondicionalmente, e a escrita mais recente substitui qualquer outra em silêncio. Para quem edita pelo console ou por script interativo, enviar a versão é o padrão certo.</p>
+<p>Arquivar torna o agente somente leitura e não pode ser desfeito. Sessões existentes continuam rodando; novas sessões não podem mais referenciá-lo. É o mecanismo de aposentadoria controlada: tira o agente de circulação sem derrubar o que está em execução.</p>
+<h3>Passo 6: o ambiente e a primeira sessão</h3>
+<p>Com o agente pronto, falta definir onde ele roda. O ambiente configura isso: sandbox na nuvem da Anthropic ou sandbox auto-hospedado na sua infraestrutura. A sessão é a instância em execução, dentro de um ambiente, cumprindo uma tarefa.</p>
+<p>Para quem está avaliando, o caminho pragmático é começar no sandbox gerenciado com dados sintéticos ou já públicos, validar a configuração de permissões observando o campo <code>evaluated_permission</code> nos eventos e só então decidir se o caso justifica auto-hospedagem. A auto-hospedagem resolve residência de dados e retenção, e transfere para você a responsabilidade por imagem, rede, chaves e isolamento — uma troca que vale a pena quando há exigência regulatória, e que é custo puro quando não há.</p>
+<h2>O que eu faria antes de colocar em produção</h2>
+<p>Três verificações, nesta ordem.</p>
+<p>Confirme sob quais termos a conta opera e se alguém da equipe já ativou o programa de parceiros de desenvolvimento. Treinamento desligado por padrão em produto comercial é o comportamento documentado, mas o padrão pode ter sido alterado por decisão interna.</p>
+<p>Leia a configuração de permissões como se fosse uma política de acesso, porque é isso que ela é. Se nenhuma ferramenta está em <code>always_ask</code>, você tem um agente que age sozinho em tudo. Isso pode ser aceitável. Precisa ser uma escolha.</p>
+<p>Decida se a persistência de sessão é compatível com o seu requisito de retenção. Como o Managed Agents não é elegível a ZDR nem a HIPAA, uma política interna de retenção zero exige apagar sessões e arquivos por API como rotina, não como exceção.</p>
+<p>Nada disso é complicado. O que costuma dar errado não é a configuração do agente: é o agente que entrou em produção com os padrões de fábrica porque ninguém leu qual era o padrão.</p>
+<h2>Perguntas frequentes</h2>
+<p><strong>P: Os dados da minha empresa são usados para treinar o modelo?</strong></p>
+<p>R: Em produtos comerciais — Claude for Work e uso da API, inclusive via Bedrock e Vertex — a Anthropic não usa entradas e saídas para treinar modelos por padrão. Isso muda se alguém reportar feedback explicitamente ou optar por permitir esse uso. Nas contas individuais Free, Pro e Max valem os termos de consumidor, que são outro regime. Por isso a primeira verificação de segurança não é técnica: é saber sob qual contrato cada conta da empresa opera.</p>
+<p><strong>P: Qual é o erro de configuração mais comum em agente de IA corporativo?</strong></p>
+<p>R: Subir com os padrões de fábrica. O conjunto de ferramentas do agente vem com <code>always_allow</code>, o que significa executar bash, escrever arquivos e buscar na web sem pedir aprovação. Um agente com acesso a sistemas reais deveria usar avaliação por chamada no conjunto e <code>always_ask</code> nas ferramentas de efeito irreversível.</p>
+<p><strong>P: Dá para usar agente de IA em dado sensível com exigência de retenção zero?</strong></p>
+<p>R: Não com o Managed Agents. Ele é stateful por desenho — guarda histórico de conversa, estado do sandbox e saídas no servidor — e por isso não é elegível a Zero Data Retention nem à cobertura de BAA de HIPAA. Para retenção zero, o caminho é a Messages API com loop de agente próprio. A alternativa intermediária é apagar sessões e arquivos por API como rotina.</p>
+<p><strong>P: Quando vale a pena hospedar o sandbox na própria infraestrutura?</strong></p>
+<p>R: Quando há exigência regulatória de residência de dados ou de retenção. No sandbox auto-hospedado, o conteúdo da conversa e as saídas de ferramentas permanecem no seu ambiente, e a Anthropic não tem visibilidade sobre o que acontece depois da entrega. Em troca, imagem do sandbox, egresso de rede, armazenamento, rotação de chave e isolamento de cargas não confiáveis passam a ser responsabilidade sua. Sem exigência regulatória, é custo sem retorno.</p>
+<h2>A leitura da Tyna</h2>
+<p>A configuração de permissões de um agente é uma política de acesso escrita em outro formato. Ela decide o que a IA pode fazer sozinha, o que exige um humano e o que fica registrado para auditoria depois — as mesmas três perguntas que a <a href="/governanca-de-agentes/">governança de agentes de IA</a> responde no nível da empresa: escopo de autonomia, escalonamento humano e trilha de auditoria.</p>
+<p>Dois cuidados fecham o assunto. O primeiro é que a decisão sobre contrato e conta precede qualquer configuração técnica: enquanto houver time usando conta pessoal para trabalho, o agente bem configurado protege só a parte do fluxo que passa por ele — o resto é <a href="/shadow-ai/">shadow AI</a>. O segundo é a LGPD: dado pessoal que entra num prompt, num arquivo de contexto ou no estado de uma sessão precisa de base legal mapeada por finalidade, e a persistência do agente é exatamente o tipo de armazenamento que ninguém declara no inventário. O caminho está no guia de <a href="/lgpd-e-ia/">LGPD em fluxos de IA</a>.</p>
+      </div>
+
+      
+      
+
+      <ul class="post-tags"><li>#agentes-de-ia</li><li>#seguranca-da-informacao</li><li>#governanca-de-ia</li><li>#claude</li><li>#api</li><li>#lgpd</li></ul>
+    </div>
+  </article>
+
+  <section class="related">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow">Leia também</p><h2>Mais sobre Governança de IA</h2></div>
+      <div class="post-grid"><article class="post-card">
+  <a class="post-card-link" href="../../blog/como-estruturar-um-comite-de-ia/">
+    <span class="tag">Governança de IA</span>
+    <h3>Como estruturar um comitê de IA</h3>
+    <p class="desc">A maioria dos comitês de IA se reúne e não decide nada. O que separa um comitê com poder real de um que só documenta o que já foi decidido.</p>
+    <time datetime="2026-09-11">11 de setembro de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../blog/o-que-e-um-ai-gateway/">
+    <span class="tag">Governança de IA</span>
+    <h3>AI Gateway explicado para quem decide</h3>
+    <p class="desc">O resumo que cabe numa reunião de diretoria: o que um AI Gateway centraliza, o que muda no custo e na auditoria e quando ele ainda não faz sentido.</p>
+    <time datetime="2026-09-11">11 de setembro de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../blog/politica-de-uso-de-ia-o-que-precisa-ter/">
+    <span class="tag">Governança de IA</span>
+    <h3>O teste que diz se a sua política de uso de IA é real</h3>
+    <p class="desc">Uma pergunta separa a política que decide da que enfeita: ela responde o que fazer no momento de colar um contrato num chatbot? O teste e o que fazer depois.</p>
+    <time datetime="2026-09-11">11 de setembro de 2026</time>
+  </a>
+</article></div>
+    </div>
+  </section>
+
+  <section class="cta-band" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Quer aplicar isso na sua empresa, com governança?</h2>
+      <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary">Agendar conversa</a>
+    </div>
+  </section>
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../../" class="logo"><img src="../../assets/logo-tyna-sm.png" alt="Tyna" width="211" height="68"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <p class="foot-h">Contato</p>
+          <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener">WhatsApp</a>
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <p class="foot-h">Blog</p>
+          <a href="../../blog/categoria/governanca/">Governança de IA</a>
+          <a href="../../blog/categoria/automation/">Automação</a>
+          <a href="../../blog/radar/">Radar</a>
+        </div>
+        <div class="foot-col">
+          <p class="foot-h">Guias</p>
+          <a href="../../governanca-de-ia/">Governança de IA</a>
+          <a href="../../iso-42001/">ISO 42001</a>
+          <a href="../../shadow-ai/">Shadow AI</a>
+          <a href="../../ai-gateway/">AI Gateway</a>
+          <a href="../../ai-gateway/comparativo/">Comparativo de gateways</a>
+          <a href="../../llm-leaderboard/">LLM Leaderboard</a>
+          <a href="../../governanca-de-agentes/">Governança de agentes</a>
+          <a href="../../politica-de-uso-de-ia/">Política de uso de IA</a>
+          <a href="../../treinamento-de-ia-para-empresas/">Treinamento de IA</a>
+          <a href="../../lgpd-e-ia/">LGPD e IA</a>
+          <a href="../../pl-2338/">Marco Legal da IA</a>
+        </div>
+        <div class="foot-col">
+          <p class="foot-h">Site</p>
+          <a href="../../#servicos">Serviços</a>
+          <a href="../../diagnostico/">Diagnóstico</a>
+          <a href="../../sobre/">Sobre</a>
+          <a href="../../politica-de-privacidade/">Política de privacidade</a>
+          <a href="../../blog/">Blog</a>
+          <a href="../../rss.xml">RSS</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/site.js?v=21"></script>
+
+</body>
+</html>

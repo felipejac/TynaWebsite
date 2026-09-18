@@ -276,3 +276,61 @@
       }
     });
   });
+
+  // Blocos de código do blog: barra com a linguagem e botão de copiar.
+  //
+  // A barra é montada aqui, e não no HTML gerado, porque sem JS o botão não
+  // funcionaria — e um botão morto é pior que a ausência dele. Sem JS o leitor
+  // continua com o bloco inteiro selecionável, que é o comportamento essencial.
+  document.querySelectorAll('.post-snippet').forEach(function (bloco) {
+    var codigo = bloco.querySelector('code');
+    if (!codigo || bloco.querySelector('.snippet-bar')) return;
+
+    var barra = document.createElement('div');
+    barra.className = 'snippet-bar';
+    var lang = document.createElement('span');
+    lang.className = 'snippet-lang';
+    lang.textContent = bloco.getAttribute('data-lang') || 'texto';
+    var botao = document.createElement('button');
+    botao.type = 'button';
+    botao.className = 'snippet-copy';
+    botao.textContent = 'Copiar';
+    botao.setAttribute('aria-label', 'Copiar o bloco de código');
+    barra.appendChild(lang);
+    barra.appendChild(botao);
+    bloco.insertBefore(barra, bloco.firstChild);
+
+    var voltar;
+    function aviso(texto, ok) {
+      botao.textContent = texto;
+      botao.classList.toggle('ok', !!ok);
+      clearTimeout(voltar);
+      voltar = setTimeout(function () {
+        botao.textContent = 'Copiar';
+        botao.classList.remove('ok');
+      }, 2200);
+    }
+
+    botao.addEventListener('click', function () {
+      function copiado() {
+        aviso('Copiado', true);
+        if (typeof gtag === 'function') {
+          gtag('event', 'codigo_copiado', { linguagem: bloco.getAttribute('data-lang') || 'texto', pagina: location.pathname });
+        }
+      }
+      // sem clipboard (http, navegador antigo): seleciona o bloco para o Ctrl+C
+      function selecionar() {
+        var faixa = document.createRange();
+        faixa.selectNodeContents(codigo);
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(faixa);
+        aviso('Use Ctrl+C');
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(codigo.textContent).then(copiado, selecionar);
+      } else {
+        selecionar();
+      }
+    });
+  });

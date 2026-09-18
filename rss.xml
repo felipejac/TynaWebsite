@@ -5,8 +5,16 @@
   <link>https://tyna.com.br</link>
   <description>Governança de IA na prática — política de uso, AI Gateway, LGPD e agentes em produção — e o Radar de notícias de IA, agentes e automação comentadas pela Tyna.</description>
   <language>pt-BR</language>
-  <lastBuildDate>Wed, 16 Sep 2026 15:00:00 +0000</lastBuildDate>
+  <lastBuildDate>Fri, 18 Sep 2026 15:00:00 +0000</lastBuildDate>
   <atom:link href="https://tyna.com.br/rss.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Como criar um agente de IA para empresa com segurança</title>
+    <link>https://tyna.com.br/blog/como-criar-agente-de-ia-com-seguranca/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/como-criar-agente-de-ia-com-seguranca/</guid>
+    <pubDate>Fri, 18 Sep 2026 15:00:00 +0000</pubDate>
+    <description>O que realmente protege os dados da empresa num agente de IA, o que não está protegido e o passo a passo da criação, campo por campo, com código pronto.</description>
+    <category>Blog</category>
+  </item>
   <item>
     <title>Projetos no Claude: instruções, contexto, memória e tarefas</title>
     <link>https://tyna.com.br/blog/projetos-no-claude-instrucoes-contexto-memoria-e-tarefas/</link>
