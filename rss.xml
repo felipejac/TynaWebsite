@@ -7,6 +7,14 @@
   <language>pt-BR</language>
   <atom:link href="https://tyna.com.br/rss.xml" rel="self" type="application/rss+xml"/>
   <item>
+    <title>How to Use Google AI Studio</title>
+    <link>https://tyna.com.br/blog/how-to-use-google-ai-studio/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/how-to-use-google-ai-studio/</guid>
+    <pubDate>Mon, 21 Sep 2026 12:00:00 GMT</pubDate>
+    <description>A practical guide to Google AI Studio: create an API key, prototype prompts with Gemini, tune parameters, and export production-ready code.</description>
+    <category>Ferramentas de Dev</category>
+  </item>
+  <item>
     <title>Por que quem tem governança madura reverte mais agente de IA</title>
     <link>https://tyna.com.br/blog/governanca-madura-reverte-mais-agente-de-ia/</link>
     <guid isPermaLink="true">https://tyna.com.br/blog/governanca-madura-reverte-mais-agente-de-ia/</guid>
@@ -236,14 +244,6 @@
     <guid isPermaLink="true">https://tyna.com.br/blog/kimi-k3-disponivel-na-api-da-telnyx/</guid>
     <pubDate>Tue, 28 Jul 2026 12:00:00 GMT</pubDate>
     <description>O modelo passa a ser oferecido como serviço gerenciado, cobrado por uso, na mesma infraestrutura de voz e mensagem da Telnyx.</description>
-    <category>LLMs</category>
-  </item>
-  <item>
-    <title>Score de confiança de LLM não é confiável</title>
-    <link>https://tyna.com.br/blog/score-de-confianca-de-llm-nao-e-confiavel/</link>
-    <guid isPermaLink="true">https://tyna.com.br/blog/score-de-confianca-de-llm-nao-e-confiavel/</guid>
-    <pubDate>Tue, 28 Jul 2026 12:00:00 GMT</pubDate>
-    <description>Modelos são treinados para gerar texto fluente, não probabilidade calibrada. Fluxo que decide por limiar está apoiado em ruído.</description>
     <category>LLMs</category>
   </item>
 </channel>
