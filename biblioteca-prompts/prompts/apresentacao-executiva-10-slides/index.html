@@ -7,7 +7,7 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
+  if (['localhost', '127.0.0.1', '[::1]'].indexOf(location.hostname) > -1) window['ga-disable-G-DQS0KMDT3G'] = true;
   gtag('config', 'G-DQS0KMDT3G');
 </script>
 <meta charset="UTF-8">
@@ -26,10 +26,8 @@
 <meta name="twitter:description" content="Prompt pronto para estruturar uma apresentação executiva em 10 slides: título, mensagem-chave e o que mostrar em cada tela, para decks que convencem.">
 <meta name="twitter:image" content="https://tyna.com.br/assets/logo-tyna-dark.png">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../../assets/styles.css?v=12">
+<link rel="preload" href="/assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../../assets/styles.css?v=22">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -83,18 +81,26 @@
 }
 </script>
 <link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
+<link rel="alternate" type="application/rss+xml" title="Feed RSS Tyna" href="https://tyna.com.br/rss.xml" />
+<style>
+  .prompt-fonte, .check-fonte{background:#1d1d1f;color:#f5f5f7;border-radius:12px;padding:20px 18px;overflow:auto;font-family:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:14px;line-height:1.6;white-space:pre-wrap;word-break:break-word;display:block}
+  .copy-prompt{margin-top:10px;display:inline-flex;align-items:center;gap:8px;background:#FF6600;color:#fff;border:none;border-radius:8px;padding:10px 16px;font-weight:600;cursor:pointer;font-size:14px}
+  .copy-prompt:hover{background:#E65C00}
+  .copy-prompt.copied,.copy-prompt.copiado{background:#1E7A4F}
+</style>
 </head>
 <body>
 
 <header>
   <div class="wrap nav">
-    <a href="../../../" class="logo"><img src="../../../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <a href="../../../" class="logo"><img src="../../../assets/logo-tyna-dark-sm.png" alt="Tyna" width="211" height="68"> <span>IA &amp; GOVERNANÇA</span></a>
     <nav>
       <ul id="navList">
         <li><a href="../../../#servicos">Serviços</a></li>
+        <li><a href="../../../#guias">Guias</a></li>
+        <li><a href="../../../ai-gateway/comparativo/">AI Gateway</a></li>
         <li><a href="../../../iso-42001/">ISO 42001</a></li>
         <li><a href="../../../#cases">Cases</a></li>
-        <li><a href="../../../#trilhas">Trilhas</a></li>
         <li><a href="../../../blog/">Blog</a></li>
         <li><a href="../../../biblioteca-prompts/">Prompts</a></li>
         <li><a href="../../../sobre/">Sobre</a></li>
@@ -263,25 +269,37 @@ Visual: três ícones de risco com um exemplo real ao lado.</pre>
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-left">
-        <a href="../../../" class="logo"><img src="../../../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
-        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+        <a href="../../../" class="logo"><img src="../../../assets/logo-tyna-sm.png" alt="Tyna" width="211" height="68"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio. Governança de IA começa com Dados, Processos e Pessoas.</p>
       </div>
       <div class="foot-right">
         <div class="foot-col">
-          <h5>Contato</h5>
-          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
-          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+          <p class="foot-h">Contato</p>
+          <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener">WhatsApp</a>
+          <a href="https://linkedin.com/in/felipelj">LinkedIn</a>
         </div>
         <div class="foot-col">
-          <h5>Site</h5>
-          <a href="../../../#servicos">Serviços</a>
+          <p class="foot-h">Guias</p>
+          <a href="../../../governanca-de-ia/">Governança de IA</a>
           <a href="../../../iso-42001/">ISO 42001</a>
           <a href="../../../shadow-ai/">Shadow AI</a>
+          <a href="../../../ai-gateway/">AI Gateway</a>
+          <a href="../../../ai-gateway/comparativo/">Comparativo de gateways</a>
+          <a href="../../../llm-leaderboard/">LLM Leaderboard</a>
+          <a href="../../../governanca-de-agentes/">Governança de agentes</a>
+          <a href="../../../politica-de-uso-de-ia/">Política de uso de IA</a>
+          <a href="../../../lgpd-e-ia/">LGPD e IA</a>
           <a href="../../../pl-2338/">Marco Legal da IA</a>
+        </div>
+        <div class="foot-col">
+          <p class="foot-h">Site</p>
+          <a href="../../../#servicos">Serviços</a>
+          <a href="../../../#trilhas">Trilhas</a>
           <a href="../../../diagnostico/">Diagnóstico</a>
           <a href="../../../blog/">Blog</a>
-          <a href="../../../biblioteca-prompts/">Prompts</a>
+          <a href="../../../biblioteca-prompts/">Biblioteca de Prompts</a>
           <a href="../../../sobre/">Sobre</a>
+          <a href="../../../politica-de-privacidade/">Política de privacidade</a>
         </div>
       </div>
     </div>
@@ -292,7 +310,7 @@ Visual: três ícones de risco com um exemplo real ao lado.</pre>
   </div>
 </footer>
 
-<script src="../../../assets/site.js?v=12"></script>
+<script src="../../../assets/site.js?v=22"></script>
 <script>
   /* Copiar prompt. Cada botão .copy-prompt copia o <pre> do próprio bloco e mostra
      "Copiado!" por alguns segundos. Sem biblioteca externa. Quando clipboard.writeText
