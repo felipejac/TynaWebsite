@@ -1,0 +1,37 @@
+name: Rollback Cloudflare Pages production
+
+on:
+  workflow_dispatch:
+    inputs:
+      before_iso:
+        description: 'Roll back to the newest PRODUCTION deployment created before this UTC ISO time'
+        required: true
+        default: '2026-09-21T18:00:00Z'
+
+jobs:
+  rollback:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Find last-good deployment and roll back
+        env:
+          CF_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          BEFORE: ${{ github.event.inputs.before_iso }}
+        run: |
+          set -euo pipefail
+          PROJECT=tyna-website
+          echo "Cutoff (before): $BEFORE"
+          DEPLOYS=$(curl -sf -H "Authorization: Bearer $CF_API_TOKEN" \
+            "https://api.cloudflare.com/client/v4/accounts/$CF_ACCOUNT_ID/pages/projects/$PROJECT/deployments?per_page=50")
+          echo "----- recent deployments (id | env | created_on | url) -----"
+          echo "$DEPLOYS" | jq -r '.result[] | [.id, .environment, .created_on, (.url // "")] | @tsv'
+          echo "------------------------------------------------------------"
+          TARGET=$(echo "$DEPLOYS" | jq -r --arg b "$BEFORE" '[.result[] | select(.environment=="production") | select(.created_on < $b)] | sort_by(.created_on) | last | .id')
+          TARGET_INFO=$(echo "$DEPLOYS" | jq -r --arg b "$BEFORE" '[.result[] | select(.environment=="production") | select(.created_on < $b)] | sort_by(.created_on) | last | [.id, .created_on, (.url // "")] | @tsv')
+          echo "Chosen last-good deployment: $TARGET_INFO"
+          if [ -z "$TARGET" ] || [ "$TARGET" = "null" ]; then echo "ERROR: no production deployment found before cutoff"; exit 1; fi
+          echo "Rolling back production to $TARGET ..."
+          RESP=$(curl -sf -X POST -H "Authorization: Bearer $CF_API_TOKEN" \
+            "https://api.cloudflare.com/client/v4/accounts/$CF_ACCOUNT_ID/pages/projects/$PROJECT/deployments/$TARGET/rollback")
+          echo "$RESP" | jq '{success, errors, messages, result_id: .result.id, result_url: .result.url, created_on: .result.created_on}'
+          echo "$RESP" | jq -e '.success == true' >/dev/null && echo "ROLLBACK SUCCEEDED" || { echo "ROLLBACK FAILED"; exit 1; }
