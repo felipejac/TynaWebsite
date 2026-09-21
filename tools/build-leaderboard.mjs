@@ -324,6 +324,7 @@ ${jsonld.map(o => `<script type="application/ld+json">\n${JSON.stringify(o, null
         <li><a href="../iso-42001/">ISO 42001</a></li>
         <li><a href="../#cases">Cases</a></li>
         <li><a href="../blog/">Blog</a></li>
+        <li><a href="../biblioteca-prompts/">Prompts</a></li>
         <li><a href="../sobre/">Sobre</a></li>
         <li><a href="${whats}" target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
       </ul>
@@ -562,6 +563,7 @@ ${faq.map(([q, a]) => `        <div class="faq-item">\n          <h3>${esc(q)}</
           <a href="../#trilhas">Trilhas</a>
           <a href="../diagnostico/">Diagnóstico</a>
           <a href="../blog/">Blog</a>
+          <a href="../biblioteca-prompts/">Biblioteca de Prompts</a>
           <a href="../sobre/">Sobre</a>
           <a href="../politica-de-privacidade/">Política de privacidade</a>
         </div>

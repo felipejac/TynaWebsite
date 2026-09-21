@@ -22,7 +22,7 @@ const WA_CTA = 'https://wa.me/5511997228945?text=' +
   encodeURIComponent('Olá, Felipe. Vim pelo site da Tyna e quero falar sobre governança de IA.');
 const ctaAgendar = (cls = '', attrs = '') =>
   `<a href="${WA_CTA}" target="_blank" rel="noopener" class="btn btn-primary${cls ? ' ' + cls : ''}"${attrs ? ' ' + attrs : ''}>Agendar conversa</a>`;
-const ASSET_V = '21';
+const ASSET_V = '22';
 
 const CATEGORIES = {
   'governanca': 'Governança de IA',
@@ -235,6 +235,7 @@ ${head}</head>
         <li><a href="${up}iso-42001/">ISO 42001</a></li>
         <li><a href="${up}#trilhas">Trilhas</a></li>
         <li><a href="${up}blog/">Blog</a></li>
+        <li><a href="${up}biblioteca-prompts/">Prompts</a></li>
         <li><a href="${up}sobre/">Sobre</a></li>
         <li>${ctaAgendar('mobile-cta')}</li>
       </ul>
@@ -285,6 +286,7 @@ ${body}
           <a href="${up}sobre/">Sobre</a>
           <a href="${up}politica-de-privacidade/">Política de privacidade</a>
           <a href="${up}blog/">Blog</a>
+          <a href="${up}biblioteca-prompts/">Biblioteca de Prompts</a>
           <a href="${up}rss.xml">RSS</a>
         </div>
       </div>
@@ -602,6 +604,7 @@ const staticPages = [
   { loc: `${SITE}/llm-leaderboard/`, pri: '0.9', freq: 'weekly', mod: dataDoLeaderboard() },
   { loc: `${SITE}/governanca-de-agentes/`, pri: '0.9', freq: 'monthly', mod: mtime('governanca-de-agentes/index.html') },
   { loc: `${SITE}/politica-de-uso-de-ia/`, pri: '0.9', freq: 'monthly', mod: mtime('politica-de-uso-de-ia/index.html') },
+  { loc: `${SITE}/biblioteca-prompts/`, pri: '0.8', freq: 'monthly', mod: mtime('biblioteca-prompts/assets/data.js') },
   { loc: `${SITE}/treinamento-de-ia-para-empresas/`, pri: '0.9', freq: 'monthly', mod: mtime('treinamento-de-ia-para-empresas/index.html') },
   { loc: `${SITE}/lgpd-e-ia/`, pri: '0.9', freq: 'monthly', mod: mtime('lgpd-e-ia/index.html') },
   { loc: `${SITE}/sobre/`, pri: '0.8', freq: 'monthly', mod: mtime('sobre/index.html') },

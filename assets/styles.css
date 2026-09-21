@@ -570,11 +570,23 @@
 
   /* Faixa intermediária: o menu ainda é horizontal, mas precisa caber. Sem isto a barra
      pede ~1014px e o notebook entre 862px e 1014px ganha rolagem lateral. */
+  /* Com o item "Prompts" o menu passou a pedir ~1290px no espaçamento cheio: entre
+     1101px e 1290px o botão "Agendar conversa" saía da tela. Aperta só o espaço entre
+     os itens, sem mexer em tamanho de fonte. */
+  @media (max-width:1290px){
+    nav ul{gap:24px;}
+  }
+  @media (max-width:1180px){
+    nav ul{gap:19px;}
+  }
   @media (max-width:1100px){
     .nav{gap:18px;}
     .logo span{display:none;}
     nav ul{gap:20px;}
     nav ul a{font-size:13.5px;}
+  }
+  @media (max-width:1000px){
+    nav ul{gap:14px;}
   }
 
   @media (max-width:900px){

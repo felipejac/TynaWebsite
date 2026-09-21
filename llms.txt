@@ -159,10 +159,10 @@ nem todo roteador é gateway.
 Tabela filtrável e CSV: https://tyna.com.br/ai-gateway/comparativo/
 
 <!-- LLM-LEADERBOARD:BEGIN -->
-**Qual é o melhor modelo de IA hoje? (ranking de 16 de setembro de 2026)**
-No ranking atualizado em 16 de setembro de 2026, o Claude Fable 5.1 (Adaptive Reasoning, Max Effort, Default Fallback), da Anthropic, lidera o Artificial Analysis Intelligence Index v4.3 com 53,4 pontos. Em seguida vêm Claude Fable 5.1 (Adaptive Reasoning, Xhigh Effort, Default Fallback) (53,2) e GPT-6 Astra (max) (52,8). O índice mede capacidade geral; o melhor modelo para uma empresa depende também de custo por token, latência e de onde o dado pode ser processado.
-Melhor em código: Claude Fable 5.1 (Adaptive Reasoning, Max Effort, Default Fallback) (81,6). Mais barato entre os 50 mais inteligentes: Qwen3.8-Flash-Next (US$ 0,39 por milhão de tokens). Mais rápido entre os 50 mais inteligentes: Gemini 3.8 Flash (high) (332,0 tok/s).
-Ranking completo de 652 modelos, atualizado toda semana: https://tyna.com.br/llm-leaderboard/
+**Qual é o melhor modelo de IA hoje? (ranking de 21 de setembro de 2026)**
+No ranking atualizado em 21 de setembro de 2026, o Claude Fable 5.1 (Adaptive Reasoning, Max Effort, Default Fallback), da Anthropic, lidera o Artificial Analysis Intelligence Index v4.3 com 53,4 pontos. Em seguida vêm Claude Fable 5.1 (Adaptive Reasoning, Xhigh Effort, Default Fallback) (53,2) e GPT-6 Astra (max) (52,7). O índice mede capacidade geral; o melhor modelo para uma empresa depende também de custo por token, latência e de onde o dado pode ser processado.
+Melhor em código: Claude Fable 5.1 (Adaptive Reasoning, Max Effort, Default Fallback) (81,6). Mais barato entre os 50 mais inteligentes: Qwen3.8-Flash-Next (US$ 0,39 por milhão de tokens). Mais rápido entre os 50 mais inteligentes: Gemini 3.7 Flash (high) (334,7 tok/s).
+Ranking completo de 653 modelos, atualizado toda semana: https://tyna.com.br/llm-leaderboard/
 <!-- LLM-LEADERBOARD:END -->
 
 **Quais controles um agente de IA precisa ter antes de ir para produção?**
