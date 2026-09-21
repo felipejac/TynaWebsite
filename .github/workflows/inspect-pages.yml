@@ -41,6 +41,6 @@ jobs:
             commit: .deployment_trigger.metadata.commit_hash,
             commit_message: .deployment_trigger.metadata.commit_message,
             source_type: .source.type,
-            source_repo: (.source.config.owner // "") + "/" + (.source.config.repo_name // ""),
+            source_repo: ((.source.config.owner // "") + "/" + (.source.config.repo_name // "")),
             url: .url
           } | @json'
