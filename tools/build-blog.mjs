@@ -467,6 +467,18 @@ const staticPages = [
     })),
 ];
 
+// Páginas individuais de prompt em biblioteca-prompts/prompts/<slug>/. São descobertas
+// automaticamente: novas páginas entram no sitemap só de existirem em disco, sem editar
+// o array acima. Mantém a entrada única da página-pilar /biblioteca-prompts/ intacta.
+const promptsDir = join(ROOT, 'biblioteca-prompts', 'prompts');
+if (existsSync(promptsDir)) {
+  for (const slug of readdirSync(promptsDir).sort()) {
+    const rel = `biblioteca-prompts/prompts/${slug}/index.html`;
+    if (!existsSync(join(ROOT, rel))) continue;
+    staticPages.push({ loc: `${SITE}/biblioteca-prompts/prompts/${slug}/`, pri: '0.7', freq: 'monthly', mod: mtime(rel) });
+  }
+}
+
 writeFileSync(join(ROOT, 'sitemap.xml'),
   `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.w3.org/1999/xhtml/sitemap" xmlns:xhtml="http://www.w3.org/1999/xhtml">
