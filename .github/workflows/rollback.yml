@@ -25,7 +25,7 @@ jobs:
           echo "===== GET deployments ====="
           HTTP=$(curl -sS -w '\nHTTP_STATUS:%{http_code}' \
             -H "Authorization: Bearer $CF_API_TOKEN" \
-            "https://api.cloudflare.com/client/v4/accounts/$CF_ACCOUNT_ID/pages/projects/$PROJECT/deployments?per_page=50")
+            "https://api.cloudflare.com/client/v4/accounts/$CF_ACCOUNT_ID/pages/projects/$PROJECT/deployments?per_page=25")
           echo "$HTTP"
           BODY=$(echo "$HTTP" | sed '/^HTTP_STATUS:/d')
           CODE=$(echo "$HTTP" | sed -n 's/^HTTP_STATUS://p')
