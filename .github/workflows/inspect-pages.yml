@@ -1,0 +1,46 @@
+name: Inspect Cloudflare Pages source
+
+on:
+  workflow_dispatch:
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Inspect project + deployments
+        env:
+          CF_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          set -uo pipefail
+          PROJECT=tyna-website
+          BASE="https://api.cloudflare.com/client/v4/accounts/$CF_ACCOUNT_ID/pages/projects/$PROJECT"
+          echo "================ PROJECT CONFIG ================"
+          PROJ=$(curl -sS -H "Authorization: Bearer $CF_API_TOKEN" "$BASE")
+          echo "$PROJ" | jq '{
+            name: .result.name,
+            subdomain: .result.subdomain,
+            domains: .result.domains,
+            production_branch: .result.production_branch,
+            source_type: .result.source.type,
+            source_config: .result.source.config,
+            build_config: .result.build_config,
+            canonical_deployment_trigger: .result.canonical_deployment.deployment_trigger,
+            canonical_created_on: .result.canonical_deployment.created_on,
+            latest_deployment_trigger: .result.latest_deployment.deployment_trigger,
+            latest_created_on: .result.latest_deployment.created_on
+          }'
+          echo "================ RECENT DEPLOYMENTS (origin of each) ================"
+          DEPLOYS=$(curl -sS -H "Authorization: Bearer $CF_API_TOKEN" "$BASE/deployments?per_page=25")
+          echo "$DEPLOYS" | jq -r '.result[] | {
+            id: .id,
+            env: .environment,
+            created_on: .created_on,
+            trigger_type: .deployment_trigger.type,
+            branch: .deployment_trigger.metadata.branch,
+            commit: .deployment_trigger.metadata.commit_hash,
+            commit_message: .deployment_trigger.metadata.commit_message,
+            source_type: .source.type,
+            source_repo: (.source.config.owner // "") + "/" + (.source.config.repo_name // ""),
+            url: .url
+          } | @json'
