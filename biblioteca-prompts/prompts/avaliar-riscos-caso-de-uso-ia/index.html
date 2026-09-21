@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prompt: avaliar riscos de um caso de uso de IA | Tyna</title>
+<meta name="description" content="Prompt pronto para fazer a triagem de riscos de um caso de uso de IA: dados pessoais, viés, alucinação e conformidade, com classificação e controles sugeridos.">
+<link rel="canonical" href="https://tyna.com.br/biblioteca-prompts/prompts/avaliar-riscos-caso-de-uso-ia/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Prompt: avaliar riscos de um caso de uso de IA | Tyna">
+<meta property="og:description" content="Prompt pronto para fazer a triagem de riscos de um caso de uso de IA: dados pessoais, viés, alucinação e conformidade, com classificação e controles sugeridos.">
+<meta property="og:url" content="https://tyna.com.br/biblioteca-prompts/prompts/avaliar-riscos-caso-de-uso-ia/">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna-dark.png">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Prompt: avaliar riscos de um caso de uso de IA | Tyna">
+<meta name="twitter:description" content="Prompt pronto para fazer a triagem de riscos de um caso de uso de IA: dados pessoais, viés, alucinação e conformidade, com classificação e controles sugeridos.">
+<meta name="twitter:image" content="https://tyna.com.br/assets/logo-tyna-dark.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../assets/styles.css?v=12">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Início",
+      "item": "https://tyna.com.br/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Biblioteca de Prompts",
+      "item": "https://tyna.com.br/biblioteca-prompts/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Prompt para avaliar riscos de um caso de uso de IA",
+      "item": "https://tyna.com.br/biblioteca-prompts/prompts/avaliar-riscos-caso-de-uso-ia/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Prompt para avaliar riscos de um caso de uso de IA",
+  "description": "Prompt pronto para fazer a triagem de riscos de um caso de uso de IA: dados pessoais, viés, alucinação e conformidade, com classificação e controles sugeridos.",
+  "inLanguage": "pt-BR",
+  "datePublished": "2026-09-21",
+  "dateModified": "2026-09-21",
+  "mainEntityOfPage": "https://tyna.com.br/biblioteca-prompts/prompts/avaliar-riscos-caso-de-uso-ia/",
+  "author": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://tyna.com.br/assets/logo-tyna-dark.png"
+    }
+  }
+}
+</script>
+<link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../../../" class="logo"><img src="../../../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../../../#servicos">Serviços</a></li>
+        <li><a href="../../../iso-42001/">ISO 42001</a></li>
+        <li><a href="../../../#cases">Cases</a></li>
+        <li><a href="../../../#trilhas">Trilhas</a></li>
+        <li><a href="../../../blog/">Blog</a></li>
+        <li><a href="../../../biblioteca-prompts/">Prompts</a></li>
+        <li><a href="../../../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" style="border-bottom:none;">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Trilha" style="margin-bottom:18px;"><a href="../../../">Início</a> › <a href="../../">Biblioteca de Prompts</a> › <span>Governança de IA</span></nav>
+      <p class="eyebrow">Governança de IA</p>
+      <h1 style="max-width:900px;">Prompt para avaliar riscos de um caso de uso de IA</h1>
+      <p class="lead" style="max-width:760px;">Este prompt faz a triagem de risco de um caso de uso de IA antes de ele entrar em produção. Ele olha para quatro frentes — dados pessoais, viés, alucinação e conformidade —, classifica cada risco em baixo, médio ou alto e sugere controles e pontos onde uma pessoa precisa revisar. É a primeira conversa de governança sobre uma ideia, estruturada em minutos.</p>
+      <div class="hero-ctas">
+        <a href="#prompt" class="btn btn-primary">Ir para o prompt</a>
+        <a href="../../../diagnostico/" class="btn btn-ghost">Fazer diagnóstico gratuito</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap" style="max-width:820px;">
+      <div class="section-head reveal">
+        <p class="eyebrow">Resumo do resultado</p>
+        <h2>O que este prompt entrega</h2>
+      </div>
+      <p>A saída é um mapa de risco do caso de uso, organizado por dimensão. Para cada risco identificado, o modelo dá uma classificação (baixo, médio ou alto), a razão da classificação, um ou mais controles que reduzem a exposição e o ponto em que a revisão humana é indispensável. Em vez de um "parece arriscado" vago, você fica com uma lista acionável para levar ao comitê ou à liderança.</p>
+      <p>O valor é antecipar a conversa difícil. A maioria dos problemas de IA — vazamento de dado pessoal, decisão enviesada, resposta inventada que vira ação — nasce de casos de uso que entraram em produção sem ninguém mapear o que poderia dar errado. Este prompt força esse exercício logo no início, quando corrigir ainda é barato.</p>
+
+      <div class="section-head reveal" style="margin-top:48px;">
+        <p class="eyebrow">Para quem serve</p>
+        <h2>Quem aproveita</h2>
+      </div>
+      <ul>
+        <li><strong>Comitês e responsáveis por governança de IA</strong> que fazem a triagem inicial de propostas.</li>
+        <li><strong>Times de produto e tecnologia</strong> que querem antecipar riscos antes de construir.</li>
+        <li><strong>Jurídico, compliance e segurança</strong> que precisam de um ponto de partida estruturado para revisar.</li>
+      </ul>
+
+      <div class="section-head reveal" style="margin-top:48px;">
+        <p class="eyebrow">Quando usar</p>
+        <h2>O momento certo</h2>
+      </div>
+      <p>Use na avaliação de qualquer novo caso de uso de IA — um chatbot de atendimento, uma triagem automática de currículos, um assistente que resume documentos de clientes. É mais valioso cedo, na fase de proposta, mas também serve para revisar retroativamente ferramentas que já estão rodando sem terem passado por uma análise de risco.</p>
+
+      <div class="section-head reveal" style="margin-top:48px;">
+        <p class="eyebrow">Entradas necessárias</p>
+        <h2>O que você precisa ter em mãos</h2>
+      </div>
+      <p>Uma variável obrigatória: a descrição do caso de uso. Quanto mais concreta, melhor a triagem — diga o que a IA faz, com quais dados, para quem e com qual grau de autonomia (sugere ou decide sozinha?). Detalhes como "usa dados de clientes", "gera decisão sem revisão" ou "atende o público externo" mudam completamente a análise de risco.</p>
+
+      <div class="section-head reveal" id="prompt" style="margin-top:48px;">
+        <p class="eyebrow">Prompt pronto para copiar</p>
+        <h2>Copie e cole na sua ferramenta de IA</h2>
+      </div>
+      <div class="prompt-bloco">
+        <pre class="check-fonte prompt-fonte">Avalie os riscos do caso de uso {caso de uso}, considerando dados pessoais, viés, alucinação e conformidade; classifique cada risco (baixo/médio/alto) e sugira controles e pontos de revisão humana.</pre>
+        <button type="button" class="btn btn-ghost copy-prompt">Copiar prompt</button>
+      </div>
+
+      <div class="section-head reveal" style="margin-top:48px;">
+        <p class="eyebrow">Variáveis editáveis</p>
+        <h2>O que trocar entre as chaves</h2>
+      </div>
+      <ul>
+        <li><strong>{caso de uso}</strong> — a descrição do que a IA faz. Ex.: "chatbot que responde dúvidas de clientes usando a base de contratos", "modelo que pré-classifica currículos por aderência à vaga". Inclua os dados usados, o público e o grau de autonomia — é o que determina a profundidade da triagem.</li>
+      </ul>
+
+      <div class="section-head reveal" style="margin-top:48px;">
+        <p class="eyebrow">Exemplo de entrada</p>
+        <h2>Uma entrada preenchida</h2>
+      </div>
+      <pre class="check-fonte">Avalie os riscos do caso de uso de um assistente de IA que lê e-mails de clientes, extrai o pedido e redige uma resposta automática enviada sem revisão humana, considerando dados pessoais, viés, alucinação e conformidade; classifique cada risco (baixo/médio/alto) e sugira controles e pontos de revisão humana.</pre>
+
+      <div class="section-head reveal" style="margin-top:48px;">
+        <p class="eyebrow">Exemplo de saída</p>
+        <h2>Um trecho do que esperar</h2>
+      </div>
+      <p>Um recorte do que o modelo devolve:</p>
+      <pre class="check-fonte">DADOS PESSOAIS — Risco: ALTO
+Por quê: e-mails de clientes contêm dados pessoais tratados
+sem base legal explícita nem minimização.
+Controles: definir base legal (LGPD), anonimizar em logs,
+reter pelo tempo mínimo.
+Revisão humana: aprovação do DPO antes de ligar.
+
+ALUCINAÇÃO — Risco: ALTO
+Por quê: resposta enviada sem revisão pode afirmar algo falso
+sobre contrato ou prazo.
+Controles: restringir a base de conhecimento, exigir citação
+da fonte, bloquear envio automático em temas sensíveis.
+Revisão humana: fila de aprovação para respostas de alto impacto.</pre>
+
+      <div class="section-head reveal" style="margin-top:48px;">
+        <p class="eyebrow">Como avaliar a resposta</p>
+        <h2>O que conferir antes de usar</h2>
+      </div>
+      <ul>
+        <li>As quatro dimensões foram cobertas, ou o modelo pulou alguma sem justificar?</li>
+        <li>As classificações fazem sentido para o seu contexto real de dados e público?</li>
+        <li>Os controles sugeridos são acionáveis, ou genéricos demais para implementar?</li>
+        <li>Os pontos de revisão humana estão nos lugares de maior impacto?</li>
+      </ul>
+
+      <div class="section-head reveal" style="margin-top:48px;">
+        <p class="eyebrow">Erros comuns</p>
+        <h2>O que costuma dar errado</h2>
+      </div>
+      <ul>
+        <li><strong>Descrição vaga do caso de uso.</strong> Sem dizer quais dados e qual autonomia, a triagem sai genérica e subestima o risco.</li>
+        <li><strong>Tratar a saída como veredito.</strong> É uma triagem inicial, não um parecer jurídico nem uma avaliação de conformidade definitiva.</li>
+        <li><strong>Ignorar o contexto regulatório.</strong> Setor, país e tipo de dado mudam as obrigações; informe isso no prompt.</li>
+      </ul>
+
+      <div class="section-head reveal" style="margin-top:48px;">
+        <p class="eyebrow">ChatGPT, Claude e Gemini</p>
+        <h2>Como adaptar por ferramenta</h2>
+      </div>
+      <p>No <strong>ChatGPT</strong>, peça a saída em tabela com colunas de dimensão, risco, controle e responsável — vira um registro de risco pronto. No <strong>Claude</strong>, aproveite a janela de contexto para colar a política interna de IA e a LGPD e pedir que ele avalie contra essas regras específicas, não contra o genérico. No <strong>Gemini</strong>, use a busca para checar orientações regulatórias recentes do setor. Em qualquer um, peça que ele aponte o que precisaria saber para refinar a classificação — as perguntas em aberto são tão úteis quanto as respostas.</p>
+
+      <div class="section-head reveal" style="margin-top:48px;">
+        <p class="eyebrow">Riscos e revisão humana</p>
+        <h2>Onde uma pessoa precisa revisar</h2>
+      </div>
+      <p>Este prompt organiza o pensamento sobre risco, mas não substitui avaliação jurídica, de conformidade ou de segurança. O modelo pode não conhecer regras específicas do seu setor, pode subestimar um risco que depende de contexto interno e não tem responsabilidade legal pelo que sugere. Trate a saída como o rascunho que leva ao comitê — a decisão de aprovar, ajustar ou barrar o caso de uso é sempre de uma pessoa responsável.</p>
+
+      <div class="section-head reveal" style="margin-top:48px;">
+        <p class="eyebrow">Prompts relacionados</p>
+        <h2>Continue pela biblioteca</h2>
+      </div>
+      <ul class="rel-prompts">
+        <li><a href="../checklist-revisao-humana-ia/">Checklist de revisão humana antes de publicar</a></li>
+        <li><a href="../apresentacao-executiva-10-slides/">Apresentação executiva em 10 slides</a></li>
+        <li><a href="../reescrever-texto-tom-de-marca/">Reescrever um texto no tom da marca</a></li>
+        <li><a href="../cluster-conteudo-seo/">Cluster de conteúdo de SEO por palavra-chave</a></li>
+        <li><a href="../../">Voltar à Biblioteca de Prompts</a></li>
+      </ul>
+
+      <p style="color:var(--text-muted); font-size:15px; margin-top:40px;">Atualizado em: setembro de 2026 · Autor: equipe Tyna</p>
+    </div>
+  </section>
+
+  <section class="cta-band" style="border-bottom:none;">
+    <div class="wrap reveal">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Quer usar IA com governança do prompt ao agente em produção?</h2>
+      <p style="color:var(--text-muted); font-size:16.5px; max-width:580px; margin:0 auto 30px;">O diagnóstico de maturidade são dez perguntas e três minutos. No fim, a faixa em que sua empresa está e as lacunas nomeadas uma a uma — sem formulário e sem cadastro.</p>
+      <div class="hero-ctas" style="justify-content:center;">
+        <a href="../../../diagnostico/" class="btn btn-primary">Fazer diagnóstico gratuito</a>
+        <a href="../../" class="btn btn-ghost">Voltar aos prompts</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../../../" class="logo"><img src="../../../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../../../#servicos">Serviços</a>
+          <a href="../../../iso-42001/">ISO 42001</a>
+          <a href="../../../shadow-ai/">Shadow AI</a>
+          <a href="../../../pl-2338/">Marco Legal da IA</a>
+          <a href="../../../diagnostico/">Diagnóstico</a>
+          <a href="../../../blog/">Blog</a>
+          <a href="../../../biblioteca-prompts/">Prompts</a>
+          <a href="../../../sobre/">Sobre</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../../../assets/site.js?v=12"></script>
+<script>
+  /* Copiar prompt. Cada botão .copy-prompt copia o <pre> do próprio bloco e mostra
+     "Copiado!" por alguns segundos. Sem biblioteca externa. Quando clipboard.writeText
+     não existe (http, navegador antigo, permissão negada), o texto do <pre> aparece
+     selecionado e o Ctrl+C fica com a pessoa — melhor do que falhar em silêncio. */
+  (function () {
+    var botoes = document.querySelectorAll('.copy-prompt');
+    if (!botoes.length) return;
+
+    Array.prototype.forEach.call(botoes, function (btn) {
+      var card = btn.closest('.prompt-bloco') || btn.closest('.format-card');
+      var fonte = card ? card.querySelector('pre') : null;
+      if (!fonte) return;
+
+      var padrao = btn.textContent;
+      var voltar;
+
+      function feedback(msg) {
+        btn.textContent = msg;
+        clearTimeout(voltar);
+        voltar = setTimeout(function () { btn.textContent = padrao; }, 2500);
+      }
+
+      function selecionar() {
+        var faixa = document.createRange();
+        faixa.selectNodeContents(fonte);
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(faixa);
+        feedback('Selecione e use Ctrl+C');
+      }
+
+      btn.addEventListener('click', function () {
+        function ok() {
+          feedback('Copiado!');
+          if (typeof gtag === 'function') gtag('event', 'prompt_copiado', { pagina: 'avaliar-riscos-caso-de-uso-ia' });
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(fonte.textContent).then(ok, selecionar);
+        } else {
+          selecionar();
+        }
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
