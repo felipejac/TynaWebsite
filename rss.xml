@@ -7,11 +7,11 @@
   <language>pt-BR</language>
   <atom:link href="https://tyna.com.br/rss.xml" rel="self" type="application/rss+xml"/>
   <item>
-    <title>How to Use Google AI Studio</title>
-    <link>https://tyna.com.br/blog/how-to-use-google-ai-studio/</link>
-    <guid isPermaLink="true">https://tyna.com.br/blog/how-to-use-google-ai-studio/</guid>
+    <title>Como usar Google AI Studio</title>
+    <link>https://tyna.com.br/blog/como-usar-google-ai-studio/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/como-usar-google-ai-studio/</guid>
     <pubDate>Mon, 21 Sep 2026 12:00:00 GMT</pubDate>
-    <description>A practical guide to Google AI Studio: create an API key, prototype prompts with Gemini, tune parameters, and export production-ready code.</description>
+    <description>Guia prático do Google AI Studio: crie uma chave de API, prototipe prompts com Gemini, ajuste parâmetros e exporte código pronto para produção.</description>
     <category>Ferramentas de Dev</category>
   </item>
   <item>
