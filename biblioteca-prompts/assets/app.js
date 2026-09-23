@@ -247,7 +247,12 @@ const refBox = document.getElementById('ref');
 const refH2 = document.getElementById('refh2');
 const refLede = document.getElementById('reflede');
 
-let state = {stack:'autoral', kind:'all', fmt:'all', q:''};
+let state = {stack:'autoral', kind:'all', fmt:'all', q:'', cat:'all', lang:'all'};
+
+// ---- all distinct categories (PT + EN) ----
+const ALL_CATS_PT = ['Imagem','Vídeo'];
+const ALL_CATS_EN = [...new Set(Object.values(CSV_PROMPTS).map(d => d.categoria))].sort();
+const ALL_CATS = [...ALL_CATS_PT, ...ALL_CATS_EN];
 
 // stack buttons
 STACKS.forEach(s => {
@@ -378,21 +383,79 @@ function fallback(text, done){
   document.body.removeChild(ta);
 }
 
+// ---- card for CSV prompts (no CASES metadata) ----
+function csvCard(id, d){
+  const el = document.createElement('article');
+  el.className = 'card';
+  const long = d.p.length > 300;
+  el.innerHTML =
+    '<div class="card-top">' +
+      '<div class="card-meta">' +
+        '<span class="id">' + id + '</span>' +
+        '<span class="tool">' + esc(d.tool) + '</span>' +
+        '<span class="fmt">' + esc(d.categoria) + '</span>' +
+      '</div><h3>' + esc(d.n) + '</h3></div>' +
+    '<div class="pbox"><pre class="pbody' + (long ? '' : ' open') + '">' + markup(d.p) + '</pre>' +
+      (long ? '<div class="fade"></div>' : '') + '</div>' +
+    (long ? '<button class="expand" type="button">Mostrar prompt completo</button>' : '') +
+    '<div class="card-body">' +
+      '<div class="kv"><span class="k">Idioma</span><span class="v">English</span></div>' +
+      '<div class="kv"><span class="k">Ferramenta</span><span class="v">' + esc(d.tool) + '</span></div>' +
+    '</div>' +
+    '<div class="card-foot"><button class="copy" type="button">' +
+      '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>' +
+      'Copiar prompt</button>' +
+      '<span class="hint">EN · ' + esc(d.categoria) + '</span></div>';
+
+  const ex = el.querySelector('.expand');
+  if (ex) ex.addEventListener('click', () => {
+    const body = el.querySelector('.pbody');
+    const open = body.classList.toggle('open');
+    ex.textContent = open ? 'Recolher prompt' : 'Mostrar prompt completo';
+  });
+
+  el.querySelector('.copy').addEventListener('click', e =>
+    copyText(d.p, e.currentTarget, id));
+  return el;
+}
+
 function render(){
   const bank = PROMPTS[state.stack];
   const q = state.q.trim().toLowerCase();
-  const list = CASES.filter(c => {
-    const d = bank[c.id];
-    if (!d) return false;
-    if (state.kind !== 'all' && c.kind !== state.kind) return false;
-    if (state.fmt !== 'all' && c.fmt !== state.fmt) return false;
-    if (!q) return true;
-    const hay = (c.id + ' ' + c.title + ' ' + c.fmt + ' ' + c.out + ' ' + d.tool + ' ' + d.p + ' ' + d.c + ' ' + (d.n||'') + ' ' + (d.neg||'')).toLowerCase();
-    return hay.includes(q);
-  });
-  grid.replaceChildren(...list.map(c => card(c, bank[c.id])));
-  empty.hidden = list.length > 0;
-  count.textContent = list.length + (list.length === 1 ? ' prompt' : ' prompts');
+  const cards = [];
+
+  // --- Existing PT prompts ---
+  if (state.lang === 'all' || state.lang === 'pt') {
+    const list = CASES.filter(c => {
+      const d = bank[c.id];
+      if (!d) return false;
+      if (state.kind !== 'all' && c.kind !== state.kind) return false;
+      if (state.fmt !== 'all' && c.fmt !== state.fmt) return false;
+      if (state.cat !== 'all' && d.categoria !== state.cat) return false;
+      if (!q) return true;
+      const hay = (c.id + ' ' + c.title + ' ' + c.fmt + ' ' + c.out + ' ' + d.tool + ' ' + d.p + ' ' + d.c + ' ' + (d.n||'') + ' ' + (d.neg||'')).toLowerCase();
+      return hay.includes(q);
+    });
+    cards.push(...list.map(c => card(c, bank[c.id])));
+  }
+
+  // --- CSV EN prompts ---
+  if (state.lang === 'all' || state.lang === 'en') {
+    // kind filter maps to CSV categories
+    const kindCatMap = {'Imagem':'Image Generation','Vídeo':'Video Generation'};
+    const entries = Object.entries(CSV_PROMPTS).filter(([id, d]) => {
+      if (state.cat !== 'all' && d.categoria !== state.cat) return false;
+      if (state.kind !== 'all' && d.categoria !== kindCatMap[state.kind]) return false;
+      if (!q) return true;
+      const hay = (id + ' ' + d.categoria + ' ' + d.tool + ' ' + d.p + ' ' + (d.n||'')).toLowerCase();
+      return hay.includes(q);
+    });
+    cards.push(...entries.map(([id, d]) => csvCard(id, d)));
+  }
+
+  grid.replaceChildren(...cards);
+  empty.hidden = cards.length > 0;
+  count.textContent = cards.length + (cards.length === 1 ? ' prompt' : ' prompts');
 }
 
 document.querySelectorAll('.chip[data-f="kind"]').forEach(c =>
@@ -400,8 +463,8 @@ document.querySelectorAll('.chip[data-f="kind"]').forEach(c =>
 
 qEl.addEventListener('input', () => { state.q = qEl.value; render(); });
 document.getElementById('reset').addEventListener('click', () => {
-  state.kind = 'all'; state.fmt = 'all'; state.q = '';
-  qEl.value = ''; syncChips(); render(); qEl.focus();
+  state.kind = 'all'; state.fmt = 'all'; state.q = ''; state.cat = 'all'; state.lang = 'all';
+  qEl.value = ''; syncChips(); syncRailFilters(); render(); qEl.focus();
 });
 document.addEventListener('keydown', e => {
   if (e.key === '/' && document.activeElement !== qEl && !/input|textarea/i.test(document.activeElement.tagName)) {
@@ -429,6 +492,64 @@ const obs = new IntersectionObserver(entries => {
 }, {rootMargin:'-150px 0px -65% 0px', threshold:0});
 document.querySelectorAll('main section[id]').forEach(s => { if (map.has(s.id)) obs.observe(s); });
 
+// ---- Categoria + Idioma filters in rail ----
+function buildRailFilters(){
+  const catEl = document.getElementById('railcatfilter');
+  const langEl = document.getElementById('raillangfilter');
+  if (!catEl || !langEl) return;
+
+  // count per category for labels
+  const catCount = {};
+  // PT existing prompts
+  CASES.forEach(c => {
+    // find categoria from any stack's prompt data
+    const d = Object.values(PROMPTS).map(bank => bank[c.id]).find(Boolean);
+    if (d && d.categoria) catCount[d.categoria] = (catCount[d.categoria]||0) + 1;
+  });
+  // EN CSV prompts
+  Object.values(CSV_PROMPTS).forEach(d => {
+    if (d.categoria) catCount[d.categoria] = (catCount[d.categoria]||0) + 1;
+  });
+
+  // Lang buttons
+  [['all','Todos'],['pt','Português'],['en','English']].forEach(([val, label]) => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'rail-filter-btn'; b.dataset.lang = val;
+    b.setAttribute('aria-pressed', String(state.lang === val));
+    b.textContent = label;
+    b.addEventListener('click', () => {
+      state.lang = val;
+      syncRailFilters();
+      render();
+      live.textContent = 'Idioma: ' + label;
+    });
+    langEl.appendChild(b);
+  });
+
+  // Category buttons - "Todos" first, then all cats
+  [['all','Todos ('+Object.values(catCount).reduce((a,b)=>a+b,0)+')'], ...ALL_CATS.map(cat => [cat, cat + (catCount[cat]?' ('+catCount[cat]+')':'')])].forEach(([val, label]) => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'rail-filter-btn'; b.dataset.cat = val;
+    b.setAttribute('aria-pressed', String(state.cat === val));
+    b.textContent = label;
+    b.addEventListener('click', () => {
+      state.cat = val;
+      syncRailFilters();
+      render();
+      live.textContent = 'Categoria: ' + label;
+    });
+    catEl.appendChild(b);
+  });
+}
+
+function syncRailFilters(){
+  document.querySelectorAll('.rail-filter-btn[data-lang]').forEach(b =>
+    b.setAttribute('aria-pressed', String(state.lang === b.dataset.lang)));
+  document.querySelectorAll('.rail-filter-btn[data-cat]').forEach(b =>
+    b.setAttribute('aria-pressed', String(state.cat === b.dataset.cat)));
+}
+
 buildFmtChips();
+buildRailFilters();
 paintStack();
 render();

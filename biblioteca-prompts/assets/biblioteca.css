@@ -68,6 +68,11 @@ html{scroll-behavior:smooth}
 .rail a{display:block; padding:6px 10px; border-left:2px solid var(--line); color:var(--ink-2); text-decoration:none; font-size:14px}
 .rail a:hover{color:var(--ink); border-left-color:var(--line-2)}
 .rail a.on{color:var(--ink); border-left-color:var(--accent); font-weight:600}
+.rail-sep{height:1px; background:var(--line); margin:14px 10px}
+.rail-filter-group{display:flex; flex-direction:column; gap:3px; padding:0 10px 4px}
+.rail-filter-btn{font-family:var(--sans); font-size:12px; color:var(--ink-2); cursor:pointer; background:none; border:1px solid transparent; border-radius:6px; padding:4px 8px; text-align:left; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; transition:background .1s}
+.rail-filter-btn:hover{background:var(--surface); border-color:var(--line-2); color:var(--ink)}
+.rail-filter-btn[aria-pressed="true"]{background:var(--ink); border-color:var(--ink); color:var(--bg); font-weight:500}
 
 main{min-width:0; padding-top:36px}
 section{scroll-margin-top:150px}
