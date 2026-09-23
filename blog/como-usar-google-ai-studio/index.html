@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Como usar Google AI Studio | Tyna</title>
+<meta name="description" content="Guia prático do Google AI Studio: crie uma chave de API, prototipe prompts com Gemini, ajuste parâmetros e exporte código pronto para produção.">
+<link rel="canonical" href="https://tyna.com.br/blog/como-usar-google-ai-studio/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Como usar Google AI Studio | Tyna">
+<meta property="og:description" content="Guia prático do Google AI Studio: crie uma chave de API, prototipe prompts com Gemini, ajuste parâmetros e exporte código pronto para produção.">
+<meta property="og:url" content="https://tyna.com.br/blog/como-usar-google-ai-studio/">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna-dark.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="alternate" type="application/rss+xml" title="Blog Tyna" href="https://tyna.com.br/rss.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=12">
+<link rel="stylesheet" href="../../assets/blog.css?v=12">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Como usar Google AI Studio","description":"Guia prático do Google AI Studio: crie uma chave de API, prototipe prompts com Gemini, ajuste parâmetros e exporte código pronto para produção.","datePublished":"2026-09-21","dateModified":"2026-09-21","inLanguage":"pt-BR","author":{"@type":"Person","name":"Felipe Jacob","url":"https://tyna.com.br/sobre/"},"publisher":{"@type":"Organization","name":"Tyna","url":"https://tyna.com.br","logo":{"@type":"ImageObject","url":"https://tyna.com.br/assets/logo-tyna-dark.png"}},"mainEntityOfPage":"https://tyna.com.br/blog/como-usar-google-ai-studio/","keywords":"google-ai-studio, gemini, engenharia-de-prompt, chave-de-api, llm","articleSection":"Ferramentas de Dev"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://tyna.com.br"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tyna.com.br/blog/"},{"@type":"ListItem","position":3,"name":"Ferramentas de Dev","item":"https://tyna.com.br/blog/categoria/dev-tools/"},{"@type":"ListItem","position":4,"name":"Como usar Google AI Studio","item":"https://tyna.com.br/blog/como-usar-google-ai-studio/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"O Google AI Studio é gratuito?","acceptedAnswer":{"@type":"Answer","text":"Sim. O ambiente e um nível gratuito com limite de uso da API do Gemini não custam nada; os planos pagos elevam os limites de requisição e liberam cotas de produção."}},{"@type":"Question","name":"Qual é a diferença entre o AI Studio e a Vertex AI?","acceptedAnswer":{"@type":"Answer","text":"O AI Studio é um playground leve para prototipar e gerar uma chave de API rapidamente. A Vertex AI é a plataforma gerenciada do Google Cloud para implantar, escalar e governar modelos em produção, com IAM, logs e controles corporativos."}},{"@type":"Question","name":"Posso usar minha chave de API em um app público?","acceptedAnswer":{"@type":"Answer","text":"Não. Uma chave exposta no código de front-end ou em um repositório público pode ser abusada e gerar cobranças. Mantenha-a em um servidor ou em um gerenciador de segredos e chame a API pelo seu backend."}},{"@type":"Question","name":"O AI Studio suporta imagens e áudio?","acceptedAnswer":{"@type":"Answer","text":"Sim. Os modelos Gemini são multimodais, então você pode anexar imagens, áudio e documentos no editor de prompt e pedir que o modelo raciocine sobre eles."}}]}</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../../" class="logo"><img src="../../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../../#servicos">Serviços</a></li>
+        <li><a href="../../iso-42001/">ISO 42001</a></li>
+        <li><a href="../../#trilhas">Trilhas</a></li>
+        <li><a href="../../blog/">Blog</a></li>
+        <li><a href="../../biblioteca-prompts/">Prompts</a></li>
+        <li><a href="../../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+  <article class="post">
+    <div class="wrap post-wrap">
+      <nav class="crumbs" aria-label="Trilha"><a href="../../">Início</a> › <a href="../">Blog</a> › <a href="../categoria/dev-tools/">Ferramentas de Dev</a></nav>
+      <p class="eyebrow">Ferramentas de Dev</p>
+      <h1>Como usar Google AI Studio</h1>
+      <p class="post-meta"><time datetime="2026-09-21">21 de setembro de 2026</time> · Por <a href="../../sobre/">Felipe Jacob</a></p>
+      <p class="lead">Guia prático do Google AI Studio: crie uma chave de API, prototipe prompts com Gemini, ajuste parâmetros e exporte código pronto para produção.</p>
+
+      
+
+      <aside class="answer-box"><h2>Resposta curta</h2><p>O Google AI Studio é o ambiente gratuito e baseado em navegador do Google para prototipar com a família de modelos Gemini. Você entra com uma conta Google, gera uma chave de API e testa prompts em formatos de chat, estruturados e multimodais. É possível ajustar temperatura, limite de tokens e configurações de segurança, comparar versões de modelos e exportar o prompt pronto como código em Python, JavaScript ou uma chamada cURL.</p></aside>
+
+      <div class="post-body">
+<h2>O que é o Google AI Studio</h2>
+<p>O Google AI Studio é um ambiente gratuito, executado no navegador, para criar e testar prompts contra os modelos Gemini do Google. Ele fica entre a API pura e um setup de desenvolvimento completo: você experimenta de forma visual e depois exporta a configuração exata como código. Não há nada para instalar — tudo roda em aistudio.google.com com uma conta Google.</p>
+<p>Ele serve para quem quer prototipar rápido: desenvolvedores validando uma ideia antes de integrá-la a um app, e pessoas não técnicas que querem ver o que os modelos fazem sem abrir um terminal.</p>
+<h2>Primeiros passos, um a um</h2>
+<ol>
+<li><strong>Entre na conta.</strong> Acesse aistudio.google.com e faça login com uma conta Google. O nível gratuito já basta para explorar todos os recursos principais.</li>
+<li><strong>Crie um prompt.</strong> Escolha o tipo de prompt — Chat para conversas de ida e volta, ou um prompt livre/estruturado para tarefas de resposta única — e digite sua instrução no editor.</li>
+<li><strong>Escolha um modelo.</strong> No painel à direita, selecione um modelo Gemini. Modelos mais novos são mais capazes; os mais leves são mais rápidos e baratos.</li>
+<li><strong>Rode e itere.</strong> Clique em Run para ver a resposta. Ajuste o texto, rode de novo e compare as saídas até o resultado ficar confiável.</li>
+<li><strong>Gere uma chave de API.</strong> Quando o prompt estiver funcionando, abra "Get code" ou a página de chave de API para criar uma. Trate essa chave como uma senha.</li>
+<li><strong>Exporte o código.</strong> O AI Studio gera um trecho pronto para rodar em Python, JavaScript ou cURL que reproduz exatamente o seu prompt e as configurações.</li>
+</ol>
+<h2>Recursos que vale conhecer</h2>
+<ul>
+<li><strong>Entrada multimodal</strong> — anexe imagens, áudio ou arquivos e faça perguntas sobre eles, não só texto.</li>
+<li><strong>Ajuste de parâmetros</strong> — controle temperatura (criatividade vs. determinismo), máximo de tokens de saída e top-p/top-k direto no painel.</li>
+<li><strong>Instruções de sistema</strong> — defina um papel fixo ou um conjunto de regras que o modelo segue em cada turno.</li>
+<li><strong>Configurações de segurança</strong> — ajuste os limiares que bloqueiam categorias nocivas conforme o seu caso de uso.</li>
+<li><strong>Salvar e compartilhar</strong> — os prompts ficam guardados no seu Google Drive, então dá para revisitá-los ou compartilhar por link.</li>
+</ul>
+<h2>A leitura da Tyna</h2>
+<p>O Google AI Studio derruba o custo do primeiro experimento para quase zero, e esse é o seu real valor. A armadilha é tratar o playground como produção: o nível gratuito tem limites de requisição, padrões de segurança que podem não bater com o seu domínio e nenhuma garantia de latência ou de tratamento de dados. Use-o para achar o prompt e os parâmetros que funcionam e depois leve esse código exportado para um backend com chave protegida e controle de requisições. Para times, a disciplina que importa não é a ferramenta — é versionar os prompts e manter as chaves de API fora do código do cliente e fora do git. O AI Studio deixa o primeiro rascunho rápido; a engenharia em volta continua sendo sua responsabilidade.</p>
+<h2>Perguntas frequentes</h2>
+<p><strong>P: O Google AI Studio é gratuito?</strong></p>
+<p>R: Sim. O ambiente e um nível gratuito com limite de uso da API do Gemini não custam nada; os planos pagos elevam os limites de requisição e liberam cotas de produção.</p>
+<p><strong>P: Qual é a diferença entre o AI Studio e a Vertex AI?</strong></p>
+<p>R: O AI Studio é um playground leve para prototipar e gerar uma chave de API rapidamente. A Vertex AI é a plataforma gerenciada do Google Cloud para implantar, escalar e governar modelos em produção, com IAM, logs e controles corporativos.</p>
+<p><strong>P: Posso usar minha chave de API em um app público?</strong></p>
+<p>R: Não. Uma chave exposta no código de front-end ou em um repositório público pode ser abusada e gerar cobranças. Mantenha-a em um servidor ou em um gerenciador de segredos e chame a API pelo seu backend.</p>
+<p><strong>P: O AI Studio suporta imagens e áudio?</strong></p>
+<p>R: Sim. Os modelos Gemini são multimodais, então você pode anexar imagens, áudio e documentos no editor de prompt e pedir que o modelo raciocine sobre eles.</p>
+      </div>
+
+      
+      
+
+      <ul class="post-tags"><li>#google-ai-studio</li><li>#gemini</li><li>#engenharia-de-prompt</li><li>#chave-de-api</li><li>#llm</li></ul>
+    </div>
+  </article>
+
+  <section class="related">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow">Leia também</p><h2>Mais sobre Ferramentas de Dev</h2></div>
+      <div class="post-grid"><article class="post-card">
+  <a class="post-card-link" href="../../blog/hyperprobe-depuracao-somente-leitura-em-producao/">
+    <span class="tag">Ferramentas de Dev</span>
+    <h3>HyperProbe: depuração somente leitura em produção</h3>
+    <p class="desc">Agentes que se acoplam a serviços em execução para inspecionar estado sem alterar nada. A ideia é diagnosticar sem arriscar derrubar.</p>
+    <time datetime="2026-08-05">05 de agosto de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../blog/imagens-geradas-por-ia-afastam-leitores/">
+    <span class="tag">Ferramentas de Dev</span>
+    <h3>Imagem gerada por IA está afastando leitor de blog</h3>
+    <p class="desc">Ilustração automática genérica derruba clique e tempo de página. O problema não é a ferramenta, é publicar sem revisar.</p>
+    <time datetime="2026-08-05">05 de agosto de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../blog/cursor-remove-dado-de-custo-do-painel/">
+    <span class="tag">Ferramentas de Dev</span>
+    <h3>Cursor remove o dado de custo do painel e do CSV</h3>
+    <p class="desc">O painel agora mostra só contagem de tokens. Quem auditava gasto direto na plataforma vai precisar calcular por fora.</p>
+    <time datetime="2026-08-02">02 de agosto de 2026</time>
+  </a>
+</article></div>
+    </div>
+  </section>
+
+  <section class="cta-band" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Quer aplicar isso na sua empresa, com governança?</h2>
+      <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary">Agendar conversa</a>
+    </div>
+  </section>
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../../" class="logo"><img src="../../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Blog</h5>
+          <a href="../../blog/categoria/governanca/">Governança de IA</a>
+          <a href="../../blog/categoria/ai-agents/">Agentes de IA</a>
+          <a href="../../blog/categoria/llm/">LLMs</a>
+          <a href="../../blog/categoria/dev-tools/">Ferramentas de Dev</a>
+          <a href="../../blog/categoria/automation/">Automação</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../../iso-42001/">ISO 42001</a>
+          <a href="../../diagnostico/">Diagnóstico</a>
+          <a href="../../sobre/">Sobre</a>
+          <a href="../../blog/">Blog</a>
+          <a href="../../biblioteca-prompts/">Prompts</a>
+          <a href="../../rss.xml">RSS</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/site.js?v=12"></script>
+
+</body>
+</html>

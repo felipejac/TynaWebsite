@@ -7,6 +7,10 @@
     "build": "node tools/build-blog.mjs",
     "check": "node tools/check-blog.mjs",
     "deploy": "node tools/deploy.mjs",
-    "deploy:build": "node tools/deploy.mjs --build"
+    "deploy:build": "node tools/deploy.mjs --build",
+    "kb:lint": "node tools/kb-lint.mjs",
+    "seo": "node tools/seo-audit.mjs",
+    "seo:local": "node tools/seo-audit.mjs --local",
+    "seo:gsc": "node tools/seo-audit.mjs --gsc"
   }
 }

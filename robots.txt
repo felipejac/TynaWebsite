@@ -1,0 +1,96 @@
+# robots.txt — tyna.com.br
+#
+# Política: liberação total. A Tyna quer ser lida, indexada e citada por
+# buscadores e por motores de resposta (ChatGPT, Perplexity, Gemini, Claude,
+# AI Overviews). Nada aqui é bloqueado.
+#
+# ATENÇÃO: este arquivo só é servido se a opção "managed robots.txt" estiver
+# DESLIGADA no painel da Cloudflare. Com ela ligada, a Cloudflare mescla ou
+# substitui este conteúdo por regras de bloqueio.
+# Caminho: dash Cloudflare › Security › Settings › Bot traffic ›
+#          "Set your preference to block training in robots.txt" › desligar.
+
+# Content Signals: permissão explícita para busca, resposta em tempo real e treino.
+User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+# ---------- Buscadores ----------
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# ---------- Motores de resposta: busca e citação ----------
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Google-CloudVertexBot
+Allow: /
+
+# ---------- Crawlers de treinamento (liberados de propósito) ----------
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+User-agent: omgili
+Allow: /
+
+# ---------- Onde está o conteúdo estruturado ----------
+Sitemap: https://tyna.com.br/sitemap.xml
+
+# Índice curado para LLMs (convenção llmstxt.org):
+# https://tyna.com.br/llms.txt
+# Grafo de conhecimento em JSON-LD:
+# https://tyna.com.br/ai.json

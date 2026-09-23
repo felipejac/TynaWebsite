@@ -1,6 +1,6 @@
 ---
 title: "MCP ganha analytics e avaliação de sessões de agente"
-description: "Métricas de latência, taxa de sucesso e critérios próprios de avaliação embutidos direto na sessão do agente."
+description: "Métricas de latência, taxa de sucesso e critérios próprios de avaliação embutidos direto na sessão do agente, sem instrumentação externa."
 pubDate: "2026-08-03"
 category: "llm"
 tags: ["mcp","agentes-de-ia","observabilidade","avaliacao","n8n"]

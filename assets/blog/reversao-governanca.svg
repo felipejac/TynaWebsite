@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-labelledby="t d">
+  <title id="t">Taxa de reversão de agentes de IA: 74% na média, 81% com governança madura</title>
+  <desc id="d">Comparação de duas taxas de reversão de agentes de IA de comunicação com cliente. A média das empresas é 74 por cento. Entre as organizações com framework de governança maduro a taxa sobe para 81 por cento, sete pontos acima. Fonte: Sinch, The AI Production Paradox.</desc>
+
+  <defs>
+    <radialGradient id="brilho" cx="50%" cy="40%" r="60%">
+      <stop offset="0%"  stop-color="#9333EA" stop-opacity=".20"/>
+      <stop offset="60%" stop-color="#9333EA" stop-opacity=".05"/>
+      <stop offset="100%" stop-color="#0D1117" stop-opacity="0"/>
+    </radialGradient>
+    <style>
+      .ui{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
+    </style>
+  </defs>
+
+  <rect width="1200" height="630" fill="#0D1117"/>
+  <rect x="580" y="0" width="620" height="630" fill="url(#brilho)"/>
+
+  <g class="ui">
+    <text x="84" y="150" fill="#C9A968" font-size="17" font-weight="600" letter-spacing="3.4">GOVERNANÇA DE IA</text>
+
+    <text x="82" y="248" fill="#FFFFFF" font-size="56" font-weight="700" letter-spacing="-1.4">Governança madura</text>
+    <text x="82" y="312" fill="#FFFFFF" font-size="56" font-weight="700" letter-spacing="-1.4">reverte mais.</text>
+
+    <text x="84" y="368" fill="#8B8B96" font-size="24">E isso não significa</text>
+    <text x="84" y="400" fill="#8B8B96" font-size="24">o que parece significar.</text>
+
+    <rect x="84" y="440" width="52" height="3" rx="1.5" fill="#FF6600"/>
+
+    <text x="84" y="500" fill="#9A9AA4" font-size="14.5">Sinch · The AI Production Paradox</text>
+    <text x="84" y="522" fill="#9A9AA4" font-size="14.5">2.527 executivos · 10 países · jan–fev 2026</text>
+    <text x="84" y="560" fill="#83838D" font-size="14.5" letter-spacing=".4">tyna.com.br</text>
+  </g>
+
+  <!-- Regua vertical que ancora os dois valores. Marca fina e recessiva: da direcao
+       sem fingir ser barra, que a 74 contra 81 partindo do zero nao mostraria nada. -->
+  <line x1="648" y1="132" x2="648" y2="508" stroke="#2A2233" stroke-width="2"/>
+  <rect x="644" y="336" width="8" height="172" rx="4" fill="#FF6600" opacity=".9"/>
+
+  <g class="ui">
+    <!-- Valor de contexto. Tinta secundaria: e a referencia, nao a noticia. -->
+    <text x="694" y="232" fill="#8B8B96" font-size="92" font-weight="600" letter-spacing="-3">74%</text>
+    <text x="696" y="272" fill="#9A9AA4" font-size="20">Média das empresas</text>
+
+    <!-- Numero-heroi. Fica em tinta primaria, e nao em laranja: a cor da situacao
+         viaja no selo ao lado, nunca no proprio numero. -->
+    <text x="694" y="446" fill="#FFFFFF" font-size="140" font-weight="700" letter-spacing="-5">81%</text>
+    <text x="696" y="492" fill="#B9B9C2" font-size="20">Com framework de</text>
+    <text x="696" y="518" fill="#B9B9C2" font-size="20">governança maduro</text>
+  </g>
+
+  <!-- Selo da variacao. Subir e ruim aqui, entao vai na cor de alerta, e com
+       rotulo escrito, porque cor sozinha nao pode carregar o significado. -->
+  <g transform="translate(996, 372)">
+    <rect x="0" y="0" width="132" height="46" rx="23" fill="#FF6600" opacity=".14"/>
+    <path d="M22 30 L28 17 L34 30 Z" fill="#FF7A1A"/>
+    <text class="ui" x="44" y="31" fill="#FF9147" font-size="21" font-weight="700">+7 pts</text>
+  </g>
+</svg>

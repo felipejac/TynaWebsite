@@ -8,7 +8,8 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SRC = join(ROOT, 'content', 'blog');
-const CATS = ['ai-agents', 'llm', 'dev-tools', 'automation'];
+// Espelha o CATEGORIES de build-blog.mjs — as duas listas precisam andar juntas.
+const CATS = ['governanca', 'ai-agents', 'llm', 'dev-tools', 'automation'];
 const REQ = ['title', 'description', 'pubDate', 'category', 'aeoSummary'];
 
 let erros = 0, avisos = 0;

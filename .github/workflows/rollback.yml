@@ -1,0 +1,48 @@
+name: Rollback Cloudflare Pages production
+
+on:
+  workflow_dispatch:
+    inputs:
+      before_iso:
+        description: 'Roll back to the newest PRODUCTION deployment created before this UTC ISO time'
+        required: true
+        default: '2026-09-21T18:00:00Z'
+
+jobs:
+  rollback:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Find last-good deployment and roll back
+        env:
+          CF_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          BEFORE: ${{ github.event.inputs.before_iso }}
+        run: |
+          set -uo pipefail
+          PROJECT=tyna-website
+          echo "Cutoff (before): $BEFORE"
+          echo "Account id length: ${#CF_ACCOUNT_ID}  Token length: ${#CF_API_TOKEN}"
+          echo "===== GET deployments ====="
+          HTTP=$(curl -sS -w '\nHTTP_STATUS:%{http_code}' \
+            -H "Authorization: Bearer $CF_API_TOKEN" \
+            "https://api.cloudflare.com/client/v4/accounts/$CF_ACCOUNT_ID/pages/projects/$PROJECT/deployments?per_page=25")
+          echo "$HTTP"
+          BODY=$(echo "$HTTP" | sed '/^HTTP_STATUS:/d')
+          CODE=$(echo "$HTTP" | sed -n 's/^HTTP_STATUS://p')
+          echo "===== parsed status: $CODE ====="
+          if [ "$CODE" != "200" ]; then
+            echo "Deployment list call failed (status $CODE). Error body above. Stopping."
+            exit 1
+          fi
+          echo "----- production deployments before cutoff (id | created_on | url) -----"
+          echo "$BODY" | jq -r --arg b "$BEFORE" '[.result[] | select(.environment=="production") | select(.created_on < $b)] | sort_by(.created_on) | reverse | .[] | [.id, .created_on, (.url // "")] | @tsv'
+          TARGET=$(echo "$BODY" | jq -r --arg b "$BEFORE" '[.result[] | select(.environment=="production") | select(.created_on < $b)] | sort_by(.created_on) | last | .id')
+          echo "Chosen last-good deployment id: $TARGET"
+          if [ -z "$TARGET" ] || [ "$TARGET" = "null" ]; then echo "ERROR: no production deployment before cutoff"; exit 1; fi
+          echo "===== POST rollback ====="
+          RB=$(curl -sS -w '\nHTTP_STATUS:%{http_code}' -X POST \
+            -H "Authorization: Bearer $CF_API_TOKEN" \
+            "https://api.cloudflare.com/client/v4/accounts/$CF_ACCOUNT_ID/pages/projects/$PROJECT/deployments/$TARGET/rollback")
+          echo "$RB"
+          RCODE=$(echo "$RB" | sed -n 's/^HTTP_STATUS://p')
+          if [ "$RCODE" = "200" ]; then echo "ROLLBACK SUCCEEDED (production now points at $TARGET)"; else echo "ROLLBACK FAILED (status $RCODE)"; exit 1; fi

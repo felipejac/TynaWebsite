@@ -1,20 +1,25 @@
   :root{
-    --ink:#0D1117;
-    --surface:#141B26;
-    --surface-2:#1B2430;
-    --line:#26303D;
-    --text:#EDEFF2;
-    --text-muted:#8B93A1;
-    --gold:#C9A968;
-    --gold-dim:#7d6c46;
+    /* Tema claro. Dois acentos, e só dois: roxo da marca identifica (eyebrow, número,
+       rótulo, ênfase de título); laranja é sempre ação (botão, link, foco). */
+    --ink:#FFFFFF;
+    --surface:#F5F5F7;
+    --surface-2:#EDEDF0;
+    --line:#D9D9DE;
+    --text:#1D1D1F;
+    --text-muted:#6E6E73;
+    --accent:#4A2266;
+    --accent-soft:#C3B2D1;
     --purple:#411E5A;
-    --purple-line:#5C3A76;
-    --orange:#F1592B;
-    --orange-hi:#FF7A45;
-    /* gradiente amostrado pixel a pixel da estrela do logotipo */
-    --star-grad:linear-gradient(90deg,#FCC210 0%,#F9A51C 20%,#F68928 40%,#F36C34 60%,#F04F41 80%,#E64436 100%);
-    --good:#8FB99B;
-    --serif:'Source Serif 4', Georgia, serif;
+    --purple-line:#E4DCEC;
+    --orange:#FF6600;      /* preenchimento e borda de botão */
+    --orange-hi:#E65C00;   /* hover do preenchimento */
+    /* mesma família, escurecido para uso como TEXTO sobre fundo claro: #FF6600 em texto
+       dá 2,94:1 contra o branco, abaixo do mínimo de 4,5:1. Este dá 5,01:1. */
+    --orange-ink:#BF4A00;
+    --good:#1E7A4F;
+    /* pilha do sistema: vira SF Pro no Mac e no iPhone, Segoe UI no Windows —
+       sem requisição de fonte e com o desenho que o visitante já conhece */
+    --body:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     --display:'Space Grotesk', sans-serif;
     --mono:'IBM Plex Mono', monospace;
     --maxw:1180px;
@@ -28,79 +33,135 @@
   body{
     background:var(--ink);
     color:var(--text);
-    font-family:var(--serif);
+    font-family:var(--body);
     line-height:1.6;
     font-size:17px;
-    -webkit-font-smoothing:antialiased;
+    /* sem -webkit-font-smoothing:antialiased — ele afina o texto sobre fundo claro */
+    /* trava o "font boosting" do Chrome no Android, que infla texto de bloco por
+       conta própria e desalinha layout que já é responsivo */
+    -webkit-text-size-adjust:100%;
+    text-size-adjust:100%;
   }
   img,svg{max-width:100%; display:block;}
   a{color:inherit; text-decoration:none;}
   .wrap{max-width:var(--maxw); margin:0 auto; padding:0 32px;}
-  h1,h2,h3,h4{font-family:var(--display); font-weight:600; line-height:1.15; letter-spacing:-0.01em;}
+  h1,h2,h3,h4{font-family:var(--display); font-weight:600; line-height:1.15; letter-spacing:-0.022em;}
   .eyebrow{
     font-family:var(--mono); font-size:12.5px; letter-spacing:0.14em; text-transform:uppercase;
-    color:var(--gold); display:flex; align-items:center; gap:10px; margin-bottom:18px;
+    color:var(--accent); display:flex; align-items:center; gap:10px; margin-bottom:18px;
   }
-  .eyebrow::before{content:''; width:22px; height:1px; background:var(--gold);}
-  .num{font-family:var(--mono); color:var(--gold); font-size:13px;}
+  .eyebrow::before{content:''; width:22px; height:1px; background:var(--accent);}
+  .num{font-family:var(--mono); color:var(--accent); font-size:13px;}
 
   /* ---------- Header ---------- */
   header{
     position:sticky; top:0; z-index:100;
-    background:rgba(65,30,90,0.92); backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--purple-line);
+    background:rgba(255,255,255,0.82); backdrop-filter:saturate(180%) blur(20px);
+    border-bottom:1px solid var(--line);
   }
   .nav{display:flex; align-items:center; justify-content:space-between; gap:28px; height:76px;}
   nav ul .mobile-cta{display:none;}
   .logo{display:flex; align-items:center; gap:12px; flex-shrink:0;}
   .logo img{height:34px; width:auto;}
   .logo span{
-    font-family:var(--mono); font-weight:400; font-size:11px; color:rgba(255,255,255,0.66);
-    letter-spacing:0.12em; white-space:nowrap; padding-left:12px; border-left:1px solid var(--purple-line);
+    font-family:var(--mono); font-weight:400; font-size:11px; color:var(--text-muted);
+    letter-spacing:0.12em; white-space:nowrap; padding-left:12px; border-left:1px solid var(--line);
   }
   nav ul{list-style:none; display:flex; gap:36px;}
-  nav ul a{font-family:var(--display); font-size:14.5px; color:rgba(255,255,255,0.76); transition:color .2s;}
-  nav ul a:hover, nav ul a:focus-visible{color:#fff;}
+  nav ul a{font-family:var(--display); font-size:14.5px; font-weight:700; color:var(--text-muted); transition:color .2s;}
+  nav ul a:hover, nav ul a:focus-visible{color:var(--text);}
   .btn{
     font-family:var(--display); font-size:14.5px; font-weight:500; padding:11px 22px;
-    border-radius:3px; display:inline-block; white-space:nowrap;
+    border-radius:980px; display:inline-block; white-space:nowrap; transition:background .2s, color .2s, border-color .2s;
   }
-  .btn-primary{background:var(--star-grad); color:#fff; font-weight:700; border:0;}
-  .btn-primary:hover{filter:brightness(1.08);}
-  .btn-ghost{border:1px solid var(--line); color:var(--text);}
-  .btn-ghost:hover{border-color:var(--gold); color:var(--gold);}
-  .nav-toggle{display:none; background:none; border:0; color:#fff; font-size:26px; cursor:pointer;}
-  a:focus-visible, button:focus-visible{outline:2px solid var(--gold); outline-offset:3px;}
+  /* Todo botão é laranja. O secundário mantém a hierarquia pelo peso, não pela cor:
+     contorno laranja que preenche no hover. */
+  .btn-primary{background:var(--orange); color:#fff; font-weight:600; border:1px solid var(--orange);}
+  .btn-primary:hover{background:var(--orange-hi); border-color:var(--orange-hi);}
+  .btn-ghost{border:1px solid var(--orange); color:var(--orange-ink); background:transparent;}
+  .btn-ghost:hover{background:var(--orange); color:#fff;}
+  .nav-toggle{display:none; background:none; border:0; color:var(--text); font-size:26px; cursor:pointer;}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--orange); outline-offset:3px;}
 
   /* ---------- Hero ---------- */
   .hero{padding:96px 0 70px; position:relative; overflow:hidden;}
   .hero-grid{display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center;}
   .hero h1{font-size:clamp(34px,4.6vw,58px); margin-bottom:22px;}
-  .hero h1 em{font-style:normal; color:var(--gold);}
+  .hero h1 em{font-style:normal; color:var(--accent);}
   .hero p.lead{font-size:18.5px; color:var(--text-muted); max-width:520px; margin-bottom:34px;}
-  .hero-ctas{display:flex; gap:14px; margin-bottom:52px; flex-wrap:wrap;}
-  .trustbar{border-top:1px solid var(--line); padding-top:22px;}
-  .trustbar p{font-family:var(--mono); font-size:11.5px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); margin-bottom:14px;}
-  .trustbar ul{list-style:none; display:flex; flex-wrap:wrap; gap:10px 28px;}
-  .trustbar li{font-family:var(--display); font-size:15px; color:var(--text);}
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap;}
+  .hero-note{font-family:var(--mono); font-size:12px; color:var(--text-muted); margin-top:18px; letter-spacing:0.02em;}
 
-  /* Gateway diagram */
-  .gateway{position:relative; aspect-ratio:1/1; max-width:480px; margin:0 auto;}
+  /* Faixa de prova social (clientes com IA em produção) */
+  .proof-band{padding:30px 0; border-bottom:1px solid var(--line); background:var(--surface);}
+  .proof-band .wrap{display:flex; align-items:center; gap:20px 44px; flex-wrap:wrap;}
+  .proof-label{
+    font-family:var(--mono); font-size:11.5px; letter-spacing:0.11em; text-transform:uppercase;
+    color:var(--text-muted); flex-shrink:0; max-width:190px; line-height:1.5;
+  }
+  .proof-logos{list-style:none; display:flex; flex-wrap:wrap; align-items:center; gap:16px 38px; flex:1;}
+  .proof-logos li{
+    font-family:var(--display); font-weight:600; font-size:17.5px; letter-spacing:-0.015em;
+    color:var(--text); opacity:.85;
+  }
+
+  /* Diagrama do AI Gateway.
+     A profundidade vem de gradiente e sombra projetada, não de perspectiva: o
+     diagrama continua de frente, que é o que mantém os rótulos legíveis. Os nós
+     ganham domo por gradiente radial deslocado para o alto e à esquerda, como se
+     houvesse uma fonte de luz única.
+
+     Nenhum filtro entra em elemento animado. Filtro sobre algo que gira obriga o
+     navegador a rasterizar de novo a cada quadro; os anéis pontilhados são traço
+     puro, e o brilho dos pulsos é um círculo atrás, não um blur. */
+  /* width:100% é obrigatório aqui. Sem ele, `margin:0 auto` desliga o esticar do
+     grid e a largura vira encolher-para-caber; como o SVG interno é width:100%,
+     não há o que medir e o navegador cai no padrão de 300px do SVG. O diagrama
+     ficava em 300px em qualquer tela, sem nunca alcançar os 480 do max-width. */
+  .gateway{position:relative; aspect-ratio:1/1; width:100%; max-width:480px; margin:0 auto;}
   .gateway svg{width:100%; height:100%; overflow:visible;}
-  .g-ring{fill:none; stroke:var(--line); stroke-width:1;}
-  .g-ring-dash{fill:none; stroke:var(--gold-dim); stroke-width:1; stroke-dasharray:2 6; animation:spin 60s linear infinite;}
+
+  .g-halo{fill:url(#gHalo);}
+  .g-ring{fill:none; stroke:#D9CCE8; stroke-width:1.1;}
+  .g-ring-soft{fill:none; stroke:#E7DDF2; stroke-width:1;}
+  /* stroke-linecap:round transforma o traço curto em ponto de verdade */
+  .g-ring-dash{fill:none; stroke:#9333EA; stroke-width:2.2; stroke-dasharray:0.5 9;
+    stroke-linecap:round; opacity:.85; animation:spin 60s linear infinite;}
+  .g-ring-dash-2{fill:none; stroke:#C77DFF; stroke-width:1.6; stroke-dasharray:0.5 11;
+    stroke-linecap:round; opacity:.5; animation:spinBack 88s linear infinite;}
   @keyframes spin{to{transform:rotate(360deg);}}
-  .g-hub-fill{fill:var(--surface-2); stroke:var(--gold); stroke-width:1.4;}
-  .g-node-fill{fill:var(--surface); stroke:var(--line); stroke-width:1.2;}
-  .g-line{stroke:var(--line); stroke-width:1.2;}
-  .g-pulse{fill:var(--gold); opacity:0.85;}
-  .g-label{font-family:var(--mono); font-size:9.5px; fill:var(--text-muted); letter-spacing:0.04em;}
-  .g-hub-label{font-family:var(--mono); font-size:10.5px; fill:var(--gold); letter-spacing:0.08em;}
+  @keyframes spinBack{to{transform:rotate(-360deg);}}
+
+  .g-line{stroke:url(#gWire); stroke-width:2; stroke-linecap:round;}
+  .g-node-fill{fill:url(#gNodeFace); stroke:#A87FCE; stroke-width:1.2;}
+  .g-hub-fill{fill:url(#gHubFace);}
+  .g-hub-edge{fill:none; stroke:#C77DFF; stroke-width:1.2; opacity:.55;}
+  /* Reflexo no alto do hub: é ele que faz o círculo virar esfera. Branco chapado
+     lê como adesivo colado; o gradiente que desvanece nas bordas lê como luz. */
+  .g-hub-gloss{fill:url(#gGloss);}
+
+  .g-pulse{fill:#FF7A1A;}
+  .g-pulse-halo{fill:#FF6600; opacity:.22;}
+  .g-label{font-family:var(--mono); font-size:9.5px; fill:#3B2350; font-weight:500; letter-spacing:0.04em;}
+  .g-hub-label{font-family:var(--mono); font-size:10.5px; fill:#FFFFFF; font-weight:600; letter-spacing:0.08em;}
+
   .pulse-anim{animation:pulse 2.8s ease-in-out infinite;}
   .pulse-anim.d2{animation-delay:.5s;}
   .pulse-anim.d3{animation-delay:1s;}
   .pulse-anim.d4{animation-delay:1.5s;}
   @keyframes pulse{0%,100%{opacity:.35; r:2.5;} 50%{opacity:1; r:4;}}
+  .halo-anim{animation:pulseHalo 2.8s ease-in-out infinite;}
+  .halo-anim.d2{animation-delay:.5s;}
+  .halo-anim.d3{animation-delay:1s;}
+  .halo-anim.d4{animation-delay:1.5s;}
+  @keyframes pulseHalo{0%,100%{opacity:0; r:5;} 50%{opacity:.26; r:10;}}
+
+  /* Quem pede menos movimento no sistema recebe o diagrama parado. Ele continua
+     dizendo a mesma coisa: a informação está na estrutura, não na animação. */
+  @media (prefers-reduced-motion: reduce){
+    .g-ring-dash, .g-ring-dash-2, .pulse-anim, .halo-anim{animation:none;}
+    .halo-anim{opacity:.18;}
+  }
 
   /* ---------- Sections generic ---------- */
   section{padding:100px 0; border-bottom:1px solid var(--line);}
@@ -117,6 +178,8 @@
   .risk-item .num{padding-top:2px;}
   .risk-item h4{font-size:16.5px; margin-bottom:6px; font-weight:600;}
   .risk-item p{color:var(--text-muted); font-size:15px;}
+  /* link dentro do item de risco: leva para a página que trata daquele risco */
+  .risk-item p a{color:var(--orange-ink); text-decoration:underline; text-underline-offset:3px;}
 
   /* Services */
   .svc-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
@@ -129,14 +192,15 @@
   /* Trilhas ledger */
   .track-tabs{display:flex; gap:10px; margin-bottom:40px;}
   .track-tab{font-family:var(--mono); font-size:12.5px; letter-spacing:0.08em; text-transform:uppercase; padding:9px 16px; border:1px solid var(--line); border-radius:2px; color:var(--text-muted); cursor:pointer; background:none;}
-  .track-tab.active{border-color:var(--gold); color:var(--gold);}
+  .track-tab:hover{color:var(--text);}
+  .track-tab.active{border-color:var(--orange); color:var(--orange);}
   .module{display:grid; grid-template-columns:70px 1fr; gap:28px; padding:30px 0; border-top:1px solid var(--line);}
   .track-group:last-child .module:last-child{border-bottom:1px solid var(--line);}
   .module .num{font-size:22px; padding-top:2px;}
   .module h4{font-size:18.5px; margin-bottom:10px;}
   .module ul{list-style:none; margin-bottom:14px;}
   .module ul li{color:var(--text-muted); font-size:15px; padding:4px 0 4px 18px; position:relative;}
-  .module ul li::before{content:'—'; position:absolute; left:0; color:var(--gold-dim);}
+  .module ul li::before{content:'—'; position:absolute; left:0; color:var(--accent-soft);}
   .module .result{font-family:var(--mono); font-size:12.5px; color:var(--good); letter-spacing:0.02em;}
   .track-group{display:none;}
   .track-group.active{display:block;}
@@ -144,7 +208,7 @@
   /* Cases */
   .case-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
   .case-card{background:var(--ink); padding:34px;}
-  .case-card .tag{font-family:var(--mono); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); margin-bottom:10px; display:block;}
+  .case-card .tag{font-family:var(--mono); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); margin-bottom:10px; display:block;}
   .case-card h3{font-size:19px; margin-bottom:14px;}
   .case-card p.desc{color:var(--text-muted); font-size:14.5px; margin-bottom:22px;}
   .stat-row{display:grid; grid-template-columns:repeat(4,1fr); gap:14px; border-top:1px solid var(--line); padding-top:20px;}
@@ -156,9 +220,9 @@
   /* Contratação */
   .formats{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
   .format-card{border:1px solid var(--line); padding:32px 28px; display:flex; flex-direction:column; gap:16px;}
-  .format-card.highlight{border-color:var(--gold);}
+  .format-card.highlight{border-color:var(--accent);}
   .format-card h3{font-size:19px;}
-  .format-card .tagline{font-family:var(--mono); font-size:11px; color:var(--gold); letter-spacing:0.08em; text-transform:uppercase;}
+  .format-card .tagline{font-family:var(--mono); font-size:11px; color:var(--accent); letter-spacing:0.08em; text-transform:uppercase;}
   .format-card p{color:var(--text-muted); font-size:14.5px; flex-grow:1;}
 
   /* About */
@@ -178,52 +242,413 @@
   .cta-band h2{font-size:clamp(30px,4.4vw,48px); max-width:760px; margin:0 auto 30px;}
   .cta-band .btn{padding:15px 34px; font-size:15.5px;}
 
-  /* Footer */
-  footer{padding:56px 0 40px;}
+  /* Footer — única faixa escura do site, então não usa os tokens claros:
+     as cores são declaradas aqui sobre o #242423. O logotipo volta a ser o
+     branco original (o escuro do header sumiria neste fundo). */
+  footer{background:#242423; color:#fff; padding:64px 0 40px;}
   .foot-grid{display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:30px;}
   .foot-left .logo{margin-bottom:12px;}
   .foot-left .logo img{height:30px;}
-  .foot-left .logo span{color:var(--text-muted); border-left-color:var(--line);}
-  .foot-left p{color:var(--text-muted); font-size:14px; max-width:340px;}
+  .foot-left .logo span{color:rgba(255,255,255,0.6); border-left-color:rgba(255,255,255,0.22);}
+  .foot-left p{color:rgba(255,255,255,0.66); font-size:14px; max-width:340px;}
   .foot-right{display:flex; gap:40px; flex-wrap:wrap;}
-  .foot-col h5{font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:0.1em; color:var(--gold); margin-bottom:12px;}
-  .foot-col a{display:block; color:var(--text-muted); font-size:14px; padding:4px 0;}
-  .foot-col a:hover{color:var(--text);}
-  .foot-bottom{border-top:1px solid var(--line); margin-top:48px; padding-top:24px; display:flex; justify-content:space-between; color:var(--text-muted); font-size:12.5px; font-family:var(--mono); flex-wrap:wrap; gap:10px;}
+  .foot-col h5{font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:0.1em; color:rgba(255,255,255,0.5); margin-bottom:12px;}
+  .foot-col a{display:block; color:rgba(255,255,255,0.78); font-size:14px; padding:4px 0; transition:color .2s;}
+  .foot-col a:hover{color:#fff;}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,0.16); margin-top:48px; padding-top:24px; display:flex; justify-content:space-between; color:rgba(255,255,255,0.55); font-size:12.5px; font-family:var(--mono); flex-wrap:wrap; gap:10px;}
+
+  /* Diferencial — comparativo */
+  .compare{border-top:1px solid var(--line); margin-top:8px;}
+  .compare-head, .compare-row{display:grid; grid-template-columns:0.62fr 1fr 1.15fr; gap:30px;}
+  .compare-head{padding:14px 0; border-bottom:1px solid var(--line);}
+  .compare-head span{font-family:var(--mono); font-size:11.5px; letter-spacing:0.11em; text-transform:uppercase; color:var(--text-muted);}
+  .compare-head .ch-tyna{color:var(--accent);}
+  .compare-row{padding:26px 0; border-bottom:1px solid var(--line); align-items:start;}
+  .compare-row .c-dim{font-family:var(--display); font-weight:600; font-size:15.5px;}
+  .compare-row p{font-size:15px; color:var(--text-muted);}
+  .compare-row p.c-tyna{color:var(--text);}
+  .c-tag{display:none;}
+
+  /* Diferencial — governança de agentes autônomos */
+  .agent-gov{
+    margin-top:56px; background:var(--surface); border:1px solid var(--line);
+    border-left:2px solid var(--accent); padding:38px 34px;
+  }
+  .agent-gov h3{font-size:clamp(20px,2.4vw,25px); margin-bottom:14px; max-width:760px;}
+  .agent-gov > p{color:var(--text-muted); font-size:16px; max-width:760px; margin-bottom:32px;}
+  .agent-gov ul{list-style:none; display:grid; grid-template-columns:repeat(4,1fr); gap:28px;}
+  .agent-gov li{border-top:1px solid var(--line); padding-top:16px;}
+  .agent-gov li h4{font-size:15px; margin-bottom:7px;}
+  .agent-gov li p{color:var(--text-muted); font-size:14px;}
+
+  /* Objeção "documento na gaveta" */
+  .objection{
+    border:1px solid var(--line); border-left:2px solid var(--accent);
+    padding:26px 30px; margin-bottom:44px; max-width:820px; background:var(--surface);
+  }
+  .objection p{color:var(--text-muted); font-size:15.5px;}
+  .objection p strong{color:var(--text); font-weight:400;}
+
+  /* ---------- ISO 42001 ---------- */
+
+  /* Equivalência entre as normas: 9001 / 27001 / 42001 */
+  .norma-row{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
+  .norma-item{background:var(--ink); padding:26px 24px; display:flex; flex-direction:column; gap:6px;}
+  .norma-item.is-alvo{background:var(--surface);}
+  /* na página 404 os mesmos blocos viram links */
+  a.norma-item{transition:background .25s;}
+  a.norma-item:hover{background:var(--surface-2);}
+  a.norma-item:hover .norma-code{color:var(--accent);}
+  .norma-code{font-family:var(--display); font-weight:700; font-size:21px; letter-spacing:-0.01em;}
+  .norma-item.is-alvo .norma-code{color:var(--accent);}
+  .norma-for{font-family:var(--mono); font-size:11.5px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted);}
+
+  /* Etapas do processo de certificação */
+  .steps{border-top:1px solid var(--line);}
+  .step{display:grid; grid-template-columns:56px 1fr; gap:26px; padding:28px 0; border-bottom:1px solid var(--line); align-items:start;}
+  .step-num{font-family:var(--mono); font-size:24px; color:var(--accent); line-height:1.1;}
+  /* trava a medida do texto: sem isto a linha corre os ~1030px da coluna */
+  .step > div{max-width:760px;}
+  .step h3{font-size:19px; margin-bottom:10px;}
+  .step p{color:var(--text-muted); font-size:15.5px;}
+  .step.is-chave{background:var(--surface); border-left:2px solid var(--accent); padding:28px 26px;}
+  .step.is-chave .step-num{color:var(--accent);}
+  .step-flag{
+    display:block; margin-top:14px; font-family:var(--mono); font-size:12.5px;
+    color:var(--good); letter-spacing:0.02em;
+  }
+
+  /* Tabela de prazos */
+  .spec-table{width:100%; border-collapse:collapse; border:1px solid var(--line);}
+  .spec-table th{
+    text-align:left; font-family:var(--mono); font-size:11.5px; letter-spacing:0.1em;
+    text-transform:uppercase; color:var(--text-muted); font-weight:400;
+    padding:15px 22px; background:var(--surface); border-bottom:1px solid var(--line);
+  }
+  .spec-table td{padding:18px 22px; border-bottom:1px solid var(--line); font-size:15px; color:var(--text-muted); vertical-align:top;}
+  .spec-table tr:last-child td{border-bottom:0;}
+  .spec-table td:first-child{width:52%; color:var(--text); font-family:var(--display); font-weight:500; font-size:15.5px;}
+  .spec-table .prazo{color:var(--accent); font-family:var(--mono); font-size:14px;}
+
+  /* Entregáveis dentro de um card de pilar */
+  .deliverables{list-style:none; border-top:1px solid var(--line); padding-top:18px; margin-top:6px;}
+  .deliverables li{color:var(--text-muted); font-size:14.5px; padding:4px 0 4px 18px; position:relative;}
+  .deliverables li::before{content:'—'; position:absolute; left:0; color:var(--accent-soft);}
+
+  /* FAQ visível — o texto precisa estar na página, não só no JSON-LD */
+  .faq{border-top:1px solid var(--line); max-width:880px;}
+  .faq-item{border-bottom:1px solid var(--line); padding:26px 0;}
+  .faq-item h3{font-size:18.5px; margin-bottom:10px;}
+  .faq-item p{color:var(--text-muted); font-size:15.5px;}
+  .faq-item p + p{margin-top:12px;}
+
+  /* ---------- Diagnóstico interativo ---------- */
+  .quiz{border-top:1px solid var(--line); max-width:880px;}
+  /* fieldset traz borda e padding do agente de usuário; o reset global só zera margem */
+  .q-item{border:0; border-bottom:1px solid var(--line); padding:26px 0; margin:0; min-width:0;}
+  .q-head{display:grid; grid-template-columns:46px 1fr; gap:16px; align-items:start; margin-bottom:16px;}
+  .q-num{font-family:var(--mono); font-size:13px; color:var(--accent); padding-top:3px;}
+  .q-head h3{font-size:17.5px; font-weight:600; line-height:1.35;}
+  .q-opts{display:flex; gap:10px; flex-wrap:wrap; padding-left:62px;}
+  .q-opts label{
+    font-family:var(--display); font-size:14px; padding:9px 18px; border:1px solid var(--line);
+    border-radius:980px; color:var(--text-muted); cursor:pointer; transition:all .18s; user-select:none;
+  }
+  .q-opts input{position:absolute; opacity:0; width:0; height:0;}
+  .q-opts label:hover{border-color:var(--text-muted); color:var(--text);}
+  .q-opts input:checked + span{color:#fff;}
+  .q-opts label:has(input:checked){background:var(--accent); border-color:var(--accent); color:#fff;}
+  .q-opts input:focus-visible + span{outline:2px solid var(--orange); outline-offset:4px; border-radius:2px;}
+
+  .quiz-bar{
+    position:sticky; bottom:0; background:var(--ink); border-top:1px solid var(--line);
+    padding:18px 0; margin-top:8px; display:flex; align-items:center; gap:18px; flex-wrap:wrap;
+  }
+  /* o botão flutuante do WhatsApp fica fixo no canto e cobriria o "Ver resultado" */
+  @media (max-width:1120px){ .quiz-bar{padding-right:74px;} }
+  .quiz-progress{font-family:var(--mono); font-size:12.5px; color:var(--text-muted);}
+  .quiz-track{flex:1; min-width:120px; height:3px; background:var(--surface-2); border-radius:2px; overflow:hidden;}
+  .quiz-fill{height:100%; width:0; background:var(--orange); transition:width .3s ease;}
+
+  .quiz-result{display:none; border:1px solid var(--line); border-left:2px solid var(--orange); background:var(--surface); padding:34px 32px; margin-top:40px;}
+  .quiz-result.on{display:block;}
+  .score-line{display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; margin-bottom:8px;}
+  .score-v{font-family:var(--display); font-size:44px; font-weight:700; line-height:1; letter-spacing:-0.03em;}
+  .score-max{font-family:var(--mono); font-size:14px; color:var(--text-muted);}
+  .score-band{font-family:var(--mono); font-size:12.5px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent);}
+  .quiz-result h3{font-size:22px; margin:14px 0 10px;}
+  .quiz-result > p{color:var(--text-muted); font-size:16px; max-width:680px;}
+  .gaps{list-style:none; margin:26px 0 30px; border-top:1px solid var(--line);}
+  .gaps li{border-bottom:1px solid var(--line); padding:15px 0 15px 20px; position:relative; font-size:15px;}
+  .gaps li::before{content:'—'; position:absolute; left:0; color:var(--orange);}
+  .gaps li strong{font-weight:600;}
+
+  @media (max-width:720px){
+    .q-head{grid-template-columns:32px 1fr; gap:10px;}
+    .q-opts{padding-left:0;}
+    .q-opts label{flex:1 1 auto; text-align:center; padding:11px 12px;}
+    .quiz-result{padding:26px 22px;}
+  }
+
+  /* Benefícios em resumo */
+  .benefits{list-style:none; display:grid; grid-template-columns:repeat(2,1fr); gap:0 48px;}
+  .benefits li{
+    position:relative; padding:17px 0 17px 26px; border-top:1px solid var(--line);
+    color:var(--text-muted); font-size:15.5px;
+  }
+  .benefits li::before{content:'—'; position:absolute; left:0; top:17px; color:var(--accent-soft);}
+  /* a frase de entrada do item é o que a pessoa varre antes de decidir se lê o resto */
+  .benefits li strong{color:var(--text); font-weight:600;}
+
+  /* ---------- Checklist numerado (shadow AI, PL 2338) ----------
+     O número é conteúdo, não enfeite: o passo 8 continua sendo o 8 quando a lista é
+     quebrada em blocos com `start`. Por isso vem do próprio <ol> e é pintado pelo
+     ::marker — navegador que não estiliza ::marker mostra o número no estilo padrão,
+     que é degradação aceitável; número escrito à mão em <span> sairia errado na
+     primeira vez que um item mudasse de lugar. */
+  .check-actions{display:flex; align-items:center; gap:18px; flex-wrap:wrap; margin-bottom:38px;}
+  .check-hint{font-family:var(--mono); font-size:12.5px; color:var(--text-muted); line-height:1.5;}
+  .check-block{margin-bottom:46px;}
+  .check-block:last-of-type{margin-bottom:0;}
+  .check-block h3{font-size:18.5px; margin-bottom:16px; display:flex; align-items:baseline; gap:12px; flex-wrap:wrap;}
+  .check-block-tag{
+    font-family:var(--mono); font-size:11.5px; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--accent); background:var(--surface); border:1px solid var(--purple-line);
+    padding:5px 9px; border-radius:3px;
+  }
+  .check-list{list-style:decimal-leading-zero; padding-left:36px;}
+  .check-list li::marker{font-family:var(--mono); font-size:14px; color:var(--accent);}
+  .check-item{padding:20px 0; border-bottom:1px solid var(--line);}
+  .check-item:first-child{border-top:1px solid var(--line);}
+  .check-item h4{font-family:var(--display); font-size:16.5px; font-weight:600; margin-bottom:8px;}
+  .check-item p{color:var(--text-muted); font-size:15.5px; max-width:760px;}
+  .check-item a{color:var(--orange-ink); text-decoration:underline; text-underline-offset:3px;}
+  .check-item.is-chave{background:var(--surface); border-left:2px solid var(--accent); padding:20px 22px;}
+  /* O texto puro do checklist fica escondido e só aparece quando a cópia automática
+     falha — navegador antigo, permissão negada, página sem foco. Como ele é <pre>,
+     precisa quebrar linha: sem isto as linhas longas empurram a página inteira para
+     fora e criam rolagem horizontal no exato momento em que a pessoa precisa
+     selecionar o texto na mão. */
+  .check-fonte{
+    white-space:pre-wrap; overflow-wrap:anywhere; margin-top:30px; padding:22px 20px;
+    background:var(--surface); border:1px solid var(--line); border-left:2px solid var(--accent);
+    font-family:var(--mono); font-size:13px; line-height:1.7; color:var(--text);
+  }
+
+  /* ---------- Cartão de status (PL 2338) ----------
+     A página inteira depende de uma afirmação com data. O cartão existe para que essa
+     afirmação seja lida antes de qualquer outra coisa, inclusive por quem só passa o
+     olho — e para que a data da última conferência ande sempre colada nela. */
+  .status-card{
+    max-width:760px; margin:4px 0 32px; padding:26px 28px; border-radius:6px;
+    background:var(--surface); border:1px solid var(--line); border-left:3px solid var(--accent);
+  }
+  .status-badge{
+    display:inline-block; margin-bottom:15px; padding:6px 11px; border-radius:3px;
+    font-family:var(--mono); font-size:11.5px; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--ink); background:var(--accent);
+  }
+  .status-line{font-size:16.5px; color:var(--text);}
+  .status-line strong{font-weight:600;}
+  .status-meta{font-family:var(--mono); font-size:12.5px; color:var(--text-muted); line-height:1.55; margin-top:14px;}
+
+  @media (max-width:720px){
+    .check-actions{flex-direction:column; align-items:stretch; gap:12px;}
+    .check-actions .btn{width:100%;}
+    .check-hint{font-size:12px;}
+    .check-list{padding-left:26px;}
+    .check-item.is-chave{padding:18px 16px;}
+    .status-card{padding:22px 20px;}
+    .status-meta{font-size:12px;}
+  }
+
+  /* Plano B do CTA de e-mail: aparece só quando o mailto não abre nada */
+  .mail-fb{
+    position:fixed; inset:0; z-index:300; display:none; align-items:center; justify-content:center;
+    padding:22px; background:rgba(29,29,31,.5);
+  }
+  .mail-fb.on{display:flex;}
+  .mf-card{
+    background:var(--ink); border:1px solid var(--line); border-radius:8px;
+    width:100%; max-width:440px; padding:32px 30px; box-shadow:0 24px 70px rgba(0,0,0,.28);
+    position:relative;
+  }
+  .mf-card h3{font-size:21px; margin-bottom:10px;}
+  .mf-card > p{color:var(--text-muted); font-size:15px; margin-bottom:24px;}
+  .mf-opts{display:flex; flex-direction:column; gap:10px;}
+  .mf-opts .btn{width:100%; text-align:center; font-size:14.5px;}
+  .mf-mail{
+    display:block; width:100%; text-align:center; font-family:var(--mono); font-size:14px;
+    border:1px dashed var(--line); border-radius:980px; padding:12px 18px; color:var(--text);
+    background:none; cursor:pointer; transition:border-color .2s, color .2s;
+  }
+  .mf-mail:hover{border-color:var(--orange); color:var(--orange-ink);}
+  .mf-close{
+    position:absolute; top:14px; right:16px; background:none; border:0; cursor:pointer;
+    font-size:22px; line-height:1; color:var(--text-muted); padding:6px;
+  }
+  .mf-close:hover{color:var(--text);}
+
+  /* WhatsApp flutuante */
+  .wa-fab{
+    position:fixed; right:22px; bottom:22px; z-index:200;
+    width:58px; height:58px; border-radius:50%; background:#25D366;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 6px 20px rgba(0,0,0,.18);
+    transition:transform .2s ease, opacity .25s ease;
+  }
+  .wa-fab svg{width:31px; height:31px; fill:#fff;}
+  .wa-fab:hover{transform:scale(1.08);}
+  .wa-fab::after{
+    content:''; position:absolute; inset:0; border-radius:50%;
+    border:2px solid #25D366; opacity:0; pointer-events:none;
+  }
+  .wa-fab.wa-ping::after{animation:waPing 1.5s ease-out 2;}
+  .wa-fab.wa-ping{animation:waNudge 1.5s ease-in-out 2;}
+  @keyframes waPing{from{transform:scale(1); opacity:.8;} to{transform:scale(1.8); opacity:0;}}
+  @keyframes waNudge{0%,100%{transform:scale(1);} 22%{transform:scale(1.1);} 44%{transform:scale(1);}}
+  .wa-tip{
+    position:absolute; right:70px; top:50%; transform:translateY(-50%) translateX(8px);
+    background:var(--surface-2); border:1px solid var(--line); color:var(--text);
+    font-family:var(--display); font-size:13.5px; padding:8px 13px; border-radius:3px;
+    white-space:nowrap; opacity:0; pointer-events:none; transition:opacity .3s ease, transform .3s ease;
+  }
+  .wa-fab:hover .wa-tip, .wa-fab.wa-show-tip .wa-tip{opacity:1; transform:translateY(-50%) translateX(0);}
+  body.nav-open .wa-fab{opacity:0; pointer-events:none;}
 
   /* Reveal on scroll */
   .reveal{opacity:0; transform:translateY(16px); transition:opacity .7s ease, transform .7s ease;}
   .reveal.in{opacity:1; transform:none;}
 
   /* ---------- Responsive ---------- */
+
+  /* Faixa intermediária: o menu ainda é horizontal, mas precisa caber. Sem isto a barra
+     pede ~1014px e o notebook entre 862px e 1014px ganha rolagem lateral. */
+  @media (max-width:1100px){
+    .nav{gap:18px;}
+    .logo span{display:none;}
+    nav ul{gap:20px;}
+    nav ul a{font-size:13.5px;}
+  }
+
   @media (max-width:900px){
     nav ul{gap:24px;}
     .logo span{display:none;}
     .hero-grid, .problem-grid, .about-grid{grid-template-columns:1fr; gap:44px;}
-    .gateway{order:-1; max-width:340px;}
+    /* headline e CTA primeiro: o diagrama é apoio, não abertura */
+    .gateway{max-width:340px;}
     .svc-grid{grid-template-columns:repeat(2,1fr);}
     .case-grid{grid-template-columns:1fr;}
     .stat-row{grid-template-columns:repeat(2,1fr);}
     .formats{grid-template-columns:1fr;}
     .tr-item{flex-direction:column; align-items:flex-start; gap:6px;}
     .tr-item .desc{text-align:left;}
+    .agent-gov ul{grid-template-columns:repeat(2,1fr);}
   }
-  @media (max-width:720px){
+
+  /* Comparativo vira blocos empilhados antes de espremer as três colunas */
+  @media (max-width:820px){
+    .compare-head{display:none;}
+    .compare-row{grid-template-columns:1fr; gap:14px; padding:24px 0;}
+    .compare-row .c-dim{font-size:17px;}
+    .c-tag{
+      display:block; font-family:var(--mono); font-size:10.5px; letter-spacing:0.11em;
+      text-transform:uppercase; color:var(--text-muted); margin-bottom:6px;
+    }
+    .compare-row p.c-tyna{border-left:2px solid var(--accent); padding-left:15px;}
+    .compare-row p.c-tyna .c-tag{color:var(--accent);}
+    .norma-row{grid-template-columns:1fr;}
+    .benefits{grid-template-columns:1fr;}
+  }
+
+  /* O menu vira hambúrguer antes de 720: com os links + CTA a barra passava de 800px
+     e o tablet ganhava rolagem horizontal */
+  @media (max-width:860px){
     /* backdrop-filter cria containing block para descendentes position:fixed,
        o que fazia o menu se posicionar dentro do header em vez da viewport */
-    header{backdrop-filter:none; background:var(--purple);}
+    header{backdrop-filter:none; background:var(--ink);}
     nav ul{
-      position:fixed; inset:76px 0 0 0; background:var(--purple); flex-direction:column; padding:36px 32px; gap:26px;
-      transform:translateY(-110%); transition:transform .3s ease; border-top:1px solid var(--purple-line);
+      position:fixed; inset:76px 0 0 0; background:var(--ink); flex-direction:column; padding:36px 32px; gap:26px;
+      transform:translateY(-110%); transition:transform .3s ease; border-top:1px solid var(--line);
     }
     nav ul.open{transform:translateY(0);}
-    nav ul a{font-size:20px;}
-    .nav-toggle{display:block;}
-    .logo img{height:28px;}
+    /* item de menu vira alvo de toque cheio, não só o texto */
+    nav ul li{display:flex;}
+    nav ul a{font-size:20px; padding:8px 0; width:100%;}
+    /* 44px é o mínimo de alvo de toque recomendado por Apple e Google; o botão
+       tinha 35px, e é o controle mais usado do site no celular */
+    .nav-toggle{
+      display:flex; align-items:center; justify-content:center;
+      width:44px; height:44px; margin-right:-10px;
+    }
     .logo span{display:none;}
-    .nav .btn-primary{display:none;}
-    nav ul .mobile-cta{display:inline-block; margin-top:10px;}
+    /* só o CTA solto do header some; o filho direto evita apagar o CTA de dentro do menu,
+       que perdia em especificidade para `.nav .btn-primary` */
+    .nav > .btn-primary{display:none;}
+    nav ul .mobile-cta{display:inline-block; margin-top:10px; text-align:center;}
+  }
+
+  @media (max-width:720px){
+    .logo img{height:28px;}
     .svc-grid{grid-template-columns:1fr;}
     section{padding:70px 0;}
     .wrap{padding:0 22px;}
+    .hero{padding:52px 0 56px;}
+    .hero-grid{gap:36px;}
+    .hero p.lead{font-size:17px; margin-bottom:28px;}
+    /* empilhados e ocupando a linha: com white-space:nowrap, botão que não cabe
+       empurrava a página para fora em telas estreitas */
+    .hero-ctas{flex-direction:column; align-items:stretch;}
+    .hero-ctas .btn{flex:0 0 auto; width:100%; text-align:center; white-space:normal;}
+    .proof-band .wrap{flex-direction:column; align-items:flex-start; gap:16px;}
+    .proof-label{max-width:none;}
+    .proof-logos{display:grid; grid-template-columns:repeat(2,1fr); gap:12px 20px;}
+    .proof-logos li{font-size:16px;}
+    .agent-gov{padding:30px 24px;}
+    .agent-gov ul{grid-template-columns:1fr; gap:0;}
+    .agent-gov li{padding:16px 0;}
+    .objection{padding:22px 22px;}
+    .step{grid-template-columns:1fr; gap:10px; padding:24px 0;}
+    .step.is-chave{padding:24px 20px;}
+    .step-num{font-size:20px;}
+    /* tabela de prazos empilha: são só duas colunas, rolagem lateral seria pior */
+    .spec-table, .spec-table tbody, .spec-table tr, .spec-table td{display:block; width:100%;}
+    .spec-table thead{display:none;}
+    .spec-table tr{padding:18px 0; border-bottom:1px solid var(--line);}
+    .spec-table tr:last-child{border-bottom:0;}
+    .spec-table td{border:0; padding:0 20px;}
+    .spec-table td:first-child{width:auto; margin-bottom:7px;}
+    /* mais folga do polegar e do rodapé no mobile */
+    .wa-fab{right:16px; bottom:16px; width:54px; height:54px;}
+    .wa-fab svg{width:29px; height:29px;}
+    .wa-tip{right:66px; font-size:12.5px; padding:7px 11px;}
+    footer{padding-bottom:88px;}
+
+    /* ---- Legibilidade no celular ----
+       Os rótulos em mono foram dimensionados para leitura a distância de monitor.
+       No braço, a 375px, 10px e 11px viram borrão. Subo o piso para 12px e afrouxo
+       o tracking, que é o que mais atrapalha em corpo pequeno. Só no mobile: o
+       desktop continua exatamente como está. */
+    .stat .l{font-size:11.5px; line-height:1.4; letter-spacing:0.04em;}
+    .stat .v{font-size:20px;}
+    .hero-note{font-size:13px; line-height:1.5;}
+    .proof-label{font-size:12px; letter-spacing:0.08em;}
+    .case-source{font-size:12px; opacity:.85;}
+    .eyebrow{font-size:12px; letter-spacing:0.1em; margin-bottom:16px;}
+    .case-card .tag, .post-card .tag{font-size:11.5px; letter-spacing:0.07em;}
+    .foot-bottom{font-size:12px;}
+    .module .result, .step-flag{font-size:13px; line-height:1.5;}
+
+    /* ---- Alvos de toque ----
+       Referência de 44px da Apple e do Google. Links de rodapé estavam com 26px,
+       abas com 36px: erra o toque e o visitante desiste. */
+    .foot-col a{padding:11px 0; font-size:15px;}
+    /* o logotipo também é link (leva para a home) — o alvo era a altura da imagem */
+    .logo{padding:8px 0;}
+    /* piso de 44px em todo botão, inclusive o "Ver resultado" do diagnóstico, que
+       ficava em 42px só pelo padding */
+    .btn{min-height:44px; display:inline-flex; align-items:center; justify-content:center;}
+    .track-tab{padding:13px 18px; font-size:12.5px; min-height:44px;}
+    .track-tabs{gap:8px; flex-wrap:wrap;}
+    .q-opts label{padding:13px 14px; min-height:44px; display:flex; align-items:center; justify-content:center;}
   }

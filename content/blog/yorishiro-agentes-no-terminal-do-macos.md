@@ -1,6 +1,6 @@
 ---
 title: "Yorishiro roda agentes de IA no terminal do macOS"
-description: "Aplicativo aberto para criar, iniciar e conversar com agentes localmente, sem contêiner nem serviço de nuvem."
+description: "Aplicativo aberto para criar, iniciar e conversar com agentes localmente no macOS, sem contêiner, sem serviço de nuvem e sem chave saindo da máquina."
 pubDate: "2026-07-25"
 category: "ai-agents"
 tags: ["agentes-de-ia","macos","terminal","prototipagem","codigo-aberto"]

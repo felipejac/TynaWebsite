@@ -2,6 +2,15 @@
 
 Documento vivo. Última revisão: 06/08/2026.
 
+> **Atualização de 13/08/2026:** este documento ficou defasado — os itens 1 e 2 da
+> seção "Pendências que dependem de você" (Search Console e Bing Webmaster Tools)
+> já foram feitos, e o `robots.txt` do repositório já libera os 8 crawlers de
+> treinamento que a seção de crawlers abaixo lista como bloqueados. O que falta
+> agora está registrado em [`docs/plano-de-crescimento.md`](./plano-de-crescimento.md),
+> que passa a ser o documento de referência para status e próximos passos. Mantenho
+> o conteúdo abaixo como histórico de raciocínio de AEO — ainda vale para quem
+> escrever o próximo post — mas para "o que está pendente" olhe o outro arquivo.
+
 O site tem duas frentes de descoberta e elas exigem coisas diferentes:
 
 - **SEO** — ranquear no Google e no Bing. Compete por posição em uma lista.
@@ -44,13 +53,18 @@ O `FAQPage` é o item de maior retorno para AEO: é o formato que motores de res
 
 ### Crawlers de IA
 
-A Cloudflare serve um `robots.txt` gerenciado na borda que **sobrescreve** qualquer arquivo do repositório. A política atual:
+**Desatualizado — ver `plano-de-crescimento.md`.** A decisão mudou: o `robots.txt`
+do repositório (13/08/2026) passou a liberar TODOS os crawlers, inclusive os de
+treinamento, com `Content-Signal: ai-train=yes`. A tabela abaixo é só o histórico
+da política antiga.
+
+A Cloudflare serve um `robots.txt` gerenciado na borda que **sobrescreve** qualquer arquivo do repositório — esse é o motivo pelo qual mudar o arquivo no repo ainda não mudou nada em produção. Falta desligar "managed robots.txt" no painel: Security → Settings → Bot traffic.
+
+Política antiga (o que ainda está no ar até o toggle ser desligado):
 
 - **Bloqueados** (treinamento): GPTBot, ClaudeBot, CCBot, Google-Extended, Amazonbot, Applebot-Extended, Bytespider, meta-externalagent
 - **Liberados** (busca e citação): OAI-SearchBot, PerplexityBot, Googlebot, Bingbot, ChatGPT-User, Claude-User, Claude-SearchBot
 - `Content-Signal: search=yes, ai-train=no, use=reference`
-
-Isso já é a configuração desejada para AEO: o conteúdo não alimenta treinamento, mas pode ser recuperado e citado. Alterar em: dash Cloudflare › AI Crawl Control.
 
 ---
 
@@ -58,9 +72,9 @@ Isso já é a configuração desejada para AEO: o conteúdo não alimenta treina
 
 ### Imediato
 
-1. **Google Search Console** — verificar a propriedade `tyna.com.br` e enviar o sitemap. Sem isso a indexação demora semanas em vez de dias.
-2. **Bing Webmaster Tools** — importa mais do que o tráfego do Bing sugere: o índice do Bing alimenta o ChatGPT Search.
-3. **Perfil de organização** — LinkedIn e Google Business com o mesmo nome, descrição e URL do JSON-LD. Consistência entre fontes é o que os motores usam para confiar na entidade.
+1. ~~**Google Search Console** — verificar a propriedade `tyna.com.br` e enviar o sitemap.~~ **Feito em 12/08/2026.** Propriedade verificada, sitemap enviado (46 URLs).
+2. ~~**Bing Webmaster Tools**~~ **Feito em 13/08/2026.** Domínio verificado, sitemap processado com sucesso, indexação instantânea via IndexNow configurada e automatizada a cada deploy.
+3. **Perfil de organização** — LinkedIn e Google Business com o mesmo nome, descrição e URL do JSON-LD. Consistência entre fontes é o que os motores usam para confiar na entidade. Conteúdo pronto para colar em `plano-de-crescimento.md`, seção 7 — falta só criar as contas.
 
 ### Estrutural (próximos 90 dias)
 

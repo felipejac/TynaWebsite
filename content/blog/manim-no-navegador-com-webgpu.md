@@ -1,6 +1,6 @@
 ---
 title: "Manim roda no navegador via WebGPU"
-description: "Animação matemática renderizada no cliente, com desempenho próximo ao nativo e sem servidor no caminho."
+description: "Animação matemática renderizada no cliente com WebGPU, desempenho próximo ao nativo e nenhum servidor de renderização no caminho."
 pubDate: "2026-07-29"
 category: "dev-tools"
 tags: ["webgpu","visualizacao","agentes-de-ia","interface","navegador"]

@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Biblioteca de Prompts | Tyna</title>
+<meta name="description" content="Biblioteca de prompts de imagem e vídeo para equipes de marketing: 29 casos de uso escritos para Midjourney, Sora, Veo, Gemini, GPT Image, Firefly, FLUX e Runway.">
+<link rel="canonical" href="https://tyna.com.br/biblioteca-prompts/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Tyna">
+<meta property="og:title" content="Biblioteca de Prompts | Tyna">
+<meta property="og:description" content="145 prompts de imagem e vídeo para equipes de marketing, organizados por formato de peça e por stack.">
+<meta property="og:url" content="https://tyna.com.br/biblioteca-prompts/">
+<meta name="theme-color" content="#E9E9E6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#131315" media="(prefers-color-scheme: dark)">
+<!-- FAVICON: copiar as mesmas tags <link rel="icon"> do index.html da raiz do site -->
+
+<!-- aplica o tema salvo antes da pintura, para não piscar -->
+<script>try{var t=localStorage.getItem('tyna-biblioteca-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="/biblioteca-prompts/assets/biblioteca.css?v=2.0">
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar-in">
+    <a class="brand" href="/" aria-label="Voltar para a página inicial da Tyna"><b>Biblioteca de Prompts</b><span>por Tyna</span></a>
+    <div class="search-wrap">
+      <span class="search-ico" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+      <label class="sr" for="q">Buscar prompt</label>
+      <input id="q" type="search" placeholder="Buscar peça, ferramenta, variável…" autocomplete="off">
+      <span class="kbd" aria-hidden="true">/</span>
+    </div>
+    <button class="theme-btn" id="theme" type="button" aria-label="Alternar tema claro e escuro">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9Z"/></svg>
+    </button>
+  </div>
+</div>
+
+<div class="shell">
+  <nav class="rail" aria-label="Seções">
+    <div class="rail-title">Seções</div>
+    <a href="#biblioteca" data-spy="biblioteca">Biblioteca</a>
+    <a href="#regras" data-spy="regras">Três regras</a>
+    <a href="#referencia" data-spy="referencia">Referência da stack</a>
+    <a href="#consistencia" data-spy="consistencia">Consistência</a>
+    <a href="#erros" data-spy="erros">Erros comuns</a>
+    <a href="#direitos" data-spy="direitos">Direitos</a>
+    <a href="#protocolo" data-spy="protocolo">Protocolo</a>
+    <a href="#fontes" data-spy="fontes">Fontes</a>
+  </nav>
+
+  <main>
+    <section class="hero" id="topo">
+      <h1>Prompts que a agência usa de verdade</h1>
+      <p>Biblioteca de prompts criada para equipes de marketing usando as stacks mais utilizadas por agências de marketing.</p>
+      <div class="stats">
+        <div class="stat"><b>145</b><span>prompts</span></div>
+        <div class="stat"><b>5</b><span>stacks</span></div>
+        <div class="stat"><b>29</b><span>casos de uso</span></div>
+        <div class="stat"><b>29</b><span>exemplos prontos</span></div>
+      </div>
+    </section>
+
+    <section id="biblioteca">
+      <div class="sec-head">
+        <span class="eyebrow">Acervo</span>
+        <h2>Biblioteca de prompts</h2>
+        <p class="lede">Escolha qual atividade está desenvolvendo, selecione a plataforma e encontre o prompt ideal.</p>
+      </div>
+
+      <div class="stackbar">
+        <div class="stackrow" id="stackrow" role="group" aria-label="Escolher stack"></div>
+        <p class="stackblurb" id="stackblurb"></p>
+      </div>
+
+      <div class="filters">
+        <div class="fgroup" role="group" aria-label="Filtrar por bloco">
+          <span class="flabel">Bloco</span>
+          <button class="chip" type="button" data-f="kind" data-v="all" aria-pressed="true">Tudo</button>
+          <button class="chip" type="button" data-f="kind" data-v="Imagem" aria-pressed="false">Imagem</button>
+          <button class="chip" type="button" data-f="kind" data-v="Vídeo" aria-pressed="false">Vídeo</button>
+        </div>
+        <div class="fgroup" role="group" aria-label="Filtrar por formato">
+          <span class="flabel">Formato</span>
+          <span id="fmtchips" style="display:contents"></span>
+        </div>
+        <span class="count" id="count" aria-live="polite"></span>
+      </div>
+
+      <div class="grid" id="grid"></div>
+      <div class="empty" id="empty" hidden>
+        <b>Nenhum prompt com esse filtro</b>
+        <p>Tente outro termo ou <button class="linkbtn" type="button" id="reset">limpe os filtros</button>.</p>
+      </div>
+    </section>
+
+    <section id="regras">
+      <div class="sec-head">
+        <span class="eyebrow">Fundamentos</span>
+        <h2>Três regras, cinco stacks</h2>
+        <p class="lede">Quase todo resultado ruim é violação de uma destas. Valem para as nove ferramentas.</p>
+      </div>
+      <div class="rules">
+        <div class="rule">
+          <span class="n">REGRA 01</span>
+          <h3>Descreva o que você quer, não o que não quer</h3>
+          <p>“Festa sem bolo” gera bolo. Midjourney tem <span class="mono-inline">--no</span>, Veo tem <span class="mono-inline">negativePrompt</span>. Sora, FLUX e Runway não têm campo de negativa: reescreva a cena. No Runway, “sem movimento” vira “câmera travada”.</p>
+        </div>
+        <div class="rule">
+          <span class="n">REGRA 02</span>
+          <h3>Separe o container do conteúdo</h3>
+          <p>Duração, resolução e proporção são parâmetros de chamada — exceto no Gemini, onde vão escritos na própria frase. Escrever “faça um vídeo mais longo” dentro do prompt não alonga nada em lugar nenhum.</p>
+        </div>
+        <div class="rule">
+          <span class="n">REGRA 03</span>
+          <h3>Um movimento de câmera e uma ação por plano</h3>
+          <p>É a causa número um de resultado ruim em vídeo, nas quatro ferramentas. Se o plano tem duas coisas acontecendo, são dois planos.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="referencia">
+      <div class="sec-head">
+        <span class="eyebrow">Referência</span>
+        <h2 id="refh2">Referência da stack</h2>
+        <p class="lede" id="reflede"></p>
+      </div>
+      <div id="ref"></div>
+    </section>
+
+    <section id="consistencia">
+      <div class="sec-head">
+        <span class="eyebrow">Produção</span>
+        <h2>Consistência entre gerações</h2>
+        <p class="lede">O módulo que separa um time que faz imagens bonitas de um time que faz campanha. Cada stack trava aparência de um jeito, e a força varia bastante.</p>
+      </div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Stack</th><th>Mecanismo</th><th>Força</th><th>Custo</th></tr></thead>
+          <tbody>
+            <tr><td>Autoral</td><td><code>--sref</code> + <code>--sw</code> fixos, ou código de estilo</td><td>Alta</td><td>Achar o código certo leva tempo; códigos antigos podem precisar de <code>--sv 4</code></td></tr>
+            <tr><td>Google</td><td>Até 3 referências de estilo, 5 de personagem e 6 de objeto no Pro</td><td>Alta</td><td>Precisa nomear cada referência e encadear card a card</td></tr>
+            <tr><td>OpenAI</td><td>Referências numeradas com papel atribuído, <code>input_fidelity</code> alta</td><td>Média-alta</td><td>Exige repetir “preservar X, alterar Y” a cada iteração</td></tr>
+            <tr><td>Adobe</td><td>Style Reference e Composition Reference como controle de interface</td><td>Média-alta</td><td>Menos granular que código de estilo, mas não exige sintaxe</td></tr>
+            <tr><td>Open source</td><td>LoRA treinada na marca + seed fixa</td><td>Muito alta</td><td>Precisa treinar a LoRA e ter alguém técnico no time</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="panel">
+        <h3>O que funciona nas cinco</h3>
+        <p>Reutilizar a redação exata. Se o plano 1 diz “luz de janela suave com fill de abajur quente”, o plano 2 diz exatamente isso, não uma paráfrase. Nomeie de três a cinco cores como âncoras de paleta e mantenha a lógica de luz constante entre peças que vão ser vistas juntas. É o que faz a campanha não parecer colagem.</p>
+      </div>
+    </section>
+
+    <section id="erros">
+      <div class="sec-head">
+        <span class="eyebrow">Produção</span>
+        <h2>Sete erros da primeira semana</h2>
+      </div>
+      <div class="list">
+        <div><h4>Briefing inteiro no prompt</h4><p>Vale para Midjourney e FLUX, que pedem frase curta. Gemini, GPT Image e Firefly aceitam mais detalhe — mas detalhe, não briefing.</p></div>
+        <div><h4>Pedir tipografia de marca ao modelo</h4><p>Gemini e GPT Image escrevem texto legível. Nenhum dos nove desenha o logotipo do cliente. Logo, preço e CTA entram na pós.</p></div>
+        <div><h4>Negar em vez de descrever</h4><p>“Sem bolo” gera bolo. E só três das nove ferramentas têm campo de negativa — nas outras, a negativa vira reescrita da cena.</p></div>
+        <div><h4>Resolver container no prompt</h4><p>Duração e resolução são parâmetros. A exceção é o Gemini, onde vão na frase. Saber qual é qual evita meia hora de tentativa.</p></div>
+        <div><h4>Dois movimentos num plano</h4><p>Câmera que faz dolly e pan enquanto o sujeito atravessa o quadro é onde todo modelo de vídeo quebra.</p></div>
+        <div><h4>Orçar uma tentativa por peça</h4><p>O erro de planejamento mais caro. O mesmo prompt roda diferente a cada vez, por projeto.</p></div>
+        <div><h4>Misturar stacks no meio da campanha</h4><p>Cada uma trava estilo de um jeito. Trocar de ferramenta na metade joga fora a consistência que você já tinha construído.</p></div>
+      </div>
+    </section>
+
+    <section id="direitos">
+      <div class="sec-head">
+        <span class="eyebrow">Produção</span>
+        <h2>Direitos, dados e revisão humana</h2>
+        <p class="lede">Nada disto é opcional, e nenhum item é decisão de quem opera a ferramenta. A diferença entre as stacks aqui é material.</p>
+      </div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Tema</th><th>Regra da casa</th></tr></thead>
+          <tbody>
+            <tr><td>Pessoas reais</td><td>Nunca peça rosto de pessoa real, celebridade ou figura pública. Descreva perfis por atributos visíveis. O Veo expõe <code>personGeneration</code> como controle de segurança.</td></tr>
+            <tr><td>Licença comercial</td><td>É onde as stacks mais divergem. A Adobe declara que o Firefly é treinado só em conteúdo que ela tem permissão de usar — Adobe Stock, domínio público e material licenciado. A Midjourney enfrenta litígio em curso sobre dados de treinamento. Nas demais, confirme os termos do plano.</td></tr>
+            <tr><td>Procedência</td><td>Veo 3.1 aplica Content Credentials no padrão C2PA. Se o cliente tem política de divulgação de conteúdo sintético, isso entra no contrato.</td></tr>
+            <tr><td>Dados do cliente</td><td>Briefing, preço não anunciado, produto não lançado e material sob embargo não vão para ferramenta de geração sem checar retenção e uso para treinamento. A Adobe declara que conteúdo criado ou enviado ao Firefly não treina os modelos dela.</td></tr>
+            <tr><td>Revisão humana</td><td>Mãos, rostos, contagem de dedos, texto acidental, logo de terceiro que apareceu sozinho, viés na representação, adequação à marca. Nenhum selo de prompt verificado substitui isso.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="protocolo">
+      <div class="sec-head">
+        <span class="eyebrow">Manutenção</span>
+        <h2>Como o acervo continua vivo</h2>
+        <p class="lede">Os 145 prompts são ponto de partida verificado contra documentação, não resultado testado. O ciclo abaixo é o que transforma um no outro. O registro fica na planilha índice, que é a fonte única de verdade dos testes.</p>
+      </div>
+      <div class="steps">
+        <div class="pstep"><span class="num">PASSO 1</span><p>Cinco casos representativos do tipo de peça.</p></div>
+        <div class="pstep"><span class="num">PASSO 2</span><p>Três rodadas de cada, com os mesmos parâmetros.</p></div>
+        <div class="pstep"><span class="num">PASSO 3</span><p>Registre aprovação sem retoque, correções, tempo e custo.</p></div>
+        <div class="pstep"><span class="num">PASSO 4</span><p>Mantenha no acervo o que passar de 60% em três rodadas.</p></div>
+        <div class="pstep"><span class="num">PASSO 5</span><p>Revise a cada troca de versão de modelo.</p></div>
+      </div>
+      <div class="panel">
+        <h3>Comece por uma stack só</h3>
+        <p>Testar as cinco em paralelo é como não testar nenhuma. Escolha a que já está paga e instalada, rode o protocolo num formato só — o que a agência mais entrega — e só então abra a segunda. Sem um nome no crachá como dono do acervo, o passo 5 não acontece.</p>
+      </div>
+    </section>
+
+    <section id="fontes">
+      <div class="sec-head">
+        <span class="eyebrow">Verificação</span>
+        <h2>Fontes</h2>
+        <p class="lede">Sintaxe, parâmetros e limites verificados na documentação oficial de cada fabricante em setembro de 2026. Documentação de terceiros erra com frequência.</p>
+      </div>
+      <div class="srcs">
+        <a href="https://docs.midjourney.com/hc/en-us/articles/32859204029709-Parameter-List" target="_blank" rel="noopener"><span class="who">Midjourney</span><span>Parameter List</span></a>
+        <a href="https://docs.midjourney.com/hc/en-us/articles/32199405667853-Version" target="_blank" rel="noopener"><span class="who">Midjourney</span><span>Version</span></a>
+        <a href="https://docs.midjourney.com/hc/en-us/articles/32180011136653-Style-Reference" target="_blank" rel="noopener"><span class="who">Midjourney</span><span>Style Reference</span></a>
+        <a href="https://developers.openai.com/cookbook/examples/sora/sora2_prompting_guide" target="_blank" rel="noopener"><span class="who">OpenAI</span><span>Sora 2 Prompting Guide</span></a>
+        <a href="https://developers.openai.com/api/docs/guides/image-prompting" target="_blank" rel="noopener"><span class="who">OpenAI</span><span>Image prompting</span></a>
+        <a href="https://deepmind.google/models/gemini-image/prompt-guide/" target="_blank" rel="noopener"><span class="who">Google</span><span>Gemini Image prompt guide</span></a>
+        <a href="https://ai.google.dev/gemini-api/docs/image-generation" target="_blank" rel="noopener"><span class="who">Google</span><span>Image generation API</span></a>
+        <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate" target="_blank" rel="noopener"><span class="who">Google</span><span>Veo 3.1</span></a>
+        <a href="https://community.adobe.com/p/firefly-image-guide" target="_blank" rel="noopener"><span class="who">Adobe</span><span>Firefly Image guide</span></a>
+        <a href="https://community.adobe.com/p/firefly-video-guide" target="_blank" rel="noopener"><span class="who">Adobe</span><span>Firefly Video guide</span></a>
+        <a href="https://help.runwayml.com/hc/en-us/articles/39789879462419-Gen-4-Video-Prompting-Guide" target="_blank" rel="noopener"><span class="who">Runway</span><span>Gen-4 Video prompting</span></a>
+      </div>
+      <footer>
+        <span>Biblioteca de Prompts · versão 2.0 · setembro de 2026</span>
+        <span>FLUX é open source: a orientação de guidance e steps vem da prática da comunidade, não de documentação de fabricante.</span>
+      </footer>
+    </section>
+  </main>
+</div>
+
+<div class="sr" role="status" aria-live="polite" id="live"></div>
+
+<!-- ordem importa: dados → exemplos → aplicação -->
+<script src="/biblioteca-prompts/assets/data.js?v=2.0" defer></script>
+<script src="/biblioteca-prompts/assets/examples.js?v=2.0" defer></script>
+<script src="/biblioteca-prompts/assets/app.js?v=2.0" defer></script>
+</body>
+</html>
