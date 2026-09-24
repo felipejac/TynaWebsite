@@ -41,10 +41,16 @@ Allow: /
 User-agent: Perplexity-User
 Allow: /
 
+User-agent: Claude-Web
+Allow: /
+
 User-agent: Claude-User
 Allow: /
 
 User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: anthropic-ai
 Allow: /
 
 User-agent: Google-CloudVertexBot
@@ -90,7 +96,12 @@ Allow: /
 # ---------- Onde está o conteúdo estruturado ----------
 Sitemap: https://tyna.com.br/sitemap.xml
 
+# LLM context
+LLMs: https://tyna.com.br/llms.txt
+
 # Índice curado para LLMs (convenção llmstxt.org):
 # https://tyna.com.br/llms.txt
 # Grafo de conhecimento em JSON-LD:
 # https://tyna.com.br/ai.json
+# Dataset de prompts para AI crawlers:
+# https://tyna.com.br/biblioteca-prompts/dataset.json

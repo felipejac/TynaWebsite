@@ -137,6 +137,11 @@ pessoal. Status conferido na fonte: https://tyna.com.br/pl-2338/
 Workshop intensivo de 3 horas, trilha completa por audiência (liderança ou times) ou
 advisory mensal. O contato inicial é uma conversa de 30 minutos por e-mail.
 
+## Páginas principais
+- [Início](https://tyna.com.br/): Agência de marketing com IA — serviços e cases
+- [Biblioteca de Prompts](https://tyna.com.br/biblioteca-prompts/): 2.256 prompts de IA para marketing, design e negócios
+- [Blog](https://tyna.com.br/blog/): Artigos sobre IA, marketing e ferramentas
+
 ## Páginas
 
 - [Início](https://tyna.com.br/): posicionamento, shadow AI, diferencial, serviços,
@@ -152,12 +157,27 @@ advisory mensal. O contato inicial é uma conversa de 30 minutos por e-mail.
 - [Sobre](https://tyna.com.br/sobre/): trajetória de Felipe Jacob e especialidades.
 - [Blog](https://tyna.com.br/blog/): análise prática sobre IA, agentes, LLMs,
   ferramentas de desenvolvimento e automação.
+- [Biblioteca de Prompts](https://tyna.com.br/biblioteca-prompts/): 2.256 prompts
+  de IA prontos para usar em marketing, design, desenvolvimento web, educação e
+  negócios. Filtros por categoria e idioma. Gratuito.
+
+## Recursos para IA
+- [Dataset de Prompts (JSON)](https://tyna.com.br/biblioteca-prompts/dataset.json): Dataset estruturado com todos os prompts
+- [Sitemap](https://tyna.com.br/sitemap.xml): Mapa completo do site
+
+## Especialidades
+- Marketing digital com inteligência artificial
+- Implementação de AI Gateway para empresas
+- ISO 42001 — Governança de IA
+- Geração de conteúdo com IA (imagem, vídeo, texto)
+- Prompts engineering para equipes de marketing
 
 ## Dados estruturados
 
 - Sitemap: https://tyna.com.br/sitemap.xml
 - Grafo de conhecimento em JSON-LD: https://tyna.com.br/ai.json
 - Feed RSS do blog: https://tyna.com.br/rss.xml
+- Dataset de prompts: https://tyna.com.br/biblioteca-prompts/dataset.json
 
 ## Uso do conteúdo
 

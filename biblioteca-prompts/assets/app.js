@@ -113,10 +113,10 @@ openai:{
 <div class="panel">
   <h3>Os sete princípios oficiais, em ordem de utilidade</h3>
   <div class="list">
-    <div><h4>Diga o resultado, não a vibe</h4><p>Nomeie sujeito, uso pretendido, composição e restrições de posicionamento. “Aconchegante” não vira nada; “luz de abajur quente pela direita” vira.</p></div>
-    <div><h4>Diga “fotografia real” quando for</h4><p>O modelo não assume fotorrealismo. Peça o meio explicitamente, junto com material, luz e cor.</p></div>
+    <div><h4>Diga o resultado, não a vibe</h4><p>Nomeie sujeito, uso pretendido, composição e restrições de posicionamento. "Aconchegante" não vira nada; "luz de abajur quente pela direita" vira.</p></div>
+    <div><h4>Diga "fotografia real" quando for</h4><p>O modelo não assume fotorrealismo. Peça o meio explicitamente, junto com material, luz e cor.</p></div>
     <div><h4>Texto exato entre aspas</h4><p>E soletre nome próprio incomum letra por letra. Descreva também a posição dele no quadro.</p></div>
-    <div><h4>Separe o que muda do que fica</h4><p>Ao editar, escreva “altere apenas X” e liste o que precisa ser preservado. É o que impede deriva ao longo das iterações.</p></div>
+    <div><h4>Separe o que muda do que fica</h4><p>Ao editar, escreva "altere apenas X" e liste o que precisa ser preservado. É o que impede deriva ao longo das iterações.</p></div>
     <div><h4>Dê papel a cada referência</h4><p>Numere as imagens de entrada e diga o que fazer com cada uma. Referência sem papel atribuído vira cópia.</p></div>
   </div>
 </div>
@@ -220,7 +220,7 @@ o sujeito dá três passos e para
 poeira sobe atrás dele
 uma cena por geração</code></div>
   </div>
-  <p style="margin-top:14px">Gen-4 parte de uma imagem e gera 5 ou 10 segundos. Não redescreva o que já está no still — descreva só o que se move. Para múltiplos sujeitos, use linguagem posicional: “o sujeito à esquerda caminha, o da direita permanece parado”. Não há áudio: som e fala entram na edição.</p>
+  <p style="margin-top:14px">Gen-4 parte de uma imagem e gera 5 ou 10 segundos. Não redescreva o que já está no still — descreva só o que se move. Para múltiplos sujeitos, use linguagem posicional: "o sujeito à esquerda caminha, o da direita permanece parado". Não há áudio: som e fala entram na edição.</p>
 </div>`}
 };
 
@@ -240,64 +240,21 @@ const empty = document.getElementById('empty');
 const count = document.getElementById('count');
 const live = document.getElementById('live');
 const qEl = document.getElementById('q');
-const fmtChips = document.getElementById('fmtchips');
-const stackRow = document.getElementById('stackrow');
-const stackBlurb = document.getElementById('stackblurb');
 const refBox = document.getElementById('ref');
 const refH2 = document.getElementById('refh2');
 const refLede = document.getElementById('reflede');
 
-let state = {stack:'autoral', kind:'all', fmt:'all', q:''};
+let state = {q:'', cat:'all', lang:'all'};
 
-// stack buttons
-STACKS.forEach(s => {
-  const b = document.createElement('button');
-  b.type = 'button';
-  b.className = 'stackbtn';
-  b.dataset.stack = s.id;
-  b.setAttribute('aria-pressed', String(s.id === state.stack));
-  b.innerHTML = '<b>' + esc(s.name) + '</b><span>' + esc(s.img) + ' · ' + esc(s.vid) + '</span>';
-  b.addEventListener('click', () => {
-    state.stack = s.id;
-    document.querySelectorAll('.stackbtn').forEach(o => o.setAttribute('aria-pressed', String(o.dataset.stack === s.id)));
-    paintStack();
-    render();
-    live.textContent = 'Stack ' + s.name + ' selecionada.';
-  });
-  stackRow.appendChild(b);
-});
+// ---- all distinct categories (PT + EN) ----
+const ALL_CATS_PT = ['Imagem','Vídeo'];
+const ALL_CATS_EN = [...new Set(Object.values(CSV_PROMPTS).map(d => d.categoria))].sort();
+const ALL_CATS = [...ALL_CATS_PT, ...ALL_CATS_EN];
 
-// format chips
-const FMTS = [...new Set(CASES.map(c => c.fmt))];
-function buildFmtChips(){
-  fmtChips.replaceChildren();
-  const all = document.createElement('button');
-  all.type = 'button'; all.className = 'chip'; all.dataset.f = 'fmt'; all.dataset.v = 'all';
-  all.textContent = 'Todos';
-  fmtChips.appendChild(all);
-  FMTS.forEach(f => {
-    const b = document.createElement('button');
-    b.type = 'button'; b.className = 'chip'; b.dataset.f = 'fmt'; b.dataset.v = f;
-    b.textContent = f;
-    fmtChips.appendChild(b);
-  });
-  syncChips();
-  fmtChips.querySelectorAll('.chip').forEach(c => c.addEventListener('click', () => {
-    state.fmt = c.dataset.v; syncChips(); render();
-  }));
-}
-function syncChips(){
-  document.querySelectorAll('.chip').forEach(c =>
-    c.setAttribute('aria-pressed', String(state[c.dataset.f] === c.dataset.v)));
-}
-
-function paintStack(){
-  const s = STACKS.find(x => x.id === state.stack);
-  stackBlurb.textContent = s.blurb;
-  refH2.textContent = 'Referência · ' + s.name;
-  refLede.textContent = REF[s.id].lede;
-  refBox.innerHTML = REF[s.id].html;
-}
+// Initialize reference section with Autoral as default
+refH2.textContent = 'Referência da stack';
+refLede.textContent = REF['autoral'].lede;
+refBox.innerHTML = REF['autoral'].html;
 
 function card(c, d){
   const el = document.createElement('article');
@@ -378,30 +335,80 @@ function fallback(text, done){
   document.body.removeChild(ta);
 }
 
-function render(){
-  const bank = PROMPTS[state.stack];
-  const q = state.q.trim().toLowerCase();
-  const list = CASES.filter(c => {
-    const d = bank[c.id];
-    if (!d) return false;
-    if (state.kind !== 'all' && c.kind !== state.kind) return false;
-    if (state.fmt !== 'all' && c.fmt !== state.fmt) return false;
-    if (!q) return true;
-    const hay = (c.id + ' ' + c.title + ' ' + c.fmt + ' ' + c.out + ' ' + d.tool + ' ' + d.p + ' ' + d.c + ' ' + (d.n||'') + ' ' + (d.neg||'')).toLowerCase();
-    return hay.includes(q);
+// ---- card for CSV prompts (no CASES metadata) ----
+function csvCard(id, d){
+  const el = document.createElement('article');
+  el.className = 'card';
+  const long = d.p.length > 300;
+  el.innerHTML =
+    '<div class="card-top">' +
+      '<div class="card-meta">' +
+        '<span class="id">' + id + '</span>' +
+        '<span class="tool">' + esc(d.tool) + '</span>' +
+        '<span class="fmt">' + esc(d.categoria) + '</span>' +
+      '</div><h3>' + esc(d.n) + '</h3></div>' +
+    '<div class="pbox"><pre class="pbody' + (long ? '' : ' open') + '">' + markup(d.p) + '</pre>' +
+      (long ? '<div class="fade"></div>' : '') + '</div>' +
+    (long ? '<button class="expand" type="button">Mostrar prompt completo</button>' : '') +
+    '<div class="card-body">' +
+      '<div class="kv"><span class="k">Idioma</span><span class="v">English</span></div>' +
+      '<div class="kv"><span class="k">Ferramenta</span><span class="v">' + esc(d.tool) + '</span></div>' +
+    '</div>' +
+    '<div class="card-foot"><button class="copy" type="button">' +
+      '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>' +
+      'Copiar prompt</button>' +
+      '<span class="hint">EN · ' + esc(d.categoria) + '</span></div>';
+
+  const ex = el.querySelector('.expand');
+  if (ex) ex.addEventListener('click', () => {
+    const body = el.querySelector('.pbody');
+    const open = body.classList.toggle('open');
+    ex.textContent = open ? 'Recolher prompt' : 'Mostrar prompt completo';
   });
-  grid.replaceChildren(...list.map(c => card(c, bank[c.id])));
-  empty.hidden = list.length > 0;
-  count.textContent = list.length + (list.length === 1 ? ' prompt' : ' prompts');
+
+  el.querySelector('.copy').addEventListener('click', e =>
+    copyText(d.p, e.currentTarget, id));
+  return el;
 }
 
-document.querySelectorAll('.chip[data-f="kind"]').forEach(c =>
-  c.addEventListener('click', () => { state.kind = c.dataset.v; syncChips(); render(); }));
+function render(){
+  const bank = PROMPTS['autoral'];
+  const q = state.q.trim().toLowerCase();
+  const cards = [];
+
+  // --- Existing PT prompts ---
+  if (state.lang === 'all' || state.lang === 'pt') {
+    const list = CASES.filter(c => {
+      const d = bank[c.id];
+      if (!d) return false;
+      if (state.cat !== 'all' && d.categoria !== state.cat) return false;
+      if (!q) return true;
+      const hay = (c.id + ' ' + c.title + ' ' + c.fmt + ' ' + c.out + ' ' + d.tool + ' ' + d.p + ' ' + d.c + ' ' + (d.n||'') + ' ' + (d.neg||'')).toLowerCase();
+      return hay.includes(q);
+    });
+    cards.push(...list.map(c => card(c, bank[c.id])));
+  }
+
+  // --- CSV EN prompts ---
+  if (state.lang === 'all' || state.lang === 'en') {
+    const entries = Object.entries(CSV_PROMPTS).filter(([id, d]) => {
+      if (state.cat !== 'all' && d.categoria !== state.cat) return false;
+      if (!q) return true;
+      const hay = (id + ' ' + d.categoria + ' ' + d.tool + ' ' + d.p + ' ' + (d.n||'')).toLowerCase();
+      return hay.includes(q);
+    });
+    cards.push(...entries.map(([id, d]) => csvCard(id, d)));
+  }
+
+  grid.replaceChildren(...cards);
+  empty.hidden = cards.length > 0;
+  count.textContent = cards.length + (cards.length === 1 ? ' prompt' : ' prompts');
+}
 
 qEl.addEventListener('input', () => { state.q = qEl.value; render(); });
 document.getElementById('reset').addEventListener('click', () => {
-  state.kind = 'all'; state.fmt = 'all'; state.q = '';
-  qEl.value = ''; syncChips(); render(); qEl.focus();
+  state.q = ''; state.cat = 'all'; state.lang = 'all';
+  qEl.value = ''; syncRailFilters(); render(); qEl.focus();
 });
 document.addEventListener('keydown', e => {
   if (e.key === '/' && document.activeElement !== qEl && !/input|textarea/i.test(document.activeElement.tagName)) {
@@ -429,6 +436,62 @@ const obs = new IntersectionObserver(entries => {
 }, {rootMargin:'-150px 0px -65% 0px', threshold:0});
 document.querySelectorAll('main section[id]').forEach(s => { if (map.has(s.id)) obs.observe(s); });
 
-buildFmtChips();
-paintStack();
+// ---- Categoria + Idioma filters in rail ----
+function buildRailFilters(){
+  const catEl = document.getElementById('railcatfilter');
+  const langEl = document.getElementById('raillangfilter');
+  if (!catEl || !langEl) return;
+
+  // count per category for labels
+  const catCount = {};
+  // PT existing prompts
+  CASES.forEach(c => {
+    // find categoria from any stack's prompt data
+    const d = Object.values(PROMPTS).map(bank => bank[c.id]).find(Boolean);
+    if (d && d.categoria) catCount[d.categoria] = (catCount[d.categoria]||0) + 1;
+  });
+  // EN CSV prompts
+  Object.values(CSV_PROMPTS).forEach(d => {
+    if (d.categoria) catCount[d.categoria] = (catCount[d.categoria]||0) + 1;
+  });
+
+  // Lang buttons
+  [['all','Todos'],['pt','Português'],['en','English']].forEach(([val, label]) => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'rail-filter-btn'; b.dataset.lang = val;
+    b.setAttribute('aria-pressed', String(state.lang === val));
+    b.textContent = label;
+    b.addEventListener('click', () => {
+      state.lang = val;
+      syncRailFilters();
+      render();
+      live.textContent = 'Idioma: ' + label;
+    });
+    langEl.appendChild(b);
+  });
+
+  // Category buttons - "Todos" first, then all cats
+  [['all','Todos ('+Object.values(catCount).reduce((a,b)=>a+b,0)+')'], ...ALL_CATS.map(cat => [cat, cat + (catCount[cat]?' ('+catCount[cat]+')':'')])].forEach(([val, label]) => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'rail-filter-btn'; b.dataset.cat = val;
+    b.setAttribute('aria-pressed', String(state.cat === val));
+    b.textContent = label;
+    b.addEventListener('click', () => {
+      state.cat = val;
+      syncRailFilters();
+      render();
+      live.textContent = 'Categoria: ' + label;
+    });
+    catEl.appendChild(b);
+  });
+}
+
+function syncRailFilters(){
+  document.querySelectorAll('.rail-filter-btn[data-lang]').forEach(b =>
+    b.setAttribute('aria-pressed', String(state.lang === b.dataset.lang)));
+  document.querySelectorAll('.rail-filter-btn[data-cat]').forEach(b =>
+    b.setAttribute('aria-pressed', String(state.cat === b.dataset.cat)));
+}
+
+buildRailFilters();
 render();

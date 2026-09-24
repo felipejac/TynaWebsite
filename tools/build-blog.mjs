@@ -454,7 +454,7 @@ const staticPages = [
   { loc: `${SITE}/iso-42001/`, pri: '0.9', freq: 'monthly', mod: mtime('iso-42001/index.html') },
   { loc: `${SITE}/diagnostico/`, pri: '0.9', freq: 'monthly', mod: mtime('diagnostico/index.html') },
   { loc: `${SITE}/shadow-ai/`, pri: '0.9', freq: 'monthly', mod: mtime('shadow-ai/index.html') },
-  { loc: `${SITE}/biblioteca-prompts/`, pri: '0.9', freq: 'monthly', mod: mtime('biblioteca-prompts/index.html') },
+  { loc: `${SITE}/biblioteca-prompts/`, pri: '0.9', freq: 'weekly', mod: mtime('biblioteca-prompts/index.html') },
   // a data de modificação importa mais aqui do que nas outras: a página afirma um status
   // de tramitação com data, e o lastmod é o que sinaliza ao Google que ela foi reconferida
   { loc: `${SITE}/pl-2338/`, pri: '0.9', freq: 'monthly', mod: mtime('pl-2338/index.html') },
