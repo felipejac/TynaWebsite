@@ -245,6 +245,56 @@ const refH2 = document.getElementById('refh2');
 const refLede = document.getElementById('reflede');
 
 let state = {q:'', cat:'all', lang:'all'};
+let voteCounts = {};
+
+function hasVoted(id) {
+  try {
+    const v = JSON.parse(localStorage.getItem('tyna_voted') || '[]');
+    return v.includes(id);
+  } catch { return false; }
+}
+
+function markVoted(id) {
+  try {
+    const v = JSON.parse(localStorage.getItem('tyna_voted') || '[]');
+    if (!v.includes(id)) { v.push(id); localStorage.setItem('tyna_voted', JSON.stringify(v)); }
+  } catch {}
+}
+
+async function loadVotes() {
+  try {
+    const res = await fetch('/api/vote');
+    if (res.ok) voteCounts = await res.json();
+  } catch {}
+}
+
+async function castVote(id, btn) {
+  if (hasVoted(id)) return;
+  btn.disabled = true;
+  try {
+    const res = await fetch(`/api/vote?id=${encodeURIComponent(id)}`, { method: 'POST' });
+    if (res.ok) {
+      const data = await res.json();
+      voteCounts[id] = data.votes;
+      markVoted(id);
+      updateVoteBtn(btn, data.votes, true);
+    }
+  } catch { btn.disabled = false; }
+}
+
+function updateVoteBtn(btn, count, voted) {
+  btn.querySelector('.vote-count').textContent = count || '';
+  if (voted) btn.classList.add('voted');
+}
+
+function voteBtn(id) {
+  const voted = hasVoted(id);
+  const count = voteCounts[id] || 0;
+  return `<button class="vote-btn${voted ? ' voted' : ''}" data-id="${id}" title="Útil" ${voted ? 'disabled' : ''}>
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l8 16H4z"/></svg>
+    <span class="vote-count">${count || ''}</span>
+  </button>`;
+}
 
 // ---- all distinct categories (PT + EN) ----
 const ALL_CATS_PT = ['Imagem','Vídeo'];
@@ -288,7 +338,8 @@ function card(c, d){
     '<div class="card-foot"><button class="copy" type="button">' +
       '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>' +
       'Copiar prompt</button>' +
-      '<span class="hint">' + vars.length + (vars.length === 1 ? ' variável' : ' variáveis') + '</span></div>';
+      '<span class="hint">' + vars.length + (vars.length === 1 ? ' variável' : ' variáveis') + '</span>' +
+    voteBtn(c.id) + '</div>';
 
   const ex = el.querySelector('.expand');
   if (ex) ex.addEventListener('click', () => {
@@ -357,7 +408,8 @@ function csvCard(id, d){
     '<div class="card-foot"><button class="copy" type="button">' +
       '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>' +
       'Copiar prompt</button>' +
-      '<span class="hint">EN · ' + esc(d.categoria) + '</span></div>';
+      '<span class="hint">EN · ' + esc(d.categoria) + '</span>' +
+      voteBtn(id) + '</div>';
 
   const ex = el.querySelector('.expand');
   if (ex) ex.addEventListener('click', () => {
@@ -415,6 +467,12 @@ document.addEventListener('keydown', e => {
     e.preventDefault(); qEl.focus(); qEl.select();
   }
   if (e.key === 'Escape' && document.activeElement === qEl) { qEl.value = ''; state.q = ''; render(); }
+});
+document.addEventListener('click', e => {
+  const btn = e.target.closest('.vote-btn');
+  if (!btn) return;
+  const id = btn.dataset.id;
+  castVote(id, btn);
 });
 
 const root = document.documentElement;
@@ -494,4 +552,4 @@ function syncRailFilters(){
 }
 
 buildRailFilters();
-render();
+loadVotes().then(render);
