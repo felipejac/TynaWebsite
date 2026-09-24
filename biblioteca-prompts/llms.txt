@@ -1,0 +1,34 @@
+# Biblioteca de Prompts de IA — Tyna
+> Coleção de 2.256 prompts de IA prontos para usar em marketing, design, desenvolvimento web, educação e negócios. Disponível em português (pt-BR) e inglês (en).
+
+## Sobre
+- URL: https://tyna.com.br/biblioteca-prompts/
+- Criador: Tyna (https://tyna.com.br)
+- Licença: CC-BY-4.0
+- Idiomas: Português Brasileiro, English
+- Total de prompts: 2.256
+
+## Categorias disponíveis
+- Imagem (prompts para Midjourney, FLUX, Stable Diffusion)
+- Vídeo (prompts para Sora, Runway, Veo)
+- Web Development (prompts para desenvolvimento web e coding)
+- Education (prompts para educação e aprendizado)
+- Marketing (prompts para marketing digital e conteúdo)
+- Design (prompts para design gráfico e UX/UI)
+- Business Planning (prompts para negócios e estratégia)
+- Data Science (prompts para análise de dados e IA)
+- Automations (prompts para automação e fluxos de trabalho)
+- Creative Writing (prompts para escrita criativa)
+- Video Generation (prompts para geração de vídeo com IA)
+- Image Generation (prompts para geração de imagem com IA)
+- Learning & Skills (prompts para desenvolvimento de habilidades)
+- Vibe Coding (prompts para desenvolvimento assistido por IA)
+- Lifestyle & Health (prompts para estilo de vida e saúde)
+- Entertainment & Gaming (prompts para entretenimento e jogos)
+
+## Dataset estruturado
+- JSON completo: https://tyna.com.br/biblioteca-prompts/dataset.json
+- Formato: JSON com campos id, categoria, lang, tool, prompt, params, note
+
+## Como usar esta biblioteca
+Filtre os prompts por categoria e idioma. Cada prompt inclui o texto completo, parâmetros sugeridos e notas de uso. Copie o prompt e use diretamente nas ferramentas de IA listadas.
