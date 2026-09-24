@@ -113,10 +113,10 @@ openai:{
 <div class="panel">
   <h3>Os sete princípios oficiais, em ordem de utilidade</h3>
   <div class="list">
-    <div><h4>Diga o resultado, não a vibe</h4><p>Nomeie sujeito, uso pretendido, composição e restrições de posicionamento. “Aconchegante” não vira nada; “luz de abajur quente pela direita” vira.</p></div>
-    <div><h4>Diga “fotografia real” quando for</h4><p>O modelo não assume fotorrealismo. Peça o meio explicitamente, junto com material, luz e cor.</p></div>
+    <div><h4>Diga o resultado, não a vibe</h4><p>Nomeie sujeito, uso pretendido, composição e restrições de posicionamento. "Aconchegante" não vira nada; "luz de abajur quente pela direita" vira.</p></div>
+    <div><h4>Diga "fotografia real" quando for</h4><p>O modelo não assume fotorrealismo. Peça o meio explicitamente, junto com material, luz e cor.</p></div>
     <div><h4>Texto exato entre aspas</h4><p>E soletre nome próprio incomum letra por letra. Descreva também a posição dele no quadro.</p></div>
-    <div><h4>Separe o que muda do que fica</h4><p>Ao editar, escreva “altere apenas X” e liste o que precisa ser preservado. É o que impede deriva ao longo das iterações.</p></div>
+    <div><h4>Separe o que muda do que fica</h4><p>Ao editar, escreva "altere apenas X" e liste o que precisa ser preservado. É o que impede deriva ao longo das iterações.</p></div>
     <div><h4>Dê papel a cada referência</h4><p>Numere as imagens de entrada e diga o que fazer com cada uma. Referência sem papel atribuído vira cópia.</p></div>
   </div>
 </div>
@@ -220,7 +220,7 @@ o sujeito dá três passos e para
 poeira sobe atrás dele
 uma cena por geração</code></div>
   </div>
-  <p style="margin-top:14px">Gen-4 parte de uma imagem e gera 5 ou 10 segundos. Não redescreva o que já está no still — descreva só o que se move. Para múltiplos sujeitos, use linguagem posicional: “o sujeito à esquerda caminha, o da direita permanece parado”. Não há áudio: som e fala entram na edição.</p>
+  <p style="margin-top:14px">Gen-4 parte de uma imagem e gera 5 ou 10 segundos. Não redescreva o que já está no still — descreva só o que se move. Para múltiplos sujeitos, use linguagem posicional: "o sujeito à esquerda caminha, o da direita permanece parado". Não há áudio: som e fala entram na edição.</p>
 </div>`}
 };
 
@@ -240,69 +240,21 @@ const empty = document.getElementById('empty');
 const count = document.getElementById('count');
 const live = document.getElementById('live');
 const qEl = document.getElementById('q');
-const fmtChips = document.getElementById('fmtchips');
-const stackRow = document.getElementById('stackrow');
-const stackBlurb = document.getElementById('stackblurb');
 const refBox = document.getElementById('ref');
 const refH2 = document.getElementById('refh2');
 const refLede = document.getElementById('reflede');
 
-let state = {stack:'autoral', kind:'all', fmt:'all', q:'', cat:'all', lang:'all'};
+let state = {q:'', cat:'all', lang:'all'};
 
 // ---- all distinct categories (PT + EN) ----
 const ALL_CATS_PT = ['Imagem','Vídeo'];
 const ALL_CATS_EN = [...new Set(Object.values(CSV_PROMPTS).map(d => d.categoria))].sort();
 const ALL_CATS = [...ALL_CATS_PT, ...ALL_CATS_EN];
 
-// stack buttons
-STACKS.forEach(s => {
-  const b = document.createElement('button');
-  b.type = 'button';
-  b.className = 'stackbtn';
-  b.dataset.stack = s.id;
-  b.setAttribute('aria-pressed', String(s.id === state.stack));
-  b.innerHTML = '<b>' + esc(s.name) + '</b><span>' + esc(s.img) + ' · ' + esc(s.vid) + '</span>';
-  b.addEventListener('click', () => {
-    state.stack = s.id;
-    document.querySelectorAll('.stackbtn').forEach(o => o.setAttribute('aria-pressed', String(o.dataset.stack === s.id)));
-    paintStack();
-    render();
-    live.textContent = 'Stack ' + s.name + ' selecionada.';
-  });
-  stackRow.appendChild(b);
-});
-
-// format chips
-const FMTS = [...new Set(CASES.map(c => c.fmt))];
-function buildFmtChips(){
-  fmtChips.replaceChildren();
-  const all = document.createElement('button');
-  all.type = 'button'; all.className = 'chip'; all.dataset.f = 'fmt'; all.dataset.v = 'all';
-  all.textContent = 'Todos';
-  fmtChips.appendChild(all);
-  FMTS.forEach(f => {
-    const b = document.createElement('button');
-    b.type = 'button'; b.className = 'chip'; b.dataset.f = 'fmt'; b.dataset.v = f;
-    b.textContent = f;
-    fmtChips.appendChild(b);
-  });
-  syncChips();
-  fmtChips.querySelectorAll('.chip').forEach(c => c.addEventListener('click', () => {
-    state.fmt = c.dataset.v; syncChips(); render();
-  }));
-}
-function syncChips(){
-  document.querySelectorAll('.chip').forEach(c =>
-    c.setAttribute('aria-pressed', String(state[c.dataset.f] === c.dataset.v)));
-}
-
-function paintStack(){
-  const s = STACKS.find(x => x.id === state.stack);
-  stackBlurb.textContent = s.blurb;
-  refH2.textContent = 'Referência · ' + s.name;
-  refLede.textContent = REF[s.id].lede;
-  refBox.innerHTML = REF[s.id].html;
-}
+// Initialize reference section with Autoral as default
+refH2.textContent = 'Referência da stack';
+refLede.textContent = REF['autoral'].lede;
+refBox.innerHTML = REF['autoral'].html;
 
 function card(c, d){
   const el = document.createElement('article');
@@ -420,7 +372,7 @@ function csvCard(id, d){
 }
 
 function render(){
-  const bank = PROMPTS[state.stack];
+  const bank = PROMPTS['autoral'];
   const q = state.q.trim().toLowerCase();
   const cards = [];
 
@@ -429,8 +381,6 @@ function render(){
     const list = CASES.filter(c => {
       const d = bank[c.id];
       if (!d) return false;
-      if (state.kind !== 'all' && c.kind !== state.kind) return false;
-      if (state.fmt !== 'all' && c.fmt !== state.fmt) return false;
       if (state.cat !== 'all' && d.categoria !== state.cat) return false;
       if (!q) return true;
       const hay = (c.id + ' ' + c.title + ' ' + c.fmt + ' ' + c.out + ' ' + d.tool + ' ' + d.p + ' ' + d.c + ' ' + (d.n||'') + ' ' + (d.neg||'')).toLowerCase();
@@ -441,11 +391,8 @@ function render(){
 
   // --- CSV EN prompts ---
   if (state.lang === 'all' || state.lang === 'en') {
-    // kind filter maps to CSV categories
-    const kindCatMap = {'Imagem':'Image Generation','Vídeo':'Video Generation'};
     const entries = Object.entries(CSV_PROMPTS).filter(([id, d]) => {
       if (state.cat !== 'all' && d.categoria !== state.cat) return false;
-      if (state.kind !== 'all' && d.categoria !== kindCatMap[state.kind]) return false;
       if (!q) return true;
       const hay = (id + ' ' + d.categoria + ' ' + d.tool + ' ' + d.p + ' ' + (d.n||'')).toLowerCase();
       return hay.includes(q);
@@ -458,13 +405,10 @@ function render(){
   count.textContent = cards.length + (cards.length === 1 ? ' prompt' : ' prompts');
 }
 
-document.querySelectorAll('.chip[data-f="kind"]').forEach(c =>
-  c.addEventListener('click', () => { state.kind = c.dataset.v; syncChips(); render(); }));
-
 qEl.addEventListener('input', () => { state.q = qEl.value; render(); });
 document.getElementById('reset').addEventListener('click', () => {
-  state.kind = 'all'; state.fmt = 'all'; state.q = ''; state.cat = 'all'; state.lang = 'all';
-  qEl.value = ''; syncChips(); syncRailFilters(); render(); qEl.focus();
+  state.q = ''; state.cat = 'all'; state.lang = 'all';
+  qEl.value = ''; syncRailFilters(); render(); qEl.focus();
 });
 document.addEventListener('keydown', e => {
   if (e.key === '/' && document.activeElement !== qEl && !/input|textarea/i.test(document.activeElement.tagName)) {
@@ -549,7 +493,5 @@ function syncRailFilters(){
     b.setAttribute('aria-pressed', String(state.cat === b.dataset.cat)));
 }
 
-buildFmtChips();
 buildRailFilters();
-paintStack();
 render();
