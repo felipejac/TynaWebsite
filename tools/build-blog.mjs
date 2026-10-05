@@ -605,6 +605,12 @@ const staticPages = [
   { loc: `${SITE}/governanca-de-agentes/`, pri: '0.9', freq: 'monthly', mod: mtime('governanca-de-agentes/index.html') },
   { loc: `${SITE}/politica-de-uso-de-ia/`, pri: '0.9', freq: 'monthly', mod: mtime('politica-de-uso-de-ia/index.html') },
   { loc: `${SITE}/biblioteca-prompts/`, pri: '0.8', freq: 'monthly', mod: mtime('biblioteca-prompts/assets/data.js') },
+  // páginas de prompt: entram sozinhas, para uma pasta nova nunca ficar fora do sitemap
+  ...(existsSync(join(ROOT, 'biblioteca-prompts', 'prompts'))
+    ? readdirSync(join(ROOT, 'biblioteca-prompts', 'prompts'))
+        .filter(d => existsSync(join(ROOT, 'biblioteca-prompts', 'prompts', d, 'index.html')))
+        .map(d => ({ loc: `${SITE}/biblioteca-prompts/prompts/${d}/`, pri: '0.7', freq: 'monthly', mod: mtime(`biblioteca-prompts/prompts/${d}/index.html`) }))
+    : []),
   { loc: `${SITE}/treinamento-de-ia-para-empresas/`, pri: '0.9', freq: 'monthly', mod: mtime('treinamento-de-ia-para-empresas/index.html') },
   { loc: `${SITE}/lgpd-e-ia/`, pri: '0.9', freq: 'monthly', mod: mtime('lgpd-e-ia/index.html') },
   { loc: `${SITE}/sobre/`, pri: '0.8', freq: 'monthly', mod: mtime('sobre/index.html') },
