@@ -185,6 +185,7 @@ ${head}</head>
       <ul id="navList">
         <li><a href="${up}#servicos">Serviços</a></li>
         <li><a href="${up}iso-42001/">ISO 42001</a></li>
+        <li><a href="${up}plataforma-tyna/">Plataforma</a></li>
         <li><a href="${up}#trilhas">Trilhas</a></li>
         <li><a href="${up}blog/">Blog</a></li>
         <li><a href="${up}biblioteca-prompts/">Prompts</a></li>
@@ -219,6 +220,7 @@ ${body}
         <div class="foot-col">
           <h5>Site</h5>
           <a href="${up}iso-42001/">ISO 42001</a>
+          <a href="${up}plataforma-tyna/">Plataforma</a>
           <a href="${up}diagnostico/">Diagnóstico</a>
           <a href="${up}sobre/">Sobre</a>
           <a href="${up}blog/">Blog</a>
