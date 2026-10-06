@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plataforma Tyna — IA Generativa Corporativa com Governança e Segurança Real</title>
+<meta name="description" content="Tyna é a plataforma corporativa de IA que dá ao seu time acesso a Claude (Anthropic) com triagem automática de modelo, proteção de dados embutida e controle total do administrador.">
+<link rel="canonical" href="https://tyna.com.br/plataforma-tyna/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Plataforma Tyna — IA Generativa Corporativa com Governança e Segurança Real">
+<meta property="og:description" content="IA generativa em produção. Com governança, custo sob controle e segurança real. Acesse Claude com triagem automática de modelo e proteção de dados embutida.">
+<meta property="og:url" content="https://tyna.com.br/plataforma-tyna/">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna-dark.png">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css?v=12">
+<style>
+  /* ── Plataforma Tyna — Dark Theme Override ── */
+
+  /* Body background + text for dark sections — the sticky header has its own bg */
+  body { background: #0f0f1a; color: #e8e8f0; }
+
+  /* Eyebrow on dark bg needs lighter accent */
+  .plat-eyebrow {
+    font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: #a78bfa; display: flex; align-items: center; gap: 10px; margin-bottom: 18px;
+  }
+  .plat-eyebrow::before { content: ''; width: 22px; height: 1px; background: #a78bfa; }
+
+  /* ── Hero ── */
+  .plat-hero {
+    background: linear-gradient(160deg, #0f0f1a 0%, #13102a 50%, #0f1520 100%);
+    padding: 100px 0 80px; border-bottom: 1px solid rgba(167,139,250,0.15);
+    position: relative; overflow: hidden;
+  }
+  .plat-hero::before {
+    content: ''; position: absolute; top: -120px; right: -80px;
+    width: 560px; height: 560px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(139,92,246,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .plat-hero .wrap { position: relative; z-index: 1; }
+  .plat-hero h1 {
+    font-family: var(--display); font-size: clamp(32px, 4.4vw, 56px);
+    font-weight: 700; line-height: 1.12; letter-spacing: -0.025em;
+    color: #ffffff; margin-bottom: 24px; max-width: 780px;
+  }
+  .plat-hero h1 em { font-style: normal; color: #FF6600; }
+  .plat-hero .lead {
+    font-size: 18px; color: rgba(232,232,240,0.72); max-width: 580px; margin-bottom: 36px; line-height: 1.65;
+  }
+  .plat-hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+  .plat-hero-note {
+    font-family: var(--mono); font-size: 12px; color: rgba(232,232,240,0.45);
+    margin-top: 20px; letter-spacing: 0.04em;
+  }
+
+  /* ── Section base (dark) ── */
+  .plat-section {
+    padding: 96px 0; border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .plat-section h2 {
+    font-family: var(--display); font-size: clamp(26px, 3.2vw, 38px);
+    font-weight: 600; color: #ffffff; letter-spacing: -0.02em; margin-bottom: 14px;
+  }
+  .plat-section p.section-lead {
+    color: rgba(232,232,240,0.65); font-size: 17px; max-width: 560px; margin-bottom: 56px; line-height: 1.65;
+  }
+  .plat-section-head { margin-bottom: 52px; }
+
+  /* ── How It Works ── */
+  .plat-steps { display: flex; flex-direction: column; gap: 0; }
+  .plat-step {
+    display: grid; grid-template-columns: 64px 1fr; gap: 28px; padding: 32px 0;
+    border-top: 1px solid rgba(255,255,255,0.07); align-items: start;
+  }
+  .plat-step:last-child { border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .plat-step-num {
+    font-family: var(--mono); font-size: 26px; font-weight: 500;
+    color: #a78bfa; line-height: 1;
+  }
+  .plat-step h3 {
+    font-family: var(--display); font-size: 19px; font-weight: 600;
+    color: #ffffff; margin-bottom: 8px;
+  }
+  .plat-step p { color: rgba(232,232,240,0.62); font-size: 15.5px; line-height: 1.6; }
+  .plat-step .step-tag {
+    display: inline-block; margin-top: 10px; font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.1em; text-transform: uppercase; color: #FF6600;
+    border: 1px solid rgba(255,102,0,0.35); border-radius: 3px; padding: 3px 9px;
+  }
+
+  /* ── Features Grid ── */
+  .plat-features {
+    background: #111827;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .feat-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.07);
+  }
+  .feat-card {
+    background: #111827; padding: 34px 30px;
+    display: flex; flex-direction: column; gap: 12px;
+    transition: background 0.25s;
+  }
+  .feat-card:hover { background: #1a2335; }
+  .feat-icon {
+    width: 38px; height: 38px; border-radius: 10px;
+    background: rgba(139,92,246,0.15); border: 1px solid rgba(139,92,246,0.25);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; flex-shrink: 0;
+  }
+  .feat-card h3 { font-family: var(--display); font-size: 17px; font-weight: 600; color: #ffffff; }
+  .feat-card p { color: rgba(232,232,240,0.58); font-size: 14.5px; line-height: 1.6; }
+
+  /* ── Security Section ── */
+  .plat-security {
+    background: linear-gradient(135deg, #0d0d1f 0%, #130f22 100%);
+  }
+  .security-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+  }
+  .sec-card {
+    background: rgba(139,92,246,0.06); border: 1px solid rgba(139,92,246,0.2);
+    border-top: 2px solid #7c3aed; padding: 28px 24px;
+    display: flex; flex-direction: column; gap: 10px;
+    transition: border-color 0.25s, background 0.25s;
+  }
+  .sec-card:hover { background: rgba(139,92,246,0.1); border-color: rgba(139,92,246,0.4); }
+  .sec-badge {
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: #a78bfa; margin-bottom: 4px;
+  }
+  .sec-card h3 { font-family: var(--display); font-size: 16.5px; font-weight: 600; color: #ffffff; }
+  .sec-card p { color: rgba(232,232,240,0.58); font-size: 14px; line-height: 1.6; }
+
+  /* ── Admin Control ── */
+  .admin-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+  }
+  .admin-card {
+    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+    padding: 30px 26px; display: flex; flex-direction: column; gap: 10px;
+    transition: background 0.25s, border-color 0.25s;
+  }
+  .admin-card:hover { background: rgba(255,255,255,0.055); border-color: rgba(255,255,255,0.15); }
+  .admin-card h3 { font-family: var(--display); font-size: 17px; font-weight: 600; color: #ffffff; }
+  .admin-card p { color: rgba(232,232,240,0.6); font-size: 14.5px; line-height: 1.6; }
+  .admin-tag {
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: #34d399;
+  }
+
+  /* ── Why Tyna ── */
+  .plat-why { background: #0d0d1f; }
+  .why-list { display: flex; flex-direction: column; gap: 0; }
+  .why-item {
+    display: grid; grid-template-columns: 240px 1fr; gap: 40px;
+    padding: 30px 0; border-top: 1px solid rgba(255,255,255,0.07); align-items: start;
+  }
+  .why-item:last-child { border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .why-item h3 {
+    font-family: var(--display); font-size: 16.5px; font-weight: 600; color: #FF6600;
+  }
+  .why-item p { color: rgba(232,232,240,0.62); font-size: 15.5px; line-height: 1.6; }
+
+  /* ── Final CTA Band ── */
+  .plat-cta {
+    background: linear-gradient(160deg, #0f0f1a 0%, #13102a 100%);
+    text-align: center; padding: 110px 0;
+    border-bottom: none;
+  }
+  .plat-cta h2 {
+    font-family: var(--display); font-size: clamp(28px, 4vw, 44px);
+    font-weight: 600; color: #ffffff; letter-spacing: -0.02em;
+    max-width: 660px; margin: 0 auto 20px;
+  }
+  .plat-cta p {
+    color: rgba(232,232,240,0.6); font-size: 17px; max-width: 520px; margin: 0 auto 36px;
+  }
+  .plat-cta .cta-footnote {
+    margin-top: 18px; font-family: var(--mono); font-size: 12px;
+    color: rgba(232,232,240,0.38); letter-spacing: 0.03em;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .feat-grid { grid-template-columns: repeat(2, 1fr); }
+    .security-grid { grid-template-columns: repeat(2, 1fr); }
+    .admin-grid { grid-template-columns: 1fr; }
+    .why-item { grid-template-columns: 1fr; gap: 10px; }
+    .why-item h3 { color: #a78bfa; font-size: 14px; text-transform: uppercase; letter-spacing: 0.06em; }
+  }
+  @media (max-width: 640px) {
+    .feat-grid { grid-template-columns: 1fr; }
+    .security-grid { grid-template-columns: 1fr; }
+    .plat-hero { padding: 72px 0 60px; }
+    .plat-section { padding: 72px 0; }
+    .plat-cta { padding: 80px 0; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><img src="../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../#diferencial">Diferencial</a></li>
+        <li><a href="../#servicos">Serviços</a></li>
+        <li><a href="../iso-42001/">ISO 42001</a></li>
+        <li><a href="../#cases">Cases</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../biblioteca-prompts/">Prompts</a></li>
+        <li><a href="../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="plat-hero">
+    <div class="wrap">
+      <p class="plat-eyebrow">Plataforma corporativa · IA generativa em produção</p>
+      <h1>IA generativa em produção.<br><em>Com governança, custo sob controle e segurança real.</em></h1>
+      <p class="lead">Tyna é a plataforma corporativa que dá ao seu time acesso a Claude (Anthropic), com triagem automática de modelo, proteção de dados embutida e controle total do administrador.</p>
+      <div class="plat-hero-ctas">
+        <a href="https://app.tyna.com.br/demo" target="_blank" rel="noopener" class="btn btn-primary" style="padding:14px 30px; font-size:15px;">Ver demonstração ao vivo</a>
+      </div>
+      <p class="plat-hero-note">Sem instalação. Acesso imediato.</p>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="plat-section">
+    <div class="wrap">
+      <div class="plat-section-head">
+        <p class="plat-eyebrow">Como funciona</p>
+        <h2>Três camadas invisíveis ao usuário, críticas para o negócio</h2>
+        <p class="section-lead">Cada mensagem enviada na plataforma passa por um pipeline de segurança e inteligência antes de chegar ao modelo.</p>
+      </div>
+      <div class="plat-steps">
+        <div class="plat-step">
+          <div class="plat-step-num">01</div>
+          <div>
+            <h3>Tyna Shield intercepta</h3>
+            <p>PII, segredos e prompt injection são mascarados antes de qualquer envio ao modelo. A proteção é determinística — não depende de classificação probabilística do LLM.</p>
+            <span class="step-tag">Segurança por padrão</span>
+          </div>
+        </div>
+        <div class="plat-step">
+          <div class="plat-step-num">02</div>
+          <div>
+            <h3>Laya classifica</h3>
+            <p>O roteador avalia a complexidade do prompt numa escala de 1 a 5 e escolhe automaticamente entre Haiku, Sonnet ou Opus. Prompts simples nunca pagam pelo modelo mais caro.</p>
+            <span class="step-tag">Custo sob controle</span>
+          </div>
+        </div>
+        <div class="plat-step">
+          <div class="plat-step-num">03</div>
+          <div>
+            <h3>Claude responde</h3>
+            <p>Com contexto da sua organização, skills ativas e base de conhecimento RAG. A resposta chega ao usuário com rastreabilidade total: modelo usado, custo, latência e auditoria.</p>
+            <span class="step-tag">Anthropic Claude</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KEY FEATURES -->
+  <section class="plat-section plat-features">
+    <div class="wrap">
+      <div class="plat-section-head">
+        <p class="plat-eyebrow">Funcionalidades</p>
+        <h2>Tudo que um time corporativo precisa para usar IA de verdade</h2>
+        <p class="section-lead">Não é um wrapper do ChatGPT. É uma plataforma construída para deploy corporativo com multi-tenancy, auditoria e controle granular.</p>
+      </div>
+      <div class="feat-grid">
+        <div class="feat-card">
+          <div class="feat-icon">💬</div>
+          <h3>Chat com streaming + memória de workspace</h3>
+          <p>30 mensagens de contexto com compressão automática. O usuário nunca perde o fio da conversa; o administrador vê tudo.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">📚</div>
+          <h3>Base de conhecimento RAG</h3>
+          <p>PDF, DOCX, links — busca semântica automática. O modelo responde com o conteúdo da sua empresa, não com alucinação.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">⚡</div>
+          <h3>Biblioteca de Skills</h3>
+          <p>Instruções reutilizáveis ativadas por intenção. Seu time usa o melhor prompt para cada tarefa sem precisar escrever um.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">🖥️</div>
+          <h3>Preview de código ao vivo</h3>
+          <p>Landing pages, React, Tailwind — renderização instantânea sem bundler externo. Design e código no mesmo fluxo.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">🎨</div>
+          <h3>Geração de imagens por IA</h3>
+          <p>Fal.ai Flux.1 e DALL-E 3 integrados, toda solicitação passa pelo Shield antes de ser enviada ao provedor externo.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">📐</div>
+          <h3>Templates de Landing Pages</h3>
+          <p>Estruturas prontas por nicho — SaaS, e-commerce, fintech. Geração e edição direto na plataforma, com preview ao vivo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECURITY SECTION -->
+  <section class="plat-section plat-security">
+    <div class="wrap">
+      <div class="plat-section-head">
+        <p class="plat-eyebrow">Tyna Shield</p>
+        <h2>Segurança que roda em toda mensagem, não é opcional</h2>
+        <p class="section-lead">O Shield não é um filtro de saída. É uma camada que opera antes do envio ao modelo, de forma determinística e auditável.</p>
+      </div>
+      <div class="security-grid">
+        <div class="sec-card">
+          <span class="sec-badge">PII</span>
+          <h3>Mascaramento de dados pessoais</h3>
+          <p>CPF, CNPJ, e-mail, cartão de crédito — detectados e mascarados por regex determinístico. Zero probabilidade de vazamento desses campos.</p>
+        </div>
+        <div class="sec-card">
+          <span class="sec-badge">Segredos</span>
+          <h3>Bloqueio de segredos e tokens</h3>
+          <p>Chaves AWS, tokens GitHub e Slack, JWTs — se detectados, a mensagem inteira é bloqueada antes de qualquer envio externo.</p>
+        </div>
+        <div class="sec-card">
+          <span class="sec-badge">Prompt Injection</span>
+          <h3>Detecção de prompt injection</h3>
+          <p>Heurística de alta velocidade + classificador sob demanda para ataques sofisticados. Proteção em duas camadas sem latência perceptível.</p>
+        </div>
+        <div class="sec-card">
+          <span class="sec-badge">Shadow AI</span>
+          <h3>Shadow AI Discovery</h3>
+          <p>Detecta uso paralelo de ChatGPT, Gemini e Claude.ai pessoal. O administrador vê onde a política corporativa não está sendo seguida.</p>
+        </div>
+        <div class="sec-card">
+          <span class="sec-badge">RAG</span>
+          <h3>Fidelidade RAG anti-alucinação</h3>
+          <p>Verifica se cada resposta é sustentada pelo contexto recuperado. Respostas sem suporte no corpus são sinalizadas antes de chegar ao usuário.</p>
+        </div>
+        <div class="sec-card">
+          <span class="sec-badge">Compliance</span>
+          <h3>Trilha de auditoria completa</h3>
+          <p>Todo evento — mensagem, classificação, bloqueio, modelo usado — é registrado e exportável em CSV. Conformidade documentada por mensagem.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADMIN CONTROL -->
+  <section class="plat-section">
+    <div class="wrap">
+      <div class="plat-section-head">
+        <p class="plat-eyebrow">Painel do administrador</p>
+        <h2>Controle total para o administrador</h2>
+        <p class="section-lead">Multi-tenant desde o primeiro dia, com isolamento testado em produção. O administrador vê tudo, controla tudo, sem depender do time de TI para cada configuração.</p>
+      </div>
+      <div class="admin-grid">
+        <div class="admin-card">
+          <span class="admin-tag">Isolamento</span>
+          <h3>Multi-tenant nativo</h3>
+          <p>Row Level Security no Postgres — cada organização é isolada no banco. Testado em produção, não só documentado em papel.</p>
+        </div>
+        <div class="admin-card">
+          <span class="admin-tag">Financeiro</span>
+          <h3>Billing granular por organização</h3>
+          <p>Tokens consumidos, custo em reais, modelo usado — por mensagem, por usuário, por organização. Billing explicável para qualquer cliente interno.</p>
+        </div>
+        <div class="admin-card">
+          <span class="admin-tag">Acesso</span>
+          <h3>RBAC sem autocadastro</h3>
+          <p>Papéis admin, member e super-admin. Sem registro livre — cada usuário é adicionado pelo administrador da organização. Controle real de quem usa.</p>
+        </div>
+        <div class="admin-card">
+          <span class="admin-tag">Automação</span>
+          <h3>Agentes autônomos</h3>
+          <p>Cron jobs e webhooks Slack e Chatwoot. O agente executa tarefas programadas ou disparadas por evento, com auditoria completa de cada execução.</p>
+        </div>
+        <div class="admin-card" style="grid-column: 1 / -1;">
+          <span class="admin-tag">Multi-provedor</span>
+          <h3>Catálogo multi-provedor com preços editáveis</h3>
+          <p>Anthropic Claude, OpenAI e Google Gemini num único catálogo. O administrador edita os preços exibidos para os times — útil para repassar custo com margem para clientes internos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY TYNA -->
+  <section class="plat-section plat-why">
+    <div class="wrap">
+      <div class="plat-section-head">
+        <p class="plat-eyebrow">Por que a Tyna</p>
+        <h2>Cinco razões pelas quais empresas escolhem a plataforma</h2>
+        <p class="section-lead">Não são diferenciais de marketing. São decisões de arquitetura que têm consequência operacional e financeira.</p>
+      </div>
+      <div class="why-list">
+        <div class="why-item">
+          <h3>Custo sob controle por arquitetura</h3>
+          <p>A triagem automática Haiku → Sonnet → Opus garante que cada prompt paga exatamente o que vale. Não é um toggle — é o fluxo padrão. Sem essa lógica, 100% dos prompts pagam o preço do modelo mais caro.</p>
+        </div>
+        <div class="why-item">
+          <h3>Segurança embutida no fluxo</h3>
+          <p>O Shield não é uma feature adicional nem um checkbox de compliance. Ele roda antes de cada envio externo, de forma silenciosa para o usuário. Não depende de treinamento — depende de arquitetura.</p>
+        </div>
+        <div class="why-item">
+          <h3>Multi-tenant pronto para vender</h3>
+          <p>Mesma instância, múltiplos clientes, sem risco de vazamento cruzado. Row Level Security implementado e testado — não só prometido. Empresas que revendem IA para seus clientes usam a mesma infraestrutura.</p>
+        </div>
+        <div class="why-item">
+          <h3>Self-hosted na AWS</h3>
+          <p>Os dados nunca saem do ambiente controlado pela Tyna. Nenhum dado de usuário trafega por infraestrutura não gerenciada. Para setores regulados, isso não é opção — é requisito.</p>
+        </div>
+        <div class="why-item">
+          <h3>Transparência operacional</h3>
+          <p>Auditoria por mensagem, billing explicável, classificação visível para o administrador. Quando o time de compliance perguntar o que aconteceu com um dado, a resposta está no painel, não num ticket para o time de engenharia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="plat-cta">
+    <div class="wrap">
+      <p class="plat-eyebrow" style="justify-content:center;"><span style="display:none;">—</span>Próximo passo</p>
+      <h2>Pronto para ver em funcionamento?</h2>
+      <p>Acesse a demonstração ao vivo e explore todas as funcionalidades da plataforma — chat, Shield, base de conhecimento e painel de administrador.</p>
+      <a href="https://app.tyna.com.br/demo" target="_blank" rel="noopener" class="btn btn-primary" style="padding:16px 38px; font-size:16px;">Acessar demonstração</a>
+      <p class="cta-footnote">Também disponível para deploy dedicado na infraestrutura da sua empresa.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../" class="logo"><img src="../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../#diferencial">Diferencial</a>
+          <a href="../#servicos">Serviços</a>
+          <a href="../iso-42001/">ISO 42001</a>
+          <a href="../shadow-ai/">Shadow AI</a>
+          <a href="../pl-2338/">Marco Legal da IA</a>
+          <a href="../diagnostico/">Diagnóstico</a>
+          <a href="../biblioteca-prompts/">Prompts</a>
+          <a href="../#cases">Cases</a>
+          <a href="../sobre/">Sobre</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/site.js?v=12"></script>
+
+</body>
+</html>
