@@ -459,6 +459,7 @@ const staticPages = [
   // de tramitação com data, e o lastmod é o que sinaliza ao Google que ela foi reconferida
   { loc: `${SITE}/pl-2338/`, pri: '0.9', freq: 'monthly', mod: mtime('pl-2338/index.html') },
   { loc: `${SITE}/sobre/`, pri: '0.8', freq: 'monthly', mod: mtime('sobre/index.html') },
+  { loc: `${SITE}/plataforma-tyna/`, pri: '0.8', freq: 'weekly', mod: mtime('plataforma-tyna/index.html') },
   { loc: `${SITE}/blog/`, pri: '0.9', freq: 'daily', mod: maisRecente(posts) },
   ...Object.keys(CATEGORIES).filter(s => posts.some(p => p.category === s))
     .map(s => ({
