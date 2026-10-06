@@ -27,7 +27,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="alternate" hreflang="pt-BR" href="https://tyna.com.br/plataforma-tyna/"/>
 <link rel="alternate" hreflang="en" href="https://tyna.com.br/en/plataforma-tyna/"/>
-<link rel="stylesheet" href="../../assets/styles.css?v=15">
+<link rel="stylesheet" href="../../assets/styles.css?v=16">
 <style>
   /* ── Tyna Platform — Dark Theme Override ── */
 
@@ -217,6 +217,7 @@
   .lang-toggle:hover { background: #a78bfa; color: #0f0f1a; }
   .lang-divider { color: rgba(167,139,250,0.4); font-weight: 300; }
   [aria-current="true"] { font-weight: 800; }
+  .nav-actions { display:flex; align-items:center; gap:0.75rem; }
 
   /* ── Responsive ── */
   @media (max-width: 900px) {
@@ -251,13 +252,15 @@
         <li><a href="../../sobre/">About</a></li>
         <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Schedule a conversation</a></li>
       </ul>
+    </nav>
+    <div class="nav-actions">
       <a href="/plataforma-tyna/" class="lang-toggle" aria-label="Switch language">
         <span class="lang-pt" style="opacity:.45">PT</span>
         <span class="lang-divider">|</span>
         <span class="lang-en" aria-current="true">EN</span>
       </a>
-    </nav>
-    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Schedule a conversation</a>
+      <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Schedule a conversation</a>
+    </div>
     <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">☰</button>
   </div>
 </header>
@@ -518,7 +521,7 @@
   </div>
 </footer>
 
-<script src="../../assets/site.js?v=14"></script>
+<script src="../../assets/site.js?v=15"></script>
 
 </body>
 </html>
