@@ -8,26 +8,27 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
+  // No computador (localhost) o GA4 não coleta: preview e testes não viram visita.
+  if (['localhost', '127.0.0.1', '[::1]'].indexOf(location.hostname) > -1) window['ga-disable-G-DQS0KMDT3G'] = true;
   gtag('config', 'G-DQS0KMDT3G');
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tyna — Consultoria em IA e Governança Corporativa</title>
-<meta name="description" content="Governança de IA de quem já colocou agente em produção — não de quem só audita. Política interna, LGPD e AI Gateway. Cases: Coca-Cola, Hering e Yalo.">
+<meta name="description" content="Política de uso de IA, LGPD, ISO 42001 e AI Gateway. Implantamos a governança, não só escrevemos o documento. Diagnóstico grátis em 10 perguntas.">
 <link rel="canonical" href="https://tyna.com.br/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Tyna — Consultoria em IA e Governança Corporativa">
-<meta property="og:description" content="Governança de IA de quem já colocou agente em produção — não de quem só audita. Política interna, LGPD e AI Gateway.">
+<meta property="og:description" content="Governança de IA na prática: política interna de uso de IA, adequação à LGPD, ISO/IEC 42001 e AI Gateway. Consultoria em IA e governança corporativa.">
 <meta property="og:url" content="https://tyna.com.br/">
 <meta property="og:image" content="https://tyna.com.br/assets/logo-tyna-dark.png">
 <meta property="og:locale" content="pt_BR">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preload" href="/assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/styles.css?v=13">
 <link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
+<link rel="alternate" type="application/rss+xml" title="Feed RSS Tyna" href="https://tyna.com.br/rss.xml" />
 <!-- JSON-LD inline: é daqui que o Google e os motores de resposta leem de fato.
      O /ai.json tem o grafo completo; aqui fica o essencial da home. -->
 <script type="application/ld+json">
@@ -35,7 +36,10 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Organization",
+      "@type": [
+        "Organization",
+        "ProfessionalService"
+      ],
       "@id": "https://tyna.com.br/#organization",
       "name": "Tyna",
       "url": "https://tyna.com.br/",
@@ -43,13 +47,19 @@
       "logo": "https://tyna.com.br/assets/logo-tyna-dark.png",
       "description": "Consultoria em Inteligência Artificial e governança corporativa de IA: política interna, adequação à LGPD, AI Gateway e capacitação de lideranças e times.",
       "slogan": "IA em produção, sob controle.",
-      "areaServed": { "@type": "Country", "name": "Brasil" },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Brasil"
+      },
       "founder": {
         "@type": "Person",
         "name": "Felipe Jacob",
         "url": "https://tyna.com.br/sobre/",
-        "sameAs": ["https://linkedin.com/in/felipelj"]
-      }
+        "sameAs": [
+          "https://linkedin.com/in/felipelj"
+        ]
+      },
+      "telephone": "+55-11-99722-8945"
     },
     {
       "@type": "WebSite",
@@ -57,17 +67,39 @@
       "url": "https://tyna.com.br/",
       "name": "Tyna",
       "inLanguage": "pt-BR",
-      "publisher": { "@id": "https://tyna.com.br/#organization" }
+      "publisher": {
+        "@id": "https://tyna.com.br/#organization"
+      }
     },
     {
       "@type": "ItemList",
       "@id": "https://tyna.com.br/#pilares",
       "name": "Pilares de governança de IA da Tyna",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Política e diretrizes", "description": "Regras internas para o uso de IA generativa e de LLMs. Entregáveis: manual de uso aceitável de IA, política de privacidade e de propriedade intelectual." },
-        { "@type": "ListItem", "position": 2, "name": "Gestão de riscos e compliance", "description": "Mitigação de vazamento de dados, de alucinação em processo crítico e de exposição regulatória. Entregáveis: matriz de risco de IA, auditoria de modelos, conformidade com LGPD e com o AI Act europeu." },
-        { "@type": "ListItem", "position": 3, "name": "Comitê de IA e processos", "description": "Estruturação de quem decide, com que critério e em quanto tempo. Entregáveis: framework do comitê de IA e fluxo de aprovação de casos de uso." },
-        { "@type": "ListItem", "position": 4, "name": "Capacitação e AI literacy", "description": "Times e lideranças treinados para usar a tecnologia dentro da regra definida. Entregáveis: imersões para C-level, workshops de prompt engineering e de segurança." }
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Política e diretrizes",
+          "description": "Regras internas para o uso de IA generativa e de LLMs. Entregáveis: manual de uso aceitável de IA, política de privacidade e de propriedade intelectual."
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Gestão de riscos e compliance",
+          "description": "Mitigação de vazamento de dados, de alucinação em processo crítico e de exposição regulatória. Entregáveis: matriz de risco de IA, auditoria de modelos, conformidade com LGPD e com o AI Act europeu."
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Comitê de IA e processos",
+          "description": "Estruturação de quem decide, com que critério e em quanto tempo. Entregáveis: framework do comitê de IA e fluxo de aprovação de casos de uso."
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Capacitação e AI literacy",
+          "description": "Times e lideranças treinados para usar a tecnologia dentro da regra definida. Entregáveis: imersões para C-level, workshops de prompt engineering e de segurança."
+        }
       ]
     },
     {
@@ -78,37 +110,58 @@
         {
           "@type": "Question",
           "name": "O que é a Tyna e o que ela faz?",
-          "acceptedAnswer": { "@type": "Answer", "text": "A Tyna é uma consultoria de governança e estratégia de Inteligência Artificial que atua junto à liderança executiva para estruturar a adoção de IA generativa e de agentes de IA com segurança — definindo frameworks de compliance, gestão de risco, privacidade de dados e políticas corporativas. O que a separa das demais é a origem: a governança vem de quem já colocou agente de IA em produção para Coca-Cola, Hering, iFood, Stellantis, Yalo e Banco do Brasil, e não de quem apenas audita." }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A Tyna é uma consultoria de governança e estratégia de Inteligência Artificial que atua junto à liderança executiva para estruturar a adoção de IA generativa e de agentes de IA com segurança — definindo frameworks de compliance, gestão de risco, privacidade de dados e políticas corporativas. O que a separa das demais é a origem: a governança vem de quem já colocou agente de IA em produção para Coca-Cola, Hering, iFood, Stellantis, Yalo e Banco do Brasil, e não de quem apenas audita."
+          }
         },
         {
           "@type": "Question",
           "name": "Por que uma empresa precisa de consultoria de governança de IA?",
-          "acceptedAnswer": { "@type": "Answer", "text": "A adoção sem controle de ferramentas de IA — o shadow AI — expõe a empresa a vazamento de dados confidenciais, violação de propriedade intelectual e alucinação em processo crítico. A governança garante que a IA seja implantada de forma escalável, segura e com retorno claro, sem travar a inovação." }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A adoção sem controle de ferramentas de IA — o shadow AI — expõe a empresa a vazamento de dados confidenciais, violação de propriedade intelectual e alucinação em processo crítico. A governança garante que a IA seja implantada de forma escalável, segura e com retorno claro, sem travar a inovação."
+          }
         },
         {
           "@type": "Question",
           "name": "Como a Tyna trata o shadow AI nas organizações?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Mapeando as ferramentas não autorizadas em uso pelas equipes, estabelecendo um diagnóstico de maturidade em IA e criando políticas claras de uso aceitável — com alternativas seguras em ambiente corporativo, como instâncias privadas de LLMs sob um AI Gateway que unifica acesso, custo, observabilidade e auditoria." }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Mapeando as ferramentas não autorizadas em uso pelas equipes, estabelecendo um diagnóstico de maturidade em IA e criando políticas claras de uso aceitável — com alternativas seguras em ambiente corporativo, como instâncias privadas de LLMs sob um AI Gateway que unifica acesso, custo, observabilidade e auditoria."
+          }
         },
         {
           "@type": "Question",
           "name": "A governança de IA substitui a governança de TI tradicional?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Não, complementa. A governança de TI trata de infraestrutura, redes e segurança da informação clássica. A governança de IA lida com as especificidades dos modelos probabilísticos: viés algorítmico, explicabilidade, gestão de prompts, alucinação e uso ético dos dados de treinamento." }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Não, complementa. A governança de TI trata de infraestrutura, redes e segurança da informação clássica. A governança de IA lida com as especificidades dos modelos probabilísticos: viés algorítmico, explicabilidade, gestão de prompts, alucinação e uso ético dos dados de treinamento."
+          }
         },
         {
           "@type": "Question",
           "name": "Qual a diferença entre governança de agentes autônomos e política de uso de IA?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Política de uso trata de quem pode usar ferramentas como o ChatGPT dentro da empresa. Governança de agente autônomo trata de sistemas que decidem e agem sozinhos — respondem ao cliente, aprovam, cobram, vendem. A pergunta deixa de ser quem pode usar e passa a ser até onde o agente vai sem um humano, o que exige escopo de autonomia, guardrails em produção, escalonamento humano e auditoria da decisão." }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Política de uso trata de quem pode usar ferramentas como o ChatGPT dentro da empresa. Governança de agente autônomo trata de sistemas que decidem e agem sozinhos — respondem ao cliente, aprovam, cobram, vendem. A pergunta deixa de ser quem pode usar e passa a ser até onde o agente vai sem um humano, o que exige escopo de autonomia, guardrails em produção, escalonamento humano e auditoria da decisão."
+          }
         },
         {
           "@type": "Question",
           "name": "Como estruturar um comitê de governança de IA na empresa?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Definindo três coisas antes de qualquer ferramenta: quem decide, com que critério e em quanto tempo. Na prática, isso vira um framework de comitê com papéis e rituais, uma matriz de valor por risco para priorização executiva e um fluxo de aprovação de casos de uso — o que a Tyna entrega no pilar de comitê e processos." }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Definindo três coisas antes de qualquer ferramenta: quem decide, com que critério e em quanto tempo. Na prática, isso vira um framework de comitê com papéis e rituais, uma matriz de valor por risco para priorização executiva e um fluxo de aprovação de casos de uso — o que a Tyna entrega no pilar de comitê e processos."
+          }
         },
         {
           "@type": "Question",
           "name": "Como a Tyna é contratada?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Em três formatos: workshop intensivo de 3 horas em um módulo específico, trilha completa por audiência de liderança ou de times, e advisory mensal com office hours, revisão de casos de uso e evolução de políticas. O contato inicial é uma conversa de 30 minutos por e-mail." }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Em três formatos: workshop intensivo de 3 horas em um módulo específico, trilha completa por audiência de liderança ou de times, e advisory mensal com office hours, revisão de casos de uso e evolução de políticas. O contato inicial é uma conversa de 30 minutos pelo WhatsApp."
+          }
         }
       ]
     }
@@ -120,14 +173,16 @@
 
 <header>
   <div class="wrap nav">
-    <a href="#top" class="logo"><img src="assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <a href="#top" class="logo"><img src="assets/logo-tyna-dark-sm.png" alt="Tyna" width="211" height="68"> <span>IA &amp; GOVERNANÇA</span></a>
     <nav>
       <ul id="navList">
-        <li><a href="#diferencial">Diferencial</a></li>
         <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#guias">Guias</a></li>
+        <li><a href="ai-gateway/comparativo/">AI Gateway</a></li>
         <li><a href="iso-42001/">ISO 42001</a></li>
         <li><a href="#cases">Cases</a></li>
         <li><a href="blog/">Blog</a></li>
+        <li><a href="plataforma-tyna/">Plataforma</a></li>
         <li><a href="biblioteca-prompts/">Prompts</a></li>
         <li><a href="sobre/">Sobre</a></li>
         <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
@@ -145,131 +200,63 @@
     <div class="wrap hero-grid">
       <div>
         <p class="eyebrow">Consultoria em IA · Governança Corporativa</p>
-        <h1>IA em produção, <em>sob controle.</em></h1>
-        <p class="lead">Governança escrita por quem já colocou agente de IA em produção em marca grande — não por quem só audita. Política interna, adequação à LGPD e um AI Gateway que unifica e audita cada ferramenta de IA usada pela empresa.</p>
+        <h1>Governança de Inteligência Artificial <em>e Compliance em IA</em></h1>
+        <p class="lead">Escale o uso de IA com compliance. Implemente políticas, guardrails, adequação à LGPD e AI Gateway para monitorar cada interação na sua empresa.</p>
         <div class="hero-ctas">
           <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary">Agendar conversa</a>
-          <a href="#diferencial" class="btn btn-ghost">Por que a Tyna</a>
+          <a href="diagnostico/" class="btn btn-ghost">Fazer diagnóstico</a>
         </div>
-        <p class="hero-note">Conversa de 30 min com quem conduz o trabalho</p>
+        <p class="hero-note">GOVERNANÇA DE IA COMEÇA COM DADOS, PROCESSOS E PESSOAS</p>
       </div>
 
-      <div class="gateway" role="img" aria-label="Diagrama do AI Gateway conectando Vendas, Marketing, Atendimento e Operação a um hub central de governança">
-        <svg viewBox="0 0 400 400">
-          <defs>
-            <!-- Domo dos nos: foco deslocado para cima e para a esquerda simula uma
-                 fonte de luz unica, a mesma para todos os nos. -->
-            <radialGradient id="gNodeFace" cx="50%" cy="50%" r="64%" fx="32%" fy="26%">
-              <stop offset="0%" stop-color="#FFFFFF"/>
-              <stop offset="50%" stop-color="#F6EFFC"/>
-              <stop offset="100%" stop-color="#D8C3EE"/>
-            </radialGradient>
-
-            <radialGradient id="gHubFace" cx="50%" cy="50%" r="68%" fx="32%" fy="24%">
-              <stop offset="0%" stop-color="#B36BFF"/>
-              <!-- O rótulo branco cai sobre esta faixa. #8A32D8 dava 4,69:1, margem
-                   estreita demais sobre o mínimo de 4,5:1 da WCAG AA. -->
-              <stop offset="42%" stop-color="#8429D0"/>
-              <stop offset="100%" stop-color="#3D1858"/>
-            </radialGradient>
-
-            <radialGradient id="gGloss" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="#FFFFFF" stop-opacity=".46"/>
-              <stop offset="55%" stop-color="#FFFFFF" stop-opacity=".20"/>
-              <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
-            </radialGradient>
-
-            <radialGradient id="gHalo" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="#9333EA" stop-opacity=".30"/>
-              <stop offset="55%" stop-color="#9333EA" stop-opacity=".08"/>
-              <stop offset="100%" stop-color="#9333EA" stop-opacity="0"/>
-            </radialGradient>
-
-            <!-- Um gradiente radial em coordenadas do desenho, centrado no hub, serve
-                 as seis linhas de uma vez: forte onde saem do centro, fraco na borda.
-                 Com gradiente linear seria preciso um por linha, cada um com angulo
-                 proprio. -->
-            <radialGradient id="gWire" gradientUnits="userSpaceOnUse" cx="200" cy="200" r="152">
-              <stop offset="0%" stop-color="#7C2FC0" stop-opacity=".92"/>
-              <stop offset="52%" stop-color="#A855F7" stop-opacity=".62"/>
-              <stop offset="100%" stop-color="#B98FDD" stop-opacity=".48"/>
-            </radialGradient>
-
-            <filter id="gNodeShadow" x="-12%" y="-12%" width="124%" height="124%">
-              <feDropShadow dx="0" dy="3" stdDeviation="4.5" flood-color="#3D1858" flood-opacity=".22"/>
-            </filter>
-            <filter id="gHubShadow" x="-70%" y="-70%" width="240%" height="240%">
-              <feDropShadow dx="0" dy="7" stdDeviation="10" flood-color="#3D1858" flood-opacity=".38"/>
-            </filter>
-          </defs>
-
-          <circle class="g-halo" cx="200" cy="200" r="150"/>
-
-          <!-- aneis -->
-          <circle class="g-ring-soft" cx="200" cy="200" r="88"/>
-          <circle class="g-ring" cx="200" cy="200" r="178"/>
-          <circle class="g-ring-dash-2" cx="200" cy="200" r="192" style="transform-origin:200px 200px;"/>
-          <circle class="g-ring-dash" cx="200" cy="200" r="150" style="transform-origin:200px 200px;"/>
-
-          <!-- connecting lines -->
-          <line class="g-line" x1="200" y1="200" x2="200" y2="70"/>
-          <line class="g-line" x1="200" y1="200" x2="330" y2="150"/>
-          <line class="g-line" x1="200" y1="200" x2="330" y2="255"/>
-          <line class="g-line" x1="200" y1="200" x2="200" y2="335"/>
-          <line class="g-line" x1="200" y1="200" x2="70" y2="255"/>
-          <line class="g-line" x1="200" y1="200" x2="70" y2="150"/>
-
-          <!-- pulses -->
-          <circle class="g-pulse-halo halo-anim" cx="200" cy="135" r="5"/>
-          <circle class="g-pulse-halo halo-anim d2" cx="265" cy="175" r="5"/>
-          <circle class="g-pulse-halo halo-anim d3" cx="265" cy="228" r="5"/>
-          <circle class="g-pulse-halo halo-anim d4" cx="135" cy="175" r="5"/>
-          <circle class="g-pulse pulse-anim" cx="200" cy="135" r="3"/>
-          <circle class="g-pulse pulse-anim d2" cx="265" cy="175" r="3"/>
-          <circle class="g-pulse pulse-anim d3" cx="265" cy="228" r="3"/>
-          <circle class="g-pulse pulse-anim d4" cx="135" cy="175" r="3"/>
-
-          <!-- outer nodes: os circulos levam a sombra em um grupo so, e os rotulos
-               ficam fora dele. Texto atravessado por filtro perde nitidez. -->
-          <g filter="url(#gNodeShadow)">
-            <circle class="g-node-fill" cx="200" cy="70" r="34"/>
-            <circle class="g-node-fill" cx="330" cy="150" r="34"/>
-            <circle class="g-node-fill" cx="330" cy="255" r="34"/>
-            <circle class="g-node-fill" cx="200" cy="335" r="34"/>
-            <circle class="g-node-fill" cx="70" cy="255" r="34"/>
-            <circle class="g-node-fill" cx="70" cy="150" r="34"/>
-          </g>
-          <g>
-            <text class="g-label" x="200" y="74" text-anchor="middle">LLMs</text>
-            <text class="g-label" x="330" y="146" text-anchor="middle">VENDAS</text>
-            <text class="g-label" x="330" y="158" text-anchor="middle">B2B</text>
-            <text class="g-label" x="330" y="259" text-anchor="middle">MARKETING</text>
-            <text class="g-label" x="200" y="331" text-anchor="middle">ATENDI-</text>
-            <text class="g-label" x="200" y="343" text-anchor="middle">MENTO</text>
-            <text class="g-label" x="70" y="259" text-anchor="middle">OPERAÇÃO</text>
-            <text class="g-label" x="70" y="146" text-anchor="middle">CRM /</text>
-            <text class="g-label" x="70" y="158" text-anchor="middle">ERP</text>
-          </g>
-
-          <!-- hub -->
-          <g filter="url(#gHubShadow)">
-            <circle class="g-hub-fill" cx="200" cy="200" r="52"/>
-          </g>
-          <circle class="g-hub-edge" cx="200" cy="200" r="52"/>
-          <ellipse class="g-hub-gloss" cx="200" cy="180" rx="30" ry="15"/>
-          <text class="g-hub-label" x="200" y="197" text-anchor="middle">AI</text>
-          <text class="g-hub-label" x="200" y="211" text-anchor="middle">GATEWAY</text>
-        </svg>
-      </div>
+      <!-- Console do AI Gateway. A lista tem os 8 eventos duas vezes: a animação sobe
+           uma linha por vez até -336px (8 × 42px) e recomeça, e como as linhas 9–14
+           repetem as 1–6, o recomeço não aparece. A cópia fica escondida de leitor de tela. -->
+      <figure class="gw-console" aria-label="Exemplo ilustrativo de tráfego em um AI Gateway: cada chamada de IA da empresa é registrada e recebe uma decisão (permitido, dado mascarado, encaminhado para humano ou bloqueado)">
+        <div class="gc-bar">
+          <span class="gc-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="gc-title">ai-gateway / tráfego</span>
+          <span class="gc-tag"><span class="gc-live" aria-hidden="true"></span>EXEMPLO</span>
+        </div>
+        <div class="gc-body">
+          <div class="gc-row gc-head" aria-hidden="true"><span class="gc-hora">HORA</span><span class="gc-area">ÁREA</span><span class="gc-origem">ORIGEM</span><span>DECISÃO</span></div>
+          <div class="gc-viewport">
+            <ul class="gc-track">
+              <li><span class="gc-hora">14:02:11</span><span class="gc-area">Atendimento</span><span class="gc-origem">agente-sac</span><span class="gc-ok">PERMITIDO</span></li>
+              <li><span class="gc-hora">14:02:13</span><span class="gc-area">Marketing</span><span class="gc-origem">LLM externo</span><span class="gc-mask">CPF MASCARADO</span></li>
+              <li><span class="gc-hora">14:02:15</span><span class="gc-area">Vendas B2B</span><span class="gc-origem">agente-vendas</span><span class="gc-human">P/ HUMANO</span></li>
+              <li><span class="gc-hora">14:02:18</span><span class="gc-area">Financeiro</span><span class="gc-origem">app não homologado</span><span class="gc-block">BLOQUEADO</span></li>
+              <li><span class="gc-hora">14:02:20</span><span class="gc-area">Operação</span><span class="gc-origem">LLM privado</span><span class="gc-ok">PERMITIDO</span></li>
+              <li><span class="gc-hora">14:02:24</span><span class="gc-area">CRM / ERP</span><span class="gc-origem">agente-cobrança</span><span class="gc-ok">PERMITIDO</span></li>
+              <li><span class="gc-hora">14:02:27</span><span class="gc-area">Jurídico</span><span class="gc-origem">LLM externo</span><span class="gc-mask">CONTRATO OCULTO</span></li>
+              <li><span class="gc-hora">14:02:31</span><span class="gc-area">Atendimento</span><span class="gc-origem">agente-sac</span><span class="gc-human">P/ HUMANO</span></li>
+              <li aria-hidden="true"><span class="gc-hora">14:02:11</span><span class="gc-area">Atendimento</span><span class="gc-origem">agente-sac</span><span class="gc-ok">PERMITIDO</span></li>
+              <li aria-hidden="true"><span class="gc-hora">14:02:13</span><span class="gc-area">Marketing</span><span class="gc-origem">LLM externo</span><span class="gc-mask">CPF MASCARADO</span></li>
+              <li aria-hidden="true"><span class="gc-hora">14:02:15</span><span class="gc-area">Vendas B2B</span><span class="gc-origem">agente-vendas</span><span class="gc-human">P/ HUMANO</span></li>
+              <li aria-hidden="true"><span class="gc-hora">14:02:18</span><span class="gc-area">Financeiro</span><span class="gc-origem">app não homologado</span><span class="gc-block">BLOQUEADO</span></li>
+              <li aria-hidden="true"><span class="gc-hora">14:02:20</span><span class="gc-area">Operação</span><span class="gc-origem">LLM privado</span><span class="gc-ok">PERMITIDO</span></li>
+              <li aria-hidden="true"><span class="gc-hora">14:02:24</span><span class="gc-area">CRM / ERP</span><span class="gc-origem">agente-cobrança</span><span class="gc-ok">PERMITIDO</span></li>
+              <li aria-hidden="true"><span class="gc-hora">14:02:27</span><span class="gc-area">Jurídico</span><span class="gc-origem">LLM externo</span><span class="gc-mask">CONTRATO OCULTO</span></li>
+              <li aria-hidden="true"><span class="gc-hora">14:02:31</span><span class="gc-area">Atendimento</span><span class="gc-origem">agente-sac</span><span class="gc-human">P/ HUMANO</span></li>
+            </ul>
+          </div>
+        </div>
+        <dl class="gc-legend">
+          <div><dt>Autonomia</dt><dd>Escopo definido</dd></div>
+          <div><dt>Guardrail</dt><dd>Saída validada</dd></div>
+          <div><dt>Escalonamento</dt><dd>Rota com dono</dd></div>
+          <div><dt>Auditoria</dt><dd>Trilha gravada</dd></div>
+        </dl>
+      </figure>
     </div>
   </section>
 
   <!-- PROVA SOCIAL -->
   <div class="proof-band">
     <div class="wrap">
-      <p class="proof-label">IA implementada em produção para</p>
+      <p class="proof-label">Projetos de IA</p>
       <ul class="proof-logos">
-        <li>Coca-Cola</li><li>Hering</li><li>iFood</li><li>Stellantis</li><li>Yalo</li><li>Banco do Brasil</li>
+        <li>Coca-Cola</li><li>Hering</li><li>iFood</li><li>Stellantis</li><li>Banco do Brasil</li>
       </ul>
     </div>
   </div>
@@ -279,25 +266,25 @@
     <div class="wrap problem-grid">
       <div class="reveal">
         <p class="eyebrow">Por que governança</p>
-        <h2>O risco não é a tecnologia. É a ausência de controle.</h2>
+        <h2>O risco não é o modelo. É ninguém saber onde os dados estão rodando.</h2>
         <p style="color:var(--text-muted); font-size:16px;">A maioria das empresas já usa IA — em ferramentas não homologadas, sem política, sem trilha de auditoria. O trabalho da Tyna é trazer essa adoção para dentro de uma estrutura que a liderança entende, aprova e consegue sustentar.</p>
       </div>
       <div class="risk-list reveal">
         <div class="risk-item">
           <span class="num">01</span>
-          <div><h4>Shadow AI</h4><p>Times usando ferramentas de IA fora de qualquer política, sem visibilidade para TI, jurídico ou segurança. <a href="shadow-ai/">Ver o checklist de mapeamento</a></p></div>
+          <div><h3>Shadow AI</h3><p>Times usando ferramentas de IA fora de qualquer política, sem visibilidade para TI, jurídico ou segurança. <a href="shadow-ai/">Ver o checklist de mapeamento</a></p></div>
         </div>
         <div class="risk-item">
           <span class="num">02</span>
-          <div><h4>Vazamento de dados e exposição regulatória</h4><p>Prompts e integrações que trafegam dados pessoais sem base legal — o núcleo da adequação à LGPD.</p></div>
+          <div><h3>Vazamento de dados e exposição regulatória</h3><p>Prompts e integrações que trafegam dados pessoais sem base legal — o núcleo da adequação à LGPD.</p></div>
         </div>
         <div class="risk-item">
           <span class="num">03</span>
-          <div><h4>Alucinação sem guardrail</h4><p>Agentes em produção respondendo clientes sem limites de ação, validação ou escalonamento humano definidos.</p></div>
+          <div><h3>Alucinação sem guardrail</h3><p>Agentes em produção respondendo clientes sem limites de ação, validação ou escalonamento humano definidos.</p></div>
         </div>
         <div class="risk-item">
           <span class="num">04</span>
-          <div><h4>Ferramentas fragmentadas</h4><p>Cada área com seu próprio acesso a modelos de IA, sem custo, uso ou risco unificados — o problema que o AI Gateway resolve.</p></div>
+          <div><h3>Ferramentas fragmentadas</h3><p>Cada área com seu próprio acesso a modelos de IA, sem custo, uso ou risco unificados — o problema que o AI Gateway resolve.</p></div>
         </div>
       </div>
     </div>
@@ -316,8 +303,8 @@
     <div class="wrap">
       <div class="section-head reveal">
         <p class="eyebrow">Diferencial</p>
-        <h2>A regra vem de quem opera o agente</h2>
-        <p>Governança de IA no Brasil hoje é, na maior parte, diagnóstico, política e adequação regulatória vendidos por quem nunca colocou um agente em produção. Na Tyna as duas coisas têm a mesma origem.</p>
+        <h2>A regra é feita por quem constrói agente de IA</h2>
+        <p>No Brasil, governança de IA costuma ser vendida por quem nunca colocou um agente de IA em produção. Na Tyna, a política e a operação são criadas por quem coloca a "mão na massa".</p>
       </div>
 
       <div class="compare reveal">
@@ -476,6 +463,120 @@
     </div>
   </section>
 
+  <!-- GUIAS -->
+  <section id="guias">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Guias</p>
+        <h2>O material que a Tyna publica aberto</h2>
+        <p>Método completo, não teaser. Cada guia responde a uma pergunta que aparece em toda conversa de governança de IA — e traz o checklist, o prazo ou o número que normalmente só sai em proposta.</p>
+      </div>
+
+      <div class="svc-grid reveal">
+        <div class="svc-card">
+          <span class="num">01</span>
+          <h3><a href="governanca-de-ia/">Governança de IA: o que é</a></h3>
+          <p>O guia do termo que nomeia a categoria: a definição, a diferença para governança de TI, o modelo de maturidade e as métricas que quase ninguém publica.</p>
+          <ul class="deliverables">
+            <li>Seis etapas, na ordem que funciona</li>
+            <li>Hub para os outros oito guias</li>
+          </ul>
+        </div>
+        <div class="svc-card">
+          <span class="num">02</span>
+          <h3><a href="shadow-ai/">Shadow AI: como mapear</a></h3>
+          <p>O checklist de 12 passos para descobrir a IA que a empresa já usa e não enxerga. Financeiro antes de log, anistia antes de pergunta.</p>
+          <ul class="deliverables">
+            <li>Checklist copiável, em quatro frentes</li>
+            <li>O que fazer com o inventário depois</li>
+          </ul>
+        </div>
+        <div class="svc-card">
+          <span class="num">03</span>
+          <h3><a href="ai-gateway/">AI Gateway</a></h3>
+          <p>Um ponto de acesso, custo, observabilidade e auditoria para toda a IA da empresa — com os três casos em que ele não faz sentido.</p>
+          <ul class="deliverables">
+            <li>Comprar, montar ou construir</li>
+            <li>Os quatro números que dizem se funcionou</li>
+          </ul>
+        </div>
+        <div class="svc-card">
+          <span class="num">04</span>
+          <h3><a href="ai-gateway/comparativo/">Comparativo de AI Gateways</a></h3>
+          <p>As 124 ferramentas do mercado em uma tabela filtrável: categoria, entrega, licença, quem mantém, de onde vem e se ainda está viva. Corte de setembro de 2026.</p>
+          <ul class="deliverables">
+            <li>Filtro, ordenação e CSV para baixar</li>
+            <li>10 das 124 já estão paradas ou compradas</li>
+          </ul>
+        </div>
+        <div class="svc-card">
+          <span class="num">05</span>
+          <h3><a href="llm-leaderboard/">LLM Leaderboard</a></h3>
+          <p>O ranking dos modelos de IA por inteligência, programação, velocidade, latência e preço — mais de 600 modelos, atualizado toda semana.</p>
+          <ul class="deliverables">
+            <li>Quem lidera em cada critério</li>
+            <li>O melhor modelo de cada empresa</li>
+          </ul>
+        </div>
+        <div class="svc-card">
+          <span class="num">06</span>
+          <h3><a href="governanca-de-agentes/">Governança de agentes de IA</a></h3>
+          <p>Até onde o agente vai sem um humano. Os quatro controles que a política de uso não cobre, com número de agente real em produção.</p>
+          <ul class="deliverables">
+            <li>Dez perguntas antes de ir ao ar</li>
+            <li>84,2% de assertividade, e o que isso exige</li>
+          </ul>
+        </div>
+        <div class="svc-card">
+          <span class="num">07</span>
+          <h3><a href="politica-de-uso-de-ia/">Política de uso de IA</a>
+          <a href="treinamento-de-ia-para-empresas/">Treinamento de IA</a></h3>
+          <p>O template inteiro para copiar e adaptar, com a regra que separa política seguida de política ignorada: toda proibição com a alternativa ao lado.</p>
+          <ul class="deliverables">
+            <li>Template copiável, sete seções</li>
+            <li>Classificação de dado em três níveis</li>
+          </ul>
+        </div>
+        <div class="svc-card">
+          <span class="num">08</span>
+          <h3><a href="lgpd-e-ia/">LGPD em fluxos de IA</a></h3>
+          <p>As três portas por onde o dado pessoal entra sem ninguém registrar — prompt, base de conhecimento e log — e o que fazer em cada uma.</p>
+          <ul class="deliverables">
+            <li>Base legal por finalidade, não por sistema</li>
+            <li>Seis frentes, na ordem que funciona</li>
+          </ul>
+        </div>
+        <div class="svc-card">
+          <span class="num">09</span>
+          <h3><a href="iso-42001/">ISO/IEC 42001</a></h3>
+          <p>A primeira norma certificável de gestão de IA: as seis etapas até a prontidão e os prazos que o mercado pratica.</p>
+          <ul class="deliverables">
+            <li>4 a 8 meses com ISO 27001 na casa</li>
+            <li>8 a 14 meses começando do zero</li>
+          </ul>
+        </div>
+        <div class="svc-card">
+          <span class="num">10</span>
+          <h3><a href="pl-2338/">Marco Legal da IA</a></h3>
+          <p>Onde o PL 2338/2023 realmente está, com data e fonte conferível — e as seis frentes que independem da votação.</p>
+          <ul class="deliverables">
+            <li>Status lido na ficha da Câmara</li>
+            <li>O que já é exigível hoje</li>
+          </ul>
+        </div>
+        <div class="svc-card">
+          <span class="num">11</span>
+          <h3><a href="diagnostico/">Diagnóstico de maturidade</a></h3>
+          <p>Dez perguntas, três minutos, resultado na hora: a faixa em que sua empresa está e as lacunas nomeadas uma a uma.</p>
+          <ul class="deliverables">
+            <li>Sem formulário e sem cadastro</li>
+            <li>Cada lacuna ligada ao que resolve</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CASES -->
   <section id="cases">
     <div class="wrap">
@@ -495,20 +596,18 @@
             <div class="stat"><span class="v">R$1,5mi</span><span class="l">FATURAMENTO</span></div>
             <div class="stat"><span class="v">+2.825%</span><span class="l">VS. ANO ANTERIOR</span></div>
           </div>
-          <span class="case-source">Fonte: case Hering</span>
         </div>
 
         <div class="case-card">
-          <span class="tag">Vendas B2B · WhatsApp</span>
-          <h3>Yalo</h3>
-          <p class="desc">Agentes de IA como vendedores digitais 24/7, integrados a preço, catálogo, crédito e estoque para pequeno varejo.</p>
+          <span class="tag">Cadastro de restaurantes automatizado com IA no WhatsApp</span>
+          <h3>iFood</h3>
+          <p class="desc">Para acelerar a entrada de novos restaurantes, o iFood criou um fluxo de autocadastro no WhatsApp com IA montando cardápios automaticamente — a etapa em que a maioria dos parceiros desistia.</p>
           <div class="stat-row">
-            <div class="stat"><span class="v">US$4bi</span><span class="l">MOVIMENTADOS VIA MSG</span></div>
-            <div class="stat"><span class="v">14–18%</span><span class="l">AUMENTO NAS VENDAS</span></div>
-            <div class="stat"><span class="v">+4mi</span><span class="l">PONTOS DE VENDA NO BR</span></div>
-            <div class="stat"><span class="v">+40</span><span class="l">PAÍSES DE ATUAÇÃO</span></div>
+            <div class="stat"><span class="v">+26%</span><span class="l">DE CONVERSÃO</span></div>
+            <div class="stat"><span class="v">97%</span><span class="l">DE CSAT NO WHATSAPP</span></div>
+            <div class="stat"><span class="v">34%</span><span class="l">DE PARCEIROS DESTRAVADOS PELA IA</span></div>
+            <div class="stat"><span class="v">-76%</span><span class="l">DE ABANDONO NO FLUXO</span></div>
           </div>
-          <span class="case-source">Fonte: Times Brasil / CNBC, dez. 2025</span>
         </div>
 
         <div class="case-card">
@@ -521,7 +620,6 @@
             <div class="stat"><span class="v">80%</span><span class="l">RESOLUTIVIDADE DIRETA</span></div>
             <div class="stat"><span class="v">5</span><span class="l">MARCAS ATENDIDAS</span></div>
           </div>
-          <span class="case-source">Fonte: blip.ai — case Stellantis</span>
         </div>
 
         <div class="case-card">
@@ -534,7 +632,6 @@
             <div class="stat"><span class="v">+4mi</span><span class="l">MENSAGENS TRAFEGADAS</span></div>
             <div class="stat"><span class="v">851</span><span class="l">USUÁRIOS PREMIADOS</span></div>
           </div>
-          <span class="case-source">Fonte: blip.ai — case Áudios Mágicos</span>
         </div>
       </div>
     </div>
@@ -562,7 +659,7 @@
         <div class="module">
           <span class="num">L1</span>
           <div>
-            <h4>Fundamentos de Governança de IA</h4>
+            <h3>Fundamentos de Governança de IA</h3>
             <ul>
               <li>Panorama de riscos: alucinação, vazamento de dados, viés, shadow AI e exposição regulatória</li>
               <li>Frameworks de referência traduzidos em políticas internas praticáveis</li>
@@ -575,7 +672,7 @@
         <div class="module">
           <span class="num">L2</span>
           <div>
-            <h4>Governança com Foco em Equipes</h4>
+            <h3>Governança com Foco em Equipes</h3>
             <ul>
               <li>Gestão de acesso, permissionamento e políticas de uso por área e perfil</li>
               <li>Observabilidade e auditoria: logs, trilhas de decisão, rastreabilidade de agentes</li>
@@ -590,7 +687,7 @@
         <div class="module">
           <span class="num">T1</span>
           <div>
-            <h4>Prompt Engineering</h4>
+            <h3>Prompt Engineering</h3>
             <ul>
               <li>Fundamentos e padrões avançados: papéis, contexto, exemplos, cadeias de raciocínio</li>
               <li>Governança do prompt: prevenção de prompt injection e exposição de dados sensíveis</li>
@@ -601,7 +698,7 @@
         <div class="module">
           <span class="num">T2</span>
           <div>
-            <h4>Spec-Driven Development</h4>
+            <h3>Spec-Driven Development</h3>
             <ul>
               <li>Da intenção de negócio à especificação executável</li>
               <li>Revisão e versionamento de specs como ativo de governança</li>
@@ -612,7 +709,7 @@
         <div class="module">
           <span class="num">T3</span>
           <div>
-            <h4>Harness Engineering</h4>
+            <h3>Harness Engineering</h3>
             <ul>
               <li>Harnesses de avaliação: casos de teste, métricas e critérios de aceite</li>
               <li>Guardrails em produção: limites de ação, validação, fallbacks seguros</li>
@@ -623,7 +720,7 @@
         <div class="module">
           <span class="num">T4</span>
           <div>
-            <h4>Arquitetura de Agentes Conversacionais</h4>
+            <h3>Arquitetura de Agentes Conversacionais</h3>
             <ul>
               <li>Design de agentes: intenções, fluxos, orquestração e memória</li>
               <li>Escopo de autonomia, escalonamento humano e monitoramento</li>
@@ -634,7 +731,7 @@
         <div class="module">
           <span class="num">T5</span>
           <div>
-            <h4>RAG — Retrieval-Augmented Generation</h4>
+            <h3>RAG — Retrieval-Augmented Generation</h3>
             <ul>
               <li>Arquiteturas de referência: ingestão, chunking, embeddings, recuperação e reranking</li>
               <li>Governança do conhecimento: permissionamento de bases, prevenção de vazamento</li>
@@ -679,8 +776,8 @@
       <div class="reveal">
         <p class="eyebrow">Quem está por trás</p>
         <h2>Governança que vem de quem já colocou IA em produção</h2>
-        <p>A Tyna nasce da trajetória de Felipe, consultor de IA com quase uma década dedicada a IA conversacional e automação — de agentes de atendimento e vendas a plataformas de martech e social listening, para marcas como Coca-Cola, Banco do Brasil, iFood e Stellantis.</p>
-        <p>Cada módulo técnico da Tyna carrega um ângulo de governança embutido: segurança de dados, controle de acesso, auditabilidade e mitigação de risco — do prompt ao agente em produção.</p>
+        <p>A Tyna nasce da trajetória de Felipe, consultor de IA com quase uma década dedicada a IA conversacional e automação — de agentes de atendimento e vendas a plataformas de martech e social listening, para marcas como XP, Coca-Cola, Banco do Brasil, iFood e Stellantis.</p>
+        <p>Os módulos de treinamento são voltados para IA aplicada a negócios, segurança de dados, e para melhorar os resultados da sua equipe.</p>
         <a href="https://linkedin.com/in/felipelj" class="btn btn-ghost" style="margin-top:10px; display:inline-block;">LinkedIn ↗</a>
       </div>
       <div class="track-record reveal">
@@ -735,7 +832,7 @@
 
         <div class="faq-item">
           <h3>Como a Tyna é contratada?</h3>
-          <p>Em três formatos: workshop intensivo de 3 horas em um módulo específico, trilha completa por audiência de liderança ou de times, e advisory mensal com office hours, revisão de casos de uso e evolução de políticas. O contato inicial é uma conversa de 30 minutos por e-mail.</p>
+          <p>Em três formatos: workshop intensivo de 3 horas em um módulo específico, trilha completa por audiência de liderança ou de times, e advisory mensal com office hours, revisão de casos de uso e evolução de políticas. O contato inicial é uma conversa de 30 minutos pelo WhatsApp.</p>
         </div>
       </div>
     </div>
@@ -746,7 +843,7 @@
     <div class="wrap reveal">
       <p class="eyebrow">Próximo passo</p>
       <h2>Vamos trazer a IA da sua empresa para dentro de uma estrutura de governança?</h2>
-      <p style="color:var(--text-muted); font-size:16.5px; max-width:560px; margin:0 auto 30px;">Conversa inicial de 30 minutos, direto com quem conduz o trabalho. Sem formulário: o botão abre um e-mail para contato@tyna.com.br.</p>
+      <p style="color:var(--text-muted); font-size:16.5px; max-width:560px; margin:0 auto 30px;">Conversa inicial de 30 minutos, direto com quem conduz o trabalho.</p>
       <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary">Agendar conversa</a>
     </div>
   </section>
@@ -757,26 +854,38 @@
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-left">
-        <a href="#top" class="logo"><img src="assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
-        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+        <a href="#top" class="logo"><img src="assets/logo-tyna-sm.png" alt="Tyna" width="211" height="68"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio. Governança de IA começa com Dados, Processos e Pessoas.</p>
       </div>
       <div class="foot-right">
         <div class="foot-col">
-          <h5>Contato</h5>
-          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <p class="foot-h">Contato</p>
+          <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener">WhatsApp</a>
           <a href="https://linkedin.com/in/felipelj">LinkedIn</a>
         </div>
         <div class="foot-col">
-          <h5>Site</h5>
-          <a href="#diferencial">Diferencial</a>
-          <a href="#servicos">Serviços</a>
+          <p class="foot-h">Guias</p>
+          <a href="governanca-de-ia/">Governança de IA</a>
           <a href="iso-42001/">ISO 42001</a>
           <a href="shadow-ai/">Shadow AI</a>
+          <a href="ai-gateway/">AI Gateway</a>
+          <a href="ai-gateway/comparativo/">Comparativo de gateways</a>
+          <a href="llm-leaderboard/">LLM Leaderboard</a>
+          <a href="governanca-de-agentes/">Governança de agentes</a>
+          <a href="politica-de-uso-de-ia/">Política de uso de IA</a>
+          <a href="lgpd-e-ia/">LGPD e IA</a>
           <a href="pl-2338/">Marco Legal da IA</a>
-          <a href="diagnostico/">Diagnóstico</a>
-          <a href="biblioteca-prompts/">Prompts</a>
-          <a href="#cases">Cases</a>
+        </div>
+        <div class="foot-col">
+          <p class="foot-h">Site</p>
+          <a href="#servicos">Serviços</a>
           <a href="#trilhas">Trilhas</a>
+          <a href="diagnostico/">Diagnóstico</a>
+          <a href="blog/">Blog</a>
+          <a href="plataforma-tyna/">Plataforma Tyna</a>
+          <a href="biblioteca-prompts/">Biblioteca de Prompts</a>
+          <a href="sobre/">Sobre</a>
+          <a href="politica-de-privacidade/">Política de privacidade</a>
         </div>
       </div>
     </div>
