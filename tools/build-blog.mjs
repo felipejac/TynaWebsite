@@ -462,6 +462,8 @@ const staticPages = [
   { loc: `${SITE}/pl-2338/`, pri: '0.9', freq: 'monthly', mod: mtime('pl-2338/index.html') },
   { loc: `${SITE}/sobre/`, pri: '0.8', freq: 'monthly', mod: mtime('sobre/index.html') },
   { loc: `${SITE}/plataforma-tyna/`, pri: '0.8', freq: 'weekly', mod: mtime('plataforma-tyna/index.html') },
+  { loc: `${SITE}/en/`, pri: '0.7', freq: 'weekly', mod: mtime('en/index.html') },
+  { loc: `${SITE}/en/plataforma-tyna/`, pri: '0.7', freq: 'weekly', mod: mtime('en/plataforma-tyna/index.html') },
   { loc: `${SITE}/blog/`, pri: '0.9', freq: 'daily', mod: maisRecente(posts) },
   ...Object.keys(CATEGORIES).filter(s => posts.some(p => p.category === s))
     .map(s => ({

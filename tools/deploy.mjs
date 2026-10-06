@@ -45,6 +45,7 @@ const PUBLISH = [
   'robots.txt', 'llms.txt', 'ai.json',
   'sobre', 'iso-42001', 'diagnostico', 'shadow-ai', 'pl-2338', 'biblioteca-prompts', 'plataforma-tyna',
   'blog', 'assets', 'rss.xml', 'sitemap.xml',
+  'en',
 ];
 
 const args = process.argv.slice(2);
