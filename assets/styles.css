@@ -585,6 +585,11 @@
     /* só o CTA solto do header some; o filho direto evita apagar o CTA de dentro do menu,
        que perdia em especificidade para `.nav .btn-primary` */
     .nav > .btn-primary{display:none;}
+    /* #navCta agora mora dentro de .nav-actions (por causa do toggle PT/EN) e deixou de
+       ser filho direto de .nav — a regra acima parou de pegá-lo, o botão ficava visível
+       e empurrava o #navToggle pra fora da viewport em telas estreitas. ID por ser
+       estável contra mudança de aninhamento, ao contrário do seletor de filho direto. */
+    #navCta{display:none;}
     nav ul .mobile-cta{display:inline-block; margin-top:10px; text-align:center;}
   }
 

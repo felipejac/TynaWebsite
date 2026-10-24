@@ -555,6 +555,34 @@ pasta que só existe durante o build local e devolve 404 em produção.
   `seo-operacao.md` §4 não rodou ainda porque `gcloud` não está instalado nesta
   máquina.
 
+### Atualização de 23/10/2026 — bug real de navegação no mobile, achado testando
+
+Depois de publicar o fix do GA4, Felipe pediu pra seguir com as outras recomendações
+do raio-x. Testei o site de verdade no mobile (viewport 375px) e achei um bug visível
+na hora: **o botão hambúrguer do menu ficava fora da tela**, mesmo em produção.
+
+Causa: a atualização de i18n (05–06/10) embrulhou o CTA "Agendar conversa" e o novo
+toggle PT/EN num `<div class="nav-actions">`. Isso tirou o `#navCta` de ser filho
+direto de `.nav`, e a regra que escondia esse botão no mobile (`.nav > .btn-primary`)
+parou de funcionar — o botão continuava visível, ocupava espaço, e empurrava o
+`#navToggle` pra fora da viewport (375px de tela, botão nascendo em x=416px).
+**Ninguém no celular conseguia abrir o menu — zero acesso a Serviços, Cases, Blog,
+Plataforma, Prompts, Sobre.** Isso é coerente com o achado do raio-x de que o
+engajamento mobile (63s) é um terço do desktop (202s).
+
+Corrigido trocando a regra por um seletor de ID (`#navCta{display:none}`), imune a
+mudança de aninhamento. Testado depois do fix: sem overflow horizontal em `/`,
+`/en/`, `/plataforma-tyna/`; menu abre, fecha, os 6 links aparecem, CTA no fim do
+menu funciona. (Um susto no caminho: o primeiro print parecia mostrar o menu
+transparente com conteúdo da home vazando por trás — era só a transição CSS
+`translateY` capturada no meio do movimento, não bug. Reproduzi esperando a
+animação terminar antes de concluir.)
+
+Aproveitei pra subir o cache-bust de `styles.css`/`blog.css`/`site.js` de `v=12`/
+`v=16`/`v=15` (misturados entre páginas) para `v=17` uniforme em todas as 68
+páginas e no gerador (`ASSET_V` em `build-blog.mjs`) — sem isso, parte dos
+visitantes continuaria servida do CSS antigo pelo cache da CDN por até 4h.
+
 ### O que essa correção não resolve
 
 A contaminação técnica explicava uma parte da queda, não toda. Isolando as semanas
