@@ -15,6 +15,9 @@
       },
       "description": "Consultoria de governança e estratégia de Inteligência Artificial. Atua junto à liderança executiva para estruturar a adoção de IA generativa e de agentes de IA com segurança, definindo frameworks de compliance, gestão de risco, privacidade de dados e políticas corporativas que alinham a inovação aos objetivos do negócio.",
       "slogan": "IA em produção, sob controle.",
+      "sameAs": [
+        "https://www.linkedin.com/company/tyna-ai/"
+      ],
       "areaServed": {
         "@type": "Country",
         "name": "Brasil"

@@ -156,9 +156,14 @@ Restam duas, e a primeira é a de maior alavancagem de todo o documento:
    com `User-Agent: GPTBot` recebem hoje é o conteúdo customizado do repositório, não
    um bloqueio — o que é um bom sinal, mas não prova o estado do toggle, porque a
    mesclagem da Cloudflare pode depender de verificação de bot mais sofisticada que
-   uma `User-Agent` forjada não aciona. **Só dá pra confirmar de verdade olhando o
-   painel**: Security → Settings → Bot traffic → desligar "Set your preference to block
-   training in robots.txt". Enquanto estiver ligado, a Cloudflare sobrescreve o
+   uma `User-Agent` forjada não aciona. Tentei de novo em 23/10/2026, direto no
+   setting (`ai_bots_txt`) via API: até um `GET` simples devolve 403. O token OAuth
+   do `wrangler login` cobre Workers/Pages/D1/etc., mas não o grupo de permissão de
+   Bot Management — são escopos separados na Cloudflare, e não dá pra forçar isso sem
+   um API Token dedicado com esse grupo específico. **Só dá pra confirmar de verdade
+   olhando o painel**: Security → Settings → Bot traffic → desligar "Set your
+   preference to block training in robots.txt". Enquanto estiver ligado, a Cloudflare
+   sobrescreve o
    `robots.txt` do repositório na borda, e os 8 crawlers de treinamento continuam
    bloqueados na prática — todo o trabalho de AEO listado acima fica pronto e
    inacessível até esse toggle mudar. Zero esforço, destrava um trabalho já feito.
@@ -541,11 +546,10 @@ pasta que só existe durante o build local e devolve 404 em produção.
 - **Confirmar o toggle do managed robots.txt** (pendência #1 da seção 3) — tentei
   verificar por API e não consegui (zona no plano Free, endpoint `bot_management`
   recusou o token). Só dá pra confirmar olhando o painel.
-- **LinkedIn Company Page e Google Business Profile** (pendência #2) — não sei se já
-  foram criados. Se sim, me passa as URLs para entrar como `sameAs` no `ai.json`.
-- **As 20 mensagens diretas para o ICP** (seção 4, item 2, e seção 8) — é a ação de
-  maior retorno do documento inteiro e não depende de mim. Se já foi feita, vale
-  registrar aqui o resultado (quantas respostas, quantos viraram conversa).
+- ~~LinkedIn Company Page~~ **Criada: [linkedin.com/company/tyna-ai](https://www.linkedin.com/company/tyna-ai/)** — adicionada como `sameAs` da organização no `ai.json` e no JSON-LD da home em 23/10/2026. Falta o **Google Business Profile** (pendência #2 segue aberta só nessa parte).
+- **As 20 mensagens diretas para o ICP** (seção 4, item 2, e seção 8) — confirmado em
+  23/10/2026: **ainda não foram enviadas.** Continua sendo a ação de maior retorno de
+  todo o documento, e segue sem depender de nada técnico — só da mensagem sair.
 - **Google Search Console via API** segue sem credencial no ambiente (só Analytics
   está conectado) — o comando `gcloud auth application-default login` de
   `seo-operacao.md` §4 não rodou ainda porque `gcloud` não está instalado nesta
