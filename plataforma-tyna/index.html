@@ -7,12 +7,14 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
+  // Só coleta em produção (tyna.com.br) — localhost e previews do Cloudflare Pages (*.pages.dev) ficam de fora.
+  if (location.hostname !== 'tyna.com.br') window['ga-disable-G-DQS0KMDT3G'] = true;
   gtag('config', 'G-DQS0KMDT3G');
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Plataforma Tyna — IA Generativa Corporativa com Governança e Segurança Real</title>
-<meta name="description" content="Tyna é a plataforma corporativa de IA que dá ao seu time acesso a Claude (Anthropic) com triagem automática de modelo, proteção de dados embutida e controle total do administrador.">
+<title>Plataforma Tyna — IA Generativa com Governança Real</title>
+<meta name="description" content="Plataforma corporativa de IA: acesso ao Claude (Anthropic) com triagem automática de modelo, proteção de dados embutida e controle total do administrador.">
 <link rel="canonical" href="https://tyna.com.br/plataforma-tyna/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Plataforma Tyna — IA Generativa Corporativa com Governança e Segurança Real">

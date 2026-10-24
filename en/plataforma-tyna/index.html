@@ -7,11 +7,13 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
+  // Só coleta em produção (tyna.com.br) — localhost e previews do Cloudflare Pages (*.pages.dev) ficam de fora.
+  if (location.hostname !== 'tyna.com.br') window['ga-disable-G-DQS0KMDT3G'] = true;
   gtag('config', 'G-DQS0KMDT3G');
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tyna Platform — Enterprise Generative AI with Real Governance and Security</title>
+<title>Tyna Platform — Enterprise AI with Real Governance</title>
 <meta name="description" content="Enterprise AI platform with Claude (Anthropic), automatic model routing, built-in data protection, and full admin control. Governance by architecture.">
 <link rel="canonical" href="https://tyna.com.br/en/plataforma-tyna/">
 <meta property="og:type" content="website">

@@ -148,8 +148,16 @@ resultado, não ficam mais como pendência em aberto:
 
 Restam duas, e a primeira é a de maior alavancagem de todo o documento:
 
-1. **Desligar o "managed robots.txt" no painel da Cloudflare.**
-   Security → Settings → Bot traffic → desligar "Set your preference to block
+1. **Confirmar se o "managed robots.txt" está desligado no painel da Cloudflare.**
+   Tentei verificar isso por API em 23/10/2026 e não consegui: a zona está no plano
+   Free, e o endpoint `bot_management` da Cloudflare recusou o token OAuth do
+   wrangler com erro de autenticação (permissão que esse token não tem, possivelmente
+   nem disponível no plano Free). O arquivo `robots.txt` que o navegador e um `curl`
+   com `User-Agent: GPTBot` recebem hoje é o conteúdo customizado do repositório, não
+   um bloqueio — o que é um bom sinal, mas não prova o estado do toggle, porque a
+   mesclagem da Cloudflare pode depender de verificação de bot mais sofisticada que
+   uma `User-Agent` forjada não aciona. **Só dá pra confirmar de verdade olhando o
+   painel**: Security → Settings → Bot traffic → desligar "Set your preference to block
    training in robots.txt". Enquanto estiver ligado, a Cloudflare sobrescreve o
    `robots.txt` do repositório na borda, e os 8 crawlers de treinamento continuam
    bloqueados na prática — todo o trabalho de AEO listado acima fica pronto e
@@ -489,3 +497,65 @@ problema for indexação, nada nesta lista resolve.
 - Deloitte, *State of AI in the Enterprise* 2026: https://www.deloitte.com/br/pt/about/press-room/state-of-ai-2026.html
 - EY, adoção de IA no Brasil: https://www.ey.com/pt_br/newsroom/2026/05/ia-brasil-esta-entre-lideres-ranking-adocao-tecnologia
 - PL 2338/2023 no Senado: https://www25.senado.leg.br/web/atividade/materias/-/materia/157233
+
+---
+
+## 9. Sessão de 23/10/2026 — o GA4 estava contando os próprios testes como visita
+
+Contexto: Felipe pediu um raio-x de por que o engajamento (tempo de sessão, volume
+de usuário) estava caindo depois de começar alto. Cruzei dez semanas de GA4 com o
+histórico de commits, PRs e deploys do Cloudflare Pages. O relatório completo, com
+gráficos, ficou publicado como artifact (link na conversa da sessão; não repetido
+aqui porque é documento gerado, não vivo).
+
+### O achado principal
+
+O ponto de Votorantim/datacenter já registrado na seção 8 (16/08) não era um
+episódio isolado — é estrutural. **Toda URL de preview que o Cloudflare Pages gera a
+cada deploy (111 delas entre agosto e outubro) carrega o mesmo `G-DQS0KMDT3G` de
+produção.** A proteção que já existia (`localhost`, `127.0.0.1`, `[::1]`) nunca
+cobria isso, porque uma preview `*.pages.dev` não é nenhum desses três. Toda
+conferência manual de deploy — e qualquer scraper que visite uma URL de preview —
+virava sessão real na mesma propriedade que mede o site de produção.
+
+Evidência que fechou o diagnóstico: 140 sessões dos EUA em dez semanas com duração
+média de **2 segundos** (Brasil: 320s), parâmetros de depuração nas URLs de entrada
+(`?ga_test=1`, `?prod=1`, `?v=diag`), e sessões de `/dist/` como página de entrada —
+pasta que só existe durante o build local e devolve 404 em produção.
+
+### O que corrigi
+
+- Troquei a condição de desativação do GA4, nas 69 páginas que têm a tag (mais o
+  template de `tools/build-blog.mjs`, para todo post novo já nascer correto): em vez
+  de uma lista de hosts de desenvolvimento, agora é `location.hostname !==
+  'tyna.com.br'`. Qualquer ambiente que não seja a produção real — preview do
+  Cloudflare, localhost, domínio futuro de staging — fica fora por padrão.
+- `npm run seo:local` acusava 7 avisos de título/descrição fora da faixa em
+  `/biblioteca-prompts/`, `/plataforma-tyna/` e `/en/plataforma-tyna/` (páginas
+  novas desde a última auditoria de 16/08). Reescrevi as três — títulos sob 60
+  caracteres sem contar a marca, descrições entre 110 e 160. Voltou a bater com os
+  mesmos 3 avisos aceitos de propósito (seção 5 de `seo-operacao.md`), zero erro.
+
+### O que fica em aberto — só o Felipe resolve
+
+- **Confirmar o toggle do managed robots.txt** (pendência #1 da seção 3) — tentei
+  verificar por API e não consegui (zona no plano Free, endpoint `bot_management`
+  recusou o token). Só dá pra confirmar olhando o painel.
+- **LinkedIn Company Page e Google Business Profile** (pendência #2) — não sei se já
+  foram criados. Se sim, me passa as URLs para entrar como `sameAs` no `ai.json`.
+- **As 20 mensagens diretas para o ICP** (seção 4, item 2, e seção 8) — é a ação de
+  maior retorno do documento inteiro e não depende de mim. Se já foi feita, vale
+  registrar aqui o resultado (quantas respostas, quantos viraram conversa).
+- **Google Search Console via API** segue sem credencial no ambiente (só Analytics
+  está conectado) — o comando `gcloud auth application-default login` de
+  `seo-operacao.md` §4 não rodou ainda porque `gcloud` não está instalado nesta
+  máquina.
+
+### O que essa correção não resolve
+
+A contaminação técnica explicava uma parte da queda, não toda. Isolando as semanas
+sem pico de ruído óbvio, o tempo de engajamento real ainda caiu de ~245–343s (fim de
+agosto) para ~175–186s (início de outubro) — período que coincide com o maior
+crescimento de escopo do site (Biblioteca de Prompts, Plataforma Tyna, i18n) e com
+uma sessão de 7 commits em 1h (06/10) corrigindo navegação ao vivo. Isso é decisão
+de produto, não bug — não mexi em nada disso nesta sessão, só deixei registrado.
