@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/styles.css?v=18">
+<link rel="stylesheet" href="../assets/styles.css?v=19">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -290,6 +290,45 @@
       </div>
     </div>
   </section>
+
+  <section id="fale-com-a-tyna" class="lead-captura">
+    <div class="wrap reveal" style="text-align:center;">
+      <p class="eyebrow">Fale com a Tyna</p>
+      <h2>Quer aplicar isso na sua empresa?</h2>
+      <p style="color:var(--text-muted); font-size:16.5px; max-width:600px; margin:0 auto 26px;">Conte o contexto em poucos campos. A mensagem chega ao Felipe já organizada, e ele responde pelo WhatsApp.</p>
+      <form class="lead-form" data-pagina="ai-gateway" data-tema="AI Gateway" novalidate>
+        <div class="lead-linha">
+          <label>Seu nome<input name="nome" autocomplete="name" maxlength="80" required></label>
+          <label>Empresa<input name="empresa" autocomplete="organization" maxlength="80" required></label>
+        </div>
+        <div class="lead-linha">
+          <label>Cargo<input name="cargo" autocomplete="organization-title" maxlength="80"></label>
+          <label>Assunto
+            <select name="assunto">
+              <option>AI Gateway</option><option>Governança de IA</option><option>LGPD e IA</option><option>Política de uso de IA</option>
+              <option>Shadow AI</option><option>ISO 42001</option><option>Agentes de IA</option><option>Treinamento</option><option>Outro</option>
+            </select>
+          </label>
+        </div>
+        <label>O que você quer resolver? (opcional)<textarea name="detalhe" maxlength="400"></textarea></label>
+        <button type="submit" class="btn btn-primary">Enviar pelo WhatsApp</button>
+        <p class="lead-nota">Nada é enviado até você tocar em enviar no WhatsApp. A Tyna não guarda o que você digita aqui. <a href="../politica-de-privacidade/">Política de privacidade</a>.</p>
+      </form>
+    </div>
+  </section>
+  <script>
+  (function () {
+    var f = document.querySelector('.lead-form'); if (!f) return;
+    f.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var d = new FormData(f), v = function (k) { return (d.get(k) || '').toString().trim(); };
+      if (!v('nome') || !v('empresa')) { (f.querySelector(v('nome') ? '[name=empresa]' : '[name=nome]')).focus(); return; }
+      var t = 'Olá, Felipe. Sou ' + v('nome') + (v('cargo') ? ', ' + v('cargo') : '') + ', da empresa ' + v('empresa') + '. Vim pela página "' + f.dataset.tema + '" do site da Tyna e quero conversar sobre: ' + v('assunto') + '.' + (v('detalhe') ? ' ' + v('detalhe') : '');
+      if (typeof gtag === 'function') gtag('event', 'lead_formulario_enviado', { pagina: f.dataset.pagina, assunto: v('assunto') });
+      window.open('https://wa.me/5511997228945?text=' + encodeURIComponent(t), '_blank', 'noopener');
+    });
+  })();
+  </script>
 
   <section class="cta-band" style="border-bottom:none;">
     <div class="wrap reveal">
