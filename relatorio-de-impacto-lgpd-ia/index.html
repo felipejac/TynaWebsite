@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // Só coleta em produção (tyna.com.br) — localhost e previews do Cloudflare Pages (*.pages.dev) ficam de fora.
+  if (location.hostname !== 'tyna.com.br') window['ga-disable-G-DQS0KMDT3G'] = true;
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RIPD para IA: quando fazer o relatório de impacto e o que incluir | Tyna</title>
+<meta name="description" content="Relatório de impacto à proteção de dados (RIPD) para fluxos de IA: o que diz o art. 38 da LGPD, cinco situações em que vale a pena e o conteúdo a incluir.">
+<link rel="canonical" href="https://tyna.com.br/relatorio-de-impacto-lgpd-ia/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Relatório de impacto à proteção de dados (RIPD) para IA: quando fazer e o que incluir">
+<meta property="og:description" content="Relatório de impacto à proteção de dados (RIPD) para fluxos de IA: o que diz o art. 38 da LGPD, cinco situações em que vale a pena e o conteúdo a incluir.">
+<meta property="og:url" content="https://tyna.com.br/relatorio-de-impacto-lgpd-ia/">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna-dark.png">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css?v=18">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Relatório de impacto à proteção de dados (RIPD) para IA: quando fazer e o que incluir",
+  "inLanguage": "pt-BR",
+  "description": "Relatório de impacto à proteção de dados (RIPD) para fluxos de IA: o que diz o art. 38 da LGPD, cinco situações em que vale a pena e o conteúdo a incluir.",
+  "datePublished": "2026-10-27",
+  "dateModified": "2026-10-27",
+  "author": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "mainEntityOfPage": "https://tyna.com.br/relatorio-de-impacto-lgpd-ia/"
+}
+</script>
+<link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "pt-BR",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "O que é um RIPD (relatório de impacto à proteção de dados pessoais)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "É a documentação do controlador com a descrição dos processos de tratamento de dados pessoais que podem gerar riscos às liberdades civis e aos direitos fundamentais, e as medidas, salvaguardas e mecanismos de mitigação de risco. Está definido no art. 5º, XVII, e tratado no art. 38 da LGPD."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O RIPD é obrigatório para todo uso de IA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A LGPD não prevê uma obrigação geral para todo tratamento: o art. 38 prevê que a ANPD pode determinar a elaboração do relatório. Na prática, fluxos de IA com decisão automatizada, dado sensível, larga escala ou legítimo interesse são os que mais justificam o documento."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O que deve conter um relatório de impacto, no mínimo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Segundo o art. 38, a descrição dos tipos de dados coletados, a metodologia usada para a coleta e para a garantia da segurança das informações e a análise do controlador com relação a medidas, salvaguardas e mecanismos de mitigação de risco adotados."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quem elabora o RIPD?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "O controlador, com apoio do encarregado, do dono do processo de negócio, da área de segurança e do jurídico. O encarregado orienta; a aceitação do risco residual é de quem responde pelo processo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Qual a diferença entre RIPD e avaliação de impacto de IA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "O RIPD olha o risco ao titular dos dados pessoais, sob a LGPD. A avaliação de impacto de sistemas de IA, como a prevista na ISO/IEC 42001 e nas versões do Marco Legal da IA, amplia o olhar para outros efeitos do sistema. Os dois se reaproveitam."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Com que frequência atualizar o RIPD?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sempre que o fluxo mudar de forma relevante: novo fornecedor, nova finalidade, novo tipo de dado ou mudança no modelo. Defina também uma revisão periódica, e registre a data e o responsável."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><img src="../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../#servicos">Serviços</a></li>
+        <li><a href="../iso-42001/">ISO 42001</a></li>
+        <li><a href="../#cases">Cases</a></li>
+        <li><a href="../#trilhas">Trilhas</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../biblioteca-prompts/">Prompts</a></li>
+        <li><a href="../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pela%20p%C3%A1gina%20de%20RIPD%20e%20IA%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pela%20p%C3%A1gina%20de%20RIPD%20e%20IA%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Relatório de impacto (RIPD) e IA</p>
+      <h1 style="max-width:900px;">Relatório de impacto à proteção de dados para IA: <em>quando fazer</em> e o que incluir.</h1>
+      <p class="lead" style="max-width:740px;">O relatório de impacto à proteção de dados pessoais (RIPD) é o documento em que a empresa descreve um tratamento de dado pessoal, seus riscos e as medidas para reduzi-los. Para fluxos de IA com dado pessoal, ele costuma ser o jeito mais direto de mostrar que a empresa pensou no risco antes de colocar o sistema no ar.</p>
+      <div class="hero-ctas">
+        <a href="#conteudo" class="btn btn-primary">O que incluir</a>
+        <a href="#quando" class="btn btn-ghost">Quando fazer</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="o-que-e">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">O que a lei diz</p>
+        <h2>RIPD na LGPD: definição e conteúdo mínimo</h2>
+        <p>A LGPD define o relatório de impacto como a documentação do controlador que contém a descrição dos processos de tratamento de dados pessoais que podem gerar riscos às liberdades civis e aos direitos fundamentais, bem como medidas, salvaguardas e mecanismos de mitigação de risco (art. 5º, XVII). O art. 38 prevê que a ANPD pode determinar a elaboração do relatório, inclusive de dados sensíveis, e que ele deve conter, no mínimo, a descrição dos tipos de dados coletados, a metodologia usada para a coleta e para a garantia da segurança das informações e a análise do controlador sobre as medidas, salvaguardas e mecanismos de mitigação de risco adotados.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="quando">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Quando fazer</p>
+        <h2>Cinco situações em que o RIPD de um fluxo de IA vale a pena</h2>
+        <p>A lei não lista uma obrigação geral para todo uso de IA, e a ANPD pode solicitar o relatório em casos concretos. Na prática, estes cenários pedem o documento, por serem os que mais aumentam o risco para o titular e as perguntas de clientes e auditores:</p>
+      </div>
+      <div class="steps reveal">
+        <div class="step">
+          <span class="step-num">01</span>
+          <div><h3>Decisão automatizada sobre pessoas</h3><p>Triagem de currículos, análise de crédito, priorização de atendimento ou recusa. É a faixa que aciona o direito de revisão do art. 20.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">02</span>
+          <div><h3>Dado pessoal sensível no fluxo</h3><p>Saúde, biometria, origem racial, convicção religiosa ou política, entre outros do art. 5º, II, que têm hipóteses de tratamento mais restritas (art. 11).</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <div><h3>Tratamento em larga escala</h3><p>Base de clientes inteira alimentando uma base de conhecimento ou um modelo ajustado com o histórico.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">04</span>
+          <div><h3>Legítimo interesse como base legal</h3><p>O legítimo interesse exige avaliação registrada. O RIPD costuma ser o lugar natural para ela.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">05</span>
+          <div><h3>Agente de IA que age sozinho</h3><p>Um agente que responde, altera registros ou dispara mensagens pode produzir efeito antes de qualquer revisão. Veja <a href="../governanca-de-agentes/">governança de agentes</a>.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="conteudo">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">O conteúdo</p>
+        <h2>O que incluir em um RIPD de IA</h2>
+        <p>O art. 38 dá o mínimo. Para um fluxo de IA, vale acrescentar os pontos que reguladores, clientes e auditores costumam perguntar:</p>
+      </div>
+      <div class="reveal">
+        <table class="spec-table">
+          <thead><tr><th scope="col">Item</th><th scope="col">O que descrever</th></tr></thead>
+          <tbody>
+            <tr><td>Descrição do tratamento</td><td>Finalidade, quem usa, que sistema de IA, em que processo de negócio, e quem é o dono do processo</td></tr>
+            <tr><td>Dados tratados</td><td>Categorias de dado pessoal por fluxo (prompt, base de conhecimento, log), com os campos nomeados e não só a categoria</td></tr>
+            <tr><td>Base legal por finalidade</td><td>Uma linha por finalidade, com a avaliação do legítimo interesse registrada quando for a base</td></tr>
+            <tr><td>Fornecedores e transferência</td><td>Fornecedor do modelo, suboperadores, país de processamento, mecanismo de transferência internacional (art. 33)</td></tr>
+            <tr><td>Retenção</td><td>Prazo de retenção de prompt, base e log, e quem aplica</td></tr>
+            <tr><td>Riscos e medidas</td><td>Riscos para o titular (vazamento, decisão errada, discriminação) e as medidas: anonimização, guardrails, revisão humana, controle de acesso</td></tr>
+            <tr><td>Direitos do titular</td><td>Como atender acesso, correção, eliminação e revisão de decisão automatizada, e como reconstruir o caso (trilha de auditoria)</td></tr>
+            <tr><td>Revisão</td><td>Data da próxima revisão e gatilhos de atualização, como mudança de fornecedor ou de finalidade</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:16px;">A ISO/IEC 42001 também pede avaliação de impacto de sistemas de IA, então o RIPD reaproveita boa parte do trabalho. Veja o <a href="../iso-42001/">caminho até a prontidão para a certificação</a>.</p>
+    </div>
+  </section>
+
+  <section id="passos">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Como fazer</p>
+        <h2>Passo a passo para elaborar o primeiro RIPD de um fluxo de IA</h2>
+        <p>Comece por um fluxo só, o de maior risco. Um RIPD simples e verdadeiro vale mais que um completo e abandonado.</p>
+      </div>
+      <div class="steps reveal">
+        <div class="step">
+          <span class="step-num">01</span>
+          <div><h3>Escolher o fluxo de maior risco</h3><p>Use o inventário de IA e a classificação por risco para decidir por onde começar.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">02</span>
+          <div><h3>Mapear o dado por porta de entrada</h3><p>Prompt, base de conhecimento e log. Nomeie os campos.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <div><h3>Definir finalidades e bases legais</h3><p>Uma finalidade por linha, com a base legal e a justificativa.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">04</span>
+          <div><h3>Avaliar riscos e escolher medidas</h3><p>Probabilidade e impacto para o titular, e a medida que reduz cada risco.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">05</span>
+          <div><h3>Validar com o encarregado e o dono do processo</h3><p>O <a href="../dpo-encarregado-e-inteligencia-artificial/">encarregado</a> orienta, o dono do processo aceita o risco residual.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">06</span>
+          <div><h3>Arquivar, revisar e atualizar</h3><p>Guardar a versão, a data e o responsável. Revisar a cada mudança relevante do fluxo.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Perguntas frequentes</p>
+        <h2>RIPD e IA, em resposta direta</h2>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-item">
+          <h3>O que é um RIPD (relatório de impacto à proteção de dados pessoais)?</h3>
+          <p>É a documentação do controlador com a descrição dos processos de tratamento de dados pessoais que podem gerar riscos às liberdades civis e aos direitos fundamentais, e as medidas, salvaguardas e mecanismos de mitigação de risco. Está definido no art. 5º, XVII, e tratado no art. 38 da LGPD.</p>
+        </div>
+        <div class="faq-item">
+          <h3>O RIPD é obrigatório para todo uso de IA?</h3>
+          <p>A LGPD não prevê uma obrigação geral para todo tratamento: o art. 38 prevê que a ANPD pode determinar a elaboração do relatório. Na prática, fluxos de IA com decisão automatizada, dado sensível, larga escala ou legítimo interesse são os que mais justificam o documento.</p>
+        </div>
+        <div class="faq-item">
+          <h3>O que deve conter um relatório de impacto, no mínimo?</h3>
+          <p>Segundo o art. 38, a descrição dos tipos de dados coletados, a metodologia usada para a coleta e para a garantia da segurança das informações e a análise do controlador com relação a medidas, salvaguardas e mecanismos de mitigação de risco adotados.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Quem elabora o RIPD?</h3>
+          <p>O controlador, com apoio do encarregado, do dono do processo de negócio, da área de segurança e do jurídico. O encarregado orienta; a aceitação do risco residual é de quem responde pelo processo.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Qual a diferença entre RIPD e avaliação de impacto de IA?</h3>
+          <p>O RIPD olha o risco ao titular dos dados pessoais, sob a LGPD. A avaliação de impacto de sistemas de IA, como a prevista na ISO/IEC 42001 e nas versões do Marco Legal da IA, amplia o olhar para outros efeitos do sistema. Os dois se reaproveitam.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Com que frequência atualizar o RIPD?</h3>
+          <p>Sempre que o fluxo mudar de forma relevante: novo fornecedor, nova finalidade, novo tipo de dado ou mudança no modelo. Defina também uma revisão periódica, e registre a data e o responsável.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band" style="border-bottom:none;">
+    <div class="wrap reveal">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Os fluxos de IA da sua empresa têm relatório de impacto?</h2>
+      <p style="color:var(--text-muted); font-size:16.5px; max-width:580px; margin:0 auto 30px;">O diagnóstico responde em três minutos, com dez perguntas e as lacunas nomeadas uma a uma. Sem formulário e sem cadastro.</p>
+      <div class="hero-ctas" style="justify-content:center;">
+        <a href="../diagnostico/" class="btn btn-primary">Fazer o diagnóstico</a>
+        <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pela%20p%C3%A1gina%20de%20RIPD%20e%20IA%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-ghost">Falar com o Felipe</a>
+      </div>
+      <p class="status-meta" style="margin-top:34px;">Última revisão: 27/10/2026.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../" class="logo"><img src="../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../#servicos">Serviços</a>
+          <a href="../iso-42001/">ISO 42001</a>
+          <a href="../governanca-de-ia/">Governança de IA</a>
+          <a href="../shadow-ai/">Shadow AI</a>
+          <a href="../pl-2338/">Marco Legal da IA</a>
+          <a href="../diagnostico/">Diagnóstico</a>
+          <a href="../blog/">Blog</a>
+          <a href="../biblioteca-prompts/">Prompts</a>
+          <a href="../sobre/">Sobre</a>
+          <a href="../glossario/">Glossário</a>
+          <a href="../politica-de-privacidade/">Política de privacidade</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<!-- O botão flutuante do WhatsApp é montado por assets/site.js, que roda em todas as páginas -->
+<script src="../assets/site.js?v=18"></script>
+
+</body>
+</html>

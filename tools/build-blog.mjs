@@ -478,7 +478,8 @@ const staticPages = [
 // publicar uma nova é criar a pasta e acrescentar o slug aqui e em tools/deploy.mjs.
 const PILARES = ['governanca-de-ia', 'lgpd-e-ia', 'politica-de-uso-de-ia', 'ai-gateway',
   'governanca-de-agentes', 'treinamento-de-ia-para-empresas', 'politica-de-privacidade', 'glossario',
-  'llm-leaderboard', 'ai-gateway/comparativo'];
+  'llm-leaderboard', 'ai-gateway/comparativo',
+  'chatgpt-na-empresa-lgpd', 'dpo-encarregado-e-inteligencia-artificial', 'relatorio-de-impacto-lgpd-ia'];
 for (const slug of PILARES) {
   const rel = `${slug}/index.html`;
   if (existsSync(join(ROOT, rel))) staticPages.push({ loc: `${SITE}/${slug}/`, pri: '0.9', freq: 'monthly', mod: mtime(rel) });

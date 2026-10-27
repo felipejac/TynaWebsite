@@ -52,7 +52,8 @@ const PUBLISH = [
 // em tools/build-blog.mjs), para uma página ainda não criada não derrubar o deploy.
 const PILARES = ['governanca-de-ia', 'lgpd-e-ia', 'politica-de-uso-de-ia', 'ai-gateway',
   'governanca-de-agentes', 'treinamento-de-ia-para-empresas', 'politica-de-privacidade', 'glossario',
-  'llm-leaderboard', 'ai-gateway/comparativo'];
+  'llm-leaderboard', 'ai-gateway/comparativo',
+  'chatgpt-na-empresa-lgpd', 'dpo-encarregado-e-inteligencia-artificial', 'relatorio-de-impacto-lgpd-ia'];
 for (const p of PILARES) if (existsSync(join(ROOT, p))) PUBLISH.push(p);
 
 const args = process.argv.slice(2);
