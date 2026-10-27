@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // Só coleta em produção (tyna.com.br) — localhost e previews do Cloudflare Pages (*.pages.dev) ficam de fora.
+  if (location.hostname !== 'tyna.com.br') window['ga-disable-G-DQS0KMDT3G'] = true;
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Encarregado (DPO) e inteligência artificial: o que muda | Tyna</title>
+<meta name="description" content="O que a LGPD atribui ao encarregado e as seis tarefas que a IA generativa coloca na mesa dele: inventário, base legal, contratos, RIPD, direitos e incidentes.">
+<link rel="canonical" href="https://tyna.com.br/dpo-encarregado-e-inteligencia-artificial/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="O encarregado (DPO) e a inteligência artificial: o que muda na rotina">
+<meta property="og:description" content="O que a LGPD atribui ao encarregado e as seis tarefas que a IA generativa coloca na mesa dele: inventário, base legal, contratos, RIPD, direitos e incidentes.">
+<meta property="og:url" content="https://tyna.com.br/dpo-encarregado-e-inteligencia-artificial/">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna-dark.png">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css?v=18">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "O encarregado (DPO) e a inteligência artificial: o que muda na rotina",
+  "inLanguage": "pt-BR",
+  "description": "O que a LGPD atribui ao encarregado e as seis tarefas que a IA generativa coloca na mesa dele: inventário, base legal, contratos, RIPD, direitos e incidentes.",
+  "datePublished": "2026-10-27",
+  "dateModified": "2026-10-27",
+  "author": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "mainEntityOfPage": "https://tyna.com.br/dpo-encarregado-e-inteligencia-artificial/"
+}
+</script>
+<link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "pt-BR",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "O que faz o encarregado de dados (DPO)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Segundo o art. 41 da LGPD, aceita reclamações e comunicações dos titulares, recebe comunicações da ANPD e adota providências, orienta funcionários e contratados sobre as práticas de proteção de dados e executa as demais atribuições definidas pelo controlador."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O DPO precisa aprovar o uso de ferramentas de IA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ele deve ser consultado sobre base legal, contrato e relatório de impacto, mas a decisão de adotar a ferramenta e aceitar o risco é de negócio. Concentrar a aprovação no encarregado cria gargalo e empurra o uso para fora da vista."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "A empresa precisa de um DPO para usar IA generativa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A indicação do encarregado é prevista na LGPD para o controlador, com regras específicas da ANPD sobre a dispensa para agentes de tratamento de pequeno porte. Para quem usa IA com dado pessoal, ter alguém responsável por orientar e atender titulares é parte da conformidade."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O que o encarregado deve fazer primeiro quando a empresa já usa IA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pedir o inventário do que está em uso, incluindo o que ninguém aprovou, e classificar os fluxos que envolvem dado pessoal. Sem essa lista não é possível definir base legal, avaliar contratos nem decidir sobre relatório de impacto."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quem responde quando um titular pede revisão de uma decisão tomada por IA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A empresa, como controladora. O art. 20 da LGPD garante ao titular o direito de pedir revisão de decisões tomadas unicamente com base em tratamento automatizado que afetem seus interesses. Sem trilha de auditoria do caso, a resposta fica sem base."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Onde divulgar a identidade do encarregado?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A LGPD prevê que a identidade e as informações de contato do encarregado sejam divulgadas publicamente, de preferência no site do controlador, em local de fácil acesso, como a política de privacidade."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><img src="../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../#servicos">Serviços</a></li>
+        <li><a href="../iso-42001/">ISO 42001</a></li>
+        <li><a href="../#cases">Cases</a></li>
+        <li><a href="../#trilhas">Trilhas</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../biblioteca-prompts/">Prompts</a></li>
+        <li><a href="../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pela%20p%C3%A1gina%20de%20DPO%20e%20intelig%C3%AAncia%20artificial%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pela%20p%C3%A1gina%20de%20DPO%20e%20intelig%C3%AAncia%20artificial%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Encarregado (DPO) e inteligência artificial</p>
+      <h1 style="max-width:900px;">O encarregado (DPO) e a <em>inteligência artificial:</em> o que muda na rotina.</h1>
+      <p class="lead" style="max-width:740px;">A LGPD dá ao encarregado a função de orientar a empresa e falar com titulares e com a ANPD. Com IA generativa em uso por todos os times, essa função ganha trabalho novo: inventário do que roda, base legal por finalidade, contratos com fornecedores de modelo, relatório de impacto e resposta a pedidos de revisão de decisão automatizada.</p>
+      <div class="hero-ctas">
+        <a href="#tarefas" class="btn btn-primary">O que o DPO passa a fazer</a>
+        <a href="#limites" class="btn btn-ghost">Onde ele não deve ficar sozinho</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="papel">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">O papel</p>
+        <h2>O que a LGPD atribui ao encarregado</h2>
+        <p>O art. 41 da LGPD prevê que o controlador indique um encarregado pelo tratamento de dados pessoais. Entre as atividades, estão aceitar reclamações e comunicações dos titulares, receber comunicações da ANPD e adotar providências, orientar funcionários e contratados sobre as práticas de proteção de dados e executar as demais atribuições definidas pelo controlador. A identidade e os contatos do encarregado devem ser divulgados publicamente.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="tarefas">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">O que muda com IA</p>
+        <h2>Seis tarefas que a IA generativa coloca na mesa do encarregado</h2>
+        <p>Nenhuma delas é nova em essência. O que muda é a velocidade com que as ferramentas entram na empresa e a falta de registro de onde o dado vai.</p>
+      </div>
+      <div class="steps reveal">
+        <div class="step">
+          <span class="step-num">01</span>
+          <div><h3>Inventário dos fluxos de IA com dado pessoal</h3><p>O registro das operações de tratamento (art. 37) precisa incluir os fluxos em que dado pessoal entra em ferramentas de IA, por prompt, base de conhecimento e log. Sem inventário não há o que registrar. Veja <a href="../shadow-ai/">como mapear shadow AI</a>.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">02</span>
+          <div><h3>Base legal por finalidade</h3><p>Responder a um cliente, treinar um modelo com o histórico e analisar qualidade são finalidades diferentes, com bases diferentes. Veja a <a href="../lgpd-e-ia/">página de LGPD e IA</a>.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <div><h3>Contratos com fornecedores de modelo</h3><p>Cláusulas de operador, leitura dos termos sobre treinamento e retenção, lista de suboperadores e regras de transferência internacional (art. 33).</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">04</span>
+          <div><h3>Relatório de impacto</h3><p>Decidir quando um fluxo de IA pede um <a href="../relatorio-de-impacto-lgpd-ia/">relatório de impacto (RIPD)</a> e o que ele deve conter.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">05</span>
+          <div><h3>Direitos dos titulares e decisão automatizada</h3><p>Pedidos de acesso, correção, eliminação e a revisão de decisões tomadas exclusivamente com base em tratamento automatizado (art. 20) exigem que a empresa consiga reconstruir o caso.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">06</span>
+          <div><h3>Incidentes e comunicação</h3><p>Dado pessoal enviado por engano a uma ferramenta de IA é um incidente a registrar e avaliar. Um canal de reporte com anistia faz o time comunicar em vez de esconder.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="limites">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Os limites do papel</p>
+        <h2>O encarregado não deve decidir sozinho o que a empresa faz com IA</h2>
+        <p>O encarregado orienta e faz a ponte com titulares e ANPD. A decisão de adotar uma ferramenta, de aceitar um risco ou de colocar um agente em produção é de negócio e precisa de um responsável com mandato.</p>
+      </div>
+      <div class="reveal">
+        <table class="spec-table">
+          <thead><tr><th scope="col">O que é do encarregado</th><th scope="col">O que é de outro dono</th></tr></thead>
+          <tbody>
+            <tr><td>Orientar, avaliar risco de privacidade, falar com titulares e com a ANPD</td><td>Decidir adotar uma ferramenta de IA e aceitar o risco: dono do processo de negócio</td></tr>
+            <tr><td>Opinar sobre base legal, contrato e relatório de impacto</td><td>Aprovar casos de uso de IA com critério e prazo de resposta: comitê de IA</td></tr>
+            <tr><td>Receber o reporte de incidente de dado pessoal</td><td>Aplicar controle técnico (guardrail, registro, acesso): TI e segurança</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:16px;">Sem um comitê ou escritório de IA que responda a pedidos em dias, o encarregado vira o gargalo, e o time contorna. Veja <a href="../governanca-de-ia/">governança de IA</a> para a estrutura completa.</p>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Perguntas frequentes</p>
+        <h2>DPO e IA, em resposta direta</h2>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-item">
+          <h3>O que faz o encarregado de dados (DPO)?</h3>
+          <p>Segundo o art. 41 da LGPD, aceita reclamações e comunicações dos titulares, recebe comunicações da ANPD e adota providências, orienta funcionários e contratados sobre as práticas de proteção de dados e executa as demais atribuições definidas pelo controlador.</p>
+        </div>
+        <div class="faq-item">
+          <h3>O DPO precisa aprovar o uso de ferramentas de IA?</h3>
+          <p>Ele deve ser consultado sobre base legal, contrato e relatório de impacto, mas a decisão de adotar a ferramenta e aceitar o risco é de negócio. Concentrar a aprovação no encarregado cria gargalo e empurra o uso para fora da vista.</p>
+        </div>
+        <div class="faq-item">
+          <h3>A empresa precisa de um DPO para usar IA generativa?</h3>
+          <p>A indicação do encarregado é prevista na LGPD para o controlador, com regras específicas da ANPD sobre a dispensa para agentes de tratamento de pequeno porte. Para quem usa IA com dado pessoal, ter alguém responsável por orientar e atender titulares é parte da conformidade.</p>
+        </div>
+        <div class="faq-item">
+          <h3>O que o encarregado deve fazer primeiro quando a empresa já usa IA?</h3>
+          <p>Pedir o inventário do que está em uso, incluindo o que ninguém aprovou, e classificar os fluxos que envolvem dado pessoal. Sem essa lista não é possível definir base legal, avaliar contratos nem decidir sobre relatório de impacto.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Quem responde quando um titular pede revisão de uma decisão tomada por IA?</h3>
+          <p>A empresa, como controladora. O art. 20 da LGPD garante ao titular o direito de pedir revisão de decisões tomadas unicamente com base em tratamento automatizado que afetem seus interesses. Sem trilha de auditoria do caso, a resposta fica sem base.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Onde divulgar a identidade do encarregado?</h3>
+          <p>A LGPD prevê que a identidade e as informações de contato do encarregado sejam divulgadas publicamente, de preferência no site do controlador, em local de fácil acesso, como a política de privacidade.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band" style="border-bottom:none;">
+    <div class="wrap reveal">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>A governança de IA da sua empresa tem dono?</h2>
+      <p style="color:var(--text-muted); font-size:16.5px; max-width:580px; margin:0 auto 30px;">O diagnóstico responde em três minutos, com dez perguntas e as lacunas nomeadas uma a uma. Sem formulário e sem cadastro.</p>
+      <div class="hero-ctas" style="justify-content:center;">
+        <a href="../diagnostico/" class="btn btn-primary">Fazer o diagnóstico</a>
+        <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pela%20p%C3%A1gina%20de%20DPO%20e%20intelig%C3%AAncia%20artificial%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-ghost">Falar com o Felipe</a>
+      </div>
+      <p class="status-meta" style="margin-top:34px;">Última revisão: 27/10/2026.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../" class="logo"><img src="../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../#servicos">Serviços</a>
+          <a href="../iso-42001/">ISO 42001</a>
+          <a href="../governanca-de-ia/">Governança de IA</a>
+          <a href="../shadow-ai/">Shadow AI</a>
+          <a href="../pl-2338/">Marco Legal da IA</a>
+          <a href="../diagnostico/">Diagnóstico</a>
+          <a href="../blog/">Blog</a>
+          <a href="../biblioteca-prompts/">Prompts</a>
+          <a href="../sobre/">Sobre</a>
+          <a href="../glossario/">Glossário</a>
+          <a href="../politica-de-privacidade/">Política de privacidade</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<!-- O botão flutuante do WhatsApp é montado por assets/site.js, que roda em todas as páginas -->
+<script src="../assets/site.js?v=18"></script>
+
+</body>
+</html>

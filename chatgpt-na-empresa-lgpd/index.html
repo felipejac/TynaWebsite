@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // Só coleta em produção (tyna.com.br) — localhost e previews do Cloudflare Pages (*.pages.dev) ficam de fora.
+  if (location.hostname !== 'tyna.com.br') window['ga-disable-G-DQS0KMDT3G'] = true;
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ChatGPT na empresa e LGPD: o que a lei exige e como usar | Tyna</title>
+<meta name="description" content="Pode usar ChatGPT na empresa? O que a LGPD exige quando alguém cola dado pessoal em um prompt, onde estão os riscos e seis regras para usar com segurança.">
+<link rel="canonical" href="https://tyna.com.br/chatgpt-na-empresa-lgpd/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ChatGPT na empresa e LGPD: o que a lei exige e como usar com segurança">
+<meta property="og:description" content="Pode usar ChatGPT na empresa? O que a LGPD exige quando alguém cola dado pessoal em um prompt, onde estão os riscos e seis regras para usar com segurança.">
+<meta property="og:url" content="https://tyna.com.br/chatgpt-na-empresa-lgpd/">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna-dark.png">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css?v=18">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "ChatGPT na empresa e LGPD: o que a lei exige e como usar com segurança",
+  "inLanguage": "pt-BR",
+  "description": "Pode usar ChatGPT na empresa? O que a LGPD exige quando alguém cola dado pessoal em um prompt, onde estão os riscos e seis regras para usar com segurança.",
+  "datePublished": "2026-10-27",
+  "dateModified": "2026-10-27",
+  "author": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "mainEntityOfPage": "https://tyna.com.br/chatgpt-na-empresa-lgpd/"
+}
+</script>
+<link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "pt-BR",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "A LGPD proíbe usar ChatGPT na empresa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não. A LGPD não proíbe ferramentas, ela regula o tratamento de dado pessoal. O uso é possível com base legal, finalidade definida, atenção ao contrato com o fornecedor e às regras de transferência internacional, e com registro do que está em uso."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Colar dados de clientes no ChatGPT é infração à LGPD?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depende da base legal, da finalidade, do contrato com o fornecedor e do plano usado. Colar dado pessoal em conta pessoal, sem base legal definida e sem controle, é o cenário de maior risco. O mesmo dado em ambiente aprovado, com contrato de operador e finalidade compatível, é uma situação diferente."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "A empresa é responsável se o colaborador usar uma conta pessoal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A empresa é a controladora dos dados que seus colaboradores tratam em nome dela. Não saber que a ferramenta estava em uso não transfere a responsabilidade nem a exime. Por isso o primeiro passo é mapear o que já está em uso."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quais dados nunca devem ir para uma IA generativa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dado pessoal sensível, segredo de negócio, contratos e informação financeira não divulgada devem ficar fora de ferramentas públicas ou de conta pessoal. Só entram em ambiente privado aprovado para esse nível de dado."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Preciso de uma política de uso de ChatGPT?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim, e curta. Uma página com classificação de dado em três níveis, a lista de ferramentas aprovadas, o que é proibido com a alternativa ao lado, o prazo de resposta a exceções e o canal de incidente com anistia. Política longa ninguém lê."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como saber quais ferramentas de IA a empresa já usa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Comece pelo financeiro: assinaturas recorrentes de ferramentas de IA em fatura, cartão corporativo e reembolsos deixam rastro mesmo quando não há log. Depois, o rastro técnico e a declaração dos times, com anistia por escrito para quem declara."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><img src="../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../#servicos">Serviços</a></li>
+        <li><a href="../iso-42001/">ISO 42001</a></li>
+        <li><a href="../#cases">Cases</a></li>
+        <li><a href="../#trilhas">Trilhas</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../biblioteca-prompts/">Prompts</a></li>
+        <li><a href="../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pela%20p%C3%A1gina%20de%20ChatGPT%20e%20LGPD%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pela%20p%C3%A1gina%20de%20ChatGPT%20e%20LGPD%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">ChatGPT na empresa e LGPD</p>
+      <h1 style="max-width:900px;">ChatGPT na empresa: o que a LGPD exige e <em>como usar com segurança.</em></h1>
+      <p class="lead" style="max-width:740px;">Colaborador que cola um contrato, uma planilha de clientes ou um currículo no ChatGPT está tratando dado pessoal em nome da empresa, e a LGPD já vale para isso. Esta página explica o que a lei exige, onde estão os riscos reais e as regras práticas que permitem usar IA generativa sem travar o time.</p>
+      <div class="hero-ctas">
+        <a href="#regras" class="btn btn-primary">Regras práticas</a>
+        <a href="#o-que-colar" class="btn btn-ghost">O que pode e o que não pode colar</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="resposta-curta">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Resposta curta</p>
+        <h2>Posso usar o ChatGPT na minha empresa?</h2>
+        <p>Pode, desde que a empresa saiba que está usando e tenha regras. A LGPD não proíbe ferramentas de IA: ela se aplica ao dado pessoal que entra nelas. Colar nome, CPF, e-mail, histórico de atendimento ou currículo em um prompt é tratamento de dado pessoal, exige base legal e finalidade, e a empresa responde como controladora mesmo que a ferramenta tenha sido contratada por um colaborador no cartão pessoal. O ponto de partida não é proibir: é saber o que está em uso e dizer o que pode entrar em cada ferramenta.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="riscos">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Os riscos</p>
+        <h2>Onde o uso de ChatGPT na empresa costuma dar errado</h2>
+        <p>Nenhum dos quatro depende de má-fé. Todos nascem de alguém tentando ser mais produtivo sem regra clara.</p>
+      </div>
+      <div class="svc-grid duas reveal">
+        <div class="svc-card">
+          <span class="num">01</span>
+          <h3>Dado pessoal no prompt</h3>
+          <p>Caso de cliente, currículo, contrato ou base de dados colados para pedir resumo ou análise. O dado sai do perímetro da empresa no instante em que o texto é enviado.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">02</span>
+          <h3>Conta pessoal em vez de corporativa</h3>
+          <p>Os termos de uso, a retenção e o uso do conteúdo para treinamento costumam variar entre plano gratuito, individual e corporativo do mesmo produto. Confira sempre os termos vigentes do plano que está sendo usado.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">03</span>
+          <h3>Nenhum registro do que foi enviado</h3>
+          <p>Sem trilha, a empresa não consegue responder a um titular, a um cliente que pergunta por escrito ou a uma auditoria. A resposta honesta vira “não sei”.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">04</span>
+          <h3>Resposta errada que vira decisão ou publicação</h3>
+          <p>O modelo pode inventar um número, uma cláusula ou uma citação. Sem revisão humana, o erro sai da empresa com a assinatura dela.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="o-que-colar">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Classificação de dado</p>
+        <h2>O que pode e o que não pode colar em uma ferramenta de IA</h2>
+        <p>Três níveis bastam para a regra caber na cabeça de quem está no meio de uma entrega. Em dúvida, trate como restrito e pergunte.</p>
+      </div>
+      <div class="reveal">
+        <table class="spec-table">
+          <thead><tr><th scope="col">Nível</th><th scope="col">Exemplos</th><th scope="col">Onde pode entrar</th></tr></thead>
+          <tbody>
+            <tr><td>Público</td><td>Texto já publicado, material de marketing, informação de domínio público</td><td>Qualquer ferramenta</td></tr>
+            <tr><td>Interno</td><td>Processo, documentação, código não proprietário, texto administrativo sem dado pessoal</td><td>Só ferramentas aprovadas, com conta corporativa</td></tr>
+            <tr><td>Restrito</td><td>Dado pessoal, contrato, base de clientes, financeiro não divulgado, segredo de negócio</td><td>Só em ambiente privado sob um <a href="../ai-gateway/">AI Gateway</a> ou ferramenta aprovada para esse nível; nunca conta pessoal</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:16px;">Dado pessoal sensível (saúde, biometria, origem racial, opinião política, entre outros listados no art. 5º, II) tem hipóteses de tratamento mais restritas no art. 11 da LGPD e deve ficar fora de ferramentas de IA, salvo base legal específica e ambiente aprovado.</p>
+    </div>
+  </section>
+
+  <section id="regras">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Regras práticas</p>
+        <h2>Seis regras que permitem usar IA generativa sem travar o time</h2>
+        <p>Política que só proíbe empurra o uso para fora da vista. As regras abaixo funcionam porque cada proibição vem com a alternativa autorizada ao lado.</p>
+      </div>
+      <div class="steps reveal">
+        <div class="step">
+          <span class="step-num">01</span>
+          <div><h3>Descubra o que já está em uso</h3><p>Antes de escrever a regra, mapeie as ferramentas de IA que o time já usa, a começar pelo rastro financeiro. O <a href="../shadow-ai/">checklist de 12 passos</a> mostra como.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">02</span>
+          <div><h3>Ofereça um caminho autorizado</h3><p>Conta corporativa ou ambiente privado que aceite o nível de dado que o time realmente precisa usar. Sem alternativa, a proibição não reduz o uso: só reduz o que a empresa enxerga.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <div><h3>Escreva a política em uma página</h3><p>Classificação de dado, ferramentas aprovadas, o que não pode e o que fazer no lugar. Use o <a href="../politica-de-uso-de-ia/">modelo de política de uso de IA</a> como ponto de partida.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">04</span>
+          <div><h3>Anonimize antes de enviar</h3><p>Boa parte dos casos de uso não precisa do nome do titular para funcionar. Trocar identificadores por marcadores resolve mais do que parece.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">05</span>
+          <div><h3>Exija revisão humana antes de uso externo</h3><p>Número, valor, prazo e citação em material que sai da empresa vêm de sistema ou fonte conferida, nunca só do modelo.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">06</span>
+          <div><h3>Registre e revise</h3><p>Registro das ferramentas, dos fluxos com dado pessoal e das exceções concedidas, com revisão periódica. Veja <a href="../lgpd-e-ia/">LGPD e inteligência artificial</a> para a base legal por finalidade.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Perguntas frequentes</p>
+        <h2>ChatGPT e LGPD, em resposta direta</h2>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-item">
+          <h3>A LGPD proíbe usar ChatGPT na empresa?</h3>
+          <p>Não. A LGPD não proíbe ferramentas, ela regula o tratamento de dado pessoal. O uso é possível com base legal, finalidade definida, atenção ao contrato com o fornecedor e às regras de transferência internacional, e com registro do que está em uso.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Colar dados de clientes no ChatGPT é infração à LGPD?</h3>
+          <p>Depende da base legal, da finalidade, do contrato com o fornecedor e do plano usado. Colar dado pessoal em conta pessoal, sem base legal definida e sem controle, é o cenário de maior risco. O mesmo dado em ambiente aprovado, com contrato de operador e finalidade compatível, é uma situação diferente.</p>
+        </div>
+        <div class="faq-item">
+          <h3>A empresa é responsável se o colaborador usar uma conta pessoal?</h3>
+          <p>A empresa é a controladora dos dados que seus colaboradores tratam em nome dela. Não saber que a ferramenta estava em uso não transfere a responsabilidade nem a exime. Por isso o primeiro passo é mapear o que já está em uso.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Quais dados nunca devem ir para uma IA generativa?</h3>
+          <p>Dado pessoal sensível, segredo de negócio, contratos e informação financeira não divulgada devem ficar fora de ferramentas públicas ou de conta pessoal. Só entram em ambiente privado aprovado para esse nível de dado.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Preciso de uma política de uso de ChatGPT?</h3>
+          <p>Sim, e curta. Uma página com classificação de dado em três níveis, a lista de ferramentas aprovadas, o que é proibido com a alternativa ao lado, o prazo de resposta a exceções e o canal de incidente com anistia. Política longa ninguém lê.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Como saber quais ferramentas de IA a empresa já usa?</h3>
+          <p>Comece pelo financeiro: assinaturas recorrentes de ferramentas de IA em fatura, cartão corporativo e reembolsos deixam rastro mesmo quando não há log. Depois, o rastro técnico e a declaração dos times, com anistia por escrito para quem declara.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band" style="border-bottom:none;">
+    <div class="wrap reveal">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Sua empresa sabe o que o time cola em ferramentas de IA?</h2>
+      <p style="color:var(--text-muted); font-size:16.5px; max-width:580px; margin:0 auto 30px;">O diagnóstico responde em três minutos, com dez perguntas e as lacunas nomeadas uma a uma. Sem formulário e sem cadastro.</p>
+      <div class="hero-ctas" style="justify-content:center;">
+        <a href="../diagnostico/" class="btn btn-primary">Fazer o diagnóstico</a>
+        <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pela%20p%C3%A1gina%20de%20ChatGPT%20e%20LGPD%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-ghost">Falar com o Felipe</a>
+      </div>
+      <p class="status-meta" style="margin-top:34px;">Última revisão: 27/10/2026.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../" class="logo"><img src="../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../#servicos">Serviços</a>
+          <a href="../iso-42001/">ISO 42001</a>
+          <a href="../governanca-de-ia/">Governança de IA</a>
+          <a href="../shadow-ai/">Shadow AI</a>
+          <a href="../pl-2338/">Marco Legal da IA</a>
+          <a href="../diagnostico/">Diagnóstico</a>
+          <a href="../blog/">Blog</a>
+          <a href="../biblioteca-prompts/">Prompts</a>
+          <a href="../sobre/">Sobre</a>
+          <a href="../glossario/">Glossário</a>
+          <a href="../politica-de-privacidade/">Política de privacidade</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<!-- O botão flutuante do WhatsApp é montado por assets/site.js, que roda em todas as páginas -->
+<script src="../assets/site.js?v=18"></script>
+
+</body>
+</html>
