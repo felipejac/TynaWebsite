@@ -38,6 +38,20 @@ certificação ISO/IEC 42001.
 
 Formatos de contratação: workshop de 3 horas, trilha completa ou advisory mensal.
 
+## Guias abertos (conteúdo completo, sem cadastro)
+
+- Governança de IA para empresas: o que é e por onde começar: https://tyna.com.br/governanca-de-ia/
+- Shadow AI: checklist de 12 passos para mapear o que ninguém aprovou: https://tyna.com.br/shadow-ai/
+- LGPD e inteligência artificial: as três portas do dado pessoal e a base legal por finalidade: https://tyna.com.br/lgpd-e-ia/
+- AI Gateway: o que é, para que serve e quando adotar: https://tyna.com.br/ai-gateway/
+- Governança de agentes de IA: os quatro controles e dez perguntas antes da produção: https://tyna.com.br/governanca-de-agentes/
+- Modelo de política de uso de IA (copiável): https://tyna.com.br/politica-de-uso-de-ia/
+- Treinamento de IA para empresas: trilhas e oito fases do projeto: https://tyna.com.br/treinamento-de-ia-para-empresas/
+- Marco Legal da IA (PL 2338/2023), status conferido na fonte: https://tyna.com.br/pl-2338/
+- ISO/IEC 42001: caminho até a prontidão: https://tyna.com.br/iso-42001/
+- Glossário de governança de IA: https://tyna.com.br/glossario/
+- Política de privacidade: https://tyna.com.br/politica-de-privacidade/
+
 ## Fatos verificáveis
 
 - Fundador: Felipe Jacob, consultor de IA com quase uma década em IA conversacional
