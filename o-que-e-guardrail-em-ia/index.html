@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // Só coleta em produção (tyna.com.br) — localhost e previews do Cloudflare Pages (*.pages.dev) ficam de fora.
+  if (location.hostname !== 'tyna.com.br') window['ga-disable-G-DQS0KMDT3G'] = true;
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O que é guardrail em IA: tipos e como aplicar | Tyna</title>
+<meta name="description" content="Guardrail em IA é um limite aplicado em execução. Os quatro tipos (entrada, saída, ação e fluxo), a diferença para a política escrita e como começar.">
+<link rel="canonical" href="https://tyna.com.br/o-que-e-guardrail-em-ia/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="O que é guardrail em IA e como aplicar em produção">
+<meta property="og:description" content="Guardrail em IA é um limite aplicado em execução. Os quatro tipos (entrada, saída, ação e fluxo), a diferença para a política escrita e como começar.">
+<meta property="og:url" content="https://tyna.com.br/o-que-e-guardrail-em-ia/">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna-dark.png">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css?v=19">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "O que é guardrail em IA e como aplicar em produção",
+  "inLanguage": "pt-BR",
+  "description": "Guardrail em IA é um limite aplicado em execução. Os quatro tipos (entrada, saída, ação e fluxo), a diferença para a política escrita e como começar.",
+  "datePublished": "2026-10-27",
+  "dateModified": "2026-10-27",
+  "author": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "mainEntityOfPage": "https://tyna.com.br/o-que-e-guardrail-em-ia/"
+}
+</script>
+<link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "pt-BR",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "O que é guardrail em inteligência artificial?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "É um limite aplicado em execução e verificado pela máquina a cada chamada de um sistema de IA, como validação de saída, faixa de valores permitida ou bloqueio de dado sensível."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Qual a diferença entre guardrail e política de uso?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A política é um documento que depende de pessoas lerem e seguirem. O guardrail é executado pelo sistema e não admite exceção silenciosa."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quais são os tipos de guardrail?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "De entrada (o que entra no modelo), de saída (o que sai), de ação (o que o agente executa) e de fluxo (quando passar o caso a uma pessoa)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Guardrail elimina alucinação?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não elimina, mas reduz o impacto: por exemplo, checando que o número citado veio de um sistema da empresa, e não do modelo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Onde aplicar guardrails?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No caminho entre o modelo e os sistemas da empresa, como em um AI Gateway, e nas ações que o agente pode disparar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Por onde começar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pelo risco de maior impacto: uma ação irreversível, um dado sensível ou um número que será citado a um cliente."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><img src="../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../#servicos">Serviços</a></li>
+        <li><a href="../iso-42001/">ISO 42001</a></li>
+        <li><a href="../#cases">Cases</a></li>
+        <li><a href="../#trilhas">Trilhas</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../biblioteca-prompts/">Prompts</a></li>
+        <li><a href="../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pela%20p%C3%A1gina%20de%20guardrails%20de%20IA%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pela%20p%C3%A1gina%20de%20guardrails%20de%20IA%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Guardrails de IA</p>
+      <h1 style="max-width:900px;">O que é <em>guardrail</em> em IA e como aplicar em produção.</h1>
+      <p class="lead" style="max-width:740px;">Guardrail é um limite aplicado em execução, verificado pela máquina a cada chamada de um sistema de IA. É o que separa uma política escrita de um controle que realmente impede algo. Esta página explica o que é, os quatro tipos mais usados e como começar.</p>
+      <div class="hero-ctas">
+        <a href="#tipos" class="btn btn-primary">Os quatro tipos</a>
+        <a href="#comecar" class="btn btn-ghost">Como começar</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="resposta-curta">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Resposta curta</p>
+        <h2>O que é guardrail em IA?</h2>
+        <p>É uma regra aplicada no caminho da requisição, não em um documento. Antes de a resposta chegar ao usuário, ou antes de uma ação ser executada, o sistema verifica se está dentro do permitido: se há dado sensível, se o valor está na faixa, se o número citado veio de uma fonte da empresa. Política é lida por pessoas e pode ser ignorada; guardrail é executado e não admite exceção silenciosa.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="tipos">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Os quatro tipos</p>
+        <h2>Onde o guardrail atua</h2>
+        <p>Um bom desenho combina mais de um.</p>
+      </div>
+      <div class="svc-grid reveal">
+        <div class="svc-card">
+          <span class="num">01</span>
+          <h3>Entrada</h3>
+          <p>Bloqueia ou limpa o que entra no modelo: credenciais coladas por engano, dados pessoais como CPF, tentativas de <a href="../o-que-e-prompt-injection/">prompt injection</a>.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">02</span>
+          <h3>Saída</h3>
+          <p>Valida a resposta antes de entregá-la: formato, faixa de valores, ausência de dado sensível, número conferido contra o sistema de origem.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">03</span>
+          <h3>Ação</h3>
+          <p>Limita o que o agente pode executar: teto de valor, lista de ações permitidas, aprovação humana para o que é irreversível.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">04</span>
+          <h3>Fluxo</h3>
+          <p>Define quando o agente para e chama uma pessoa: baixa confiança, pedido fora do escopo, contestação do cliente.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="diferenca">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">A diferença que importa</p>
+        <h2>Política escrita x guardrail aplicado</h2>
+        <p>Uma política diz “o agente não deve prometer prazo de entrega”. Nada impede isso. O guardrail barra a resposta que contém data quando o prazo não veio do sistema de logística.</p>
+      </div>
+      <div class="reveal">
+        <table class="spec-table">
+          <thead><tr><th scope="col"></th><th scope="col">Política</th><th scope="col">Guardrail</th></tr></thead>
+          <tbody>
+            <tr><td>Onde vive</td><td>Documento</td><td>Código e configuração</td></tr>
+            <tr><td>Quem cumpre</td><td>Pessoas, se lerem</td><td>A máquina, a cada chamada</td></tr>
+            <tr><td>Exceção silenciosa</td><td>Possível</td><td>Não admite</td></tr>
+            <tr><td>Prova de funcionamento</td><td>Declaração</td><td>Registro de cada verificação</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="comecar">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Como começar</p>
+        <h2>Quatro passos para o primeiro guardrail</h2>
+        <p>Comece pelo risco maior, não pelo mais fácil de implementar.</p>
+      </div>
+      <div class="steps reveal">
+        <div class="step">
+          <span class="step-num">01</span>
+          <div><h3>Listar o que o agente pode fazer</h3><p>Cada ação e cada dado que ele toca. Sem a lista não há o que limitar.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">02</span>
+          <div><h3>Escolher o limite de maior risco</h3><p>Ação irreversível, dado sensível ou número citado ao cliente.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <div><h3>Aplicar o limite em execução</h3><p>Na ponte entre o modelo e o sistema, por exemplo em um <a href="../ai-gateway/">AI Gateway</a>.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">04</span>
+          <div><h3>Registrar e revisar</h3><p>Guardar cada bloqueio e cada exceção para melhorar a regra. Veja <a href="../governanca-de-agentes/">governança de agentes</a>.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Perguntas frequentes</p>
+        <h2>Guardrails, em resposta direta</h2>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-item">
+          <h3>O que é guardrail em inteligência artificial?</h3>
+          <p>É um limite aplicado em execução e verificado pela máquina a cada chamada de um sistema de IA, como validação de saída, faixa de valores permitida ou bloqueio de dado sensível.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Qual a diferença entre guardrail e política de uso?</h3>
+          <p>A política é um documento que depende de pessoas lerem e seguirem. O guardrail é executado pelo sistema e não admite exceção silenciosa.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Quais são os tipos de guardrail?</h3>
+          <p>De entrada (o que entra no modelo), de saída (o que sai), de ação (o que o agente executa) e de fluxo (quando passar o caso a uma pessoa).</p>
+        </div>
+        <div class="faq-item">
+          <h3>Guardrail elimina alucinação?</h3>
+          <p>Não elimina, mas reduz o impacto: por exemplo, checando que o número citado veio de um sistema da empresa, e não do modelo.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Onde aplicar guardrails?</h3>
+          <p>No caminho entre o modelo e os sistemas da empresa, como em um AI Gateway, e nas ações que o agente pode disparar.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Por onde começar?</h3>
+          <p>Pelo risco de maior impacto: uma ação irreversível, um dado sensível ou um número que será citado a um cliente.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band" style="border-bottom:none;">
+    <div class="wrap reveal">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Sua IA tem limites que a máquina aplica?</h2>
+      <p style="color:var(--text-muted); font-size:16.5px; max-width:580px; margin:0 auto 30px;">O diagnóstico responde em três minutos, com dez perguntas e as lacunas nomeadas uma a uma. Sem formulário e sem cadastro.</p>
+      <div class="hero-ctas" style="justify-content:center;">
+        <a href="../diagnostico/" class="btn btn-primary">Fazer o diagnóstico</a>
+        <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pela%20p%C3%A1gina%20de%20guardrails%20de%20IA%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-ghost">Falar com o Felipe</a>
+      </div>
+      <p class="status-meta" style="margin-top:34px;">Última revisão: 27/10/2026.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../" class="logo"><img src="../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../#servicos">Serviços</a>
+          <a href="../iso-42001/">ISO 42001</a>
+          <a href="../governanca-de-ia/">Governança de IA</a>
+          <a href="../shadow-ai/">Shadow AI</a>
+          <a href="../pl-2338/">Marco Legal da IA</a>
+          <a href="../diagnostico/">Diagnóstico</a>
+          <a href="../blog/">Blog</a>
+          <a href="../biblioteca-prompts/">Prompts</a>
+          <a href="../sobre/">Sobre</a>
+          <a href="../glossario/">Glossário</a>
+          <a href="../ia-para-equipes-de-ti/">IA para equipes de TI</a>
+          <a href="../ia-segura-para-empresas/">IA segura para empresas</a>
+          <a href="../agentes-de-ia-para-empresas/">Agentes de IA</a>
+          <a href="../politica-de-privacidade/">Política de privacidade</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<!-- O botão flutuante do WhatsApp é montado por assets/site.js, que roda em todas as páginas -->
+<script src="../assets/site.js?v=18"></script>
+
+</body>
+</html>

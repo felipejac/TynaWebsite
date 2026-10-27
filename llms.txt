@@ -50,6 +50,16 @@ Formatos de contratação: workshop de 3 horas, trilha completa ou advisory mens
 - Marco Legal da IA (PL 2338/2023), status conferido na fonte: https://tyna.com.br/pl-2338/
 - ISO/IEC 42001: caminho até a prontidão: https://tyna.com.br/iso-42001/
 - Glossário de governança de IA: https://tyna.com.br/glossario/
+- ChatGPT na empresa e LGPD: https://tyna.com.br/chatgpt-na-empresa-lgpd/
+- Encarregado (DPO) e inteligência artificial: https://tyna.com.br/dpo-encarregado-e-inteligencia-artificial/
+- Relatório de impacto (RIPD) para IA: https://tyna.com.br/relatorio-de-impacto-lgpd-ia/
+- O que é prompt injection: https://tyna.com.br/o-que-e-prompt-injection/
+- O que é guardrail em IA: https://tyna.com.br/o-que-e-guardrail-em-ia/
+- ISO 27001 e ISO 42001: https://tyna.com.br/iso-27001-e-iso-42001-diferenca/
+- Riscos da IA generativa para empresas: https://tyna.com.br/riscos-da-ia-generativa-para-empresas/
+- Plataforma de IA para equipes de TI: https://tyna.com.br/ia-para-equipes-de-ti/
+- IA segura para empresas: https://tyna.com.br/ia-segura-para-empresas/
+- Agentes de IA para empresas: https://tyna.com.br/agentes-de-ia-para-empresas/
 - Política de privacidade: https://tyna.com.br/politica-de-privacidade/
 
 ## Fatos verificáveis
