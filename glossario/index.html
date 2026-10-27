@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // Só coleta em produção (tyna.com.br) — localhost e previews do Cloudflare Pages (*.pages.dev) ficam de fora.
+  if (location.hostname !== 'tyna.com.br') window['ga-disable-G-DQS0KMDT3G'] = true;
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glossário de governança de IA: 19 termos explicados | Tyna</title>
+<meta name="description" content="Definições curtas de shadow AI, AI Gateway, guardrail, RAG, base legal, ISO 42001, PL 2338 e mais, com o link para o guia completo de cada termo.">
+<link rel="canonical" href="https://tyna.com.br/glossario/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Glossário de governança de IA">
+<meta property="og:description" content="Definições curtas de shadow AI, AI Gateway, guardrail, RAG, base legal, ISO 42001, PL 2338 e mais, com o link para o guia completo de cada termo.">
+<meta property="og:url" content="https://tyna.com.br/glossario/">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna-dark.png">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css?v=17">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Glossário de governança de IA",
+  "inLanguage": "pt-BR",
+  "datePublished": "2026-10-27",
+  "dateModified": "2026-10-27",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "mainEntityOfPage": "https://tyna.com.br/glossario/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTermSet",
+  "name": "Glossário de governança de IA",
+  "inLanguage": "pt-BR",
+  "url": "https://tyna.com.br/glossario/",
+  "hasDefinedTerm": [
+    {
+      "@type": "DefinedTerm",
+      "name": "Agente de IA",
+      "description": "Sistema que usa um modelo de linguagem para decidir e executar ações em nome da empresa, como responder a um cliente, alterar um registro ou disparar uma mensagem, e não apenas gerar texto. Como o erro vira ato antes de virar informação, exige escopo de autonomia, guardrails e trilha de auditoria.",
+      "inDefinedTermSet": "https://tyna.com.br/glossario/"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "AI Act",
+      "description": "Regulamento da União Europeia sobre Inteligência Artificial, em vigor desde agosto de 2024, com obrigações escalonadas conforme o nível de risco do sistema. Alcança empresas de fora da Europa que têm clientes ou operação no bloco.",
+      "inDefinedTermSet": "https://tyna.com.br/glossario/"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "AI Gateway",
+      "description": "Ponto único por onde passam as chamadas a modelos de IA da empresa, unificando acesso, custo, observabilidade e auditoria. É o caminho autorizado que torna desnecessário o atalho por conta pessoal.",
+      "inDefinedTermSet": "https://tyna.com.br/glossario/"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Alucinação",
+      "description": "Resposta de um modelo de linguagem que soa plausível e está errada ou foi inventada. Não se elimina por política: reduz-se com checagem de números contra sistemas da empresa, revisão humana e guardrails de saída.",
+      "inDefinedTermSet": "https://tyna.com.br/glossario/"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Anistia (em governança de IA)",
+      "description": "Compromisso escrito de não punir quem declara o uso de ferramentas de IA anterior à política ou reporta um incidente. Sem anistia, o time não declara o que usa e o inventário nasce incompleto.",
+      "inDefinedTermSet": "https://tyna.com.br/glossario/"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Base legal (LGPD)",
+      "description": "Hipótese prevista na LGPD que autoriza o tratamento de dado pessoal, como execução de contrato ou legítimo interesse. É definida por finalidade de tratamento, não por sistema.",
+      "inDefinedTermSet": "https://tyna.com.br/glossario/"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Classificação por risco",
+      "description": "Critério escrito que separa sistemas de IA que decidem sobre pessoas, que recomendam ou que apenas redigem texto interno, e define o nível de controle de cada um. É a lógica comum ao AI Act, ao PL 2338 e à ISO/IEC 42001.",
+      "inDefinedTermSet": "https://tyna.com.br/glossario/"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Comitê de IA",
+      "description": "Instância que decide quem aprova casos de uso de IA, com que critério e em quanto tempo responde. Também chamado de escritório de IA quando tem rotina e dono definidos.",
+      "inDefinedTermSet": "https://tyna.com.br/glossario/"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Controlador e operador (LGPD)",
+      "description": "Controlador é quem decide por que e como os dados pessoais são tratados; operador trata em nome do controlador. A empresa que envia dado pessoal a uma ferramenta de IA continua sendo controladora, e o fornecedor do modelo costuma ser operador.",
+      "inDefinedTermSet": "https://tyna.com.br/glossario/"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Governança de IA",
+      "description": "Conjunto de regras, responsáveis e controles que define como uma empresa escolhe, usa e supervisiona sistemas de IA: quais existem, quem responde por cada um, que dados tocam e como se comprova o que fizeram.",
+      "inDefinedTermSet": "https://tyna.com.br/glossario/"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Guardrail",
+      "description": "Limite aplicado em execução e verificado pela máquina a cada chamada de um sistema de IA, como validação de saída, faixa de valores permitida ou bloqueio de dado sensível. Diferente de uma regra escrita, não admite exceção silenciosa.",
+      "inDefinedTermSet": "https://tyna.com.br/glossario/"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Human-in-the-loop",
+      "description": "Desenho em que uma pessoa revisa ou aprova a decisão do sistema antes que ela produza efeito, ou recebe o caso quando um critério é atingido. Só funciona se a pessoa receber o contexto completo.",
+      "inDefinedTermSet": "https://tyna.com.br/glossario/"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Inventário de IA",
+      "description": "Lista de todos os sistemas de IA em uso na empresa, com quem usa, para quê e com que dados, incluindo os que ninguém aprovou. É o ponto de partida de qualquer governança.",
+      "inDefinedTermSet": "https://tyna.com.br/glossario/"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "ISO/IEC 42001",
+      "description": "Norma internacional, publicada em 2023, de sistema de gestão de Inteligência Artificial. É certificável por auditoria de terceiro e organiza a governança de IA em requisitos verificáveis.",
+      "inDefinedTermSet": "https://tyna.com.br/glossario/"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "PL 2338/2023 (Marco Legal da IA)",
+      "description": "Projeto de lei que cria o marco legal da Inteligência Artificial no Brasil. Aprovado no Senado em dezembro de 2024, tramita na Câmara dos Deputados e não é lei.",
+      "inDefinedTermSet": "https://tyna.com.br/glossario/"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Prompt injection",
+      "description": "Ataque em que um texto malicioso, colocado na entrada ou em um conteúdo lido pelo sistema, tenta fazer o modelo ignorar suas instruções originais. Mitiga-se com permissões mínimas, validação de saída e separação entre instruções e dados.",
+      "inDefinedTermSet": "https://tyna.com.br/glossario/"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "RAG (Retrieval-Augmented Generation)",
+      "description": "Técnica em que o sistema busca trechos de uma base de documentos e os entrega ao modelo para fundamentar a resposta. A permissão de acesso da pasta de origem precisa ser reimplementada na recuperação, ou o sistema responde com o que o usuário não poderia ver.",
+      "inDefinedTermSet": "https://tyna.com.br/glossario/"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Shadow AI",
+      "description": "Uso de ferramentas de IA por colaboradores ou áreas inteiras sem que TI, segurança ou jurídico saibam que existe. Bloquear não resolve: empurra o uso para fora da vista. O caminho começa pelo mapeamento.",
+      "inDefinedTermSet": "https://tyna.com.br/glossario/"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Trilha de auditoria",
+      "description": "Registro do que um sistema de IA leu, decidiu e executou, recuperável depois do fato. É o que permite explicar uma decisão a um cliente, atender à LGPD e sustentar uma auditoria.",
+      "inDefinedTermSet": "https://tyna.com.br/glossario/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><img src="../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../#servicos">Serviços</a></li>
+        <li><a href="../iso-42001/">ISO 42001</a></li>
+        <li><a href="../#cases">Cases</a></li>
+        <li><a href="../#trilhas">Trilhas</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../biblioteca-prompts/">Prompts</a></li>
+        <li><a href="../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20gloss%C3%A1rio%20de%20governan%C3%A7a%20de%20IA%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20gloss%C3%A1rio%20de%20governan%C3%A7a%20de%20IA%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Glossário</p>
+      <h1 style="max-width:900px;">Glossário de <em>governança de IA:</em> 19 termos, sem jargão.</h1>
+      <p class="lead" style="max-width:740px;">Definições curtas dos termos que aparecem em toda conversa sobre IA corporativa, LGPD e regulação. Cada verbete responde primeiro e, quando há um guia completo, leva até ele.</p>
+      <div class="hero-ctas">
+        <a href="../governanca-de-ia/" class="btn btn-primary">O que é governança de IA</a>
+        <a href="../diagnostico/" class="btn btn-ghost">Diagnóstico (3 min)</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="termos" style="border-bottom:none;">
+    <div class="wrap">
+      <div class="faq reveal">
+        <div class="faq-item" id="agente-de-ia">
+          <h3>Agente de IA</h3>
+          <p>Sistema que usa um modelo de linguagem para decidir e executar ações em nome da empresa, como responder a um cliente, alterar um registro ou disparar uma mensagem, e não apenas gerar texto. Como o erro vira ato antes de virar informação, exige escopo de autonomia, guardrails e trilha de auditoria. <a href="../governanca-de-agentes/">Guia completo</a>.</p>
+        </div>
+        <div class="faq-item" id="ai-act">
+          <h3>AI Act</h3>
+          <p>Regulamento da União Europeia sobre Inteligência Artificial, em vigor desde agosto de 2024, com obrigações escalonadas conforme o nível de risco do sistema. Alcança empresas de fora da Europa que têm clientes ou operação no bloco. <a href="../governanca-de-ia/">Guia completo</a>.</p>
+        </div>
+        <div class="faq-item" id="ai-gateway">
+          <h3>AI Gateway</h3>
+          <p>Ponto único por onde passam as chamadas a modelos de IA da empresa, unificando acesso, custo, observabilidade e auditoria. É o caminho autorizado que torna desnecessário o atalho por conta pessoal. <a href="../ai-gateway/">Guia completo</a>.</p>
+        </div>
+        <div class="faq-item" id="alucinacao">
+          <h3>Alucinação</h3>
+          <p>Resposta de um modelo de linguagem que soa plausível e está errada ou foi inventada. Não se elimina por política: reduz-se com checagem de números contra sistemas da empresa, revisão humana e guardrails de saída.</p>
+        </div>
+        <div class="faq-item" id="anistia-em-governanca-de-ia">
+          <h3>Anistia (em governança de IA)</h3>
+          <p>Compromisso escrito de não punir quem declara o uso de ferramentas de IA anterior à política ou reporta um incidente. Sem anistia, o time não declara o que usa e o inventário nasce incompleto. <a href="../shadow-ai/">Guia completo</a>.</p>
+        </div>
+        <div class="faq-item" id="base-legal-lgpd">
+          <h3>Base legal (LGPD)</h3>
+          <p>Hipótese prevista na LGPD que autoriza o tratamento de dado pessoal, como execução de contrato ou legítimo interesse. É definida por finalidade de tratamento, não por sistema. <a href="../lgpd-e-ia/">Guia completo</a>.</p>
+        </div>
+        <div class="faq-item" id="classificacao-por-risco">
+          <h3>Classificação por risco</h3>
+          <p>Critério escrito que separa sistemas de IA que decidem sobre pessoas, que recomendam ou que apenas redigem texto interno, e define o nível de controle de cada um. É a lógica comum ao AI Act, ao PL 2338 e à ISO/IEC 42001. <a href="../governanca-de-ia/">Guia completo</a>.</p>
+        </div>
+        <div class="faq-item" id="comite-de-ia">
+          <h3>Comitê de IA</h3>
+          <p>Instância que decide quem aprova casos de uso de IA, com que critério e em quanto tempo responde. Também chamado de escritório de IA quando tem rotina e dono definidos. <a href="../treinamento-de-ia-para-empresas/">Guia completo</a>.</p>
+        </div>
+        <div class="faq-item" id="controlador-e-operador-lgpd">
+          <h3>Controlador e operador (LGPD)</h3>
+          <p>Controlador é quem decide por que e como os dados pessoais são tratados; operador trata em nome do controlador. A empresa que envia dado pessoal a uma ferramenta de IA continua sendo controladora, e o fornecedor do modelo costuma ser operador. <a href="../lgpd-e-ia/">Guia completo</a>.</p>
+        </div>
+        <div class="faq-item" id="governanca-de-ia">
+          <h3>Governança de IA</h3>
+          <p>Conjunto de regras, responsáveis e controles que define como uma empresa escolhe, usa e supervisiona sistemas de IA: quais existem, quem responde por cada um, que dados tocam e como se comprova o que fizeram. <a href="../governanca-de-ia/">Guia completo</a>.</p>
+        </div>
+        <div class="faq-item" id="guardrail">
+          <h3>Guardrail</h3>
+          <p>Limite aplicado em execução e verificado pela máquina a cada chamada de um sistema de IA, como validação de saída, faixa de valores permitida ou bloqueio de dado sensível. Diferente de uma regra escrita, não admite exceção silenciosa. <a href="../governanca-de-agentes/">Guia completo</a>.</p>
+        </div>
+        <div class="faq-item" id="human-in-the-loop">
+          <h3>Human-in-the-loop</h3>
+          <p>Desenho em que uma pessoa revisa ou aprova a decisão do sistema antes que ela produza efeito, ou recebe o caso quando um critério é atingido. Só funciona se a pessoa receber o contexto completo. <a href="../governanca-de-agentes/">Guia completo</a>.</p>
+        </div>
+        <div class="faq-item" id="invent-rio-de-ia">
+          <h3>Inventário de IA</h3>
+          <p>Lista de todos os sistemas de IA em uso na empresa, com quem usa, para quê e com que dados, incluindo os que ninguém aprovou. É o ponto de partida de qualquer governança. <a href="../shadow-ai/">Guia completo</a>.</p>
+        </div>
+        <div class="faq-item" id="iso-iec-42001">
+          <h3>ISO/IEC 42001</h3>
+          <p>Norma internacional, publicada em 2023, de sistema de gestão de Inteligência Artificial. É certificável por auditoria de terceiro e organiza a governança de IA em requisitos verificáveis. <a href="../iso-42001/">Guia completo</a>.</p>
+        </div>
+        <div class="faq-item" id="pl-2338-2023-marco-legal-da-ia">
+          <h3>PL 2338/2023 (Marco Legal da IA)</h3>
+          <p>Projeto de lei que cria o marco legal da Inteligência Artificial no Brasil. Aprovado no Senado em dezembro de 2024, tramita na Câmara dos Deputados e não é lei. <a href="../pl-2338/">Guia completo</a>.</p>
+        </div>
+        <div class="faq-item" id="prompt-injection">
+          <h3>Prompt injection</h3>
+          <p>Ataque em que um texto malicioso, colocado na entrada ou em um conteúdo lido pelo sistema, tenta fazer o modelo ignorar suas instruções originais. Mitiga-se com permissões mínimas, validação de saída e separação entre instruções e dados.</p>
+        </div>
+        <div class="faq-item" id="rag-retrieval-augmented-generation">
+          <h3>RAG (Retrieval-Augmented Generation)</h3>
+          <p>Técnica em que o sistema busca trechos de uma base de documentos e os entrega ao modelo para fundamentar a resposta. A permissão de acesso da pasta de origem precisa ser reimplementada na recuperação, ou o sistema responde com o que o usuário não poderia ver. <a href="../lgpd-e-ia/">Guia completo</a>.</p>
+        </div>
+        <div class="faq-item" id="shadow-ai">
+          <h3>Shadow AI</h3>
+          <p>Uso de ferramentas de IA por colaboradores ou áreas inteiras sem que TI, segurança ou jurídico saibam que existe. Bloquear não resolve: empurra o uso para fora da vista. O caminho começa pelo mapeamento. <a href="../shadow-ai/">Guia completo</a>.</p>
+        </div>
+        <div class="faq-item" id="trilha-de-auditoria">
+          <h3>Trilha de auditoria</h3>
+          <p>Registro do que um sistema de IA leu, decidiu e executou, recuperável depois do fato. É o que permite explicar uma decisão a um cliente, atender à LGPD e sustentar uma auditoria. <a href="../governanca-de-agentes/">Guia completo</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band" style="border-bottom:none;">
+    <div class="wrap reveal">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Sua empresa já aplica esses termos na prática?</h2>
+      <p style="color:var(--text-muted); font-size:16.5px; max-width:580px; margin:0 auto 30px;">O diagnóstico responde em três minutos, com dez perguntas e as lacunas nomeadas uma a uma. Sem formulário e sem cadastro.</p>
+      <div class="hero-ctas" style="justify-content:center;">
+        <a href="../diagnostico/" class="btn btn-primary">Fazer o diagnóstico</a>
+        <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20gloss%C3%A1rio%20de%20governan%C3%A7a%20de%20IA%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-ghost">Falar com o Felipe</a>
+      </div>
+      <p class="status-meta" style="margin-top:34px;">Última revisão: 27/10/2026.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../" class="logo"><img src="../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../#servicos">Serviços</a>
+          <a href="../iso-42001/">ISO 42001</a>
+          <a href="../governanca-de-ia/">Governança de IA</a>
+          <a href="../governanca-de-ia/">Governança de IA</a>
+          <a href="../shadow-ai/">Shadow AI</a>
+          <a href="../pl-2338/">Marco Legal da IA</a>
+          <a href="../diagnostico/">Diagnóstico</a>
+          <a href="../blog/">Blog</a>
+          <a href="../biblioteca-prompts/">Prompts</a>
+          <a href="../sobre/">Sobre</a>
+          <a href="../politica-de-privacidade/">Política de privacidade</a>
+          <a href="../politica-de-privacidade/">Política de privacidade</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<!-- O botão flutuante do WhatsApp é montado por assets/site.js, que roda em todas as páginas -->
+<script src="../assets/site.js?v=18"></script>
+
+</body>
+</html>
