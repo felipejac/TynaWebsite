@@ -591,3 +591,20 @@ agosto) para ~175–186s (início de outubro) — período que coincide com o ma
 crescimento de escopo do site (Biblioteca de Prompts, Plataforma Tyna, i18n) e com
 uma sessão de 7 commits em 1h (06/10) corrigindo navegação ao vivo. Isso é decisão
 de produto, não bug — não mexi em nada disso nesta sessão, só deixei registrado.
+
+---
+
+## 10. Sessão de 27/10/2026 (Phelps) — WhatsApp como canal único de conversa
+
+Decisão do Felipe: o WhatsApp é o melhor canal da Tyna (um lead por ele no mês passado virou cliente).
+Lead é livre: ele decide na conversa, sem critério de qualificação nem meta de prazo.
+
+- **Diagnóstico**: o botão final deixou de ser `mailto:` e abre o WhatsApp com a pontuação, a faixa e até
+  três lacunas já escritas, terminando em `(diag 12/20, Exposta)`. O e-mail virou link secundário.
+- **Marca de origem**: todo link `wa.me` (incluindo o botão flutuante) ganha `(site: /pagina/)` no fim da
+  mensagem no clique, para o Felipe ver de onde veio a conversa. O diagnóstico usa a própria marca `(diag …)`.
+- **Eventos novos no GA4**: `diagnostico_iniciado`, `cta_whatsapp_resultado_clique` (faixa, pontuação);
+  `cta_whatsapp_clique` agora com `pagina` e `origem=diagnostico` quando vem do resultado;
+  `diagnostico_lead` passa a ter `metodo: whatsapp`.
+- Cache de `site.js` subiu de `v=17` para `v=18` em todas as páginas e no gerador (`ASSET_V`).
+- Testado em navegador simulado (jsdom): 24 verificações, incluindo que a marca não duplica.

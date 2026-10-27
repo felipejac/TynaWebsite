@@ -95,8 +95,8 @@
         <h3 id="scoreTitle"></h3>
         <p id="scoreText"></p>
         <ul class="gaps" id="scoreGaps"></ul>
-        <a href="#" class="btn btn-primary" id="scoreCta">Receber o plano de ação por e-mail</a>
-        <p style="color:var(--text-muted); font-size:13.5px; margin-top:16px;">O botão abre seu cliente de e-mail com o resultado já preenchido. Nada é enviado ou armazenado por este site — o cálculo roda no seu navegador.</p>
+        <a href="#" class="btn btn-primary" id="scoreCta" target="_blank" rel="noopener" data-origem="diagnostico">Conversar sobre este resultado no WhatsApp</a>
+        <p style="color:var(--text-muted); font-size:13.5px; margin-top:16px;">O botão abre o WhatsApp com a sua pontuação já escrita; você decide se envia. Prefere e-mail? <a href="#" id="scoreEmail">Enviar o resultado por e-mail</a>. Nada é enviado ou armazenado por este site — o cálculo roda no seu navegador.</p>
       </div>
     </div>
   </section>
@@ -172,7 +172,7 @@
 </footer>
 
 <!-- O botão flutuante do WhatsApp é montado por assets/site.js, que roda em todas as páginas -->
-<script src="../assets/site.js?v=17"></script>
+<script src="../assets/site.js?v=18"></script>
 <script>
 (function () {
   // Diagnóstico: tudo roda no navegador. Nenhuma resposta sai daqui sem o visitante
@@ -236,7 +236,12 @@
     return PERGUNTAS.filter(function (_, i) { return form['q' + i].value !== ''; }).length;
   }
 
+  var iniciou = false;
   form.addEventListener('change', function () {
+    if (!iniciou) {
+      iniciou = true;
+      if (typeof gtag === 'function') gtag('event', 'diagnostico_iniciado');
+    }
     var n = respondidas();
     prog.textContent = n + ' de ' + PERGUNTAS.length + ' respondidas';
     fill.style.width = (n / PERGUNTAS.length * 100) + '%';
@@ -271,9 +276,20 @@
         }).join('\n')
       + '\n\nGostaria de passar este resultado a limpo em uma conversa.';
 
-    document.getElementById('scoreCta').setAttribute('href',
+    document.getElementById('scoreEmail').setAttribute('href',
       'mailto:contato@tyna.com.br?subject=' + encodeURIComponent('Diagnóstico de governança de IA — ' + total + '/20 (' + faixa.band + ')')
       + '&body=' + encodeURIComponent(corpo));
+
+    // WhatsApp: resumo curto (pontuação, faixa e até três lacunas) + marca de origem no fim,
+    // para a conversa já chegar com contexto.
+    var nomes = fracas.slice(0, 3).map(function (k) { return LACUNAS[k][0]; });
+    var zap = 'Olá, Felipe. Fiz o diagnóstico de governança de IA da Tyna: ' + total + ' de 20 (' + faixa.band + ').'
+      + (nomes.length ? ' Pontos a resolver: ' + nomes.join('; ') + '.' : '')
+      + ' Quero conversar sobre o resultado. (diag ' + total + '/20, ' + faixa.band + ')';
+    var cta = document.getElementById('scoreCta');
+    cta.setAttribute('href', 'https://wa.me/5511997228945?text=' + encodeURIComponent(zap));
+    cta.dataset.faixa = faixa.band;
+    cta.dataset.pontuacao = String(total);
 
     box.classList.add('on');
     box.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -285,6 +301,11 @@
   });
 
   document.getElementById('scoreCta').addEventListener('click', function () {
+    if (typeof gtag !== 'function') return;
+    gtag('event', 'cta_whatsapp_resultado_clique', { faixa: this.dataset.faixa, pontuacao: Number(this.dataset.pontuacao) });
+    gtag('event', 'diagnostico_lead', { metodo: 'whatsapp' });
+  });
+  document.getElementById('scoreEmail').addEventListener('click', function () {
     if (typeof gtag === 'function') gtag('event', 'diagnostico_lead', { metodo: 'email' });
   });
 })();
