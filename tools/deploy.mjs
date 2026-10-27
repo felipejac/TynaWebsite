@@ -53,7 +53,8 @@ const PUBLISH = [
 const PILARES = ['governanca-de-ia', 'lgpd-e-ia', 'politica-de-uso-de-ia', 'ai-gateway',
   'governanca-de-agentes', 'treinamento-de-ia-para-empresas', 'politica-de-privacidade', 'glossario',
   'llm-leaderboard', 'ai-gateway/comparativo',
-  'chatgpt-na-empresa-lgpd', 'dpo-encarregado-e-inteligencia-artificial', 'relatorio-de-impacto-lgpd-ia'];
+  'chatgpt-na-empresa-lgpd', 'dpo-encarregado-e-inteligencia-artificial', 'relatorio-de-impacto-lgpd-ia',
+  'ia-para-equipes-de-ti', 'ia-segura-para-empresas', 'agentes-de-ia-para-empresas'];
 for (const p of PILARES) if (existsSync(join(ROOT, p))) PUBLISH.push(p);
 
 const args = process.argv.slice(2);

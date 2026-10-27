@@ -479,7 +479,8 @@ const staticPages = [
 const PILARES = ['governanca-de-ia', 'lgpd-e-ia', 'politica-de-uso-de-ia', 'ai-gateway',
   'governanca-de-agentes', 'treinamento-de-ia-para-empresas', 'politica-de-privacidade', 'glossario',
   'llm-leaderboard', 'ai-gateway/comparativo',
-  'chatgpt-na-empresa-lgpd', 'dpo-encarregado-e-inteligencia-artificial', 'relatorio-de-impacto-lgpd-ia'];
+  'chatgpt-na-empresa-lgpd', 'dpo-encarregado-e-inteligencia-artificial', 'relatorio-de-impacto-lgpd-ia',
+  'ia-para-equipes-de-ti', 'ia-segura-para-empresas', 'agentes-de-ia-para-empresas'];
 for (const slug of PILARES) {
   const rel = `${slug}/index.html`;
   if (existsSync(join(ROOT, rel))) staticPages.push({ loc: `${SITE}/${slug}/`, pri: '0.9', freq: 'monthly', mod: mtime(rel) });
