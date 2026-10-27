@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // Só coleta em produção (tyna.com.br) — localhost e previews do Cloudflare Pages (*.pages.dev) ficam de fora.
+  if (location.hostname !== 'tyna.com.br') window['ga-disable-G-DQS0KMDT3G'] = true;
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O que é prompt injection e como proteger agentes de IA | Tyna</title>
+<meta name="description" content="Prompt injection é o ataque que faz um modelo de IA obedecer a texto malicioso. Os dois tipos, onde o risco aparece e cinco defesas em camadas.">
+<link rel="canonical" href="https://tyna.com.br/o-que-e-prompt-injection/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="O que é prompt injection e como proteger agentes de IA">
+<meta property="og:description" content="Prompt injection é o ataque que faz um modelo de IA obedecer a texto malicioso. Os dois tipos, onde o risco aparece e cinco defesas em camadas.">
+<meta property="og:url" content="https://tyna.com.br/o-que-e-prompt-injection/">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna-dark.png">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css?v=19">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "O que é prompt injection e como proteger agentes de IA",
+  "inLanguage": "pt-BR",
+  "description": "Prompt injection é o ataque que faz um modelo de IA obedecer a texto malicioso. Os dois tipos, onde o risco aparece e cinco defesas em camadas.",
+  "datePublished": "2026-10-27",
+  "dateModified": "2026-10-27",
+  "author": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "mainEntityOfPage": "https://tyna.com.br/o-que-e-prompt-injection/"
+}
+</script>
+<link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "pt-BR",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "O que é prompt injection?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "É um ataque em que um texto na entrada, ou em um conteúdo que o sistema lê, tenta fazer o modelo de IA ignorar suas instruções originais e executar outra ação, como revelar dados ou acionar uma ferramenta."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Qual a diferença entre injeção direta e indireta?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Na direta, o próprio usuário escreve a instrução maliciosa. Na indireta, ela vem escondida em conteúdo que o agente lê sozinho, como um e-mail, uma página ou um documento."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Dá para eliminar o prompt injection?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não existe filtro que o elimine por completo. A defesa é em camadas: permissões mínimas, tratar conteúdo externo como não confiável, validar saídas e ações, revisão humana para ações de risco e registro."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Prompt injection é o mesmo que jailbreak?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "São parentes. Jailbreak tenta fazer o modelo violar suas próprias regras de segurança. Prompt injection tenta fazer um sistema construído sobre o modelo obedecer a uma instrução que não veio de quem o controla."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quem é afetado?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Qualquer sistema que combina modelo de linguagem com conteúdo externo ou com ferramentas. Agentes que agem sozinhos têm o maior impacto potencial."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O que a empresa deve fazer primeiro?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mapear os agentes e fluxos que leem conteúdo externo ou têm acesso a ferramentas, reduzir as permissões ao mínimo e definir quais ações exigem aprovação humana. O roteiro está em governança de agentes de IA."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><img src="../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../#servicos">Serviços</a></li>
+        <li><a href="../iso-42001/">ISO 42001</a></li>
+        <li><a href="../#cases">Cases</a></li>
+        <li><a href="../#trilhas">Trilhas</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../biblioteca-prompts/">Prompts</a></li>
+        <li><a href="../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pela%20p%C3%A1gina%20de%20prompt%20injection%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pela%20p%C3%A1gina%20de%20prompt%20injection%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Segurança de IA</p>
+      <h1 style="max-width:900px;">O que é <em>prompt injection</em> e como proteger agentes de IA.</h1>
+      <p class="lead" style="max-width:740px;">Prompt injection é o ataque em que um texto colocado na entrada, ou dentro de um conteúdo que o sistema lê, tenta fazer o modelo ignorar as instruções originais. Quanto mais poder o agente tem para agir, maior o estrago. Esta página explica os dois tipos, onde o risco aparece e as defesas que funcionam.</p>
+      <div class="hero-ctas">
+        <a href="#defesas" class="btn btn-primary">Como se proteger</a>
+        <a href="#tipos" class="btn btn-ghost">Os dois tipos</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="resposta-curta">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Resposta curta</p>
+        <h2>O que é prompt injection?</h2>
+        <p>É a manipulação de um sistema de IA por meio de texto que se passa por instrução. O modelo recebe, no mesmo fluxo, as ordens da empresa e o conteúdo do mundo (mensagem de cliente, e-mail, página web, documento), e não distingue de forma confiável uma coisa da outra. Um texto malicioso no conteúdo pode fazer o modelo revelar dados, ignorar regras ou acionar uma ferramenta. A OWASP, projeto de segurança de aplicações, lista prompt injection como o primeiro risco de aplicações com modelos de linguagem.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="tipos">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Os dois tipos</p>
+        <h2>Injeção direta e indireta</h2>
+        <p>A diferença importa porque as defesas são diferentes.</p>
+      </div>
+      <div class="reveal">
+        <table class="spec-table">
+          <thead><tr><th scope="col">Tipo</th><th scope="col">Como acontece</th><th scope="col">Exemplo</th></tr></thead>
+          <tbody>
+            <tr><td>Direta</td><td>O próprio usuário escreve instruções para o modelo quebrar as regras</td><td>Pedir ao chat de atendimento que “ignore as instruções anteriores” e mostre dados internos</td></tr>
+            <tr><td>Indireta</td><td>A instrução vem escondida em conteúdo que o agente lê sozinho</td><td>Um e-mail, página ou documento com texto que manda o agente enviar dados a um endereço externo</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:16px;">A indireta é a mais perigosa para agentes, porque ninguém digitou nada suspeito: o ataque chega dentro de um arquivo ou de uma página que o agente foi buscar.</p>
+    </div>
+  </section>
+
+  <section id="onde">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Onde o risco aparece</p>
+        <h2>Quanto mais o agente pode fazer, maior o impacto</h2>
+        <p>Um chat que só responde é um problema. Um agente que lê e-mail, consulta sistemas e executa ações é outro.</p>
+      </div>
+      <div class="svc-grid reveal">
+        <div class="svc-card">
+          <span class="num">01</span>
+          <h3>Leitura de conteúdo externo</h3>
+          <p>E-mails, páginas, documentos e anexos que o agente processa sem revisão.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">02</span>
+          <h3>Acesso a ferramentas</h3>
+          <p>Poder de alterar registros, enviar mensagens, consultar bases e chamar APIs.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">03</span>
+          <h3>Dado sensível no contexto</h3>
+          <p>Prompt, base de conhecimento e histórico que podem ser extraídos por uma instrução maliciosa.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">04</span>
+          <h3>Falta de registro</h3>
+          <p>Sem trilha, a empresa não descobre o que o agente fez nem por que.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="defesas">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Como se proteger</p>
+        <h2>Cinco defesas em camadas</h2>
+        <p>Não existe filtro que elimine o risco por completo. A proteção vem de limitar o que um ataque bem-sucedido consegue fazer.</p>
+      </div>
+      <div class="steps reveal">
+        <div class="step">
+          <span class="step-num">01</span>
+          <div><h3>Permissões mínimas por agente</h3><p>O agente só acessa o que o caso de uso exige. Credencial de leitura quando basta ler. É o primeiro item do <a href="../governanca-de-agentes/">escopo de autonomia</a>.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">02</span>
+          <div><h3>Separar instruções de dados</h3><p>Tratar todo conteúdo externo como não confiável e marcá-lo como dado, nunca como ordem.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <div><h3>Validar a saída e as ações</h3><p>Checagem de que a resposta ou a ação está dentro do permitido antes de executar. É o <a href="../o-que-e-guardrail-em-ia/">guardrail</a> aplicado em execução.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">04</span>
+          <div><h3>Pessoa no circuito para ações de risco</h3><p>Envio externo e alteração irreversível passam por aprovação humana.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">05</span>
+          <div><h3>Registrar e monitorar</h3><p>Trilha do que o agente leu, decidiu e executou, e alerta para comportamento fora do padrão. Veja o <a href="../ai-gateway/">AI Gateway</a>.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Perguntas frequentes</p>
+        <h2>Prompt injection, em resposta direta</h2>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-item">
+          <h3>O que é prompt injection?</h3>
+          <p>É um ataque em que um texto na entrada, ou em um conteúdo que o sistema lê, tenta fazer o modelo de IA ignorar suas instruções originais e executar outra ação, como revelar dados ou acionar uma ferramenta.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Qual a diferença entre injeção direta e indireta?</h3>
+          <p>Na direta, o próprio usuário escreve a instrução maliciosa. Na indireta, ela vem escondida em conteúdo que o agente lê sozinho, como um e-mail, uma página ou um documento.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Dá para eliminar o prompt injection?</h3>
+          <p>Não existe filtro que o elimine por completo. A defesa é em camadas: permissões mínimas, tratar conteúdo externo como não confiável, validar saídas e ações, revisão humana para ações de risco e registro.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Prompt injection é o mesmo que jailbreak?</h3>
+          <p>São parentes. Jailbreak tenta fazer o modelo violar suas próprias regras de segurança. Prompt injection tenta fazer um sistema construído sobre o modelo obedecer a uma instrução que não veio de quem o controla.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Quem é afetado?</h3>
+          <p>Qualquer sistema que combina modelo de linguagem com conteúdo externo ou com ferramentas. Agentes que agem sozinhos têm o maior impacto potencial.</p>
+        </div>
+        <div class="faq-item">
+          <h3>O que a empresa deve fazer primeiro?</h3>
+          <p>Mapear os agentes e fluxos que leem conteúdo externo ou têm acesso a ferramentas, reduzir as permissões ao mínimo e definir quais ações exigem aprovação humana. O roteiro está em <a href="../governanca-de-agentes/">governança de agentes de IA</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band" style="border-bottom:none;">
+    <div class="wrap reveal">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Seus agentes de IA têm permissão demais?</h2>
+      <p style="color:var(--text-muted); font-size:16.5px; max-width:580px; margin:0 auto 30px;">O diagnóstico responde em três minutos, com dez perguntas e as lacunas nomeadas uma a uma. Sem formulário e sem cadastro.</p>
+      <div class="hero-ctas" style="justify-content:center;">
+        <a href="../diagnostico/" class="btn btn-primary">Fazer o diagnóstico</a>
+        <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pela%20p%C3%A1gina%20de%20prompt%20injection%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-ghost">Falar com o Felipe</a>
+      </div>
+      <p class="status-meta" style="margin-top:34px;">Última revisão: 27/10/2026.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../" class="logo"><img src="../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../#servicos">Serviços</a>
+          <a href="../iso-42001/">ISO 42001</a>
+          <a href="../governanca-de-ia/">Governança de IA</a>
+          <a href="../shadow-ai/">Shadow AI</a>
+          <a href="../pl-2338/">Marco Legal da IA</a>
+          <a href="../diagnostico/">Diagnóstico</a>
+          <a href="../blog/">Blog</a>
+          <a href="../biblioteca-prompts/">Prompts</a>
+          <a href="../sobre/">Sobre</a>
+          <a href="../glossario/">Glossário</a>
+          <a href="../ia-para-equipes-de-ti/">IA para equipes de TI</a>
+          <a href="../ia-segura-para-empresas/">IA segura para empresas</a>
+          <a href="../agentes-de-ia-para-empresas/">Agentes de IA</a>
+          <a href="../politica-de-privacidade/">Política de privacidade</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<!-- O botão flutuante do WhatsApp é montado por assets/site.js, que roda em todas as páginas -->
+<script src="../assets/site.js?v=18"></script>
+
+</body>
+</html>
