@@ -474,6 +474,15 @@ const staticPages = [
     })),
 ];
 
+// Páginas-pilar de governança de IA: entram no sitemap só se existirem em disco, então
+// publicar uma nova é criar a pasta e acrescentar o slug aqui e em tools/deploy.mjs.
+const PILARES = ['governanca-de-ia', 'lgpd-e-ia', 'politica-de-uso-de-ia', 'ai-gateway',
+  'governanca-de-agentes', 'treinamento-de-ia-para-empresas'];
+for (const slug of PILARES) {
+  const rel = `${slug}/index.html`;
+  if (existsSync(join(ROOT, rel))) staticPages.push({ loc: `${SITE}/${slug}/`, pri: '0.9', freq: 'monthly', mod: mtime(rel) });
+}
+
 // Páginas individuais de prompt em biblioteca-prompts/prompts/<slug>/. São descobertas
 // automaticamente: novas páginas entram no sitemap só de existirem em disco, sem editar
 // o array acima. Mantém a entrada única da página-pilar /biblioteca-prompts/ intacta.
