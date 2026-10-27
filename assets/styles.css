@@ -183,6 +183,7 @@
 
   /* Services */
   .svc-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
+  .svc-grid.duas{grid-template-columns:repeat(2,1fr);}
   .svc-card{background:var(--ink); padding:36px 30px; display:flex; flex-direction:column; gap:14px; transition:background .25s;}
   .svc-card:hover{background:var(--surface);}
   .svc-card .num{opacity:.8;}
@@ -595,7 +596,7 @@
 
   @media (max-width:720px){
     .logo img{height:28px;}
-    .svc-grid{grid-template-columns:1fr;}
+    .svc-grid, .svc-grid.duas{grid-template-columns:1fr;}
     section{padding:70px 0;}
     .wrap{padding:0 22px;}
     .hero{padding:52px 0 56px;}
