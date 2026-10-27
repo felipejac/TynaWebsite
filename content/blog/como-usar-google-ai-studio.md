@@ -1,5 +1,5 @@
 ---
-title: "Como usar Google AI Studio"
+title: "Como usar o Google AI Studio: passo a passo com Gemini"
 description: "Guia prático do Google AI Studio: crie uma chave de API, prototipe prompts com Gemini, ajuste parâmetros e exporte código pronto para produção."
 pubDate: "2026-09-21"
 category: "dev-tools"
