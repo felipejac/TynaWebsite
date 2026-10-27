@@ -149,13 +149,33 @@
   //
   // O parâmetro `origem` separa os dois, porque a leitura é diferente: o flutuante é
   // impulso, o CTA no corpo vem depois de ler o argumento.
+  //
+  // Marca de origem: no clique, a mensagem pré-escrita ganha "(site: /pagina/)" no fim, para quem
+  // recebe a conversa saber de onde ela veio (o diagnóstico traz a sua própria marca, "(diag ...)").
+  function comMarca(href) {
+    try {
+      var u = new URL(href, location.href);
+      var t = u.searchParams.get('text') || '';
+      if (/\((diag|site)[ :]/.test(t)) return href;
+      // Montado à mão: URLSearchParams escreveria os espaços como "+", e aqui o padrão é %20.
+      var marca = '(site: ' + location.pathname + ')';
+      if (!u.search) return href + '?text=' + encodeURIComponent(marca);
+      if (/[?&]text=[^&]*$/.test(u.search)) return href + encodeURIComponent(' ' + marca);
+      return href;
+    } catch (err) {
+      return href;
+    }
+  }
   document.addEventListener('click', function (e) {
     var a = e.target.closest('a[href*="wa.me/"]');
-    if (!a || typeof gtag !== 'function') return;
+    if (!a) return;
+    a.href = comMarca(a.href);
+    if (typeof gtag !== 'function') return;
     gtag('event', 'cta_whatsapp_clique', {
-      origem: a.classList.contains('wa-fab') ? 'flutuante' : 'botao',
+      origem: a.classList.contains('wa-fab') ? 'flutuante' : (a.getAttribute('data-origem') || 'botao'),
+      pagina: location.pathname,
     });
-  });
+  }, true);
 
   // WhatsApp flutuante — montado aqui, e não no HTML, para valer em todas as páginas
   // (home, Sobre, índice do blog e os posts) sem duplicar markup nem depender de um
