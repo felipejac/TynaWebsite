@@ -14,12 +14,12 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>O que é guardrail em IA: tipos e como aplicar | Tyna</title>
-<meta name="description" content="Guardrail em IA é um limite aplicado em execução. Os quatro tipos (entrada, saída, ação e fluxo), a diferença para a política escrita e como começar.">
+<title>Guardrail de IA: o que é, os 4 tipos e exemplos práticos | Tyna</title>
+<meta name="description" content="Guardrail de IA é o controle que a máquina aplica a cada chamada — não o que está no papel. Os 4 tipos com exemplos práticos e os primeiros passos para colocar um no ar.">
 <link rel="canonical" href="https://tyna.com.br/o-que-e-guardrail-em-ia/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="O que é guardrail em IA e como aplicar em produção">
-<meta property="og:description" content="Guardrail em IA é um limite aplicado em execução. Os quatro tipos (entrada, saída, ação e fluxo), a diferença para a política escrita e como começar.">
+<meta property="og:title" content="Guardrail de IA: o que é, os 4 tipos e exemplos práticos">
+<meta property="og:description" content="Guardrail de IA é o controle que a máquina aplica a cada chamada — não o que está no papel. Os 4 tipos com exemplos práticos e os primeiros passos para colocar um no ar.">
 <meta property="og:url" content="https://tyna.com.br/o-que-e-guardrail-em-ia/">
 <meta property="og:image" content="https://tyna.com.br/assets/logo-tyna-dark.png">
 <meta property="og:locale" content="pt_BR">
@@ -137,7 +137,7 @@
   <section class="hero" style="border-bottom:none;">
     <div class="wrap">
       <p class="eyebrow">Guardrails de IA</p>
-      <h1 style="max-width:900px;">O que é <em>guardrail</em> em IA e como aplicar em produção.</h1>
+      <h1 style="max-width:900px;">Guardrail de IA: o que é e como aplicar em produção.</h1>
       <p class="lead" style="max-width:740px;">Guardrail é um limite aplicado em execução, verificado pela máquina a cada chamada de um sistema de IA. É o que separa uma política escrita de um controle que realmente impede algo. Esta página explica o que é, os quatro tipos mais usados e como começar.</p>
       <div class="hero-ctas">
         <a href="#tipos" class="btn btn-primary">Os quatro tipos</a>
@@ -238,6 +238,38 @@
     </div>
   </section>
 
+  <section id="exemplos">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Na prática</p>
+        <h2>Exemplos de guardrails de IA</h2>
+        <p>Um por tipo, com o risco que cobre e o ponto de aplicação.</p>
+      </div>
+      <div class="svc-grid reveal">
+        <div class="svc-card">
+          <span class="num">01</span>
+          <h3>E-commerce — guardrail de saída</h3>
+          <p>O agente de atendimento não pode oferecer desconto acima de 15%. O guardrail lê a resposta gerada, extrai o percentual e barra a mensagem antes de entregá-la ao cliente.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">02</span>
+          <h3>RH — guardrail de entrada</h3>
+          <p>Antes de o documento ir ao modelo, o guardrail detecta CPF, RG e salário e substitui por marcadores. O modelo nunca vê o dado real.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">03</span>
+          <h3>Financeiro — guardrail de ação</h3>
+          <p>O agente consulta saldos e gera relatórios sozinho. Transferências acima de R$ 5.000 exigem aprovação humana — o guardrail pausa o fluxo e notifica o responsável.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">04</span>
+          <h3>Atendimento — guardrail de fluxo</h3>
+          <p>Quando o cliente menciona "cancelar", "reclamar" ou "Procon", o guardrail interrompe o agente e aciona um atendente humano para continuar a conversa.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="faq">
     <div class="wrap">
       <div class="section-head reveal">
@@ -268,6 +300,10 @@
         <div class="faq-item">
           <h3>Por onde começar?</h3>
           <p>Pelo risco de maior impacto: uma ação irreversível, um dado sensível ou um número que será citado a um cliente.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Quais são exemplos práticos de guardrails de IA?</h3>
+          <p>Guardrail de entrada que remove CPF antes de enviar ao modelo (RH); de saída que barra desconto acima do limite (e-commerce); de ação que exige aprovação humana para transferências acima de um valor (financeiro); de fluxo que aciona atendente quando o cliente menciona cancelamento.</p>
         </div>
       </div>
     </div>
