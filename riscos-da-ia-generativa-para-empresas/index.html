@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // Só coleta em produção (tyna.com.br) — localhost e previews do Cloudflare Pages (*.pages.dev) ficam de fora.
+  if (location.hostname !== 'tyna.com.br') window['ga-disable-G-DQS0KMDT3G'] = true;
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Riscos da IA generativa para empresas: os 8 principais | Tyna</title>
+<meta name="description" content="Os oito principais riscos da IA generativa para empresas, da fuga de dados ao descumprimento da LGPD, com a causa de cada um e a medida que mais reduz o impacto.">
+<link rel="canonical" href="https://tyna.com.br/riscos-da-ia-generativa-para-empresas/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Riscos da IA generativa para empresas: os oito que importam">
+<meta property="og:description" content="Os oito principais riscos da IA generativa para empresas, da fuga de dados ao descumprimento da LGPD, com a causa de cada um e a medida que mais reduz o impacto.">
+<meta property="og:url" content="https://tyna.com.br/riscos-da-ia-generativa-para-empresas/">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna-dark.png">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css?v=19">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Riscos da IA generativa para empresas: os oito que importam",
+  "inLanguage": "pt-BR",
+  "description": "Os oito principais riscos da IA generativa para empresas, da fuga de dados ao descumprimento da LGPD, com a causa de cada um e a medida que mais reduz o impacto.",
+  "datePublished": "2026-10-27",
+  "dateModified": "2026-10-27",
+  "author": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "mainEntityOfPage": "https://tyna.com.br/riscos-da-ia-generativa-para-empresas/"
+}
+</script>
+<link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "pt-BR",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Quais são os riscos da IA generativa para empresas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Vazamento de dado, shadow AI, alucinação, ataques ao sistema como prompt injection, propriedade intelectual, viés, dependência de fornecedor e descumprimento regulatório, como da LGPD."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Proibir o ChatGPT resolve os riscos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não. Proibir sem oferecer alternativa empurra o uso para contas pessoais e para fora da vista da empresa. O caminho é mapear, regrar e oferecer um caminho autorizado."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Qual é o risco mais comum?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "O dado da empresa em ferramenta sem controle, normalmente por conta pessoal, e o uso sem que TI e jurídico saibam."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como reduzir o risco de alucinação?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Com revisão humana antes de uso externo e checagem de números e fatos contra a fonte da empresa, não contra o modelo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "A LGPD se aplica à IA generativa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim. Colar dado pessoal em um prompt é tratamento de dado pessoal. Veja LGPD e IA."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Por onde começar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pelo inventário do que já está em uso. O checklist de 12 passos mostra como."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><img src="../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../#servicos">Serviços</a></li>
+        <li><a href="../iso-42001/">ISO 42001</a></li>
+        <li><a href="../#cases">Cases</a></li>
+        <li><a href="../#trilhas">Trilhas</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../biblioteca-prompts/">Prompts</a></li>
+        <li><a href="../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pela%20p%C3%A1gina%20de%20riscos%20da%20IA%20generativa%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pela%20p%C3%A1gina%20de%20riscos%20da%20IA%20generativa%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Riscos da IA generativa</p>
+      <h1 style="max-width:900px;">Riscos da IA generativa para empresas: <em>os oito que importam</em> e como tratá-los.</h1>
+      <p class="lead" style="max-width:740px;">A IA generativa traz ganho de produtividade e riscos que a empresa precisa tratar com método. Esta página lista os oito principais, com a causa de cada um e a medida que mais reduz o impacto.</p>
+      <div class="hero-ctas">
+        <a href="#riscos" class="btn btn-primary">Os oito riscos</a>
+        <a href="#comecar" class="btn btn-ghost">Por onde começar</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="resposta-curta">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Resposta curta</p>
+        <h2>Quais são os principais riscos da IA generativa nas empresas?</h2>
+        <p>Vazamento de dado, uso sem aprovação (shadow AI), resposta errada tratada como verdade, ataques ao próprio sistema, risco de propriedade intelectual, viés e decisões injustas, dependência de fornecedor e descumprimento de regras como a LGPD. Nenhum deles se resolve proibindo a ferramenta: todos pedem inventário, regra, controle em execução e registro.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="riscos">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Os oito riscos</p>
+        <h2>Causa e medida de cada um</h2>
+        <p>A coluna da direita é a medida de maior efeito, não a única.</p>
+      </div>
+      <div class="reveal">
+        <table class="spec-table">
+          <thead><tr><th scope="col">Risco</th><th scope="col">O que acontece</th><th scope="col">Medida principal</th></tr></thead>
+          <tbody>
+            <tr><td>Vazamento de dado</td><td>Informação da empresa ou de clientes colada em ferramenta sem controle</td><td>Classificação de dado e <a href="../chatgpt-na-empresa-lgpd/">regras de uso</a></td></tr>
+            <tr><td>Shadow AI</td><td>Ferramentas em uso que TI e jurídico desconhecem</td><td><a href="../shadow-ai/">Mapeamento</a> com anistia</td></tr>
+            <tr><td>Alucinação</td><td>Resposta plausível e errada vira decisão ou publicação</td><td>Revisão humana e checagem contra fonte</td></tr>
+            <tr><td>Ataques ao sistema</td><td>Instruções maliciosas que manipulam o modelo</td><td>Defesas contra <a href="../o-que-e-prompt-injection/">prompt injection</a></td></tr>
+            <tr><td>Propriedade intelectual</td><td>Conteúdo gerado ou enviado sem verificar licença e titularidade</td><td>Regra de revisão e cláusulas contratuais</td></tr>
+            <tr><td>Viés e decisões injustas</td><td>Sistema discrimina em triagem, crédito ou atendimento</td><td>Classificação de risco e supervisão humana</td></tr>
+            <tr><td>Dependência de fornecedor</td><td>Mudança de termos, preço ou disponibilidade afeta a operação</td><td>Plano de contingência e <a href="../ai-gateway/">AI Gateway</a></td></tr>
+            <tr><td>Descumprimento regulatório</td><td>Tratamento de dado pessoal sem base legal ou registro</td><td><a href="../lgpd-e-ia/">LGPD e IA</a> e <a href="../relatorio-de-impacto-lgpd-ia/">relatório de impacto</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="comecar">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Por onde começar</p>
+        <h2>Quatro passos em ordem</h2>
+        <p>A ordem importa: começar pela política, sem saber o que está em uso, descreve uma empresa que não existe.</p>
+      </div>
+      <div class="steps reveal">
+        <div class="step">
+          <span class="step-num">01</span>
+          <div><h3>Inventariar</h3><p>Descobrir o que já está em uso, incluindo o que ninguém aprovou.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">02</span>
+          <div><h3>Classificar por risco</h3><p>Critério escrito para separar o que decide sobre pessoas do que só redige texto.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <div><h3>Regra e controle</h3><p>Política curta com alternativa autorizada e <a href="../o-que-e-guardrail-em-ia/">guardrails</a> aplicados em execução.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">04</span>
+          <div><h3>Registrar e revisar</h3><p>Trilha do que foi usado e revisão periódica. Veja <a href="../governanca-de-ia/">governança de IA</a>.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Perguntas frequentes</p>
+        <h2>Riscos da IA generativa, em resposta direta</h2>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-item">
+          <h3>Quais são os riscos da IA generativa para empresas?</h3>
+          <p>Vazamento de dado, shadow AI, alucinação, ataques ao sistema como prompt injection, propriedade intelectual, viés, dependência de fornecedor e descumprimento regulatório, como da LGPD.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Proibir o ChatGPT resolve os riscos?</h3>
+          <p>Não. Proibir sem oferecer alternativa empurra o uso para contas pessoais e para fora da vista da empresa. O caminho é mapear, regrar e oferecer um caminho autorizado.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Qual é o risco mais comum?</h3>
+          <p>O dado da empresa em ferramenta sem controle, normalmente por conta pessoal, e o uso sem que TI e jurídico saibam.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Como reduzir o risco de alucinação?</h3>
+          <p>Com revisão humana antes de uso externo e checagem de números e fatos contra a fonte da empresa, não contra o modelo.</p>
+        </div>
+        <div class="faq-item">
+          <h3>A LGPD se aplica à IA generativa?</h3>
+          <p>Sim. Colar dado pessoal em um prompt é tratamento de dado pessoal. Veja <a href="../lgpd-e-ia/">LGPD e IA</a>.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Por onde começar?</h3>
+          <p>Pelo inventário do que já está em uso. O <a href="../shadow-ai/">checklist de 12 passos</a> mostra como.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band" style="border-bottom:none;">
+    <div class="wrap reveal">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Quais desses riscos a sua empresa já corre?</h2>
+      <p style="color:var(--text-muted); font-size:16.5px; max-width:580px; margin:0 auto 30px;">O diagnóstico responde em três minutos, com dez perguntas e as lacunas nomeadas uma a uma. Sem formulário e sem cadastro.</p>
+      <div class="hero-ctas" style="justify-content:center;">
+        <a href="../diagnostico/" class="btn btn-primary">Fazer o diagnóstico</a>
+        <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pela%20p%C3%A1gina%20de%20riscos%20da%20IA%20generativa%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-ghost">Falar com o Felipe</a>
+      </div>
+      <p class="status-meta" style="margin-top:34px;">Última revisão: 27/10/2026.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../" class="logo"><img src="../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../#servicos">Serviços</a>
+          <a href="../iso-42001/">ISO 42001</a>
+          <a href="../governanca-de-ia/">Governança de IA</a>
+          <a href="../shadow-ai/">Shadow AI</a>
+          <a href="../pl-2338/">Marco Legal da IA</a>
+          <a href="../diagnostico/">Diagnóstico</a>
+          <a href="../blog/">Blog</a>
+          <a href="../biblioteca-prompts/">Prompts</a>
+          <a href="../sobre/">Sobre</a>
+          <a href="../glossario/">Glossário</a>
+          <a href="../ia-para-equipes-de-ti/">IA para equipes de TI</a>
+          <a href="../ia-segura-para-empresas/">IA segura para empresas</a>
+          <a href="../agentes-de-ia-para-empresas/">Agentes de IA</a>
+          <a href="../politica-de-privacidade/">Política de privacidade</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<!-- O botão flutuante do WhatsApp é montado por assets/site.js, que roda em todas as páginas -->
+<script src="../assets/site.js?v=18"></script>
+
+</body>
+</html>
