@@ -46,6 +46,7 @@ Formatos de contratação: workshop de 3 horas, trilha completa ou advisory mens
 - AI Gateway: o que é, para que serve e quando adotar: https://tyna.com.br/ai-gateway/
 - Governança de agentes de IA: os quatro controles e dez perguntas antes da produção: https://tyna.com.br/governanca-de-agentes/
 - Modelo de política de uso de IA (copiável): https://tyna.com.br/politica-de-uso-de-ia/
+- Política de uso de IA para empresas: quem decide, regulação e roteiro de 90 dias: https://tyna.com.br/politica-de-uso-de-ia-para-empresas/
 - Treinamento de IA para empresas: trilhas e oito fases do projeto: https://tyna.com.br/treinamento-de-ia-para-empresas/
 - Marco Legal da IA (PL 2338/2023), status conferido na fonte: https://tyna.com.br/pl-2338/
 - ISO/IEC 42001: caminho até a prontidão: https://tyna.com.br/iso-42001/
