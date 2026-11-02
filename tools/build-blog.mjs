@@ -483,7 +483,8 @@ const PILARES = ['governanca-de-ia', 'lgpd-e-ia', 'politica-de-uso-de-ia', 'ai-g
   'ia-para-equipes-de-ti', 'ia-segura-para-empresas', 'agentes-de-ia-para-empresas',
   'o-que-e-prompt-injection', 'o-que-e-guardrail-em-ia', 'iso-27001-e-iso-42001-diferenca', 'riscos-da-ia-generativa-para-empresas',
   'ia-no-setor-financeiro', 'inventario-de-ia', 'modelo-de-politica-de-ia',
-  'framework-de-governanca-de-ia', 'auditoria-de-ia', 'iso-42001-passo-a-passo', 'responsabilidade-civil-ia'];
+  'framework-de-governanca-de-ia', 'auditoria-de-ia', 'iso-42001-passo-a-passo', 'responsabilidade-civil-ia',
+  'politica-de-uso-de-ia-para-empresas'];
 for (const slug of PILARES) {
   const rel = `${slug}/index.html`;
   if (existsSync(join(ROOT, rel))) staticPages.push({ loc: `${SITE}/${slug}/`, pri: '0.9', freq: 'monthly', mod: mtime(rel) });
