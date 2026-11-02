@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // Só coleta em produção (tyna.com.br) — localhost e previews do Cloudflare Pages (*.pages.dev) ficam de fora.
+  if (location.hostname !== 'tyna.com.br') window['ga-disable-G-DQS0KMDT3G'] = true;
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Riscos de IA generativa nas empresas: o que o gestor decide | Tyna</title>
+<meta name="description" content="Riscos de IA generativa nas empresas: dado, shadow AI, erro, LGPD e fornecedor. Veja o que o gestor precisa decidir primeiro e como organizar o trabalho.">
+<link rel="canonical" href="https://tyna.com.br/riscos-de-ia-generativa-nas-empresas/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Riscos de IA generativa nas empresas: o que o gestor decide">
+<meta property="og:description" content="Riscos de IA generativa nas empresas: dado, shadow AI, erro, LGPD e fornecedor. Veja o que o gestor precisa decidir primeiro e como organizar o trabalho.">
+<meta property="og:url" content="https://tyna.com.br/riscos-de-ia-generativa-nas-empresas/">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna-dark.png">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css?v=19">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Riscos de IA generativa nas empresas: o que o gestor decide",
+  "inLanguage": "pt-BR",
+  "description": "Riscos de IA generativa nas empresas: dado, shadow AI, erro, LGPD e fornecedor. Veja o que o gestor precisa decidir primeiro e como organizar o trabalho.",
+  "datePublished": "2026-11-02",
+  "dateModified": "2026-11-02",
+  "author": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "mainEntityOfPage": "https://tyna.com.br/riscos-de-ia-generativa-nas-empresas/"
+}
+</script>
+<link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "pt-BR",
+  "mainEntity": [
+    {"@type":"Question","name":"Qual é o maior risco de IA generativa nas empresas?","acceptedAnswer":{"@type":"Answer","text":"Em empresas de médio e grande porte, é o dado sair do controle: informação de cliente, contrato ou código colada em ferramenta que a empresa não contratou nem configurou. Ele costuma vir junto com o uso sem aprovação, o chamado shadow AI."}},
+    {"@type":"Question","name":"A LGPD vale para o uso de IA generativa?","acceptedAnswer":{"@type":"Answer","text":"Vale. Se o texto colado no prompt identifica uma pessoa, houve tratamento de dado pessoal, e isso exige finalidade, base legal e cuidado com o compartilhamento. O que muda é onde o dado vai parar e quem responde por ele."}},
+    {"@type":"Question","name":"Proibir as ferramentas de IA resolve?","acceptedAnswer":{"@type":"Answer","text":"Raramente. Sem alternativa autorizada, o uso migra para contas pessoais e celulares, e a empresa perde a visibilidade. Funciona melhor oferecer um caminho aprovado, com regra clara e registro de uso."}},
+    {"@type":"Question","name":"Quem na empresa deve ser dono do tema?","acceptedAnswer":{"@type":"Answer","text":"Uma pessoa ou comitê com mandato para decidir, reunindo TI, segurança, jurídico e as áreas de negócio. Quando o tema fica só com a TI, as decisões de uso e de risco ficam sem dono."}},
+    {"@type":"Question","name":"Por onde começar em uma empresa com mais de 200 pessoas?","acceptedAnswer":{"@type":"Answer","text":"Pelo inventário: levantar quais ferramentas e quais fluxos já usam IA, inclusive os que ninguém aprovou. Só depois faz sentido escrever política, classificar risco e definir controles."}}
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><img src="../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../#servicos">Serviços</a></li>
+        <li><a href="../iso-42001/">ISO 42001</a></li>
+        <li><a href="../#cases">Cases</a></li>
+        <li><a href="../#trilhas">Trilhas</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../biblioteca-prompts/">Prompts</a></li>
+        <li><a href="../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pela%20artigo%20sobre%20riscos%20de%20IA%20generativa%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pela%20artigo%20sobre%20riscos%20de%20IA%20generativa%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Governança de IA</p>
+      <h1 style="max-width:900px;">Riscos de IA generativa nas empresas: <em>o que o gestor decide</em></h1>
+      <div class="lead" style="max-width:740px;">
+        <p class="lead">Em algum momento do último ano, a IA generativa entrou na sua empresa sem passar por projeto, comitê ou contrato. Chegou por uma conta pessoal, por uma extensão de navegador ou por um recurso novo em um software que já era usado. A produtividade é real, e por isso ninguém quer frear. O que falta, na maioria dos casos, é saber o que está sendo usado, com que dado e sob qual regra.</p>
+        <p class="lead">Para quem gere uma operação com mais de 200 pessoas, o desafio não é técnico. É de decisão: quem responde pelo risco, o que pode ser feito livremente, o que precisa de aprovação e como provar, a um cliente ou a um auditor, que existe controle. Este artigo organiza os riscos que mais aparecem e o que cabe ao gestor definir em cada um.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="dado">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>1. O dado sai da empresa sem que ninguém perceba</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+        <p>O risco mais frequente é também o mais banal: alguém cola no chat um trecho de contrato, uma planilha de clientes ou um pedaço de código para &ldquo;ganhar tempo&rdquo;. Nada foi invadido e nenhum alarme tocou. O dado simplesmente foi entregue a um serviço cujas regras de retenção, treinamento e acesso a empresa não negociou.</p>
+        <p>A diferença entre ferramentas corporativas e contas pessoais está justamente nessas regras: onde o dado fica, por quanto tempo, quem da equipe do fornecedor pode ver e se ele alimenta o treinamento de modelos. Antes de discutir qual ferramenta é melhor, o gestor precisa saber qual dado pode ir para qual categoria de ferramenta.</p>
+        <p>A medida prática é uma classificação curta e escrita. Três ou quatro níveis bastam: público, interno, confidencial e dado pessoal ou sensível. Cada nível aponta para o que é permitido, para o que exige ferramenta aprovada e para o que não sai da empresa de jeito nenhum. Regra que cabe em uma página é lida; regra de quarenta páginas vira arquivo.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="shadow">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>2. Shadow AI: o uso que a empresa não enxerga</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+        <p>Em empresas com centenas de pessoas, a pergunta &ldquo;quem usa IA aqui?&rdquo; quase sempre tem uma resposta maior do que a esperada. Extensões de navegador, assistentes embutidos em ferramentas já contratadas, aplicativos pessoais e automações montadas por uma área sem avisar a TI compõem um mapa que ninguém desenhou.</p>
+        <p>O problema não é a curiosidade das equipes, que costuma ser um bom sinal. É que cada uso sem registro é um risco sem dono: não se sabe que dado circula, não há contrato revisado e, se houver um incidente, não há como reconstruir o que aconteceu.</p>
+        <p>O caminho que funciona combina mapeamento com anistia. Quem declara o que usa não é punido; em troca, a empresa avalia a ferramenta e a aprova, ajusta ou substitui por uma alternativa. Veja o passo a passo em <a href="../shadow-ai/">shadow AI</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="erro">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>3. Resposta errada tratada como fato</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+        <p>Modelos de linguagem produzem texto plausível, não texto verificado. Em uso interno, isso gera retrabalho. Em uso externo, vira risco: um número inventado em uma proposta, uma cláusula que não existe em um parecer, uma resposta equivocada a um cliente.</p>
+        <p>O risco cresce com a confiança que o texto passa. Quanto mais fluente o resultado, menos o leitor desconfia. Por isso a revisão humana precisa ser desenhada, não deixada à boa vontade: quem revisa, o que confere e contra qual fonte.</p>
+        <p>Duas regras simples ajudam. Primeira: números, datas, nomes e citações são sempre conferidos na fonte da empresa, nunca perguntando de novo ao próprio modelo. Segunda: tudo o que sai para fora da empresa, ou que decide algo sobre uma pessoa, passa por uma pessoa responsável antes.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="lgpd">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>4. Regulação e compliance: LGPD hoje, marco da IA amanhã</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+        <p>A Lei Geral de Proteção de Dados já se aplica ao uso de IA generativa. Dado pessoal em prompt é tratamento de dado pessoal, e isso traz perguntas conhecidas: qual é a finalidade, qual é a base legal, o dado é o mínimo necessário, quem é o operador e para onde ele é transferido. Quando o uso é de maior risco, o <a href="../relatorio-de-impacto-lgpd-ia/">relatório de impacto</a> entra na conversa, assim como o papel do <a href="../dpo-encarregado-e-inteligencia-artificial/">encarregado</a>.</p>
+        <p>Além da LGPD, existe o debate do marco legal da IA no Brasil, que trabalha com classificação por nível de risco e deveres proporcionais para quem desenvolve ou usa sistemas de maior impacto. O texto está em tramitação e pode mudar, então o conteúdo exato das obrigações deve ser acompanhado na fonte. Acompanhe em <a href="../pl-2338/">PL 2338</a>.</p>
+        <p>A leitura prática para o gestor é esta: o que a empresa documentar hoje, como inventário, classificação de risco, decisões e registros de uso, serve à LGPD agora e tende a servir a qualquer regime que venha. Quem espera a lei fechar para começar costuma ficar sem tempo. Também pesam o setor (finanças, saúde e serviços regulados têm exigências próprias) e as cláusulas de contratos com clientes, que cada vez mais perguntam como a IA é usada.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="seguranca">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>5. Ataques ao sistema e dependência de fornecedor</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+        <p>Quando a IA deixa de ser um chat e passa a ler documentos, e-mails e páginas, ou a agir em sistemas, surge uma classe de ataque nova: instruções escondidas no conteúdo que o modelo lê e que tentam desviá-lo do que foi pedido. É o que se chama de <a href="../o-que-e-prompt-injection/">prompt injection</a>. Quanto mais permissão o sistema tem, maior o estrago possível.</p>
+        <p>A resposta é a mesma de qualquer sistema com acesso a dados: privilégio mínimo, separação entre o que o modelo lê e o que ele pode executar, aprovação humana para ações irreversíveis e <a href="../o-que-e-guardrail-em-ia/">guardrails</a> aplicados em execução, não só na política escrita.</p>
+        <p>Há ainda a dependência de fornecedor. Termos, disponibilidade e condições de um serviço podem mudar, e um processo que depende de um único modelo fica refém dessa mudança. Pergunte, antes de integrar: como trocar de fornecedor, onde estão os registros e o que acontece se o serviço sair do ar. Uma camada intermediária, como um <a href="../ai-gateway/">AI Gateway</a>, reduz esse acoplamento.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="governanca">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>6. Como organizar: decisões que cabem ao gestor</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+        <p>Governança de IA parece assunto técnico, mas as decisões que importam são de gestão. Nenhuma delas exige ser especialista em modelos; todas exigem alguém com autoridade para decidir.</p>
+        <p><strong>Dono do tema.</strong> Defina uma pessoa ou comitê com mandato, reunindo TI, segurança, jurídico, RH e negócio. Sem dono, cada área decide sozinha e o risco se soma sem que alguém o veja.</p>
+        <p><strong>Apetite de risco.</strong> Estabeleça o que pode ser feito livremente, o que exige aprovação e o que é vedado. Decisões sobre pessoas, como seleção, crédito e avaliação de desempenho, merecem o nível mais alto de cuidado e supervisão humana.</p>
+        <p><strong>Alternativa autorizada.</strong> Ofereça uma ferramenta aprovada, com acesso simples, antes de restringir as demais. Restrição sem alternativa é a principal fonte de shadow AI.</p>
+        <p><strong>Registro e revisão.</strong> Mantenha trilha de quais sistemas existem, para quê, com que dados e quem responde por eles, e revise em ciclos fixos. É o que transforma a política em prática e dá resposta quando alguém pergunta, seja um cliente, um auditor ou o conselho. A <a href="../governanca-de-ia/">governança de IA</a> descreve esse conjunto.</p>
+        <p><strong>Treinamento.</strong> Regra que ninguém entende não protege. Treine por função, com exemplos do trabalho real de cada área, e não com um curso genérico de uma hora por ano.</p>
+        <p>A ordem importa. Comece pelo inventário, porque ele mostra o tamanho real do problema. Depois classifique o risco por uso, escreva a regra curta, ofereça a alternativa autorizada e só então implemente controles técnicos. Fazer o contrário, com política primeiro e diagnóstico depois, descreve uma empresa que não existe e cria um documento que ninguém segue. O diagnóstico inicial pode ser feito em semanas, com entrevistas por área e um levantamento simples de contas, contratos e integrações.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Perguntas frequentes</p>
+        <h2>Riscos de IA generativa, em resposta direta</h2>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-item">
+          <h3>Qual é o maior risco de IA generativa nas empresas?</h3>
+          <p>Em empresas de médio e grande porte, é o dado sair do controle: informação de cliente, contrato ou código colada em ferramenta que a empresa não contratou nem configurou. Ele costuma vir junto com o uso sem aprovação, o chamado shadow AI.</p>
+        </div>
+        <div class="faq-item">
+          <h3>A LGPD vale para o uso de IA generativa?</h3>
+          <p>Vale. Se o texto colado no prompt identifica uma pessoa, houve tratamento de dado pessoal, e isso exige finalidade, base legal e cuidado com o compartilhamento. O que muda é onde o dado vai parar e quem responde por ele.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Proibir as ferramentas de IA resolve?</h3>
+          <p>Raramente. Sem alternativa autorizada, o uso migra para contas pessoais e celulares, e a empresa perde a visibilidade. Funciona melhor oferecer um caminho aprovado, com regra clara e registro de uso.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Quem na empresa deve ser dono do tema?</h3>
+          <p>Uma pessoa ou comitê com mandato para decidir, reunindo TI, segurança, jurídico e as áreas de negócio. Quando o tema fica só com a TI, as decisões de uso e de risco ficam sem dono.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Por onde começar em uma empresa com mais de 200 pessoas?</h3>
+          <p>Pelo inventário: levantar quais ferramentas e quais fluxos já usam IA, inclusive os que ninguém aprovou. Só depois faz sentido escrever política, classificar risco e definir controles.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band" style="border-bottom:none;">
+    <div class="wrap reveal">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Vamos olhar os riscos da sua empresa?</h2>
+      <div class="hero-ctas" style="justify-content:center;">
+        <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20riscos%20de%20IA%20generativa%20nas%20empresas%20e%20quero%20agendar%20uma%20conversa." target="_blank" rel="noopener" class="btn btn-primary">Agende uma conversa</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="leia-tambem">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Leia também</p>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+        <ul>
+          <li><a href="../riscos-da-ia-generativa-para-empresas/">Riscos da IA generativa para empresas: os oito principais</a></li>
+          <li><a href="../shadow-ai/">Shadow AI: como mapear o uso que ninguém aprovou</a></li>
+          <li><a href="../lgpd-e-ia/">LGPD e IA: o que muda quando o dado entra no prompt</a></li>
+        </ul>
+        <p class="status-meta" style="margin-top:34px;">Publicado em 02/11/2026.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../" class="logo"><img src="../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../#servicos">Serviços</a>
+          <a href="../iso-42001/">ISO 42001</a>
+          <a href="../governanca-de-ia/">Governança de IA</a>
+          <a href="../shadow-ai/">Shadow AI</a>
+          <a href="../pl-2338/">Marco Legal da IA</a>
+          <a href="../diagnostico/">Diagnóstico</a>
+          <a href="../blog/">Blog</a>
+          <a href="../biblioteca-prompts/">Prompts</a>
+          <a href="../sobre/">Sobre</a>
+          <a href="../glossario/">Glossário</a>
+          <a href="../ia-para-equipes-de-ti/">IA para equipes de TI</a>
+          <a href="../ia-segura-para-empresas/">IA segura para empresas</a>
+          <a href="../agentes-de-ia-para-empresas/">Agentes de IA</a>
+          <a href="../politica-de-privacidade/">Política de privacidade</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<!-- O botão flutuante do WhatsApp é montado por assets/site.js, que roda em todas as páginas -->
+<script src="../assets/site.js?v=18"></script>
+
+</body>
+</html>
