@@ -47,6 +47,7 @@ Formatos de contratação: workshop de 3 horas, trilha completa ou advisory mens
 - Governança de agentes de IA: os quatro controles e dez perguntas antes da produção: https://tyna.com.br/governanca-de-agentes/
 - Modelo de política de uso de IA (copiável): https://tyna.com.br/politica-de-uso-de-ia/
 - Política de uso de IA para empresas: quem decide, regulação e roteiro de 90 dias: https://tyna.com.br/politica-de-uso-de-ia-para-empresas/
+- Governança de IA para setor financeiro: papéis, controles e roteiro de 90 dias: https://tyna.com.br/governanca-de-ia-para-setor-financeiro/
 - Treinamento de IA para empresas: trilhas e oito fases do projeto: https://tyna.com.br/treinamento-de-ia-para-empresas/
 - Marco Legal da IA (PL 2338/2023), status conferido na fonte: https://tyna.com.br/pl-2338/
 - ISO/IEC 42001: caminho até a prontidão: https://tyna.com.br/iso-42001/

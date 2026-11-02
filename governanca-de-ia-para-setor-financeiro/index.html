@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // Só coleta em produção (tyna.com.br) — localhost e previews do Cloudflare Pages (*.pages.dev) ficam de fora.
+  if (location.hostname !== 'tyna.com.br') window['ga-disable-G-DQS0KMDT3G'] = true;
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Governança de IA para setor financeiro: guia para gestores | Tyna</title>
+<meta name="description" content="Governança de IA para setor financeiro: quem decide, o que o regulador espera e como colocar modelos e agentes sob controle. Leia o guia para gestores.">
+<link rel="canonical" href="https://tyna.com.br/governanca-de-ia-para-setor-financeiro/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Governança de IA para setor financeiro: guia para gestores">
+<meta property="og:description" content="Governança de IA para setor financeiro: quem decide, o que o regulador espera e como colocar modelos e agentes sob controle. Leia o guia para gestores.">
+<meta property="og:url" content="https://tyna.com.br/governanca-de-ia-para-setor-financeiro/">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna-dark.png">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css?v=19">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Governança de IA para setor financeiro: guia para gestores",
+  "inLanguage": "pt-BR",
+  "description": "Governança de IA para setor financeiro: quem decide, o que o regulador espera e como colocar modelos e agentes sob controle. Leia o guia para gestores.",
+  "datePublished": "2026-11-02",
+  "dateModified": "2026-11-02",
+  "author": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "mainEntityOfPage": "https://tyna.com.br/governanca-de-ia-para-setor-financeiro/"
+}
+</script>
+<link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "pt-BR",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Existe uma lei específica de IA para o setor financeiro no Brasil?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não há, hoje, uma norma que trate só de IA no setor financeiro. O que já vale são as regras gerais: gestão integrada de riscos (Resolução CMN 4.557/2017), segurança cibernética e contratação de nuvem (Resolução CMN 4.893/2021) e a LGPD. O Marco Legal da IA (PL 2338/2023) segue em tramitação; confira o estágio na página dedicada e confirme as normas vigentes com o jurídico e o compliance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quem deve ser o responsável por IA em uma instituição financeira?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Uma pessoa com nome e cargo na primeira ou segunda linha, com reporte à diretoria, e não um comitê sem dono. O comitê existe para decidir casos de risco alto, mas a responsabilidade por manter o inventário, os testes e os registros precisa ser individual. Risco, compliance, segurança, jurídico e o encarregado de dados participam."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Preciso de governança para IA generativa se só uso para tarefas internas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim, em versão proporcional. Uso interno também envolve dado de cliente, sigilo bancário e fornecedores externos. O mínimo é uma lista de ferramentas autorizadas, regras sobre o tipo de dado permitido, registro de uso em processos relevantes e revisão humana de qualquer saída que vire decisão ou comunicação ao cliente."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como tratar decisões automatizadas de crédito e a LGPD?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A LGPD garante ao titular o direito de pedir revisão de decisões tomadas apenas com tratamento automatizado que afetem seus interesses, incluindo decisões de perfil de crédito, e de obter informações sobre os critérios usados. Na prática, a instituição precisa saber explicar o critério, ter um canal de revisão com pessoa e guardar o registro de cada decisão."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Por onde começar se a empresa tem mais de 200 pessoas e nenhum controle formal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pelo inventário: quais modelos, ferramentas e agentes existem, quem os usa, com que dado e qual decisão afetam. Com a lista pronta, classifique por risco, defina quem aprova os de risco alto e estabeleça os registros mínimos. Um primeiro ciclo completo costuma caber em 90 dias."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><img src="../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../#servicos">Serviços</a></li>
+        <li><a href="../iso-42001/">ISO 42001</a></li>
+        <li><a href="../#cases">Cases</a></li>
+        <li><a href="../#trilhas">Trilhas</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../biblioteca-prompts/">Prompts</a></li>
+        <li><a href="../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pela%20p%C3%A1gina%20de%20governan%C3%A7a%20de%20IA%20para%20o%20setor%20financeiro%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pela%20p%C3%A1gina%20de%20governan%C3%A7a%20de%20IA%20para%20o%20setor%20financeiro%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Governança de IA</p>
+      <h1 style="max-width:900px;">Governança de IA para setor financeiro: <em>guia para gestores</em></h1>
+      <p class="lead" style="max-width:740px;">Crédito, fraude, atendimento e análise já usam IA, muitas vezes por caminhos que risco e compliance não enxergam por completo. Quando o regulador, o auditor ou o cliente pergunta quem aprovou, com que teste e quem responde pelo erro, a resposta costuma estar espalhada entre áreas.</p>
+      <p class="lead" style="max-width:740px;">Este guia mostra, para empresas com mais de 200 pessoas, o que o regulador já exige, como organizar papéis e controles e como fazer um primeiro ciclo de governança em 90 dias.</p>
+    </div>
+  </section>
+
+  <section id="por-que-diferente">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">O problema</p>
+        <h2>Por que o setor financeiro não pode copiar a governança de outros setores</h2>
+      </div>
+      <div class="reveal prose" style="max-width:780px;">
+        <p>Em quase toda empresa, a governança de IA começa com uma política de uso e um inventário. No setor financeiro isso é só o piso. A IA aqui toca decisões com efeito direto sobre a vida do cliente (crédito, limite, preço de seguro, bloqueio de conta), opera sobre dados protegidos por sigilo e é cobrada por supervisores que já têm normas de risco, segurança e terceirização em vigor. Um erro de modelo não é um texto ruim: é uma negativa de crédito indevida, um cliente discriminado ou uma fraude que passou.</p>
+        <p>Há ainda uma assimetria de tempo. A área de negócio consegue contratar uma solução de IA em semanas, enquanto o ciclo de validação de risco, segurança e compliance leva meses. O resultado, visto em muitas instituições, é o uso por fora do processo: ferramentas de atendimento com IA ativadas por um fornecedor, assistentes usados por analistas com dado de cliente, modelos de terceiros embutidos em sistemas que ninguém classificou como IA. Governar é fechar esse intervalo entre a velocidade da tecnologia e a velocidade da aprovação, não frear o uso.</p>
+        <p>Este guia é para gestores de instituições com mais de 200 pessoas: bancos, cooperativas, fintechs, seguradoras, corretoras e áreas financeiras de grupos maiores. Ele trata de estrutura, de controles e de ordem de implantação. Para o detalhamento por tipo de instituição, veja <a href="../ia-no-setor-financeiro/">IA no setor financeiro</a>; para o panorama geral, <a href="../governanca-de-ia/">governança de IA</a>.</p>
+      </div>
+    </div>
+  </section>
+  <section id="regulacao">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">O contexto regulatório</p>
+        <h2>O que o regulador já exige e o que ainda está em aberto</h2>
+      </div>
+      <div class="reveal prose" style="max-width:780px;">
+        <p>Uma ideia errada comum é esperar uma regra de IA para começar. O supervisor financeiro brasileiro raramente regula uma tecnologia pelo nome; ele regula o risco que ela gera. Por isso, normas que já existem alcançam a IA. A Resolução CMN 4.557/2017 pede estrutura de gerenciamento integrado de riscos, o que inclui risco de modelo e risco operacional. A Resolução CMN 4.893/2021 trata de política de segurança cibernética e de contratação de serviços de processamento de dados e de nuvem, o que alcança fornecedores de IA. A LGPD completa o quadro para dado pessoal.</p>
+        <p>Dois pontos pesam mais na prática. O primeiro é a terceirização: usar um modelo de um fornecedor externo não transfere a responsabilidade. A instituição continua respondendo pelo resultado, e precisa saber onde o dado fica, quem o acessa e o que acontece se o fornecedor mudar o modelo ou sair do mercado. O segundo é a decisão automatizada: a LGPD dá ao titular direito de pedir revisão de decisões tomadas apenas por tratamento automatizado e de obter informação sobre os critérios. Quem decide crédito com modelo precisa conseguir explicar e rever.</p>
+        <p>O que está em aberto: o Marco Legal da IA (PL 2338/2023) propõe obrigações por nível de risco, e sistemas de crédito e de avaliação de pessoas tendem a cair nas categorias mais exigentes. Por ser texto em tramitação, o conteúdo final pode mudar; o estágio atual está em <a href="../pl-2338/">Marco Legal da IA</a>. Normas setoriais específicas também podem surgir. A postura prudente é construir hoje o que qualquer versão futura vai pedir: inventário, classificação de risco, responsáveis, testes e registros. Confirme sempre as normas vigentes e a aplicação ao seu caso com o jurídico e o compliance; este texto não é parecer.</p>
+      </div>
+    </div>
+  </section>
+  <section id="estrutura">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">A estrutura</p>
+        <h2>Quem decide: papéis e linhas de defesa para IA</h2>
+      </div>
+      <div class="reveal prose" style="max-width:780px;">
+        <p>O setor financeiro já tem um desenho conhecido de três linhas de defesa, e a governança de IA funciona melhor quando se encaixa nele em vez de criar uma estrutura paralela. A primeira linha, as áreas que constroem ou usam a IA, é dona do risco no dia a dia. A segunda, formada por risco, compliance, segurança e privacidade, define regras, valida e monitora. A terceira, a auditoria interna, verifica se o desenho funciona.</p>
+        <p>Cinco papéis resolvem a maior parte dos casos. <strong>Responsável executivo:</strong> uma pessoa que presta contas à diretoria pelo programa, em geral ligada a risco, tecnologia ou compliance. <strong>Comitê de IA:</strong> grupo curto, de quatro a seis pessoas, que decide os casos de risco alto e as exceções; precisa incluir uma área de negócio, para não produzir regra sem alternativa. <strong>Dono de cada sistema:</strong> alguém da área usuária responde por cada modelo ou ferramenta, do objetivo ao desempenho. <strong>Validação independente:</strong> quem testa o modelo não pode ser quem o construiu ou o comprou. <strong>Encarregado de dados:</strong> entra cedo em qualquer caso com dado pessoal; veja <a href="../lgpd-e-ia/">LGPD e IA</a>.</p>
+        <p>Defina também a fronteira com outros processos. Agentes que executam ações, como abrir um chamado, alterar um cadastro ou responder o cliente sozinhos, pedem aprovação própria, com limite de alçada e trilha de auditoria, o que está em <a href="../governanca-de-agentes/">governança de agentes</a>. E responda cedo a uma pergunta que costuma ficar para depois: quando o modelo erra, quem responde perante o cliente e o regulador? Esse ponto é tratado em <a href="../responsabilidade-civil-ia/">responsabilidade civil e IA</a>.</p>
+      </div>
+    </div>
+  </section>
+  <section id="controles">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Os controles</p>
+        <h2>Seis controles que sustentam o programa no dia a dia</h2>
+      </div>
+      <div class="reveal prose" style="max-width:780px;">
+        <p>Estrutura sem controle vira organograma. Estes seis controles aparecem em quase todo programa que funciona.</p>
+        <ul>
+          <li><strong>Inventário vivo.</strong> Lista de todo modelo, ferramenta e agente, com caso de uso, dado de entrada, decisão que afeta, dono e fornecedor. Inclui o que veio embutido em produtos de terceiros. Um modelo de inventário está em <a href="../inventario-de-ia/">inventário de IA</a>.</li>
+          <li><strong>Classificação por risco.</strong> Três ou quatro níveis, com critérios objetivos: efeito sobre o cliente, uso de dado pessoal, grau de automação, reversibilidade. Crédito, fraude com bloqueio e avaliação de pessoas começam no nível mais alto.</li>
+          <li><strong>Validação antes de ir ao ar.</strong> Testes de desempenho, de viés entre grupos relevantes, de robustez e de explicabilidade proporcionais ao risco, feitos por quem não construiu o modelo. O resultado fica registrado.</li>
+          <li><strong>Monitoramento contínuo.</strong> Modelos se degradam quando o comportamento do cliente ou da economia muda. Defina métricas, limites de alerta e quem age quando o limite é ultrapassado. Para IA generativa, inclua amostragem de respostas revisadas por pessoas.</li>
+          <li><strong>Gestão de fornecedores.</strong> Cláusulas sobre uso do dado da instituição para treino, local de processamento, aviso de mudança de modelo, direito de auditoria e saída ordenada. Fornecedor que se recusa a responder o questionário já respondeu.</li>
+          <li><strong>Supervisão humana definida.</strong> Em decisão relevante, uma pessoa com autoridade e informação suficientes para discordar do modelo. Revisão que só carimba não conta. A prática é medida: quantas vezes a pessoa discorda?</li>
+        </ul>
+        <p>Para testar se esses controles existem de fato, e não só no papel, vale uma <a href="../auditoria-de-ia/">auditoria de IA</a> com amostra de sistemas reais.</p>
+      </div>
+    </div>
+  </section>
+  <section id="ia-generativa">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">O ponto cego</p>
+        <h2>IA generativa e agentes: o risco que entra pela porta lateral</h2>
+      </div>
+      <div class="reveal prose" style="max-width:780px;">
+        <p>Modelos de crédito e de fraude costumam passar por área de risco, porque já existe cultura de validação. A IA generativa entra de outro jeito: por assistentes de escritório, por ferramentas de atendimento, por copilotos de código e por funcionalidades ligadas em produtos de terceiros. Cada um é razoável sozinho, mas o conjunto pode expor sigilo bancário e dado de cliente sem qualquer registro.</p>
+        <p>Quatro medidas atacam o problema. Primeiro, ofereça uma ferramenta autorizada com contrato adequado; proibir sem alternativa só empurra o uso para contas pessoais. Segundo, classifique o dado e escreva, com exemplos reais, o que pode e o que não pode ser enviado. Terceiro, mapeie o uso existente com anistia por escrito para quem declarar; o tema de <a href="../shadow-ai/">shadow AI</a> mostra como fazer. Quarto, trate os agentes como um caso à parte, com alçada, limites de ação e registro de cada passo.</p>
+        <p>No atendimento ao cliente, acrescente duas regras: o cliente deve saber que fala com um sistema automatizado e ter um caminho simples para chegar a uma pessoa; e respostas que prometem, negociam ou informam condições precisam de revisão ou de limites técnicos que impeçam o sistema de ir além do que foi aprovado.</p>
+      </div>
+    </div>
+  </section>
+  <section id="roteiro">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">A implantação</p>
+        <h2>Um roteiro de 90 dias para o primeiro ciclo</h2>
+      </div>
+      <div class="reveal prose" style="max-width:780px;">
+        <p>Programas que tentam cobrir tudo de uma vez travam. Um primeiro ciclo curto, concentrado no que tem maior risco, produz resultado e credibilidade.</p>
+        <p><strong>Dias 1 a 30: enxergar.</strong> Nomeie o responsável executivo e monte o comitê. Levante o inventário com as áreas e com a TI, incluindo fornecedores que ligaram recursos de IA. Defina os níveis de risco e classifique o que foi encontrado. O entregável é uma lista com dono e classificação para cada item.</p>
+        <p><strong>Dias 31 a 60: controlar o topo.</strong> Para os sistemas de risco alto, revise validação, monitoramento e supervisão humana, e registre as lacunas com prazo. Publique a política de uso de IA generativa e a ferramenta autorizada; o texto-base está em <a href="../politica-de-uso-de-ia-para-empresas/">política de uso de IA para empresas</a>. Ajuste o processo de compra para que nenhuma solução de IA entre sem passar pelo comitê.</p>
+        <p><strong>Dias 61 a 90: provar e ajustar.</strong> Faça a primeira revisão com dados reais: sistemas classificados, pedidos de exceção, incidentes, desvios de monitoramento. Leve o resultado à diretoria em uma página. Defina o ritmo seguinte: revisão trimestral do inventário e reavaliação anual dos sistemas de risco alto, com gatilhos extras para mudança de modelo, incidente ou alteração normativa.</p>
+        <p>Quatro indicadores bastam para a diretoria: percentual de sistemas inventariados e classificados, lacunas de risco alto abertas e vencidas, incidentes e quase incidentes registrados, e tempo médio de resposta do comitê. Aumento de incidentes reportados no início indica que a cultura de reporte está funcionando.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Perguntas frequentes</p>
+        <h2>Governança de IA para setor financeiro, em resposta direta</h2>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-item">
+          <h3>Existe uma lei específica de IA para o setor financeiro no Brasil?</h3>
+          <p>Não há, hoje, uma norma que trate só de IA no setor financeiro. O que já vale são as regras gerais: gestão integrada de riscos (Resolução CMN 4.557/2017), segurança cibernética e contratação de nuvem (Resolução CMN 4.893/2021) e a LGPD. O Marco Legal da IA (PL 2338/2023) segue em tramitação; confira o estágio na página dedicada e confirme as normas vigentes com o jurídico e o compliance.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Quem deve ser o responsável por IA em uma instituição financeira?</h3>
+          <p>Uma pessoa com nome e cargo na primeira ou segunda linha, com reporte à diretoria, e não um comitê sem dono. O comitê existe para decidir casos de risco alto, mas a responsabilidade por manter o inventário, os testes e os registros precisa ser individual. Risco, compliance, segurança, jurídico e o encarregado de dados participam.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Preciso de governança para IA generativa se só uso para tarefas internas?</h3>
+          <p>Sim, em versão proporcional. Uso interno também envolve dado de cliente, sigilo bancário e fornecedores externos. O mínimo é uma lista de ferramentas autorizadas, regras sobre o tipo de dado permitido, registro de uso em processos relevantes e revisão humana de qualquer saída que vire decisão ou comunicação ao cliente.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Como tratar decisões automatizadas de crédito e a LGPD?</h3>
+          <p>A LGPD garante ao titular o direito de pedir revisão de decisões tomadas apenas com tratamento automatizado que afetem seus interesses, incluindo decisões de perfil de crédito, e de obter informações sobre os critérios usados. Na prática, a instituição precisa saber explicar o critério, ter um canal de revisão com pessoa e guardar o registro de cada decisão.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Por onde começar se a empresa tem mais de 200 pessoas e nenhum controle formal?</h3>
+          <p>Pelo inventário: quais modelos, ferramentas e agentes existem, quem os usa, com que dado e qual decisão afetam. Com a lista pronta, classifique por risco, defina quem aprova os de risco alto e estabeleça os registros mínimos. Um primeiro ciclo completo costuma caber em 90 dias.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="leia-tambem">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Leia também</p>
+        <h2>Para continuar</h2>
+      </div>
+      <ul class="reveal">
+        <li><a href="../ia-no-setor-financeiro/">IA no setor financeiro: bancos, seguradoras e fintechs</a></li>
+        <li><a href="../inventario-de-ia/">Inventário de IA: como começar</a></li>
+        <li><a href="../auditoria-de-ia/">Auditoria de IA: como verificar os controles</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="fale-com-a-tyna" class="lead-captura" style="border-bottom:none;">
+    <div class="wrap reveal" style="text-align:center;">
+      <p class="eyebrow">Fale com a Tyna</p>
+      <h2>Quer aplicar isso na sua instituição?</h2>
+      <p style="color:var(--text-muted); font-size:16.5px; max-width:600px; margin:0 auto 26px;">Chame no WhatsApp. A agente da Tyna entende o contexto e agenda uma conversa com o Felipe.</p>
+      <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA%20no%20setor%20financeiro." target="_blank" rel="noopener" class="btn btn-primary">Agende uma conversa</a>
+      <p class="status-meta" style="margin-top:34px;">Última revisão: 02/11/2026.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../" class="logo"><img src="../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../#servicos">Serviços</a>
+          <a href="../iso-42001/">ISO 42001</a>
+          <a href="../governanca-de-ia/">Governança de IA</a>
+          <a href="../shadow-ai/">Shadow AI</a>
+          <a href="../pl-2338/">Marco Legal da IA</a>
+          <a href="../diagnostico/">Diagnóstico</a>
+          <a href="../blog/">Blog</a>
+          <a href="../biblioteca-prompts/">Prompts</a>
+          <a href="../sobre/">Sobre</a>
+          <a href="../glossario/">Glossário</a>
+          <a href="../ia-para-equipes-de-ti/">IA para equipes de TI</a>
+          <a href="../ia-segura-para-empresas/">IA segura para empresas</a>
+          <a href="../agentes-de-ia-para-empresas/">Agentes de IA</a>
+          <a href="../politica-de-privacidade/">Política de privacidade</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<!-- O botão flutuante do WhatsApp é montado por assets/site.js, que roda em todas as páginas -->
+<script src="../assets/site.js?v=18"></script>
+
+</body>
+</html>
