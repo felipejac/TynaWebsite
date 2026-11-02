@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if (location.hostname !== 'tyna.com.br') window['ga-disable-G-DQS0KMDT3G'] = true;
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IA no setor financeiro: regulação, riscos e como governar | Tyna</title>
+<meta name="description" content="Como bancos, seguradoras e fintechs governam o uso de IA diante do BACEN, SUSEP e LGPD — o que a regulação já cobre e o que ainda pede política interna.">
+<link rel="canonical" href="https://tyna.com.br/ia-no-setor-financeiro/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="IA no setor financeiro: regulação, riscos e como governar">
+<meta property="og:description" content="Como bancos, seguradoras e fintechs devem governar o uso de IA diante das exigências do BACEN, SUSEP e LGPD.">
+<meta property="og:url" content="https://tyna.com.br/ia-no-setor-financeiro/">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna-dark.png">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css?v=19">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "IA no setor financeiro: regulação, riscos e como governar",
+  "inLanguage": "pt-BR",
+  "description": "Como bancos, seguradoras e fintechs devem governar o uso de IA diante das exigências do BACEN, SUSEP e LGPD.",
+  "datePublished": "2026-11-02",
+  "dateModified": "2026-11-02",
+  "author": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "mainEntityOfPage": "https://tyna.com.br/ia-no-setor-financeiro/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "pt-BR",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "O BACEN regulamenta o uso de IA em bancos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim. A Resolução CMN 4.893/2021 exige estrutura de gerenciamento de risco operacional que abrange sistemas automatizados, incluindo modelos de IA usados em crédito, fraude e atendimento. O BACEN também monitora o uso de IA generativa e deve editar regulação específica."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como a SUSEP trata o uso de IA em seguradoras?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A SUSEP exige que as seguradoras documentem e testem os modelos usados em precificação e subscrição (Circular SUSEP 667/2022 e normas de gestão de riscos). Modelos com viés que afetem a precificação de forma discriminatória estão no radar regulatório."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "A LGPD se aplica ao uso de IA no setor financeiro?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim, com força dobrada. Dados financeiros (renda, dívida, histórico de crédito) são dados pessoais sensíveis de fato, mesmo sem o rótulo formal. Decisões automatizadas de crédito exigem base legal robusta, revisão humana disponível e registro do processo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O que é um comitê de ética em IA para instituições financeiras?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "É uma instância que aprova o uso de IA em processos críticos (crédito, fraude, atendimento) antes da implantação, define os critérios de risco aceitável e revisa incidentes. É a estrutura mínima para demonstrar governança ao regulador."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Qual a diferença entre risco de modelo e risco operacional de IA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Risco de modelo é a chance de um modelo de IA tomar decisões erradas por dados de treino inadequados, viés ou deriva. Risco operacional de IA é mais amplo: inclui falha do sistema, dependência de fornecedor, ataque e uso fora da finalidade aprovada. Os reguladores tratam os dois."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Por onde uma fintech deve começar a governança de IA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pelo inventário dos modelos em produção, com o caso de uso, o dado de entrada, a decisão que afeta e quem supervisiona. A partir daí, define-se qual modelo precisa de aprovação formal antes de ir ao ar e quem é o responsável quando o modelo erra."
+      }
+    }
+  ]
+}
+</script>
+<link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><img src="../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../#servicos">Serviços</a></li>
+        <li><a href="../iso-42001/">ISO 42001</a></li>
+        <li><a href="../#cases">Cases</a></li>
+        <li><a href="../#trilhas">Trilhas</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../biblioteca-prompts/">Prompts</a></li>
+        <li><a href="../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pela%20p%C3%A1gina%20sobre%20IA%20no%20setor%20financeiro%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pela%20p%C3%A1gina%20sobre%20IA%20no%20setor%20financeiro%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">IA no setor financeiro</p>
+      <h1 style="max-width:900px;">IA em bancos, seguradoras e fintechs: <em>o que a regulação exige</em> e o que ainda é lacuna.</h1>
+      <p class="lead" style="max-width:740px;">O BACEN, a SUSEP e a LGPD já cobrem parte do uso de IA no setor financeiro. Mas a maior parte das exigências ainda vem de normas de gestão de risco que existiam antes da IA — e que precisam ser relidas à luz dos modelos em produção.</p>
+      <div class="hero-ctas">
+        <a href="#regulacao" class="btn btn-primary">O que a regulação diz</a>
+        <a href="#governanca" class="btn btn-ghost">Como governar</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="resposta-curta">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Resposta curta</p>
+        <h2>O setor financeiro já está regulado para IA?</h2>
+        <p>Parcialmente. A regulação setorial (BACEN, SUSEP, CVM) exige gestão de risco operacional e de modelo, que inclui sistemas de IA usados em crédito, fraude, subscrição e atendimento. A LGPD adiciona exigências sobre decisões automatizadas e dados sensíveis de fato. O que ainda falta é regulação específica de IA — em discussão em 2026. Enquanto isso, a instituição que já governa os modelos em produção está à frente das que esperam a norma.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="regulacao">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Regulação aplicável</p>
+        <h2>O que BACEN, SUSEP e LGPD já exigem</h2>
+        <p>A maioria das exigências vem de normas de gestão de risco que existiam antes da IA generativa. O desafio é aplicar esses critérios a modelos cujo comportamento é probabilístico, não determinístico.</p>
+      </div>
+      <div class="reveal">
+        <table class="spec-table">
+          <thead><tr><th scope="col">Norma</th><th scope="col">Exigência relevante para IA</th><th scope="col">Ponto de atenção</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>Resolução CMN 4.893/2021</td>
+              <td>Estrutura de gerenciamento de risco operacional, com testes, documentação e responsável pelos sistemas automatizados</td>
+              <td>Modelos de IA que tomam decisões de crédito ou detectam fraude são sistemas automatizados no escopo desta norma</td>
+            </tr>
+            <tr>
+              <td>Circular SUSEP 667/2022</td>
+              <td>Gestão de riscos de subscrição e de modelo, com validação e revisão periódica dos modelos usados em precificação</td>
+              <td>Modelos que usam variáveis-proxy com correlação demográfica precisam de evidência de não discriminação</td>
+            </tr>
+            <tr>
+              <td>LGPD — arts. 20 e 12</td>
+              <td>Direito do titular à revisão de decisão automatizada que afete seus interesses; dados financeiros como sensíveis de fato</td>
+              <td>O processo de revisão humana precisa existir na prática, não só no papel — e o modelo precisa ser explicável o suficiente para suportá-lo</td>
+            </tr>
+            <tr>
+              <td>PL 2.338/2023 (tramitação)</td>
+              <td>Obrigações para sistemas de alto risco, incluindo crédito, seguro e decisões que afetam direitos — aprovação formal antes da implantação</td>
+              <td>A lei ainda tramita, mas as instituições que já têm inventário e aprovação de modelos estarão prontas quando entrar em vigor; ver <a href="../pl-2338/">Marco Legal da IA</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="riscos-setoriais">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Riscos específicos</p>
+        <h2>O que torna a IA mais sensível no setor financeiro</h2>
+      </div>
+      <div class="steps reveal">
+        <div class="step">
+          <span class="step-num">01</span>
+          <div>
+            <h3>Decisões que afetam direitos</h3>
+            <p>Concessão de crédito, contratação de seguro, detecção de fraude: esses são casos de uso de alto risco porque a decisão afeta o patrimônio e os direitos do cliente. Um erro sistemático do modelo pode configurar discriminação ou dano a escala.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">02</span>
+          <div>
+            <h3>Dado pessoal sensível de fato</h3>
+            <p>Renda, dívida, histórico de pagamento e comportamento de consumo são dados pessoais com alto potencial de exposição. A LGPD trata como sensíveis os dados de saúde, biometria e origem racial, mas dados financeiros exigem o mesmo cuidado na prática.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <div>
+            <h3>Viés no dado histórico</h3>
+            <p>Modelos de crédito treinados em dados históricos repetem os padrões de aprovação do passado — incluindo os que refletem desigualdade. Sem teste de viés periódico, o modelo aprende a discriminar grupos sem que ninguém perceba.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">04</span>
+          <div>
+            <h3>Explicabilidade exigida pelo regulador</h3>
+            <p>O BACEN e a ANPD esperam que a instituição explique a decisão ao titular quando solicitado. Modelos caixa-preta dificultam essa explicação — e a adoção de modelos explicáveis ou camadas de explicação é parte da resposta.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">05</span>
+          <div>
+            <h3>IA generativa no atendimento</h3>
+            <p>Chatbots e assistentes virtuais que respondem perguntas financeiras têm risco próprio: resposta errada sobre produto, taxa ou prazo pode ser tratada como consultoria ou vinculação contratual. A supervisão humana e o escopo bem delimitado são controles essenciais.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="governanca">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Como governar</p>
+        <h2>Os cinco elementos de uma governança de IA no setor financeiro</h2>
+        <p>A sequência importa: inventariar antes de classificar, classificar antes de aprovar, aprovar antes de monitorar.</p>
+      </div>
+      <div class="steps reveal">
+        <div class="step">
+          <span class="step-num">1</span>
+          <div>
+            <h3>Inventário de modelos em produção</h3>
+            <p>Nome do modelo, caso de uso, dado de entrada, decisão que toma, volume de decisões por mês, fornecedor, responsável interno. Sem isso, nenhuma outra etapa funciona. Ver <a href="../inventario-de-ia/">como fazer o inventário</a>.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">2</span>
+          <div>
+            <h3>Classificação por risco</h3>
+            <p>Critério escrito para separar modelos de alto risco (afetam direitos, processam dado sensível, escala &gt; 10 mil decisões/mês) dos de baixo risco (produtividade interna, sem dado do cliente). A classificação define o nível de aprovação exigido.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">3</span>
+          <div>
+            <h3>Aprovação antes de colocar em produção</h3>
+            <p>Modelos de alto risco passam por comitê com TI, jurídico, compliance e área de negócio. O registro da aprovação é a evidência que o regulador pede. A política de uso de IA define quem aprova o quê. Ver <a href="../modelo-de-politica-de-ia/">modelo de política de uso de IA</a>.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">4</span>
+          <div>
+            <h3>Monitoramento e revisão periódica</h3>
+            <p>Deriva de modelo (o modelo funcionava bem e parou de funcionar), viés emergente e nova regulação exigem revisão periódica. A frequência depende do volume de decisões e do risco: modelos de crédito em produção precisam de revisão ao menos semestral.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">5</span>
+          <div>
+            <h3>Processo de revisão humana disponível</h3>
+            <p>A LGPD exige que o titular possa pedir revisão de decisão automatizada por pessoa humana. Esse processo precisa existir e ser rastreável — não só descrito na política.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="perguntas">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Perguntas frequentes</p>
+        <h2>IA e regulação financeira</h2>
+      </div>
+      <div class="faq-grid reveal">
+        <div class="faq-item">
+          <h3>O BACEN regulamenta o uso de IA em bancos?</h3>
+          <p>Sim. A Resolução CMN 4.893/2021 exige estrutura de gerenciamento de risco operacional que abrange sistemas automatizados, incluindo modelos de IA usados em crédito, fraude e atendimento. O BACEN também monitora o uso de IA generativa e deve editar regulação específica.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Como a SUSEP trata o uso de IA em seguradoras?</h3>
+          <p>A SUSEP exige que as seguradoras documentem e testem os modelos usados em precificação e subscrição. Modelos com viés que afetem a precificação de forma discriminatória estão no radar regulatório desde a Circular SUSEP 667/2022.</p>
+        </div>
+        <div class="faq-item">
+          <h3>A LGPD se aplica ao uso de IA no setor financeiro?</h3>
+          <p>Sim, com força dobrada. Dados financeiros são sensíveis de fato. Decisões automatizadas de crédito exigem base legal robusta, revisão humana disponível e registro do processo. Ver <a href="../lgpd-e-ia/">LGPD e IA</a>.</p>
+        </div>
+        <div class="faq-item">
+          <h3>O que é risco de modelo no contexto do BACEN?</h3>
+          <p>É a chance de um modelo tomar decisões erradas por dados inadequados, viés ou deriva ao longo do tempo. O BACEN trata isso como risco operacional e exige que a instituição monitore e valide os modelos usados em processos críticos.</p>
+        </div>
+        <div class="faq-item">
+          <h3>O que é um comitê de ética em IA para instituições financeiras?</h3>
+          <p>É a instância que aprova o uso de IA em processos críticos antes da implantação, define os critérios de risco aceitável e revisa incidentes. É a estrutura mínima para demonstrar governança ao regulador.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Por onde uma fintech deve começar?</h3>
+          <p>Pelo <a href="../inventario-de-ia/">inventário dos modelos em produção</a>. Sem saber o que está em uso e quem é o responsável, nenhuma outra etapa de governança funciona.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band" style="border-bottom:none;">
+    <div class="wrap reveal">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>A sua instituição já governa os modelos de IA em produção?</h2>
+      <p style="color:var(--text-muted); font-size:16.5px; max-width:580px; margin:0 auto 30px;">Banco, seguradora ou fintech: o diagnóstico responde em três minutos onde estão as lacunas de governança antes que o regulador pergunte.</p>
+      <div class="hero-ctas" style="justify-content:center;">
+        <a href="../diagnostico/" class="btn btn-primary">Fazer o diagnóstico</a>
+        <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pela%20p%C3%A1gina%20sobre%20IA%20no%20setor%20financeiro%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-ghost">Falar com o Felipe</a>
+      </div>
+      <p class="status-meta" style="margin-top:34px;">Última revisão: 02/11/2026.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../" class="logo"><img src="../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../#servicos">Serviços</a>
+          <a href="../iso-42001/">ISO 42001</a>
+          <a href="../governanca-de-ia/">Governança de IA</a>
+          <a href="../shadow-ai/">Shadow AI</a>
+          <a href="../pl-2338/">Marco Legal da IA</a>
+          <a href="../diagnostico/">Diagnóstico</a>
+          <a href="../blog/">Blog</a>
+          <a href="../biblioteca-prompts/">Prompts</a>
+          <a href="../sobre/">Sobre</a>
+          <a href="../glossario/">Glossário</a>
+          <a href="../ia-para-equipes-de-ti/">IA para equipes de TI</a>
+          <a href="../ia-segura-para-empresas/">IA segura para empresas</a>
+          <a href="../agentes-de-ia-para-empresas/">Agentes de IA</a>
+          <a href="../politica-de-privacidade/">Política de privacidade</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/site.js?v=18"></script>
+
+</body>
+</html>
