@@ -60,6 +60,7 @@ Formatos de contratação: workshop de 3 horas, trilha completa ou advisory mens
 - ISO 27001 e ISO 42001: https://tyna.com.br/iso-27001-e-iso-42001-diferenca/
 - Riscos da IA generativa para empresas: https://tyna.com.br/riscos-da-ia-generativa-para-empresas/
 - Riscos de IA generativa nas empresas (o que o gestor decide): https://tyna.com.br/riscos-de-ia-generativa-nas-empresas/
+- IA e proteção de dados pessoais (guia para gestores): https://tyna.com.br/ia-e-protecao-de-dados-pessoais/
 - Plataforma de IA para equipes de TI: https://tyna.com.br/ia-para-equipes-de-ti/
 - IA segura para empresas: https://tyna.com.br/ia-segura-para-empresas/
 - Agentes de IA para empresas: https://tyna.com.br/agentes-de-ia-para-empresas/
