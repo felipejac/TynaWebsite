@@ -59,7 +59,8 @@ const PILARES = ['governanca-de-ia', 'lgpd-e-ia', 'politica-de-uso-de-ia', 'ai-g
   'ia-no-setor-financeiro', 'inventario-de-ia', 'modelo-de-politica-de-ia',
   'framework-de-governanca-de-ia', 'auditoria-de-ia', 'iso-42001-passo-a-passo', 'responsabilidade-civil-ia',
   'politica-de-uso-de-ia-para-empresas', 'governanca-de-ia-para-setor-financeiro',
-  'ia-e-protecao-de-dados-pessoais', 'riscos-de-ia-generativa-nas-empresas', 'politica-uso-ia-generativa-empresas'];
+  'ia-e-protecao-de-dados-pessoais', 'riscos-de-ia-generativa-nas-empresas', 'politica-uso-ia-generativa-empresas',
+  'lgpd-para-sistemas-de-ia-generativa', 'como-implementar-agentes-de-ia-na-empresa'];
 for (const p of PILARES) if (existsSync(join(ROOT, p))) PUBLISH.push(p);
 
 const args = process.argv.slice(2);
