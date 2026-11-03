@@ -12,3 +12,9 @@ Duas formas de publicar:
 2. **Local/manual:** com essas duas variáveis exportadas no ambiente, rodar `npm run deploy` (ou `npm run deploy:build` para rebuildar o blog antes de publicar).
 
 O comando final de publicação é `npx wrangler pages deploy dist --project-name tyna-website --branch main`. Nunca commitar tokens — sempre via secrets/variáveis de ambiente.
+
+## Criar uma nova página de conteúdo (pilar, artigo, guia)
+
+Crie a pasta e o `index.html` na raiz do repositório. O sitemap e o deploy **descobrem automaticamente** qualquer pasta com `index.html` — **não edite** `tools/build-blog.mjs` nem `tools/deploy.mjs` para registrar a página.
+
+**Obrigatório:** adicione pelo menos um link interno de uma página já existente para a nova página. Sem isso, o deploy aborta com "página órfã". Escolha a página existente mais relacionada e inclua o link numa seção "Leia também" ou no corpo do texto.
