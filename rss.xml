@@ -7,7 +7,79 @@
   <language>pt-BR</language>
   <atom:link href="https://tyna.com.br/rss.xml" rel="self" type="application/rss+xml"/>
   <item>
-    <title>Como usar Google AI Studio</title>
+    <title>BACEN e IA: o que os bancos brasileiros precisam saber em 2026</title>
+    <link>https://tyna.com.br/blog/bacen-e-ia-o-que-bancos-precisam-saber-2026/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/bacen-e-ia-o-que-bancos-precisam-saber-2026/</guid>
+    <pubDate>Mon, 02 Nov 2026 12:00:00 GMT</pubDate>
+    <description>O Banco Central já sinaliza que sistemas de decisão automatizada entram no escopo da Resolução 4.557. O que isso significa para bancos e fintechs que usam IA.</description>
+    <category>Governança de IA</category>
+  </item>
+  <item>
+    <title>IA em seguradoras: o que a SUSEP já espera</title>
+    <link>https://tyna.com.br/blog/ia-em-seguradoras-o-que-a-susep-ja-espera/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/ia-em-seguradoras-o-que-a-susep-ja-espera/</guid>
+    <pubDate>Mon, 02 Nov 2026 12:00:00 GMT</pubDate>
+    <description>SUSEP e IA: o que a regulação atual já alcança, os riscos de precificação automatizada e o que seguradoras precisam documentar agora.</description>
+    <category>Governança de IA</category>
+  </item>
+  <item>
+    <title>ISO 42001: o que fazer antes de pensar na certificação</title>
+    <link>https://tyna.com.br/blog/iso-42001-o-que-fazer-agora/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/iso-42001-o-que-fazer-agora/</guid>
+    <pubDate>Mon, 02 Nov 2026 12:00:00 GMT</pubDate>
+    <description>Antes da certificação ISO 42001, há etapas obrigatórias que a maioria das empresas brasileiras ainda não concluiu. Por onde começar.</description>
+    <category>Governança de IA</category>
+  </item>
+  <item>
+    <title>Agentes de IA em produção: o que ainda é preciso saber</title>
+    <link>https://tyna.com.br/blog/agentes-em-producao-o-que-ainda-precisa-saber/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/agentes-em-producao-o-que-ainda-precisa-saber/</guid>
+    <pubDate>Tue, 27 Oct 2026 12:00:00 GMT</pubDate>
+    <description>Lições de implantações recentes de agentes de IA: observabilidade, degradação segura, políticas no fluxo e revisão humana antes de ir para produção.</description>
+    <category>Agentes de IA</category>
+  </item>
+  <item>
+    <title>Alter lança controle de acesso para agentes de IA em equipe</title>
+    <link>https://tyna.com.br/blog/alter-controle-de-acesso-para-agentes-de-ia-multiusuario/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/alter-controle-de-acesso-para-agentes-de-ia-multiusuario/</guid>
+    <pubDate>Tue, 27 Oct 2026 12:00:00 GMT</pubDate>
+    <description>A Alter lançou uma plataforma de permissões e auditoria para agentes de IA usados por várias pessoas. Por que acesso e registro são o começo da governança.</description>
+    <category>Governança de IA</category>
+  </item>
+  <item>
+    <title>Como a OpenAI monitora agentes de código e o que copiar</title>
+    <link>https://tyna.com.br/blog/como-a-openai-monitora-agentes-de-codigo-e-o-que-copiar/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/como-a-openai-monitora-agentes-de-codigo-e-o-que-copiar/</guid>
+    <pubDate>Tue, 27 Oct 2026 12:00:00 GMT</pubDate>
+    <description>A OpenAI descreveu como monitora agentes de código internos contra desalinhamento: análise estática, checagens em execução e revisão humana.</description>
+    <category>Agentes de IA</category>
+  </item>
+  <item>
+    <title>Consus: gateway de LLM para dados sensíveis em produção</title>
+    <link>https://tyna.com.br/blog/consus-gateway-de-llm-para-dados-sensiveis/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/consus-gateway-de-llm-para-dados-sensiveis/</guid>
+    <pubDate>Tue, 27 Oct 2026 12:00:00 GMT</pubDate>
+    <description>O Consus promete rodar modelos de linguagem sobre dados privados sem expor informação a terceiros. O que muda para a governança de IA da empresa.</description>
+    <category>Governança de IA</category>
+  </item>
+  <item>
+    <title>FTC investiga OpenAI e Anthropic: o que muda para empresas</title>
+    <link>https://tyna.com.br/blog/ftc-investiga-openai-e-anthropic-riscos-de-produtos-de-ia/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/ftc-investiga-openai-e-anthropic-riscos-de-produtos-de-ia/</guid>
+    <pubDate>Tue, 27 Oct 2026 12:00:00 GMT</pubDate>
+    <description>A FTC abriu uma investigação sobre riscos de produtos de IA de empresas como OpenAI e Anthropic. O que empresas que dependem dessas APIs devem preparar.</description>
+    <category>Governança de IA</category>
+  </item>
+  <item>
+    <title>Riscos de privacidade em agentes de IA conversacionais</title>
+    <link>https://tyna.com.br/blog/riscos-de-privacidade-em-agentes-conversacionais-web-e-mobile/</link>
+    <guid isPermaLink="true">https://tyna.com.br/blog/riscos-de-privacidade-em-agentes-conversacionais-web-e-mobile/</guid>
+    <pubDate>Tue, 27 Oct 2026 12:00:00 GMT</pubDate>
+    <description>Estudo sobre apps e sites com agentes de IA conversacionais aponta envio de identificadores e consultas a APIs de terceiros. O que a empresa deve revisar.</description>
+    <category>Governança de IA</category>
+  </item>
+  <item>
+    <title>Como usar o Google AI Studio: passo a passo com Gemini</title>
     <link>https://tyna.com.br/blog/como-usar-google-ai-studio/</link>
     <guid isPermaLink="true">https://tyna.com.br/blog/como-usar-google-ai-studio/</guid>
     <pubDate>Mon, 21 Sep 2026 12:00:00 GMT</pubDate>
@@ -172,78 +244,6 @@
     <guid isPermaLink="true">https://tyna.com.br/blog/como-deveria-ser-a-interface-para-agentes-de-ia/</guid>
     <pubDate>Fri, 31 Jul 2026 12:00:00 GMT</pubDate>
     <description>Discussão no Show HN sobre o que uma boa GUI de orquestração precisa mostrar: estado, telemetria e histórico de decisão.</description>
-    <category>LLMs</category>
-  </item>
-  <item>
-    <title>Grafo de memória compartilhada entre Claude e ChatGPT</title>
-    <link>https://tyna.com.br/blog/grafo-de-memoria-compartilhada-entre-modelos/</link>
-    <guid isPermaLink="true">https://tyna.com.br/blog/grafo-de-memoria-compartilhada-entre-modelos/</guid>
-    <pubDate>Fri, 31 Jul 2026 12:00:00 GMT</pubDate>
-    <description>Estrutura em memória que guarda histórico e estado da tarefa, consultável por qualquer modelo — sem repassar contexto no prompt.</description>
-    <category>Agentes de IA</category>
-  </item>
-  <item>
-    <title>Destilação do DeepSeek transfere censura junto</title>
-    <link>https://tyna.com.br/blog/destilacao-do-deepseek-transfere-censura/</link>
-    <guid isPermaLink="true">https://tyna.com.br/blog/destilacao-do-deepseek-transfere-censura/</guid>
-    <pubDate>Thu, 30 Jul 2026 12:00:00 GMT</pubDate>
-    <description>O modelo destilado herdou as regras de filtragem do original. Filtro invisível quebra fluxo que espera texto completo.</description>
-    <category>LLMs</category>
-  </item>
-  <item>
-    <title>Kedge traz snapshots bifurcáveis e SQLite global</title>
-    <link>https://tyna.com.br/blog/kedge-snapshots-bifurcaveis-e-sqlite-global/</link>
-    <guid isPermaLink="true">https://tyna.com.br/blog/kedge-snapshots-bifurcaveis-e-sqlite-global/</guid>
-    <pubDate>Thu, 30 Jul 2026 12:00:00 GMT</pubDate>
-    <description>Clonar uma VM em execução em segundos e um banco de arquivo único compartilhado entre nós, sem serviço de banco separado.</description>
-    <category>Ferramentas de Dev</category>
-  </item>
-  <item>
-    <title>Prized: ferramentas internas seguras sem código</title>
-    <link>https://tyna.com.br/blog/prized-ferramentas-internas-seguras-sem-codigo/</link>
-    <guid isPermaLink="true">https://tyna.com.br/blog/prized-ferramentas-internas-seguras-sem-codigo/</guid>
-    <pubDate>Thu, 30 Jul 2026 12:00:00 GMT</pubDate>
-    <description>Interface low-code com controle de acesso, log de auditoria e criptografia embutidos — para o especialista do negócio construir sozinho.</description>
-    <category>Automação</category>
-  </item>
-  <item>
-    <title>GPT-5.6 contra Claude Fable 5 em IA física</title>
-    <link>https://tyna.com.br/blog/gpt-5-6-contra-claude-fable-5-em-ia-fisica/</link>
-    <guid isPermaLink="true">https://tyna.com.br/blog/gpt-5-6-contra-claude-fable-5-em-ia-fisica/</guid>
-    <pubDate>Wed, 29 Jul 2026 12:00:00 GMT</pubDate>
-    <description>Um venceu em velocidade por 2%, o outro em raciocínio contextual quando a tarefa muda no meio. A escolha não é óbvia.</description>
-    <category>LLMs</category>
-  </item>
-  <item>
-    <title>Manim roda no navegador via WebGPU</title>
-    <link>https://tyna.com.br/blog/manim-no-navegador-com-webgpu/</link>
-    <guid isPermaLink="true">https://tyna.com.br/blog/manim-no-navegador-com-webgpu/</guid>
-    <pubDate>Wed, 29 Jul 2026 12:00:00 GMT</pubDate>
-    <description>Animação matemática renderizada no cliente com WebGPU, desempenho próximo ao nativo e nenhum servidor de renderização no caminho.</description>
-    <category>Ferramentas de Dev</category>
-  </item>
-  <item>
-    <title>Tokenless troca de modelo sozinho para cortar custo</title>
-    <link>https://tyna.com.br/blog/tokenless-troca-automatica-de-modelo/</link>
-    <guid isPermaLink="true">https://tyna.com.br/blog/tokenless-troca-automatica-de-modelo/</guid>
-    <pubDate>Wed, 29 Jul 2026 12:00:00 GMT</pubDate>
-    <description>A plataforma observa preço e qualidade e migra para um modelo mais barato quando o resultado se mantém. Cada troca fica registrada.</description>
-    <category>LLMs</category>
-  </item>
-  <item>
-    <title>Flashpaper: segredos que se destroem sem banco de dados</title>
-    <link>https://tyna.com.br/blog/flashpaper-segredos-que-se-destroem/</link>
-    <guid isPermaLink="true">https://tyna.com.br/blog/flashpaper-segredos-que-se-destroem/</guid>
-    <pubDate>Tue, 28 Jul 2026 12:00:00 GMT</pubDate>
-    <description>Compartilhar credencial temporária com leitura única ou prazo de validade, sem armazenar nada em lugar nenhum.</description>
-    <category>Ferramentas de Dev</category>
-  </item>
-  <item>
-    <title>Kimi K3 chega à API de inferência da Telnyx</title>
-    <link>https://tyna.com.br/blog/kimi-k3-disponivel-na-api-da-telnyx/</link>
-    <guid isPermaLink="true">https://tyna.com.br/blog/kimi-k3-disponivel-na-api-da-telnyx/</guid>
-    <pubDate>Tue, 28 Jul 2026 12:00:00 GMT</pubDate>
-    <description>O modelo passa a ser oferecido como serviço gerenciado, cobrado por uso, na mesma infraestrutura de voz e mensagem da Telnyx.</description>
     <category>LLMs</category>
   </item>
 </channel>

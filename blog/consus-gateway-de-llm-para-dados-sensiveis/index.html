@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // Só coleta em produção (tyna.com.br) — localhost e previews do Cloudflare Pages (*.pages.dev) ficam de fora.
+  if (location.hostname !== 'tyna.com.br') window['ga-disable-G-DQS0KMDT3G'] = true;
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consus: gateway de LLM para dados sensíveis em produção | Tyna</title>
+<meta name="description" content="O Consus promete rodar modelos de linguagem sobre dados privados sem expor informação a terceiros. O que muda para a governança de IA da empresa.">
+<link rel="canonical" href="https://tyna.com.br/blog/consus-gateway-de-llm-para-dados-sensiveis/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Consus: gateway de LLM para dados sensíveis em produção | Tyna">
+<meta property="og:description" content="O Consus promete rodar modelos de linguagem sobre dados privados sem expor informação a terceiros. O que muda para a governança de IA da empresa.">
+<meta property="og:url" content="https://tyna.com.br/blog/consus-gateway-de-llm-para-dados-sensiveis/">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna-dark.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="alternate" type="application/rss+xml" title="Blog Tyna" href="https://tyna.com.br/rss.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=18">
+<link rel="stylesheet" href="../../assets/blog.css?v=18">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Consus: gateway de LLM para dados sensíveis em produção","description":"O Consus promete rodar modelos de linguagem sobre dados privados sem expor informação a terceiros. O que muda para a governança de IA da empresa.","datePublished":"2026-10-27","dateModified":"2026-10-27","inLanguage":"pt-BR","author":{"@type":"Person","name":"Felipe Jacob","url":"https://tyna.com.br/sobre/"},"publisher":{"@type":"Organization","name":"Tyna","url":"https://tyna.com.br","logo":{"@type":"ImageObject","url":"https://tyna.com.br/assets/logo-tyna-dark.png"}},"mainEntityOfPage":"https://tyna.com.br/blog/consus-gateway-de-llm-para-dados-sensiveis/","keywords":"ai-gateway, dados-sensiveis, lgpd, agentes-de-ia, governanca-de-ia","articleSection":"Governança de IA"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://tyna.com.br"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tyna.com.br/blog/"},{"@type":"ListItem","position":3,"name":"Governança de IA","item":"https://tyna.com.br/blog/categoria/governanca/"},{"@type":"ListItem","position":4,"name":"Consus: gateway de LLM para dados sensíveis em produção","item":"https://tyna.com.br/blog/consus-gateway-de-llm-para-dados-sensiveis/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"O que é um gateway de LLM?","acceptedAnswer":{"@type":"Answer","text":"É uma camada entre os sistemas da empresa e os modelos de linguagem. Centraliza o acesso e pode aplicar regras, como não deixar dado sensível sair, além de registrar o que foi enviado. Veja o guia de [AI Gateway](/ai-gateway/)."}},{"@type":"Question","name":"O Consus faz ajuste fino (fine-tuning) dos modelos?","acceptedAnswer":{"@type":"Answer","text":"Segundo o anúncio, a versão atual cobre só inferência, e o ajuste fino está planejado para uma atualização futura."}},{"@type":"Question","name":"Dá para rodar em Kubernetes?","acceptedAnswer":{"@type":"Answer","text":"Sim. O serviço é distribuído como imagem de contêiner, o que permite implantação em ambientes orquestrados."}},{"@type":"Question","name":"Rodar o modelo dentro da rede basta para cumprir a LGPD?","acceptedAnswer":{"@type":"Answer","text":"Não. Reduz a exposição, mas a empresa ainda precisa de base legal por finalidade, contrato com operadores quando houver, registro das operações e atendimento aos direitos dos titulares."}}]}</script>
+<link rel="alternate" hreflang="en" href="https://automationscookbook.com/blog/consus-llm-gateway-for-sensitive-data-in-production-20261013">
+<link rel="alternate" hreflang="pt-BR" href="https://tyna.com.br/blog/consus-gateway-de-llm-para-dados-sensiveis/">
+<link rel="alternate" hreflang="x-default" href="https://automationscookbook.com/blog/consus-llm-gateway-for-sensitive-data-in-production-20261013">
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../../" class="logo"><img src="../../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../../#servicos">Serviços</a></li>
+        <li><a href="../../iso-42001/">ISO 42001</a></li>
+        <li><a href="../../plataforma-tyna/">Plataforma</a></li>
+        <li><a href="../../#trilhas">Trilhas</a></li>
+        <li><a href="../../blog/">Blog</a></li>
+        <li><a href="../../biblioteca-prompts/">Prompts</a></li>
+        <li><a href="../../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+  <article class="post">
+    <div class="wrap post-wrap">
+      <nav class="crumbs" aria-label="Trilha"><a href="../../">Início</a> › <a href="../">Blog</a> › <a href="../categoria/governanca/">Governança de IA</a></nav>
+      <p class="eyebrow">Governança de IA</p>
+      <h1>Consus: gateway de LLM para dados sensíveis em produção</h1>
+      <p class="post-meta"><time datetime="2026-10-27">27 de outubro de 2026</time> · Por <a href="../../sobre/">Felipe Jacob</a></p>
+      <p class="lead">O Consus promete rodar modelos de linguagem sobre dados privados sem expor informação a terceiros. O que muda para a governança de IA da empresa.</p>
+
+      
+
+      <aside class="answer-box"><h2>Resposta curta</h2><p>O Consus, startup da turma F24 da Y Combinator, lançou um gateway de LLM que fica entre os dados internos da empresa e o modelo, para que dados sensíveis não saiam da rede. Para a governança de IA, o ponto é o mesmo de qualquer AI Gateway: um caminho autorizado, com registro, para o dado que não pode ir a uma ferramenta pública.</p></aside>
+
+      <div class="post-body">
+<h2>O que aconteceu</h2>
+<p>O Consus, startup da turma F24 da Y Combinator, lançou um produto que atua como gateway de LLM para empresas que precisam manter dados privados sob controle. Segundo o anúncio, o serviço fica entre os repositórios internos de dados e o modelo de linguagem, roteando as requisições por um endpoint seguro, local ou em nuvem dedicada, e cuidando localmente de tokenização, inferência e leitura da resposta, de modo que dado bruto não saia da rede da empresa.</p>
+<p>O lançamento foi comentado no Hacker News, onde a comunidade o considerou prático para empresas que não podem ou não querem enviar documentos sensíveis a APIs de terceiros. O produto declara suporte a modelos como GPT-4 e Llama e compatibilidade com fluxos de prompt já existentes. Os detalhes técnicos são os informados pelo fabricante.</p>
+<h2>Por que isso importa</h2>
+<ul>
+<li><strong>Soberania do dado:</strong> fluxos com dado pessoal ou regulado podem rodar sem enviar o conteúdo a provedores externos de modelo.</li>
+<li><strong>Menos risco de conformidade:</strong> sem tráfego de saída para APIs externas, caem preocupações de auditoria e de tratamento de dado ligadas a serviços de LLM em nuvem.</li>
+<li><strong>Custo previsível:</strong> paga-se por infraestrutura, não por token, o que simplifica o orçamento de fluxos com milhões de tokens por mês.</li>
+<li><strong>Integração simples:</strong> a interface é REST, e pode ser chamada de ferramentas como n8n ou de agentes próprios.</li>
+</ul>
+<h2>A leitura da Tyna</h2>
+<p>O que o Consus mostra é uma tendência que já aparece nas conversas de governança: a pergunta deixou de ser "podemos usar IA?" e passou a ser "por onde o dado passa?". Um gateway é a resposta arquitetural para isso, e a ideia vale mesmo para quem não usa esse produto. Veja o que o conceito entrega em <a href="/ai-gateway/">AI Gateway</a>: um ponto único de acesso, custo, observabilidade e auditoria.</p>
+<p>Duas ressalvas práticas. Primeiro, rodar dentro da rede não resolve sozinho a LGPD: ainda é preciso base legal por finalidade, dono por sistema e registro do que foi tratado, como detalhamos em <a href="/lgpd-e-ia/">LGPD e inteligência artificial</a>. Segundo, um gateway só vira ponto de controle se o tráfego real passar por ele. Se o time continuar usando contas pessoais por fora, o gateway cobre só a parte visível. O primeiro passo continua sendo mapear o que já está em uso, com o <a href="/shadow-ai/">checklist de shadow AI</a>.</p>
+<h2>Perguntas frequentes</h2>
+<p><strong>P: O que é um gateway de LLM?</strong></p>
+<p>R: É uma camada entre os sistemas da empresa e os modelos de linguagem. Centraliza o acesso e pode aplicar regras, como não deixar dado sensível sair, além de registrar o que foi enviado. Veja o guia de <a href="/ai-gateway/">AI Gateway</a>.</p>
+<p><strong>P: O Consus faz ajuste fino (fine-tuning) dos modelos?</strong></p>
+<p>R: Segundo o anúncio, a versão atual cobre só inferência, e o ajuste fino está planejado para uma atualização futura.</p>
+<p><strong>P: Dá para rodar em Kubernetes?</strong></p>
+<p>R: Sim. O serviço é distribuído como imagem de contêiner, o que permite implantação em ambientes orquestrados.</p>
+<p><strong>P: Rodar o modelo dentro da rede basta para cumprir a LGPD?</strong></p>
+<p>R: Não. Reduz a exposição, mas a empresa ainda precisa de base legal por finalidade, contrato com operadores quando houver, registro das operações e atendimento aos direitos dos titulares.</p>
+      </div>
+
+      
+      <p class="post-source">Versão em inglês: <a href="https://automationscookbook.com/blog/consus-llm-gateway-for-sensitive-data-in-production-20261013" target="_blank" rel="noopener">Automations Cookbook</a></p>
+
+      <ul class="post-tags"><li>#ai-gateway</li><li>#dados-sensiveis</li><li>#lgpd</li><li>#agentes-de-ia</li><li>#governanca-de-ia</li></ul>
+    </div>
+  </article>
+
+  <section class="related">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow">Leia também</p><h2>Mais sobre Governança de IA</h2></div>
+      <div class="post-grid"><article class="post-card">
+  <a class="post-card-link" href="../../blog/bacen-e-ia-o-que-bancos-precisam-saber-2026/">
+    <span class="tag">Governança de IA</span>
+    <h3>BACEN e IA: o que os bancos brasileiros precisam saber em 2026</h3>
+    <p class="desc">O Banco Central já sinaliza que sistemas de decisão automatizada entram no escopo da Resolução 4.557. O que isso significa para bancos e fintechs que usam IA.</p>
+    <time datetime="2026-11-02">02 de novembro de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../blog/ia-em-seguradoras-o-que-a-susep-ja-espera/">
+    <span class="tag">Governança de IA</span>
+    <h3>IA em seguradoras: o que a SUSEP já espera</h3>
+    <p class="desc">SUSEP e IA: o que a regulação atual já alcança, os riscos de precificação automatizada e o que seguradoras precisam documentar agora.</p>
+    <time datetime="2026-11-02">02 de novembro de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../blog/iso-42001-o-que-fazer-agora/">
+    <span class="tag">Governança de IA</span>
+    <h3>ISO 42001: o que fazer antes de pensar na certificação</h3>
+    <p class="desc">Antes da certificação ISO 42001, há etapas obrigatórias que a maioria das empresas brasileiras ainda não concluiu. Por onde começar.</p>
+    <time datetime="2026-11-02">02 de novembro de 2026</time>
+  </a>
+</article></div>
+    </div>
+  </section>
+
+  <section class="cta-band" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Quer aplicar isso na sua empresa, com governança?</h2>
+      <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary">Agendar conversa</a>
+    </div>
+  </section>
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../../" class="logo"><img src="../../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Blog</h5>
+          <a href="../../blog/categoria/governanca/">Governança de IA</a>
+          <a href="../../blog/categoria/ai-agents/">Agentes de IA</a>
+          <a href="../../blog/categoria/llm/">LLMs</a>
+          <a href="../../blog/categoria/dev-tools/">Ferramentas de Dev</a>
+          <a href="../../blog/categoria/automation/">Automação</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../../iso-42001/">ISO 42001</a>
+          <a href="../../plataforma-tyna/">Plataforma</a>
+          <a href="../../diagnostico/">Diagnóstico</a>
+          <a href="../../sobre/">Sobre</a>
+          <a href="../../blog/">Blog</a>
+          <a href="../../biblioteca-prompts/">Prompts</a>
+          <a href="../../rss.xml">RSS</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/site.js?v=18"></script>
+
+</body>
+</html>

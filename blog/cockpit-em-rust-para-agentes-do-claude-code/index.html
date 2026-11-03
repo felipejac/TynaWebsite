@@ -29,8 +29,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../assets/styles.css?v=17">
-<link rel="stylesheet" href="../../assets/blog.css?v=17">
+<link rel="stylesheet" href="../../assets/styles.css?v=18">
+<link rel="stylesheet" href="../../assets/blog.css?v=18">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Cockpit em Rust para agentes do Claude Code","description":"Interface leve que mostra estado interno, log e prompts do agente em tempo real — e deixa intervir no meio da execução.","datePublished":"2026-08-01","dateModified":"2026-08-01","inLanguage":"pt-BR","author":{"@type":"Person","name":"Felipe Jacob","url":"https://tyna.com.br/sobre/"},"publisher":{"@type":"Organization","name":"Tyna","url":"https://tyna.com.br","logo":{"@type":"ImageObject","url":"https://tyna.com.br/assets/logo-tyna-dark.png"}},"mainEntityOfPage":"https://tyna.com.br/blog/cockpit-em-rust-para-agentes-do-claude-code/","keywords":"rust, agentes-de-ia, observabilidade, claude-code, codigo-aberto","articleSection":"Agentes de IA"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://tyna.com.br"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tyna.com.br/blog/"},{"@type":"ListItem","position":3,"name":"Agentes de IA","item":"https://tyna.com.br/blog/categoria/ai-agents/"},{"@type":"ListItem","position":4,"name":"Cockpit em Rust para agentes do Claude Code","item":"https://tyna.com.br/blog/cockpit-em-rust-para-agentes-do-claude-code/"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Dá para usar com agentes que não sejam do Claude?","acceptedAnswer":{"@type":"Answer","text":"O cockpit foi construído em torno da API do Claude Code, mas o desenho modular permite escrever adaptadores para outros agentes de LLM com pouco esforço."}},{"@type":"Question","name":"Rodar o cockpit acrescenta latência às respostas?","acceptedAnswer":{"@type":"Answer","text":"Ele opera como processo separado e se comunica por socket leve. A sobrecarga típica fica abaixo de 5 ms, desprezível para a maioria das cargas."}},{"@type":"Question","name":"Como integro ao meu fluxo de n8n?","acceptedAnswer":{"@type":"Answer","text":"Dá para expor o cockpit como endpoint REST e chamá-lo de um nó HTTP, ou embutir a interface no seu painel atual."}}]}</script>
@@ -110,27 +110,27 @@
     <div class="wrap">
       <div class="section-head"><p class="eyebrow">Leia também</p><h2>Mais sobre Agentes de IA</h2></div>
       <div class="post-grid"><article class="post-card">
+  <a class="post-card-link" href="../../blog/agentes-em-producao-o-que-ainda-precisa-saber/">
+    <span class="tag">Agentes de IA</span>
+    <h3>Agentes de IA em produção: o que ainda é preciso saber</h3>
+    <p class="desc">Lições de implantações recentes de agentes de IA: observabilidade, degradação segura, políticas no fluxo e revisão humana antes de ir para produção.</p>
+    <time datetime="2026-10-27">27 de outubro de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../blog/como-a-openai-monitora-agentes-de-codigo-e-o-que-copiar/">
+    <span class="tag">Agentes de IA</span>
+    <h3>Como a OpenAI monitora agentes de código e o que copiar</h3>
+    <p class="desc">A OpenAI descreveu como monitora agentes de código internos contra desalinhamento: análise estática, checagens em execução e revisão humana.</p>
+    <time datetime="2026-10-27">27 de outubro de 2026</time>
+  </a>
+</article>
+<article class="post-card">
   <a class="post-card-link" href="../../blog/cloudflare-os-plataforma-aberta-para-agentes-de-ia/">
     <span class="tag">Agentes de IA</span>
     <h3>Cloudflare OS: agentes de IA rodando na borda</h3>
     <p class="desc">A Cloudflare lançou uma plataforma aberta para construir e escalar agentes de IA. O que muda para quem já roda n8n em produção.</p>
     <time datetime="2026-08-06">06 de agosto de 2026</time>
-  </a>
-</article>
-<article class="post-card">
-  <a class="post-card-link" href="../../blog/zero-mem-memoria-sem-tokens-para-agentes-llm/">
-    <span class="tag">Agentes de IA</span>
-    <h3>Zero-Mem: memória para agentes de LLM sem gastar token</h3>
-    <p class="desc">Uma técnica que separa o acesso à memória da chamada ao modelo e corta até 70% do consumo de tokens sem perder acurácia.</p>
-    <time datetime="2026-08-05">05 de agosto de 2026</time>
-  </a>
-</article>
-<article class="post-card">
-  <a class="post-card-link" href="../../blog/edotenv-ambientes-de-treino-para-trading-quantitativo/">
-    <span class="tag">Agentes de IA</span>
-    <h3>EdotEnv lança ambientes de treino para trading quantitativo</h3>
-    <p class="desc">Sandbox com dinâmica de livro de ofertas e custo de transação para treinar LLMs em estratégia — antes de arriscar capital.</p>
-    <time datetime="2026-08-04">04 de agosto de 2026</time>
   </a>
 </article></div>
     </div>

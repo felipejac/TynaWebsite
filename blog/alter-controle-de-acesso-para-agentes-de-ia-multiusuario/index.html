@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // Só coleta em produção (tyna.com.br) — localhost e previews do Cloudflare Pages (*.pages.dev) ficam de fora.
+  if (location.hostname !== 'tyna.com.br') window['ga-disable-G-DQS0KMDT3G'] = true;
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alter lança controle de acesso para agentes de IA em equipe | Tyna</title>
+<meta name="description" content="A Alter lançou uma plataforma de permissões e auditoria para agentes de IA usados por várias pessoas. Por que acesso e registro são o começo da governança.">
+<link rel="canonical" href="https://tyna.com.br/blog/alter-controle-de-acesso-para-agentes-de-ia-multiusuario/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Alter lança controle de acesso para agentes de IA em equipe | Tyna">
+<meta property="og:description" content="A Alter lançou uma plataforma de permissões e auditoria para agentes de IA usados por várias pessoas. Por que acesso e registro são o começo da governança.">
+<meta property="og:url" content="https://tyna.com.br/blog/alter-controle-de-acesso-para-agentes-de-ia-multiusuario/">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna-dark.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="alternate" type="application/rss+xml" title="Blog Tyna" href="https://tyna.com.br/rss.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=18">
+<link rel="stylesheet" href="../../assets/blog.css?v=18">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Alter lança controle de acesso para agentes de IA em equipe","description":"A Alter lançou uma plataforma de permissões e auditoria para agentes de IA usados por várias pessoas. Por que acesso e registro são o começo da governança.","datePublished":"2026-10-27","dateModified":"2026-10-27","inLanguage":"pt-BR","author":{"@type":"Person","name":"Felipe Jacob","url":"https://tyna.com.br/sobre/"},"publisher":{"@type":"Organization","name":"Tyna","url":"https://tyna.com.br","logo":{"@type":"ImageObject","url":"https://tyna.com.br/assets/logo-tyna-dark.png"}},"mainEntityOfPage":"https://tyna.com.br/blog/alter-controle-de-acesso-para-agentes-de-ia-multiusuario/","keywords":"controle-de-acesso, agentes-de-ia, auditoria, governanca-de-agentes, n8n","articleSection":"Governança de IA"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://tyna.com.br"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tyna.com.br/blog/"},{"@type":"ListItem","position":3,"name":"Governança de IA","item":"https://tyna.com.br/blog/categoria/governanca/"},{"@type":"ListItem","position":4,"name":"Alter lança controle de acesso para agentes de IA em equipe","item":"https://tyna.com.br/blog/alter-controle-de-acesso-para-agentes-de-ia-multiusuario/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Como a Alter se integra ao n8n?","acceptedAnswer":{"@type":"Answer","text":"Segundo o anúncio, por um plugin que envolve os fluxos existentes e insere checagens de permissão antes da execução, além de uma API REST para gerir agentes por código."}},{"@type":"Question","name":"A Alter substitui o controle de versão dos agentes?","acceptedAnswer":{"@type":"Answer","text":"Não. Ela cuida de permissões em execução e de registro de auditoria; o histórico do código continua no Git ou ferramenta equivalente."}},{"@type":"Question","name":"A plataforma é de código aberto?","acceptedAnswer":{"@type":"Answer","text":"Há um plano gratuito com recursos básicos, mas o código é proprietário. A API é documentada."}},{"@type":"Question","name":"Por que separar quem edita de quem executa um agente?","acceptedAnswer":{"@type":"Answer","text":"Porque quem altera o prompt muda o comportamento do agente em produção. Separar os papéis permite iterar sem arriscar a operação e deixa claro quem respondeu por cada mudança."}}]}</script>
+<link rel="alternate" hreflang="en" href="https://automationscookbook.com/blog/alter-launches-accesscontrol-for-multiuser-ai-agents-20261021">
+<link rel="alternate" hreflang="pt-BR" href="https://tyna.com.br/blog/alter-controle-de-acesso-para-agentes-de-ia-multiusuario/">
+<link rel="alternate" hreflang="x-default" href="https://automationscookbook.com/blog/alter-launches-accesscontrol-for-multiuser-ai-agents-20261021">
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../../" class="logo"><img src="../../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../../#servicos">Serviços</a></li>
+        <li><a href="../../iso-42001/">ISO 42001</a></li>
+        <li><a href="../../plataforma-tyna/">Plataforma</a></li>
+        <li><a href="../../#trilhas">Trilhas</a></li>
+        <li><a href="../../blog/">Blog</a></li>
+        <li><a href="../../biblioteca-prompts/">Prompts</a></li>
+        <li><a href="../../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+  <article class="post">
+    <div class="wrap post-wrap">
+      <nav class="crumbs" aria-label="Trilha"><a href="../../">Início</a> › <a href="../">Blog</a> › <a href="../categoria/governanca/">Governança de IA</a></nav>
+      <p class="eyebrow">Governança de IA</p>
+      <h1>Alter lança controle de acesso para agentes de IA em equipe</h1>
+      <p class="post-meta"><time datetime="2026-10-27">27 de outubro de 2026</time> · Por <a href="../../sobre/">Felipe Jacob</a></p>
+      <p class="lead">A Alter lançou uma plataforma de permissões e auditoria para agentes de IA usados por várias pessoas. Por que acesso e registro são o começo da governança.</p>
+
+      
+
+      <aside class="answer-box"><h2>Resposta curta</h2><p>A Alter, startup da turma S25 da Y Combinator, lançou uma plataforma de controle de acesso para agentes de IA usados por várias pessoas, com permissões por papel, registro de auditoria e execução orientada por política. Para a governança, separar quem edita de quem executa um agente é parte do escopo de autonomia.</p></aside>
+
+      <div class="post-body">
+<h2>O que aconteceu</h2>
+<p>A Alter, startup da turma S25 da Y Combinator, lançou sua plataforma pública de controle de acesso para agentes de IA multiusuário. O serviço permite criar, compartilhar e governar agentes entre ambientes, com permissões por papel, registro de auditoria e execução guiada por política. Em uma demonstração, um bot de atendimento tinha um integrante editando o prompt e outro apenas o executando.</p>
+<p>A plataforma se integra a motores de fluxo como n8n e Zapier e a pipelines de CI/CD, em uma interface única de ciclo de vida do agente. Os fundadores dizem atacar a "proliferação de agentes" e devolver visibilidade sobre quem pode alterar ou acionar um fluxo de IA. As informações são as do anúncio.</p>
+<h2>Por que isso importa</h2>
+<ul>
+<li><strong>Colaboração segura:</strong> papéis granulares evitam alterações acidentais ou maliciosas em agentes críticos.</li>
+<li><strong>Auditabilidade:</strong> cada edição e cada execução registrada dá a rastreabilidade que setores regulados exigem.</li>
+<li><strong>Governança escalável:</strong> uma política central mantém as permissões consistentes à medida que os projetos crescem.</li>
+<li><strong>Iteração rápida:</strong> separar direito de editar de direito de executar deixa o desenvolvedor ajustar o prompt sem arriscar a produção.</li>
+</ul>
+<h2>A leitura da Tyna</h2>
+<p>Controle de acesso é o ponto mais negligenciado dos agentes de IA, e costuma aparecer só depois do primeiro susto. A pergunta que a Alter formaliza é a que abre o <a href="/governanca-de-agentes/">escopo de autonomia</a>: quem pode mudar o que o agente faz, quem pode acioná-lo e o que fica registrado.</p>
+<p>Sem esse desenho, o risco não é o modelo, é a proliferação: agentes criados por uma pessoa, com credencial de outra, sem dono nem registro. É a versão para agentes do problema de <a href="/shadow-ai/">shadow AI</a>. Ferramenta ajuda, mas o ponto de partida é organizacional: um dono por agente, um critério de aprovação e uma trilha do que ele leu, decidiu e executou. As dez perguntas antes de um agente ir ao ar estão em <a href="/governanca-de-agentes/">governança de agentes de IA</a>.</p>
+<h2>Perguntas frequentes</h2>
+<p><strong>P: Como a Alter se integra ao n8n?</strong></p>
+<p>R: Segundo o anúncio, por um plugin que envolve os fluxos existentes e insere checagens de permissão antes da execução, além de uma API REST para gerir agentes por código.</p>
+<p><strong>P: A Alter substitui o controle de versão dos agentes?</strong></p>
+<p>R: Não. Ela cuida de permissões em execução e de registro de auditoria; o histórico do código continua no Git ou ferramenta equivalente.</p>
+<p><strong>P: A plataforma é de código aberto?</strong></p>
+<p>R: Há um plano gratuito com recursos básicos, mas o código é proprietário. A API é documentada.</p>
+<p><strong>P: Por que separar quem edita de quem executa um agente?</strong></p>
+<p>R: Porque quem altera o prompt muda o comportamento do agente em produção. Separar os papéis permite iterar sem arriscar a operação e deixa claro quem respondeu por cada mudança.</p>
+      </div>
+
+      
+      <p class="post-source">Versão em inglês: <a href="https://automationscookbook.com/blog/alter-launches-accesscontrol-for-multiuser-ai-agents-20261021" target="_blank" rel="noopener">Automations Cookbook</a></p>
+
+      <ul class="post-tags"><li>#controle-de-acesso</li><li>#agentes-de-ia</li><li>#auditoria</li><li>#governanca-de-agentes</li><li>#n8n</li></ul>
+    </div>
+  </article>
+
+  <section class="related">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow">Leia também</p><h2>Mais sobre Governança de IA</h2></div>
+      <div class="post-grid"><article class="post-card">
+  <a class="post-card-link" href="../../blog/bacen-e-ia-o-que-bancos-precisam-saber-2026/">
+    <span class="tag">Governança de IA</span>
+    <h3>BACEN e IA: o que os bancos brasileiros precisam saber em 2026</h3>
+    <p class="desc">O Banco Central já sinaliza que sistemas de decisão automatizada entram no escopo da Resolução 4.557. O que isso significa para bancos e fintechs que usam IA.</p>
+    <time datetime="2026-11-02">02 de novembro de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../blog/ia-em-seguradoras-o-que-a-susep-ja-espera/">
+    <span class="tag">Governança de IA</span>
+    <h3>IA em seguradoras: o que a SUSEP já espera</h3>
+    <p class="desc">SUSEP e IA: o que a regulação atual já alcança, os riscos de precificação automatizada e o que seguradoras precisam documentar agora.</p>
+    <time datetime="2026-11-02">02 de novembro de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../blog/iso-42001-o-que-fazer-agora/">
+    <span class="tag">Governança de IA</span>
+    <h3>ISO 42001: o que fazer antes de pensar na certificação</h3>
+    <p class="desc">Antes da certificação ISO 42001, há etapas obrigatórias que a maioria das empresas brasileiras ainda não concluiu. Por onde começar.</p>
+    <time datetime="2026-11-02">02 de novembro de 2026</time>
+  </a>
+</article></div>
+    </div>
+  </section>
+
+  <section class="cta-band" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Quer aplicar isso na sua empresa, com governança?</h2>
+      <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary">Agendar conversa</a>
+    </div>
+  </section>
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../../" class="logo"><img src="../../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Blog</h5>
+          <a href="../../blog/categoria/governanca/">Governança de IA</a>
+          <a href="../../blog/categoria/ai-agents/">Agentes de IA</a>
+          <a href="../../blog/categoria/llm/">LLMs</a>
+          <a href="../../blog/categoria/dev-tools/">Ferramentas de Dev</a>
+          <a href="../../blog/categoria/automation/">Automação</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../../iso-42001/">ISO 42001</a>
+          <a href="../../plataforma-tyna/">Plataforma</a>
+          <a href="../../diagnostico/">Diagnóstico</a>
+          <a href="../../sobre/">Sobre</a>
+          <a href="../../blog/">Blog</a>
+          <a href="../../biblioteca-prompts/">Prompts</a>
+          <a href="../../rss.xml">RSS</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/site.js?v=18"></script>
+
+</body>
+</html>

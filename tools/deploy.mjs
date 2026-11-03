@@ -48,19 +48,14 @@ const PUBLISH = [
   'en',
 ];
 
-// Páginas-pilar de governança de IA: publicadas só se a pasta existir (mesma lista do sitemap
-// em tools/build-blog.mjs), para uma página ainda não criada não derrubar o deploy.
-const PILARES = ['governanca-de-ia', 'lgpd-e-ia', 'politica-de-uso-de-ia', 'ai-gateway',
-  'governanca-de-agentes', 'treinamento-de-ia-para-empresas', 'politica-de-privacidade', 'glossario',
-  'llm-leaderboard', 'ai-gateway/comparativo',
-  'chatgpt-na-empresa-lgpd', 'dpo-encarregado-e-inteligencia-artificial', 'relatorio-de-impacto-lgpd-ia',
-  'ia-para-equipes-de-ti', 'ia-segura-para-empresas', 'agentes-de-ia-para-empresas',
-  'o-que-e-prompt-injection', 'o-que-e-guardrail-em-ia', 'iso-27001-e-iso-42001-diferenca', 'riscos-da-ia-generativa-para-empresas',
-  'ia-no-setor-financeiro', 'inventario-de-ia', 'modelo-de-politica-de-ia',
-  'framework-de-governanca-de-ia', 'auditoria-de-ia', 'iso-42001-passo-a-passo', 'responsabilidade-civil-ia',
-  'politica-de-uso-de-ia-para-empresas', 'governanca-de-ia-para-setor-financeiro',
-  'ia-e-protecao-de-dados-pessoais', 'riscos-de-ia-generativa-nas-empresas', 'politica-uso-ia-generativa-empresas'];
-for (const p of PILARES) if (existsSync(join(ROOT, p))) PUBLISH.push(p);
+// Páginas de conteúdo: descoberta automática — qualquer pasta com index.html na raiz vai
+// para o deploy sem editar este arquivo. Pastas de sistema (sem index.html) e as já
+// presentes em PUBLISH acima são ignoradas automaticamente.
+const JA_PUBLICADOS = new Set(PUBLISH);
+for (const entrada of readdirSync(ROOT).sort()) {
+  if (entrada.startsWith('.') || JA_PUBLICADOS.has(entrada)) continue;
+  if (existsSync(join(ROOT, `${entrada}/index.html`))) PUBLISH.push(entrada);
+}
 
 const args = process.argv.slice(2);
 const has = f => args.includes(f);

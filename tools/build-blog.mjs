@@ -474,21 +474,24 @@ const staticPages = [
     })),
 ];
 
-// Páginas-pilar de governança de IA: entram no sitemap só se existirem em disco, então
-// publicar uma nova é criar a pasta e acrescentar o slug aqui e em tools/deploy.mjs.
-const PILARES = ['governanca-de-ia', 'lgpd-e-ia', 'politica-de-uso-de-ia', 'ai-gateway',
-  'governanca-de-agentes', 'treinamento-de-ia-para-empresas', 'politica-de-privacidade', 'glossario',
-  'llm-leaderboard', 'ai-gateway/comparativo',
-  'chatgpt-na-empresa-lgpd', 'dpo-encarregado-e-inteligencia-artificial', 'relatorio-de-impacto-lgpd-ia',
-  'ia-para-equipes-de-ti', 'ia-segura-para-empresas', 'agentes-de-ia-para-empresas',
-  'o-que-e-prompt-injection', 'o-que-e-guardrail-em-ia', 'iso-27001-e-iso-42001-diferenca', 'riscos-da-ia-generativa-para-empresas',
-  'ia-no-setor-financeiro', 'inventario-de-ia', 'modelo-de-politica-de-ia',
-  'framework-de-governanca-de-ia', 'auditoria-de-ia', 'iso-42001-passo-a-passo', 'responsabilidade-civil-ia',
-  'politica-de-uso-de-ia-para-empresas', 'governanca-de-ia-para-setor-financeiro',
-  'ia-e-protecao-de-dados-pessoais', 'riscos-de-ia-generativa-nas-empresas', 'politica-uso-ia-generativa-empresas'];
-for (const slug of PILARES) {
-  const rel = `${slug}/index.html`;
-  if (existsSync(join(ROOT, rel))) staticPages.push({ loc: `${SITE}/${slug}/`, pri: '0.9', freq: 'monthly', mod: mtime(rel) });
+// Páginas de conteúdo: descoberta automática — qualquer pasta com index.html na raiz
+// entra no sitemap sem editar este arquivo. Pastas de sistema (sem index.html) e pastas
+// já listadas em staticPages acima são ignoradas automaticamente.
+const JA_LISTADOS = new Set([
+  'iso-42001', 'diagnostico', 'shadow-ai', 'biblioteca-prompts',
+  'pl-2338', 'sobre', 'plataforma-tyna', 'en', 'blog',
+]);
+for (const entrada of readdirSync(ROOT).sort()) {
+  if (entrada.startsWith('.') || JA_LISTADOS.has(entrada)) continue;
+  const rel = `${entrada}/index.html`;
+  if (existsSync(join(ROOT, rel))) {
+    staticPages.push({ loc: `${SITE}/${entrada}/`, pri: '0.8', freq: 'monthly', mod: mtime(rel) });
+  }
+}
+// Sub-página especial dentro de ai-gateway (único caso de aninhamento na raiz)
+const aiComp = 'ai-gateway/comparativo/index.html';
+if (existsSync(join(ROOT, aiComp))) {
+  staticPages.push({ loc: `${SITE}/ai-gateway/comparativo/`, pri: '0.8', freq: 'monthly', mod: mtime(aiComp) });
 }
 
 // Páginas individuais de prompt em biblioteca-prompts/prompts/<slug>/. São descobertas

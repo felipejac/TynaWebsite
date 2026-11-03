@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // Só coleta em produção (tyna.com.br) — localhost e previews do Cloudflare Pages (*.pages.dev) ficam de fora.
+  if (location.hostname !== 'tyna.com.br') window['ga-disable-G-DQS0KMDT3G'] = true;
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IA em seguradoras: o que a SUSEP já espera | Tyna</title>
+<meta name="description" content="SUSEP e IA: o que a regulação atual já alcança, os riscos de precificação automatizada e o que seguradoras precisam documentar agora.">
+<link rel="canonical" href="https://tyna.com.br/blog/ia-em-seguradoras-o-que-a-susep-ja-espera/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IA em seguradoras: o que a SUSEP já espera | Tyna">
+<meta property="og:description" content="SUSEP e IA: o que a regulação atual já alcança, os riscos de precificação automatizada e o que seguradoras precisam documentar agora.">
+<meta property="og:url" content="https://tyna.com.br/blog/ia-em-seguradoras-o-que-a-susep-ja-espera/">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna-dark.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="alternate" type="application/rss+xml" title="Blog Tyna" href="https://tyna.com.br/rss.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css?v=18">
+<link rel="stylesheet" href="../../assets/blog.css?v=18">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"IA em seguradoras: o que a SUSEP já espera","description":"SUSEP e IA: o que a regulação atual já alcança, os riscos de precificação automatizada e o que seguradoras precisam documentar agora.","datePublished":"2026-11-02","dateModified":"2026-11-02","inLanguage":"pt-BR","author":{"@type":"Person","name":"Felipe Jacob","url":"https://tyna.com.br/sobre/"},"publisher":{"@type":"Organization","name":"Tyna","url":"https://tyna.com.br","logo":{"@type":"ImageObject","url":"https://tyna.com.br/assets/logo-tyna-dark.png"}},"mainEntityOfPage":"https://tyna.com.br/blog/ia-em-seguradoras-o-que-a-susep-ja-espera/","keywords":"susep, seguradoras, governanca-de-ia, setor-financeiro, gestao-de-risco","articleSection":"Governança de IA"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://tyna.com.br"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tyna.com.br/blog/"},{"@type":"ListItem","position":3,"name":"Governança de IA","item":"https://tyna.com.br/blog/categoria/governanca/"},{"@type":"ListItem","position":4,"name":"IA em seguradoras: o que a SUSEP já espera","item":"https://tyna.com.br/blog/ia-em-seguradoras-o-que-a-susep-ja-espera/"}]}</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../../" class="logo"><img src="../../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../../#servicos">Serviços</a></li>
+        <li><a href="../../iso-42001/">ISO 42001</a></li>
+        <li><a href="../../plataforma-tyna/">Plataforma</a></li>
+        <li><a href="../../#trilhas">Trilhas</a></li>
+        <li><a href="../../blog/">Blog</a></li>
+        <li><a href="../../biblioteca-prompts/">Prompts</a></li>
+        <li><a href="../../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+  <article class="post">
+    <div class="wrap post-wrap">
+      <nav class="crumbs" aria-label="Trilha"><a href="../../">Início</a> › <a href="../">Blog</a> › <a href="../categoria/governanca/">Governança de IA</a></nav>
+      <p class="eyebrow">Governança de IA</p>
+      <h1>IA em seguradoras: o que a SUSEP já espera</h1>
+      <p class="post-meta"><time datetime="2026-11-02">02 de novembro de 2026</time> · Por <a href="../../sobre/">Felipe Jacob</a></p>
+      <p class="lead">SUSEP e IA: o que a regulação atual já alcança, os riscos de precificação automatizada e o que seguradoras precisam documentar agora.</p>
+
+      
+
+      <aside class="answer-box"><h2>Resposta curta</h2><p>A SUSEP tem monitorado ativamente o uso de IA em seguradoras, especialmente em precificação de risco e análise de sinistros. A Circular SUSEP 662/2022, que regulamenta o gerenciamento de riscos operacionais, alcança sistemas de decisão automatizada. Seguradoras que usam IA para calcular prêmios ou decidir sobre sinistros precisam documentar como o modelo decide, garantir que o resultado não discrimine ilegalmente e manter trilha de auditoria das decisões.</p></aside>
+
+      <div class="post-body">
+<p>O setor de seguros foi um dos primeiros a adotar machine learning em larga escala no Brasil — precificação de risco, análise de sinistros, detecção de fraude. E por isso é também um dos primeiros a lidar com as perguntas que essa adoção gerou.</p>
+<p>A SUSEP acompanha esse movimento. Não existe ainda uma circular específica sobre IA para o setor de seguros, mas o regulador já deixou claros alguns sinais do que espera — e o enquadramento existente já cobre boa parte dos sistemas de IA que as seguradoras operam hoje.</p>
+<h2>O que a regulação atual já alcança</h2>
+<p>A Circular SUSEP nº 662/2022, que regulamenta os requisitos mínimos de gerenciamento de riscos operacionais, é o ponto de entrada mais direto. O risco operacional inclui perdas resultantes de falhas em sistemas — e um modelo de IA que toma decisões de subscrição ou sinistros é, para fins regulatórios, um sistema.</p>
+<p>Isso significa que a seguradora precisa:</p>
+<ul>
+<li>Identificar os riscos operacionais associados a cada sistema de IA em uso</li>
+<li>Documentar os controles que mitigam esses riscos</li>
+<li>Monitorar indicadores de performance dos sistemas</li>
+<li>Ter um processo definido para quando um sistema apresenta comportamento inesperado</li>
+</ul>
+<p>A Circular 662 não menciona IA explicitamente. Mas quando o diretor de riscos da SUSEP faz uma visita técnica e pergunta como a seguradora gerencia o risco de um modelo de precificação que foi atualizado há três meses, a resposta não pode ser "não sabemos".</p>
+<h2>O risco específico da precificação por IA</h2>
+<p>Precificação de seguro é o caso de uso de IA com mais risco regulatório e reputacional no setor. O motivo é simples: o prêmio que o cliente paga é uma decisão diretamente ligada a dados pessoais, e o resultado pode ser discriminatório de formas que o regulador e a opinião pública não aceitam.</p>
+<p>Um modelo que aprende padrões históricos de sinistralidade pode, sem que ninguém tenha projetado isso, cobrar mais de grupos com características específicas que não deveriam ser usadas como fator de precificação — e que às vezes nem aparecem diretamente nos dados, mas emergem como proxies.</p>
+<p>A SUSEP ainda não publicou orientações específicas sobre uso de variáveis em modelos de precificação. Mas o CDC e a regulação de proteção ao consumidor do próprio setor financeiro já limitam o uso de certos dados para decisões que afetam o cliente. E mais importante: quando um sinistro é negado por um sistema automatizado, o cliente pode contestar, e a seguradora precisa ser capaz de explicar a decisão.</p>
+<p>Não é necessário que o modelo seja interpretável de forma técnica. É necessário que a seguradora tenha uma política de explicabilidade — o que ela vai dizer, como vai dizer e para quem — quando uma decisão automatizada é questionada.</p>
+<h2>Análise de sinistros: onde a pressão é mais imediata</h2>
+<p>Se a precificação é o caso de uso com mais risco no horizonte, a análise de sinistros é onde a pressão é mais imediata. Isso por uma razão simples: quando um sinistro é negado, o cliente tem meios de recurso — Ouvidoria, PROCON, SUSEP, Justiça.</p>
+<p>Seguradoras que usam IA para triagem ou para suporte à decisão de sinistros precisam de três coisas:</p>
+<p><strong>Documentação da decisão.</strong> Mesmo que a decisão final seja de um ajustador humano, se um modelo contribuiu para ela, isso precisa estar no registro.</p>
+<p><strong>Política de revisão humana.</strong> Para quais tipos de sinistro o modelo decide sozinho? Para quais uma pessoa sempre revisa? O que dispara a revisão humana quando o modelo está incerto?</p>
+<p><strong>Processo de contestação.</strong> Quando o cliente recorre, quem analisa? Essa pessoa tem acesso ao que o modelo processou? Consegue explicar, em termos que o cliente entende, por que a decisão foi tomada?</p>
+<h2>Por onde começar</h2>
+<p>O primeiro passo é o inventário. Quais sistemas de IA sua seguradora opera hoje, quais decisões cada um toma ou suporta, quais dados processam e quem é o responsável por cada um?</p>
+<p>O segundo passo é verificar, para cada sistema, se existe documentação do processo de aprovação, da avaliação de risco e dos controles de monitoramento. Na maioria das seguradoras, os sistemas mais antigos nunca passaram por esse processo — eles chegaram a produção num momento em que ninguém fazia essas perguntas.</p>
+<p>O terceiro passo é estabelecer um processo para sistemas novos — de modo que o próximo modelo que entrar em produção passe por avaliação antes de ir ao ar, não depois de um incidente.</p>
+<p>---</p>
+<p>*Para entender onde a sua seguradora está nesse processo, o <a href="https://tyna.com.br/diagnostico/" target="_blank" rel="noopener">diagnóstico de maturidade de governança de IA</a> da Tyna produz uma avaliação em minutos. Veja também o guia sobre <a href="https://tyna.com.br/ia-no-setor-financeiro/" target="_blank" rel="noopener">IA no setor financeiro</a> para o contexto regulatório completo.*</p>
+      </div>
+
+      
+      
+
+      <ul class="post-tags"><li>#susep</li><li>#seguradoras</li><li>#governanca-de-ia</li><li>#setor-financeiro</li><li>#gestao-de-risco</li></ul>
+    </div>
+  </article>
+
+  <section class="related">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow">Leia também</p><h2>Mais sobre Governança de IA</h2></div>
+      <div class="post-grid"><article class="post-card">
+  <a class="post-card-link" href="../../blog/bacen-e-ia-o-que-bancos-precisam-saber-2026/">
+    <span class="tag">Governança de IA</span>
+    <h3>BACEN e IA: o que os bancos brasileiros precisam saber em 2026</h3>
+    <p class="desc">O Banco Central já sinaliza que sistemas de decisão automatizada entram no escopo da Resolução 4.557. O que isso significa para bancos e fintechs que usam IA.</p>
+    <time datetime="2026-11-02">02 de novembro de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../blog/iso-42001-o-que-fazer-agora/">
+    <span class="tag">Governança de IA</span>
+    <h3>ISO 42001: o que fazer antes de pensar na certificação</h3>
+    <p class="desc">Antes da certificação ISO 42001, há etapas obrigatórias que a maioria das empresas brasileiras ainda não concluiu. Por onde começar.</p>
+    <time datetime="2026-11-02">02 de novembro de 2026</time>
+  </a>
+</article>
+<article class="post-card">
+  <a class="post-card-link" href="../../blog/alter-controle-de-acesso-para-agentes-de-ia-multiusuario/">
+    <span class="tag">Governança de IA</span>
+    <h3>Alter lança controle de acesso para agentes de IA em equipe</h3>
+    <p class="desc">A Alter lançou uma plataforma de permissões e auditoria para agentes de IA usados por várias pessoas. Por que acesso e registro são o começo da governança.</p>
+    <time datetime="2026-10-27">27 de outubro de 2026</time>
+  </a>
+</article></div>
+    </div>
+  </section>
+
+  <section class="cta-band" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Quer aplicar isso na sua empresa, com governança?</h2>
+      <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary">Agendar conversa</a>
+    </div>
+  </section>
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../../" class="logo"><img src="../../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Blog</h5>
+          <a href="../../blog/categoria/governanca/">Governança de IA</a>
+          <a href="../../blog/categoria/ai-agents/">Agentes de IA</a>
+          <a href="../../blog/categoria/llm/">LLMs</a>
+          <a href="../../blog/categoria/dev-tools/">Ferramentas de Dev</a>
+          <a href="../../blog/categoria/automation/">Automação</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../../iso-42001/">ISO 42001</a>
+          <a href="../../plataforma-tyna/">Plataforma</a>
+          <a href="../../diagnostico/">Diagnóstico</a>
+          <a href="../../sobre/">Sobre</a>
+          <a href="../../blog/">Blog</a>
+          <a href="../../biblioteca-prompts/">Prompts</a>
+          <a href="../../rss.xml">RSS</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/site.js?v=18"></script>
+
+</body>
+</html>
