@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // Só coleta em produção (tyna.com.br) — localhost e previews do Cloudflare Pages (*.pages.dev) ficam de fora.
+  if (location.hostname !== 'tyna.com.br') window['ga-disable-G-DQS0KMDT3G'] = true;
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IA e proteção de dados pessoais: guia para gestores | Tyna</title>
+<meta name="description" content="IA e proteção de dados pessoais: entenda onde o dado vai parar, qual base legal usar e o que decidir primeiro. Um guia direto para gestores. Leia o artigo.">
+<link rel="canonical" href="https://tyna.com.br/ia-e-protecao-de-dados-pessoais/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="IA e proteção de dados pessoais: guia para gestores">
+<meta property="og:description" content="IA e proteção de dados pessoais: entenda onde o dado vai parar, qual base legal usar e o que decidir primeiro. Um guia direto para gestores. Leia o artigo.">
+<meta property="og:url" content="https://tyna.com.br/ia-e-protecao-de-dados-pessoais/">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna-dark.png">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css?v=19">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "IA e proteção de dados pessoais: guia para gestores",
+  "inLanguage": "pt-BR",
+  "description": "IA e proteção de dados pessoais: entenda onde o dado vai parar, qual base legal usar e o que decidir primeiro. Um guia direto para gestores. Leia o artigo.",
+  "datePublished": "2026-11-03",
+  "dateModified": "2026-11-03",
+  "author": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "mainEntityOfPage": "https://tyna.com.br/ia-e-protecao-de-dados-pessoais/"
+}
+</script>
+<link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "pt-BR",
+  "mainEntity": [
+    {"@type":"Question","name":"A LGPD se aplica ao uso de inteligência artificial?","acceptedAnswer":{"@type":"Answer","text":"Sim. A LGPD olha para o tratamento de dado pessoal, não para a tecnologia usada. Se um prompt, um documento enviado ou uma base de treinamento identifica uma pessoa, há tratamento e valem finalidade, base legal, necessidade, segurança e os direitos do titular."}},
+    {"@type":"Question","name":"Preciso de consentimento para usar IA com dados de clientes?","acceptedAnswer":{"@type":"Answer","text":"Nem sempre. O consentimento é uma entre várias bases legais, e a escolha depende da finalidade. O ponto é definir e registrar a base antes do uso, e não tentar justificá-la depois. Em caso de dúvida, o jurídico ou o encarregado deve decidir."}},
+    {"@type":"Question","name":"Quando é preciso um relatório de impacto para um projeto de IA?","acceptedAnswer":{"@type":"Answer","text":"Quando o uso envolve risco relevante às pessoas, como decisões sobre elas, dado sensível ou grande volume. A ANPD pode solicitar o relatório, e fazê-lo antes de lançar o projeto costuma ser mais barato do que justificar depois."}},
+    {"@type":"Question","name":"A IA pode tomar decisões sobre pessoas sozinha?","acceptedAnswer":{"@type":"Answer","text":"A LGPD garante ao titular o direito de pedir a revisão de decisões tomadas apenas por tratamento automatizado que afetem seus interesses. Na prática, convém manter uma pessoa responsável na decisão e conseguir explicar os critérios usados."}},
+    {"@type":"Question","name":"Anonimizar os dados resolve o problema?","acceptedAnswer":{"@type":"Answer","text":"Só quando a anonimização é de fato irreversível. Trocar o nome por um código, a pseudonimização, ainda deixa o dado dentro do alcance da lei. Antes de afirmar que o dado é anônimo, teste se alguém consegue reidentificar a pessoa combinando outras informações."}}
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><img src="../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../#servicos">Serviços</a></li>
+        <li><a href="../iso-42001/">ISO 42001</a></li>
+        <li><a href="../#cases">Cases</a></li>
+        <li><a href="../#trilhas">Trilhas</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../biblioteca-prompts/">Prompts</a></li>
+        <li><a href="../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20IA%20e%20prote%C3%A7%C3%A3o%20de%20dados%20pessoais%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20IA%20e%20prote%C3%A7%C3%A3o%20de%20dados%20pessoais%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">LGPD e IA</p>
+      <h1 style="max-width:900px;">IA e proteção de dados pessoais: <em>guia para gestores</em></h1>
+      <div class="lead" style="max-width:740px;">
+        <p class="lead">Um analista cola uma lista de clientes em um assistente de IA para montar um resumo. Outra área liga um recurso de IA em um sistema que já guarda dados de funcionários. Um fornecedor atualiza seus termos e passa a tratar o conteúdo de um jeito diferente. Nenhuma dessas situações parece um projeto, mas todas são tratamento de dado pessoal, com as obrigações que a LGPD traz.</p>
+        <p class="lead">Para quem gere uma operação com mais de 200 pessoas, o desafio é saber onde o dado está, qual base legal o sustenta e quem responde quando algo dá errado. Este artigo organiza as decisões que importam, na ordem em que costumam aparecer, sem exigir que você seja especialista em modelos ou em direito.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="onde-o-dado-vai">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>1. Para onde o dado vai quando entra em uma ferramenta de IA</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+        <p>A primeira pergunta de proteção de dados em IA é geográfica e contratual: para onde foi o dado, quem pode acessá-lo e por quanto tempo ele fica guardado. Em uma planilha interna, a resposta é conhecida. Em um serviço de IA, depende do plano contratado, das configurações e do contrato com o fornecedor.</p>
+        <p>Há quatro pontos que o gestor deve exigir por escrito antes de aprovar qualquer ferramenta: se o conteúdo enviado é usado para treinar modelos, por quanto tempo é retido, quem do lado do fornecedor pode vê-lo e em que país é processado. Este último pesa porque a LGPD trata a transferência internacional de dados como um tema próprio, com condições a cumprir.</p>
+        <p>A diferença entre a versão corporativa e a conta pessoal da mesma ferramenta costuma estar exatamente aí. Por isso o mesmo texto colado em duas contas diferentes pode ser um uso aceitável em uma e um incidente na outra. O ponto de partida é saber quais ferramentas estão aprovadas e para qual tipo de dado, o que o <a href="../chatgpt-na-empresa-lgpd/">uso de assistentes de chat na empresa</a> deixa bem claro.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="base-legal">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>2. Finalidade e base legal: o que justifica usar o dado</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+        <p>A LGPD exige que todo tratamento de dado pessoal tenha uma finalidade específica e uma base legal que o sustente. Com IA, o erro mais comum é reaproveitar um dado coletado para um fim e usá-lo em outro, por exemplo: o histórico de atendimento de clientes passa a alimentar um modelo de previsão sem que ninguém tenha perguntado se isso cabe na finalidade original.</p>
+        <p>Antes de começar um projeto, vale responder por escrito a quatro perguntas. Qual é o objetivo do uso? Quais dados pessoais entram? Qual base legal o sustenta? Dá para chegar ao mesmo resultado com menos dado, ou com dado sem identificação? A última pergunta é o princípio da necessidade em ação, e é a que mais reduz risco por menor custo.</p>
+        <p>O consentimento não é a única saída nem a mais simples. Ele pode ser retirado a qualquer momento, o que complica um modelo já treinado. Outras bases, como execução de contrato, obrigação legal ou legítimo interesse, exigem justificativa própria. No legítimo interesse, é preciso documentar a avaliação feita. Aqui, a decisão é conjunta entre jurídico, encarregado e a área dona do projeto. Veja como o tema se desdobra em <a href="../lgpd-e-ia/">LGPD e IA</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="direitos">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>3. Direitos do titular e decisões automatizadas</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+        <p>Quem tem dado tratado por uma empresa pode pedir acesso, correção, eliminação e informações sobre o compartilhamento. Com IA, essas solicitações ficam mais difíceis de atender se a empresa não sabe onde o dado foi parar. Uma base enviada a um fornecedor, um histórico de conversa em uma ferramenta e um conjunto de treinamento são lugares onde o dado pode estar e de onde ele precisa poder ser localizado.</p>
+        <p>Há ainda o direito de pedir a revisão de decisões tomadas unicamente por tratamento automatizado que afetem os interesses da pessoa, como triagem de currículos, análise de crédito ou definição de perfil. Quando a empresa usa IA nesses fluxos, precisa saber explicar quais critérios foram aplicados, observados os segredos comercial e industrial.</p>
+        <p>A medida prática é manter uma pessoa com autoridade para rever e mudar a decisão, e registrar o que o sistema recomendou e o que foi decidido. Sem esse registro, responder a um titular, a um cliente ou à autoridade vira reconstrução de memória.</p>
+        <p>Também convém ter um canal e um prazo internos para essas solicitações, com o encarregado no meio do caminho. O papel dele em projetos de IA está em <a href="../dpo-encarregado-e-inteligencia-artificial/">DPO e inteligência artificial</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="risco-impacto">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>4. Quando o risco pede relatório de impacto</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+        <p>O relatório de impacto à proteção de dados descreve o tratamento, os riscos para as pessoas e as medidas para reduzi-los. A ANPD pode pedi-lo, e para projetos de IA ele é uma boa prática mesmo quando ninguém exigiu.</p>
+        <p>Os sinais de que vale fazê-lo são conhecidos: decisões que afetam pessoas, dados sensíveis (saúde, biometria, origem, opinião), dados de crianças e adolescentes, grande volume, monitoramento de comportamento e uso de fornecedor que processa fora do país. Um único desses sinais já justifica o exercício. Dois ou mais tornam o relatório quase obrigatório na prática.</p>
+        <p>Ele não precisa ser um documento de cem páginas. O valor está em obrigar a equipe a descrever o fluxo do dado, ver onde ele é exposto e decidir, antes do lançamento, quais controles entram. Veja o roteiro em <a href="../relatorio-de-impacto-lgpd-ia/">relatório de impacto LGPD e IA</a>.</p>
+        <p>Por último, o relatório não é uma foto. Quando o sistema muda, seja pela troca de modelo, por novos dados ou por uma nova finalidade, ele precisa ser revisto. Um bom hábito é amarrar a revisão ao ciclo de mudanças do próprio sistema.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="seguranca">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>5. Segurança, incidentes e o que o fornecedor entrega</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+        <p>A LGPD pede medidas de segurança técnicas e administrativas proporcionais ao risco. Em IA, isso inclui o que já se faz com qualquer sistema, como controle de acesso, registro de uso e criptografia, mais cuidados próprios: limitar quais dados o modelo recebe, evitar que ele tenha acesso mais amplo do que o necessário e registrar o que entrou e o que saiu.</p>
+        <p>Quando o sistema lê documentos e e-mails ou age em outros sistemas, aparece o risco de instruções escondidas no conteúdo que tentam desviar o comportamento do modelo e extrair dados. Esse ataque tem nome, <a href="../o-que-e-prompt-injection/">prompt injection</a>, e a defesa passa por privilégio mínimo e <a href="../o-que-e-guardrail-em-ia/">guardrails</a> aplicados em execução.</p>
+        <p>Se houver um incidente que possa acarretar risco ou dano relevante aos titulares, a lei prevê a comunicação à ANPD e às pessoas afetadas. Ter um plano pronto, que diga quem decide, quem comunica e como reconstruir o que aconteceu, vale mais do que descobrir o roteiro no meio da crise. E isso só funciona quando há registro do que o sistema fez.</p>
+        <p>No contrato, o fornecedor de IA é, em geral, operador de dados da empresa. Revise o que ele promete sobre uso do conteúdo, subcontratados, local de processamento, prazo de retenção, apoio em incidente e devolução ou exclusão dos dados no fim do contrato. Cláusula genérica de &ldquo;melhores esforços&rdquo; não responde a nada disso.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="organizar">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>6. Como organizar em uma empresa com mais de 200 pessoas</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+        <p>Em uma empresa desse porte, o problema não é a falta de política, é a distância entre a política e o que acontece nas áreas. Por isso o ponto de partida é o levantamento do que existe, e não o texto da regra. O <a href="../inventario-de-ia/">inventário de IA</a> mostra quais ferramentas, quais fluxos e quais dados já estão em uso, inclusive o que ninguém aprovou, o chamado <a href="../shadow-ai/">shadow AI</a>.</p>
+        <p>Com o inventário em mãos, o caminho é curto. Classifique cada uso por tipo de dado e nível de risco. Defina o que pode ser feito livremente, o que exige aprovação e o que é vedado. Ofereça uma ferramenta autorizada para quem precisa de IA no trabalho, porque proibição sem alternativa empurra o uso para contas pessoais. Só então implemente os controles técnicos.</p>
+        <p>Três hábitos sustentam o resultado. Um dono claro para o tema, com mandato e participação de TI, segurança, jurídico e negócio. Treinamento por função, com exemplos reais de cada área. E revisão periódica, porque ferramentas, contratos e usos mudam mais rápido que o calendário da política.</p>
+        <p>Quanto à regulação, o Brasil discute um marco legal específico para IA, ainda em tramitação, que trabalha com níveis de risco (<a href="../pl-2338/">PL 2338</a>). O texto pode mudar, então acompanhe-o na fonte. O que a empresa documentar hoje para a LGPD, como inventário, base legal, avaliação de risco e registros, tende a servir também a qualquer regime futuro.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Perguntas frequentes</p>
+        <h2>IA e proteção de dados pessoais, em resposta direta</h2>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-item">
+          <h3>A LGPD se aplica ao uso de inteligência artificial?</h3>
+          <p>Sim. A LGPD olha para o tratamento de dado pessoal, não para a tecnologia usada. Se um prompt, um documento enviado ou uma base de treinamento identifica uma pessoa, há tratamento e valem finalidade, base legal, necessidade, segurança e os direitos do titular.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Preciso de consentimento para usar IA com dados de clientes?</h3>
+          <p>Nem sempre. O consentimento é uma entre várias bases legais, e a escolha depende da finalidade. O ponto é definir e registrar a base antes do uso, e não tentar justificá-la depois. Em caso de dúvida, o jurídico ou o encarregado deve decidir.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Quando é preciso um relatório de impacto para um projeto de IA?</h3>
+          <p>Quando o uso envolve risco relevante às pessoas, como decisões sobre elas, dado sensível ou grande volume. A ANPD pode solicitar o relatório, e fazê-lo antes de lançar o projeto costuma ser mais barato do que justificar depois.</p>
+        </div>
+        <div class="faq-item">
+          <h3>A IA pode tomar decisões sobre pessoas sozinha?</h3>
+          <p>A LGPD garante ao titular o direito de pedir a revisão de decisões tomadas apenas por tratamento automatizado que afetem seus interesses. Na prática, convém manter uma pessoa responsável na decisão e conseguir explicar os critérios usados.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Anonimizar os dados resolve o problema?</h3>
+          <p>Só quando a anonimização é de fato irreversível. Trocar o nome por um código, a pseudonimização, ainda deixa o dado dentro do alcance da lei. Antes de afirmar que o dado é anônimo, teste se alguém consegue reidentificar a pessoa combinando outras informações.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band" style="border-bottom:none;">
+    <div class="wrap reveal">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Vamos olhar o uso de dados na sua empresa?</h2>
+      <div class="hero-ctas" style="justify-content:center;">
+        <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20IA%20e%20prote%C3%A7%C3%A3o%20de%20dados%20pessoais%20e%20quero%20agendar%20uma%20conversa." target="_blank" rel="noopener" class="btn btn-primary">Agende uma conversa</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="leia-tambem">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Leia também</p>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+        <ul>
+          <li><a href="../lgpd-e-ia/">LGPD e IA: o que muda quando o dado entra no prompt</a></li>
+          <li><a href="../relatorio-de-impacto-lgpd-ia/">Relatório de impacto LGPD e IA</a></li>
+          <li><a href="../dpo-encarregado-e-inteligencia-artificial/">DPO, encarregado e inteligência artificial</a></li>
+        </ul>
+        <p class="status-meta" style="margin-top:34px;">Publicado em 03/11/2026.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../" class="logo"><img src="../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../#servicos">Serviços</a>
+          <a href="../iso-42001/">ISO 42001</a>
+          <a href="../governanca-de-ia/">Governança de IA</a>
+          <a href="../shadow-ai/">Shadow AI</a>
+          <a href="../pl-2338/">Marco Legal da IA</a>
+          <a href="../diagnostico/">Diagnóstico</a>
+          <a href="../blog/">Blog</a>
+          <a href="../biblioteca-prompts/">Prompts</a>
+          <a href="../sobre/">Sobre</a>
+          <a href="../glossario/">Glossário</a>
+          <a href="../ia-para-equipes-de-ti/">IA para equipes de TI</a>
+          <a href="../ia-segura-para-empresas/">IA segura para empresas</a>
+          <a href="../agentes-de-ia-para-empresas/">Agentes de IA</a>
+          <a href="../politica-de-privacidade/">Política de privacidade</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<!-- O botão flutuante do WhatsApp é montado por assets/site.js, que roda em todas as páginas -->
+<script src="../assets/site.js?v=18"></script>
+
+</body>
+</html>
