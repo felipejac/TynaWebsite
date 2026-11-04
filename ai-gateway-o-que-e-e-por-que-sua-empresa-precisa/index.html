@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // Só coleta em produção (tyna.com.br) — localhost e previews do Cloudflare Pages (*.pages.dev) ficam de fora.
+  if (location.hostname !== 'tyna.com.br') window['ga-disable-G-DQS0KMDT3G'] = true;
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Gateway: o que é e por que sua empresa precisa | Tyna</title>
+<meta name="description" content="AI Gateway é a camada que centraliza as chamadas a modelos de IA da empresa: controle de acesso, registro, filtros e roteamento. Benefícios e como implementar.">
+<link rel="canonical" href="https://tyna.com.br/ai-gateway-o-que-e-e-por-que-sua-empresa-precisa/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI Gateway: o que é e por que sua empresa precisa">
+<meta property="og:description" content="AI Gateway é a camada que centraliza as chamadas a modelos de IA da empresa: controle de acesso, registro, filtros e roteamento. Benefícios e como implementar.">
+<meta property="og:url" content="https://tyna.com.br/ai-gateway-o-que-e-e-por-que-sua-empresa-precisa/">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna-dark.png">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css?v=19">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "AI Gateway: o que é e por que sua empresa precisa",
+  "inLanguage": "pt-BR",
+  "description": "AI Gateway é a camada que centraliza as chamadas a modelos de IA da empresa: controle de acesso, registro, filtros e roteamento. Benefícios e como implementar.",
+  "datePublished": "2026-11-04",
+  "dateModified": "2026-11-04",
+  "author": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "mainEntityOfPage": "https://tyna.com.br/ai-gateway-o-que-e-e-por-que-sua-empresa-precisa/"
+}
+</script>
+<link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "pt-BR",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "O que é um AI Gateway?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "É uma camada entre os sistemas da empresa e os modelos de IA. Toda chamada passa por ela, que aplica identidade, filtros, limites e registro em um só lugar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "AI Gateway é a mesma coisa que API Gateway?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não. O API Gateway trata tráfego de APIs em geral. O AI Gateway entende o conteúdo das chamadas a modelos: prompts, respostas, dados sensíveis, escolha de modelo e consumo de tokens."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando uma empresa precisa de um AI Gateway?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Quando mais de um time, sistema ou fornecedor de modelo usa IA, e ninguém consegue responder com segurança quem chamou qual modelo, com quais dados."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Dá para construir o próprio gateway?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dá, para casos simples. Em geral usa-se um proxy com autenticação, filtros e registro. O custo real está em manter regras, atualizações de fornecedores e a observabilidade."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O AI Gateway substitui a governança de IA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não. Ele é o ponto onde parte das regras de governança passa a ser aplicada pela máquina. Papéis, inventário e decisões de risco continuam sendo da empresa."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><img src="../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../#servicos">Serviços</a></li>
+        <li><a href="../iso-42001/">ISO 42001</a></li>
+        <li><a href="../#cases">Cases</a></li>
+        <li><a href="../#trilhas">Trilhas</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../biblioteca-prompts/">Prompts</a></li>
+        <li><a href="../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pela%20p%C3%A1gina%20sobre%20AI%20Gateway%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pela%20p%C3%A1gina%20sobre%20AI%20Gateway%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">AI Gateway</p>
+      <h1 style="max-width:900px;">AI Gateway: o que é e por que sua empresa precisa</h1>
+      <p class="lead" style="max-width:740px;">AI Gateway é a camada de controle centralizado por onde passam as chamadas da empresa a modelos de IA. Este artigo explica o que ele faz, quais benefícios traz e como implementar em etapas.</p>
+      <div class="hero-ctas">
+        <a href="#beneficios" class="btn btn-primary">Benefícios</a>
+        <a href="#implementar" class="btn btn-ghost">Como implementar</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="o-que-e">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Resposta curta</p>
+        <h2>O que é um AI Gateway?</h2>
+        <p>Uma camada entre os sistemas da empresa e os modelos de IA. Em vez de cada aplicação falar direto com um fornecedor, todas falam com o gateway, que identifica quem chama, aplica filtros e limites, escolhe o modelo e registra tudo. É o mesmo raciocínio de um proxy corporativo, aplicado ao conteúdo e ao custo das chamadas de IA. Para a visão geral da prática, veja a página <a href="../ai-gateway/">AI Gateway</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="problema">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">O problema</p>
+        <h2>O que acontece sem uma camada central</h2>
+        <p>Cada time integra um modelo do seu jeito, e o risco se espalha.</p>
+      </div>
+<div class="svc-grid reveal">
+        <div class="svc-card">
+          <span class="num">01</span>
+          <h3>Chaves espalhadas</h3>
+          <p>Credenciais de fornecedores em código, planilhas e contas pessoais, sem dono nem rotação.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">02</span>
+          <h3>Dados sem filtro</h3>
+          <p>Dado pessoal e segredo comercial seguem para o modelo porque ninguém verificou o prompt.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">03</span>
+          <h3>Sem rastro</h3>
+          <p>Depois de um incidente, não há como dizer quem enviou o quê e qual resposta foi entregue.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">04</span>
+          <h3>Dependência de um fornecedor</h3>
+          <p>Trocar de modelo exige mexer em cada sistema, e por isso ninguém troca.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="beneficios">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Benefícios</p>
+        <h2>Por que sua empresa precisa</h2>
+        <p>Seis ganhos concretos de centralizar as chamadas.</p>
+      </div>
+<div class="svc-grid reveal">
+        <div class="svc-card">
+          <span class="num">01</span>
+          <h3>Um ponto único de controle</h3>
+          <p>Quem pode chamar qual modelo, com que limite, e qual versão está em uso. A regra muda uma vez e vale para todos os sistemas.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">02</span>
+          <h3>Registro de cada chamada</h3>
+          <p>Quem chamou, quando, qual modelo e quais verificações rodaram. É a base de qualquer auditoria e da resposta a incidentes.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">03</span>
+          <h3>Proteção de dados na entrada e na saída</h3>
+          <p>Mascaramento de CPF e credenciais antes de sair da empresa, e validação da resposta antes de chegar ao usuário. Veja <a href="../o-que-e-guardrail-em-ia/">guardrails</a>.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">04</span>
+          <h3>Liberdade para trocar de modelo</h3>
+          <p>Os sistemas falam com o gateway, não com o fornecedor. Trocar ou combinar modelos deixa de exigir reescrever aplicações.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">05</span>
+          <h3>Visibilidade de consumo</h3>
+          <p>Uso por time, sistema e finalidade, com limites e alertas, para evitar surpresas e uso sem dono.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">06</span>
+          <h3>Menos Shadow AI</h3>
+          <p>Com um caminho oficial fácil de usar, há menos motivo para usar contas pessoais. Leia sobre <a href="../shadow-ai/">Shadow AI</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="diferenca">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Não confunda</p>
+        <h2>AI Gateway x API Gateway</h2>
+        <p>O nome é parecido, o trabalho é diferente.</p>
+      </div>
+      <div class="reveal">
+        <table class="spec-table">
+          <thead><tr><th scope="col"></th><th scope="col">API Gateway</th><th scope="col">AI Gateway</th></tr></thead>
+          <tbody>
+            <tr><td>Olha para</td><td>Rotas, métodos e cabeçalhos</td><td>Prompts, respostas e dados</td></tr>
+            <tr><td>Limite de uso</td><td>Requisições por segundo</td><td>Tokens por time e por finalidade</td></tr>
+            <tr><td>Filtros</td><td>Autenticação e formato</td><td>Dado sensível, injeção de prompt, validação de saída</td></tr>
+            <tr><td>Roteamento</td><td>Por serviço</td><td>Por modelo, com alternativa em caso de falha</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="implementar">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Como implementar</p>
+        <h2>Seis passos, do inventário ao bloqueio do acesso direto</h2>
+        <p>Comece pequeno e prove o valor antes de ampliar.</p>
+      </div>
+      <div class="steps reveal">
+        <div class="step">
+          <span class="step-num">01</span>
+          <div><h3>Inventariar os usos de IA</h3><p>Quais sistemas e times chamam modelos hoje, e com que dados. Comece pelo <a href="../inventario-de-ia/">inventário de IA</a>.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">02</span>
+          <div><h3>Escolher o modelo de implantação</h3><p>Serviço gerenciado, produto de mercado ou proxy próprio. Decida por requisitos de dados, não por moda.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <div><h3>Começar por um caso de alto risco</h3><p>Um sistema que toca dado pessoal ou aciona ações. Migre o tráfego dele para o gateway primeiro.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">04</span>
+          <div><h3>Definir identidade e regras mínimas</h3><p>Chave por sistema, lista de modelos permitidos, limites de uso e mascaramento de dados sensíveis.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">05</span>
+          <div><h3>Ligar o registro à auditoria</h3><p>Enviar os logs para onde a segurança e a conformidade já trabalham, com prazo de retenção definido.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">06</span>
+          <div><h3>Fechar o caminho direto</h3><p>Quando o gateway estiver estável, bloquear chamadas diretas aos fornecedores. Sem isso, ele vira apenas um caminho opcional.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cuidados">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Cuidados</p>
+        <h2>O que observar na escolha e na operação</h2>
+        <p>O gateway também precisa ser governado.</p>
+      </div>
+<div class="svc-grid reveal">
+        <div class="svc-card">
+          <span class="num">01</span>
+          <h3>Ponto único de falha</h3>
+          <p>Planeje alta disponibilidade e uma alternativa de modelo quando o principal estiver fora.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">02</span>
+          <h3>Latência</h3>
+          <p>Cada filtro adiciona tempo. Meça e mantenha só os que reduzem risco real.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">03</span>
+          <h3>Registro também é dado</h3>
+          <p>Logs de prompts podem conter dado pessoal. Defina retenção e acesso, conforme a <a href="../lgpd-e-ia/">LGPD</a>.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">04</span>
+          <h3>Dono e revisão</h3>
+          <p>Alguém responde pelas regras. Sem dono e sem revisão periódica, elas envelhecem. Veja <a href="../governanca-de-agentes/">governança de agentes</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Perguntas frequentes</p>
+        <h2>AI Gateway, em resposta direta</h2>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-item">
+          <h3>O que é um AI Gateway?</h3>
+          <p>É uma camada entre os sistemas da empresa e os modelos de IA. Toda chamada passa por ela, que aplica identidade, filtros, limites e registro em um só lugar.</p>
+        </div>
+        <div class="faq-item">
+          <h3>AI Gateway é a mesma coisa que API Gateway?</h3>
+          <p>Não. O API Gateway trata tráfego de APIs em geral. O AI Gateway entende o conteúdo das chamadas a modelos: prompts, respostas, dados sensíveis, escolha de modelo e consumo de tokens.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Quando uma empresa precisa de um AI Gateway?</h3>
+          <p>Quando mais de um time, sistema ou fornecedor de modelo usa IA, e ninguém consegue responder com segurança quem chamou qual modelo, com quais dados.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Dá para construir o próprio gateway?</h3>
+          <p>Dá, para casos simples. Em geral usa-se um proxy com autenticação, filtros e registro. O custo real está em manter regras, atualizações de fornecedores e a observabilidade.</p>
+        </div>
+        <div class="faq-item">
+          <h3>O AI Gateway substitui a governança de IA?</h3>
+          <p>Não. Ele é o ponto onde parte das regras de governança passa a ser aplicada pela máquina. Papéis, inventário e decisões de risco continuam sendo da empresa.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band" style="border-bottom:none;">
+    <div class="wrap reveal">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Sabe quem chama qual modelo na sua empresa?</h2>
+      <p style="color:var(--text-muted); font-size:16.5px; max-width:580px; margin:0 auto 30px;">O diagnóstico responde em três minutos, com dez perguntas e as lacunas nomeadas uma a uma. Sem formulário e sem cadastro.</p>
+      <div class="hero-ctas" style="justify-content:center;">
+        <a href="../diagnostico/" class="btn btn-primary">Fazer o diagnóstico</a>
+        <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pela%20p%C3%A1gina%20sobre%20AI%20Gateway%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-ghost">Falar com o Felipe</a>
+      </div>
+      <p class="status-meta" style="margin-top:34px;">Última revisão: 04/11/2026.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../" class="logo"><img src="../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../#servicos">Serviços</a>
+          <a href="../iso-42001/">ISO 42001</a>
+          <a href="../governanca-de-ia/">Governança de IA</a>
+          <a href="../shadow-ai/">Shadow AI</a>
+          <a href="../pl-2338/">Marco Legal da IA</a>
+          <a href="../diagnostico/">Diagnóstico</a>
+          <a href="../blog/">Blog</a>
+          <a href="../biblioteca-prompts/">Prompts</a>
+          <a href="../sobre/">Sobre</a>
+          <a href="../glossario/">Glossário</a>
+          <a href="../ia-para-equipes-de-ti/">IA para equipes de TI</a>
+          <a href="../ia-segura-para-empresas/">IA segura para empresas</a>
+          <a href="../agentes-de-ia-para-empresas/">Agentes de IA</a>
+          <a href="../politica-de-privacidade/">Política de privacidade</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<!-- O botão flutuante do WhatsApp é montado por assets/site.js, que roda em todas as páginas -->
+<script src="../assets/site.js?v=18"></script>
+
+</body>
+</html>
