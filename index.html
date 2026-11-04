@@ -26,8 +26,37 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
 <link rel="preload" href="/assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/styles.css?v=17">
 <style>
+/* ── Dark Theme — Home ── */
+:root {
+  --ink: #111827;
+  --surface: #1a2335;
+  --surface-2: #13102a;
+  --line: rgba(255,255,255,0.08);
+  --text: #e8e8f0;
+  --text-muted: rgba(232,232,240,0.60);
+  --accent: #a78bfa;
+  --accent-soft: rgba(167,139,250,0.3);
+  --purple: #7c3aed;
+  --purple-line: rgba(167,139,250,0.2);
+  --orange-ink: #FF8C40;
+  --good: #34d399;
+}
+body { background: #0f0f1a; color: #e8e8f0; }
+
+/* Header */
+header {
+  background: rgba(10,10,20,0.92);
+  border-bottom-color: rgba(255,255,255,0.08);
+}
+nav ul a { color: rgba(232,232,240,0.65); }
+nav ul a:hover, nav ul a:focus-visible { color: #fff; }
+
+/* Lang toggle */
 .lang-toggle {
   display: inline-flex;
   align-items: center;
@@ -36,16 +65,41 @@
   font-weight: 600;
   letter-spacing: .06em;
   text-decoration: none;
-  color: #4a1a8c;
-  border: 1.5px solid #4a1a8c;
+  color: #a78bfa;
+  border: 1.5px solid rgba(167,139,250,0.6);
   border-radius: 20px;
   padding: 4px 10px;
   transition: background .2s, color .2s;
 }
-.lang-toggle:hover { background: #4a1a8c; color: #fff; }
-.lang-divider { color: #bbb; font-weight: 300; }
+.lang-toggle:hover { background: rgba(167,139,250,0.15); color: #c4b5fd; }
+.lang-divider { color: rgba(232,232,240,0.25); font-weight: 300; }
 [aria-current="true"] { font-weight: 800; }
 .nav-actions { display:flex; align-items:center; gap:0.75rem; }
+
+/* Cards */
+.svc-card { background: #111827; }
+.svc-card:hover { background: #1a2335; }
+.case-card { background: #111827; }
+
+/* Format cards */
+.format-card { border-color: rgba(255,255,255,0.1); }
+.format-card.highlight { border-color: #a78bfa; }
+.format-card .tagline { color: #a78bfa; }
+
+/* Proof logos */
+.proof-logos li { color: rgba(232,232,240,0.80); }
+
+/* Agent-gov callout */
+.agent-gov {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Compare */
+.compare-row p.c-tyna { color: #e8e8f0; }
+
+/* CTA band */
+.cta-band { background: linear-gradient(160deg, #0f0f1a 0%, #13102a 100%); }
 </style>
 <link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
 <link rel="alternate" type="application/rss+xml" title="Feed RSS Tyna" href="https://tyna.com.br/rss.xml" />
@@ -198,7 +252,7 @@
 
 <header>
   <div class="wrap nav">
-    <a href="#top" class="logo"><img src="assets/logo-tyna-dark-sm.png" alt="Tyna" width="211" height="68"> <span>IA &amp; GOVERNANÇA</span></a>
+    <a href="#top" class="logo"><img src="assets/logo-tyna-sm.png" alt="Tyna" width="211" height="68"> <span>IA &amp; GOVERNANÇA</span></a>
     <nav>
       <ul id="navList">
         <li><a href="#servicos">Serviços</a></li>
