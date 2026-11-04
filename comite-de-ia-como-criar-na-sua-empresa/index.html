@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // Só coleta em produção (tyna.com.br) — localhost e previews do Cloudflare Pages (*.pages.dev) ficam de fora.
+  if (location.hostname !== 'tyna.com.br') window['ga-disable-G-DQS0KMDT3G'] = true;
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comitê de IA: como criar na sua empresa | Tyna</title>
+<meta name="description" content="Como criar um comitê de IA na empresa: estrutura de governança humana antes da técnica, quem participa, atribuições de cada membro, ritmo de reuniões e primeiros 60 dias.">
+<link rel="canonical" href="https://tyna.com.br/comite-de-ia-como-criar-na-sua-empresa/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Comitê de IA: como criar na sua empresa">
+<meta property="og:description" content="Como criar um comitê de IA na empresa: estrutura de governança humana antes da técnica, quem participa, atribuições de cada membro, ritmo de reuniões e primeiros 60 dias.">
+<meta property="og:url" content="https://tyna.com.br/comite-de-ia-como-criar-na-sua-empresa/">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna-dark.png">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css?v=19">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Comitê de IA: como criar na sua empresa",
+  "inLanguage": "pt-BR",
+  "description": "Como criar um comitê de IA na empresa: estrutura de governança humana antes da técnica, quem participa, atribuições de cada membro, ritmo de reuniões e primeiros 60 dias.",
+  "datePublished": "2026-11-04",
+  "dateModified": "2026-11-04",
+  "author": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "mainEntityOfPage": "https://tyna.com.br/comite-de-ia-como-criar-na-sua-empresa/"
+}
+</script>
+<link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "pt-BR",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "O que é um comitê de IA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "É um grupo multidisciplinar, com mandato formal da diretoria, que decide como a empresa escolhe, usa e supervisiona sistemas de IA. Ele não programa nem opera: aprova casos de risco, define regras, resolve conflitos entre áreas e responde pelo programa de governança."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quem deve fazer parte de um comitê de IA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Um patrocinador executivo, jurídico, segurança da informação, TI, dados, encarregado de dados (DPO) quando há dado pessoal e representantes das áreas de negócio que mais usam IA. Grupos de cinco a oito pessoas decidem melhor que grupos grandes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Com que frequência o comitê deve se reunir?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Uma reunião mensal curta de decisão costuma bastar, mais um canal de resposta rápida para pedidos de baixo risco. O importante é ter prazo de resposta conhecido, para que os times perguntem antes de usar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O comitê de IA substitui a área de TI ou de segurança?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não. O comitê decide e arbitra; TI e segurança implementam e operam os controles. Ele também não precisa aprovar tudo: o que tem risco baixo segue uma regra pré-aprovada."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Empresa pequena precisa de comitê de IA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não no formato completo. Com poucas pessoas, basta um responsável nomeado, um encontro periódico de três ou quatro pessoas e um registro simples das decisões. O princípio é o mesmo: alguém decide e a decisão fica escrita."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><img src="../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../#servicos">Serviços</a></li>
+        <li><a href="../iso-42001/">ISO 42001</a></li>
+        <li><a href="../#cases">Cases</a></li>
+        <li><a href="../#trilhas">Trilhas</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../biblioteca-prompts/">Prompts</a></li>
+        <li><a href="../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Governança de IA</p>
+      <h1 style="max-width:900px;">Comitê de IA: como criar na sua empresa</h1>
+      <p class="lead" style="max-width:740px;">Quando a IA se espalha pela empresa, a primeira reação costuma ser técnica: escolher uma plataforma, bloquear um site, comprar um filtro. Só que ferramenta nenhuma responde à pergunta que o jurídico, o cliente ou a diretoria vão fazer: quem decidiu que isso podia?</p>
+      <p class="lead" style="max-width:740px;">O comitê de IA é a resposta humana a essa pergunta. Este guia mostra como criá-lo antes da camada técnica: o que ele é, quem participa, o que cada membro faz, como são as reuniões e como ele começa a funcionar nos primeiros 60 dias.</p>
+    </div>
+  </section>
+
+  <section id="por-que-humana">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Por que a governança humana vem antes da técnica</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+<p>Controle técnico só aplica uma decisão que alguém já tomou. Um filtro de dados precisa saber o que é proibido; uma lista de ferramentas aprovadas precisa de um critério de aprovação; um limite para agentes precisa de alguém que o defina e aceite o risco. Sem essa estrutura, a equipe de TI acaba decidindo sozinha questões que são de negócio, jurídicas e de reputação.</p>
+<p>O comitê existe para tornar essas decisões explícitas, rastreáveis e rápidas. Ele é a parte de uma <a href="../framework-de-governanca-de-ia/">estrutura de governança de IA</a> que responde a "quem aprova, quem responde, quem pode vetar". Os controles técnicos, como os de um <a href="../ai-gateway/">AI Gateway</a>, vêm depois e dão força às decisões do comitê.</p>
+<p>Dois erros são comuns. O primeiro é criar um comitê sem mandato, que apenas opina e não decide. O segundo é criar um comitê que quer aprovar tudo, vira gargalo e empurra o uso para fora da vista, o chamado <a href="../shadow-ai/">shadow AI</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="mandato">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Mandato e escopo: o que o comitê decide</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+<p>Antes de convidar qualquer pessoa, escreva em uma página o mandato do comitê, assinado pelo patrocinador executivo. Ele deve dizer:</p>
+<ul>
+<li><strong>O que está sob sua decisão:</strong> entrada de novas ferramentas e agentes de IA, usos de risco alto, exceções à política e resposta a incidentes envolvendo IA.</li>
+<li><strong>O que não precisa chegar até ele:</strong> usos de risco baixo que seguem uma regra pré-aprovada, como redigir texto interno sem dados pessoais com uma ferramenta já homologada.</li>
+<li><strong>Que poder ele tem:</strong> aprovar, aprovar com condições, negar ou suspender um uso. Decisão sem poder de execução não é decisão.</li>
+<li><strong>A quem presta contas:</strong> normalmente à diretoria, com um relatório periódico curto.</li>
+</ul>
+<p>Esse escopo conversa com o <a href="../inventario-de-ia/">inventário de IA</a>, que dá ao comitê a lista do que já está em uso, e com o <a href="../modelo-de-politica-de-ia/">modelo de política de IA</a>, que registra as regras que ele aprova.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="membros">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Quem deve fazer parte do comitê e o que cada um faz</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+<p>A regra prática é juntar as pessoas que precisam dizer "sim" ou "não" a um uso de IA e poucas além delas. Em geral, de cinco a oito pessoas:</p>
+<ul>
+<li><strong>Patrocinador executivo.</strong> Um diretor que dá mandato, destrava conflitos entre áreas e leva o assunto à diretoria. Pode presidir o comitê ou apenas patrociná-lo.</li>
+<li><strong>Coordenador do comitê.</strong> Quem prepara a pauta, cobra prazos, registra as decisões e mantém o inventário atualizado. É o papel menos glamouroso e o mais decisivo para o comitê não morrer.</li>
+<li><strong>Jurídico e compliance.</strong> Avalia contratos de fornecedores, propriedade intelectual, obrigações legais e regulatórias e o impacto de decisões automatizadas sobre pessoas.</li>
+<li><strong>Segurança da informação.</strong> Avalia riscos de vazamento, acesso e uso indevido, incluindo riscos específicos de agentes, como <a href="../o-que-e-prompt-injection/">prompt injection</a>.</li>
+<li><strong>Encarregado de dados (DPO).</strong> Onde há dado pessoal, entra na decisão desde o início. Veja o papel dele em <a href="../dpo-encarregado-e-inteligencia-artificial/">DPO e inteligência artificial</a>.</li>
+<li><strong>TI e dados.</strong> Dizem o que é viável tecnicamente, como integrar, o que dá para controlar e registrar, e quem opera cada sistema.</li>
+<li><strong>Representantes do negócio.</strong> Pessoas das áreas que mais usam IA (atendimento, vendas, financeiro, RH). Trazem o uso real e garantem que as regras caibam no trabalho do dia a dia.</li>
+<li><strong>Recursos humanos, quando houver impacto em pessoas.</strong> Participa dos casos de seleção, avaliação e treinamento, e da comunicação com os times.</li>
+</ul>
+<p>Cada membro deve ter um suplente nomeado, para que a ausência de uma pessoa não pare as decisões. Convidados pontuais, como o dono de um sistema em análise, participam apenas do item que lhes diz respeito.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="atribuicoes">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Atribuições do comitê, na prática</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+<ul>
+<li><strong>Manter o inventário.</strong> Conhecer todos os sistemas de IA em uso, com dono, finalidade e dados envolvidos.</li>
+<li><strong>Definir critérios de risco.</strong> Um critério escrito que separa usos de risco baixo, médio e alto, com o que cada nível exige.</li>
+<li><strong>Aprovar e condicionar.</strong> Decidir sobre novos usos, registrando condições como revisão humana obrigatória ou limite de dados.</li>
+<li><strong>Nomear donos.</strong> Cada sistema precisa de uma pessoa de negócio responsável, que possa dizer "pare".</li>
+<li><strong>Tratar exceções e incidentes.</strong> Decidir casos fora da regra e conduzir a resposta quando algo dá errado.</li>
+<li><strong>Definir treinamento e comunicação.</strong> Garantir que as pessoas saibam o que podem e não podem fazer.</li>
+<li><strong>Prestar contas.</strong> Reportar à diretoria decisões, indicadores e riscos em aberto.</li>
+</ul>
+<p>O que o comitê não faz: operar sistemas, escrever código ou analisar cada pedido de uso trivial. Se ele passa a fazer isso, perdeu o foco.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="reunioes">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Reuniões: ritmo, pauta e registro</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+<p>Uma boa rotina é mais importante que um bom organograma. Uma estrutura que funciona para a maioria das empresas:</p>
+<ul>
+<li><strong>Reunião mensal de decisão (45 a 60 minutos).</strong> Pauta enviada com antecedência, com cada caso resumido em uma página: o que é, que dados usa, qual o risco e qual a recomendação do coordenador.</li>
+<li><strong>Canal de resposta rápida.</strong> Para pedidos de risco baixo ou urgentes, dois ou três membros decidem por escrito em um prazo curto e conhecido, e levam o registro à reunião seguinte.</li>
+<li><strong>Revisão trimestral.</strong> Olhar o inventário, os indicadores, as exceções concedidas e os incidentes, e ajustar critérios e regras.</li>
+<li><strong>Sessão extraordinária.</strong> Convocada em incidentes ou mudanças regulatórias relevantes.</li>
+</ul>
+<p>Uma pauta mensal típica: decisões pendentes, revisão de decisões anteriores, incidentes, mudanças no inventário, indicadores e próximos passos. Toda decisão sai com responsável e prazo, e é registrada em ata curta: o que foi decidido, por quê, com que condições e quem responde. Esse registro é a evidência que um auditor ou um cliente vai pedir, e que normas como a <a href="../iso-42001/">ISO 42001</a> esperam encontrar.</p>
+<p>Indicadores simples bastam: tempo médio de resposta, percentual de sistemas com dono, número de exceções e de incidentes, e proporção do uso que passa pelos canais aprovados. Se o tempo de resposta cresce, o comitê virou gargalo; se as exceções crescem, a regra está difícil demais.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="primeiros-60-dias">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Como começar: os primeiros 60 dias</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+<ul>
+<li><strong>Semana 1 a 2:</strong> escolher o patrocinador, redigir o mandato de uma página e nomear o coordenador.</li>
+<li><strong>Semana 3 a 4:</strong> convidar os membros, combinar prazos de resposta e fazer a primeira reunião, dedicada a alinhar o mandato e o mapeamento do uso real de IA.</li>
+<li><strong>Semana 5 a 6:</strong> aprovar uma política curta e o critério de risco, com uma lista de ferramentas já aprovadas e um caminho fácil para pedir novas.</li>
+<li><strong>Semana 7 a 8:</strong> decidir os primeiros casos reais, nomear donos dos sistemas de risco alto e definir os indicadores que serão acompanhados.</li>
+</ul>
+<p>Depois disso, o comitê entra no ritmo mensal e a camada técnica passa a ter um contrato claro a implementar.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="erros-comuns">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Erros comuns ao criar um comitê de IA</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+<ul>
+<li><strong>Sem decisão.</strong> O comitê vira fórum de discussão e ninguém sabe o que foi aprovado.</li>
+<li><strong>Grande demais.</strong> Reuniões com quinze pessoas não decidem nada. Convidados entram só no item que lhes diz respeito.</li>
+<li><strong>Dominado por uma área.</strong> Se só a TI ou só o jurídico participa, falta metade do risco e metade do negócio.</li>
+<li><strong>Sem prazo de resposta.</strong> Quem espera semanas por uma resposta passa a usar a ferramenta sem perguntar.</li>
+<li><strong>Sem registro.</strong> Decisão não escrita não existe diante de um auditor.</li>
+<li><strong>Sem revisão.</strong> A IA muda rápido; critérios e aprovações precisam ser revistos periodicamente.</li>
+</ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Perguntas frequentes</p>
+        <h2>Comitê de IA, em resposta direta</h2>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-item">
+          <h3>O que é um comitê de IA?</h3>
+          <p>É um grupo multidisciplinar, com mandato formal da diretoria, que decide como a empresa escolhe, usa e supervisiona sistemas de IA. Ele não programa nem opera: aprova casos de risco, define regras, resolve conflitos entre áreas e responde pelo programa de governança.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Quem deve fazer parte de um comitê de IA?</h3>
+          <p>Um patrocinador executivo, jurídico, segurança da informação, TI, dados, encarregado de dados (DPO) quando há dado pessoal e representantes das áreas de negócio que mais usam IA. Grupos de cinco a oito pessoas decidem melhor que grupos grandes.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Com que frequência o comitê deve se reunir?</h3>
+          <p>Uma reunião mensal curta de decisão costuma bastar, mais um canal de resposta rápida para pedidos de baixo risco. O importante é ter prazo de resposta conhecido, para que os times perguntem antes de usar.</p>
+        </div>
+        <div class="faq-item">
+          <h3>O comitê de IA substitui a área de TI ou de segurança?</h3>
+          <p>Não. O comitê decide e arbitra; TI e segurança implementam e operam os controles. Ele também não precisa aprovar tudo: o que tem risco baixo segue uma regra pré-aprovada.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Empresa pequena precisa de comitê de IA?</h3>
+          <p>Não no formato completo. Com poucas pessoas, basta um responsável nomeado, um encontro periódico de três ou quatro pessoas e um registro simples das decisões. O princípio é o mesmo: alguém decide e a decisão fica escrita.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="leia-tambem">
+    <div class="wrap">
+      <div class="section-head reveal"><p class="eyebrow">Leia também</p><h2>Para aprofundar</h2></div>
+      <div class="svc-grid reveal">
+        <div class="svc-card"><h3><a href="../framework-de-governanca-de-ia/">Framework de governança de IA</a></h3><p>As cinco camadas, papéis e um plano de 90 dias.</p></div>
+        <div class="svc-card"><h3><a href="../governanca-de-ia/">Governança de IA para empresas</a></h3><p>O que é e por onde começar.</p></div>
+        <div class="svc-card"><h3><a href="../inventario-de-ia/">Inventário de IA</a></h3><p>A lista que o comitê precisa ter em mãos.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="fale-com-a-tyna" class="lead-captura">
+    <div class="wrap reveal" style="text-align:center;">
+      <p class="eyebrow">Fale com a Tyna</p>
+      <h2>Quer estruturar o comitê de IA na sua empresa?</h2>
+      <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20comit%C3%AA%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary">Agende uma conversa</a>
+      <p class="status-meta" style="margin-top:34px;">Publicado em 04/11/2026.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../" class="logo"><img src="../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../#servicos">Serviços</a>
+          <a href="../iso-42001/">ISO 42001</a>
+          <a href="../governanca-de-ia/">Governança de IA</a>
+          <a href="../lgpd-e-ia/">LGPD e IA</a>
+          <a href="../shadow-ai/">Shadow AI</a>
+          <a href="../pl-2338/">Marco Legal da IA</a>
+          <a href="../diagnostico/">Diagnóstico</a>
+          <a href="../blog/">Blog</a>
+          <a href="../biblioteca-prompts/">Prompts</a>
+          <a href="../sobre/">Sobre</a>
+          <a href="../glossario/">Glossário</a>
+          <a href="../ia-para-equipes-de-ti/">IA para equipes de TI</a>
+          <a href="../ia-segura-para-empresas/">IA segura para empresas</a>
+          <a href="../agentes-de-ia-para-empresas/">Agentes de IA</a>
+          <a href="../politica-de-privacidade/">Política de privacidade</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<!-- O botão flutuante do WhatsApp é montado por assets/site.js, que roda em todas as páginas -->
+<script src="../assets/site.js?v=18"></script>
+
+</body>
+</html>
