@@ -46,6 +46,9 @@ function arquivoParaUrl(caminho) {
   if (post && post[1] !== 'categoria') return `${SITE}/blog/${post[1]}/`;
   const cat = p.match(/^blog\/categoria\/([^/]+)\/index\.html$/);
   if (cat) return `${SITE}/blog/categoria/${cat[1]}/`;
+  // páginas-pilar no nível raiz: <slug>/index.html → https://tyna.com.br/<slug>/
+  const pilar = p.match(/^([^/]+)\/index\.html$/);
+  if (pilar) return `${SITE}/${pilar[1]}/`;
   return null;
 }
 
