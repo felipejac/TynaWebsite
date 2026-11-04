@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if (location.hostname !== 'tyna.com.br') window['ga-disable-G-DQS0KMDT3G'] = true;
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auditoria de algoritmos: por onde começar | Tyna</title>
+<meta name="description" content="Como começar a auditar modelos de IA em produção: inventário, critérios, frequência por nível de risco e a documentação que sustenta a auditoria.">
+<link rel="canonical" href="https://tyna.com.br/auditoria-de-algoritmos-por-onde-comecar/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Auditoria de algoritmos: por onde começar">
+<meta property="og:description" content="Como auditar modelos de IA em produção: critérios, frequência e documentação.">
+<meta property="og:url" content="https://tyna.com.br/auditoria-de-algoritmos-por-onde-comecar/">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna-dark.png">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css?v=19">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Auditoria de algoritmos: por onde começar",
+  "inLanguage": "pt-BR",
+  "description": "Como auditar modelos de IA em produção: critérios, frequência e documentação.",
+  "datePublished": "2026-11-04",
+  "dateModified": "2026-11-04",
+  "author": {"@type": "Organization", "name": "Tyna", "url": "https://tyna.com.br/"},
+  "publisher": {"@type": "Organization", "name": "Tyna", "url": "https://tyna.com.br/"},
+  "mainEntityOfPage": "https://tyna.com.br/auditoria-de-algoritmos-por-onde-comecar/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Início", "item": "https://tyna.com.br/"},
+    {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://tyna.com.br/blog/"},
+    {"@type": "ListItem", "position": 3, "name": "Auditoria de algoritmos: por onde começar", "item": "https://tyna.com.br/auditoria-de-algoritmos-por-onde-comecar/"}
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><img src="../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../#servicos">Serviços</a></li>
+        <li><a href="../iso-42001/">ISO 42001</a></li>
+        <li><a href="../#cases">Cases</a></li>
+        <li><a href="../#trilhas">Trilhas</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../biblioteca-prompts/">Prompts</a></li>
+        <li><a href="../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pela%20artigo%20sobre%20auditoria%20de%20algoritmos%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pela%20artigo%20sobre%20auditoria%20de%20algoritmos%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Blog · Governança de IA</p>
+      <h1 style="max-width:900px;">Auditoria de algoritmos: por onde começar</h1>
+      <p class="lead" style="max-width:740px;">Como auditar modelos de IA em produção: quais critérios usar, com que frequência revisar e que documentação manter para que a auditoria seja repetível e defensável.</p>
+    </div>
+  </section>
+
+  <section id="por-que">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Contexto</p>
+        <h2>Por que auditar modelos que já estão em produção</h2>
+        <p>Um modelo aprovado na fase de testes não continua igual depois de meses em uso. Os dados de entrada mudam, o comportamento dos usuários muda, e decisões que eram razoáveis na implantação passam a produzir resultados enviesados ou simplesmente errados. A auditoria de algoritmos é a rotina que traz essa deriva à tona antes que ela vire incidente, reclamação ou problema regulatório.</p>
+        <p>A boa notícia: não é preciso começar por um programa completo. É possível começar pequeno, com os sistemas que mais pesam, e ampliar o escopo conforme a prática amadurece.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="passo-1">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Passo 1</p>
+        <h2>Comece pelo inventário e pela classificação de risco</h2>
+        <p>Não se audita o que não se enxerga. O primeiro passo é saber quais modelos e ferramentas de IA existem na empresa, quem é o responsável por cada um e quais decisões eles influenciam. Se esse levantamento ainda não existe, comece pelo <a href="../inventario-de-ia/">inventário de IA</a>.</p>
+        <p>Com a lista em mãos, classifique cada sistema por impacto: decisões sobre pessoas (crédito, contratação, saúde, atendimento prioritário), uso de dados pessoais e grau de autonomia. Os sistemas de maior impacto entram primeiro na fila de auditoria. A <a href="../auditoria-de-ia/">visão geral da auditoria de IA</a> detalha a diferença entre auditoria técnica e de conformidade.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="criterios">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Passo 2</p>
+        <h2>Defina os critérios da auditoria</h2>
+        <p>Critérios claros evitam auditorias subjetivas. Sete eixos cobrem a maior parte dos casos:</p>
+      </div>
+      <div class="feat-grid reveal">
+        <div class="feat-card">
+          <div class="feat-icon">1</div>
+          <h3>Qualidade e representatividade dos dados</h3>
+          <p>Os dados em produção ainda se parecem com os dados usados no desenvolvimento? Há lacunas, duplicidades ou grupos sub-representados?</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">2</div>
+          <h3>Desempenho ao longo do tempo</h3>
+          <p>Acurácia, recall e demais métricas definidas na aprovação continuam dentro do limite aceito? Compare com a linha de base original.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">3</div>
+          <h3>Viés e tratamento justo</h3>
+          <p>Os resultados variam de forma injustificada entre grupos de pessoas? Defina antes quais comparações importam para aquele caso de uso.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">4</div>
+          <h3>Explicabilidade e rastreabilidade</h3>
+          <p>É possível reconstruir por que uma decisão foi tomada, com qual versão do modelo e com quais entradas?</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">5</div>
+          <h3>Segurança e robustez</h3>
+          <p>O sistema resiste a entradas maliciosas ou inesperadas, como manipulação de prompt, e o acesso ao modelo e aos logs é controlado?</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">6</div>
+          <h3>Supervisão humana</h3>
+          <p>A revisão humana prevista existe de fato, tem autoridade para reverter a decisão e é registrada?</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">7</div>
+          <h3>Conformidade legal</h3>
+          <p>Há base legal para os dados pessoais tratados, respeito aos direitos dos titulares e aderência às normas do setor? Veja <a href="../lgpd-e-ia/">LGPD e IA</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="frequencia">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Passo 3</p>
+        <h2>Qual a frequência certa de auditoria</h2>
+        <p>A frequência deve acompanhar o risco, não o calendário da área. Uma referência prática:</p>
+        <ul>
+          <li><strong>Alto risco</strong> (decisões sobre pessoas, dados sensíveis): revisão completa pelo menos uma vez por ano, com monitoramento de métricas contínuo ou mensal.</li>
+          <li><strong>Risco médio</strong>: revisão completa a cada ano ou a cada dois anos, com verificação trimestral das métricas principais.</li>
+          <li><strong>Baixo risco</strong>: revisão leve, em ciclo mais longo, junto com a revisão do inventário.</li>
+        </ul>
+        <p>Além do ciclo regular, defina gatilhos que antecipam a auditoria: troca de versão do modelo ou do fornecedor, mudança relevante nos dados de entrada, queda de desempenho, incidente, reclamação recorrente e alteração regulatória.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="documentacao">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Passo 4</p>
+        <h2>Documente para que a auditoria seja repetível</h2>
+        <p>Sem registro, cada auditoria recomeça do zero e nenhuma conclusão pode ser comprovada depois. O conjunto mínimo de documentos:</p>
+        <ul>
+          <li><strong>Ficha do sistema:</strong> finalidade, responsável, versão do modelo, fornecedor, dados utilizados e nível de risco.</li>
+          <li><strong>Plano de auditoria:</strong> escopo, critérios, métodos de teste e quem participa.</li>
+          <li><strong>Evidências:</strong> resultados de testes, amostras de decisões, logs e capturas de configuração.</li>
+          <li><strong>Relatório:</strong> achados com severidade, responsável e prazo de correção.</li>
+          <li><strong>Registro de acompanhamento:</strong> o que foi corrigido, o que foi aceito como risco e a data da próxima revisão.</li>
+        </ul>
+        <p>Esses registros também alimentam a certificação e a gestão de riscos: veja como se conectam à <a href="../iso-42001/">ISO 42001</a> e ao <a href="../framework-de-governanca-de-ia/">framework de governança de IA</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="erros">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Cuidados</p>
+        <h2>Erros comuns de quem está começando</h2>
+        <ul>
+          <li>Tentar auditar todos os sistemas de uma vez e não concluir nenhum.</li>
+          <li>Medir só a acurácia geral e ignorar o desempenho por grupo ou cenário.</li>
+          <li>Deixar o time que construiu o modelo como único avaliador, sem uma segunda visão independente.</li>
+          <li>Produzir relatório sem responsável e prazo para cada achado.</li>
+          <li>Tratar a auditoria como evento único, em vez de rotina com gatilhos.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="resumo">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Resumo</p>
+        <h2>Por onde começar, em uma lista</h2>
+        <ol>
+          <li>Faça o inventário dos sistemas de IA e seus responsáveis.</li>
+          <li>Classifique por risco e escolha os dois ou três mais críticos.</li>
+          <li>Defina critérios e limites aceitáveis antes de testar.</li>
+          <li>Estabeleça frequência por risco e gatilhos de revisão extraordinária.</li>
+          <li>Registre tudo e acompanhe a correção dos achados.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="leia-tambem">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Leia também</p>
+        <h2>Próximos passos</h2>
+        <p>Veja <a href="../auditoria-de-ia/">Auditoria de IA</a>, o <a href="../diagnostico/">diagnóstico de maturidade</a> e a página de <a href="../governanca-de-ia/">governança de IA</a>.</p>
+        <p class="status-meta">Publicado em 04/11/2026.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../" class="logo"><img src="../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../#servicos">Serviços</a>
+          <a href="../iso-42001/">ISO 42001</a>
+          <a href="../governanca-de-ia/">Governança de IA</a>
+          <a href="../framework-de-governanca-de-ia/">Framework de governança</a>
+          <a href="../inventario-de-ia/">Inventário de IA</a>
+          <a href="../shadow-ai/">Shadow AI</a>
+          <a href="../pl-2338/">Marco Legal da IA</a>
+          <a href="../diagnostico/">Diagnóstico</a>
+          <a href="../blog/">Blog</a>
+          <a href="../sobre/">Sobre</a>
+          <a href="../politica-de-privacidade/">Política de privacidade</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/site.js?v=18"></script>
+
+</body>
+</html>
