@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // Só coleta em produção (tyna.com.br) — localhost e previews do Cloudflare Pages (*.pages.dev) ficam de fora.
+  if (location.hostname !== 'tyna.com.br') window['ga-disable-G-DQS0KMDT3G'] = true;
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inventário de IA na empresa: o que é e como fazer | Tyna</title>
+<meta name="description" content="O que é um inventário de IA, o que registrar de cada sistema, como mapear o uso real, classificar riscos, associar controles e manter a lista atualizada.">
+<link rel="canonical" href="https://tyna.com.br/inventario-de-ia-na-empresa-o-que-e-e-como-fazer/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Inventário de IA na empresa: o que é e como fazer">
+<meta property="og:description" content="O que é um inventário de IA, o que registrar de cada sistema, como mapear o uso real, classificar riscos, associar controles e manter a lista atualizada.">
+<meta property="og:url" content="https://tyna.com.br/inventario-de-ia-na-empresa-o-que-e-e-como-fazer/">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna-dark.png">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css?v=19">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Inventário de IA na empresa: o que é e como fazer",
+  "inLanguage": "pt-BR",
+  "description": "O que é um inventário de IA, o que registrar de cada sistema, como mapear o uso real, classificar riscos, associar controles e manter a lista atualizada.",
+  "datePublished": "2026-11-04",
+  "dateModified": "2026-11-04",
+  "author": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "mainEntityOfPage": "https://tyna.com.br/inventario-de-ia-na-empresa-o-que-e-e-como-fazer/"
+}
+</script>
+<link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "pt-BR",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "O que é um inventário de IA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "É o registro vivo de todos os sistemas de IA usados pela empresa, com dono, finalidade, dados envolvidos, fornecedor, risco e controles. Ele responde à pergunta básica de qualquer programa de governança: o que temos e quem responde por isso?"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quem deve manter o inventário de IA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Um coordenador nomeado, normalmente ligado ao comitê de IA ou à governança, mantém o registro. Quem alimenta as informações de cada sistema é o seu dono de negócio, e TI e segurança ajudam a descobrir usos que ninguém declarou."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Com que frequência o inventário deve ser atualizado?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A cada novo sistema, mudança relevante de uso ou de fornecedor, e com uma revisão completa ao menos a cada trimestre. Inventário parado perde valor rapidamente, porque o uso de IA muda mais depressa que a maioria dos processos."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O inventário precisa incluir IA embutida em softwares que já usamos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim. Muitos fornecedores ativaram recursos de IA em ferramentas existentes, como CRM, atendimento e edição de documentos. Se esses recursos tocam dados da empresa, entram na lista."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Empresa pequena precisa de inventário de IA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Precisa, mas pode ser simples: uma planilha com as colunas essenciais, um responsável e uma revisão periódica. O princípio é o mesmo, saber o que está em uso e quem responde."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><img src="../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../#servicos">Serviços</a></li>
+        <li><a href="../iso-42001/">ISO 42001</a></li>
+        <li><a href="../#cases">Cases</a></li>
+        <li><a href="../#trilhas">Trilhas</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../biblioteca-prompts/">Prompts</a></li>
+        <li><a href="../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Governança de IA</p>
+      <h1 style="max-width:900px;">Inventário de IA na empresa: o que é e como fazer</h1>
+      <p class="lead" style="max-width:740px;">Poucas empresas sabem responder, sem procurar, quantos sistemas de IA estão em uso hoje, quem responde por cada um e que dados passam por eles. Sem essa resposta, qualquer política de IA é escrita no escuro.</p>
+      <p class="lead" style="max-width:740px;">Este guia explica o que é o inventário de IA, o que registrar, como mapear o uso real, como associar riscos e controles a cada sistema e como manter a lista viva.</p>
+    </div>
+  </section>
+
+  <section id="o-que-e">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>O que é um inventário de IA</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+<p>Inventário de IA é o registro de todos os sistemas de inteligência artificial que a empresa usa, desenvolve ou contrata, com as informações necessárias para decidir sobre cada um: quem é o dono, para que serve, que dados recebe, qual o risco e quais controles se aplicam.</p>
+<p>Ele é a base de qualquer <a href="../governanca-de-ia/">programa de governança de IA</a>. Política, treinamento, avaliação de riscos e auditoria dependem da mesma pergunta: o que existe de fato? Sem a resposta, as regras são escritas para uma empresa que não é a real. O guia complementar <a href="../inventario-de-ia/">como mapear as ferramentas de IA em uso</a> detalha a etapa de descoberta.</p>
+<p>Vale incluir mais que o chatbot que todo mundo conhece: assistentes de código, recursos de IA embutidos em softwares contratados, modelos de fornecedores acessados por API, automações com agentes e modelos desenvolvidos internamente.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="por-que">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Por que a empresa precisa dele</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+<ul>
+<li><strong>Visibilidade.</strong> Não se controla o que não se vê. O inventário costuma revelar ferramentas contratadas por conta própria por times, o chamado <a href="../shadow-ai/">shadow AI</a>.</li>
+<li><strong>Proteção de dados.</strong> Saber que sistemas tratam dados pessoais é pré-requisito para atender a <a href="../lgpd-e-ia/">LGPD</a>, inclusive para responder a um titular ou a um incidente.</li>
+<li><strong>Priorização.</strong> Com a lista na mão, o esforço de controle vai para os usos de maior risco, e não para os mais barulhentos.</li>
+<li><strong>Exigência de normas e regulação.</strong> Estruturas como a <a href="../iso-42001/">ISO/IEC 42001</a> e o <a href="../eu-ai-act-o-que-muda-para-empresas-brasileiras/">AI Act europeu</a> pressupõem que a organização conheça seus sistemas de IA e os classifique.</li>
+<li><strong>Resposta a incidentes.</strong> Quando um fornecedor sofre uma falha ou muda seus termos, é preciso saber em minutos quem o usa.</li>
+</ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="o-que-registrar">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>O que registrar de cada sistema</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+<ul>
+<li><strong>Identificação:</strong> nome, fornecedor, versão ou modelo, e se é ferramenta contratada, recurso embutido ou sistema desenvolvido internamente.</li>
+<li><strong>Dono e usuários:</strong> a pessoa de negócio responsável, a área e o público que usa.</li>
+<li><strong>Finalidade:</strong> para que serve, em qual processo entra e que decisão apoia ou automatiza.</li>
+<li><strong>Dados:</strong> categorias de dados que recebe, se há dados pessoais ou sigilosos e para onde eles vão, inclusive se o fornecedor os usa para treinar modelos.</li>
+<li><strong>Autonomia:</strong> se apenas sugere, se uma pessoa revisa antes de agir ou se age sozinho, como um <a href="../governanca-de-agentes/">agente com acesso a ferramentas</a>.</li>
+<li><strong>Risco:</strong> nível atribuído, data da avaliação e justificativa.</li>
+<li><strong>Controles:</strong> o que está implementado e o que falta.</li>
+<li><strong>Ciclo de vida:</strong> data de aprovação, última revisão, próxima revisão e condição de desligamento.</li>
+</ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="como-fazer">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Como fazer o inventário, passo a passo</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+<ol>
+<li><strong>Defina escopo e responsável.</strong> Nomeie um coordenador, de preferência ligado ao <a href="../comite-de-ia-como-criar-na-sua-empresa/">comitê de IA</a>, e combine o que conta como sistema de IA, de forma ampla.</li>
+<li><strong>Monte o modelo de registro.</strong> Use os campos da seção anterior em uma planilha ou ferramenta de gestão. Poucos campos bem preenchidos valem mais que muitos vazios.</li>
+<li><strong>Descubra o uso real.</strong> Combine fontes: questionário curto às áreas, conversa com os líderes, revisão de contratos e faturas de software, registros de rede e de acesso, e lista de integrações e extensões instaladas. Nenhuma fonte sozinha basta.</li>
+<li><strong>Consolide e elimine duplicidades.</strong> A mesma ferramenta aparece com nomes diferentes. Una os registros e defina um dono para cada um.</li>
+<li><strong>Classifique o risco.</strong> Aplique um critério escrito, como o da próxima seção.</li>
+<li><strong>Associe controles.</strong> Para cada nível de risco, defina o que é obrigatório e registre o que já existe e o que falta.</li>
+<li><strong>Aprove, restrinja ou desligue.</strong> Cada item recebe uma decisão registrada: aprovado, aprovado com condições, em avaliação ou proibido.</li>
+<li><strong>Mantenha vivo.</strong> Crie o caminho para registrar novos usos e revise o conjunto em ciclos fixos.</li>
+</ol>
+<p>Comece pelo que é fácil de enxergar e aceite que a primeira versão será incompleta. O inventário melhora a cada ciclo, e o que importa é que ele exista e tenha dono.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="riscos">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Riscos associados aos sistemas de IA</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+<p>Os riscos mudam conforme o uso, mas algumas categorias aparecem com frequência:</p>
+<ul>
+<li><strong>Privacidade e vazamento:</strong> dados pessoais ou sigilosos colados em ferramentas sem contrato adequado.</li>
+<li><strong>Segurança:</strong> ataques como <a href="../o-que-e-prompt-injection/">prompt injection</a>, acessos excessivos concedidos a agentes e dependência de integrações pouco revisadas.</li>
+<li><strong>Qualidade e erro:</strong> respostas incorretas apresentadas com confiança, que viram decisão sem revisão.</li>
+<li><strong>Viés e discriminação:</strong> efeitos injustos sobre pessoas em seleção, crédito, atendimento ou avaliação.</li>
+<li><strong>Propriedade intelectual:</strong> uso de conteúdo protegido ou envio de material proprietário a terceiros.</li>
+<li><strong>Fornecedor:</strong> mudança de termos, de modelo ou indisponibilidade que afeta um processo crítico.</li>
+<li><strong>Conformidade e reputação:</strong> descumprimento de norma, contrato ou compromisso com clientes.</li>
+</ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="classificacao">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Como classificar o risco de cada sistema</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+<p>Um critério simples, aplicado igual a todos os itens, já resolve a maior parte dos casos. Três perguntas bastam para começar: que dados o sistema usa, quanto ele decide sozinho e quem é afetado pelo resultado.</p>
+<ul>
+<li><strong>Risco baixo:</strong> sem dados pessoais ou sigilosos, com revisão humana e efeito apenas interno. Segue uma regra pré-aprovada.</li>
+<li><strong>Risco médio:</strong> usa dados internos ou pessoais em volume limitado, ou apoia decisões com revisão humana. Exige avaliação do fornecedor e condições de uso.</li>
+<li><strong>Risco alto:</strong> afeta pessoas de modo relevante, usa dados sensíveis, atua com autonomia ou sustenta um processo crítico. Exige aprovação do comitê, avaliação formal e monitoramento.</li>
+</ul>
+<p>Registre a justificativa de cada classificação. Na hora de uma auditoria, o raciocínio vale tanto quanto o resultado. Veja também como a <a href="../auditoria-de-ia/">auditoria de IA</a> usa esse registro.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="controles">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Controles por nível de risco</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+<ul>
+<li><strong>Para todos:</strong> dono nomeado, registro no inventário, política de uso conhecida pelos usuários e canal para dúvidas.</li>
+<li><strong>Para risco médio:</strong> análise do contrato e do tratamento de dados pelo fornecedor, limites do que pode ser enviado, treinamento específico e revisão periódica.</li>
+<li><strong>Para risco alto:</strong> avaliação de impacto, revisão humana obrigatória nas decisões relevantes, testes antes da entrada em produção, registro de uso e monitoramento contínuo, plano de resposta a incidentes e condição clara de desligamento.</li>
+<li><strong>Para agentes:</strong> permissões mínimas, limites de ação, trilha de auditoria e aprovação humana para ações irreversíveis. Os controles técnicos, como um <a href="../ai-gateway/">AI Gateway</a>, aplicam o que o inventário e o comitê decidiram.</li>
+</ul>
+<p>Modelos de regra e de formulário podem partir do <a href="../modelo-de-politica-de-ia/">modelo de política de IA</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="manter-atualizado">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Como manter o inventário atualizado</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+<ul>
+<li><strong>Porta de entrada única:</strong> nenhuma ferramenta nova entra sem registro. Compras, TI e segurança conferem o inventário antes de aprovar um contrato.</li>
+<li><strong>Revisão trimestral:</strong> o dono confirma que o uso e os dados continuam os mesmos, e o coordenador reporta pendências ao comitê.</li>
+<li><strong>Gatilhos de revisão:</strong> mudança de fornecedor, de modelo, de finalidade ou de tipo de dado, e incidentes.</li>
+<li><strong>Indicadores simples:</strong> quantidade de sistemas por nível de risco, itens sem dono, itens com revisão vencida e usos não declarados descobertos.</li>
+</ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="erros-comuns">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Erros comuns</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+<ul>
+<li><strong>Tratar como projeto único.</strong> Inventário feito uma vez e esquecido deixa de refletir a realidade em poucos meses.</li>
+<li><strong>Olhar só as ferramentas conhecidas.</strong> Recursos de IA embutidos em softwares existentes ficam de fora.</li>
+<li><strong>Punir quem declara.</strong> Se declarar um uso gera bronca, as pessoas deixam de declarar. Ofereça um caminho fácil para regularizar.</li>
+<li><strong>Registro sem dono.</strong> Item sem responsável não é revisado nem desligado.</li>
+<li><strong>Campos demais.</strong> Um modelo pesado não é preenchido. Comece enxuto e acrescente quando houver necessidade.</li>
+</ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Perguntas frequentes</p>
+        <h2>Inventário de IA, em resposta direta</h2>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-item">
+          <h3>O que é um inventário de IA?</h3>
+          <p>É o registro vivo de todos os sistemas de IA usados pela empresa, com dono, finalidade, dados envolvidos, fornecedor, risco e controles. Ele responde à pergunta básica de qualquer programa de governança: o que temos e quem responde por isso?</p>
+        </div>
+        <div class="faq-item">
+          <h3>Quem deve manter o inventário de IA?</h3>
+          <p>Um coordenador nomeado, normalmente ligado ao comitê de IA ou à governança, mantém o registro. Quem alimenta as informações de cada sistema é o seu dono de negócio, e TI e segurança ajudam a descobrir usos que ninguém declarou.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Com que frequência o inventário deve ser atualizado?</h3>
+          <p>A cada novo sistema, mudança relevante de uso ou de fornecedor, e com uma revisão completa ao menos a cada trimestre. Inventário parado perde valor rapidamente, porque o uso de IA muda mais depressa que a maioria dos processos.</p>
+        </div>
+        <div class="faq-item">
+          <h3>O inventário precisa incluir IA embutida em softwares que já usamos?</h3>
+          <p>Sim. Muitos fornecedores ativaram recursos de IA em ferramentas existentes, como CRM, atendimento e edição de documentos. Se esses recursos tocam dados da empresa, entram na lista.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Empresa pequena precisa de inventário de IA?</h3>
+          <p>Precisa, mas pode ser simples: uma planilha com as colunas essenciais, um responsável e uma revisão periódica. O princípio é o mesmo, saber o que está em uso e quem responde.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="leia-tambem">
+    <div class="wrap">
+      <div class="section-head reveal"><p class="eyebrow">Leia também</p><h2>Para aprofundar</h2></div>
+      <div class="svc-grid reveal">
+        <div class="svc-card"><h3><a href="../inventario-de-ia/">Inventário de ferramentas de IA</a></h3><p>Como descobrir o que está em uso.</p></div>
+        <div class="svc-card"><h3><a href="../comite-de-ia-como-criar-na-sua-empresa/">Comitê de IA</a></h3><p>Quem decide sobre o que entra na lista.</p></div>
+        <div class="svc-card"><h3><a href="../framework-de-governanca-de-ia/">Framework de governança de IA</a></h3><p>Camadas, papéis e plano de 90 dias.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="fale-com-a-tyna" class="lead-captura">
+    <div class="wrap reveal" style="text-align:center;">
+      <p class="eyebrow">Fale com a Tyna</p>
+      <h2>Quer estruturar o inventário de IA na sua empresa?</h2>
+      <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20invent%C3%A1rio%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary">Agende uma conversa</a>
+      <p class="status-meta" style="margin-top:34px;">Publicado em 04/11/2026.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../" class="logo"><img src="../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../#servicos">Serviços</a>
+          <a href="../iso-42001/">ISO 42001</a>
+          <a href="../governanca-de-ia/">Governança de IA</a>
+          <a href="../lgpd-e-ia/">LGPD e IA</a>
+          <a href="../shadow-ai/">Shadow AI</a>
+          <a href="../pl-2338/">Marco Legal da IA</a>
+          <a href="../diagnostico/">Diagnóstico</a>
+          <a href="../blog/">Blog</a>
+          <a href="../biblioteca-prompts/">Prompts</a>
+          <a href="../sobre/">Sobre</a>
+          <a href="../glossario/">Glossário</a>
+          <a href="../ia-para-equipes-de-ti/">IA para equipes de TI</a>
+          <a href="../ia-segura-para-empresas/">IA segura para empresas</a>
+          <a href="../agentes-de-ia-para-empresas/">Agentes de IA</a>
+          <a href="../politica-de-privacidade/">Política de privacidade</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<!-- O botão flutuante do WhatsApp é montado por assets/site.js, que roda em todas as páginas -->
+<script src="../assets/site.js?v=18"></script>
+
+</body>
+</html>
