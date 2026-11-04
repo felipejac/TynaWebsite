@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // Só coleta em produção (tyna.com.br) — localhost e previews do Cloudflare Pages (*.pages.dev) ficam de fora.
+  if (location.hostname !== 'tyna.com.br') window['ga-disable-G-DQS0KMDT3G'] = true;
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Riscos de agentes de IA autônomos para empresas | Tyna</title>
+<meta name="description" content="Os riscos específicos de agentes de IA autônomos para empresas: ações com efeito real, permissões excessivas, cadeias de erro e injeção por conteúdo externo, com a medida de controle para cada um.">
+<link rel="canonical" href="https://tyna.com.br/riscos-de-agentes-de-ia-autonomos/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Riscos de agentes de IA autônomos para empresas">
+<meta property="og:description" content="Os riscos específicos de agentes de IA autônomos para empresas: ações com efeito real, permissões excessivas, cadeias de erro e injeção por conteúdo externo, com a medida de controle para cada um.">
+<meta property="og:url" content="https://tyna.com.br/riscos-de-agentes-de-ia-autonomos/">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna-dark.png">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css?v=19">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Riscos de agentes de IA autônomos para empresas",
+  "inLanguage": "pt-BR",
+  "description": "Os riscos específicos de agentes de IA autônomos para empresas: ações com efeito real, permissões excessivas, cadeias de erro e injeção por conteúdo externo, com a medida de controle para cada um.",
+  "datePublished": "2026-11-04",
+  "dateModified": "2026-11-04",
+  "author": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "mainEntityOfPage": "https://tyna.com.br/riscos-de-agentes-de-ia-autonomos/"
+}
+</script>
+<link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "pt-BR",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "O que diferencia o risco de um agente autônomo do risco de um chatbot?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "O chatbot produz texto que uma pessoa lê e decide usar. O agente executa ações: chama sistemas, altera dados e encadeia passos sem revisão a cada um. O erro deixa de ser uma resposta ruim e passa a ser um efeito real na operação."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Qual é o maior risco de um agente autônomo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Permissão maior que a necessária. Com acesso amplo, qualquer erro de raciocínio ou instrução maliciosa vira ação em sistemas de produção."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Prompt injection é mais grave em agentes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim. O agente lê e-mails, páginas e documentos e pode tratar o conteúdo como ordem. Como ele tem ferramentas, a instrução injetada pode virar ação, e não só texto."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como manter um humano no controle?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Com aprovação prévia para ações irreversíveis, limites de escopo e um interruptor de parada. A supervisão fica na ação, não na leitura de cada resposta."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Por onde começar a governar agentes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pelo inventário dos agentes e das permissões de cada um, e pelo registro do que fizeram. Veja governança de agentes."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><img src="../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../#servicos">Serviços</a></li>
+        <li><a href="../iso-42001/">ISO 42001</a></li>
+        <li><a href="../#cases">Cases</a></li>
+        <li><a href="../#trilhas">Trilhas</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../biblioteca-prompts/">Prompts</a></li>
+        <li><a href="../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pela%20p%C3%A1gina%20de%20riscos%20de%20agentes%20aut%C3%B4nomos%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pela%20p%C3%A1gina%20de%20riscos%20de%20agentes%20aut%C3%B4nomos%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Agentes de IA autônomos</p>
+      <h1 style="max-width:900px;">Riscos de agentes de IA autônomos para empresas: <em>o que muda</em> quando a IA age.</h1>
+      <p class="lead" style="max-width:740px;">Um agente não só responde: ele decide e executa. Por isso os riscos são outros, e os controles de IA generativa comum não bastam. Este artigo descreve oito riscos próprios de agentes e a medida de cada um.</p>
+      <div class="hero-ctas">
+        <a href="#riscos" class="btn btn-primary">Os oito riscos</a>
+        <a href="#comecar" class="btn btn-ghost">Por onde começar</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="diferenca">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">A diferença</p>
+        <h2>Por que agente não é só mais um chatbot</h2>
+        <p>Na IA generativa comum, uma pessoa lê a resposta e decide o que fazer. No agente, essa pessoa saiu do caminho: ele recebe uma meta, escolhe ferramentas, executa passos e só então relata. O risco migra do texto errado para a ação errada, feita com as credenciais da empresa, em velocidade de máquina e muitas vezes sem ninguém olhando. Para os riscos de texto, veja <a href="../riscos-da-ia-generativa-para-empresas/">riscos da IA generativa para empresas</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="riscos">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Os oito riscos</p>
+        <h2>Riscos específicos de agentes e a medida de cada um</h2>
+        <p>A coluna da direita é a medida de maior efeito, não a única.</p>
+      </div>
+      <div class="reveal">
+        <table class="spec-table">
+          <thead><tr><th scope="col">Risco</th><th scope="col">O que acontece</th><th scope="col">Medida principal</th></tr></thead>
+          <tbody>
+            <tr><td>Ação com efeito real</td><td>O agente apaga, envia, paga ou altera algo que não se desfaz</td><td>Aprovação humana para ações irreversíveis</td></tr>
+            <tr><td>Permissão excessiva</td><td>Credenciais amplas transformam um erro pequeno em dano grande</td><td>Privilégio mínimo e credencial por agente</td></tr>
+            <tr><td>Cadeia de erros</td><td>Um passo errado alimenta os seguintes sem que ninguém perceba</td><td>Pontos de verificação e limite de passos</td></tr>
+            <tr><td>Injeção por conteúdo externo</td><td>Texto lido em e-mail, página ou arquivo é tratado como ordem</td><td>Defesas contra <a href="../o-que-e-prompt-injection/">prompt injection</a> e isolamento de ferramentas</td></tr>
+            <tr><td>Desvio de objetivo</td><td>O agente cumpre a meta de um jeito que ninguém previu</td><td>Escopo escrito, <a href="../o-que-e-guardrail-em-ia/">guardrails</a> e testes de cenário</td></tr>
+            <tr><td>Falta de rastro</td><td>Ninguém sabe o que o agente fez, quando e por quê</td><td>Registro de cada chamada e decisão</td></tr>
+            <tr><td>Custo e laço descontrolado</td><td>Repetições e chamadas em cascata consomem recurso sem parar</td><td>Orçamento por tarefa e interruptor de parada</td></tr>
+            <tr><td>Responsabilidade difusa</td><td>Não há dono claro quando o agente erra</td><td>Dono nomeado por agente e <a href="../responsabilidade-civil-ia/">responsabilidade definida</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="comecar">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Por onde começar</p>
+        <h2>Quatro passos para colocar agentes sob controle</h2>
+        <p>Comece pelo que o agente pode tocar, não pelo que ele sabe dizer. Para implantar com método, veja <a href="../como-implementar-agentes-de-ia-na-empresa/">como implementar agentes de IA na empresa</a>.</p>
+      </div>
+      <div class="steps reveal">
+        <div class="step">
+          <span class="step-num">01</span>
+          <div><h3>Inventariar agentes</h3><p>Listar cada agente, o que ele acessa e quem responde por ele.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">02</span>
+          <div><h3>Reduzir permissões</h3><p>Dar a cada agente só o acesso que a tarefa pede, com credencial própria.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <div><h3>Aprovar o irreversível</h3><p>Exigir confirmação humana antes de apagar, enviar ou pagar.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">04</span>
+          <div><h3>Registrar e revisar</h3><p>Guardar o rastro de ações e revisar. Veja <a href="../governanca-de-agentes/">governança de agentes</a>.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Perguntas frequentes</p>
+        <h2>Riscos de agentes autônomos, em resposta direta</h2>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-item">
+          <h3>O que diferencia o risco de um agente autônomo do risco de um chatbot?</h3>
+          <p>O chatbot produz texto que uma pessoa lê e decide usar. O agente executa ações: chama sistemas, altera dados e encadeia passos sem revisão a cada um. O erro deixa de ser uma resposta ruim e passa a ser um efeito real na operação.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Qual é o maior risco de um agente autônomo?</h3>
+          <p>Permissão maior que a necessária. Com acesso amplo, qualquer erro de raciocínio ou instrução maliciosa vira ação em sistemas de produção.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Prompt injection é mais grave em agentes?</h3>
+          <p>Sim. O agente lê e-mails, páginas e documentos e pode tratar o conteúdo como ordem. Como ele tem ferramentas, a instrução injetada pode virar ação, e não só texto.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Como manter um humano no controle?</h3>
+          <p>Com aprovação prévia para ações irreversíveis, limites de escopo e um interruptor de parada. A supervisão fica na ação, não na leitura de cada resposta.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Por onde começar a governar agentes?</h3>
+          <p>Pelo inventário dos agentes e das permissões de cada um, e pelo registro do que fizeram. Veja <a href="../governanca-de-agentes/">governança de agentes</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band" style="border-bottom:none;">
+    <div class="wrap reveal">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Seus agentes sabem o limite do que podem fazer?</h2>
+      <p style="color:var(--text-muted); font-size:16.5px; max-width:580px; margin:0 auto 30px;">O diagnóstico responde em três minutos, com dez perguntas e as lacunas nomeadas uma a uma. Sem formulário e sem cadastro.</p>
+      <div class="hero-ctas" style="justify-content:center;">
+        <a href="../diagnostico/" class="btn btn-primary">Fazer o diagnóstico</a>
+        <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pela%20p%C3%A1gina%20de%20riscos%20de%20agentes%20aut%C3%B4nomos%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-ghost">Falar com o Felipe</a>
+      </div>
+      <p class="status-meta" style="margin-top:34px;">Última revisão: 04/11/2026.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../" class="logo"><img src="../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../#servicos">Serviços</a>
+          <a href="../iso-42001/">ISO 42001</a>
+          <a href="../governanca-de-ia/">Governança de IA</a>
+          <a href="../shadow-ai/">Shadow AI</a>
+          <a href="../pl-2338/">Marco Legal da IA</a>
+          <a href="../diagnostico/">Diagnóstico</a>
+          <a href="../blog/">Blog</a>
+          <a href="../biblioteca-prompts/">Prompts</a>
+          <a href="../sobre/">Sobre</a>
+          <a href="../glossario/">Glossário</a>
+          <a href="../ia-para-equipes-de-ti/">IA para equipes de TI</a>
+          <a href="../ia-segura-para-empresas/">IA segura para empresas</a>
+          <a href="../agentes-de-ia-para-empresas/">Agentes de IA</a>
+          <a href="../politica-de-privacidade/">Política de privacidade</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<!-- O botão flutuante do WhatsApp é montado por assets/site.js, que roda em todas as páginas -->
+<script src="../assets/site.js?v=18"></script>
+
+</body>
+</html>
