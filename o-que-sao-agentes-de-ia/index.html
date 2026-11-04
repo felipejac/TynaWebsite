@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // Só coleta em produção (tyna.com.br) — localhost e previews do Cloudflare Pages (*.pages.dev) ficam de fora.
+  if (location.hostname !== 'tyna.com.br') window['ga-disable-G-DQS0KMDT3G'] = true;
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O que são agentes de IA: definição, como funcionam e exemplos | Tyna</title>
+<meta name="description" content="O que são agentes de IA, como funcionam, exemplos de uso nas empresas e a diferença para chatbots simples, em linguagem direta.">
+<link rel="canonical" href="https://tyna.com.br/o-que-sao-agentes-de-ia/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="O que são agentes de IA: definição, como funcionam e exemplos">
+<meta property="og:description" content="O que são agentes de IA, como funcionam, exemplos de uso nas empresas e a diferença para chatbots simples, em linguagem direta.">
+<meta property="og:url" content="https://tyna.com.br/o-que-sao-agentes-de-ia/">
+<meta property="og:image" content="https://tyna.com.br/assets/logo-tyna-dark.png">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css?v=19">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "O que são agentes de IA: definição, como funcionam e exemplos",
+  "inLanguage": "pt-BR",
+  "description": "O que são agentes de IA, como funcionam, exemplos de uso nas empresas e a diferença para chatbots simples, em linguagem direta.",
+  "datePublished": "2026-11-04",
+  "dateModified": "2026-11-04",
+  "author": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "mainEntityOfPage": "https://tyna.com.br/o-que-sao-agentes-de-ia/"
+}
+</script>
+<link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "pt-BR",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "O que é um agente de IA em uma frase?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "É um sistema que recebe uma meta, decide os passos, usa ferramentas para executá-los e ajusta o caminho conforme o resultado, com pouca intervenção humana."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Agente de IA é a mesma coisa que chatbot?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não. O chatbot responde perguntas dentro de uma conversa. O agente age: consulta sistemas, grava dados e encadeia tarefas até cumprir um objetivo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Todo agente usa um modelo de linguagem?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hoje a maioria usa, como mecanismo de raciocínio. O que o torna agente é o conjunto: modelo, ferramentas, memória e um ciclo de ação e verificação."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quais tarefas servem para um agente?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tarefas repetitivas, com várias etapas e regras claras, como triagem de chamados, conciliação de documentos e pesquisa de informações em várias fontes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Agentes precisam de governança?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim. Como executam ações reais, precisam de permissões mínimas, aprovação humana para o irreversível e registro do que fizeram."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><img src="../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../#servicos">Serviços</a></li>
+        <li><a href="../iso-42001/">ISO 42001</a></li>
+        <li><a href="../#cases">Cases</a></li>
+        <li><a href="../#trilhas">Trilhas</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../biblioteca-prompts/">Prompts</a></li>
+        <li><a href="../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pela%20p%C3%A1gina%20sobre%20o%20que%20s%C3%A3o%20agentes%20de%20IA%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pela%20p%C3%A1gina%20sobre%20o%20que%20s%C3%A3o%20agentes%20de%20IA%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Agentes de IA</p>
+      <h1 style="max-width:900px;">O que são agentes de IA: <em>definição</em>, como funcionam e onde usar.</h1>
+      <p class="lead" style="max-width:740px;">Agente de IA é o sistema que recebe uma meta e executa os passos para chegar nela. Este artigo explica o conceito, o ciclo de funcionamento, exemplos de uso nas empresas e a diferença para um chatbot simples.</p>
+      <div class="hero-ctas">
+        <a href="#como-funcionam" class="btn btn-primary">Como funcionam</a>
+        <a href="#exemplos" class="btn btn-ghost">Exemplos nas empresas</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="definicao">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Definição</p>
+        <h2>O que é um agente de IA</h2>
+        <p>Um agente de IA é um sistema que persegue um objetivo. Em vez de só responder a uma pergunta, ele decide quais passos dar, usa ferramentas (buscar dados, ler documentos, chamar um sistema, enviar uma mensagem), observa o resultado e ajusta o próximo passo. Normalmente o raciocínio vem de um modelo de linguagem; o que faz dele um agente é a capacidade de agir e de repetir o ciclo até concluir a tarefa.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="como-funcionam">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Como funcionam</p>
+        <h2>O ciclo de um agente em quatro etapas</h2>
+        <p>Por trás de cada agente há um laço simples, repetido quantas vezes a tarefa pedir. Quatro componentes o sustentam: o modelo, que raciocina; as ferramentas, que dão acesso aos sistemas; a memória, que guarda o contexto da tarefa; e as regras, que definem o que o agente pode e não pode fazer.</p>
+      </div>
+      <div class="steps reveal">
+        <div class="step">
+          <span class="step-num">01</span>
+          <div><h3>Receber a meta</h3><p>Uma pessoa ou outro sistema descreve o que precisa ser feito e quais são os limites.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">02</span>
+          <div><h3>Planejar</h3><p>O modelo divide a meta em passos e escolhe a ferramenta de cada um.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <div><h3>Agir</h3><p>O agente executa o passo: consulta uma base, preenche um registro, aciona uma integração.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">04</span>
+          <div><h3>Verificar e repetir</h3><p>Ele confere o resultado, corrige o rumo se preciso e só então entrega ou segue adiante.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="exemplos">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Exemplos</p>
+        <h2>Exemplos de uso de agentes de IA nas empresas</h2>
+        <p>Os melhores candidatos são tarefas com várias etapas, regras claras e volume repetido. Para um roteiro de implantação, veja <a href="../como-implementar-agentes-de-ia-na-empresa/">como implementar agentes de IA na empresa</a> e a visão geral de <a href="../agentes-de-ia-para-empresas/">agentes de IA para empresas</a>.</p>
+      </div>
+      <div class="reveal">
+        <table class="spec-table">
+          <thead><tr><th scope="col">Área</th><th scope="col">O que o agente faz</th><th scope="col">Quem decide</th></tr></thead>
+          <tbody>
+            <tr><td>Atendimento</td><td>Lê o chamado, consulta o histórico do cliente, propõe a solução e abre o registro</td><td>Pessoa aprova casos fora do padrão</td></tr>
+            <tr><td>Financeiro</td><td>Concilia notas e pagamentos e aponta divergências</td><td>Pessoa aprova ajustes</td></tr>
+            <tr><td>Jurídico e compliance</td><td>Compara contratos com a política interna e destaca cláusulas fora do padrão</td><td>Advogado revisa</td></tr>
+            <tr><td>TI</td><td>Faz a triagem de incidentes, coleta logs e sugere a correção</td><td>Pessoa aprova mudanças em produção</td></tr>
+            <tr><td>Comercial</td><td>Pesquisa a empresa do lead e prepara o resumo para a reunião</td><td>Vendedor conduz o contato</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="chatbot">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Diferença</p>
+        <h2>Agente de IA ou chatbot simples: qual é a diferença</h2>
+        <p>Como o agente age, ele exige controles que o chatbot não exige: permissão mínima, aprovação humana para o irreversível e registro das ações. Veja os <a href="../riscos-de-agentes-de-ia-autonomos/">riscos de agentes de IA autônomos</a> e a <a href="../governanca-de-agentes/">governança de agentes</a>.</p>
+      </div>
+      <div class="reveal">
+        <table class="spec-table">
+          <thead><tr><th scope="col">Aspecto</th><th scope="col">Chatbot simples</th><th scope="col">Agente de IA</th></tr></thead>
+          <tbody>
+            <tr><td>Objetivo</td><td>Responder à pergunta atual</td><td>Cumprir uma meta com vários passos</td></tr>
+            <tr><td>Ferramentas</td><td>Em geral nenhuma</td><td>Sistemas, bases e integrações</td></tr>
+            <tr><td>Iniciativa</td><td>Reage ao que a pessoa escreve</td><td>Decide o próximo passo</td></tr>
+            <tr><td>Resultado</td><td>Texto para uma pessoa ler</td><td>Ação concluída na operação</td></tr>
+            <tr><td>Risco</td><td>Resposta errada</td><td>Ação errada, com efeito real</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Perguntas frequentes</p>
+        <h2>Agentes de IA, em resposta direta</h2>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-item">
+          <h3>O que é um agente de IA em uma frase?</h3>
+          <p>É um sistema que recebe uma meta, decide os passos, usa ferramentas para executá-los e ajusta o caminho conforme o resultado, com pouca intervenção humana.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Agente de IA é a mesma coisa que chatbot?</h3>
+          <p>Não. O chatbot responde perguntas dentro de uma conversa. O agente age: consulta sistemas, grava dados e encadeia tarefas até cumprir um objetivo.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Todo agente usa um modelo de linguagem?</h3>
+          <p>Hoje a maioria usa, como mecanismo de raciocínio. O que o torna agente é o conjunto: modelo, ferramentas, memória e um ciclo de ação e verificação.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Quais tarefas servem para um agente?</h3>
+          <p>Tarefas repetitivas, com várias etapas e regras claras, como triagem de chamados, conciliação de documentos e pesquisa de informações em várias fontes.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Agentes precisam de governança?</h3>
+          <p>Sim. Como executam ações reais, precisam de permissões mínimas, aprovação humana para o irreversível e registro do que fizeram.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band" style="border-bottom:none;">
+    <div class="wrap reveal">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Sua empresa sabe onde um agente de IA faria sentido?</h2>
+      <p style="color:var(--text-muted); font-size:16.5px; max-width:580px; margin:0 auto 30px;">O diagnóstico responde em três minutos, com dez perguntas e as lacunas nomeadas uma a uma. Sem formulário e sem cadastro.</p>
+      <div class="hero-ctas" style="justify-content:center;">
+        <a href="../diagnostico/" class="btn btn-primary">Fazer o diagnóstico</a>
+        <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pela%20p%C3%A1gina%20sobre%20o%20que%20s%C3%A3o%20agentes%20de%20IA%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-ghost">Falar com o Felipe</a>
+      </div>
+      <p class="status-meta" style="margin-top:34px;">Última revisão: 04/11/2026.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../" class="logo"><img src="../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../#servicos">Serviços</a>
+          <a href="../iso-42001/">ISO 42001</a>
+          <a href="../governanca-de-ia/">Governança de IA</a>
+          <a href="../shadow-ai/">Shadow AI</a>
+          <a href="../pl-2338/">Marco Legal da IA</a>
+          <a href="../diagnostico/">Diagnóstico</a>
+          <a href="../blog/">Blog</a>
+          <a href="../biblioteca-prompts/">Prompts</a>
+          <a href="../sobre/">Sobre</a>
+          <a href="../glossario/">Glossário</a>
+          <a href="../ia-para-equipes-de-ti/">IA para equipes de TI</a>
+          <a href="../ia-segura-para-empresas/">IA segura para empresas</a>
+          <a href="../agentes-de-ia-para-empresas/">Agentes de IA</a>
+          <a href="../politica-de-privacidade/">Política de privacidade</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<!-- O botão flutuante do WhatsApp é montado por assets/site.js, que roda em todas as páginas -->
+<script src="../assets/site.js?v=18"></script>
+
+</body>
+</html>
