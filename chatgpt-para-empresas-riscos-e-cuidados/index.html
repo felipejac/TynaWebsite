@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // Só coleta em produção (tyna.com.br) — localhost e previews do Cloudflare Pages (*.pages.dev) ficam de fora.
+  if (location.hostname !== 'tyna.com.br') window['ga-disable-G-DQS0KMDT3G'] = true;
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ChatGPT para empresas: riscos e cuidados | Tyna</title>
+<meta name="description" content="ChatGPT para empresas: riscos e cuidados que gestores precisam tratar, de vazamento de dados à LGPD e ao uso paralelo, com medidas práticas para começar já.">
+<link rel="canonical" href="https://tyna.com.br/chatgpt-para-empresas-riscos-e-cuidados/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ChatGPT para empresas: riscos e cuidados">
+<meta property="og:description" content="ChatGPT para empresas: riscos e cuidados que gestores precisam tratar, de vazamento de dados à LGPD e ao uso paralelo, com medidas práticas para começar já.">
+<meta property="og:url" content="https://tyna.com.br/chatgpt-para-empresas-riscos-e-cuidados/">
+<meta property="og:image" content="https://tyna.com.br/assets/og-ia-generativa.svg">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css?v=19">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "ChatGPT para empresas: riscos e cuidados",
+  "inLanguage": "pt-BR",
+  "description": "ChatGPT para empresas: riscos e cuidados que gestores precisam tratar, de vazamento de dados à LGPD e ao uso paralelo, com medidas práticas para começar já.",
+  "datePublished": "2026-11-05",
+  "dateModified": "2026-11-05",
+  "author": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "mainEntityOfPage": "https://tyna.com.br/chatgpt-para-empresas-riscos-e-cuidados/"
+}
+</script>
+<link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "pt-BR",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "O ChatGPT é seguro para uso corporativo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depende da versão contratada e de como é usado. Planos corporativos trazem controles de administração e condições de tratamento de dados que a conta pessoal não tem. Mesmo assim, a empresa precisa de regra de uso, classificação do que pode ser enviado e revisão humana das respostas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Preciso proibir o ChatGPT na empresa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Em geral, não. A proibição sem alternativa empurra o uso para contas pessoais e celulares, fora da vista de TI e do jurídico. Funciona melhor oferecer um caminho autorizado, com regras claras e treinamento."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "A LGPD se aplica ao que os funcionários digitam no ChatGPT?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim. Colar dado pessoal em um prompt é tratamento de dado pessoal e exige base legal, finalidade e segurança. O ideal é definir quais dados nunca podem ser enviados e registrar as ferramentas autorizadas."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><img src="../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../#servicos">Serviços</a></li>
+        <li><a href="../iso-42001/">ISO 42001</a></li>
+        <li><a href="../#cases">Cases</a></li>
+        <li><a href="../#trilhas">Trilhas</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../biblioteca-prompts/">Prompts</a></li>
+        <li><a href="../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20ChatGPT%20para%20empresas%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20ChatGPT%20para%20empresas%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">IA generativa</p>
+      <h1 style="max-width:900px;">ChatGPT para empresas: riscos e cuidados.</h1>
+      <p class="lead" style="max-width:740px;">O que um gestor precisa saber antes de o ChatGPT virar parte da rotina da empresa, com ou sem aprovação formal.</p>
+    </div>
+  </section>
+
+  <section id="introducao">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Por que agora</p>
+        <h2>O ChatGPT já está na sua empresa</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+        <p>Em empresas com mais de 200 pessoas, é muito provável que o ChatGPT já esteja em uso: no comercial, para redigir propostas; no jurídico, para resumir contratos; em TI, para revisar código. Na maioria das vezes isso acontece em contas pessoais, sem que a liderança saiba quais dados estão sendo enviados e para onde eles vão.</p>
+        <p>O problema não é a ferramenta, e sim a ausência de regra. Sem política, cada pessoa decide sozinha o que é seguro colar em um prompt. Este artigo mostra os riscos que realmente importam para quem gere a empresa e os cuidados que reduzem a exposição sem travar a produtividade.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="riscos">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Os riscos</p>
+        <h2>Onde o ChatGPT expõe a empresa</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+        <p><strong>Vazamento de informação.</strong> Contratos, bases de clientes, código-fonte e estratégia colados em uma ferramenta sem controle saem do perímetro da empresa. A entrada voluntária, bem-intencionada, é o caminho mais comum de vazamento.</p>
+        <p><strong>Uso paralelo (shadow AI).</strong> Quando a empresa não oferece uma opção aprovada, as pessoas usam a que têm à mão. O resultado é um parque de ferramentas que TI, segurança e jurídico não enxergam. Veja mais em <a href="../shadow-ai/">shadow AI</a>.</p>
+        <p><strong>Respostas erradas com aparência de certas.</strong> O modelo pode inventar números, fontes e referências legais com total convicção. Se o texto vai direto para um cliente, um contrato ou um relatório, o erro passa a ser da empresa.</p>
+        <p><strong>Propriedade intelectual e confidencialidade.</strong> Material enviado ao modelo e conteúdo gerado por ele levantam dúvidas sobre titularidade, licença e sigilo contratual com terceiros.</p>
+        <p><strong>Dependência de um fornecedor.</strong> Processos que dependem de uma única ferramenta herdam suas mudanças de condições, de disponibilidade e de política de dados.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="regulacao">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Regulação e compliance</p>
+        <h2>LGPD e o que vem pela frente</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+        <p>A LGPD já se aplica. Digitar dado pessoal em um prompt é tratamento de dado pessoal, o que exige finalidade definida, base legal, minimização e segurança. Se o fornecedor processa dados fora do Brasil, entra ainda a questão da transferência internacional. O <a href="../chatgpt-na-empresa-lgpd/">ChatGPT na empresa e a LGPD</a> detalha esses pontos.</p>
+        <p>Há também o debate sobre o marco legal da IA no Brasil, o <a href="../pl-2338/">PL 2338</a>, que tende a exigir mais transparência e gestão de risco conforme o grau de impacto do sistema. Mesmo antes de qualquer lei nova, setores regulados, como o financeiro, já cobram controle e rastreabilidade sobre o uso de IA.</p>
+        <p>Na prática, o time de compliance precisa de três coisas: saber quais ferramentas estão em uso, ter regras escritas sobre dados permitidos e proibidos e conseguir demonstrar essas regras em uma auditoria.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap reveal">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Sua empresa está preparada para ChatGPT para empresas riscos e cuidados?</h2>
+      <p style="color:var(--text-muted); font-size:16.5px; max-width:580px; margin:0 auto 30px;">
+        Fale com o Felipe — sem formulário, sem espera.
+      </p>
+      <div class="hero-ctas" style="justify-content:center;">
+        <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20ChatGPT%20para%20empresas%20riscos%20e%20cuidados%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary">
+          Falar com o Felipe pelo WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="cuidados">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Cuidados práticos</p>
+        <h2>O que fazer nas próximas semanas</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+        <p><strong>1. Mapeie o uso real.</strong> Faça um levantamento simples, com anistia, de quem usa o quê e para quê. O diagnóstico costuma surpreender.</p>
+        <p><strong>2. Classifique os dados.</strong> Defina em uma página o que pode, o que exige cuidado e o que nunca pode ser enviado a uma ferramenta externa.</p>
+        <p><strong>3. Ofereça um caminho autorizado.</strong> Uma versão corporativa, com administração central e condições contratuais de tratamento de dados, tira o uso das contas pessoais. Revise as cláusulas com o jurídico.</p>
+        <p><strong>4. Escreva a política e treine.</strong> Uma <a href="../politica-de-uso-de-ia/">política de uso de IA</a> curta e treinamento com exemplos reais funcionam melhor que um documento extenso que ninguém lê.</p>
+        <p><strong>5. Exija revisão humana.</strong> Todo conteúdo que sai da empresa, ou que embasa uma decisão, passa por checagem de fatos e números contra a fonte interna.</p>
+        <p><strong>6. Defina responsáveis.</strong> Alguém na empresa precisa responder por inventário, exceções e incidentes. Em muitas empresas, um comitê pequeno resolve.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Perguntas frequentes</p>
+        <h2>ChatGPT para empresas: dúvidas comuns</h2>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-item">
+          <h3>O ChatGPT é seguro para uso corporativo?</h3>
+          <p>Depende da versão contratada e de como é usado. Planos corporativos trazem controles de administração e condições de tratamento de dados que a conta pessoal não tem. Mesmo assim, a empresa precisa de regra de uso, classificação do que pode ser enviado e revisão humana das respostas.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Preciso proibir o ChatGPT na empresa?</h3>
+          <p>Em geral, não. A proibição sem alternativa empurra o uso para contas pessoais e celulares, fora da vista de TI e do jurídico. Funciona melhor oferecer um caminho autorizado, com regras claras e treinamento.</p>
+        </div>
+        <div class="faq-item">
+          <h3>A LGPD se aplica ao que os funcionários digitam no ChatGPT?</h3>
+          <p>Sim. Colar dado pessoal em um prompt é tratamento de dado pessoal e exige base legal, finalidade e segurança. O ideal é definir quais dados nunca podem ser enviados e registrar as ferramentas autorizadas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="leia-tambem">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Leia também</p>
+        <h2>Para aprofundar</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+        <ul>
+          <li><a href="../riscos-da-ia-generativa-para-empresas/">Riscos da IA generativa para empresas: os oito que importam</a></li>
+          <li><a href="../vazamento-de-dados-via-ia-generativa-como-prevenir/">Vazamento de dados via IA generativa: como prevenir</a></li>
+          <li><a href="../politica-uso-ia-generativa-empresas/">Política de uso de IA generativa nas empresas</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../" class="logo"><img src="../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../#servicos">Serviços</a>
+          <a href="../iso-42001/">ISO 42001</a>
+          <a href="../governanca-de-ia/">Governança de IA</a>
+          <a href="../shadow-ai/">Shadow AI</a>
+          <a href="../pl-2338/">Marco Legal da IA</a>
+          <a href="../diagnostico/">Diagnóstico</a>
+          <a href="../blog/">Blog</a>
+          <a href="../biblioteca-prompts/">Prompts</a>
+          <a href="../sobre/">Sobre</a>
+          <a href="../glossario/">Glossário</a>
+          <a href="../ia-para-equipes-de-ti/">IA para equipes de TI</a>
+          <a href="../ia-segura-para-empresas/">IA segura para empresas</a>
+          <a href="../agentes-de-ia-para-empresas/">Agentes de IA</a>
+          <a href="../politica-de-privacidade/">Política de privacidade</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<!-- O botão flutuante do WhatsApp é montado por assets/site.js, que roda em todas as páginas -->
+<script src="../assets/site.js?v=18"></script>
+
+</body>
+</html>
