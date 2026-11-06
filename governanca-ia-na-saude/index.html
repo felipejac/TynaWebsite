@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // Só coleta em produção (tyna.com.br) — localhost e previews do Cloudflare Pages (*.pages.dev) ficam de fora.
+  if (location.hostname !== 'tyna.com.br') window['ga-disable-G-DQS0KMDT3G'] = true;
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Governança de IA na Saúde: riscos, regras e próximos passos | Tyna</title>
+<meta name="description" content="Hospitais e operadoras tratam dado de saúde, o mais sensível da LGPD. Veja os riscos reais da IA, o que LGPD, ANVISA e CFM exigem e como agir na prática.">
+<link rel="canonical" href="https://tyna.com.br/governanca-ia-na-saude/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Governança de IA na Saúde">
+<meta property="og:description" content="Hospitais e operadoras tratam dado de saúde, o mais sensível da LGPD. Veja os riscos reais da IA e o que LGPD, ANVISA e CFM exigem na prática.">
+<meta property="og:url" content="https://tyna.com.br/governanca-ia-na-saude/">
+<meta property="og:image" content="https://tyna.com.br/assets/og-governanca-ia.svg">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css?v=19">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Governança de IA na Saúde",
+  "inLanguage": "pt-BR",
+  "description": "Hospitais e operadoras tratam dado de saúde, o mais sensível da LGPD. Veja os riscos reais da IA e o que LGPD, ANVISA e CFM exigem na prática.",
+  "datePublished": "2026-11-06",
+  "dateModified": "2026-11-06",
+  "author": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "mainEntityOfPage": "https://tyna.com.br/governanca-ia-na-saude/"
+}
+</script>
+<link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "pt-BR",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Por que dado de saúde exige cuidado extra em IA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Porque a LGPD classifica o dado de saúde como dado pessoal sensível. O artigo 11 só permite tratá-lo em hipóteses específicas, como a tutela da saúde realizada por profissionais e serviços de saúde, e veda o compartilhamento desses dados entre controladores para obter vantagem econômica, com exceções previstas na própria lei."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Um software que apoia diagnóstico precisa de registro na ANVISA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depende da função do software e do risco que ele representa. A RDC 657/2022 da ANVISA trata software como dispositivo médico (SaMD) e define as exigências de regularização conforme a classe de risco. Antes de implantar, é preciso confirmar com o fabricante e com a área regulatória se a função do sistema se enquadra na norma."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O médico pode seguir uma recomendação de IA sem revisar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não como regra. A responsabilidade pela decisão clínica continua com o profissional de saúde, independentemente da ferramenta usada. Por isso a governança precisa definir quando a IA apenas sugere, quem revisa e como essa revisão fica registrada."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><img src="../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../#servicos">Serviços</a></li>
+        <li><a href="../iso-42001/">ISO 42001</a></li>
+        <li><a href="../#cases">Cases</a></li>
+        <li><a href="../#trilhas">Trilhas</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../biblioteca-prompts/">Prompts</a></li>
+        <li><a href="../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pela%20p%C3%A1gina%20sobre%20Govern%C3%A2n%C3%A7a%20de%20IA%20na%20Sa%C3%BAde%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pela%20p%C3%A1gina%20sobre%20Govern%C3%A2n%C3%A7a%20de%20IA%20na%20Sa%C3%BAde%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Governança de IA na saúde</p>
+      <h1 style="max-width:900px;">Governança de IA na Saúde</h1>
+      <p class="lead" style="max-width:740px;">Hospitais e operadoras de planos de saúde já usam IA para triagem de prontuários, apoio a diagnóstico, previsão de glosas e atendimento por chat. Em quase todos esses fluxos passa dado de saúde, que a LGPD trata como sensível. Um resumo de prontuário colado em uma ferramenta pública, um modelo treinado com histórico sem base legal documentada ou uma negativa de cobertura decidida por algoritmo podem gerar incidente, multa e processo antes de qualquer área perceber.</p>
+      <p class="lead" style="max-width:740px;">O problema prático é que a IA costuma entrar pela ponta: uma equipe testa uma ferramenta, outra integra um fornecedor, e ninguém responde quem aprovou, quais dados entram e quem responde pelo resultado. Governança, nesse setor, é definir essas respostas antes do incidente, com dono, registro e revisão humana onde a decisão afeta o paciente.</p>
+    </div>
+  </section>
+
+  <section id="risco-saude">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Risco</p>
+        <h2>Por que a saúde é o setor de maior risco com IA</h2>
+        <p>Três fatores se somam. O primeiro é a sensibilidade do dado: o artigo 11 da LGPD exige hipóteses específicas para tratar dado de saúde, e um vazamento envolve diagnóstico, medicação e histórico de vida do paciente. O segundo é o impacto da decisão: um erro de triagem ou de autorização atinge tratamento e, em casos graves, a vida. O terceiro é a cadeia de fornecedores, com softwares de terceiros, integrações com laboratórios e operadoras e modelos hospedados fora do país, cada um com seu próprio contrato e sua própria política de retenção.</p>
+        <p>Além disso, a LGPD veda o compartilhamento de dados de saúde entre controladores para obter vantagem econômica, com exceções previstas na lei. Esse ponto pesa quando uma operadora quer usar o histórico de atendimento de um hospital parceiro para treinar um modelo de precificação. A análise jurídica precisa acontecer antes do contrato, não depois do piloto.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="regulacao">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Regulação</p>
+        <h2>O que a regulação exige</h2>
+        <p>Não existe uma lei única de IA em saúde no Brasil. A exigência vem de três frentes que se somam.</p>
+      </div>
+      <div class="svc-grid reveal">
+        <div class="svc-card"><h3>LGPD</h3><p>Dado de saúde é sensível (art. 5º, II). Tratamento só nas hipóteses do art. 11, com finalidade declarada, registro das operações e revisão de decisões automatizadas pelo titular (art. 20).</p></div>
+        <div class="svc-card"><h3>ANVISA: RDC 657/2022</h3><p>Trata software como dispositivo médico (SaMD). Se a função do sistema interfere em diagnóstico ou tratamento, o enquadramento e a regularização dependem da classe de risco. Confirme isso antes de implantar.</p></div>
+        <div class="svc-card"><h3>CFM e ética médica</h3><p>A responsabilidade pela decisão clínica continua com o médico, mesmo quando uma ferramenta sugere o caminho. A governança precisa deixar claro quando a IA apenas apoia e quem assina a conduta.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap reveal">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Sua organização de saúde tem uma política de IA aprovada?</h2>
+      <p style="color:var(--text-muted); font-size:16.5px; max-width:580px; margin:0 auto 30px;">
+        Fale com o Felipe — sem formulário, sem espera.
+      </p>
+      <div class="hero-ctas" style="justify-content:center;">
+        <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pela%20p%C3%A1gina%20sobre%20Govern%C3%A2n%C3%A7a%20de%20IA%20na%20Sa%C3%BAde%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary">
+          Falar com o Felipe pelo WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="na-pratica">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Implementação</p>
+        <h2>Como implementar na prática</h2>
+        <p>Uma governança útil para hospital ou operadora cabe em três instrumentos, nessa ordem.</p>
+      </div>
+      <div class="svc-grid reveal">
+        <div class="svc-card"><h3>Política de uso de IA</h3><p>Diz quais ferramentas são aprovadas, quais tipos de dado podem entrar em cada uma (prontuário, exame, dado administrativo) e o que nunca pode ser colado. Sem essa classificação, a equipe decide sozinha.</p></div>
+        <div class="svc-card"><h3>Comitê de ética e IA</h3><p>Reúne clínica, jurídico, TI, proteção de dados e um representante de pacientes. Aprova casos de uso, define os que exigem revisão humana obrigatória e decide sobre incidentes.</p></div>
+        <div class="svc-card"><h3>Auditoria de algoritmos</h3><p>Registra versão do modelo, dados de entrada, decisão e revisor de cada uso de impacto. Também mede desempenho por grupo de pacientes, para identificar vieses antes que virem reclamação.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Perguntas frequentes</p>
+        <h2>Governança de IA na saúde, em resposta direta</h2>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-item">
+          <h3>Por que dado de saúde exige cuidado extra em IA?</h3>
+          <p>Porque a LGPD classifica o dado de saúde como dado pessoal sensível. O artigo 11 só permite tratá-lo em hipóteses específicas, como a tutela da saúde realizada por profissionais e serviços de saúde, e veda o compartilhamento desses dados entre controladores para obter vantagem econômica, com exceções previstas na própria lei.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Um software que apoia diagnóstico precisa de registro na ANVISA?</h3>
+          <p>Depende da função do software e do risco que ele representa. A RDC 657/2022 da ANVISA trata software como dispositivo médico (SaMD) e define as exigências de regularização conforme a classe de risco. Antes de implantar, confirme com o fabricante e com a área regulatória se a função do sistema se enquadra na norma.</p>
+        </div>
+        <div class="faq-item">
+          <h3>O médico pode seguir uma recomendação de IA sem revisar?</h3>
+          <p>Não, como regra. A responsabilidade pela decisão clínica continua com o profissional de saúde, independentemente da ferramenta usada. Por isso a governança precisa definir quando a IA apenas sugere, quem revisa e como essa revisão fica registrada.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="leia-tambem">
+    <div class="wrap">
+      <div class="section-head reveal"><p class="eyebrow">Leia também</p><h2>Aprofunde cada ponto</h2></div>
+      <div class="svc-grid reveal">
+        <div class="svc-card"><h3><a href="../lgpd-e-ia/">LGPD e inteligência artificial na empresa</a></h3><p>As três portas por onde o dado pessoal entra na IA e a base legal por finalidade.</p></div>
+        <div class="svc-card"><h3><a href="../auditoria-de-ia/">Auditoria de IA</a></h3><p>Como auditar sistemas de IA e o que registrar em cada uso.</p></div>
+        <div class="svc-card"><h3><a href="../politica-de-uso-de-ia-para-empresas/">Política de uso de IA para empresas</a></h3><p>Como escrever a política e fazer com que ela valha na prática.</p></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../" class="logo"><img src="../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../#servicos">Serviços</a>
+          <a href="../iso-42001/">ISO 42001</a>
+          <a href="../governanca-de-ia/">Governança de IA</a>
+          <a href="../shadow-ai/">Shadow AI</a>
+          <a href="../pl-2338/">Marco Legal da IA</a>
+          <a href="../diagnostico/">Diagnóstico</a>
+          <a href="../blog/">Blog</a>
+          <a href="../biblioteca-prompts/">Prompts</a>
+          <a href="../sobre/">Sobre</a>
+          <a href="../glossario/">Glossário</a>
+          <a href="../politica-de-privacidade/">Política de privacidade</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<!-- O botão flutuante do WhatsApp é montado por assets/site.js, que roda em todas as páginas -->
+<script src="../assets/site.js?v=18"></script>
+
+</body>
+</html>
