@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // Só coleta em produção (tyna.com.br) — localhost e previews do Cloudflare Pages (*.pages.dev) ficam de fora.
+  if (location.hostname !== 'tyna.com.br') window['ga-disable-G-DQS0KMDT3G'] = true;
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O que é governança de IA e por onde começar | Tyna</title>
+<meta name="description" content="O que é governança de IA: definição prática, pilares, o que a regulação exige e um roteiro para gestores de empresas com mais de 200 pessoas começarem.">
+<link rel="canonical" href="https://tyna.com.br/o-que-e-governanca-de-ia/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="O que é governança de IA e por onde começar">
+<meta property="og:description" content="O que é governança de IA: definição prática, pilares, o que a regulação exige e um roteiro para gestores de empresas com mais de 200 pessoas começarem.">
+<meta property="og:url" content="https://tyna.com.br/o-que-e-governanca-de-ia/">
+<meta property="og:image" content="https://tyna.com.br/assets/og-governanca-ia.svg">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css?v=19">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "O que é governança de IA e por onde começar",
+  "inLanguage": "pt-BR",
+  "description": "O que é governança de IA: definição prática, pilares, o que a regulação exige e um roteiro para gestores de empresas com mais de 200 pessoas começarem.",
+  "datePublished": "2026-11-06",
+  "dateModified": "2026-11-06",
+  "author": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "mainEntityOfPage": "https://tyna.com.br/o-que-e-governanca-de-ia/"
+}
+</script>
+<link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "pt-BR",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "O que é governança de IA, em uma frase?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "É o conjunto de regras, papéis e controles que define quem decide, quem responde e como a empresa acompanha o uso de inteligência artificial, do inventário ao incidente."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Governança de IA é só para quem desenvolve IA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não. Empresas que apenas compram ou usam ferramentas de IA também respondem pelos resultados, pelos dados que enviam e pelas decisões que tomam com apoio delas. Por isso a governança vale para quem usa, não só para quem desenvolve."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Por onde uma empresa começa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Por três passos curtos: mapear o uso real de IA, nomear responsáveis com mandato e escrever uma política enxuta com critério de risco. Depois vêm os controles técnicos, o treinamento e a revisão periódica."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><img src="../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../#servicos">Serviços</a></li>
+        <li><a href="../iso-42001/">ISO 42001</a></li>
+        <li><a href="../#cases">Cases</a></li>
+        <li><a href="../#trilhas">Trilhas</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../biblioteca-prompts/">Prompts</a></li>
+        <li><a href="../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Governança de IA</p>
+      <h1 style="max-width:900px;">O que é governança de IA e por onde começar</h1>
+      <p class="lead" style="max-width:740px;">Em algum momento, alguém da diretoria pergunta: "quantas ferramentas de IA a empresa usa, com que dados e quem autorizou?" Em muitas empresas com mais de 200 pessoas, ninguém consegue responder com segurança. A IA entrou pelas mãos dos times, uma assinatura de cada vez, antes de existir qualquer regra.</p>
+      <p class="lead" style="max-width:740px;">É esse vazio que a governança de IA preenche. Este artigo explica o que ela é, por que o assunto subiu na pauta das empresas brasileiras, o que a regulação pede e como sair do zero sem criar burocracia que trave o negócio.</p>
+    </div>
+  </section>
+
+  <section id="o-que-e">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>O que é governança de IA, sem jargão</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+<p>Governança de IA é o conjunto de decisões, papéis, regras e controles que define como a empresa escolhe, usa e supervisiona sistemas de inteligência artificial. Em termos práticos, ela responde a cinco perguntas: o que está em uso, quem é o responsável, o que é permitido, como o risco é avaliado e o que acontece quando algo dá errado.</p>
+<p>Ela não é um projeto de tecnologia nem um documento guardado numa pasta. É uma forma de gestão, parecida com a que as empresas já têm para segurança da informação ou para proteção de dados. A diferença é que a IA muda rápido, é usada por áreas que nunca passaram pela TI e pode gerar decisões que afetam clientes, candidatos e funcionários.</p>
+<p>Também não é sinônimo de proibição. Uma boa governança acelera o uso, porque diz às pessoas o que já está aprovado e dá um caminho claro para pedir o que ainda não está. Quem não tem esse caminho costuma ver o uso migrar para contas pessoais, o que chamamos de <a href="../shadow-ai/">shadow AI</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="por-que-agora">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Por que o tema virou prioridade para gestores</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+<p>Três pressões se juntaram. A primeira é o <strong>uso espalhado</strong>: assistentes, ferramentas embutidas em softwares já contratados e agentes que executam tarefas. Cada um traz risco de vazamento de dados, de resposta errada tratada como certa e de dependência de fornecedor.</p>
+<p>A segunda é a <strong>cobrança externa</strong>. Clientes corporativos passaram a incluir perguntas sobre IA em questionários de segurança e due diligence, e conselhos e auditorias querem saber quem responde pelo tema. Quem não tem resposta pronta perde tempo e, às vezes, contratos.</p>
+<p>A terceira é a <strong>regulação</strong>, tratada na próxima seção. Mesmo onde a lei ainda não está fechada, a direção é conhecida, e estruturar a governança agora custa menos do que adaptar tudo sob pressão.</p>
+<p>Para empresas médias e grandes, há ainda um fator de escala: com centenas de pessoas e várias áreas, decisões informais deixam de funcionar. Sem dono e sem registro, o mesmo caso é aprovado numa área e negado em outra.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap reveal">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Sua empresa está preparada para o que é governança de IA?</h2>
+      <p style="color:var(--text-muted); font-size:16.5px; max-width:580px; margin:0 auto 30px;">
+        Fale com o Felipe — sem formulário, sem espera.
+      </p>
+      <div class="hero-ctas" style="justify-content:center;">
+        <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20o%20que%20é%20governança%20de%20IA%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary">
+          Falar com o Felipe pelo WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="regulacao">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>O que a regulação e as normas pedem</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+<p>No Brasil, o ponto de partida já existe: a <a href="../lgpd-e-ia/">LGPD</a> vale para qualquer sistema de IA que trate dados pessoais, incluindo base legal, finalidade, minimização e direitos dos titulares, como o de pedir revisão de decisões automatizadas. O <a href="../pl-2338/">Marco Legal da IA (PL 2338/2023)</a> segue em discussão no Congresso, com abordagem por níveis de risco, e a ANPD é uma autoridade central no debate.</p>
+<p>Fora do país, o <a href="../eu-ai-act-o-que-muda-para-empresas-brasileiras/">AI Act europeu</a> alcança empresas brasileiras que ofereçam produtos ou serviços de IA no mercado europeu. Como referência de boas práticas, duas estruturas se destacam: a ISO/IEC 42001, que define um sistema de gestão de IA certificável (veja a <a href="../iso-42001/">página sobre ISO 42001</a>), e o NIST AI Risk Management Framework, útil como guia de gestão de risco.</p>
+<p>O que todas têm em comum é o que o gestor pode antecipar: <strong>inventário</strong> dos sistemas, <strong>classificação de risco</strong>, <strong>responsáveis definidos</strong>, <strong>supervisão humana</strong> onde há impacto relevante, <strong>registro de decisões</strong> e <strong>revisão periódica</strong>. Preparar esses seis elementos serve para quase qualquer cenário regulatório. Como a legislação pode mudar, vale confirmar com o jurídico o que se aplica ao seu caso.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="como-comecar">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Como começar: um roteiro enxuto</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+<ol>
+<li><strong>Mapeie o uso real.</strong> Pergunte às áreas o que usam, em vez de supor. O resultado é o <a href="../inventario-de-ia/">inventário de IA</a>, com dono, finalidade e dados envolvidos.</li>
+<li><strong>Nomeie responsáveis com mandato.</strong> Um patrocinador na diretoria e um grupo pequeno, com jurídico, segurança, dados, TI e negócio, que decide. O formato está em <a href="../comite-de-ia-como-criar-na-sua-empresa/">como criar um comitê de IA</a>.</li>
+<li><strong>Classifique o risco.</strong> Separe usos de risco baixo, que seguem regra pré-aprovada, dos de risco alto, que exigem análise, como decisões sobre pessoas ou uso de dados sensíveis.</li>
+<li><strong>Escreva uma política curta.</strong> Poucas páginas, em linguagem de quem trabalha, com lista de ferramentas aprovadas e canal para pedir novas. O <a href="../modelo-de-politica-de-ia/">modelo de política de IA</a> ajuda a começar.</li>
+<li><strong>Treine e meça.</strong> Explique as regras com exemplos e acompanhe poucos indicadores: tempo de resposta aos pedidos, percentual de sistemas com dono e número de incidentes.</li>
+<li><strong>Revise a cada trimestre.</strong> A tecnologia e a regulação mudam; a política precisa mudar junto.</li>
+</ol>
+<p>O erro mais comum é começar pela ferramenta. Controles técnicos só aplicam decisões que alguém já tomou; sem os passos acima, eles bloqueiam o que não deviam e deixam passar o que importa.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Perguntas frequentes</p>
+        <h2>Governança de IA, em resposta direta</h2>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-item">
+          <h3>O que é governança de IA, em uma frase?</h3>
+          <p>É o conjunto de regras, papéis e controles que define quem decide, quem responde e como a empresa acompanha o uso de inteligência artificial, do inventário ao incidente.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Governança de IA é só para quem desenvolve IA?</h3>
+          <p>Não. Empresas que apenas compram ou usam ferramentas de IA também respondem pelos resultados, pelos dados que enviam e pelas decisões que tomam com apoio delas. Por isso a governança vale para quem usa, não só para quem desenvolve.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Por onde uma empresa começa?</h3>
+          <p>Por três passos curtos: mapear o uso real de IA, nomear responsáveis com mandato e escrever uma política enxuta com critério de risco. Depois vêm os controles técnicos, o treinamento e a revisão periódica.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="leia-tambem">
+    <div class="wrap">
+      <div class="section-head reveal"><p class="eyebrow">Leia também</p><h2>Para aprofundar</h2></div>
+      <div class="svc-grid reveal">
+        <div class="svc-card"><h3><a href="../framework-de-governanca-de-ia/">Framework de governança de IA</a></h3><p>As cinco camadas, papéis e um plano de 90 dias.</p></div>
+        <div class="svc-card"><h3><a href="../comite-de-ia-como-criar-na-sua-empresa/">Comitê de IA: como criar</a></h3><p>Quem participa, o que decide e como se reúne.</p></div>
+        <div class="svc-card"><h3><a href="../inventario-de-ia/">Inventário de IA</a></h3><p>A lista que serve de base para toda a governança.</p></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../" class="logo"><img src="../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../#servicos">Serviços</a>
+          <a href="../iso-42001/">ISO 42001</a>
+          <a href="../governanca-de-ia/">Governança de IA</a>
+          <a href="../lgpd-e-ia/">LGPD e IA</a>
+          <a href="../shadow-ai/">Shadow AI</a>
+          <a href="../pl-2338/">Marco Legal da IA</a>
+          <a href="../diagnostico/">Diagnóstico</a>
+          <a href="../blog/">Blog</a>
+          <a href="../biblioteca-prompts/">Prompts</a>
+          <a href="../sobre/">Sobre</a>
+          <a href="../glossario/">Glossário</a>
+          <a href="../ia-para-equipes-de-ti/">IA para equipes de TI</a>
+          <a href="../ia-segura-para-empresas/">IA segura para empresas</a>
+          <a href="../agentes-de-ia-para-empresas/">Agentes de IA</a>
+          <a href="../politica-de-privacidade/">Política de privacidade</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<!-- O botão flutuante do WhatsApp é montado por assets/site.js, que roda em todas as páginas -->
+<script src="../assets/site.js?v=18"></script>
+
+</body>
+</html>
