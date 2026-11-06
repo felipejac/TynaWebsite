@@ -109,6 +109,54 @@
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "pt-BR",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "O que é guardrail de IA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "É uma regra aplicada no caminho da requisição, não em um documento. Antes de a resposta chegar ao usuário, ou de uma ação ser executada, o sistema verifica se está dentro do permitido."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quais são os quatro tipos de guardrail de IA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "De entrada (o que entra no modelo), de saída (o que sai), de ação (o que o agente executa) e de fluxo (quando passar o caso a uma pessoa). Um bom desenho combina mais de um."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como implementar o primeiro guardrail de IA na empresa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Liste o que o agente pode fazer, escolha o limite de maior risco (ação irreversível, dado sensível ou número citado ao cliente) e aplique-o em execução, por exemplo em um AI Gateway. Registre cada bloqueio e revise a regra."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Qual a diferença entre política de uso de IA e guardrail de IA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A política é um documento lido por pessoas, que podem ignorá-lo. O guardrail vive em código e configuração, é executado a cada chamada e não admite exceção silenciosa."
+      }
+    }
+  ]
+}
+</script>
+<style>
+.artigo-tabela-wrap{overflow-x:auto;margin:1.5rem 0;border-radius:6px;border:1px solid rgba(255,255,255,.1);}
+.artigo-tabela{width:100%;border-collapse:collapse;font-size:.9rem;}
+.artigo-tabela th{background:#1a1f2e;color:#C9A968;text-align:left;padding:10px 14px;border-bottom:2px solid #C9A968;font-weight:600;white-space:nowrap;}
+.artigo-tabela td{padding:9px 14px;border-bottom:1px solid rgba(255,255,255,.08);vertical-align:top;}
+.artigo-tabela tr:last-child td{border-bottom:none;}
+</style>
 </head>
 <body>
 
@@ -267,6 +315,19 @@
           <p>Quando o cliente menciona "cancelar", "reclamar" ou "Procon", o guardrail interrompe o agente e aciona um atendente humano para continuar a conversa.</p>
         </div>
       </div>
+      <div class="artigo-tabela-wrap reveal">
+        <table class="artigo-tabela">
+          <thead><tr><th scope="col">Setor</th><th scope="col">Tipo de guardrail</th><th scope="col">O que ele impede</th><th scope="col">Ponto de aplicação</th></tr></thead>
+          <tbody>
+            <tr><td>E-commerce</td><td>Saída</td><td>Oferta fora da política, como desconto acima do limite aprovado</td><td>Resposta do agente, antes de chegar ao cliente</td></tr>
+            <tr><td>RH</td><td>Entrada</td><td>Envio de CPF, RG e salário ao modelo</td><td>Documento, antes da chamada ao modelo</td></tr>
+            <tr><td>Financeiro / banco</td><td>Ação</td><td>Transferência ou operação irreversível sem aprovação humana</td><td>Ferramenta que executa a operação, com pausa para aprovação</td></tr>
+            <tr><td>Saúde</td><td>Saída</td><td>Orientação clínica apresentada como definitiva e dado de paciente na resposta</td><td>Resposta gerada, com checagem de dado sensível e aviso de revisão profissional</td></tr>
+            <tr><td>Jurídico</td><td>Fluxo</td><td>Parecer automático sobre caso contencioso sem revisão de advogado</td><td>Classificação do caso, que encaminha para um advogado</td></tr>
+            <tr><td>Marketing</td><td>Saída</td><td>Alegação não comprovada, promessa de resultado ou nome de cliente usado sem autorização</td><td>Texto gerado, antes da publicação</td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </section>
 
@@ -305,6 +366,15 @@
           <h3>Quais são exemplos práticos de guardrails de IA?</h3>
           <p>Guardrail de entrada que remove CPF antes de enviar ao modelo (RH); de saída que barra desconto acima do limite (e-commerce); de ação que exige aprovação humana para transferências acima de um valor (financeiro); de fluxo que aciona atendente quando o cliente menciona cancelamento.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="leia-tambem">
+    <div class="wrap">
+      <div class="section-head reveal"><p class="eyebrow">Leia também</p><h2>Política e controles relacionados</h2></div>
+      <div class="svc-grid reveal">
+        <div class="svc-card"><h3><a href="../politica-de-uso-de-ia-para-empresas/">Política de uso de IA para empresas</a></h3><p>Quem decide, o que regular e como fazer o time seguir a regra.</p></div>
       </div>
     </div>
   </section>
