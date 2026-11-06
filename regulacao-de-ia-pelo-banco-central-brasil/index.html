@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // Só coleta em produção (tyna.com.br) — localhost e previews do Cloudflare Pages (*.pages.dev) ficam de fora.
+  if (location.hostname !== 'tyna.com.br') window['ga-disable-G-DQS0KMDT3G'] = true;
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Regulação de IA pelo Banco Central: guia para gestores | Tyna</title>
+<meta name="description" content="Regulação de IA pelo banco central do Brasil: o que já vale, o que vem pela frente e como gestores devem se preparar. Veja o roteiro prático para a sua empresa.">
+<link rel="canonical" href="https://tyna.com.br/regulacao-de-ia-pelo-banco-central-brasil/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Regulação de IA pelo Banco Central: guia para gestores">
+<meta property="og:description" content="Regulação de IA pelo banco central do Brasil: o que já vale, o que vem pela frente e como gestores devem se preparar. Veja o roteiro prático para a sua empresa.">
+<meta property="og:url" content="https://tyna.com.br/regulacao-de-ia-pelo-banco-central-brasil/">
+<meta property="og:image" content="https://tyna.com.br/assets/og-ia-regulacao.svg">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css?v=19">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Regulação de IA pelo Banco Central: guia para gestores",
+  "inLanguage": "pt-BR",
+  "description": "Regulação de IA pelo banco central do Brasil: o que já vale, o que vem pela frente e como gestores devem se preparar. Veja o roteiro prático para a sua empresa.",
+  "image": "https://tyna.com.br/assets/og-ia-regulacao.svg",
+  "datePublished": "2026-11-04",
+  "dateModified": "2026-11-04",
+  "author": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "mainEntityOfPage": "https://tyna.com.br/regulacao-de-ia-pelo-banco-central-brasil/"
+}
+</script>
+<link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "pt-BR",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "O Banco Central já tem uma norma específica sobre inteligência artificial?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Até onde o conteúdo público consultado indica, não há uma resolução que trate apenas de IA. O que vale hoje são as normas de gestão de riscos, segurança cibernética, contratação de nuvem e terceirização, mais a LGPD, e todas alcançam sistemas de IA. Como o tema muda rápido, confirme as normas vigentes com o jurídico e o compliance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "A regulação do Banco Central vale para empresas que não são instituições financeiras?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Diretamente, vale para as instituições autorizadas a funcionar pelo Banco Central. Indiretamente, atinge quem as atende: fornecedores de tecnologia, fintechs parceiras e empresas que vendem crédito ou meios de pagamento acabam recebendo exigências contratuais do cliente regulado. Para as demais empresas, a LGPD e o Marco Legal da IA em tramitação são as referências."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Por onde uma empresa com mais de 200 pessoas deve começar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pelo inventário de IA: o que existe, quem usa, com que dado e que decisão afeta. Depois, classifique por risco, nomeie um responsável por sistema e reúna a documentação de fornecedores. Esse conjunto responde à maioria das perguntas de um supervisor, de um auditor ou de um cliente regulado."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><img src="../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../#servicos">Serviços</a></li>
+        <li><a href="../iso-42001/">ISO 42001</a></li>
+        <li><a href="../#cases">Cases</a></li>
+        <li><a href="../#trilhas">Trilhas</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../biblioteca-prompts/">Prompts</a></li>
+        <li><a href="../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20regula%C3%A7%C3%A3o%20de%20IA%20pelo%20Banco%20Central%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20regula%C3%A7%C3%A3o%20de%20IA%20pelo%20Banco%20Central%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Governança de IA</p>
+      <h1 style="max-width:900px;">Regulação de IA pelo Banco Central: guia para gestores</h1>
+      <p class="lead" style="max-width:740px;">Sua empresa usa IA em crédito, atendimento, fraude ou análise, e alguém pergunta se isso está de acordo com o que o Banco Central espera. A resposta costuma estar espalhada entre tecnologia, risco, jurídico e fornecedores, sem um dono e sem evidência reunida.</p>
+      <p class="lead" style="max-width:740px;">Este guia mostra, para gestores de empresas com mais de 200 pessoas, o que já vale, quem sente o efeito da regulação e como se preparar sem esperar uma norma específica.</p>
+    </div>
+  </section>
+
+  <section id="o-que-ja-vale">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">O que já vale</p>
+        <h2>O que o Banco Central já cobra de quem usa IA</h2>
+      </div>
+      <div class="reveal prose" style="max-width:780px;">
+        <p>O Banco Central raramente regula uma tecnologia pelo nome. Ele regula o risco que ela produz. Por isso, quem espera uma resolução batizada de “IA” para começar está lendo o cenário ao contrário: as regras em vigor já alcançam modelos, assistentes e agentes. A Resolução CMN 4.557/2017 exige gerenciamento integrado de riscos, o que inclui risco operacional e risco de modelo. A Resolução CMN 4.893/2021 trata de segurança cibernética e de contratação de serviços de processamento de dados e de nuvem. E a LGPD cobre o dado pessoal em qualquer um desses usos.</p>
+        <p>Na prática, o supervisor pergunta o que sempre perguntou: quem é o responsável, que controle existe, que evidência prova que o controle funciona e o que acontece se o fornecedor falhar. Um modelo de crédito, um assistente de atendimento e um agente que altera cadastro cabem nessas perguntas. A diferença é que a IA muda de comportamento com o tempo e com os dados, e isso exige monitoramento contínuo, não só uma validação no lançamento.</p>
+        <p>Este texto é orientação geral, não parecer. Normas novas podem sair a qualquer momento, e a aplicação a cada instituição depende do segmento e do porte. Confirme sempre com o jurídico e o compliance.</p>
+      </div>
+    </div>
+  </section>
+  <section id="quem-sente">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">O alcance</p>
+        <h2>Quem sente o efeito, mesmo sem ser banco</h2>
+      </div>
+      <div class="reveal prose" style="max-width:780px;">
+        <p>A regulação do Banco Central vale diretamente para as instituições que ele autoriza. O efeito, porém, desce a cadeia. Uma empresa que fornece tecnologia, atende como parceira ou opera crédito e pagamentos para uma instituição regulada recebe questionários, cláusulas contratuais e pedidos de evidência, porque o cliente regulado continua responsável pelo que o terceiro faz. Usar o modelo de um fornecedor não transfere a responsabilidade.</p>
+        <p>Para gestores de empresas com mais de 200 pessoas, isso significa três coisas. Primeiro, saber onde há IA no próprio negócio, inclusive a que veio embutida em produtos de terceiros. Segundo, ser capaz de explicar o critério de decisões automatizadas, porque a LGPD dá ao titular o direito de pedir revisão. Terceiro, ter documentação pronta: política de uso, responsáveis, testes e registros. Quem tem isso responde a uma auditoria em dias, não em meses.</p>
+        <p>Fora do setor financeiro, a referência mais próxima é o Marco Legal da IA, hoje em tramitação; o estágio está em <a href="../pl-2338/">Marco Legal da IA (PL 2338/2023)</a>. O texto pode mudar, mas inventário, classificação de risco e responsáveis tendem a ser pedidos em qualquer versão.</p>
+      </div>
+    </div>
+  </section>
+  <section class="cta-band">
+    <div class="wrap reveal">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Sua empresa está preparada para regulação de IA pelo banco central brasil?</h2>
+      <p style="color:var(--text-muted); font-size:16.5px; max-width:580px; margin:0 auto 30px;">
+        Fale com o Felipe — sem formulário, sem espera.
+      </p>
+      <div class="hero-ctas" style="justify-content:center;">
+        <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20regulação%20de%20IA%20pelo%20banco%20central%20brasil%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary">
+          Falar com o Felipe pelo WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="como-se-preparar">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">A preparação</p>
+        <h2>Cinco passos para se preparar antes da norma específica</h2>
+      </div>
+      <div class="reveal prose" style="max-width:780px;">
+        <p>Preparar-se não exige esperar o texto final. Estes cinco passos servem para a regulação atual e para a que vier.</p>
+        <ul>
+<li><strong>Inventário.</strong> Liste modelos, ferramentas e agentes, com caso de uso, dado de entrada, decisão afetada, dono e fornecedor. Veja <a href="../inventario-de-ia/">inventário de IA</a>.</li>
+<li><strong>Classificação por risco.</strong> Use poucos níveis e critérios objetivos: efeito sobre o cliente, dado pessoal, grau de automação e reversibilidade.</li>
+<li><strong>Responsável por sistema.</strong> Uma pessoa com nome e cargo, e um comitê curto para decidir os casos de risco alto.</li>
+<li><strong>Fornecedores.</strong> Cláusulas sobre uso do dado para treino, local de processamento, aviso de mudança de modelo, direito de auditoria e saída ordenada.</li>
+<li><strong>Registro e monitoramento.</strong> Guarde testes, decisões e incidentes, e defina quem age quando uma métrica passa do limite.</li>
+</ul>
+        <p>A ordem importa: sem inventário, nada do resto se sustenta. Um primeiro ciclo com foco nos sistemas de maior risco costuma caber em 90 dias.</p>
+      </div>
+    </div>
+  </section>
+  <section id="erros-comuns">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Atenção</p>
+        <h2>Erros que costumam aparecer na primeira auditoria</h2>
+      </div>
+      <div class="reveal prose" style="max-width:780px;">
+        <p>O mais comum é tratar IA como assunto só da área de tecnologia. Risco, compliance, jurídico, segurança e o encarregado de dados precisam participar desde o início. O segundo erro é ter política sem prática: um documento bem escrito que ninguém aplica não passa em auditoria. O terceiro é ignorar o uso por fora do processo, como assistentes de IA usados com dado de cliente em contas pessoais; o tema é tratado em <a href="../shadow-ai/">shadow AI</a>.</p>
+        <p>Há também a supervisão humana de fachada. Se a pessoa que revisa a decisão do modelo quase nunca discorda, a revisão não está funcionando como controle. Meça a taxa de discordância e dê a quem revisa informação e autoridade para decidir de outro modo. Por fim, defina cedo quem responde quando o modelo erra, perante o cliente e perante o regulador; veja <a href="../responsabilidade-civil-ia/">responsabilidade civil e IA</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Perguntas frequentes</p>
+        <h2>Regulação de IA pelo Banco Central, em resposta direta</h2>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-item">
+          <h3>O Banco Central já tem uma norma específica sobre inteligência artificial?</h3>
+          <p>Até onde o conteúdo público consultado indica, não há uma resolução que trate apenas de IA. O que vale hoje são as normas de gestão de riscos, segurança cibernética, contratação de nuvem e terceirização, mais a LGPD, e todas alcançam sistemas de IA. Como o tema muda rápido, confirme as normas vigentes com o jurídico e o compliance.</p>
+        </div>
+        <div class="faq-item">
+          <h3>A regulação do Banco Central vale para empresas que não são instituições financeiras?</h3>
+          <p>Diretamente, vale para as instituições autorizadas a funcionar pelo Banco Central. Indiretamente, atinge quem as atende: fornecedores de tecnologia, fintechs parceiras e empresas que vendem crédito ou meios de pagamento acabam recebendo exigências contratuais do cliente regulado. Para as demais empresas, a LGPD e o Marco Legal da IA em tramitação são as referências.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Por onde uma empresa com mais de 200 pessoas deve começar?</h3>
+          <p>Pelo inventário de IA: o que existe, quem usa, com que dado e que decisão afeta. Depois, classifique por risco, nomeie um responsável por sistema e reúna a documentação de fornecedores. Esse conjunto responde à maioria das perguntas de um supervisor, de um auditor ou de um cliente regulado.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="leia-tambem">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Leia também</p>
+        <h2>Para continuar</h2>
+      </div>
+      <ul class="reveal">
+        <li><a href="../governanca-de-ia-para-setor-financeiro/">Governança de IA para setor financeiro: guia para gestores</a></li>
+        <li><a href="../ia-no-setor-financeiro/">IA no setor financeiro: bancos, seguradoras e fintechs</a></li>
+        <li><a href="../politica-de-uso-de-ia-para-empresas/">Política de uso de IA para empresas</a></li>
+        <li><a href="../ia-para-bancos-compliance-bcb/">IA para bancos: compliance e as regras do BCB</a></li>
+      </ul>
+      <p class="status-meta" style="margin-top:34px;">Última revisão: 04/11/2026.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../" class="logo"><img src="../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../#servicos">Serviços</a>
+          <a href="../iso-42001/">ISO 42001</a>
+          <a href="../governanca-de-ia/">Governança de IA</a>
+          <a href="../shadow-ai/">Shadow AI</a>
+          <a href="../pl-2338/">Marco Legal da IA</a>
+          <a href="../diagnostico/">Diagnóstico</a>
+          <a href="../blog/">Blog</a>
+          <a href="../biblioteca-prompts/">Prompts</a>
+          <a href="../sobre/">Sobre</a>
+          <a href="../glossario/">Glossário</a>
+          <a href="../ia-para-equipes-de-ti/">IA para equipes de TI</a>
+          <a href="../ia-segura-para-empresas/">IA segura para empresas</a>
+          <a href="../agentes-de-ia-para-empresas/">Agentes de IA</a>
+          <a href="../politica-de-privacidade/">Política de privacidade</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<!-- O botão flutuante do WhatsApp é montado por assets/site.js, que roda em todas as páginas -->
+<script src="../assets/site.js?v=18"></script>
+
+</body>
+</html>
