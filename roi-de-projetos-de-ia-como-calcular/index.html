@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // Só coleta em produção (tyna.com.br) — localhost e previews do Cloudflare Pages (*.pages.dev) ficam de fora.
+  if (location.hostname !== 'tyna.com.br') window['ga-disable-G-DQS0KMDT3G'] = true;
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ROI de projetos de IA: como calcular de verdade | Tyna</title>
+<meta name="description" content="ROI de projetos de IA: como calcular o retorno real com linha de base, custo total e ganhos mensuráveis. Guia prático para gestores de grandes empresas.">
+<link rel="canonical" href="https://tyna.com.br/roi-de-projetos-de-ia-como-calcular/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ROI de projetos de IA: como calcular de verdade">
+<meta property="og:description" content="ROI de projetos de IA: como calcular o retorno real com linha de base, custo total e ganhos mensuráveis. Guia prático para gestores de grandes empresas.">
+<meta property="og:url" content="https://tyna.com.br/roi-de-projetos-de-ia-como-calcular/">
+<meta property="og:image" content="https://tyna.com.br/assets/og-implementacao-ia.svg">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css?v=19">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "ROI de projetos de IA: como calcular de verdade",
+  "inLanguage": "pt-BR",
+  "description": "ROI de projetos de IA: como calcular o retorno real com linha de base, custo total e ganhos mensuráveis. Guia prático para gestores de grandes empresas.",
+  "datePublished": "2026-11-07",
+  "dateModified": "2026-11-07",
+  "image": "https://tyna.com.br/assets/og-implementacao-ia.svg",
+  "author": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "mainEntityOfPage": "https://tyna.com.br/roi-de-projetos-de-ia-como-calcular/"
+}
+</script>
+<link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "pt-BR",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Qual é a fórmula básica do ROI de um projeto de IA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ROI = (ganho líquido ÷ custo total) × 100, em que o ganho líquido é o benefício financeiro medido menos o custo total do projeto no mesmo período. O que muda em IA é a qualidade dos números: o custo precisa incluir operação, dados, conformidade e mudança de processo, e o ganho precisa ser comparado a uma linha de base medida antes do projeto."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Em quanto tempo um projeto de IA costuma dar retorno?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depende do caso de uso e da maturidade da empresa. Projetos que automatizam tarefas repetitivas e bem delimitadas tendem a mostrar resultado mais cedo, enquanto os que exigem integração de dados e mudança de processo levam mais tempo. Por isso, defina marcos de medição trimestrais em vez de esperar um único número no fim."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como contar benefícios que não são financeiros, como redução de risco?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Separe-os em uma coluna própria e, sempre que possível, converta em valor esperado: probabilidade do evento evitado multiplicada pelo impacto estimado. Quando isso não for possível, registre o indicador (por exemplo, incidentes ou prazos de resposta) sem somá-lo ao ROI financeiro, para não inflar o resultado."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><img src="../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../#servicos">Serviços</a></li>
+        <li><a href="../iso-42001/">ISO 42001</a></li>
+        <li><a href="../#cases">Cases</a></li>
+        <li><a href="../#trilhas">Trilhas</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../biblioteca-prompts/">Prompts</a></li>
+        <li><a href="../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Implementação de IA</p>
+      <h1 style="max-width:900px;">ROI de projetos de IA: como calcular de verdade</h1>
+      <p class="lead" style="max-width:740px;">Em empresas com mais de 200 pessoas, a pergunta chega sempre na mesma reunião: "quanto esse projeto de IA retornou?". Nesse momento, muitas equipes percebem que têm apresentações de demonstração, números de uso e boas histórias, mas nenhum cálculo que o financeiro aceite. Sem ele, o próximo orçamento fica em risco.</p>
+      <p class="lead" style="max-width:740px;">O problema raramente é a matemática, que é simples. Ele está no que entra na conta: custos que ninguém lista, ganhos que ninguém mediu antes e riscos tratados como detalhe. Este artigo mostra como calcular o ROI de projetos de IA de forma que resista a uma auditoria interna.</p>
+    </div>
+  </section>
+
+  <section id="formula-e-linha-de-base">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>A fórmula é simples; a linha de base não</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+<p>A fórmula do ROI é a mesma de qualquer investimento: (ganho líquido ÷ custo total) × 100, medida em um período definido. O que diferencia projetos de IA é que o ganho só existe em comparação com a situação anterior. Sem uma <strong>linha de base</strong>, qualquer resultado pode ser defendido ou questionado.</p>
+<p>Antes de iniciar o projeto, registre com a área usuária:</p>
+<ul>
+<li><strong>O processo atual:</strong> etapas, responsáveis e volume mensal de itens tratados.</li>
+<li><strong>O tempo e o retrabalho:</strong> horas gastas por item e percentual de itens que precisam ser refeitos.</li>
+<li><strong>A qualidade de partida:</strong> taxa de erro, prazo de atendimento ou outro indicador que o processo já tenha.</li>
+<li><strong>O período de comparação:</strong> de preferência, os últimos seis a doze meses, para evitar sazonalidade.</li>
+</ul>
+<p>Escolha também um grupo de comparação sempre que possível. Se metade da equipe usa a solução e a outra metade segue o processo antigo por algumas semanas, a diferença medida é muito mais confiável do que uma comparação "antes e depois", que mistura o efeito da IA com outras mudanças da empresa.</p>
+<p>Por fim, defina quem valida os números. O ideal é que o responsável financeiro da área, e não a equipe do projeto, confirme as premissas. Isso evita o viés de quem avalia o próprio trabalho.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="custo-total">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>O custo total vai além da licença</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+<p>O erro mais comum no denominador é contar apenas a tecnologia. Um projeto de IA em uma empresa grande envolve várias camadas de custo, e as menos visíveis costumam ser as que mais crescem depois da implantação. Liste todas, mesmo quando a estimativa for aproximada:</p>
+<ul>
+<li><strong>Tecnologia:</strong> licenças, uso de modelos, infraestrutura, integrações com sistemas existentes.</li>
+<li><strong>Dados:</strong> levantamento, limpeza, organização e manutenção das fontes que alimentam a solução.</li>
+<li><strong>Pessoas:</strong> tempo da equipe do projeto, da área usuária, de TI, de segurança e do jurídico.</li>
+<li><strong>Mudança de processo:</strong> treinamento, ajuste de rotinas e período de adaptação em que a produtividade pode cair.</li>
+<li><strong>Operação contínua:</strong> monitoramento, revisão de qualidade, suporte e atualização quando modelos ou regras mudam.</li>
+<li><strong>Governança e conformidade:</strong> avaliação de risco, registro em inventário, análise de proteção de dados e supervisão humana.</li>
+</ul>
+<p>Esse último item merece atenção especial. A LGPD já se aplica a sistemas de IA que tratam dados pessoais, e o debate regulatório brasileiro caminha para exigir gestão de risco proporcional ao impacto de cada sistema. Quem trata isso como custo opcional descobre depois que ele é obrigatório, e mais caro quando feito às pressas. Manter um <a href="../inventario-de-ia/">inventário de IA</a> atualizado ajuda a enxergar quais sistemas existem, quem responde por eles e quanto cada um realmente consome.</p>
+<p>Lembre-se ainda de que o projeto tem custo ao longo de todo o seu ciclo de vida. Calcule o total para o período em que o benefício será medido, normalmente de doze a trinta e seis meses, e não apenas o investimento inicial.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap reveal">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Sua empresa está preparada para ROI de projetos de IA como calcular?</h2>
+      <p style="color:var(--text-muted); font-size:16.5px; max-width:580px; margin:0 auto 30px;">
+        Fale com o Felipe — sem formulário, sem espera.
+      </p>
+      <div class="hero-ctas" style="justify-content:center;">
+        <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20ROI%20de%20projetos%20de%20IA%20como%20calcular%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary">
+          Falar com o Felipe pelo WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="ganhos-mensuraveis">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Ganhos: o que contar e o que deixar de fora</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+<p>No numerador, a disciplina é não inflar. Separe os benefícios em categorias com níveis diferentes de confiança, e some ao ROI financeiro apenas as que passam pelo crivo da área de finanças:</p>
+<ul>
+<li><strong>Redução de custo:</strong> horas liberadas que de fato foram realocadas ou evitaram contratação, e não apenas "tempo economizado" em teoria. Se a equipe economiza uma hora por dia mas a agenda continua cheia, não há ganho financeiro direto.</li>
+<li><strong>Aumento de receita:</strong> maior conversão, retenção ou capacidade de atendimento, comparados ao grupo de controle.</li>
+<li><strong>Qualidade:</strong> menos erros e menos retrabalho, convertidos pelo custo médio de cada falha.</li>
+<li><strong>Risco evitado:</strong> probabilidade do evento multiplicada pelo impacto estimado. Registre separadamente e com cautela.</li>
+</ul>
+<p>Uma armadilha frequente é contar o mesmo ganho duas vezes, por exemplo somando a economia de horas e a redução de retrabalho que decorre dessas mesmas horas. Outra é ignorar o lado negativo: se a solução gera erros que exigem revisão humana, esse esforço entra no custo, e o risco de uma decisão errada de um sistema sem supervisão pode anular o ganho de eficiência.</p>
+<p>Depois de calcular, apresente um intervalo, e não um número único. Trabalhe com um cenário conservador, um esperado e um otimista, deixando claras as premissas de cada um. Gestores financeiros desconfiam de precisão excessiva, e um intervalo honesto transmite mais credibilidade.</p>
+<p>Por fim, transforme a medição em rotina. Revise o ROI a cada trimestre, compare com o que foi previsto e ajuste ou encerre o que não entrega. Isso exige responsáveis claros e regras de aprovação, o que um programa de <a href="../governanca-de-ia/">governança de IA</a> estrutura desde o início. O ganho de um projeto mal controlado raramente se sustenta.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Perguntas frequentes</p>
+        <h2>ROI de projetos de IA, em resposta direta</h2>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-item">
+          <h3>Qual é a fórmula básica do ROI de um projeto de IA?</h3>
+          <p>ROI = (ganho líquido ÷ custo total) × 100, em que o ganho líquido é o benefício financeiro medido menos o custo total do projeto no mesmo período. O que muda em IA é a qualidade dos números: o custo precisa incluir operação, dados, conformidade e mudança de processo, e o ganho precisa ser comparado a uma linha de base medida antes do projeto.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Em quanto tempo um projeto de IA costuma dar retorno?</h3>
+          <p>Depende do caso de uso e da maturidade da empresa. Projetos que automatizam tarefas repetitivas e bem delimitadas tendem a mostrar resultado mais cedo, enquanto os que exigem integração de dados e mudança de processo levam mais tempo. Por isso, defina marcos de medição trimestrais em vez de esperar um único número no fim.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Como contar benefícios que não são financeiros, como redução de risco?</h3>
+          <p>Separe-os em uma coluna própria e, sempre que possível, converta em valor esperado: probabilidade do evento evitado multiplicada pelo impacto estimado. Quando isso não for possível, registre o indicador (por exemplo, incidentes ou prazos de resposta) sem somá-lo ao ROI financeiro, para não inflar o resultado.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="leia-tambem">
+    <div class="wrap">
+      <div class="section-head reveal"><p class="eyebrow">Leia também</p><h2>Para aprofundar</h2></div>
+      <div class="svc-grid reveal">
+        <div class="svc-card"><h3><a href="../governanca-de-ia/">Governança de IA</a></h3><p>Papéis, controles e evidências para levar projetos da ideia à operação.</p></div>
+        <div class="svc-card"><h3><a href="../inventario-de-ia/">Inventário de IA</a></h3><p>Como registrar sistemas, dados e responsáveis para enxergar o custo real.</p></div>
+        <div class="svc-card"><h3><a href="../modelo-de-politica-de-ia/">Modelo de política de IA</a></h3><p>Regras claras sobre o que pode, o que exige aprovação e o que é proibido.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="fale-com-a-tyna" class="lead-captura">
+    <div class="wrap reveal" style="text-align:center;">
+      <p class="eyebrow">Fale com a Tyna</p>
+      <h2>Quer medir o retorno do seu próximo projeto de IA?</h2>
+      <p style="max-width:640px;margin:0 auto 22px;">A Tyna apoia a liderança na definição de indicadores, na avaliação de riscos e na estrutura de governança dos projetos de IA.</p>
+      <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20projetos%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary">Agende uma conversa</a>
+      <p class="status-meta" style="margin-top:34px;">Publicado em 07/11/2026.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../" class="logo"><img src="../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../#servicos">Serviços</a>
+          <a href="../iso-42001/">ISO 42001</a>
+          <a href="../governanca-de-ia/">Governança de IA</a>
+          <a href="../lgpd-e-ia/">LGPD e IA</a>
+          <a href="../shadow-ai/">Shadow AI</a>
+          <a href="../pl-2338/">Marco Legal da IA</a>
+          <a href="../diagnostico/">Diagnóstico</a>
+          <a href="../blog/">Blog</a>
+          <a href="../biblioteca-prompts/">Prompts</a>
+          <a href="../sobre/">Sobre</a>
+          <a href="../glossario/">Glossário</a>
+          <a href="../ia-para-equipes-de-ti/">IA para equipes de TI</a>
+          <a href="../ia-segura-para-empresas/">IA segura para empresas</a>
+          <a href="../agentes-de-ia-para-empresas/">Agentes de IA</a>
+          <a href="../politica-de-privacidade/">Política de privacidade</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<!-- O botão flutuante do WhatsApp é montado por assets/site.js, que roda em todas as páginas -->
+<script src="../assets/site.js?v=18"></script>
+
+</body>
+</html>
