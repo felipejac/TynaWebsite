@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // Só coleta em produção (tyna.com.br) — localhost e previews do Cloudflare Pages (*.pages.dev) ficam de fora.
+  if (location.hostname !== 'tyna.com.br') window['ga-disable-G-DQS0KMDT3G'] = true;
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auditoria de sistemas de IA: guia para gestores | Tyna</title>
+<meta name="description" content="Auditoria de sistemas de IA: o que examinar, quais evidências reunir e como se preparar para a regulação. Guia direto para gestores de empresas grandes.">
+<link rel="canonical" href="https://tyna.com.br/auditoria-de-sistemas-de-ia/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Auditoria de sistemas de IA: guia para gestores">
+<meta property="og:description" content="Auditoria de sistemas de IA: o que examinar, quais evidências reunir e como se preparar para a regulação. Guia direto para gestores de empresas grandes.">
+<meta property="og:url" content="https://tyna.com.br/auditoria-de-sistemas-de-ia/">
+<meta property="og:image" content="https://tyna.com.br/assets/og-governanca-ia.svg">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css?v=19">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Auditoria de sistemas de IA: guia para gestores",
+  "inLanguage": "pt-BR",
+  "description": "Auditoria de sistemas de IA: o que examinar, quais evidências reunir e como se preparar para a regulação. Guia direto para gestores de empresas grandes.",
+  "datePublished": "2026-11-07",
+  "dateModified": "2026-11-07",
+  "image": "https://tyna.com.br/assets/og-governanca-ia.svg",
+  "author": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "mainEntityOfPage": "https://tyna.com.br/auditoria-de-sistemas-de-ia/"
+}
+</script>
+<link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "pt-BR",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "O que é uma auditoria de sistemas de IA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "É a verificação independente de que um sistema de IA faz o que a empresa declara, dentro dos limites de risco aceitos. Examina dados, modelo, controles em execução, registros e responsabilidades, e produz evidências, não opiniões."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Com que frequência auditar sistemas de IA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ao menos uma vez por ano para sistemas de maior risco, e sempre que houver mudança relevante: troca de modelo, novo tipo de dado, nova função ou incidente. Os controles contínuos, como registros e alertas, funcionam o ano todo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "A auditoria de IA é obrigatória no Brasil?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não existe hoje uma lei brasileira que imponha auditoria geral de IA. Mas a LGPD já permite que o titular peça revisão de decisões automatizadas e que a ANPD solicite informações, e o PL 2338 prevê avaliações de risco. Quem tem as evidências responde melhor a qualquer um deles."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><img src="../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../#servicos">Serviços</a></li>
+        <li><a href="../iso-42001/">ISO 42001</a></li>
+        <li><a href="../#cases">Cases</a></li>
+        <li><a href="../#trilhas">Trilhas</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../biblioteca-prompts/">Prompts</a></li>
+        <li><a href="../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20auditoria%20de%20sistemas%20de%20IA%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20auditoria%20de%20sistemas%20de%20IA%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Governança de IA</p>
+      <h1 style="max-width:900px;">Auditoria de sistemas de IA: guia para gestores</h1>
+      <p class="lead" style="max-width:740px;">Em algum momento alguém vai perguntar à sua empresa: como você sabe que esse sistema de IA faz o que deveria? Pode ser o conselho, um cliente grande, um regulador ou um juiz. A auditoria é a forma de ter a resposta pronta, com evidências.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">O problema</p>
+        <h2>Por que a pergunta chega antes da resposta</h2>
+        <p>Em empresas com mais de 200 pessoas, a IA entra por vários caminhos ao mesmo tempo: ferramentas contratadas por uma área, assistentes embutidos em softwares que já existiam, agentes construídos pelo time de tecnologia e uso individual de IA generativa que ninguém registrou. Cada um toma decisões ou influencia pessoas que tomam.</p>
+        <p>Quando a pergunta chega, o gestor costuma descobrir três coisas ao mesmo tempo: não há lista completa dos sistemas, ninguém sabe dizer qual versão do modelo estava em uso numa data e a política de uso existe no papel, mas nada prova que foi cumprida. Auditar é fechar essas lacunas antes que alguém de fora as encontre.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="o-que-auditar">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Escopo</p>
+        <h2>O que uma auditoria de sistemas de IA examina</h2>
+        <p>Auditoria não é teste de desempenho nem parecer sobre a tecnologia. É a comparação entre o que a empresa diz que faz e o que as evidências mostram. Seis frentes cobrem a maior parte dos casos.</p>
+      </div>
+      <div class="svc-grid reveal">
+        <div class="svc-card">
+          <span class="num">01</span>
+          <h3>Inventário</h3>
+          <p>Quais sistemas existem, quem é o dono de cada um, para que servem e que dados usam. Sem isso, o resto não tem base. Veja <a href="../inventario-de-ia/">inventário de IA</a>.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">02</span>
+          <h3>Dados</h3>
+          <p>Origem, base legal para o tratamento, presença de dados pessoais e sensíveis, e o que sai da empresa em cada chamada a um serviço externo.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">03</span>
+          <h3>Modelo e desempenho</h3>
+          <p>Qual modelo e versão, como foi avaliado, com que taxa de erro e se há tratamento diferente para grupos de pessoas, quando o sistema decide algo sobre elas.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">04</span>
+          <h3>Controles em execução</h3>
+          <p>Limites que a máquina aplica a cada chamada, e não apenas regras escritas. Veja <a href="../o-que-e-guardrail-em-ia/">guardrail em IA</a>.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">05</span>
+          <h3>Registros</h3>
+          <p>Logs que permitam reconstruir o que o sistema recebeu, respondeu e fez, com data, versão e responsável. É a evidência mais pedida e a mais difícil de recuperar depois.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">06</span>
+          <h3>Responsabilidades</h3>
+          <p>Quem aprova um novo uso, quem responde por um incidente, quando um humano revisa e como o titular contesta uma decisão automatizada.</p>
+        </div>
+      </div>
+      <div class="section-head reveal" style="margin-top:2rem;">
+        <p>Um ponto que gestores costumam subestimar: auditar o fornecedor não substitui auditar o uso. O contrato pode garantir segurança da plataforma, mas quem responde pelo que o sistema decide dentro do seu processo é a sua empresa.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="regulacao">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Contexto regulatório</p>
+        <h2>O que a regulação já cobra, e o que vem por aí</h2>
+        <p>Não existe, hoje, uma lei brasileira que imponha uma auditoria geral de IA. Isso não significa ausência de exigência. Quatro referências moldam o que será perguntado:</p>
+      </div>
+      <div class="reveal">
+        <table class="spec-table">
+          <thead><tr><th scope="col">Referência</th><th scope="col">O que implica para a auditoria</th></tr></thead>
+          <tbody>
+            <tr><td>LGPD</td><td>Base legal, finalidade e minimização dos dados. O titular pode pedir revisão de decisões tomadas apenas por tratamento automatizado e informações sobre os critérios usados.</td></tr>
+            <tr><td>PL 2338 (Marco Legal da IA)</td><td>Em tramitação. Prevê avaliação de risco, documentação e supervisão humana proporcionais ao risco do sistema. Veja <a href="../pl-2338/">PL 2338</a>.</td></tr>
+            <tr><td>Regras setoriais</td><td>Bancos, saúde e seguros respondem a reguladores próprios, que já cobram gestão de risco e rastreabilidade de decisões.</td></tr>
+            <tr><td>Padrões internacionais</td><td>A ISO/IEC 42001 organiza um sistema de gestão de IA e é auditável por terceiros. O EU AI Act alcança quem vende ou opera sistemas no mercado europeu.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="section-head reveal" style="margin-top:2rem;">
+        <p>O que há de comum: todas partem da mesma lógica, proporcionalidade ao risco e prova documentada. Uma empresa que organiza inventário, classificação de risco, controles e registros atende grande parte de qualquer uma delas, e o trabalho não se perde se o texto final da lei mudar.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap reveal">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Sua empresa está preparada para auditoria de sistemas de IA?</h2>
+      <p style="color:var(--text-muted); font-size:16.5px; max-width:580px; margin:0 auto 30px;">
+        Fale com o Felipe — sem formulário, sem espera.
+      </p>
+      <div class="hero-ctas" style="justify-content:center;">
+        <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20auditoria%20de%20sistemas%20de%20IA%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary">
+          Falar com o Felipe pelo WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="preparar">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Como se preparar</p>
+        <h2>Cinco passos para chegar pronto</h2>
+        <p>A ordem importa: cada passo alimenta o seguinte.</p>
+      </div>
+      <div class="steps reveal">
+        <div class="step">
+          <span class="step-num">01</span>
+          <div><h3>Levantar tudo o que usa IA</h3><p>Inclua o que veio embutido em software contratado e o uso não autorizado. Pergunte às áreas, não só à TI.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">02</span>
+          <div><h3>Classificar por risco</h3><p>Sistema que decide sobre pessoas, mexe com dado sensível ou executa ações irreversíveis vai primeiro. Um assistente de redação interna pode esperar.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <div><h3>Transformar regra em controle</h3><p>Onde a política diz “não faça”, coloque um limite que a máquina aplica. Veja a <a href="../politica-de-uso-de-ia-para-empresas/">política de uso de IA</a>.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">04</span>
+          <div><h3>Guardar o que prova</h3><p>Logs com data e versão, avaliações do modelo, aprovações de novos usos e registro de cada exceção, guardados por prazo definido.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">05</span>
+          <div><h3>Ensaiar antes da auditoria real</h3><p>Escolha um sistema de risco alto e peça a um colega de outra área que tente reconstruir uma decisão de três meses atrás. O que faltar é a sua lista de trabalho.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="erros">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Armadilhas</p>
+        <h2>Erros comuns que encarecem a auditoria</h2>
+        <p>Quatro padrões se repetem e todos são evitáveis.</p>
+      </div>
+      <div class="svc-grid reveal">
+        <div class="svc-card">
+          <h3>Tratar como projeto único</h3>
+          <p>Modelos mudam de versão, dados mudam, usos mudam. Uma foto de seis meses atrás não prova nada sobre hoje. Prefira controles contínuos a revisões pontuais.</p>
+        </div>
+        <div class="svc-card">
+          <h3>Auditar só o modelo</h3>
+          <p>A maior parte dos incidentes está na volta: dado indevido que entrou, ação que o agente executou sem limite, resposta que ninguém conferiu.</p>
+        </div>
+        <div class="svc-card">
+          <h3>Deixar a conta para uma área só</h3>
+          <p>Jurídico, TI, segurança, risco e as áreas de negócio enxergam partes diferentes. Um responsável por sistema, com um comitê que arbitra, evita lacunas.</p>
+        </div>
+        <div class="svc-card">
+          <h3>Confundir documento com evidência</h3>
+          <p>Política e manual dizem a intenção. O auditor pede o registro de que o controle funcionou naquele dia, naquele sistema.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Perguntas frequentes</p>
+        <h2>Auditoria de IA, em resposta direta</h2>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-item">
+          <h3>O que é uma auditoria de sistemas de IA?</h3>
+          <p>É a verificação independente de que um sistema de IA faz o que a empresa declara, dentro dos limites de risco aceitos. Examina dados, modelo, controles em execução, registros e responsabilidades, e produz evidências, não opiniões.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Com que frequência auditar sistemas de IA?</h3>
+          <p>Ao menos uma vez por ano para sistemas de maior risco, e sempre que houver mudança relevante: troca de modelo, novo tipo de dado, nova função ou incidente. Os controles contínuos, como registros e alertas, funcionam o ano todo.</p>
+        </div>
+        <div class="faq-item">
+          <h3>A auditoria de IA é obrigatória no Brasil?</h3>
+          <p>Não existe hoje uma lei brasileira que imponha auditoria geral de IA. Mas a LGPD já permite que o titular peça revisão de decisões automatizadas e que a ANPD solicite informações, e o PL 2338 prevê avaliações de risco. Quem tem as evidências responde melhor a qualquer um deles.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="leia-tambem">
+    <div class="wrap">
+      <div class="section-head reveal"><p class="eyebrow">Leia também</p><h2>Conteúdos relacionados</h2></div>
+      <div class="svc-grid reveal">
+        <div class="svc-card"><h3><a href="https://tyna.com.br/governanca-de-ia/">Governança de IA</a></h3><p>O quadro completo de papéis, regras e controles que a auditoria verifica.</p></div>
+        <div class="svc-card"><h3><a href="https://tyna.com.br/o-que-e-guardrail-em-ia/">O que é guardrail em IA</a></h3><p>Os quatro tipos de limite aplicado em execução, a evidência mais forte numa auditoria.</p></div>
+        <div class="svc-card"><h3><a href="https://tyna.com.br/politica-de-uso-de-ia-para-empresas/">Política de uso de IA para empresas</a></h3><p>Quem decide, o que regular e como fazer o time seguir a regra.</p></div>
+      </div>
+      <p class="status-meta" style="margin-top:34px;">Publicado em 07/11/2026.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../" class="logo"><img src="../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../#servicos">Serviços</a>
+          <a href="../iso-42001/">ISO 42001</a>
+          <a href="../governanca-de-ia/">Governança de IA</a>
+          <a href="../shadow-ai/">Shadow AI</a>
+          <a href="../pl-2338/">Marco Legal da IA</a>
+          <a href="../diagnostico/">Diagnóstico</a>
+          <a href="../blog/">Blog</a>
+          <a href="../biblioteca-prompts/">Prompts</a>
+          <a href="../sobre/">Sobre</a>
+          <a href="../glossario/">Glossário</a>
+          <a href="../ia-para-equipes-de-ti/">IA para equipes de TI</a>
+          <a href="../ia-segura-para-empresas/">IA segura para empresas</a>
+          <a href="../agentes-de-ia-para-empresas/">Agentes de IA</a>
+          <a href="../politica-de-privacidade/">Política de privacidade</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<!-- O botão flutuante do WhatsApp é montado por assets/site.js, que roda em todas as páginas -->
+<script src="../assets/site.js?v=18"></script>
+
+</body>
+</html>
