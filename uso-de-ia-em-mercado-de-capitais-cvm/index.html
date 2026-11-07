@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // Só coleta em produção (tyna.com.br) — localhost e previews do Cloudflare Pages (*.pages.dev) ficam de fora.
+  if (location.hostname !== 'tyna.com.br') window['ga-disable-G-DQS0KMDT3G'] = true;
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uso de IA em mercado de capitais: o que a CVM espera | Tyna</title>
+<meta name="description" content="Uso de IA em mercado de capitais CVM: o que a regulação já alcança, onde estão os riscos e como montar controles em empresas com +200 pessoas. Leia o guia.">
+<link rel="canonical" href="https://tyna.com.br/uso-de-ia-em-mercado-de-capitais-cvm/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Uso de IA em mercado de capitais: o que a CVM espera">
+<meta property="og:description" content="Uso de IA em mercado de capitais CVM: o que a regulação já alcança, onde estão os riscos e como montar controles em empresas com +200 pessoas. Leia o guia.">
+<meta property="og:url" content="https://tyna.com.br/uso-de-ia-em-mercado-de-capitais-cvm/">
+<meta property="og:image" content="https://tyna.com.br/assets/og-ia-regulacao.svg">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css?v=19">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Uso de IA em mercado de capitais: o que a CVM espera",
+  "inLanguage": "pt-BR",
+  "description": "Uso de IA em mercado de capitais CVM: o que a regulação já alcança, onde estão os riscos e como montar controles em empresas com +200 pessoas. Leia o guia.",
+  "datePublished": "2026-11-07",
+  "dateModified": "2026-11-07",
+  "author": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "mainEntityOfPage": "https://tyna.com.br/uso-de-ia-em-mercado-de-capitais-cvm/"
+}
+</script>
+<link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "pt-BR",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "A CVM tem uma norma específica sobre inteligência artificial?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Até onde sabemos, não há uma resolução da CVM dedicada só à IA. As regras atuais sobre controles internos, dever fiduciário, adequação do produto ao investidor, prevenção à lavagem de dinheiro e uso de informação privilegiada valem para quem usa IA. Confirme as normas vigentes e o seu enquadramento com o jurídico e o compliance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Usar um modelo de fornecedor externo transfere a responsabilidade?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não. A instituição continua responsável pelo resultado e pelos dados tratados. Por isso o contrato precisa dizer onde o dado é processado, se ele é usado para treinar o modelo, como a mudança de versão é comunicada e como a empresa pode auditar o fornecedor ou sair dele."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Por onde começar a governança de IA numa empresa do mercado de capitais?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pelo inventário: quais ferramentas e modelos existem, quem os usa, com que dado e qual decisão afetam. Depois classifique por risco, nomeie um responsável por sistema e defina o registro mínimo. Os usos que tocam recomendação ao cliente, monitoramento de operações e informação sensível vêm primeiro."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><img src="../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../#servicos">Serviços</a></li>
+        <li><a href="../iso-42001/">ISO 42001</a></li>
+        <li><a href="../#cases">Cases</a></li>
+        <li><a href="../#trilhas">Trilhas</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../biblioteca-prompts/">Prompts</a></li>
+        <li><a href="../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20uso%20de%20IA%20em%20mercado%20de%20capitais%20CVM%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20uso%20de%20IA%20em%20mercado%20de%20capitais%20CVM%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">IA e regulação</p>
+      <h1 style="max-width:900px;">Uso de IA em mercado de capitais: <em>o que a CVM espera</em></h1>
+      <p class="lead" style="max-width:740px;">Gestoras, corretoras, administradoras e áreas de relações com investidores já usam IA para resumir relatórios, monitorar operações, atender clientes e apoiar análises. Em muitos casos, o uso começou na ponta, sem que compliance e jurídico tenham visto o que entra e o que sai.</p>
+      <p class="lead" style="max-width:740px;">O problema aparece quando alguém pergunta quem aprovou, com que dado e quem responde se a saída estiver errada. Este artigo, para empresas com mais de 200 pessoas, mostra o que a regulação do mercado de capitais já alcança e como montar controles proporcionais.</p>
+    </div>
+  </section>
+
+  <section id="regulacao">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">O contexto regulatório</p>
+        <h2>O que a CVM já cobra de quem usa IA</h2>
+      </div>
+      <div class="reveal prose" style="max-width:780px;">
+        <p>Até onde conhecemos, a CVM não publicou uma resolução dedicada apenas à inteligência artificial. Isso não deixa o uso livre. O regulador costuma tratar o risco, não a tecnologia, e as normas atuais alcançam a IA pelo efeito que ela produz. Se o modelo apoia uma recomendação, a regra de adequação do produto ao perfil do investidor continua valendo. Se ele toca a gestão de uma carteira, valem o dever fiduciário e a exigência de controles internos e de uma área de compliance independente.</p>
+        <p>Quatro frentes pesam mais. <strong>Controles internos e compliance:</strong> processos que usam IA precisam estar dentro do mapa de riscos, com responsáveis claros. <strong>Adequação e conduta:</strong> um assistente que sugere produtos ou monta carteiras precisa respeitar o perfil do cliente e deixar rastro do porquê. <strong>Prevenção à lavagem de dinheiro:</strong> modelos de monitoramento de transações ajudam, mas a decisão de comunicar operações suspeitas segue sob responsabilidade da instituição. <strong>Informação privilegiada e divulgação:</strong> colar um material ainda não divulgado numa ferramenta externa pode ser um vazamento de informação sensível, mesmo sem intenção.</p>
+        <p>Some a isso a LGPD, para dado pessoal de investidores, e a discussão do Marco Legal da IA, que segue em tramitação. O estágio atual está em <a href="../lei-de-ia-brasil-projeto-de-lei-status/">Lei de IA no Brasil</a>. Este texto não é parecer: confirme as normas vigentes e o enquadramento da sua instituição com o jurídico e o compliance.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="riscos">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Onde o risco aparece</p>
+        <h2>Cinco usos comuns e o risco de cada um</h2>
+      </div>
+      <div class="reveal prose" style="max-width:780px;">
+        <p>O mercado discute IA em muitas frentes, e o risco muda conforme o uso.</p>
+        <ul>
+          <li><strong>Análise e resumo de documentos.</strong> Relatórios, balanços e atas resumidos por modelos generativos. O risco é o erro silencioso: um número trocado ou uma conclusão inventada que entra numa tese de investimento. Exija conferência humana na fonte antes de qualquer decisão.</li>
+          <li><strong>Recomendação e atendimento ao investidor.</strong> Assistentes que respondem dúvidas ou sugerem produtos. O risco é prometer retorno, omitir risco ou ignorar o perfil do cliente. Limite o que o sistema pode dizer e mantenha caminho fácil para uma pessoa.</li>
+          <li><strong>Monitoramento de operações e manipulação de mercado.</strong> Modelos que sinalizam padrões atípicos. O risco é falso positivo em excesso, que cansa a equipe, e falso negativo, que deixa passar. Meça os dois e registre os ajustes.</li>
+          <li><strong>Modelos quantitativos e negociação algorítmica.</strong> O risco é o modelo se degradar quando o mercado muda de regime. Defina limites de perda, gatilhos de desligamento e quem pode acionar o botão de parada.</li>
+          <li><strong>Uso interno de assistentes de escritório.</strong> O risco é o dado sensível ou não público sair da empresa. É o ponto cego mais frequente, e o tema está em <a href="../politica-de-uso-de-ia-para-empresas/">política de uso de IA para empresas</a>.</li>
+        </ul>
+        <p>Em todos os cinco, a pergunta de fundo é a mesma: dá para reconstruir depois o que o sistema recebeu, o que respondeu e quem decidiu? Se a resposta é não, o controle ainda não existe. Para a visão do setor financeiro como um todo, veja <a href="../governanca-de-ia-para-setor-financeiro/">governança de IA para setor financeiro</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap reveal">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Sua empresa está preparada para uso de IA em mercado de capitais CVM?</h2>
+      <p style="color:var(--text-muted); font-size:16.5px; max-width:580px; margin:0 auto 30px;">
+        Fale com o Felipe — sem formulário, sem espera.
+      </p>
+      <div class="hero-ctas" style="justify-content:center;">
+        <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20uso%20de%20IA%20em%20mercado%20de%20capitais%20CVM%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary">
+          Falar com o Felipe pelo WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="controles">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Os controles</p>
+        <h2>Cinco controles que sustentam o uso no dia a dia</h2>
+      </div>
+      <div class="reveal prose" style="max-width:780px;">
+        <p><strong>1. Inventário.</strong> Lista de ferramentas, modelos e agentes, com caso de uso, dado de entrada, decisão afetada, dono e fornecedor. Inclui recursos de IA ligados por fornecedores em produtos que a empresa já usa.</p>
+        <p><strong>2. Classificação por risco.</strong> Três ou quatro níveis, com critérios objetivos: efeito sobre o cliente, uso de informação não pública, grau de automação e reversibilidade. Recomendação ao investidor e negociação automatizada começam no nível mais alto.</p>
+        <p><strong>3. Validação e registro.</strong> Testes proporcionais ao risco, feitos por quem não construiu nem comprou o sistema, e logs que permitam reconstruir cada saída relevante. Em caso de questionamento do regulador ou do cliente, o registro é a defesa.</p>
+        <p><strong>4. Gestão de fornecedores.</strong> Cláusulas sobre uso do dado para treino, local de processamento, aviso de mudança de modelo, direito de auditoria e saída ordenada. Usar um modelo externo não transfere a responsabilidade.</p>
+        <p><strong>5. Supervisão humana real.</strong> Uma pessoa com autoridade e informação para discordar do modelo em decisões relevantes. Revisão que só carimba não conta; meça quantas vezes a pessoa discorda. Para verificar se esses controles funcionam de fato, use uma <a href="../auditoria-de-ia/">auditoria de IA</a> com amostra de sistemas reais.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="roteiro">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">A implantação</p>
+        <h2>Por onde começar nos próximos 90 dias</h2>
+      </div>
+      <div class="reveal prose" style="max-width:780px;">
+        <p><strong>Dias 1 a 30: enxergar.</strong> Nomeie um responsável executivo e um comitê curto com compliance, jurídico, tecnologia, segurança e uma área de negócio. Levante o inventário e classifique o que encontrar. Ofereça uma ferramenta autorizada e regras claras sobre o dado que pode ser enviado; proibir sem alternativa só empurra o uso para contas pessoais.</p>
+        <p><strong>Dias 31 a 60: controlar o topo.</strong> Nos sistemas de risco alto, revise validação, registro e supervisão humana, e anote as lacunas com prazo. Ajuste a compra e a contratação para que nenhuma solução de IA entre sem passar pelo comitê. Trate o dado pessoal de investidores com o encarregado desde o início, como mostra <a href="../lgpd-e-ia/">LGPD e IA</a>.</p>
+        <p><strong>Dias 61 a 90: provar e ajustar.</strong> Leve à diretoria uma página com sistemas classificados, lacunas abertas, incidentes e exceções. Defina revisão trimestral do inventário e reavaliação anual dos sistemas de risco alto, com gatilhos extras para mudança de modelo, incidente ou nova norma.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Perguntas frequentes</p>
+        <h2>Uso de IA em mercado de capitais, em resposta direta</h2>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-item">
+          <h3>A CVM tem uma norma específica sobre inteligência artificial?</h3>
+          <p>Até onde sabemos, não há uma resolução da CVM dedicada só à IA. As regras atuais sobre controles internos, dever fiduciário, adequação do produto ao investidor, prevenção à lavagem de dinheiro e uso de informação privilegiada valem para quem usa IA. Confirme as normas vigentes e o seu enquadramento com o jurídico e o compliance.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Usar um modelo de fornecedor externo transfere a responsabilidade?</h3>
+          <p>Não. A instituição continua responsável pelo resultado e pelos dados tratados. Por isso o contrato precisa dizer onde o dado é processado, se ele é usado para treinar o modelo, como a mudança de versão é comunicada e como a empresa pode auditar o fornecedor ou sair dele.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Por onde começar a governança de IA numa empresa do mercado de capitais?</h3>
+          <p>Pelo inventário: quais ferramentas e modelos existem, quem os usa, com que dado e qual decisão afetam. Depois classifique por risco, nomeie um responsável por sistema e defina o registro mínimo. Os usos que tocam recomendação ao cliente, monitoramento de operações e informação sensível vêm primeiro.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="leia-tambem">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Leia também</p>
+        <h2>Para continuar</h2>
+      </div>
+      <ul class="reveal">
+        <li><a href="../lei-de-ia-brasil-projeto-de-lei-status/">Lei de IA no Brasil: status do projeto de lei</a></li>
+        <li><a href="../politica-de-uso-de-ia-para-empresas/">Política de uso de IA para empresas</a></li>
+        <li><a href="../auditoria-de-ia/">Auditoria de IA: como verificar os controles</a></li>
+      </ul>
+      <p class="status-meta" style="margin-top:34px;">Última revisão: 07/11/2026.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../" class="logo"><img src="../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../#servicos">Serviços</a>
+          <a href="../iso-42001/">ISO 42001</a>
+          <a href="../governanca-de-ia/">Governança de IA</a>
+          <a href="../shadow-ai/">Shadow AI</a>
+          <a href="../pl-2338/">Marco Legal da IA</a>
+          <a href="../diagnostico/">Diagnóstico</a>
+          <a href="../blog/">Blog</a>
+          <a href="../biblioteca-prompts/">Prompts</a>
+          <a href="../sobre/">Sobre</a>
+          <a href="../glossario/">Glossário</a>
+          <a href="../ia-para-equipes-de-ti/">IA para equipes de TI</a>
+          <a href="../ia-segura-para-empresas/">IA segura para empresas</a>
+          <a href="../agentes-de-ia-para-empresas/">Agentes de IA</a>
+          <a href="../politica-de-privacidade/">Política de privacidade</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<!-- O botão flutuante do WhatsApp é montado por assets/site.js, que roda em todas as páginas -->
+<script src="../assets/site.js?v=18"></script>
+
+</body>
+</html>
