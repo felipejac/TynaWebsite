@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // Só coleta em produção (tyna.com.br) — localhost e previews do Cloudflare Pages (*.pages.dev) ficam de fora.
+  if (location.hostname !== 'tyna.com.br') window['ga-disable-G-DQS0KMDT3G'] = true;
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Liderança em IA: o papel do CDO e do CTO | Tyna</title>
+<meta name="description" content="Liderança em IA: o papel do CDO e do CTO na empresa. Veja como dividir responsabilidades, evitar lacunas e levar a IA ao negócio com governança e segurança.">
+<link rel="canonical" href="https://tyna.com.br/lideranca-em-ia-o-papel-do-cdo-cto/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Liderança em IA: o papel do CDO e do CTO">
+<meta property="og:description" content="Liderança em IA: o papel do CDO e do CTO na empresa. Veja como dividir responsabilidades, evitar lacunas e levar a IA ao negócio com governança e segurança.">
+<meta property="og:url" content="https://tyna.com.br/lideranca-em-ia-o-papel-do-cdo-cto/">
+<meta property="og:image" content="https://tyna.com.br/assets/og-cultura-ia.svg">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css?v=19">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Liderança em IA: o papel do CDO e do CTO",
+  "inLanguage": "pt-BR",
+  "description": "Liderança em IA: o papel do CDO e do CTO na empresa. Veja como dividir responsabilidades, evitar lacunas e levar a IA ao negócio com governança e segurança.",
+  "datePublished": "2026-11-07",
+  "dateModified": "2026-11-07",
+  "image": "https://tyna.com.br/assets/og-cultura-ia.svg",
+  "author": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "mainEntityOfPage": "https://tyna.com.br/lideranca-em-ia-o-papel-do-cdo-cto/"
+}
+</script>
+<link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "pt-BR",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Quem deve liderar a IA na empresa: o CDO ou o CTO?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Os dois, com papéis diferentes. O CDO responde pelos dados, pelo valor de negócio e pelo uso responsável; o CTO responde pela plataforma, pela segurança e pela entrega técnica. O importante é que a divisão esteja escrita e que exista um patrocinador executivo para resolver conflitos."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Minha empresa precisa ter um CDO para usar IA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não necessariamente. O que a empresa precisa é que as funções existam: alguém responsável pela qualidade e pelo uso dos dados e alguém responsável pela tecnologia. Em muitas organizações o título é outro, ou a função fica com a diretoria de TI, desde que a responsabilidade seja nomeada."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como a regulação afeta o papel dessas lideranças?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A LGPD já se aplica ao tratamento de dados feito por sistemas de IA, e o debate do Marco Legal da IA caminha para exigir governança e gestão de risco. Isso aumenta a necessidade de registros, responsáveis definidos e trabalho conjunto com jurídico, segurança e encarregado de dados."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><img src="../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../#servicos">Serviços</a></li>
+        <li><a href="../iso-42001/">ISO 42001</a></li>
+        <li><a href="../#cases">Cases</a></li>
+        <li><a href="../#trilhas">Trilhas</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../biblioteca-prompts/">Prompts</a></li>
+        <li><a href="../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Governança de IA</p>
+      <h1 style="max-width:900px;">Liderança em IA: o papel do CDO e do CTO</h1>
+      <p class="lead" style="max-width:740px;">Em empresas com mais de 200 pessoas, a pergunta "quem é o dono da IA?" costuma ter três respostas diferentes dependendo de quem se pergunta. A área de tecnologia compra e integra as ferramentas, a área de dados cuida das bases e dos modelos, e as áreas de negócio contratam soluções por conta própria. Cada um age de boa-fé, mas ninguém responde pelo conjunto.</p>
+      <p class="lead" style="max-width:740px;">O resultado aparece em sintomas conhecidos: projetos que não saem do piloto, dados sensíveis em ferramentas sem avaliação, duas áreas pagando por soluções parecidas e uma diretoria sem visão de risco. Este artigo explica o que cabe ao CDO (diretor de dados) e ao CTO (diretor de tecnologia) na liderança em IA, onde os papéis se encontram e como evitar que o espaço entre eles fique vazio.</p>
+    </div>
+  </section>
+
+  <section id="dois-papeis-complementares">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>CDO e CTO: dois papéis complementares, não concorrentes</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+<p>A confusão começa porque a IA toca nas duas agendas ao mesmo tempo. Uma divisão simples ajuda a organizar a conversa:</p>
+<ul>
+<li><strong>CDO:</strong> responde pelo que a IA consome e produz. Isso inclui qualidade, origem e permissão de uso dos dados, definição dos casos de uso que geram valor, métricas de resultado e uso responsável, com transparência e supervisão humana.</li>
+<li><strong>CTO:</strong> responde pelo que sustenta a IA. Isso inclui arquitetura, integração com os sistemas existentes, segurança, disponibilidade, escolha e avaliação técnica de fornecedores e a operação dos modelos em produção.</li>
+</ul>
+<p>Na prática, o CDO pergunta "este uso faz sentido, os dados podem ser usados e o resultado é confiável?", e o CTO pergunta "isto roda com segurança, escala e se integra ao que já temos?". Nenhuma das perguntas substitui a outra. Quando uma delas fica sem dono, o problema reaparece depois, em forma de retrabalho, incidente ou auditoria difícil.</p>
+<p>Também vale lembrar que o título varia. Muitas empresas não têm um CDO formal, e a função fica com a diretoria de TI, de operações ou de inovação. O que importa não é o cargo, e sim que alguém responda por dados e alguém responda por tecnologia, com isso registrado. Para ver como a estrutura se desenha, consulte a página sobre <a href="../governanca-de-ia/">governança de IA</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="onde-os-papeis-se-encontram">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Onde os papéis se encontram, e onde costumam falhar</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+<p>Os problemas raramente estão dentro de cada função. Estão nas fronteiras. Quatro pontos de contato merecem acordo explícito:</p>
+<ul>
+<li><strong>Inventário de IA:</strong> quem mantém a lista de sistemas, ferramentas e agentes em uso, com finalidade, dados envolvidos e responsável. Sem ela, o <a href="../shadow-ai/">shadow AI</a> cresce sem que ninguém veja.</li>
+<li><strong>Entrada de novos casos de uso:</strong> um fluxo único, com critérios de valor, risco e viabilidade técnica, evita que cada área negocie diretamente com fornecedores.</li>
+<li><strong>Dados em ferramentas de terceiros:</strong> o CDO define que tipo de informação pode ser enviada a cada ferramenta, e o CTO garante os controles técnicos que fazem essa regra valer.</li>
+<li><strong>Incidentes e erros de modelo:</strong> quem investiga, quem decide corrigir, quem comunica. Alucinações, vazamentos e decisões enviesadas precisam de um caminho já combinado.</li>
+</ul>
+<p>Um erro comum é transformar o CTO em "aprovador de tudo" por ser quem controla a infraestrutura, o que vira gargalo e empurra as áreas para soluções paralelas. O erro inverso é deixar o CDO definir regras sem apoio técnico para aplicá-las, e o resultado é uma política bonita que ninguém consegue verificar. O desenho que funciona dá a cada um uma decisão clara e cria um fórum comum para o que fica no meio, como o descrito em <a href="../comite-de-ia-como-criar-na-sua-empresa/">comitê de IA</a>.</p>
+<p>Um patrocinador executivo, como o CEO ou um diretor-geral, completa o arranjo. É ele quem resolve empates entre prioridades de dados e de tecnologia e deixa claro para toda a organização que a liderança em IA é uma decisão da empresa, e não de uma única área.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap reveal">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Sua empresa está preparada para liderança em IA o papel do CDO CTO?</h2>
+      <p style="color:var(--text-muted); font-size:16.5px; max-width:580px; margin:0 auto 30px;">
+        Fale com o Felipe — sem formulário, sem espera.
+      </p>
+      <div class="hero-ctas" style="justify-content:center;">
+        <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20liderança%20em%20IA%20o%20papel%20do%20CDO%20CTO%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary">
+          Falar com o Felipe pelo WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="regulacao-e-compliance">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Regulação e compliance puxam a liderança para o mesmo lado</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+<p>A <a href="../lgpd-e-ia/">LGPD aplicada à IA</a> já exige base legal, finalidade clara e atenção a decisões automatizadas, e o debate do <a href="../pl-2338/">Marco Legal da IA</a> aponta para obrigações de governança e gestão de risco conforme o impacto do sistema. Normas como a <a href="../iso-42001/">ISO 42001</a> pedem papéis, responsabilidades e evidências documentadas.</p>
+<p>Para o CDO e o CTO, isso significa trabalhar com mais três interlocutores: o jurídico, a segurança da informação e o encarregado de dados. O CDO costuma levar a avaliação de base legal e de impacto sobre as pessoas; o CTO leva controles de acesso, registros técnicos e avaliação de fornecedores. Juntos, produzem as evidências que uma auditoria ou um cliente exigente vai pedir.</p>
+<p>Duas práticas simplificam esse trabalho. A primeira é uma <a href="../politica-de-uso-de-ia/">política de uso de IA</a> curta, com faixas do que é permitido, do que exige aprovação e do que é proibido, assinada pelos dois. A segunda é classificar os casos de uso por nível de risco, dedicando mais revisão aos que afetam clientes, candidatos ou decisões sobre pessoas.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="como-comecar">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Como estruturar a liderança em IA nos próximos 90 dias</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+<p>Não é preciso reorganizar a empresa para começar. Um roteiro enxuto já muda o cenário:</p>
+<ol>
+<li><strong>Semanas 1 a 3, retrato:</strong> levante as ferramentas e os projetos de IA em uso, com dono, finalidade e dados envolvidos.</li>
+<li><strong>Semanas 3 a 6, papéis:</strong> escreva em uma página quem decide o quê entre dados, tecnologia, jurídico e segurança, e nomeie o patrocinador executivo.</li>
+<li><strong>Semanas 6 a 9, fluxo:</strong> crie a porta de entrada única para novos casos de uso e a política curta de uso.</li>
+<li><strong>Semanas 9 a 12, pessoas e indicadores:</strong> treine as áreas por função e escolha poucos indicadores, como casos de uso em produção, tempo de resposta a pedidos e incidentes reportados.</li>
+</ol>
+<p>Ao final, a diretoria deve conseguir responder, sem consultar cinco áreas, quais sistemas de IA a empresa usa, quem responde por cada um e que riscos foram aceitos. Esse é o teste mais simples de que a liderança está funcionando. A capacitação das equipes é parte do plano, e está detalhada em <a href="../treinamento-de-ia-para-empresas/">treinamento de IA para empresas</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Perguntas frequentes</p>
+        <h2>Liderança em IA, em resposta direta</h2>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-item">
+          <h3>Quem deve liderar a IA na empresa: o CDO ou o CTO?</h3>
+          <p>Os dois, com papéis diferentes. O CDO responde pelos dados, pelo valor de negócio e pelo uso responsável; o CTO responde pela plataforma, pela segurança e pela entrega técnica. O importante é que a divisão esteja escrita e que exista um patrocinador executivo para resolver conflitos.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Minha empresa precisa ter um CDO para usar IA?</h3>
+          <p>Não necessariamente. O que a empresa precisa é que as funções existam: alguém responsável pela qualidade e pelo uso dos dados e alguém responsável pela tecnologia. Em muitas organizações o título é outro, ou a função fica com a diretoria de TI, desde que a responsabilidade seja nomeada.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Como a regulação afeta o papel dessas lideranças?</h3>
+          <p>A LGPD já se aplica ao tratamento de dados feito por sistemas de IA, e o debate do Marco Legal da IA caminha para exigir governança e gestão de risco. Isso aumenta a necessidade de registros, responsáveis definidos e trabalho conjunto com jurídico, segurança e encarregado de dados.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="leia-tambem">
+    <div class="wrap">
+      <div class="section-head reveal"><p class="eyebrow">Leia também</p><h2>Para aprofundar</h2></div>
+      <div class="svc-grid reveal">
+        <div class="svc-card"><h3><a href="../governanca-de-ia/">Governança de IA</a></h3><p>A estrutura de papéis, controles e evidências que sustenta a liderança.</p></div>
+        <div class="svc-card"><h3><a href="../politica-de-uso-de-ia/">Política de uso de IA</a></h3><p>Regras claras sobre o que pode, o que exige aprovação e o que é proibido.</p></div>
+        <div class="svc-card"><h3><a href="../treinamento-de-ia-para-empresas/">Treinamento de IA para empresas</a></h3><p>Como capacitar cada área para usar IA com segurança.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="fale-com-a-tyna" class="lead-captura">
+    <div class="wrap reveal" style="text-align:center;">
+      <p class="eyebrow">Fale com a Tyna</p>
+      <h2>Quer organizar a liderança em IA na sua empresa?</h2>
+      <p style="max-width:640px;margin:0 auto 22px;">A Tyna apoia a diretoria no desenho de papéis, no fluxo de aprovação de casos de uso e no plano de governança e treinamento.</p>
+      <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20lideran%C3%A7a%20em%20IA." target="_blank" rel="noopener" class="btn btn-primary">Agende uma conversa</a>
+      <p class="status-meta" style="margin-top:34px;">Publicado em 07/11/2026.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../" class="logo"><img src="../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../#servicos">Serviços</a>
+          <a href="../iso-42001/">ISO 42001</a>
+          <a href="../governanca-de-ia/">Governança de IA</a>
+          <a href="../lgpd-e-ia/">LGPD e IA</a>
+          <a href="../shadow-ai/">Shadow AI</a>
+          <a href="../pl-2338/">Marco Legal da IA</a>
+          <a href="../diagnostico/">Diagnóstico</a>
+          <a href="../blog/">Blog</a>
+          <a href="../biblioteca-prompts/">Prompts</a>
+          <a href="../sobre/">Sobre</a>
+          <a href="../glossario/">Glossário</a>
+          <a href="../ia-para-equipes-de-ti/">IA para equipes de TI</a>
+          <a href="../ia-segura-para-empresas/">IA segura para empresas</a>
+          <a href="../agentes-de-ia-para-empresas/">Agentes de IA</a>
+          <a href="../politica-de-privacidade/">Política de privacidade</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<!-- O botão flutuante do WhatsApp é montado por assets/site.js, que roda em todas as páginas -->
+<script src="../assets/site.js?v=18"></script>
+
+</body>
+</html>
