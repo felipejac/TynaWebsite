@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // Só coleta em produção (tyna.com.br) — localhost e previews do Cloudflare Pages (*.pages.dev) ficam de fora.
+  if (location.hostname !== 'tyna.com.br') window['ga-disable-G-DQS0KMDT3G'] = true;
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modelos de crédito com IA e explicabilidade na prática | Tyna</title>
+<meta name="description" content="Como explicar uma decisão de crédito feita por IA: o que a LGPD exige, as técnicas que funcionam e a trilha de auditoria que o gestor precisa ter pronta.">
+<link rel="canonical" href="https://tyna.com.br/modelos-de-credito-com-ia-explicabilidade/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Modelos de crédito com IA e explicabilidade na prática">
+<meta property="og:description" content="Como explicar uma decisão de crédito feita por IA: o que a LGPD exige, as técnicas que funcionam e a trilha de auditoria que o gestor precisa ter pronta.">
+<meta property="og:url" content="https://tyna.com.br/modelos-de-credito-com-ia-explicabilidade/">
+<meta property="og:image" content="https://tyna.com.br/assets/og-ia-regulacao.svg">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css?v=19">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Modelos de crédito com IA e explicabilidade na prática",
+  "inLanguage": "pt-BR",
+  "description": "Como explicar uma decisão de crédito feita por IA: o que a LGPD exige, as técnicas que funcionam e a trilha de auditoria que o gestor precisa ter pronta.",
+  "datePublished": "2026-11-07",
+  "dateModified": "2026-11-07",
+  "author": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "mainEntityOfPage": "https://tyna.com.br/modelos-de-credito-com-ia-explicabilidade/"
+}
+</script>
+<link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "pt-BR",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "A empresa é obrigada a explicar uma decisão de crédito tomada por IA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Quando a decisão é tomada unicamente por tratamento automatizado e afeta os interesses da pessoa, a LGPD (art. 20) garante o direito de pedir revisão e de receber informações claras sobre os critérios e procedimentos usados, observados os segredos comercial e industrial. Na prática, a empresa precisa conseguir reconstruir por que aquele caso específico teve aquele resultado."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Modelo mais simples é sempre melhor do que modelo complexo para crédito?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não. Modelos mais complexos podem ganhar em desempenho, e o que importa é o custo de explicá-los. A pergunta certa é se a diferença de desempenho justifica o esforço extra de explicação, monitoramento e validação. Em decisões de alto impacto sobre a pessoa, muitas empresas preferem abrir mão de parte do desempenho em troca de um modelo que consegue justificar cada resultado."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Por onde uma empresa com mais de 200 funcionários deve começar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pelo inventário: quais modelos influenciam concessão, limite, preço ou cobrança, quem é o dono de cada um e onde estão os registros das decisões. Depois, defina o nível de explicação exigido por tipo de decisão e teste se a área de atendimento consegue responder a um pedido de revisão em prazo razoável."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><img src="../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../#servicos">Serviços</a></li>
+        <li><a href="../iso-42001/">ISO 42001</a></li>
+        <li><a href="../#cases">Cases</a></li>
+        <li><a href="../#trilhas">Trilhas</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../biblioteca-prompts/">Prompts</a></li>
+        <li><a href="../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20modelos%20de%20cr%C3%A9dito%20com%20IA%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20modelos%20de%20cr%C3%A9dito%20com%20IA%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">IA e regulação</p>
+      <h1 style="max-width:900px;">Modelos de crédito com IA e explicabilidade na prática</h1>
+      <p class="lead" style="max-width:740px;">Quando um modelo recusa um pedido de crédito, alguém vai perguntar por quê: o cliente, o regulador, o auditor ou o próprio comitê de risco. Se a resposta for “o modelo decidiu”, a empresa tem um problema, e ele aparece quase sempre no pior momento.</p>
+    </div>
+  </section>
+
+  <section id="introducao">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">O problema</p>
+        <h2>O modelo acerta, mas ninguém sabe dizer por quê</h2>
+        <p>Em empresas com mais de 200 funcionários, o crédito raramente depende de um único modelo. Há score de terceiros, regras de política, modelos próprios de propensão e inadimplência, e agora ferramentas de IA que sugerem limite, prazo ou abordagem de cobrança. Cada peça foi aprovada isoladamente. Ninguém aprovou o conjunto, e ninguém consegue explicá-lo de ponta a ponta.</p>
+        <p>O custo aparece em três lugares: no atendimento, que recebe o pedido de revisão e não tem o que responder; na área de risco, que não consegue distinguir uma mudança legítima de comportamento de uma deriva do modelo; e no jurídico, que precisa demonstrar que a decisão não foi discriminatória. Explicabilidade deixou de ser tema acadêmico: é requisito operacional.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="o-que-exigem">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Contexto regulatório</p>
+        <h2>O que a regulação já pede, sem esperar lei nova</h2>
+        <p>Não existe uma norma única sobre “IA em crédito”, mas há obrigações vigentes que, somadas, exigem explicação. A mais direta é o art. 20 da LGPD: o titular pode pedir revisão de decisões tomadas unicamente com base em tratamento automatizado que afetem seus interesses, incluindo as destinadas a definir perfil de crédito, e tem direito a informações claras sobre os critérios e procedimentos utilizados. O segredo comercial pode limitar o que se divulga, mas não dispensa a empresa de saber e documentar como a decisão foi produzida.</p>
+        <p>Instituições financeiras ainda convivem com as normas do Banco Central e do Conselho Monetário Nacional sobre gerenciamento de riscos, que cobram governança e validação de modelos. Quem opera com cadastro positivo tem, além disso, o direito de revisão de decisões automatizadas previsto na lei específica. E o PL 2338/2023, que ainda tramita, trata sistemas de avaliação de crédito como de alto risco, o que sinaliza para onde caminham as exigências. Veja o <a href="../lei-de-ia-brasil-projeto-de-lei-status/">status do projeto de lei de IA</a> e as <a href="../lgpd-e-ia/">obrigações da LGPD que já valem</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="tecnicas">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Como explicar</p>
+        <h2>Três níveis de explicação, para três públicos</h2>
+        <p>“Explicabilidade” não é uma técnica, é uma resposta adequada a quem pergunta. Separar os níveis evita tanto o excesso de tecnicismo quanto a explicação vaga.</p>
+      </div>
+      <div class="steps reveal">
+        <div class="step">
+          <span class="step-num">01</span>
+          <div><h3>Explicação ao cliente</h3><p>Linguagem simples e específica: os principais fatores que pesaram na decisão e o que pode mudar o resultado. Evite listar variáveis em abstrato. A explicação precisa ser verdadeira para aquele caso e não pode revelar proxies sensíveis nem a lógica completa de prevenção a fraude.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">02</span>
+          <div><h3>Explicação ao time de risco e ao jurídico</h3><p>Importância das variáveis, comportamento do modelo por faixa de população e análise de tratamento desigual entre grupos. Técnicas de atribuição por decisão, como SHAP e LIME, ajudam, mas são aproximações: devem ser validadas contra o comportamento real do modelo, não aceitas como verdade.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <div><h3>Explicação ao auditor e ao regulador</h3><p>Documentação do modelo: finalidade, dados de treino, métricas, limitações conhecidas, histórico de versões e monitoramento. É a camada em que a <a href="../auditoria-de-ia/">auditoria de IA</a> se apoia, e a que mais falta quando o modelo foi comprado pronto.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap reveal">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Sua empresa está preparada para modelos de crédito com IA explicabilidade?</h2>
+      <p style="color:var(--text-muted); font-size:16.5px; max-width:580px; margin:0 auto 30px;">
+        Fale com o Felipe — sem formulário, sem espera.
+      </p>
+      <div class="hero-ctas" style="justify-content:center;">
+        <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20modelos%20de%20crédito%20com%20IA%20explicabilidade%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary">
+          Falar com o Felipe pelo WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="governanca">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">O que fazer</p>
+        <h2>Cinco controles para tornar a explicação possível</h2>
+        <p>Explicar depois é caro e, muitas vezes, impossível. O que funciona é decidir antes, no desenho do processo.</p>
+      </div>
+      <div class="reveal">
+        <table class="spec-table">
+          <thead><tr><th scope="col">Controle</th><th scope="col">O que precisa existir</th></tr></thead>
+          <tbody>
+            <tr><td>1. Inventário de modelos</td><td>Lista de tudo o que influencia concessão, limite, preço e cobrança, com dono nomeado, inclusive o que vem de fornecedor.</td></tr>
+            <tr><td>2. Nível de explicação por decisão</td><td>Definição de quanto é preciso explicar conforme o impacto sobre a pessoa. Decisão de recusa exige mais do que sugestão de oferta.</td></tr>
+            <tr><td>3. Registro por decisão</td><td>Versão do modelo, dados de entrada, resultado e fatores principais, guardados por prazo definido, para reconstruir o caso quando houver pedido de revisão.</td></tr>
+            <tr><td>4. Revisão humana com autoridade</td><td>Quem revisa precisa poder reverter a decisão e ter acesso às razões. Revisão que apenas confirma o modelo não cumpre o papel.</td></tr>
+            <tr><td>5. Monitoramento contínuo</td><td>Acompanhamento de desempenho e de resultado por grupo ao longo do tempo, com gatilho claro para reavaliar ou retirar o modelo.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:20px;">Contratos com fornecedores também contam: exija acesso à documentação do modelo e aos fatores de cada decisão. Sem isso, a empresa responde por um resultado que não consegue explicar. O desenho desses controles faz parte de uma <a href="../politica-de-uso-de-ia-para-empresas/">política de uso de IA</a> bem escrita.</p>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Perguntas frequentes</p>
+        <h2>Explicabilidade em crédito, em resposta direta</h2>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-item">
+          <h3>A empresa é obrigada a explicar uma decisão de crédito tomada por IA?</h3>
+          <p>Quando a decisão é tomada unicamente por tratamento automatizado e afeta os interesses da pessoa, a LGPD (art. 20) garante o direito de pedir revisão e de receber informações claras sobre os critérios e procedimentos usados, observados os segredos comercial e industrial. Na prática, a empresa precisa conseguir reconstruir por que aquele caso específico teve aquele resultado.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Modelo mais simples é sempre melhor do que modelo complexo para crédito?</h3>
+          <p>Não. Modelos mais complexos podem ganhar em desempenho, e o que importa é o custo de explicá-los. A pergunta certa é se a diferença de desempenho justifica o esforço extra de explicação, monitoramento e validação. Em decisões de alto impacto sobre a pessoa, muitas empresas preferem abrir mão de parte do desempenho em troca de um modelo que consegue justificar cada resultado.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Por onde uma empresa com mais de 200 funcionários deve começar?</h3>
+          <p>Pelo inventário: quais modelos influenciam concessão, limite, preço ou cobrança, quem é o dono de cada um e onde estão os registros das decisões. Depois, defina o nível de explicação exigido por tipo de decisão e teste se a área de atendimento consegue responder a um pedido de revisão em prazo razoável.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="leia-tambem">
+    <div class="wrap">
+      <div class="section-head reveal"><p class="eyebrow">Leia também</p><h2>Aprofunde cada ponto</h2></div>
+      <div class="svc-grid reveal">
+        <div class="svc-card"><h3><a href="https://tyna.com.br/lgpd-e-ia/">LGPD e inteligência artificial na empresa</a></h3><p>As três portas por onde o dado pessoal entra e a base legal por finalidade.</p></div>
+        <div class="svc-card"><h3><a href="https://tyna.com.br/auditoria-de-ia/">Auditoria de IA</a></h3><p>Como verificar os controles de um sistema de IA em produção.</p></div>
+        <div class="svc-card"><h3><a href="https://tyna.com.br/lei-de-ia-brasil-projeto-de-lei-status/">Lei de IA no Brasil: status do projeto de lei</a></h3><p>Onde está o PL 2338 e o que muda para quem usa IA em decisões de alto risco.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band" style="border-bottom:none;">
+    <div class="wrap reveal">
+      <p class="eyebrow">Fale com a Tyna</p>
+      <h2>Quer ver onde seus modelos de crédito não se explicam?</h2>
+      <p style="color:var(--text-muted); font-size:16.5px; max-width:580px; margin:0 auto 30px;">O diagnóstico responde em três minutos, com dez perguntas e as lacunas nomeadas uma a uma.</p>
+      <div class="hero-ctas" style="justify-content:center;">
+        <a href="../diagnostico/" class="btn btn-primary">Fazer o diagnóstico</a>
+      </div>
+      <p class="status-meta" style="margin-top:34px;">Última revisão: 07/11/2026.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../" class="logo"><img src="../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../#servicos">Serviços</a>
+          <a href="../iso-42001/">ISO 42001</a>
+          <a href="../governanca-de-ia/">Governança de IA</a>
+          <a href="../shadow-ai/">Shadow AI</a>
+          <a href="../pl-2338/">Marco Legal da IA</a>
+          <a href="../diagnostico/">Diagnóstico</a>
+          <a href="../blog/">Blog</a>
+          <a href="../biblioteca-prompts/">Prompts</a>
+          <a href="../sobre/">Sobre</a>
+          <a href="../glossario/">Glossário</a>
+          <a href="../ia-para-equipes-de-ti/">IA para equipes de TI</a>
+          <a href="../ia-segura-para-empresas/">IA segura para empresas</a>
+          <a href="../agentes-de-ia-para-empresas/">Agentes de IA</a>
+          <a href="../politica-de-privacidade/">Política de privacidade</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<!-- O botão flutuante do WhatsApp é montado por assets/site.js, que roda em todas as páginas -->
+<script src="../assets/site.js?v=18"></script>
+
+</body>
+</html>
