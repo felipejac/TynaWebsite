@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // Só coleta em produção (tyna.com.br) — localhost e previews do Cloudflare Pages (*.pages.dev) ficam de fora.
+  if (location.hostname !== 'tyna.com.br') window['ga-disable-G-DQS0KMDT3G'] = true;
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Erros mais comuns em projetos de IA e como evitá-los | Tyna</title>
+<meta name="description" content="Erros mais comuns em projetos de IA nas empresas: dados mal preparados, pilotos sem dono e falta de governança. Veja como gestores podem evitá-los na prática.">
+<link rel="canonical" href="https://tyna.com.br/erros-mais-comuns-em-projetos-de-ia/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Erros mais comuns em projetos de IA e como evitá-los">
+<meta property="og:description" content="Erros mais comuns em projetos de IA nas empresas: dados mal preparados, pilotos sem dono e falta de governança. Veja como gestores podem evitá-los na prática.">
+<meta property="og:url" content="https://tyna.com.br/erros-mais-comuns-em-projetos-de-ia/">
+<meta property="og:image" content="https://tyna.com.br/assets/og-cultura-ia.svg">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css?v=19">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Erros mais comuns em projetos de IA e como evitá-los",
+  "inLanguage": "pt-BR",
+  "description": "Erros mais comuns em projetos de IA nas empresas: dados mal preparados, pilotos sem dono e falta de governança. Veja como gestores podem evitá-los na prática.",
+  "datePublished": "2026-11-07",
+  "dateModified": "2026-11-07",
+  "image": "https://tyna.com.br/assets/og-cultura-ia.svg",
+  "author": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "mainEntityOfPage": "https://tyna.com.br/erros-mais-comuns-em-projetos-de-ia/"
+}
+</script>
+<link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "pt-BR",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Qual é o erro mais comum em projetos de IA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Começar pela tecnologia e não pelo problema de negócio. Sem um objetivo claro, um responsável e um indicador de resultado, o projeto vira piloto permanente e não chega à operação."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Por que tantos pilotos de IA não chegam à produção?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Em geral por falta de dono, dados que não estão prontos, ausência de critérios de aprovação e equipes que não foram preparadas para mudar o processo de trabalho. A tecnologia raramente é o gargalo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como a regulação afeta os projetos de IA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A LGPD já se aplica a sistemas de IA que tratam dados pessoais, e o debate do Marco Legal da IA indica exigências de gestão de risco, transparência e supervisão humana. Tratar isso só no fim do projeto encarece e atrasa a entrega."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><img src="../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../#servicos">Serviços</a></li>
+        <li><a href="../iso-42001/">ISO 42001</a></li>
+        <li><a href="../#cases">Cases</a></li>
+        <li><a href="../#trilhas">Trilhas</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../biblioteca-prompts/">Prompts</a></li>
+        <li><a href="../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Cultura de IA</p>
+      <h1 style="max-width:900px;">Erros mais comuns em projetos de IA e como evitá-los</h1>
+      <p class="lead" style="max-width:740px;">Em empresas com mais de 200 pessoas, quase todo projeto de IA começa com entusiasmo: uma demonstração impressiona a diretoria, um piloto é autorizado e as expectativas sobem. Meses depois, o cenário é conhecido. O piloto funciona em condições ideais, mas ninguém sabe como colocá-lo na rotina, os dados reais são piores do que os de teste e a área jurídica só foi consultada na última semana.</p>
+      <p class="lead" style="max-width:740px;">A boa notícia é que esses tropeços se repetem, e por isso podem ser previstos. Os erros mais comuns em projetos de IA raramente são técnicos: nascem de objetivos vagos, responsabilidades difusas e riscos tratados tarde demais. Este artigo reúne os padrões que mais travam projetos e o que gestores podem fazer para evitá-los.</p>
+    </div>
+  </section>
+
+  <section id="comecar-pela-tecnologia">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Começar pela ferramenta, e não pelo problema</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+<p>O primeiro erro é decidir "vamos usar IA" antes de dizer o que precisa melhorar. Quando a motivação é acompanhar o mercado, o projeto nasce sem métrica de sucesso, e qualquer resultado pode ser defendido como bom ou ruim. É também o caminho mais curto para o piloto permanente: uma iniciativa que nunca é encerrada nem escalada.</p>
+<p>Antes de aprovar um projeto, exija respostas objetivas para quatro perguntas:</p>
+<ul>
+<li><strong>Qual problema de negócio será resolvido?</strong> Descreva o processo atual, onde ele falha e quanto tempo ou retrabalho isso gera.</li>
+<li><strong>Quem é o dono do resultado?</strong> Deve ser alguém da área usuária, não apenas da TI.</li>
+<li><strong>Como saberemos que funcionou?</strong> Defina um indicador e um valor de partida antes de começar.</li>
+<li><strong>O que acontece se der certo?</strong> Se ninguém sabe como o processo será alterado, o piloto não vai escalar.</li>
+</ul>
+<p>Comece por problemas de impacto claro e risco moderado, nos quais um erro do modelo é fácil de detectar e corrigir. Deixe decisões que afetam pessoas para quando a empresa já souber supervisioná-las.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="dados-e-pessoas">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Subestimar dados, processos e pessoas</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+<p>O segundo grupo de erros está longe do modelo. Projetos de IA dependem de dados acessíveis, atualizados e com dono definido, e muitas empresas descobrem só no meio do caminho que as informações estão espalhadas em planilhas, sistemas legados e caixas de e-mail. O resultado é um cronograma que gasta a maior parte do tempo preparando dados, algo que o plano inicial não previa.</p>
+<p>O mesmo vale para pessoas. Uma ferramenta de IA muda a forma de trabalhar, e equipes que não entendem seus limites tendem a cair em dois extremos: desconfiar de tudo e não usar, ou confiar demais e aceitar respostas erradas sem conferir. Ambos custam caro. Alguns cuidados reduzem o problema:</p>
+<ul>
+<li><strong>Avalie os dados cedo:</strong> antes de contratar qualquer solução, verifique onde estão os dados necessários, quem responde por eles e se podem ser usados para aquele fim.</li>
+<li><strong>Envolva quem vai usar:</strong> leve a área operacional para o desenho do projeto, não apenas para o treinamento final.</li>
+<li><strong>Capacite por função:</strong> cada área lida com riscos diferentes, e o <a href="../treinamento-de-ia-para-empresas/">treinamento de IA para empresas</a> funciona melhor quando parte de situações reais de cada equipe.</li>
+<li><strong>Planeje a mudança do processo:</strong> reserve tempo para ajustar rotinas, responsabilidades e formas de conferência do resultado.</li>
+</ul>
+<p>Atenção também ao uso informal: enquanto o projeto oficial avança devagar, funcionários passam a usar ferramentas próprias com dados da empresa, e a organização perde visibilidade.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap reveal">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Sua empresa está preparada para erros mais comuns em projetos de IA?</h2>
+      <p style="color:var(--text-muted); font-size:16.5px; max-width:580px; margin:0 auto 30px;">
+        Fale com o Felipe — sem formulário, sem espera.
+      </p>
+      <div class="hero-ctas" style="justify-content:center;">
+        <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20erros%20mais%20comuns%20em%20projetos%20de%20IA%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary">
+          Falar com o Felipe pelo WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="governanca-e-regulacao">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Deixar governança e conformidade para o fim</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+<p>Tratar risco e regulação como etapa final é o erro que mais gera retrabalho. No Brasil, a LGPD já se aplica a sistemas de IA que tratam dados pessoais, incluindo o direito de revisão de decisões automatizadas. O debate do Marco Legal da IA aponta para gestão de risco proporcional ao impacto de cada sistema, transparência e supervisão humana. Setores regulados, como o financeiro e o de saúde, têm ainda normas próprias.</p>
+<p>Quando a área jurídica e a de segurança entram apenas na reta final, é comum que o projeto seja barrado ou precise ser refeito: a base legal para usar os dados não existe, o fornecedor não oferece as garantias necessárias, ou não há registro de quem aprovou o quê. Para evitar isso, inclua a governança desde o primeiro dia:</p>
+<ul>
+<li><strong>Tenha uma política:</strong> a <a href="../politica-de-uso-de-ia/">política de uso de IA</a> define o que pode, o que exige aprovação e o que é proibido, e dá às equipes um critério antes de escolherem por conta própria.</li>
+<li><strong>Mantenha um inventário:</strong> registre cada sistema de IA, sua finalidade, os dados envolvidos e o responsável.</li>
+<li><strong>Avalie o risco antes da implantação:</strong> faça uma análise curta e padronizada, com participação de jurídico, segurança e encarregado de dados.</li>
+<li><strong>Preveja supervisão humana:</strong> defina quem revisa as saídas do sistema e como um erro é corrigido e registrado.</li>
+</ul>
+<p>Esses elementos fazem parte de um programa estruturado de <a href="../governanca-de-ia/">governança de IA</a>. Longe de frear a inovação, ele reduz o tempo entre a ideia e a operação, porque as regras já estão claras quando o projeto precisa decidir.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="medir-e-escalar">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Não medir resultado e não preparar a operação</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+<p>O último padrão aparece depois do lançamento. Muitos projetos são celebrados na entrega e esquecidos em seguida. Modelos mudam de comportamento, os dados se alteram, e sem monitoramento a qualidade cai sem que ninguém perceba. Pior: sem um indicador de partida, a empresa não consegue provar o valor entregue nem justificar o próximo investimento.</p>
+<p>Trate o projeto de IA como um serviço em operação, e não como uma entrega única. Na prática:</p>
+<ul>
+<li><strong>Acompanhe poucos indicadores:</strong> um de resultado de negócio, um de qualidade das respostas e um de uso real pelas equipes.</li>
+<li><strong>Defina um responsável pela operação:</strong> alguém que receba os alertas, trate incidentes e decida sobre mudanças.</li>
+<li><strong>Documente o aprendizado:</strong> registre o que funcionou e o que falhou, para que o próximo projeto não repita os mesmos erros.</li>
+<li><strong>Revise com regularidade:</strong> reavalie o sistema a cada mudança relevante de modelo, de dados ou de regra.</li>
+</ul>
+<p>A <a href="../biblioteca-prompts/">biblioteca de prompts</a> é um exemplo simples: ao padronizar e revisar as instruções que as equipes usam, a empresa ganha consistência. O que é registrado, medido e revisado melhora; o que fica no improviso se perde.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Perguntas frequentes</p>
+        <h2>Erros em projetos de IA, em resposta direta</h2>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-item">
+          <h3>Qual é o erro mais comum em projetos de IA?</h3>
+          <p>Começar pela tecnologia e não pelo problema de negócio. Sem um objetivo claro, um responsável e um indicador de resultado, o projeto vira piloto permanente e não chega à operação.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Por que tantos pilotos de IA não chegam à produção?</h3>
+          <p>Em geral por falta de dono, dados que não estão prontos, ausência de critérios de aprovação e equipes que não foram preparadas para mudar o processo de trabalho. A tecnologia raramente é o gargalo.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Como a regulação afeta os projetos de IA?</h3>
+          <p>A LGPD já se aplica a sistemas de IA que tratam dados pessoais, e o debate do Marco Legal da IA indica exigências de gestão de risco, transparência e supervisão humana. Tratar isso só no fim do projeto encarece e atrasa a entrega.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="leia-tambem">
+    <div class="wrap">
+      <div class="section-head reveal"><p class="eyebrow">Leia também</p><h2>Para aprofundar</h2></div>
+      <div class="svc-grid reveal">
+        <div class="svc-card"><h3><a href="../governanca-de-ia/">Governança de IA</a></h3><p>Papéis, controles e evidências para levar projetos da ideia à operação.</p></div>
+        <div class="svc-card"><h3><a href="../politica-de-uso-de-ia/">Política de uso de IA</a></h3><p>Regras claras sobre o que pode, o que exige aprovação e o que é proibido.</p></div>
+        <div class="svc-card"><h3><a href="../treinamento-de-ia-para-empresas/">Treinamento de IA para empresas</a></h3><p>Como capacitar cada área para usar IA com segurança.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="fale-com-a-tyna" class="lead-captura">
+    <div class="wrap reveal" style="text-align:center;">
+      <p class="eyebrow">Fale com a Tyna</p>
+      <h2>Quer evitar esses erros no seu próximo projeto?</h2>
+      <p style="max-width:640px;margin:0 auto 22px;">A Tyna apoia a liderança na definição de objetivos, na avaliação de riscos e na estrutura de governança dos projetos de IA.</p>
+      <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20projetos%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary">Agende uma conversa</a>
+      <p class="status-meta" style="margin-top:34px;">Publicado em 07/11/2026.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../" class="logo"><img src="../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../#servicos">Serviços</a>
+          <a href="../iso-42001/">ISO 42001</a>
+          <a href="../governanca-de-ia/">Governança de IA</a>
+          <a href="../lgpd-e-ia/">LGPD e IA</a>
+          <a href="../shadow-ai/">Shadow AI</a>
+          <a href="../pl-2338/">Marco Legal da IA</a>
+          <a href="../diagnostico/">Diagnóstico</a>
+          <a href="../blog/">Blog</a>
+          <a href="../biblioteca-prompts/">Prompts</a>
+          <a href="../sobre/">Sobre</a>
+          <a href="../glossario/">Glossário</a>
+          <a href="../ia-para-equipes-de-ti/">IA para equipes de TI</a>
+          <a href="../ia-segura-para-empresas/">IA segura para empresas</a>
+          <a href="../agentes-de-ia-para-empresas/">Agentes de IA</a>
+          <a href="../politica-de-privacidade/">Política de privacidade</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<!-- O botão flutuante do WhatsApp é montado por assets/site.js, que roda em todas as páginas -->
+<script src="../assets/site.js?v=18"></script>
+
+</body>
+</html>
