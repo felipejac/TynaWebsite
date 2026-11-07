@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // Só coleta em produção (tyna.com.br) — localhost e previews do Cloudflare Pages (*.pages.dev) ficam de fora.
+  if (location.hostname !== 'tyna.com.br') window['ga-disable-G-DQS0KMDT3G'] = true;
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Relatório de impacto DPIA para IA: como fazer | Tyna</title>
+<meta name="description" content="Relatório de impacto DPIA para IA: quando a LGPD pede, o que incluir e como organizar o processo em empresas com mais de 200 funcionários. Guia prático.">
+<link rel="canonical" href="https://tyna.com.br/relatorio-de-impacto-dpia-para-ia/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Relatório de impacto DPIA para IA: como fazer">
+<meta property="og:description" content="Relatório de impacto DPIA para IA: quando a LGPD pede, o que incluir e como organizar o processo em empresas com mais de 200 funcionários. Guia prático.">
+<meta property="og:url" content="https://tyna.com.br/relatorio-de-impacto-dpia-para-ia/">
+<meta property="og:image" content="https://tyna.com.br/assets/og-lgpd-ia.svg">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css?v=19">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Relatório de impacto DPIA para IA: como fazer",
+  "inLanguage": "pt-BR",
+  "description": "Relatório de impacto DPIA para IA: quando a LGPD pede, o que incluir e como organizar o processo em empresas com mais de 200 funcionários. Guia prático.",
+  "image": "https://tyna.com.br/assets/og-lgpd-ia.svg",
+  "datePublished": "2026-11-07",
+  "dateModified": "2026-11-07",
+  "author": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "mainEntityOfPage": "https://tyna.com.br/relatorio-de-impacto-dpia-para-ia/"
+}
+</script>
+<link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "pt-BR",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "DPIA e RIPD são a mesma coisa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Na prática, sim. DPIA (Data Protection Impact Assessment) é o nome usado no GDPR europeu. Na LGPD o equivalente é o relatório de impacto à proteção de dados pessoais (RIPD), definido no art. 5º, XVII, e tratado no art. 38."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O relatório de impacto é obrigatório para usar IA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A LGPD não impõe o relatório a todo uso de IA, mas permite que a ANPD o solicite ao controlador. Para fluxos com decisão automatizada, dado sensível, larga escala ou legítimo interesse, ter o documento pronto é a decisão prudente."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando o relatório de impacto deve ser atualizado?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sempre que algo relevante mudar: novo fornecedor ou modelo, nova finalidade, novo tipo de dado ou nova integração. Além disso, defina uma revisão periódica com data e responsável registrados."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><img src="../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../#servicos">Serviços</a></li>
+        <li><a href="../iso-42001/">ISO 42001</a></li>
+        <li><a href="../#cases">Cases</a></li>
+        <li><a href="../#trilhas">Trilhas</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../biblioteca-prompts/">Prompts</a></li>
+        <li><a href="../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20DPIA%20para%20IA%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20DPIA%20para%20IA%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">LGPD e IA</p>
+      <h1 style="max-width:900px;">Relatório de impacto DPIA para IA: como fazer</h1>
+      <p class="lead" style="max-width:740px;">A área de TI libera um assistente de IA para o atendimento, o RH testa uma ferramenta de triagem de currículos e o comercial conecta o CRM a um modelo de linguagem. Cada iniciativa trata dado pessoal, e quase nenhuma passa por uma avaliação formal de risco antes de entrar no ar.</p>
+      <p class="lead" style="max-width:740px;">Quando um cliente, um auditor ou a ANPD pergunta como o risco foi avaliado, a empresa descobre que a resposta está espalhada em e-mails e contratos. O relatório de impacto, conhecido pela sigla DPIA, serve para reunir essa resposta num documento único, atual e defensável.</p>
+    </div>
+  </section>
+
+  <section id="o-que-e">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">O que a lei diz</p>
+        <h2>DPIA e RIPD: o mesmo documento, dois nomes</h2>
+        <p>DPIA (Data Protection Impact Assessment) é o termo do GDPR europeu. Na LGPD, o equivalente é o relatório de impacto à proteção de dados pessoais, o RIPD. O art. 5º, XVII, o define como a documentação do controlador que descreve os processos de tratamento capazes de gerar riscos às liberdades civis e aos direitos fundamentais, junto com as medidas para mitigá-los.</p>
+        <p>O art. 38 prevê que a ANPD pode determinar a elaboração do relatório, inclusive sobre operações de tratamento baseadas em legítimo interesse (art. 10, §3º). Como o conteúdo mínimo é enxuto, o mercado trata o RIPD como a forma padrão de mostrar que o risco foi pensado antes do uso, e não depois do incidente.</p>
+        <p>Para empresas com mais de 200 funcionários, o ponto central é a escala. Quanto mais áreas usam IA, mais difícil é afirmar que ninguém tratou dado pessoal de forma que a empresa não soubesse. O relatório é o registro que transforma essa afirmação em fato.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="quando">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Quando fazer</p>
+        <h2>Quando um uso de IA pede o relatório de impacto</h2>
+        <p>Nem todo uso de IA precisa de um relatório completo. Uma ferramenta que resume texto público não pede o mesmo cuidado que um sistema que decide sobre pessoas. Estes cinco sinais indicam que o documento deve existir:</p>
+      </div>
+      <div class="steps reveal">
+        <div class="step">
+          <span class="step-num">01</span>
+          <div><h3>Decisão automatizada</h3><p>Triagem de candidatos, análise de crédito, priorização ou recusa de atendimento. O art. 20 garante ao titular o direito de pedir a revisão dessas decisões.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">02</span>
+          <div><h3>Dado pessoal sensível</h3><p>Saúde, biometria, origem racial, convicção religiosa ou política. O art. 11 restringe as bases legais possíveis.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <div><h3>Larga escala</h3><p>Toda a base de clientes ou de colaboradores alimentando uma base de conhecimento ou um modelo ajustado.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">04</span>
+          <div><h3>Legítimo interesse como base legal</h3><p>É a base que a ANPD pode examinar com mais atenção. O relatório é o lugar natural para registrar o teste de ponderação.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">05</span>
+          <div><h3>Fornecedor de IA no exterior</h3><p>Prompts e arquivos processados fora do país exigem mecanismo de transferência internacional (art. 33) e clareza sobre o que o fornecedor retém.</p></div>
+        </div>
+      </div>
+      <p style="margin-top:16px;">Um bom critério de triagem: se o uso aparece em duas ou mais dessas linhas, faça o relatório antes de ampliar o piloto. Se aparece em uma, registre a decisão de fazer ou não fazer, com justificativa.</p>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap reveal">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Sua empresa está preparada para relatório de impacto DPIA para IA?</h2>
+      <p style="color:var(--text-muted); font-size:16.5px; max-width:580px; margin:0 auto 30px;">
+        Fale com o Felipe — sem formulário, sem espera.
+      </p>
+      <div class="hero-ctas" style="justify-content:center;">
+        <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20relatório%20de%20impacto%20DPIA%20para%20IA%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary">
+          Falar com o Felipe pelo WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="conteudo">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">O conteúdo</p>
+        <h2>O que incluir no relatório de um sistema de IA</h2>
+        <p>O art. 38 pede a descrição dos tipos de dados, a metodologia de coleta e de garantia da segurança e a análise de riscos e medidas. Em IA, vale detalhar os pontos em que o risco costuma se esconder:</p>
+      </div>
+      <div class="reveal">
+        <table class="spec-table">
+          <thead><tr><th scope="col">Item</th><th scope="col">O que descrever</th></tr></thead>
+          <tbody>
+            <tr><td>Finalidade e dono</td><td>Para que o sistema serve, em que processo atua e quem responde por ele</td></tr>
+            <tr><td>Dados por porta de entrada</td><td>O que entra por prompt, por base de conhecimento e por log, com os campos nomeados</td></tr>
+            <tr><td>Base legal</td><td>Uma base por finalidade, com o teste de legítimo interesse registrado quando for o caso</td></tr>
+            <tr><td>Fornecedores</td><td>Quem fornece o modelo, quem são os suboperadores, onde o dado é processado e se é usado para treino</td></tr>
+            <tr><td>Riscos ao titular</td><td>Vazamento, resposta errada, discriminação e decisão sem explicação, com probabilidade e impacto</td></tr>
+            <tr><td>Medidas</td><td>Anonimização, controle de acesso, revisão humana, limites de retenção e filtros de entrada e saída</td></tr>
+            <tr><td>Direitos do titular</td><td>Como atender pedidos de acesso, correção, eliminação e revisão de decisão automatizada</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:16px;">Dois erros se repetem. O primeiro é descrever a categoria de dado ("dados cadastrais") em vez dos campos reais. O segundo é tratar o fornecedor como caixa-preta: sem saber retenção, localização e uso para treino, a análise de risco fica incompleta.</p>
+    </div>
+  </section>
+
+  <section id="processo">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Como fazer</p>
+        <h2>Como tornar o relatório um processo repetível</h2>
+        <p>O relatório que sobrevive é o que cabe na rotina. Em empresas médias e grandes, três decisões fazem a diferença:</p>
+      </div>
+      <div class="steps reveal">
+        <div class="step">
+          <span class="step-num">01</span>
+          <div><h3>Ligar o relatório ao inventário de IA</h3><p>Todo sistema novo entra no inventário com uma pergunta de triagem. A resposta dispara ou dispensa o relatório, e fica registrada.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">02</span>
+          <div><h3>Definir papéis claros</h3><p>O dono do processo descreve o fluxo e aceita o risco residual. O encarregado orienta, a segurança valida as medidas e o jurídico confere as bases legais.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <div><h3>Usar um modelo único e curto</h3><p>Um formulário padrão de poucas páginas, com os campos da tabela acima, evita que cada área invente o seu e permite comparar riscos entre sistemas.</p></div>
+        </div>
+      </div>
+      <p style="margin-top:16px;">Comece pelo fluxo de maior risco, não por todos de uma vez. O trabalho também se reaproveita: a avaliação de impacto de sistemas de IA, pedida pela ISO/IEC 42001 e discutida nas propostas de regulação, parte das mesmas informações.</p>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Perguntas frequentes</p>
+        <h2>Relatório de impacto para IA, em resposta direta</h2>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-item">
+          <h3>DPIA e RIPD são a mesma coisa?</h3>
+          <p>Na prática, sim. DPIA (Data Protection Impact Assessment) é o nome usado no GDPR europeu. Na LGPD o equivalente é o relatório de impacto à proteção de dados pessoais (RIPD), definido no art. 5º, XVII, e tratado no art. 38.</p>
+        </div>
+        <div class="faq-item">
+          <h3>O relatório de impacto é obrigatório para usar IA?</h3>
+          <p>A LGPD não impõe o relatório a todo uso de IA, mas permite que a ANPD o solicite ao controlador. Para fluxos com decisão automatizada, dado sensível, larga escala ou legítimo interesse, ter o documento pronto é a decisão prudente.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Quando o relatório de impacto deve ser atualizado?</h3>
+          <p>Sempre que algo relevante mudar: novo fornecedor ou modelo, nova finalidade, novo tipo de dado ou nova integração. Além disso, defina uma revisão periódica com data e responsável registrados.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="leia-tambem">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Leia também</p>
+        <h2>Continue pelos temas relacionados</h2>
+      </div>
+      <ul class="reveal">
+        <li><a href="https://tyna.com.br/lgpd-e-ia/">LGPD e IA: o que a lei exige das empresas</a></li>
+        <li><a href="https://tyna.com.br/dpo-encarregado-e-inteligencia-artificial/">DPO, encarregado e inteligência artificial</a></li>
+        <li><a href="https://tyna.com.br/politica-de-uso-de-ia-para-empresas/">Política de uso de IA para empresas</a></li>
+      </ul>
+      <p class="status-meta" style="margin-top:34px;">Última revisão: 07/11/2026.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../" class="logo"><img src="../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../#servicos">Serviços</a>
+          <a href="../iso-42001/">ISO 42001</a>
+          <a href="../governanca-de-ia/">Governança de IA</a>
+          <a href="../shadow-ai/">Shadow AI</a>
+          <a href="../pl-2338/">Marco Legal da IA</a>
+          <a href="../diagnostico/">Diagnóstico</a>
+          <a href="../blog/">Blog</a>
+          <a href="../biblioteca-prompts/">Prompts</a>
+          <a href="../sobre/">Sobre</a>
+          <a href="../glossario/">Glossário</a>
+          <a href="../ia-para-equipes-de-ti/">IA para equipes de TI</a>
+          <a href="../ia-segura-para-empresas/">IA segura para empresas</a>
+          <a href="../agentes-de-ia-para-empresas/">Agentes de IA</a>
+          <a href="../politica-de-privacidade/">Política de privacidade</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<!-- O botão flutuante do WhatsApp é montado por assets/site.js, que roda em todas as páginas -->
+<script src="../assets/site.js?v=18"></script>
+
+</body>
+</html>
