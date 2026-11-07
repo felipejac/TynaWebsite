@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // Só coleta em produção (tyna.com.br) — localhost e previews do Cloudflare Pages (*.pages.dev) ficam de fora.
+  if (location.hostname !== 'tyna.com.br') window['ga-disable-G-DQS0KMDT3G'] = true;
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Governança de agentes de IA corporativos: guia prático | Tyna</title>
+<meta name="description" content="Governança de agentes de IA corporativos: como definir donos, limites de autonomia, registro de ações e auditoria para empresas com mais de 200 pessoas.">
+<link rel="canonical" href="https://tyna.com.br/governanca-de-agentes-de-ia-corporativos/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Governança de agentes de IA corporativos: guia prático">
+<meta property="og:description" content="Governança de agentes de IA corporativos: como definir donos, limites de autonomia, registro de ações e auditoria para empresas com mais de 200 pessoas.">
+<meta property="og:url" content="https://tyna.com.br/governanca-de-agentes-de-ia-corporativos/">
+<meta property="og:image" content="https://tyna.com.br/assets/og-agentes-ia.svg">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css?v=19">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Governança de agentes de IA corporativos: guia prático",
+  "inLanguage": "pt-BR",
+  "description": "Governança de agentes de IA corporativos: como definir donos, limites de autonomia, registro de ações e auditoria para empresas com mais de 200 pessoas.",
+  "datePublished": "2026-11-07",
+  "dateModified": "2026-11-07",
+  "author": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "mainEntityOfPage": "https://tyna.com.br/governanca-de-agentes-de-ia-corporativos/"
+}
+</script>
+<link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "pt-BR",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "O que é governança de agentes de IA corporativos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "É o conjunto de papéis, regras e controles que define o que cada agente de IA pode fazer na empresa, quem responde por ele, como suas ações são registradas e como ele é revisado ou desligado. Diferente da governança de modelos, ela trata de ações executadas em sistemas reais."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Por onde uma empresa deve começar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Por um inventário dos agentes já em uso ou em teste, cada um com um dono nomeado, uma finalidade e uma lista de permissões. Com isso na mão, classifique os agentes por risco e aplique controles mais fortes aos que agem sem revisão humana."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "A governança de agentes atrasa a adoção de IA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não, quando é proporcional ao risco. Agentes que apenas leem e resumem informação seguem regras simples e pré-aprovadas; só os que alteram dados, falam com clientes ou movimentam processos passam por aprovação mais cuidadosa."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><img src="../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../#servicos">Serviços</a></li>
+        <li><a href="../iso-42001/">ISO 42001</a></li>
+        <li><a href="../#cases">Cases</a></li>
+        <li><a href="../#trilhas">Trilhas</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../biblioteca-prompts/">Prompts</a></li>
+        <li><a href="../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Agentes de IA</p>
+      <h1 style="max-width:900px;">Governança de agentes de IA corporativos: guia prático</h1>
+      <p class="lead" style="max-width:740px;">Um assistente de IA responde perguntas. Um agente age: abre chamados, altera cadastros, envia mensagens, aciona outros sistemas. Em empresas com mais de 200 pessoas, isso costuma começar em vários times ao mesmo tempo, cada um com sua ferramenta, e sem que ninguém tenha a lista completa do que já está rodando.</p>
+      <p class="lead" style="max-width:740px;">O problema aparece no primeiro erro com consequência: um agente que apagou um registro, respondeu a um cliente com informação errada ou acessou um dado que não devia. A pergunta que o jurídico, a auditoria e a diretoria fazem é sempre a mesma: quem autorizou, o que ele podia fazer e onde está o registro? Este guia mostra como montar a governança que responde a essas perguntas.</p>
+    </div>
+  </section>
+
+  <section id="por-que-diferente">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Por que agentes exigem uma governança diferente</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+<p>Políticas de IA escritas para chatbots e ferramentas de texto olham para o que a pessoa digita e para o que o modelo responde. Com agentes, o risco muda de lugar: está no que o sistema <strong>faz</strong>. Três características explicam isso:</p>
+<ul>
+<li><strong>Autonomia.</strong> O agente decide sozinho os passos para cumprir um objetivo, e nem sempre o caminho escolhido é o que a equipe imaginou.</li>
+<li><strong>Acesso.</strong> Para ser útil, ele recebe credenciais e permissões em sistemas internos. Um agente com permissão demais é um funcionário sem supervisão e sem cargo definido.</li>
+<li><strong>Encadeamento.</strong> Um erro pequeno no primeiro passo se propaga pelos seguintes, e quando alguém percebe, a ação já foi executada.</li>
+</ul>
+<p>Há ainda a exposição a ataques: um agente que lê e-mails, páginas ou documentos pode receber instruções escondidas nesse conteúdo. É o caso da <a href="https://tyna.com.br/injecao-de-prompt/">injeção de prompt</a>, e ela só é contida com limites de permissão, não com bom senso do modelo.</p>
+<p>O ponto de partida é um <strong>inventário</strong>. Para cada agente, registre o dono de negócio, a finalidade, os sistemas que acessa, as ações que pode executar e se há revisão humana. O que não está no inventário não pode ser governado.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="donos-e-limites">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Donos, níveis de autonomia e limites claros</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+<p>Cada agente precisa de uma pessoa de negócio responsável, com autoridade para pausá-lo. Não basta o nome da equipe de TI que o configurou: a TI opera, o negócio responde pelo resultado. Acima dos donos, um comitê ou grupo de decisão aprova os usos de risco alto e arbitra exceções.</p>
+<p>Depois, classifique cada agente por <strong>nível de autonomia</strong>. Uma escala simples já resolve:</p>
+<ul>
+<li><strong>Nível 1, consulta.</strong> Lê e resume informação. Não altera nada. Risco baixo, regra pré-aprovada.</li>
+<li><strong>Nível 2, proposta.</strong> Prepara uma ação (um rascunho, um lançamento, uma resposta) e uma pessoa aprova antes da execução.</li>
+<li><strong>Nível 3, execução com limite.</strong> Executa sozinho dentro de limites definidos, como valor máximo, tipo de operação ou lista de destinatários.</li>
+<li><strong>Nível 4, execução ampla.</strong> Age em vários sistemas sem revisão prévia. Exige aprovação formal, monitoramento reforçado e um plano de desligamento.</li>
+</ul>
+<p>Os limites precisam ser técnicos, e não apenas uma instrução no texto do agente. Dê a ele o <strong>menor privilégio</strong> possível: credenciais próprias, restritas ao que a tarefa exige e fáceis de revogar. Defina <strong>guardrails</strong> que bloqueiam ações fora do escopo, como explicado em <a href="https://tyna.com.br/o-que-e-guardrail-em-ia/">o que é guardrail em IA</a>. E mantenha um <strong>botão de parada</strong>: alguém sabe como suspender o agente em minutos, sem depender do fornecedor.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap reveal">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Sua empresa está preparada para governança de agentes de IA corporativos?</h2>
+      <p style="color:var(--text-muted); font-size:16.5px; max-width:580px; margin:0 auto 30px;">
+        Fale com o Felipe — sem formulário, sem espera.
+      </p>
+      <div class="hero-ctas" style="justify-content:center;">
+        <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20governança%20de%20agentes%20de%20IA%20corporativos%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary">
+          Falar com o Felipe pelo WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="registro-e-auditoria">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Registro, monitoramento e auditoria das ações</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+<p>Sem registro, não há como investigar um incidente nem provar que a empresa agiu com diligência. Para cada ação relevante de um agente, guarde: quem (qual agente e qual dono), quando, o que foi pedido, quais dados foram acessados, qual ação foi executada e quem aprovou, quando houve aprovação. O registro deve ficar fora do controle do próprio agente, para que ele não possa alterá-lo.</p>
+<p>O monitoramento transforma o registro em alerta. Alguns sinais valem a pena acompanhar:</p>
+<ul>
+<li>volume de ações acima do habitual;</li>
+<li>tentativas de acesso a sistemas fora do escopo;</li>
+<li>taxa de ações revertidas ou corrigidas por pessoas;</li>
+<li>respostas ou ações recusadas pelos guardrails.</li>
+</ul>
+<p>Por fim, revise periodicamente. Uma <a href="https://tyna.com.br/auditoria-de-ia/">auditoria de IA</a> confere se o inventário está completo, se as permissões continuam proporcionais, se os registros existem e se os donos conhecem seus agentes. Agentes mudam com novas versões de modelo, novas ferramentas e novos usos; uma aprovação feita há um ano não vale para o que roda hoje.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="regulacao-e-primeiros-passos">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Regulação, conformidade e primeiros 90 dias</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+<p>No Brasil, a <a href="https://tyna.com.br/lgpd-e-ia/">LGPD</a> já se aplica a agentes que tratam dado pessoal, incluindo o direito de revisão de decisões automatizadas. O debate do marco legal da IA e, no exterior, regras como o AI Act europeu reforçam a mesma direção: transparência, supervisão humana proporcional ao risco e responsabilidade identificável. Setores regulados, como o financeiro e o de saúde, somam exigências próprias. Quem já tem inventário, donos, registros e revisão periódica chega a qualquer um desses requisitos com a maior parte do trabalho feita.</p>
+<p>Um roteiro realista para os primeiros 90 dias:</p>
+<ul>
+<li><strong>Dias 1 a 30:</strong> levantar os agentes existentes, nomear donos e classificar por nível de autonomia.</li>
+<li><strong>Dias 31 a 60:</strong> revisar permissões, aplicar menor privilégio e definir guardrails e botão de parada para os níveis 3 e 4.</li>
+<li><strong>Dias 61 a 90:</strong> ativar registro e alertas, definir o fluxo de aprovação para novos agentes e fazer a primeira revisão formal.</li>
+</ul>
+<p>O objetivo não é frear a adoção. É permitir que ela cresça sem que a empresa precise descobrir os riscos pelo incidente.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Perguntas frequentes</p>
+        <h2>Governança de agentes de IA, em resposta direta</h2>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-item">
+          <h3>O que é governança de agentes de IA corporativos?</h3>
+          <p>É o conjunto de papéis, regras e controles que define o que cada agente de IA pode fazer na empresa, quem responde por ele, como suas ações são registradas e como ele é revisado ou desligado. Diferente da governança de modelos, ela trata de ações executadas em sistemas reais.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Por onde uma empresa deve começar?</h3>
+          <p>Por um inventário dos agentes já em uso ou em teste, cada um com um dono nomeado, uma finalidade e uma lista de permissões. Com isso na mão, classifique os agentes por risco e aplique controles mais fortes aos que agem sem revisão humana.</p>
+        </div>
+        <div class="faq-item">
+          <h3>A governança de agentes atrasa a adoção de IA?</h3>
+          <p>Não, quando é proporcional ao risco. Agentes que apenas leem e resumem informação seguem regras simples e pré-aprovadas; só os que alteram dados, falam com clientes ou movimentam processos passam por aprovação mais cuidadosa.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="leia-tambem">
+    <div class="wrap">
+      <div class="section-head reveal"><p class="eyebrow">Leia também</p><h2>Para aprofundar</h2></div>
+      <div class="svc-grid reveal">
+        <div class="svc-card"><h3><a href="https://tyna.com.br/governanca-de-agentes/">Governança de agentes</a></h3><p>O pilar sobre como governar agentes em produção.</p></div>
+        <div class="svc-card"><h3><a href="https://tyna.com.br/agentes-de-ia-para-empresas/">Agentes de IA para empresas</a></h3><p>O que são, onde se aplicam e quais os riscos.</p></div>
+        <div class="svc-card"><h3><a href="https://tyna.com.br/o-que-e-guardrail-em-ia/">O que é guardrail em IA</a></h3><p>Os limites técnicos que mantêm o agente no escopo.</p></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../" class="logo"><img src="../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../#servicos">Serviços</a>
+          <a href="../iso-42001/">ISO 42001</a>
+          <a href="../governanca-de-ia/">Governança de IA</a>
+          <a href="../lgpd-e-ia/">LGPD e IA</a>
+          <a href="../shadow-ai/">Shadow AI</a>
+          <a href="../pl-2338/">Marco Legal da IA</a>
+          <a href="../diagnostico/">Diagnóstico</a>
+          <a href="../blog/">Blog</a>
+          <a href="../biblioteca-prompts/">Prompts</a>
+          <a href="../sobre/">Sobre</a>
+          <a href="../glossario/">Glossário</a>
+          <a href="../ia-para-equipes-de-ti/">IA para equipes de TI</a>
+          <a href="../ia-segura-para-empresas/">IA segura para empresas</a>
+          <a href="../agentes-de-ia-para-empresas/">Agentes de IA</a>
+          <a href="../politica-de-privacidade/">Política de privacidade</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<!-- O botão flutuante do WhatsApp é montado por assets/site.js, que roda em todas as páginas -->
+<script src="../assets/site.js?v=18"></script>
+
+</body>
+</html>
