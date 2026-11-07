@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // Só coleta em produção (tyna.com.br) — localhost e previews do Cloudflare Pages (*.pages.dev) ficam de fora.
+  if (location.hostname !== 'tyna.com.br') window['ga-disable-G-DQS0KMDT3G'] = true;
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IA em RH e recrutamento: riscos de discriminação | Tyna</title>
+<meta name="description" content="IA em RH e recrutamento traz escala, mas também riscos de discriminação. Veja onde o viés nasce, o que a lei exige e os controles práticos para gestores de RH.">
+<link rel="canonical" href="https://tyna.com.br/ia-em-rh-recrutamento-riscos-discriminacao/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IA em RH e recrutamento: riscos de discriminação">
+<meta property="og:description" content="IA em RH e recrutamento traz escala, mas também riscos de discriminação. Veja onde o viés nasce, o que a lei exige e os controles práticos para gestores de RH.">
+<meta property="og:url" content="https://tyna.com.br/ia-em-rh-recrutamento-riscos-discriminacao/">
+<meta property="og:image" content="https://tyna.com.br/assets/og-ia-generativa.svg">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css?v=19">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "IA em RH e recrutamento: riscos de discriminação",
+  "inLanguage": "pt-BR",
+  "description": "IA em RH e recrutamento traz escala, mas também riscos de discriminação. Veja onde o viés nasce, o que a lei exige e os controles práticos para gestores de RH.",
+  "datePublished": "2026-11-07",
+  "dateModified": "2026-11-07",
+  "author": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "mainEntityOfPage": "https://tyna.com.br/ia-em-rh-recrutamento-riscos-discriminacao/"
+}
+</script>
+<link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "pt-BR",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Usar IA para triar currículos é proibido no Brasil?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não é proibido. Mas a empresa continua responsável pelo resultado: a Lei 9.029/95 veda práticas discriminatórias na admissão e a LGPD dá ao candidato o direito de pedir revisão de decisões tomadas apenas por tratamento automatizado."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como saber se a ferramenta de recrutamento discrimina?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Medindo. Compare a taxa de aprovação em cada etapa entre grupos (gênero, idade, raça, deficiência, região) e investigue qualquer diferença relevante. Sem esse teste periódico, a ausência de queixas não prova nada."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quem responde se a IA do fornecedor discriminar um candidato?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Em regra, a empresa que contratou e decidiu com base na ferramenta. O contrato com o fornecedor pode prever regresso, mas não transfere a responsabilidade perante o candidato. Por isso o contrato deve exigir testes, documentação e acesso a registros."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><img src="../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../#servicos">Serviços</a></li>
+        <li><a href="../iso-42001/">ISO 42001</a></li>
+        <li><a href="../#cases">Cases</a></li>
+        <li><a href="../#trilhas">Trilhas</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../biblioteca-prompts/">Prompts</a></li>
+        <li><a href="../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20IA%20em%20RH%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20IA%20em%20RH%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">IA em RH</p>
+      <h1 style="max-width:900px;">IA em RH e recrutamento: riscos de discriminação</h1>
+      <p class="lead" style="max-width:740px;">Triagem de currículos, ranking de candidatos e entrevistas analisadas por algoritmo prometem velocidade. O risco é automatizar, em escala, uma discriminação que ninguém decidiu praticar.</p>
+    </div>
+  </section>
+
+  <section id="introducao">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p>Em empresas com mais de 200 funcionários, o RH recebe centenas de candidaturas por vaga. Ferramentas de IA entram para dar conta do volume: leem currículos, pontuam perfis e sugerem quem avança. O ganho de tempo é real, e por isso a adoção costuma começar pela área, ou até dentro das plataformas de recrutamento que a empresa já usa, sem passar por TI, jurídico ou compliance.</p>
+        <p>O problema é que um modelo aprende com o passado. Se o histórico de contratações favorecia certo perfil, o sistema tende a reproduzi-lo e a chamar isso de “aderência”. Quando um candidato descartado questiona o critério, o gestor descobre que não sabe explicá-lo, e que a responsabilidade é da empresa, não do fornecedor.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="onde-nasce">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Origem do problema</p>
+        <h2>Onde a discriminação nasce em um processo seletivo com IA</h2>
+        <p>O viés raramente aparece como uma regra explícita. Ele entra por quatro caminhos, e todos exigem atenção do gestor.</p>
+      </div>
+      <div class="svc-grid reveal">
+        <div class="svc-card">
+          <span class="num">01</span>
+          <h3>Dados históricos</h3>
+          <p>O modelo é calibrado com quem foi contratado e bem avaliado no passado. Se esse grupo era homogêneo, o padrão de “bom candidato” também será.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">02</span>
+          <h3>Variáveis substitutas</h3>
+          <p>Mesmo sem usar gênero, raça ou idade, o sistema pode usar CEP, nome da universidade, lacunas no currículo ou ano de formatura, que funcionam como atalhos para esses atributos.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">03</span>
+          <h3>Critério mal definido</h3>
+          <p>Pedir à IA “o melhor candidato” sem definir o que isso significa transfere a decisão de critério para o modelo. Prompts vagos produzem rankings que ninguém consegue justificar.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">04</span>
+          <h3>Análise de voz, vídeo e expressão</h3>
+          <p>Ferramentas que inferem personalidade ou emoção pelo rosto ou pela fala tendem a penalizar sotaques, deficiências e diferenças culturais, com base científica frágil.</p>
+        </div>
+      </div>
+      <div class="section-head reveal">
+        <p>Há ainda o viés de automação: o recrutador, sobrecarregado, passa a aceitar a nota do sistema como se fosse fato. A “revisão humana” existe no papel, mas na prática ninguém contesta o ranking.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="regulacao">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Regulação e compliance</p>
+        <h2>O que a lei já exige e o que está chegando</h2>
+        <p>Não existe hoje, no Brasil, uma lei específica para IA no recrutamento. Isso não deixa o tema sem regra.</p>
+      </div>
+      <div class="svc-grid reveal">
+        <div class="svc-card">
+          <span class="num">01</span>
+          <h3>Legislação trabalhista</h3>
+          <p>A Lei 9.029/95 proíbe práticas discriminatórias na admissão, e a Constituição veda distinções por sexo, idade, cor ou estado civil. Não importa se a distinção veio de uma pessoa ou de um algoritmo.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">02</span>
+          <h3>LGPD</h3>
+          <p>O currículo é dado pessoal, e o tratamento exige finalidade e base legal. O art. 20 garante ao titular pedir revisão de decisões tomadas apenas por tratamento automatizado e obter informações sobre os critérios usados. Veja os <a href="../direitos-dos-titulares-frente-a-decisoes-automatizadas/">direitos dos titulares frente a decisões automatizadas</a>.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">03</span>
+          <h3>Marco legal da IA</h3>
+          <p>O projeto de lei em tramitação no Congresso trata de sistemas de IA usados em seleção e gestão de trabalhadores como de alto risco, o que traria avaliação de impacto, documentação e supervisão humana. Acompanhe o <a href="../pl-2338/">PL 2338</a>.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">04</span>
+          <h3>Referências internacionais</h3>
+          <p>A regulação europeia de IA também classifica o uso em emprego como alto risco, e empresas com operação ou candidatos no exterior podem ser alcançadas por ela.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap reveal">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Sua empresa está preparada para IA em RH recrutamento riscos discriminação?</h2>
+      <p style="color:var(--text-muted); font-size:16.5px; max-width:580px; margin:0 auto 30px;">
+        Fale com o Felipe — sem formulário, sem espera.
+      </p>
+      <div class="hero-ctas" style="justify-content:center;">
+        <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20IA%20em%20RH%20recrutamento%20riscos%20discriminação%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary">
+          Falar com o Felipe pelo WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="controles">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Controles práticos</p>
+        <h2>Cinco controles para usar IA no recrutamento com segurança</h2>
+        <p>Nenhum deles exige tecnologia nova. Exigem decisão sobre quem é responsável.</p>
+      </div>
+      <div class="steps reveal">
+        <div class="step">
+          <span class="step-num">01</span>
+          <div><h3>Defina o critério antes da ferramenta</h3><p>Liste, por vaga, as competências que realmente importam e que podem ser demonstradas. Tudo o que não estiver na lista não deve pesar na nota.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">02</span>
+          <div><h3>Teste o resultado por grupo</h3><p>Compare a taxa de aprovação em cada etapa entre gênero, idade, raça, deficiência e região. Faça isso antes de ativar e repita a cada trimestre.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <div><h3>Mantenha uma pessoa com poder de decisão</h3><p>A IA recomenda, o recrutador decide. Registre os casos em que a recomendação foi revertida, porque isso mostra se a revisão é real.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">04</span>
+          <div><h3>Aplique limites em execução</h3><p>Bloqueie o uso de nome, foto, idade, estado civil e endereço na avaliação, e retire do documento dados que o modelo não precisa ver. É o conceito de <a href="../o-que-e-guardrail-em-ia/">guardrail</a>: o limite verificado pela máquina, não apenas escrito em política.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">05</span>
+          <div><h3>Exija do fornecedor o que você precisa provar</h3><p>No contrato: descrição dos dados e critérios usados, resultados de testes de viés, registros por candidato e proibição de reutilizar currículos para treinar outros modelos.</p></div>
+        </div>
+      </div>
+      <div class="section-head reveal">
+        <p>Dois cuidados se somam a esses controles. Primeiro, comunique ao candidato que há IA no processo e como pedir revisão. Segundo, trate currículos com a mesma disciplina de qualquer dado pessoal: o uso de IA generativa por recrutadores com ferramentas não autorizadas é um vetor comum de vazamento. Leia sobre <a href="../como-usar-ia-generativa-sem-vazar-dados/">como usar IA generativa sem vazar dados</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="comecar">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Por onde começar</p>
+        <h2>Um plano de 30 dias para o RH</h2>
+        <p>Para uma empresa que já usa IA no recrutamento, ou está prestes a usar, esta sequência cobre o essencial.</p>
+      </div>
+      <div class="svc-grid reveal">
+        <div class="svc-card">
+          <span class="num">01</span>
+          <h3>Semana 1: inventário</h3>
+          <p>Levante todas as ferramentas com IA usadas em atração, triagem, entrevista e avaliação, inclusive as embutidas em plataformas contratadas e as usadas informalmente.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">02</span>
+          <h3>Semana 2: risco e dono</h3>
+          <p>Classifique cada uso pelo impacto na decisão sobre a pessoa. Quem filtra candidatos tem risco maior do que quem redige descrição de vaga. Defina um responsável por uso.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">03</span>
+          <h3>Semana 3: teste</h3>
+          <p>Meça o resultado por grupo nas últimas seleções e peça ao fornecedor a documentação dos critérios. Anote o que ele não conseguiu responder.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">04</span>
+          <h3>Semana 4: regra e canal</h3>
+          <p>Publique regras de uso para o RH e para os gestores contratantes, e defina o canal pelo qual o candidato pede revisão. Veja o panorama geral em <a href="../ia-segura-para-empresas/">IA segura para empresas</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Perguntas frequentes</p>
+        <h2>IA em recrutamento, em resposta direta</h2>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-item">
+          <h3>Usar IA para triar currículos é proibido no Brasil?</h3>
+          <p>Não é proibido. Mas a empresa continua responsável pelo resultado: a Lei 9.029/95 veda práticas discriminatórias na admissão e a LGPD dá ao candidato o direito de pedir revisão de decisões tomadas apenas por tratamento automatizado.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Como saber se a ferramenta de recrutamento discrimina?</h3>
+          <p>Medindo. Compare a taxa de aprovação em cada etapa entre grupos (gênero, idade, raça, deficiência, região) e investigue qualquer diferença relevante. Sem esse teste periódico, a ausência de queixas não prova nada.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Quem responde se a IA do fornecedor discriminar um candidato?</h3>
+          <p>Em regra, a empresa que contratou e decidiu com base na ferramenta. O contrato com o fornecedor pode prever regresso, mas não transfere a responsabilidade perante o candidato. Por isso o contrato deve exigir testes, documentação e acesso a registros.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="leia-tambem">
+    <div class="wrap">
+      <div class="section-head reveal"><p class="eyebrow">Leia também</p><h2>Conteúdos relacionados</h2></div>
+      <div class="svc-grid reveal">
+        <div class="svc-card"><h3><a href="../ia-segura-para-empresas/">IA segura para empresas</a></h3><p>Os controles que sustentam o uso de IA em áreas sensíveis como o RH.</p></div>
+        <div class="svc-card"><h3><a href="../como-usar-ia-generativa-sem-vazar-dados/">Como usar IA generativa sem vazar dados</a></h3><p>O que evitar ao colar currículos e dados de candidatos em ferramentas de IA.</p></div>
+        <div class="svc-card"><h3><a href="../o-que-e-guardrail-em-ia/">O que é guardrail em IA</a></h3><p>Como transformar uma regra escrita em limite aplicado pela máquina.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band" style="border-bottom:none;">
+    <div class="wrap reveal">
+      <p class="eyebrow">Diagnóstico</p>
+      <h2>Quais lacunas sua IA tem hoje?</h2>
+      <p style="color:var(--text-muted); font-size:16.5px; max-width:580px; margin:0 auto 30px;">O diagnóstico responde em três minutos, com dez perguntas. Sem formulário e sem cadastro.</p>
+      <div class="hero-ctas" style="justify-content:center;">
+        <a href="../diagnostico/" class="btn btn-primary">Fazer o diagnóstico</a>
+      </div>
+      <p class="status-meta" style="margin-top:34px;">Última revisão: 07/11/2026.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../" class="logo"><img src="../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../#servicos">Serviços</a>
+          <a href="../iso-42001/">ISO 42001</a>
+          <a href="../governanca-de-ia/">Governança de IA</a>
+          <a href="../shadow-ai/">Shadow AI</a>
+          <a href="../pl-2338/">Marco Legal da IA</a>
+          <a href="../diagnostico/">Diagnóstico</a>
+          <a href="../blog/">Blog</a>
+          <a href="../biblioteca-prompts/">Prompts</a>
+          <a href="../sobre/">Sobre</a>
+          <a href="../glossario/">Glossário</a>
+          <a href="../ia-para-equipes-de-ti/">IA para equipes de TI</a>
+          <a href="../ia-segura-para-empresas/">IA segura para empresas</a>
+          <a href="../agentes-de-ia-para-empresas/">Agentes de IA</a>
+          <a href="../politica-de-privacidade/">Política de privacidade</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<!-- O botão flutuante do WhatsApp é montado por assets/site.js, que roda em todas as páginas -->
+<script src="../assets/site.js?v=18"></script>
+
+</body>
+</html>
