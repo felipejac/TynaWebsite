@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if (location.hostname !== 'tyna.com.br') window['ga-disable-G-DQS0KMDT3G'] = true;
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<title>Como fazer piloto de IA generativa na empresa | Tyna</title>
+<meta name="description" content="Como fazer piloto de IA generativa na empresa: escolha do caso de uso, regras, métricas e decisão final. Guia prático para gestores de empresas grandes.">
+<link rel="canonical" href="https://tyna.com.br/como-fazer-piloto-de-ia-generativa-na-empresa/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Como fazer piloto de IA generativa na empresa | Tyna">
+<meta property="og:description" content="Como fazer piloto de IA generativa na empresa: escolha do caso de uso, regras, métricas e decisão final. Guia prático para gestores de empresas grandes.">
+<meta property="og:url" content="https://tyna.com.br/como-fazer-piloto-de-ia-generativa-na-empresa/">
+<meta property="og:image" content="https://tyna.com.br/assets/og-implementacao-ia.svg">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css?v=19">
+<link rel="stylesheet" href="../assets/blog.css?v=19">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Como fazer piloto de IA generativa na empresa",
+  "description": "Como fazer piloto de IA generativa na empresa: escolha do caso de uso, regras, métricas e decisão final. Guia prático para gestores de empresas grandes.",
+  "inLanguage": "pt-BR",
+  "keywords": "como fazer piloto de IA generativa na empresa, piloto de IA generativa, projeto piloto de IA, IA generativa nas empresas",
+  "image": "https://tyna.com.br/assets/og-implementacao-ia.svg",
+  "author": {
+    "@type": "Organization",
+    "name": "Tyna"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tyna"
+  },
+  "datePublished": "2026-11-07",
+  "mainEntityOfPage": "https://tyna.com.br/como-fazer-piloto-de-ia-generativa-na-empresa/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "pt-BR",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Quanto tempo deve durar um piloto de IA generativa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Em geral, entre seis e doze semanas. Menos que isso não gera dados suficientes para decidir; mais que isso costuma virar uso permanente sem decisão. O essencial é fixar a data de decisão antes de começar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Preciso de aprovação do jurídico antes de começar o piloto?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim, ao menos uma validação enxuta. Se o piloto tocar dados pessoais, é preciso definir finalidade, base legal e contrato com o fornecedor do modelo. A aplicação a cada caso deve ser confirmada com assessoria jurídica."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Qual a diferença entre piloto e prova de conceito?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A prova de conceito testa se a tecnologia funciona, em geral com dados de exemplo. O piloto testa se a solução gera resultado no trabalho real, com usuários reais, regras de uso e métricas comparadas a uma linha de base."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><img src="../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../#servicos">Serviços</a></li>
+        <li><a href="../iso-42001/">ISO 42001</a></li>
+        <li><a href="../plataforma-tyna/">Plataforma</a></li>
+        <li><a href="../#trilhas">Trilhas</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../biblioteca-prompts/">Prompts</a></li>
+        <li><a href="../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+  <article class="post">
+    <div class="wrap post-wrap">
+      <nav class="crumbs" aria-label="Trilha"><a href="../">Início</a> › <a href="../blog/">Blog</a> › Implementação de IA</nav>
+      <p class="eyebrow">Implementação de IA</p>
+      <h1>Como fazer piloto de IA generativa na empresa</h1>
+      <p class="post-meta"><time datetime="2026-11-07">7 de novembro de 2026</time> · Por <a href="../sobre/">Felipe Jacob</a></p>
+      <p class="lead">Quase toda grande empresa já testou IA generativa em algum lugar. Poucas sabem dizer, com números, se o teste deu certo e o que fazer a seguir.</p>
+
+      <div class="post-body">
+<p>Quase toda empresa grande já tem pilotos de IA generativa espalhados: um grupo testando um assistente, uma área experimentando resumo de documentos, outra contratando uma ferramenta por conta própria. Meses depois, ninguém sabe dizer se funcionou. Não há linha de base, não há critério de sucesso e não há decisão marcada. O piloto vira uso permanente sem ter sido avaliado.</p>
+<p>Este guia é para gestores de empresas com mais de 200 funcionários que querem saber como fazer piloto de IA generativa na empresa de forma que ele produza uma decisão: ampliar, ajustar ou encerrar. O conteúdo é informativo e não substitui parecer jurídico ou técnico para o seu contexto.</p>
+
+<h2>1. Defina o problema e o critério de sucesso antes da ferramenta</h2>
+<p>O piloto que dá errado quase sempre começa pela tecnologia: "vamos testar tal modelo". O que funciona é começar por uma dor concreta, de um processo com dono claro. Antes de qualquer contratação, responda por escrito:</p>
+<ul>
+  <li><strong>Qual processo?</strong> Um só. Atendimento de primeiro nível, elaboração de minutas, resumo de reuniões, triagem de solicitações internas, busca em base de conhecimento.</li>
+  <li><strong>Quem é o dono?</strong> Uma pessoa da área de negócio, não só a TI, que responde pelo resultado.</li>
+  <li><strong>Qual a linha de base?</strong> Meça o processo atual antes de ligar a IA: tempo por tarefa, taxa de retrabalho, volume, qualidade percebida. Sem isso, a comparação final vira opinião.</li>
+  <li><strong>O que é sucesso?</strong> Defina o número que justifica seguir adiante e o número abaixo do qual o piloto se encerra.</li>
+  <li><strong>Qual o risco aceitável?</strong> Escolha uma tarefa em que um erro seja pequeno e reversível. Decisões que afetam direitos de pessoas ficam para depois, com supervisão humana reforçada.</li>
+</ul>
+<p>Prefira casos em que a IA apoia uma pessoa, e não em que decide sozinha. Isso reduz o risco e ainda gera dados sobre quanto o resultado precisou ser corrigido, que é uma das métricas mais reveladoras.</p>
+
+<h2>2. Monte as regras mínimas: dados, acesso e responsabilidade</h2>
+<p>Piloto não é zona livre de regras. É justamente o momento em que os hábitos se formam. O mínimo para começar com segurança:</p>
+<ul>
+  <li><strong>Regra de dados:</strong> o que pode e o que não pode ser colocado na ferramenta. Dados pessoais, segredos comerciais e informação sob sigilo precisam de tratamento explícito. Se o piloto tocar dados pessoais, defina finalidade e base legal conforme a LGPD, e confira o que o contrato do fornecedor diz sobre retenção e uso das informações para treinamento de modelos.</li>
+  <li><strong>Grupo restrito e identificado:</strong> de 20 a 50 usuários, escolhidos, que sabem que estão em um piloto e que foram orientados sobre o uso.</li>
+  <li><strong>Ambiente aprovado:</strong> use uma conta corporativa, com controle de acesso e registro de uso. Contas pessoais fogem do controle da empresa e alimentam o chamado <a href="/shadow-ai/">shadow AI</a>.</li>
+  <li><strong>Revisão humana:</strong> toda saída que sair da empresa ou que gere ação passa por uma pessoa. Reduza a revisão só quando os dados do piloto mostrarem acerto estável.</li>
+  <li><strong>Registro no inventário:</strong> o piloto entra no inventário de IA da empresa, com finalidade, dono, dados acessados e fornecedor.</li>
+</ul>
+<p>No contexto regulatório brasileiro, a LGPD já se aplica a qualquer uso de IA que trate dados pessoais, e o debate do <a href="/pl-2338/">PL 2338</a> aponta para obrigações proporcionais ao risco do sistema. Mesmo sem a lei em vigor, classificar o piloto por nível de risco desde o início evita retrabalho quando as exigências se consolidarem. Setores regulados podem ter regras adicionais do seu supervisor. A validação de cada caso deve passar por assessoria especializada.</p>
+
+<section class="cta-band">
+  <div class="wrap reveal">
+    <p class="eyebrow">Próximo passo</p>
+    <h2>Sua empresa está preparada para como fazer piloto de IA generativa na empresa?</h2>
+    <p style="color:var(--text-muted); font-size:16.5px; max-width:580px; margin:0 auto 30px;">
+      Fale com o Felipe — sem formulário, sem espera.
+    </p>
+    <div class="hero-ctas" style="justify-content:center;">
+      <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20como%20fazer%20piloto%20de%20IA%20generativa%20na%20empresa%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary">
+        Falar com o Felipe pelo WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<h2>3. Execute o piloto com ritmo, medição e casos difíceis</h2>
+<p>Um piloto bem conduzido costuma durar entre seis e doze semanas. Estruture assim:</p>
+<ol>
+  <li><strong>Semana de preparação:</strong> treine o grupo. Mostre como escrever bons pedidos, o que a ferramenta erra com frequência (como inventar fatos e fontes) e como reportar problemas. Uma <a href="/biblioteca-prompts/">biblioteca de prompts</a> compartilhada acelera a curva de aprendizado e padroniza a qualidade.</li>
+  <li><strong>Acompanhamento semanal:</strong> uma reunião curta para ver uso, problemas e exemplos reais. Observe quem usa de fato e quem abandonou, e pergunte por quê.</li>
+  <li><strong>Conjunto de testes:</strong> reúna situações difíceis, exceções e tentativas de uso indevido, e rode-as de novo quando o modelo ou as instruções mudarem.</li>
+  <li><strong>Medição contínua:</strong> compare com a linha de base. Além do tempo ganho, meça o esforço de revisão, os erros que passaram e a satisfação dos usuários.</li>
+  <li><strong>Registro de incidentes:</strong> anote vazamentos evitados, respostas erradas e usos fora da regra. São a matéria-prima das regras da fase seguinte.</li>
+</ol>
+<p>Cuidado com dois vieses comuns. O primeiro é o entusiasmo inicial: o uso é alto nas duas primeiras semanas e cai depois. O segundo é medir só quem gostou. Inclua quem não adotou a ferramenta na análise.</p>
+
+<h2>4. Decida: ampliar, ajustar ou encerrar</h2>
+<p>No dia marcado desde o início, o grupo responsável compara os resultados com o critério de sucesso e escolhe uma de três saídas:</p>
+<ul>
+  <li><strong>Ampliar:</strong> o resultado superou o critério e os riscos estão sob controle. Defina a próxima onda, com mais usuários ou um segundo processo, e leve junto as regras aprendidas.</li>
+  <li><strong>Ajustar:</strong> há valor, mas o resultado ficou abaixo do esperado. Mude o caso de uso, as instruções, os dados ou o fornecedor e rode uma segunda rodada curta.</li>
+  <li><strong>Encerrar:</strong> o piloto não atingiu o mínimo. Encerrar é um bom resultado, porque custou pouco e ensinou muito. Documente o aprendizado e desligue o acesso.</li>
+</ul>
+<p>Para ampliar com segurança, transforme o que foi aprendido em estrutura: <a href="/governanca-de-ia/">governança de IA</a> com dono, política de uso, critérios por nível de risco e revisão periódica. Sem isso, cada nova área repete os erros da anterior, e o custo de gestão cresce junto com o número de ferramentas.</p>
+
+<h2 id="faq">Perguntas frequentes</h2>
+<div class="faq-list">
+  <details>
+    <summary><strong>Quanto tempo deve durar um piloto de IA generativa?</strong></summary>
+    <p>Em geral, entre seis e doze semanas. Menos que isso não gera dados suficientes para decidir; mais que isso costuma virar uso permanente sem decisão. O essencial é fixar a data de decisão antes de começar.</p>
+  </details>
+  <details>
+    <summary><strong>Preciso de aprovação do jurídico antes de começar o piloto?</strong></summary>
+    <p>Sim, ao menos uma validação enxuta. Se o piloto tocar dados pessoais, é preciso definir finalidade, base legal e contrato com o fornecedor do modelo. A aplicação a cada caso deve ser confirmada com assessoria jurídica.</p>
+  </details>
+  <details>
+    <summary><strong>Qual a diferença entre piloto e prova de conceito?</strong></summary>
+    <p>A prova de conceito testa se a tecnologia funciona, em geral com dados de exemplo. O piloto testa se a solução gera resultado no trabalho real, com usuários reais, regras de uso e métricas comparadas a uma linha de base.</p>
+  </details>
+</div>
+
+<h2>Leia também</h2>
+<ul>
+  <li><a href="/inventario-de-ia/">Inventário de IA na empresa</a></li>
+  <li><a href="/modelo-de-politica-de-ia/">Modelo de política de IA</a></li>
+  <li><a href="/governanca-de-ia/">Governança de IA</a></li>
+</ul>
+
+      </div>
+    </div>
+  </article>
+
+  <section class="cta-band" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Quer aplicar isso na sua empresa, com governança?</h2>
+      <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary">Agendar conversa</a>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../" class="logo"><img src="../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../#servicos">Serviços</a>
+          <a href="../iso-42001/">ISO 42001</a>
+          <a href="../governanca-de-ia/">Governança de IA</a>
+          <a href="../lgpd-e-ia/">LGPD e IA</a>
+          <a href="../shadow-ai/">Shadow AI</a>
+          <a href="../diagnostico/">Diagnóstico</a>
+          <a href="../blog/">Blog</a>
+          <a href="../sobre/">Sobre</a>
+          <a href="../politica-de-privacidade/">Política de privacidade</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/site.js?v=18"></script>
+
+</body>
+</html>
