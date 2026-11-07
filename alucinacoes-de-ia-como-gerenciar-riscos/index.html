@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // Só coleta em produção (tyna.com.br) — localhost e previews do Cloudflare Pages (*.pages.dev) ficam de fora.
+  if (location.hostname !== 'tyna.com.br') window['ga-disable-G-DQS0KMDT3G'] = true;
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alucinações de IA: como gerenciar riscos na empresa | Tyna</title>
+<meta name="description" content="Alucinações de IA: como gerenciar riscos sem frear a adoção. Veja onde elas custam caro, quais controles aplicar e como organizar a governança na empresa.">
+<link rel="canonical" href="https://tyna.com.br/alucinacoes-de-ia-como-gerenciar-riscos/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Alucinações de IA: como gerenciar riscos na empresa">
+<meta property="og:description" content="Alucinações de IA: como gerenciar riscos sem frear a adoção. Veja onde elas custam caro, quais controles aplicar e como organizar a governança na empresa.">
+<meta property="og:url" content="https://tyna.com.br/alucinacoes-de-ia-como-gerenciar-riscos/">
+<meta property="og:image" content="https://tyna.com.br/assets/og-ia-generativa.svg">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css?v=19">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Alucinações de IA: como gerenciar riscos na empresa",
+  "inLanguage": "pt-BR",
+  "description": "Alucinações de IA: como gerenciar riscos sem frear a adoção. Veja onde elas custam caro, quais controles aplicar e como organizar a governança na empresa.",
+  "datePublished": "2026-11-07",
+  "dateModified": "2026-11-07",
+  "author": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "mainEntityOfPage": "https://tyna.com.br/alucinacoes-de-ia-como-gerenciar-riscos/"
+}
+</script>
+<link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "pt-BR",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "É possível eliminar as alucinações de IA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não. Alucinação é uma característica de como os modelos de linguagem geram texto. O que a empresa controla é a frequência e o impacto: com fontes confiáveis, validação da saída e revisão humana nos casos de maior risco."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quem responde quando uma alucinação causa prejuízo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Em regra, a empresa que usou a resposta com clientes, funcionários ou em decisões. Por isso é preciso definir um responsável por cada uso de IA e manter registro de como a resposta foi gerada e revisada."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Por onde começar a gerenciar esse risco?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pelo inventário dos usos de IA e pela classificação de cada um conforme o dano de uma resposta errada. Os usos de maior impacto recebem primeiro fonte verificada, validação automática e revisão humana."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><img src="../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../#servicos">Serviços</a></li>
+        <li><a href="../iso-42001/">ISO 42001</a></li>
+        <li><a href="../#cases">Cases</a></li>
+        <li><a href="../#trilhas">Trilhas</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../biblioteca-prompts/">Prompts</a></li>
+        <li><a href="../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20alucina%C3%A7%C3%B5es%20de%20IA%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20alucina%C3%A7%C3%B5es%20de%20IA%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">IA generativa</p>
+      <h1 style="max-width:900px;">Alucinações de IA: como gerenciar riscos na empresa</h1>
+      <p class="lead" style="max-width:740px;">Uma resposta errada, dita com total segurança, pode virar um e-mail para um cliente, um parecer interno ou um número em uma apresentação à diretoria. Este artigo mostra onde o risco está e quais controles reduzem o impacto.</p>
+    </div>
+  </section>
+
+  <section id="introducao">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p>Quem coordena a adoção de IA em uma empresa com centenas de pessoas já viu a cena: alguém usa um assistente para resumir um contrato, pesquisar uma norma ou montar uma análise, e o texto sai fluente, bem formatado e convincente. Só que uma cláusula não existe, a lei citada tem outro número ou o dado foi inventado. Ninguém percebe até o erro chegar a quem não deveria.</p>
+        <p>Esse comportamento tem nome: alucinação. Ele não é defeito raro nem se resolve com a próxima versão do modelo. Os modelos de linguagem produzem a resposta mais provável, não a resposta verificada. Para o gestor, a pergunta útil não é “como eliminar isso?”, e sim como alucinações de IA, como gerenciar riscos de forma proporcional ao dano que cada uso pode causar.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="onde-custa-caro">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">O risco</p>
+        <h2>Onde a alucinação custa caro</h2>
+        <p>O mesmo erro tem pesos diferentes conforme o uso. Um rascunho de título errado é irrelevante; um valor errado em uma proposta não é.</p>
+      </div>
+      <div class="svc-grid reveal">
+        <div class="svc-card">
+          <span class="num">01</span>
+          <h3>Informação a terceiros</h3>
+          <p>Atendimento, propostas e comunicados. A resposta errada sai em nome da empresa e cria expectativa ou obrigação que ela não quis assumir.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">02</span>
+          <h3>Decisão interna</h3>
+          <p>Análises, resumos e pareceres que alimentam uma decisão. O erro é discreto: parece um fato e ninguém volta à fonte.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">03</span>
+          <h3>Jurídico e regulatório</h3>
+          <p>Citação de lei, jurisprudência ou norma inexistente ou desatualizada. O dano aparece em auditoria, contestação ou processo.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">04</span>
+          <h3>Ações automatizadas</h3>
+          <p>Agentes que executam tarefas a partir da resposta. Aqui o erro não fica no texto: vira uma ação, às vezes irreversível.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="classificar-usos">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Primeiro passo</p>
+        <h2>Classifique cada uso pelo dano, não pela ferramenta</h2>
+        <p>O erro mais comum é tratar “a IA” como um bloco só. O risco está no uso, e o ponto de partida é saber quais usos existem.</p>
+      </div>
+      <div class="steps reveal">
+        <div class="step">
+          <span class="step-num">01</span>
+          <div><h3>Inventariar os usos</h3><p>Liste onde a IA é usada, por quem e com que dados, inclusive o uso que ninguém autorizou. Veja <a href="../inventario-de-ia/">inventário de IA</a> e <a href="../shadow-ai/">shadow AI</a>.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">02</span>
+          <div><h3>Perguntar: se a resposta estiver errada, o que acontece?</h3><p>Quem é afetado, se o erro é detectado a tempo e se dá para desfazer. Três respostas bastam para separar baixo, médio e alto impacto.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <div><h3>Definir o nível de controle por classe</h3><p>Baixo impacto: uso livre com orientação. Médio: fonte verificada e conferência. Alto: validação automática e revisão humana obrigatória.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">04</span>
+          <div><h3>Nomear um responsável</h3><p>Cada uso de médio e alto impacto precisa de uma pessoa que responda por ele, não de um comitê genérico.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap reveal">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Sua empresa está preparada para alucinações de IA como gerenciar riscos?</h2>
+      <p style="color:var(--text-muted); font-size:16.5px; max-width:580px; margin:0 auto 30px;">
+        Fale com o Felipe — sem formulário, sem espera.
+      </p>
+      <div class="hero-ctas" style="justify-content:center;">
+        <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20alucinações%20de%20IA%20como%20gerenciar%20riscos%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary">
+          Falar com o Felipe pelo WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="controles">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Controles</p>
+        <h2>Cinco controles que reduzem a frequência e o impacto</h2>
+        <p>Nenhum deles zera o erro. Combinados, deixam o que sobra pequeno e visível.</p>
+      </div>
+      <div class="svc-grid reveal">
+        <div class="svc-card">
+          <span class="num">01</span>
+          <h3>Ancorar em fonte da empresa</h3>
+          <p>Em vez de deixar o modelo responder de memória, faça-o consultar documentos e bases aprovados e citar o trecho usado. Veja <a href="../rag-para-empresas-como-funciona/">RAG para empresas</a>.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">02</span>
+          <h3>Validar a saída por regra</h3>
+          <p>Números, datas, valores e referências são conferidos contra o sistema de origem antes de a resposta ser entregue. É o <a href="https://tyna.com.br/o-que-e-guardrail-em-ia/">guardrail</a> de saída.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">03</span>
+          <h3>Permitir que o modelo diga “não sei”</h3>
+          <p>Instrua o sistema a recusar quando a fonte não cobre a pergunta e meça quantas vezes isso acontece. Resposta inventada para agradar é o pior cenário.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">04</span>
+          <h3>Revisão humana com critério</h3>
+          <p>Revisar tudo não escala e vira carimbo. Revise os usos de alto impacto e uma amostra dos demais, com o revisor vendo a fonte ao lado da resposta.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">05</span>
+          <h3>Registrar e medir</h3>
+          <p>Guarde pergunta, fonte, resposta e correção. Sem registro não há taxa de erro, e sem taxa de erro o risco é só opinião.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="governanca-regulacao">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Governança</p>
+        <h2>Regulação e governança: o que a empresa precisa conseguir provar</h2>
+        <p>No Brasil, o <a href="../pl-2338/">Marco Legal da IA (PL 2338)</a> ainda está em tramitação, mas as obrigações já existentes não esperam por ele. A LGPD garante ao titular o direito de pedir revisão de decisões tomadas apenas por tratamento automatizado, e o Código de Defesa do Consumidor responsabiliza a empresa pelo que ela informa, seja a resposta escrita por uma pessoa ou por um modelo.</p>
+        <p>Na prática, quem for questionado por um cliente, um auditor ou um regulador precisa mostrar quatro coisas: que sabia onde usava IA, que classificou o risco, que aplicou controles proporcionais e que tem registro de como cada resposta de alto impacto foi gerada e revisada. Estruturas como a <a href="../iso-42001/">ISO 42001</a> organizam exatamente esse ciclo.</p>
+        <p>Treinamento também conta. Boa parte das alucinações que causam dano passa porque o usuário confia demais no texto. Equipes que sabem verificar fonte, desconfiar de citação sem referência e pedir a origem do dado erram menos e detectam mais. Veja <a href="../como-treinar-equipes-para-usar-ia-com-seguranca/">como treinar equipes para usar IA com segurança</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Perguntas frequentes</p>
+        <h2>Alucinações de IA, em resposta direta</h2>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-item">
+          <h3>É possível eliminar as alucinações de IA?</h3>
+          <p>Não. Alucinação é uma característica de como os modelos de linguagem geram texto. O que a empresa controla é a frequência e o impacto: com fontes confiáveis, validação da saída e revisão humana nos casos de maior risco.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Quem responde quando uma alucinação causa prejuízo?</h3>
+          <p>Em regra, a empresa que usou a resposta com clientes, funcionários ou em decisões. Por isso é preciso definir um responsável por cada uso de IA e manter registro de como a resposta foi gerada e revisada.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Por onde começar a gerenciar esse risco?</h3>
+          <p>Pelo inventário dos usos de IA e pela classificação de cada um conforme o dano de uma resposta errada. Os usos de maior impacto recebem primeiro fonte verificada, validação automática e revisão humana.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="leia-tambem">
+    <div class="wrap">
+      <div class="section-head reveal"><p class="eyebrow">Leia também</p><h2>Controles e riscos relacionados</h2></div>
+      <div class="svc-grid reveal">
+        <div class="svc-card"><h3><a href="https://tyna.com.br/o-que-e-guardrail-em-ia/">O que é guardrail em IA</a></h3><p>Limites aplicados em execução que reduzem o impacto de uma resposta errada.</p></div>
+        <div class="svc-card"><h3><a href="https://tyna.com.br/ia-segura-para-empresas/">IA segura para empresas</a></h3><p>Visão geral dos controles para usar IA com segurança em escala.</p></div>
+        <div class="svc-card"><h3><a href="https://tyna.com.br/como-usar-ia-generativa-sem-vazar-dados/">Como usar IA generativa sem vazar dados</a></h3><p>O outro grande risco do uso corporativo de IA e como contê-lo.</p></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../" class="logo"><img src="../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../#servicos">Serviços</a>
+          <a href="../iso-42001/">ISO 42001</a>
+          <a href="../governanca-de-ia/">Governança de IA</a>
+          <a href="../shadow-ai/">Shadow AI</a>
+          <a href="../pl-2338/">Marco Legal da IA</a>
+          <a href="../diagnostico/">Diagnóstico</a>
+          <a href="../blog/">Blog</a>
+          <a href="../biblioteca-prompts/">Prompts</a>
+          <a href="../sobre/">Sobre</a>
+          <a href="../glossario/">Glossário</a>
+          <a href="../ia-para-equipes-de-ti/">IA para equipes de TI</a>
+          <a href="../ia-segura-para-empresas/">IA segura para empresas</a>
+          <a href="../agentes-de-ia-para-empresas/">Agentes de IA</a>
+          <a href="../politica-de-privacidade/">Política de privacidade</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<!-- O botão flutuante do WhatsApp é montado por assets/site.js, que roda em todas as páginas -->
+<script src="../assets/site.js?v=18"></script>
+
+</body>
+</html>
