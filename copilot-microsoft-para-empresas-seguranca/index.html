@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // Só coleta em produção (tyna.com.br) — localhost e previews do Cloudflare Pages (*.pages.dev) ficam de fora.
+  if (location.hostname !== 'tyna.com.br') window['ga-disable-G-DQS0KMDT3G'] = true;
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Copilot Microsoft para empresas: segurança sem sustos | Tyna</title>
+<meta name="description" content="Copilot Microsoft para empresas: segurança em jogo. Veja permissões, exposição interna de dados, LGPD e governança que gestores devem resolver antes de liberar.">
+<link rel="canonical" href="https://tyna.com.br/copilot-microsoft-para-empresas-seguranca/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Copilot Microsoft para empresas: segurança sem sustos">
+<meta property="og:description" content="Copilot Microsoft para empresas: segurança em jogo. Veja permissões, exposição interna de dados, LGPD e governança que gestores devem resolver antes de liberar.">
+<meta property="og:url" content="https://tyna.com.br/copilot-microsoft-para-empresas-seguranca/">
+<meta property="og:image" content="https://tyna.com.br/assets/og-ia-generativa.svg">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css?v=19">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Copilot Microsoft para empresas: segurança sem sustos",
+  "inLanguage": "pt-BR",
+  "description": "Copilot Microsoft para empresas: segurança em jogo. Veja permissões, exposição interna de dados, LGPD e governança que gestores devem resolver antes de liberar.",
+  "datePublished": "2026-11-07",
+  "dateModified": "2026-11-07",
+  "author": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "mainEntityOfPage": "https://tyna.com.br/copilot-microsoft-para-empresas-seguranca/"
+}
+</script>
+<link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "pt-BR",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "O Copilot da Microsoft treina modelos com os dados da minha empresa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nas versões corporativas, a Microsoft declara que os dados do tenant não são usados para treinar os modelos de base. Ainda assim, a empresa deve conferir os termos contratuais vigentes com o jurídico e lembrar que o risco principal está em quem pode acessar o quê dentro do próprio ambiente."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Preciso revisar permissões antes de liberar o Copilot?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim. O Copilot responde com base no que cada usuário já pode acessar. Pastas compartilhadas por engano, sites abertos a toda a organização e arquivos sem classificação passam a aparecer em respostas. Revisar permissões e rótulos de sensibilidade é o passo mais importante."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "A LGPD se aplica ao uso do Copilot?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim. Documentos, e-mails e atas que o Copilot processa costumam conter dados pessoais, e isso é tratamento sob a LGPD. A empresa precisa de finalidade definida, base legal, segurança adequada e clareza sobre transferência internacional de dados."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><img src="../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../#servicos">Serviços</a></li>
+        <li><a href="../iso-42001/">ISO 42001</a></li>
+        <li><a href="../#cases">Cases</a></li>
+        <li><a href="../#trilhas">Trilhas</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../biblioteca-prompts/">Prompts</a></li>
+        <li><a href="../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20copilot%20microsoft%20para%20empresas%20seguran%C3%A7a%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20copilot%20microsoft%20para%20empresas%20seguran%C3%A7a%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">IA generativa</p>
+      <h1 style="max-width:900px;">Copilot Microsoft para empresas: segurança sem sustos</h1>
+      <p class="lead" style="max-width:740px;">O que um gestor precisa resolver antes de liberar o Copilot para centenas de pessoas, e por que o maior risco costuma estar dentro de casa.</p>
+    </div>
+  </section>
+
+  <section id="introducao">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Por que agora</p>
+        <h2>O Copilot enxerga o que o seu ambiente deixa ele enxergar</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+        <p>Em empresas com mais de 200 pessoas que já usam Microsoft 365, o Copilot aparece como o caminho natural para levar IA generativa ao dia a dia: resumir reuniões, redigir e-mails, buscar informação em documentos. A decisão de liberar parece simples, porque a ferramenta já vive dentro do ambiente que a empresa conhece.</p>
+        <p>O problema é que o Copilot trabalha sobre o conteúdo que cada usuário já tem permissão de acessar. Se o ambiente tem anos de pastas compartilhadas sem critério, a IA torna esse acúmulo fácil de encontrar: uma pergunta simples pode trazer à tona uma planilha de remuneração ou um contrato confidencial que ninguém sabia estar aberto. Segurança, aqui, começa antes da licença.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="riscos">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Os riscos</p>
+        <h2>Onde a segurança do Copilot realmente se decide</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+        <p><strong>Excesso de permissões.</strong> É o risco número um. Sites do SharePoint abertos a toda a organização, grupos antigos e links de compartilhamento sem prazo ampliam o que a IA consegue citar. O Copilot não cria o acesso indevido, mas o torna visível em segundos.</p>
+        <p><strong>Dados sem classificação.</strong> Sem rótulos de sensibilidade, nem a empresa nem as ferramentas de proteção sabem o que é confidencial. Classificar o essencial (RH, jurídico, financeiro, estratégia) já reduz bastante a exposição.</p>
+        <p><strong>Conteúdo gerado sem revisão.</strong> Resumos e rascunhos podem omitir pontos ou afirmar o que não está nos documentos. Quando seguem para cliente, conselho ou auditor, o erro é da empresa. Revisão humana precisa ser regra, não opção.</p>
+        <p><strong>Uso fora do controle.</strong> Se a versão corporativa demora, as pessoas recorrem a ferramentas pessoais. Isso é o que chamamos de <a href="../shadow-ai/">shadow AI</a>, e costuma ser mais perigoso que o Copilot bem configurado.</p>
+        <p><strong>Extensões e integrações.</strong> Plug-ins, conectores e agentes ligados ao Copilot ampliam o alcance dos dados. Cada um deve passar por avaliação de fornecedor antes de ser habilitado.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="regulacao">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Regulação e compliance</p>
+        <h2>LGPD, contrato e o que o jurídico vai perguntar</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+        <p>E-mails, atas e documentos que o Copilot processa quase sempre contêm dados pessoais. Isso é tratamento sob a LGPD e exige finalidade definida, base legal, minimização e medidas de segurança. Se parte do processamento ocorre fora do Brasil, entra a questão da transferência internacional de dados.</p>
+        <p>O contrato com o fornecedor importa tanto quanto a configuração técnica. Confira com o jurídico onde os dados são processados, se são usados para treinar modelos, por quanto tempo ficam retidos e quais registros de uso a empresa consegue extrair. As condições mudam com o tempo: use sempre os termos vigentes, não o que se lembra de um anúncio.</p>
+        <p>Setores regulados, como o financeiro e o de saúde, tendem a cobrar ainda mais: inventário das ferramentas de IA, responsáveis nomeados e evidência de controle. O debate do <a href="../pl-2338/">marco legal da IA</a> aponta na mesma direção, com mais transparência e gestão de risco conforme o impacto do sistema.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap reveal">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Sua empresa está preparada para copilot microsoft para empresas segurança?</h2>
+      <p style="color:var(--text-muted); font-size:16.5px; max-width:580px; margin:0 auto 30px;">
+        Fale com o Felipe — sem formulário, sem espera.
+      </p>
+      <div class="hero-ctas" style="justify-content:center;">
+        <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20copilot%20microsoft%20para%20empresas%20segurança%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary">
+          Falar com o Felipe pelo WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="plano">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Plano prático</p>
+        <h2>Como liberar o Copilot com controle</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+        <p><strong>1. Revise permissões antes da licença.</strong> Comece pelos sites, times e pastas de RH, jurídico, financeiro e diretoria. Remova acessos amplos demais e links antigos de compartilhamento.</p>
+        <p><strong>2. Classifique o que é sensível.</strong> Defina poucos níveis de confidencialidade, aplique rótulos ao conteúdo crítico e vincule regras de proteção a eles.</p>
+        <p><strong>3. Comece com um piloto.</strong> Escolha uma ou duas áreas, defina casos de uso e acompanhe o que aparece nas respostas. O piloto expõe falhas de permissão com baixo custo.</p>
+        <p><strong>4. Escreva a regra e treine.</strong> Uma política curta, com exemplos do que pode e do que não pode, vale mais que um documento longo. Veja o <a href="../biblioteca-prompts/">material de prompts</a> para ensinar o uso correto.</p>
+        <p><strong>5. Monitore e nomeie responsáveis.</strong> Defina quem aprova extensões, revisa registros de uso e responde por incidentes. Revise o quadro a cada trimestre.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Perguntas frequentes</p>
+        <h2>Copilot Microsoft para empresas: dúvidas comuns</h2>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-item">
+          <h3>O Copilot da Microsoft treina modelos com os dados da minha empresa?</h3>
+          <p>Nas versões corporativas, a Microsoft declara que os dados do tenant não são usados para treinar os modelos de base. Ainda assim, a empresa deve conferir os termos contratuais vigentes com o jurídico e lembrar que o risco principal está em quem pode acessar o quê dentro do próprio ambiente.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Preciso revisar permissões antes de liberar o Copilot?</h3>
+          <p>Sim. O Copilot responde com base no que cada usuário já pode acessar. Pastas compartilhadas por engano, sites abertos a toda a organização e arquivos sem classificação passam a aparecer em respostas. Revisar permissões e rótulos de sensibilidade é o passo mais importante.</p>
+        </div>
+        <div class="faq-item">
+          <h3>A LGPD se aplica ao uso do Copilot?</h3>
+          <p>Sim. Documentos, e-mails e atas que o Copilot processa costumam conter dados pessoais, e isso é tratamento sob a LGPD. A empresa precisa de finalidade definida, base legal, segurança adequada e clareza sobre transferência internacional de dados.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="leia-tambem">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Leia também</p>
+        <h2>Para aprofundar</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+        <ul>
+          <li><a href="https://tyna.com.br/ia-segura-para-empresas/">IA segura para empresas</a></li>
+          <li><a href="https://tyna.com.br/como-usar-ia-generativa-sem-vazar-dados/">Como usar IA generativa sem vazar dados</a></li>
+          <li><a href="https://tyna.com.br/o-que-e-guardrail-em-ia/">O que é guardrail em IA</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../" class="logo"><img src="../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../#servicos">Serviços</a>
+          <a href="../iso-42001/">ISO 42001</a>
+          <a href="../governanca-de-ia/">Governança de IA</a>
+          <a href="../shadow-ai/">Shadow AI</a>
+          <a href="../pl-2338/">Marco Legal da IA</a>
+          <a href="../diagnostico/">Diagnóstico</a>
+          <a href="../blog/">Blog</a>
+          <a href="../biblioteca-prompts/">Prompts</a>
+          <a href="../sobre/">Sobre</a>
+          <a href="../glossario/">Glossário</a>
+          <a href="../ia-para-equipes-de-ti/">IA para equipes de TI</a>
+          <a href="../ia-segura-para-empresas/">IA segura para empresas</a>
+          <a href="../agentes-de-ia-para-empresas/">Agentes de IA</a>
+          <a href="../politica-de-privacidade/">Política de privacidade</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<!-- O botão flutuante do WhatsApp é montado por assets/site.js, que roda em todas as páginas -->
+<script src="../assets/site.js?v=18"></script>
+
+</body>
+</html>
