@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // Só coleta em produção (tyna.com.br) — localhost e previews do Cloudflare Pages (*.pages.dev) ficam de fora.
+  if (location.hostname !== 'tyna.com.br') window['ga-disable-G-DQS0KMDT3G'] = true;
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checklist de IA segura para empresas | Tyna</title>
+<meta name="description" content="Checklist de IA segura para empresas: controles de dados, acesso, fornecedores e LGPD que o gestor deve conferir antes que o uso de IA vire incidente.">
+<link rel="canonical" href="https://tyna.com.br/checklist-de-ia-segura-para-empresas/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Checklist de IA segura para empresas">
+<meta property="og:description" content="Checklist de IA segura para empresas: controles de dados, acesso, fornecedores e LGPD que o gestor deve conferir antes que o uso de IA vire incidente.">
+<meta property="og:url" content="https://tyna.com.br/checklist-de-ia-segura-para-empresas/">
+<meta property="og:image" content="https://tyna.com.br/assets/og-implementacao-ia.svg">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css?v=19">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Checklist de IA segura para empresas",
+  "inLanguage": "pt-BR",
+  "description": "Checklist de IA segura para empresas: controles de dados, acesso, fornecedores e LGPD que o gestor deve conferir antes que o uso de IA vire incidente.",
+  "datePublished": "2026-11-07",
+  "dateModified": "2026-11-07",
+  "author": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "mainEntityOfPage": "https://tyna.com.br/checklist-de-ia-segura-para-empresas/",
+  "image": "https://tyna.com.br/assets/og-implementacao-ia.svg"
+}
+</script>
+<link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "pt-BR",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Por onde começar um checklist de IA segura?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pelo inventário: liste as ferramentas de IA em uso, as áreas que as usam e os dados envolvidos. Sem esse mapa, nenhum outro controle consegue ser priorizado."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Com que frequência o checklist deve ser revisado?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No mínimo a cada trimestre e sempre que entrar uma ferramenta, um fornecedor ou um caso de uso novo. O uso de IA muda mais rápido do que o ciclo anual de auditoria."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quem deve ser o responsável pelo checklist?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Um dono executivo com apoio de TI, segurança, jurídico e encarregado de dados. Sem um responsável nomeado, os itens do checklist viram recomendação e não rotina."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><img src="../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../#servicos">Serviços</a></li>
+        <li><a href="../iso-42001/">ISO 42001</a></li>
+        <li><a href="../#cases">Cases</a></li>
+        <li><a href="../#trilhas">Trilhas</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../biblioteca-prompts/">Prompts</a></li>
+        <li><a href="../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20checklist%20de%20IA%20segura%20para%20empresas%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20checklist%20de%20IA%20segura%20para%20empresas%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Segurança de IA</p>
+      <h1 style="max-width:900px;">Checklist de IA segura para empresas</h1>
+      <p class="lead" style="max-width:740px;">Em empresas com mais de 200 pessoas, a IA entra por baixo: um assistente no navegador, um recurso novo em uma ferramenta que já existia, um fornecedor que ativa um modelo sem avisar. Quando a diretoria pergunta se o uso é seguro, ninguém sabe responder com segurança, porque ninguém tem a lista completa do que está rodando.</p>
+      <p class="lead" style="max-width:740px;">Este checklist de IA segura para empresas organiza a resposta em quatro blocos: visibilidade, dados e acesso, fornecedores e contratos, e regras com evidência. Cada item pode ser verificado com sim ou não, e cada "não" vira uma tarefa com dono e prazo.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Bloco 1</p>
+        <h2>Visibilidade: o que existe e quem responde por isso</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+        <p>O primeiro item do checklist é o mais ignorado: saber o que está em uso. Sem isso, os demais controles protegem apenas o que você já conhece.</p>
+        <ul>
+          <li><strong>Existe um <a href="../inventario-de-ia/">inventário de IA</a> atualizado?</strong> Ele deve listar ferramenta, área, finalidade, tipo de dado e responsável, incluindo recursos de IA embutidos em softwares contratados.</li>
+          <li><strong>Há um responsável nomeado?</strong> Um dono executivo, com apoio de TI, segurança, jurídico e encarregado de dados.</li>
+          <li><strong>Os usos estão classificados por risco?</strong> Um assistente que resume texto público não pede o mesmo cuidado que um modelo que apoia decisão sobre pessoas ou crédito.</li>
+          <li><strong>Você sabe quanto uso acontece fora do canal oficial?</strong> Contas pessoais e extensões de navegador fazem parte do problema e entram no levantamento.</li>
+        </ul>
+        <p>Se a resposta para qualquer uma dessas perguntas for "não sei", comece por aqui. É o bloco que dá base para todos os outros.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Bloco 2</p>
+        <h2>Dados e acesso: o que entra, o que sai e quem vê</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+        <p>A maior parte dos incidentes com IA em empresas não vem de ataque sofisticado. Vem de dado colocado onde não devia ou de acesso amplo demais.</p>
+        <ul>
+          <li><strong>Os dados têm classificação com regra de uso?</strong> Três faixas bastam (livre, interno e restrito), desde que cada uma diga onde pode ser usada com IA.</li>
+          <li><strong>Dado pessoal tem base legal e finalidade definidas?</strong> A LGPD vale para o texto enviado ao modelo, para o contexto recuperado e para a resposta.</li>
+          <li><strong>Há filtro de entrada?</strong> Mascarar CPF, credenciais e informações restritas antes de chegarem ao modelo é mais confiável do que pedir atenção ao usuário.</li>
+          <li><strong>O assistente herda só as permissões do usuário?</strong> Revise pastas e bases antes de conectá-las: a IA torna visível o que estava apenas mal protegido.</li>
+          <li><strong>Existe defesa contra <a href="../o-que-e-prompt-injection/">prompt injection</a>?</strong> Ações de alto impacto, como enviar mensagens ou gravar dados, devem exigir aprovação humana.</li>
+          <li><strong>As chamadas são registradas?</strong> Sem log, não há como investigar um incidente nem provar que o controle funciona.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap reveal">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Sua empresa está preparada para checklist de IA segura para empresas?</h2>
+      <p style="color:var(--text-muted); font-size:16.5px; max-width:580px; margin:0 auto 30px;">
+        Fale com o Felipe — sem formulário, sem espera.
+      </p>
+      <div class="hero-ctas" style="justify-content:center;">
+        <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20checklist%20de%20IA%20segura%20para%20empresas%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary">
+          Falar com o Felipe pelo WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Bloco 3</p>
+        <h2>Fornecedores e contratos: o risco que você terceiriza</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+        <p>Usar IA de terceiros não transfere a responsabilidade. A empresa continua respondendo perante clientes, titulares e reguladores, por isso o contrato precisa dizer o que acontece com o dado.</p>
+        <ul>
+          <li><strong>O contrato proíbe o uso do seu dado para treinar modelos?</strong> Confirme também o prazo de retenção e a possibilidade de exclusão.</li>
+          <li><strong>O local de processamento é conhecido?</strong> Transferência internacional de dados exige mecanismo previsto na LGPD.</li>
+          <li><strong>Os subprocessadores estão listados e você é avisado de mudanças?</strong> Um fornecedor pode trocar de modelo sem que o risco seja reavaliado.</li>
+          <li><strong>Há obrigação de notificar incidentes em prazo definido?</strong> Você precisa de tempo para avaliar a comunicação à ANPD e aos titulares.</li>
+          <li><strong>Existe avaliação do fornecedor antes da contratação?</strong> Inclua segurança, certificações, histórico e plano de saída.</li>
+        </ul>
+        <p>Para decisões que afetam pessoas, acompanhe também a discussão regulatória no Brasil, que tende a exigir avaliação de impacto, transparência e supervisão humana. Quem já tem esses registros chega mais preparado quando a regra se consolidar.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Bloco 4</p>
+        <h2>Regras e evidências: o que prova que funciona</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+        <p>Controle que ninguém consegue demonstrar não existe para um auditor, para o conselho ou para um cliente exigente. Este bloco transforma intenção em registro.</p>
+        <ul>
+          <li><strong>Há uma <a href="../modelo-de-politica-de-ia/">política de uso de IA</a> publicada e conhecida?</strong> Ela define o que é permitido, quem aprova exceções e o que fazer em caso de incidente.</li>
+          <li><strong>O treinamento é por função?</strong> Exemplos do dia a dia de cada área funcionam melhor do que um curso genérico.</li>
+          <li><strong>Existe um plano de resposta a incidentes de IA?</strong> Inclua quem decide, quem comunica e como desligar uma ferramenta rapidamente.</li>
+          <li><strong>Os sistemas de maior risco são testados e monitorados?</strong> Verifique qualidade das respostas, vieses e desvio ao longo do tempo.</li>
+          <li><strong>O checklist é revisado a cada trimestre?</strong> Registre data, responsável e itens em aberto.</li>
+        </ul>
+        <p>Um bom ponto de partida é pontuar cada item como atendido, parcial ou não atendido e priorizar os "não atendidos" ligados a dado restrito. Em poucas semanas você tem um plano realista, e a <a href="../governanca-de-ia/">governança de IA</a> deixa de ser um tema abstrato.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Perguntas frequentes</p>
+        <h2>Checklist de IA segura, em resposta direta</h2>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-item">
+          <h3>Por onde começar um checklist de IA segura?</h3>
+          <p>Pelo inventário: liste as ferramentas de IA em uso, as áreas que as usam e os dados envolvidos. Sem esse mapa, nenhum outro controle consegue ser priorizado.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Com que frequência o checklist deve ser revisado?</h3>
+          <p>No mínimo a cada trimestre e sempre que entrar uma ferramenta, um fornecedor ou um caso de uso novo. O uso de IA muda mais rápido do que o ciclo anual de auditoria.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Quem deve ser o responsável pelo checklist?</h3>
+          <p>Um dono executivo com apoio de TI, segurança, jurídico e encarregado de dados. Sem um responsável nomeado, os itens do checklist viram recomendação e não rotina.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="leia-tambem">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Leia também</p>
+        <h2>Continue a leitura</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+        <ul>
+          <li><a href="https://tyna.com.br/inventario-de-ia/">Inventário de IA: como mapear o que sua empresa usa</a></li>
+          <li><a href="https://tyna.com.br/modelo-de-politica-de-ia/">Modelo de política de IA para empresas</a></li>
+          <li><a href="https://tyna.com.br/governanca-de-ia/">Governança de IA: como estruturar na sua empresa</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../" class="logo"><img src="../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../#servicos">Serviços</a>
+          <a href="../iso-42001/">ISO 42001</a>
+          <a href="../governanca-de-ia/">Governança de IA</a>
+          <a href="../shadow-ai/">Shadow AI</a>
+          <a href="../pl-2338/">Marco Legal da IA</a>
+          <a href="../diagnostico/">Diagnóstico</a>
+          <a href="../blog/">Blog</a>
+          <a href="../biblioteca-prompts/">Prompts</a>
+          <a href="../sobre/">Sobre</a>
+          <a href="../glossario/">Glossário</a>
+          <a href="../ia-para-equipes-de-ti/">IA para equipes de TI</a>
+          <a href="../ia-segura-para-empresas/">IA segura para empresas</a>
+          <a href="../agentes-de-ia-para-empresas/">Agentes de IA</a>
+          <a href="../politica-de-privacidade/">Política de privacidade</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<!-- O botão flutuante do WhatsApp é montado por assets/site.js, que roda em todas as páginas -->
+<script src="../assets/site.js?v=18"></script>
+
+</body>
+</html>
