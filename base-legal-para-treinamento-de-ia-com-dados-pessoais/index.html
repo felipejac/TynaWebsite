@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // Só coleta em produção (tyna.com.br) — localhost e previews do Cloudflare Pages (*.pages.dev) ficam de fora.
+  if (location.hostname !== 'tyna.com.br') window['ga-disable-G-DQS0KMDT3G'] = true;
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Base legal para treinamento de IA com dados pessoais | Tyna</title>
+<meta name="description" content="Qual a base legal para treinamento de IA com dados pessoais? Veja quando usar legítimo interesse, consentimento ou anonimização na LGPD e como documentar.">
+<link rel="canonical" href="https://tyna.com.br/base-legal-para-treinamento-de-ia-com-dados-pessoais/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Base legal para treinamento de IA com dados pessoais">
+<meta property="og:description" content="Qual a base legal para treinamento de IA com dados pessoais? Veja quando usar legítimo interesse, consentimento ou anonimização na LGPD e como documentar.">
+<meta property="og:url" content="https://tyna.com.br/base-legal-para-treinamento-de-ia-com-dados-pessoais/">
+<meta property="og:image" content="https://tyna.com.br/assets/og-lgpd-ia.svg">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css?v=19">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Base legal para treinamento de IA com dados pessoais",
+  "inLanguage": "pt-BR",
+  "description": "Qual a base legal para treinamento de IA com dados pessoais? Veja quando usar legítimo interesse, consentimento ou anonimização na LGPD e como documentar.",
+  "datePublished": "2026-11-07",
+  "dateModified": "2026-11-07",
+  "author": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "mainEntityOfPage": "https://tyna.com.br/base-legal-para-treinamento-de-ia-com-dados-pessoais/"
+}
+</script>
+<link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "pt-BR",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Posso usar a base de execução de contrato para treinar IA com dados de clientes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Em geral não. A execução de contrato cobre o que é necessário para entregar o serviço contratado, e treinar um modelo costuma ser uma finalidade diferente, em benefício da empresa. Para essa finalidade é preciso outra base, normalmente legítimo interesse com avaliação registrada, ou consentimento quando houver controle real do titular."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Legítimo interesse vale para treinar modelos de IA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pode valer, desde que a empresa documente a finalidade legítima, demonstre que o dado usado é o mínimo necessário, avalie o impacto sobre o titular e ofereça meio de oposição. Não se aplica a dado sensível, que tem hipóteses próprias no art. 11 da LGPD, e exige cautela redobrada com dados de crianças e adolescentes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Dado anonimizado precisa de base legal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dado verdadeiramente anonimizado não é dado pessoal e sai do alcance da LGPD. Mas a anonimização precisa resistir à reidentificação por meios razoáveis, e o processo de anonimizar é, ele próprio, tratamento de dado pessoal que precisa de base legal. Pseudonimização, que mantém a chave de reidentificação, não basta."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><img src="../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../#servicos">Serviços</a></li>
+        <li><a href="../iso-42001/">ISO 42001</a></li>
+        <li><a href="../#cases">Cases</a></li>
+        <li><a href="../#trilhas">Trilhas</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../biblioteca-prompts/">Prompts</a></li>
+        <li><a href="../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20base%20legal%20para%20treinamento%20de%20IA%20com%20dados%20pessoais%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20base%20legal%20para%20treinamento%20de%20IA%20com%20dados%20pessoais%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">LGPD e inteligência artificial</p>
+      <h1 style="max-width:900px;">Base legal para treinamento de IA com dados pessoais</h1>
+      <p class="lead" style="max-width:740px;">Treinar ou ajustar um modelo com dado pessoal é uma finalidade própria, e a base legal do atendimento ao cliente não a cobre. Este artigo mostra quais hipóteses da LGPD se aplicam e como registrar a decisão.</p>
+    </div>
+  </section>
+
+  <section id="introducao">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p>Alguém na sua empresa já fez a pergunta: “podemos usar o histórico de atendimento para treinar um modelo?” Em geral a resposta vem de improviso, porque o contrato com o cliente fala de prestar um serviço e não diz nada sobre ensinar uma máquina. O projeto avança, o modelo é ajustado, e a base legal fica para depois.</p>
+        <p>O problema aparece quando o jurídico, o encarregado ou a ANPD perguntam em que hipótese legal aquele tratamento se apoia. Sem resposta registrada, a empresa descobre tarde que o dado está dentro de um modelo, e que desfazer isso é bem mais caro do que decidir antes. Para empresas com centenas de funcionários, com várias áreas experimentando ao mesmo tempo, o risco é multiplicado.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="finalidade-nova">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Ponto de partida</p>
+        <h2>Treinar modelo é uma finalidade nova, não uma extensão</h2>
+        <p>A LGPD exige que todo tratamento tenha finalidade legítima, específica e informada (art. 6º, I), compatível com o que o titular esperava, e use só o dado necessário (art. 6º, III). É aqui que a maioria dos projetos tropeça.</p>
+        <p>O dado coletado para emitir uma nota, abrir um chamado ou contratar um serviço foi coletado para isso. Usá-lo para treinar um modelo muda a finalidade: o beneficiário passa a ser a empresa, o dado pode permanecer embutido nos parâmetros do modelo por tempo indeterminado, e o titular raramente imagina que isso acontece.</p>
+        <p>Por isso, a primeira pergunta não é “qual base legal?”, e sim “qual é exatamente a finalidade?”. Três situações merecem tratamento separado:</p>
+      </div>
+      <div class="steps reveal">
+        <div class="step">
+          <span class="step-num">01</span>
+          <div><h3>Treinar um modelo próprio</h3><p>A empresa usa dados de clientes, funcionários ou usuários para criar ou ajustar (fine-tuning) um modelo que ela controla. A responsabilidade como controladora é plena.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">02</span>
+          <div><h3>Permitir que o fornecedor treine</h3><p>O contrato ou os termos da ferramenta autorizam o fornecedor a usar o conteúdo enviado para melhorar os modelos dele. Para a LGPD, é uma comunicação de dados a terceiro com finalidade própria dele, e precisa de base legal da sua parte.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <div><h3>Apenas usar o modelo</h3><p>A inferência, em que o modelo responde a uma solicitação, é outra finalidade, com outra base. Misturar as duas no mesmo registro é o erro mais frequente.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="hipoteses">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Hipóteses legais</p>
+        <h2>Quais bases da LGPD realmente se aplicam</h2>
+        <p>O art. 7º lista dez hipóteses, mas só algumas fazem sentido para treinamento. A leitura prática, por ordem de uso:</p>
+      </div>
+      <div class="steps reveal">
+        <div class="step">
+          <span class="step-num">01</span>
+          <div><h3>Legítimo interesse (art. 7º, IX e art. 10)</h3><p>É a base mais usada, e a mais exigente. Pede finalidade legítima baseada em situação concreta, uso apenas do dado estritamente necessário, respeito às expectativas razoáveis do titular e transparência. Na prática, exige um teste de balanceamento escrito, e a ANPD pode pedir o relatório de impacto. Não serve para dado sensível.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">02</span>
+          <div><h3>Consentimento (art. 7º, I)</h3><p>Funciona quando existe relação direta com o titular e dá para obter manifestação livre, informada e inequívoca, específica para a finalidade de treinar. Tem a vantagem de ser clara, e a desvantagem de poder ser revogada: a empresa precisa saber o que fazer com o modelo quando isso acontecer. Em relação de emprego, a liberdade do consentimento é questionável.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <div><h3>Execução de contrato (art. 7º, V)</h3><p>Cobre o que é necessário para cumprir o contrato com o titular. Treinar modelo para a empresa melhorar o próprio produto raramente se enquadra, e tentar encaixar nessa base costuma ser a primeira fragilidade apontada em uma auditoria.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">04</span>
+          <div><h3>Dado sensível (art. 11)</h3><p>Saúde, biometria, origem racial, convicção religiosa e outros dados sensíveis não podem ser tratados com base em legítimo interesse. Restam consentimento específico e destacado, ou as hipóteses estritas do art. 11, como a tutela da saúde ou a garantia da prevenção à fraude em certos contextos. Na dúvida, não treine com esse dado.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">05</span>
+          <div><h3>Anonimização (art. 12)</h3><p>Dado anonimizado não é dado pessoal. É o caminho mais seguro, mas só vale se a reidentificação não for possível por meios razoáveis. Trocar o nome por um código e manter a tabela de correspondência é pseudonimização, e o dado continua sendo pessoal. Mesmo o processo de anonimizar precisa de base legal.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap reveal">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Sua empresa está preparada para base legal para treinamento de IA com dados pessoais?</h2>
+      <p style="color:var(--text-muted); font-size:16.5px; max-width:580px; margin:0 auto 30px;">
+        Fale com o Felipe — sem formulário, sem espera.
+      </p>
+      <div class="hero-ctas" style="justify-content:center;">
+        <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20base%20legal%20para%20treinamento%20de%20IA%20com%20dados%20pessoais%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary">
+          Falar com o Felipe pelo WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="documentar">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Na prática</p>
+        <h2>Como documentar a decisão antes de treinar</h2>
+        <p>A base legal só protege a empresa se existir registro. Cinco itens resolvem a maior parte do problema, e todos precisam estar prontos antes do primeiro treinamento:</p>
+      </div>
+      <div class="steps reveal">
+        <div class="step">
+          <span class="step-num">01</span>
+          <div><h3>Finalidade escrita, uma por linha</h3><p>“Treinar o modelo de classificação de chamados com o histórico de suporte dos últimos dois anos” é uma finalidade. “Usar IA” não é. Cada finalidade tem sua base e seu responsável.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">02</span>
+          <div><h3>Teste de legítimo interesse registrado</h3><p>Quando a base for o art. 10, guarde o balanceamento: o interesse da empresa, a necessidade, o impacto esperado sobre o titular, as salvaguardas adotadas e a conclusão. É esse papel que será pedido primeiro.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <div><h3>Minimização e limpeza do conjunto</h3><p>Remova identificadores diretos, campos livres com dado sensível e tudo o que o modelo não precisa para aprender a tarefa. Quanto menos dado pessoal entra, menos base legal é preciso defender.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">04</span>
+          <div><h3>Transparência e oposição</h3><p>Atualize o aviso de privacidade para mencionar o treinamento e ofereça canal para o titular se opor, quando a base for legítimo interesse. Defina de antemão o que acontece com o modelo se um pedido de eliminação chegar.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">05</span>
+          <div><h3>Relatório de impacto e contrato com o fornecedor</h3><p>Treinamento em escala ou com dado de risco justifica um relatório de impacto (art. 38). Se o treino ocorre em plataforma de terceiro, confira nos termos se o conteúdo é retido, em que país é processado e se o fornecedor pode reutilizá-lo para si.</p></div>
+        </div>
+      </div>
+      <p style="margin-top:20px;">Nada disso depende de lei nova: a LGPD já está em vigor e vale para qualquer fluxo de IA, e o trabalho feito agora serve a qualquer regulamentação futura.</p>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Perguntas frequentes</p>
+        <h2>Base legal para treinar IA, em resposta direta</h2>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-item">
+          <h3>Posso usar a base de execução de contrato para treinar IA com dados de clientes?</h3>
+          <p>Em geral não. A execução de contrato cobre o que é necessário para entregar o serviço contratado, e treinar um modelo costuma ser uma finalidade diferente, em benefício da empresa. Para essa finalidade é preciso outra base, normalmente legítimo interesse com avaliação registrada, ou consentimento quando houver controle real do titular.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Legítimo interesse vale para treinar modelos de IA?</h3>
+          <p>Pode valer, desde que a empresa documente a finalidade legítima, demonstre que o dado usado é o mínimo necessário, avalie o impacto sobre o titular e ofereça meio de oposição. Não se aplica a dado sensível, que tem hipóteses próprias no art. 11 da LGPD, e exige cautela redobrada com dados de crianças e adolescentes.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Dado anonimizado precisa de base legal?</h3>
+          <p>Dado verdadeiramente anonimizado não é dado pessoal e sai do alcance da LGPD. Mas a anonimização precisa resistir à reidentificação por meios razoáveis, e o processo de anonimizar é, ele próprio, tratamento de dado pessoal que precisa de base legal. Pseudonimização, que mantém a chave de reidentificação, não basta.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="leia-tambem">
+    <div class="wrap">
+      <div class="section-head reveal"><p class="eyebrow">Leia também</p><h2>Aprofunde cada ponto</h2></div>
+      <div class="svc-grid reveal">
+        <div class="svc-card"><h3><a href="https://tyna.com.br/lgpd-e-ia/">LGPD e inteligência artificial na empresa</a></h3><p>As três portas por onde o dado pessoal entra e a base legal por finalidade.</p></div>
+        <div class="svc-card"><h3><a href="https://tyna.com.br/dpo-encarregado-e-inteligencia-artificial/">Encarregado (DPO) e IA</a></h3><p>As tarefas que a IA generativa coloca na mesa do encarregado.</p></div>
+        <div class="svc-card"><h3><a href="https://tyna.com.br/politica-de-uso-de-ia-para-empresas/">Política de uso de IA para empresas</a></h3><p>Como transformar as decisões sobre dados em regras que as pessoas seguem.</p></div>
+      </div>
+      <p class="status-meta" style="margin-top:34px;">Última revisão: 07/11/2026.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../" class="logo"><img src="../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../#servicos">Serviços</a>
+          <a href="../iso-42001/">ISO 42001</a>
+          <a href="../governanca-de-ia/">Governança de IA</a>
+          <a href="../shadow-ai/">Shadow AI</a>
+          <a href="../pl-2338/">Marco Legal da IA</a>
+          <a href="../diagnostico/">Diagnóstico</a>
+          <a href="../blog/">Blog</a>
+          <a href="../biblioteca-prompts/">Prompts</a>
+          <a href="../sobre/">Sobre</a>
+          <a href="../glossario/">Glossário</a>
+          <a href="../ia-para-equipes-de-ti/">IA para equipes de TI</a>
+          <a href="../ia-segura-para-empresas/">IA segura para empresas</a>
+          <a href="../agentes-de-ia-para-empresas/">Agentes de IA</a>
+          <a href="../politica-de-privacidade/">Política de privacidade</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<!-- O botão flutuante do WhatsApp é montado por assets/site.js, que roda em todas as páginas -->
+<script src="../assets/site.js?v=18"></script>
+
+</body>
+</html>
