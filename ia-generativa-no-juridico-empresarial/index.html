@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // Só coleta em produção (tyna.com.br) — localhost e previews do Cloudflare Pages (*.pages.dev) ficam de fora.
+  if (location.hostname !== 'tyna.com.br') window['ga-disable-G-DQS0KMDT3G'] = true;
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IA generativa no jurídico empresarial: guia para gestores | Tyna</title>
+<meta name="description" content="IA generativa no jurídico empresarial: onde ela ajuda, quais riscos controlar e como LGPD e regulação entram na conta. Guia prático para gestores de empresas.">
+<link rel="canonical" href="https://tyna.com.br/ia-generativa-no-juridico-empresarial/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IA generativa no jurídico empresarial: guia para gestores">
+<meta property="og:description" content="IA generativa no jurídico empresarial: onde ela ajuda, quais riscos controlar e como LGPD e regulação entram na conta. Guia prático para gestores de empresas.">
+<meta property="og:url" content="https://tyna.com.br/ia-generativa-no-juridico-empresarial/">
+<meta property="og:image" content="https://tyna.com.br/assets/og-ia-generativa.svg">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css?v=19">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "IA generativa no jurídico empresarial: guia para gestores",
+  "inLanguage": "pt-BR",
+  "description": "Onde a IA generativa ajuda o jurídico de grandes empresas, quais riscos controlar e como a LGPD e a regulação entram na decisão.",
+  "datePublished": "2026-11-07",
+  "dateModified": "2026-11-07",
+  "author": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "mainEntityOfPage": "https://tyna.com.br/ia-generativa-no-juridico-empresarial/"
+}
+</script>
+<link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "pt-BR",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "A IA generativa pode substituir o advogado da empresa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não. Ela acelera tarefas de leitura, comparação e primeira redação, mas a responsabilidade pelo parecer e pela decisão continua com o profissional. O uso seguro mantém revisão humana obrigatória sobre qualquer saída que produza efeito."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Posso colocar contratos em uma ferramenta pública de IA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Só se o contrato de uso garantir confidencialidade, sem treinamento com seus dados, e se houver base legal para tratar os dados pessoais presentes no documento. Sem isso, o risco de vazamento e de descumprimento da LGPD é real."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Por onde o jurídico deve começar com IA generativa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Por um caso de uso de baixo risco e volume alto, como triagem de contratos padronizados, com responsável definido, critério de qualidade escrito e revisão humana. Meça o resultado antes de ampliar."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><img src="../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../#servicos">Serviços</a></li>
+        <li><a href="../iso-42001/">ISO 42001</a></li>
+        <li><a href="../#cases">Cases</a></li>
+        <li><a href="../#trilhas">Trilhas</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../biblioteca-prompts/">Prompts</a></li>
+        <li><a href="../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20IA%20generativa%20no%20jur%C3%ADdico%20empresarial%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20IA%20generativa%20no%20jur%C3%ADdico%20empresarial%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">IA generativa</p>
+      <h1 style="max-width:900px;">IA generativa no jurídico empresarial: guia para gestores</h1>
+      <p class="lead" style="max-width:740px;">O jurídico de uma empresa com mais de 200 funcionários recebe mais contratos, consultas e prazos do que consegue ler com calma. A IA generativa promete aliviar essa fila, mas traz riscos que o departamento precisa entender antes de adotá-la.</p>
+    </div>
+  </section>
+
+  <section id="introducao">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">O problema</p>
+        <h2>Por que o jurídico está sob pressão</h2>
+        <p>Em empresas desse porte, a equipe jurídica costuma ser pequena perto da demanda. Cada área quer o contrato revisado para ontem, o compliance pede mapeamento de obrigações novas e a diretoria quer saber o risco de cada decisão. Boa parte do tempo vai para tarefas repetitivas: ler minutas parecidas, comparar cláusulas, resumir pareceres, responder a mesma dúvida de áreas diferentes.</p>
+        <p>É nesse ponto que a IA generativa entra, e muitas vezes antes de o jurídico decidir qualquer coisa. Profissionais já colam trechos de contrato em ferramentas públicas por conta própria, sem política, sem registro e sem saber para onde o dado vai. O tema, portanto, não é se a IA chegará ao jurídico, e sim se chegará com ou sem controle.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="onde-ajuda">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Onde ajuda</p>
+        <h2>Onde a IA generativa rende mais no jurídico empresarial</h2>
+        <p>O ganho aparece em tarefas de linguagem com volume alto e critério claro. Quatro usos têm melhor relação entre benefício e risco.</p>
+      </div>
+      <div class="svc-grid reveal">
+        <div class="svc-card">
+          <span class="num">01</span>
+          <h3>Triagem de contratos</h3>
+          <p>Classificar minutas por tipo, apontar cláusulas fora do padrão da empresa e priorizar o que precisa de advogado primeiro.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">02</span>
+          <h3>Resumo e comparação</h3>
+          <p>Resumir pareceres, aditivos e decisões longas, e comparar versões de um mesmo documento para destacar o que mudou.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">03</span>
+          <h3>Primeira redação</h3>
+          <p>Gerar rascunho de cartas, notificações e respostas a consultas internas, que o advogado revisa e assina.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">04</span>
+          <h3>Consulta à base interna</h3>
+          <p>Responder perguntas das áreas de negócio com base nas políticas e nos modelos da própria empresa, citando a fonte do trecho usado.</p>
+        </div>
+      </div>
+      <div class="section-head reveal" style="margin-top:2rem;">
+        <p>O que une esses usos é a revisão humana no fim. A IA entrega um rascunho; a decisão continua sendo de quem responde por ela. Quando a saída vira parecer ou comunicação externa sem leitura de um advogado, o ganho de tempo se transforma em risco de responsabilidade.</p>
+        <p>Veja mais exemplos em <a href="../casos-de-uso-de-ia-para-juridico-e-compliance/">casos de uso de IA para jurídico e compliance</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="riscos">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Riscos</p>
+        <h2>Os riscos que o gestor precisa controlar</h2>
+        <p>Três riscos aparecem em quase toda adoção e merecem controle desde o primeiro dia.</p>
+      </div>
+      <div class="steps reveal">
+        <div class="step">
+          <span class="step-num">01</span>
+          <div><h3>Confidencialidade e vazamento</h3><p>Contratos, estratégias e dados de pessoas são sigilosos. Antes de usar uma ferramenta, confirme em contrato se o fornecedor retém o conteúdo, se treina modelos com ele e onde os dados ficam armazenados.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">02</span>
+          <div><h3>Alucinação</h3><p>Modelos de linguagem podem inventar uma cláusula, uma lei ou uma jurisprudência com aparência convincente. Toda citação normativa ou decisão referida precisa ser conferida na fonte original antes de circular.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <div><h3>Responsabilidade e rastreio</h3><p>Se algo der errado, a empresa precisa saber quem usou, com qual documento e com qual resultado. Sem registro de uso, não há como auditar nem corrigir.</p></div>
+        </div>
+      </div>
+      <div class="section-head reveal" style="margin-top:2rem;">
+        <p>Para os dois primeiros riscos, o guia <a href="../como-usar-ia-generativa-sem-vazar-dados/">como usar IA generativa sem vazar dados</a> detalha medidas práticas.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap reveal">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Sua empresa está preparada para IA generativa no jurídico empresarial?</h2>
+      <p style="color:var(--text-muted); font-size:16.5px; max-width:580px; margin:0 auto 30px;">
+        Fale com o Felipe — sem formulário, sem espera.
+      </p>
+      <div class="hero-ctas" style="justify-content:center;">
+        <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20IA%20generativa%20no%20jurídico%20empresarial%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary">
+          Falar com o Felipe pelo WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="regulacao">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Regulação</p>
+        <h2>LGPD, regulação e governança: o que entra na decisão</h2>
+        <p>Hoje, o uso de IA generativa no jurídico já é alcançado por regras existentes. A LGPD se aplica sempre que o documento contém dado pessoal, e isso inclui quase todo contrato com pessoas físicas, colaboradores ou sócios. É preciso base legal, finalidade clara e minimização do que é enviado à ferramenta.</p>
+        <p>O Marco Legal da IA, em discussão no Congresso, tende a exigir mais transparência e avaliação de risco conforme o impacto do sistema. Mesmo sem lei aprovada, empresas que fornecem a clientes europeus ou operam em setores regulados já recebem exigências contratuais nessa direção. Acompanhe o tema em <a href="../regulacao-de-ia-no-brasil-2025-o-que-esperar/">regulação de IA no Brasil</a>.</p>
+        <p>Na prática, três providências reduzem a exposição: uma política escrita que diga quais ferramentas e quais tipos de documento são permitidos; um inventário das ferramentas em uso, inclusive as que o time adotou por conta própria; e um responsável com autoridade para aprovar ou barrar novos usos. Comece pequeno, com um piloto de um caso de uso, meça a qualidade e só então amplie. O mesmo princípio vale para a escolha de fornecedor: peça as garantias por escrito e teste com documentos fictícios antes de usar os reais.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Perguntas frequentes</p>
+        <h2>IA generativa no jurídico, em resposta direta</h2>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-item">
+          <h3>A IA generativa pode substituir o advogado da empresa?</h3>
+          <p>Não. Ela acelera tarefas de leitura, comparação e primeira redação, mas a responsabilidade pelo parecer e pela decisão continua com o profissional. O uso seguro mantém revisão humana obrigatória sobre qualquer saída que produza efeito.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Posso colocar contratos em uma ferramenta pública de IA?</h3>
+          <p>Só se o contrato de uso garantir confidencialidade, sem treinamento com seus dados, e se houver base legal para tratar os dados pessoais presentes no documento. Sem isso, o risco de vazamento e de descumprimento da LGPD é real.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Por onde o jurídico deve começar com IA generativa?</h3>
+          <p>Por um caso de uso de baixo risco e volume alto, como triagem de contratos padronizados, com responsável definido, critério de qualidade escrito e revisão humana. Meça o resultado antes de ampliar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="leia-tambem">
+    <div class="wrap">
+      <div class="section-head reveal"><p class="eyebrow">Leia também</p><h2>Para aprofundar</h2></div>
+      <div class="svc-grid reveal">
+        <div class="svc-card"><h3><a href="https://tyna.com.br/ia-segura-para-empresas/">IA segura para empresas</a></h3><p>Os controles que permitem usar IA sem expor a empresa.</p></div>
+        <div class="svc-card"><h3><a href="https://tyna.com.br/como-usar-ia-generativa-sem-vazar-dados/">Como usar IA generativa sem vazar dados</a></h3><p>Medidas práticas para proteger documentos e dados pessoais.</p></div>
+        <div class="svc-card"><h3><a href="https://tyna.com.br/o-que-e-guardrail-em-ia/">O que é guardrail em IA</a></h3><p>Limites aplicados pela máquina, e não apenas por política escrita.</p></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../" class="logo"><img src="../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../#servicos">Serviços</a>
+          <a href="../iso-42001/">ISO 42001</a>
+          <a href="../governanca-de-ia/">Governança de IA</a>
+          <a href="../shadow-ai/">Shadow AI</a>
+          <a href="../pl-2338/">Marco Legal da IA</a>
+          <a href="../diagnostico/">Diagnóstico</a>
+          <a href="../blog/">Blog</a>
+          <a href="../biblioteca-prompts/">Prompts</a>
+          <a href="../sobre/">Sobre</a>
+          <a href="../glossario/">Glossário</a>
+          <a href="../ia-para-equipes-de-ti/">IA para equipes de TI</a>
+          <a href="../ia-segura-para-empresas/">IA segura para empresas</a>
+          <a href="../agentes-de-ia-para-empresas/">Agentes de IA</a>
+          <a href="../politica-de-privacidade/">Política de privacidade</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<!-- O botão flutuante do WhatsApp é montado por assets/site.js, que roda em todas as páginas -->
+<script src="../assets/site.js?v=18"></script>
+
+</body>
+</html>
