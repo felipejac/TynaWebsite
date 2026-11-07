@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // Só coleta em produção (tyna.com.br) — localhost e previews do Cloudflare Pages (*.pages.dev) ficam de fora.
+  if (location.hostname !== 'tyna.com.br') window['ga-disable-G-DQS0KMDT3G'] = true;
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Governança de modelos de linguagem (LLM) nas empresas | Tyna</title>
+<meta name="description" content="Governança de modelos de linguagem LLM empresas: defina dono, dados, controles e auditoria para usar IA com segurança em organizações com mais de 200 pessoas.">
+<link rel="canonical" href="https://tyna.com.br/governanca-de-modelos-de-linguagem-llm-empresas/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Governança de modelos de linguagem (LLM) nas empresas">
+<meta property="og:description" content="Governança de modelos de linguagem LLM empresas: defina dono, dados, controles e auditoria para usar IA com segurança em organizações com mais de 200 pessoas.">
+<meta property="og:url" content="https://tyna.com.br/governanca-de-modelos-de-linguagem-llm-empresas/">
+<meta property="og:image" content="https://tyna.com.br/assets/og-governanca-ia.svg">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css?v=19">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Governança de modelos de linguagem (LLM) nas empresas",
+  "inLanguage": "pt-BR",
+  "description": "Como estruturar a governança de modelos de linguagem LLM em empresas: responsabilidade, dados, controles em execução, auditoria e regulação.",
+  "datePublished": "2026-11-07",
+  "dateModified": "2026-11-07",
+  "image": "https://tyna.com.br/assets/og-governanca-ia.svg",
+  "author": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "mainEntityOfPage": "https://tyna.com.br/governanca-de-modelos-de-linguagem-llm-empresas/"
+}
+</script>
+<link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "pt-BR",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "O que é governança de modelos de linguagem (LLM)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "É o conjunto de responsáveis, regras, controles técnicos e registros que define como a empresa escolhe, usa, monitora e audita modelos de linguagem, do uso individual de um chatbot ao agente integrado aos sistemas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quem deve ser o responsável pela governança de LLM na empresa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Um comitê pequeno e multidisciplinar, com TI ou dados, jurídico, segurança e as áreas de negócio, e um responsável nomeado por cada caso de uso. Sem dono definido, a decisão fica com quem chegou primeiro à ferramenta."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Uma política de uso de IA basta para governar LLMs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não. A política define a intenção, mas depende de pessoas a lerem e seguirem. Ela precisa ser acompanhada de controles aplicados em execução, como filtros de dados sensíveis, registro das chamadas e aprovação humana para ações críticas."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><img src="../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../#servicos">Serviços</a></li>
+        <li><a href="../iso-42001/">ISO 42001</a></li>
+        <li><a href="../#cases">Cases</a></li>
+        <li><a href="../#trilhas">Trilhas</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../biblioteca-prompts/">Prompts</a></li>
+        <li><a href="../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20governan%C3%A7a%20de%20modelos%20de%20linguagem%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20governan%C3%A7a%20de%20modelos%20de%20linguagem%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Governança de IA</p>
+      <h1 style="max-width:900px;">Governança de modelos de linguagem (LLM) nas empresas</h1>
+      <p class="lead" style="max-width:740px;">Em uma empresa com mais de 200 pessoas, os modelos de linguagem já estão em uso, com ou sem aprovação. A governança é o que transforma esse uso espalhado em algo que a empresa conhece, controla e consegue explicar.</p>
+    </div>
+  </section>
+
+  <section id="introducao">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">O problema</p>
+        <h2>O uso já começou, a regra ainda não</h2>
+        <p>O cenário é comum: o time comercial resume reuniões em um chatbot gratuito, o jurídico testa um assistente para revisar contratos, a área de TI conecta um modelo a um sistema interno. Cada decisão é razoável isoladamente. Somadas, deixam a empresa sem saber quais modelos usa, que dados saem do seu perímetro e quem responde quando uma resposta errada vira decisão.</p>
+        <p>O gestor entra então em um impasse. Proibir tudo empurra o uso para fora da vista, e liberar tudo expõe dados pessoais, segredos comerciais e a reputação da marca. A saída não está em nenhum dos extremos: está em governar o uso, com responsáveis claros, regras que a máquina aplica e registros que permitem prestar contas.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="por-que-llm">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Ponto de partida</p>
+        <h2>Por que modelos de linguagem pedem governança própria</h2>
+      </div>
+      <div class="reveal">
+        <p>Governança de TI e de dados já existe na maioria das empresas médias e grandes. O que muda com os LLMs são quatro características que os controles tradicionais não cobrem:</p>
+        <ul>
+          <li><strong>Resposta não determinística.</strong> A mesma pergunta pode gerar respostas diferentes, e algumas plausíveis, porém falsas. Testar uma vez não garante nada.</li>
+          <li><strong>Entrada em texto livre.</strong> Qualquer pessoa pode colar um contrato, uma planilha de clientes ou uma credencial no campo de conversa. O vazamento deixa de ser uma falha de sistema e passa a ser um gesto cotidiano.</li>
+          <li><strong>Terceiros no caminho.</strong> Em geral o modelo roda no ambiente de um provedor. É preciso saber onde o dado é processado, por quanto tempo é retido e se é usado para treinar.</li>
+          <li><strong>Autonomia crescente.</strong> Quando o modelo deixa de apenas responder e passa a executar ações, como enviar e-mails ou alterar registros, o erro tem consequência direta.</li>
+        </ul>
+        <p>Governar LLM, portanto, não é só escrever uma política. É definir quem decide, o que pode entrar e sair do modelo, como o uso é monitorado e o que acontece quando algo dá errado.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="pilares">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Estrutura</p>
+        <h2>Os cinco pilares de uma governança que funciona</h2>
+      </div>
+      <div class="svc-grid reveal">
+        <div class="svc-card">
+          <span class="num">01</span>
+          <h3>Responsabilidade</h3>
+          <p>Um comitê enxuto, com TI, jurídico, segurança e negócio, e um dono nomeado para cada caso de uso. Sem nome na frente, ninguém responde.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">02</span>
+          <h3>Inventário</h3>
+          <p>Lista viva de modelos, ferramentas, integrações e usuários, inclusive o que foi adotado sem aprovação. O que não está no inventário não pode ser governado.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">03</span>
+          <h3>Dados</h3>
+          <p>Classificação do que pode ir a cada modelo: dado público, interno, pessoal ou confidencial. Dado pessoal exige base legal e cuidado extra, como previsto na LGPD.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">04</span>
+          <h3>Controles em execução</h3>
+          <p>Filtros de entrada e saída, limites de ação e aprovação humana para o que é irreversível, aplicados pela máquina a cada chamada, não pelo bom senso de cada pessoa.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">05</span>
+          <h3>Registro e auditoria</h3>
+          <p>Guardar quem usou, com qual modelo, com que finalidade e o que foi bloqueado. É o registro que permite investigar um incidente e provar diligência.</p>
+        </div>
+      </div>
+      <div class="reveal">
+        <p>Um cuidado prático: classifique os casos de uso por risco antes de aplicar o mesmo rigor a todos. Resumir um texto público e apoiar uma decisão de crédito ou de contratação não podem passar pelo mesmo processo de aprovação. Os de maior risco pedem avaliação prévia, testes com casos reais, revisão humana e monitoramento contínuo.</p>
+        <p>Outro ponto frequente de falha é tratar a governança como um projeto com data de término. Modelos mudam de versão, provedores alteram termos e novos usos surgem a cada trimestre. Por isso, reserve uma revisão periódica do inventário, das regras e dos indicadores de uso.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap reveal">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Sua empresa está preparada para governança de modelos de linguagem LLM empresas?</h2>
+      <p style="color:var(--text-muted); font-size:16.5px; max-width:580px; margin:0 auto 30px;">
+        Fale com o Felipe — sem formulário, sem espera.
+      </p>
+      <div class="hero-ctas" style="justify-content:center;">
+        <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20governança%20de%20modelos%20de%20linguagem%20LLM%20empresas%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary">
+          Falar com o Felipe pelo WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="regulacao">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Contexto regulatório</p>
+        <h2>LGPD, Marco Legal da IA e normas: o que observar</h2>
+      </div>
+      <div class="reveal">
+        <p>No Brasil, não há hoje uma lei específica que cubra o uso de LLM por empresas, mas isso não significa ausência de regra. Três referências já orientam a conversa:</p>
+        <ul>
+          <li><strong>LGPD.</strong> Qualquer tratamento de dado pessoal por um modelo, inclusive o texto digitado em um assistente, está sujeito à lei: finalidade, necessidade, segurança e transparência. A responsabilidade é da empresa, mesmo quando o processamento ocorre no provedor.</li>
+          <li><strong>Marco Legal da IA (PL 2338).</strong> O projeto em tramitação propõe obrigações proporcionais ao risco do sistema. Mesmo antes de qualquer aprovação, é prudente adotar a lógica de classificar casos de uso por risco, documentar e prever supervisão humana.</li>
+          <li><strong>Normas e regras setoriais.</strong> A ISO/IEC 42001 oferece um modelo de sistema de gestão de IA, e setores como o financeiro e o de saúde têm exigências próprias de segurança e de prestação de contas.</li>
+        </ul>
+        <p>Na prática, quem se organiza agora com inventário, classificação de risco e registros chega a qualquer exigência futura com o trabalho mais adiantado. Quem espera a lei fechar precisará reconstruir, às pressas, informações que já deveriam existir. Para uma visão mais ampla, veja o guia sobre <a href="../governanca-de-ia/">governança de IA</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="comecar">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Plano</p>
+        <h2>Por onde começar nos primeiros 90 dias</h2>
+      </div>
+      <div class="steps reveal">
+        <div class="step">
+          <span class="step-num">01</span>
+          <div><h3>Mapear o uso real (semanas 1 a 3)</h3><p>Levante as ferramentas e os modelos em uso, por área, com uma conversa franca em vez de uma caça. O objetivo é enxergar, não punir.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">02</span>
+          <div><h3>Definir dono e regras mínimas (semanas 3 a 6)</h3><p>Nomeie o comitê, classifique os dados e publique uma política curta, com o que pode, o que não pode e a quem recorrer.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <div><h3>Aplicar o primeiro controle técnico (semanas 6 a 10)</h3><p>Escolha o risco de maior impacto, como dado pessoal indo ao modelo, e bloqueie-o em execução, de preferência em um ponto único por onde passem as chamadas.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">04</span>
+          <div><h3>Registrar e revisar (semanas 10 a 13)</h3><p>Ative os registros, defina poucos indicadores, como bloqueios, exceções e casos de uso novos, e marque a primeira revisão do comitê.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Perguntas frequentes</p>
+        <h2>Governança de LLM, em resposta direta</h2>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-item">
+          <h3>O que é governança de modelos de linguagem (LLM)?</h3>
+          <p>É o conjunto de responsáveis, regras, controles técnicos e registros que define como a empresa escolhe, usa, monitora e audita modelos de linguagem, do uso individual de um chatbot ao agente integrado aos sistemas.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Quem deve ser o responsável pela governança de LLM na empresa?</h3>
+          <p>Um comitê pequeno e multidisciplinar, com TI ou dados, jurídico, segurança e as áreas de negócio, e um responsável nomeado por cada caso de uso. Sem dono definido, a decisão fica com quem chegou primeiro à ferramenta.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Uma política de uso de IA basta para governar LLMs?</h3>
+          <p>Não. A política define a intenção, mas depende de pessoas a lerem e seguirem. Ela precisa ser acompanhada de controles aplicados em execução, como filtros de dados sensíveis, registro das chamadas e aprovação humana para ações críticas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="leia-tambem">
+    <div class="wrap">
+      <div class="section-head reveal"><p class="eyebrow">Leia também</p><h2>Aprofunde o tema</h2></div>
+      <div class="svc-grid reveal">
+        <div class="svc-card"><h3><a href="https://tyna.com.br/governanca-de-ia/">Governança de IA</a></h3><p>Visão geral de como organizar responsabilidades, riscos e controles de IA na empresa.</p></div>
+        <div class="svc-card"><h3><a href="https://tyna.com.br/o-que-e-guardrail-em-ia/">O que é guardrail em IA</a></h3><p>Os quatro tipos de limite aplicados em execução e como começar pelo primeiro.</p></div>
+        <div class="svc-card"><h3><a href="https://tyna.com.br/politica-de-uso-de-ia-para-empresas/">Política de uso de IA para empresas</a></h3><p>Quem decide, o que regular e como fazer o time seguir a regra.</p></div>
+      </div>
+      <p class="status-meta" style="margin-top:34px;">Publicado em 07/11/2026.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../" class="logo"><img src="../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../#servicos">Serviços</a>
+          <a href="../iso-42001/">ISO 42001</a>
+          <a href="../governanca-de-ia/">Governança de IA</a>
+          <a href="../shadow-ai/">Shadow AI</a>
+          <a href="../pl-2338/">Marco Legal da IA</a>
+          <a href="../diagnostico/">Diagnóstico</a>
+          <a href="../blog/">Blog</a>
+          <a href="../biblioteca-prompts/">Prompts</a>
+          <a href="../sobre/">Sobre</a>
+          <a href="../glossario/">Glossário</a>
+          <a href="../ia-para-equipes-de-ti/">IA para equipes de TI</a>
+          <a href="../ia-segura-para-empresas/">IA segura para empresas</a>
+          <a href="../agentes-de-ia-para-empresas/">Agentes de IA</a>
+          <a href="../politica-de-privacidade/">Política de privacidade</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<!-- O botão flutuante do WhatsApp é montado por assets/site.js, que roda em todas as páginas -->
+<script src="../assets/site.js?v=18"></script>
+
+</body>
+</html>
