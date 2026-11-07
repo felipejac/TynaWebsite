@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // Só coleta em produção (tyna.com.br) — localhost e previews do Cloudflare Pages (*.pages.dev) ficam de fora.
+  if (location.hostname !== 'tyna.com.br') window['ga-disable-G-DQS0KMDT3G'] = true;
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IA em cobrança e análise de risco BACEN: guia prático | Tyna</title>
+<meta name="description" content="IA em cobrança e análise de risco BACEN: o que a regulação já exige, onde estão os riscos e como gestores devem se preparar. Veja o roteiro prático em 5 passos.">
+<link rel="canonical" href="https://tyna.com.br/ia-em-cobranca-e-analise-de-risco-bacen/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IA em cobrança e análise de risco BACEN: guia prático">
+<meta property="og:description" content="IA em cobrança e análise de risco BACEN: o que a regulação já exige, onde estão os riscos e como gestores devem se preparar. Veja o roteiro prático em 5 passos.">
+<meta property="og:url" content="https://tyna.com.br/ia-em-cobranca-e-analise-de-risco-bacen/">
+<meta property="og:image" content="https://tyna.com.br/assets/og-ia-regulacao.svg">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css?v=19">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "IA em cobrança e análise de risco BACEN: guia prático",
+  "inLanguage": "pt-BR",
+  "description": "IA em cobrança e análise de risco BACEN: o que a regulação já exige, onde estão os riscos e como gestores devem se preparar. Veja o roteiro prático em 5 passos.",
+  "image": "https://tyna.com.br/assets/og-ia-regulacao.svg",
+  "datePublished": "2026-11-07",
+  "dateModified": "2026-11-07",
+  "author": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "mainEntityOfPage": "https://tyna.com.br/ia-em-cobranca-e-analise-de-risco-bacen/"
+}
+</script>
+<link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "pt-BR",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "O Banco Central tem uma norma específica para IA em cobrança?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não há, até onde o conteúdo público consultado indica, uma norma só sobre IA em cobrança. Valem as regras de gerenciamento de riscos, de contratação de terceiros e de nuvem, a LGPD e o Código de Defesa do Consumidor. Confirme as normas vigentes com o jurídico e o compliance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Uma empresa que não é banco precisa se preocupar com o BACEN?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim, em duas situações: quando ela mesma é instituição autorizada ou quando presta serviço a uma. Nesse segundo caso, as exigências do regulador chegam por contrato, com cláusulas de controle, auditoria e responsabilidade."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Por onde começar a usar IA em cobrança com segurança?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pelo inventário dos modelos e das decisões que eles afetam, com um responsável por sistema. Depois, defina limites claros de contato, revisão humana para casos sensíveis e registro de testes e decisões."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><img src="../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../#servicos">Serviços</a></li>
+        <li><a href="../iso-42001/">ISO 42001</a></li>
+        <li><a href="../#cases">Cases</a></li>
+        <li><a href="../#trilhas">Trilhas</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../biblioteca-prompts/">Prompts</a></li>
+        <li><a href="../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20IA%20em%20cobrança%20e%20análise%20de%20risco%20BACEN%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20IA%20em%20cobrança%20e%20análise%20de%20risco%20BACEN%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Governança de IA</p>
+      <h1 style="max-width:900px;">IA em cobrança e análise de risco BACEN: guia prático</h1>
+      <p class="lead" style="max-width:740px;">A área de crédito e cobrança já usa modelos para decidir quem recebe oferta, quem é acionado primeiro, por qual canal e com que acordo. O ganho de eficiência é real. Mas, quando o regulador ou o cliente pergunta por que alguém foi tratado de determinada forma, a resposta costuma estar espalhada entre o time de dados, o fornecedor e a operação.</p>
+      <p class="lead" style="max-width:740px;">Este artigo mostra, para gestores de empresas com mais de 200 pessoas, o que o arcabouço do Banco Central já cobra, onde a IA cria risco e como organizar controles que resistam a uma auditoria, sem esperar uma norma específica.</p>
+    </div>
+  </section>
+
+  <section id="o-que-o-bacen-espera">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">O que vale</p>
+        <h2>O que o BACEN já espera de quem usa IA em risco e cobrança</h2>
+      </div>
+      <div class="reveal prose" style="max-width:780px;">
+        <p>O regulador não trata a IA como categoria à parte; trata o risco que ela gera. Modelos de concessão, de perda esperada, de recuperação e de priorização de carteira entram no gerenciamento integrado de riscos (Resolução CMN 4.557/2017). A contratação de fornecedores, inclusive de nuvem, segue a Resolução CMN 4.893/2021. E o cálculo de perdas esperadas em instrumentos financeiros, tratado na Resolução CMN 4.966/2021, aumentou a dependência de modelos bem documentados e validados.</p>
+        <p>Fora do regulador financeiro, a LGPD garante ao titular o direito de pedir revisão de decisões tomadas apenas por tratamento automatizado, e o Código de Defesa do Consumidor proíbe constranger o devedor na cobrança. Um modelo que decide sozinho quando ligar, quantas vezes e com que tom está sujeito às duas regras ao mesmo tempo.</p>
+        <p>Isso vale também para empresas que não são instituições autorizadas, mas prestam serviço de cobrança ou análise a uma delas: a exigência chega por contrato. Este texto é orientação geral, não parecer jurídico; confirme as normas vigentes e a aplicação ao seu segmento com o jurídico e o compliance.</p>
+      </div>
+    </div>
+  </section>
+  <section id="onde-estao-os-riscos">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Os riscos</p>
+        <h2>Onde a IA cria risco na análise de crédito e na cobrança</h2>
+      </div>
+      <div class="reveal prose" style="max-width:780px;">
+        <p>O primeiro risco é o <strong>desvio do modelo</strong>. Um score treinado em um ciclo econômico perde precisão quando renda, inadimplência e comportamento mudam. Sem monitoramento contínuo, a carteira piora antes de alguém perceber.</p>
+        <p>O segundo é o <strong>viés indireto</strong>. Mesmo sem usar atributos sensíveis, variáveis como CEP, horário de acesso ou tipo de aparelho podem funcionar como substitutos e gerar tratamento desigual. Na cobrança, isso aparece quando certos perfis recebem mais pressão do que outros por causa do critério do modelo, e não do risco real.</p>
+        <p>O terceiro é a <strong>falta de explicação</strong>. Se o analista não consegue dizer quais fatores pesaram na decisão, a empresa não consegue atender o pedido de revisão do titular. Para o crédito, veja <a href="../modelos-de-credito-com-ia-explicabilidade/">modelos de crédito com IA e explicabilidade</a>.</p>
+        <p>O quarto é o <strong>fornecedor</strong>. Plataformas de cobrança e bureaus incorporam IA que muda com atualizações do próprio fornecedor, e a empresa continua responsável pelo resultado. O quinto é a <strong>automação sem freio</strong>: agentes que disparam mensagens e propõem acordos precisam de limites de frequência, de horário, de desconto e de linguagem, com escalonamento para uma pessoa nos casos sensíveis, como o de cliente que alega dificuldade grave ou contesta a dívida.</p>
+      </div>
+    </div>
+  </section>
+  <section class="cta-band">
+    <div class="wrap reveal">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Sua empresa está preparada para IA em cobrança e análise de risco BACEN?</h2>
+      <p style="color:var(--text-muted); font-size:16.5px; max-width:580px; margin:0 auto 30px;">
+        Fale com o Felipe — sem formulário, sem espera.
+      </p>
+      <div class="hero-ctas" style="justify-content:center;">
+        <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20IA%20em%20cobrança%20e%20análise%20de%20risco%20BACEN%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary">
+          Falar com o Felipe pelo WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="controles">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Os controles</p>
+        <h2>Cinco controles que sustentam o uso de IA nessa área</h2>
+      </div>
+      <div class="reveal prose" style="max-width:780px;">
+        <ul>
+<li><strong>Inventário.</strong> Liste cada modelo e agente de crédito e cobrança, com finalidade, dados de entrada, decisão afetada, dono e fornecedor. Veja <a href="../inventario-de-ia/">inventário de IA</a>.</li>
+<li><strong>Validação e monitoramento.</strong> Teste antes de entrar em produção e acompanhe desempenho, estabilidade dos dados e diferenças entre grupos de clientes, com limites que disparam revisão.</li>
+<li><strong>Revisão humana de verdade.</strong> Defina quais decisões exigem pessoa e meça quanto ela discorda do modelo. Concordância de 100% indica revisão de fachada.</li>
+<li><strong>Regras de contato.</strong> Limites de frequência, horário, canal e linguagem programados no sistema, não só no manual, e testados com amostras reais.</li>
+<li><strong>Contratos e registro.</strong> Cláusulas sobre uso do dado para treino, aviso de mudança de modelo e direito de auditoria, mais guarda de testes, decisões e incidentes.</li>
+</ul>
+        <p>Um primeiro ciclo focado nos sistemas de maior impacto sobre o cliente costuma caber em 90 dias. O tratamento de dados pessoais nesse fluxo está detalhado em <a href="../lgpd-e-ia/">LGPD e IA</a>.</p>
+      </div>
+    </div>
+  </section>
+  <section id="o-que-a-auditoria-pede">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Na prática</p>
+        <h2>O que supervisor e auditoria costumam pedir primeiro</h2>
+      </div>
+      <div class="reveal prose" style="max-width:780px;">
+        <p>Em geral, quatro itens: a lista de modelos com seus donos, a política de uso aprovada, as evidências de validação e monitoramento dos modelos de maior risco e os contratos com fornecedores. Quem tem esse material reunido responde em dias; quem precisa montá-lo na hora leva meses e expõe lacunas.</p>
+        <p>Uma pergunta ajuda a testar a maturidade: se um cliente contestar hoje uma decisão de crédito ou uma abordagem de cobrança, em quanto tempo você mostra os dados usados, a versão do modelo e quem revisou? Se a resposta for "não sabemos", o ponto de partida é o registro, e não um modelo melhor. Uma <a href="../auditoria-de-ia/">auditoria de IA</a> independente costuma ser a forma mais rápida de mapear essas lacunas.</p>
+      </div>
+    </div>
+  </section>
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Perguntas frequentes</p>
+        <h2>IA em cobrança e análise de risco BACEN, em resposta direta</h2>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-item">
+          <h3>O Banco Central tem uma norma específica para IA em cobrança?</h3>
+          <p>Não há, até onde o conteúdo público consultado indica, uma norma só sobre IA em cobrança. Valem as regras de gerenciamento de riscos, de contratação de terceiros e de nuvem, a LGPD e o Código de Defesa do Consumidor. Confirme as normas vigentes com o jurídico e o compliance.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Uma empresa que não é banco precisa se preocupar com o BACEN?</h3>
+          <p>Sim, em duas situações: quando ela mesma é instituição autorizada ou quando presta serviço a uma. Nesse segundo caso, as exigências do regulador chegam por contrato, com cláusulas de controle, auditoria e responsabilidade.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Por onde começar a usar IA em cobrança com segurança?</h3>
+          <p>Pelo inventário dos modelos e das decisões que eles afetam, com um responsável por sistema. Depois, defina limites claros de contato, revisão humana para casos sensíveis e registro de testes e decisões.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="leia-tambem">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Leia também</p>
+        <h2>Para continuar</h2>
+      </div>
+      <ul class="reveal">
+        <li><a href="../lgpd-e-ia/">LGPD e IA: o que sua empresa precisa saber</a></li>
+        <li><a href="../auditoria-de-ia/">Auditoria de IA: como avaliar seus sistemas</a></li>
+        <li><a href="../politica-de-uso-de-ia-para-empresas/">Política de uso de IA para empresas</a></li>
+      </ul>
+      <p class="status-meta" style="margin-top:34px;">Última revisão: 07/11/2026.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../" class="logo"><img src="../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../#servicos">Serviços</a>
+          <a href="../iso-42001/">ISO 42001</a>
+          <a href="../governanca-de-ia/">Governança de IA</a>
+          <a href="../shadow-ai/">Shadow AI</a>
+          <a href="../pl-2338/">Marco Legal da IA</a>
+          <a href="../diagnostico/">Diagnóstico</a>
+          <a href="../blog/">Blog</a>
+          <a href="../biblioteca-prompts/">Prompts</a>
+          <a href="../sobre/">Sobre</a>
+          <a href="../glossario/">Glossário</a>
+          <a href="../ia-para-equipes-de-ti/">IA para equipes de TI</a>
+          <a href="../ia-segura-para-empresas/">IA segura para empresas</a>
+          <a href="../agentes-de-ia-para-empresas/">Agentes de IA</a>
+          <a href="../politica-de-privacidade/">Política de privacidade</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<!-- O botão flutuante do WhatsApp é montado por assets/site.js, que roda em todas as páginas -->
+<script src="../assets/site.js?v=18"></script>
+
+</body>
+</html>
