@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // Só coleta em produção (tyna.com.br) — localhost e previews do Cloudflare Pages (*.pages.dev) ficam de fora.
+  if (location.hostname !== 'tyna.com.br') window['ga-disable-G-DQS0KMDT3G'] = true;
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arquitetura de IA para grandes empresas | Tyna</title>
+<meta name="description" content="Arquitetura de IA para grandes empresas: camadas, controles e decisões que gestores de empresas com mais de 200 pessoas definem antes de escalar a IA.">
+<link rel="canonical" href="https://tyna.com.br/arquitetura-de-ia-para-grandes-empresas/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Arquitetura de IA para grandes empresas">
+<meta property="og:description" content="Arquitetura de IA para grandes empresas: camadas, controles e decisões que gestores de empresas com mais de 200 pessoas definem antes de escalar a IA.">
+<meta property="og:url" content="https://tyna.com.br/arquitetura-de-ia-para-grandes-empresas/">
+<meta property="og:image" content="https://tyna.com.br/assets/og-implementacao-ia.svg">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css?v=19">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Arquitetura de IA para grandes empresas",
+  "inLanguage": "pt-BR",
+  "description": "Arquitetura de IA para grandes empresas: camadas, controles e decisões que gestores de empresas com mais de 200 pessoas definem antes de escalar a IA.",
+  "datePublished": "2026-11-07",
+  "dateModified": "2026-11-07",
+  "image": "https://tyna.com.br/assets/og-implementacao-ia.svg",
+  "author": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "mainEntityOfPage": "https://tyna.com.br/arquitetura-de-ia-para-grandes-empresas/"
+}
+</script>
+<link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "pt-BR",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "O que é uma arquitetura de IA corporativa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "É o desenho que define como modelos, dados, integrações, segurança e controles se organizam para que várias áreas usem IA de forma padronizada, auditável e escalável, em vez de cada equipe montar a sua solução isolada."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "É melhor construir uma plataforma própria de IA ou contratar ferramentas prontas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Na maioria dos casos, a resposta é híbrida: ferramentas prontas para usos gerais e componentes próprios onde há dado sensível ou diferencial competitivo. O que não pode variar é a camada comum de acesso, registro e controle."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Por onde começar a arquitetura de IA em uma empresa com mais de 200 pessoas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Comece pelo inventário do que já está em uso e pela definição de princípios e papéis. Depois escolha um ou dois casos de uso de valor claro e construa sobre eles a base comum, em vez de projetar tudo antes de rodar o primeiro caso."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><img src="../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../#servicos">Serviços</a></li>
+        <li><a href="../iso-42001/">ISO 42001</a></li>
+        <li><a href="../#cases">Cases</a></li>
+        <li><a href="../#trilhas">Trilhas</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../biblioteca-prompts/">Prompts</a></li>
+        <li><a href="../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20governan%C3%A7a%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Implementação de IA</p>
+      <h1 style="max-width:900px;">Arquitetura de IA para grandes empresas</h1>
+      <p class="lead" style="max-width:740px;">Em uma empresa com mais de 200 pessoas, a IA raramente chega por um projeto único. Chega por várias portas ao mesmo tempo: uma ferramenta contratada pelo marketing, um assistente embutido no software da área financeira, um protótipo da TI, um agente que alguém configurou por conta própria. Cada uma funciona isoladamente, e o conjunto vira um emaranhado de contratos, acessos e cópias de dados que ninguém enxerga por inteiro.</p>
+      <p class="lead" style="max-width:740px;">O problema aparece quando é preciso escalar, auditar ou responder a uma pergunta simples: que dados esse sistema usa, quem aprovou e como desligamos se algo der errado? Sem uma arquitetura, cada resposta exige uma investigação. Com ela, as respostas já estão no desenho. Este artigo mostra as decisões que pesam mais e a ordem em que costumam ser tomadas.</p>
+    </div>
+  </section>
+
+  <section id="camadas">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>As camadas que uma arquitetura de IA precisa ter</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+<p>Pensar em camadas evita o erro de tratar a arquitetura como a escolha de um modelo. O modelo é a parte mais fácil de trocar; o restante é o que dá durabilidade ao conjunto. Um desenho enxuto, que serve para a maioria das organizações grandes, tem cinco camadas:</p>
+<ul>
+<li><strong>Dados:</strong> fontes, qualidade, classificação e regras sobre o que pode alimentar cada sistema. É a camada que mais atrasa projetos quando é deixada para depois.</li>
+<li><strong>Modelos:</strong> os modelos de linguagem e de outros tipos, contratados de fornecedores ou hospedados pela empresa. O desenho deve permitir trocar um modelo sem refazer as aplicações.</li>
+<li><strong>Orquestração e integração:</strong> a camada que conecta modelos aos sistemas da empresa, à busca em documentos internos e, no caso de agentes, às ações que eles podem executar.</li>
+<li><strong>Acesso e controle:</strong> um ponto comum por onde passam as chamadas aos modelos, com autenticação, limites, filtros de dados sensíveis e registro de uso.</li>
+<li><strong>Aplicações:</strong> assistentes, automações e agentes usados pelas áreas, construídos sobre as camadas anteriores.</li>
+</ul>
+<p>A camada de acesso e controle merece atenção especial. Quando todas as chamadas passam por um ponto único, a empresa ganha, de uma só vez, visibilidade do que é usado, a possibilidade de aplicar regras iguais para todos e um registro que serve de evidência. Sem ela, cada aplicação resolve segurança e registro do seu jeito, ou não resolve.</p>
+<p>Uma observação sobre agentes: quando o sistema não apenas responde, mas executa tarefas, a arquitetura precisa definir permissões mínimas, limites de ação e pontos de aprovação humana. Esses itens não se acrescentam depois; entram no desenho desde o início.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="dados-e-integracao">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Dados, integração e a decisão entre construir e contratar</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+<p>Em grandes empresas, o desafio de dados raramente é falta de dados. É excesso espalhado: sistemas legados, planilhas, bases por área, documentos sem dono. Antes de conectar um modelo a qualquer fonte, três perguntas precisam ter resposta: quem é o responsável por esse dado, ele contém informação pessoal ou sigilosa e qual o nível de qualidade esperado. Uma classificação simples, em poucas categorias, já permite regras práticas, como "dados confidenciais só em ambiente aprovado".</p>
+<p>Para respostas baseadas em documentos internos, a abordagem mais usada é recuperar trechos relevantes e entregá-los ao modelo no momento da pergunta. Ela mantém o conhecimento da empresa fora do modelo, facilita atualizar o conteúdo e permite respeitar permissões: o assistente só deve encontrar o que o usuário já teria direito de ver. Esse último ponto é frequentemente esquecido e é uma fonte comum de exposição indevida.</p>
+<p>Sobre construir ou contratar, a resposta madura costuma ser híbrida. Ferramentas prontas atendem bem usos gerais, como redação e resumo. Componentes próprios ou configuráveis fazem sentido onde há dado sensível, integração profunda com processos ou diferencial competitivo. Três critérios ajudam a decidir caso a caso:</p>
+<ul>
+<li><strong>Sensibilidade dos dados:</strong> quanto mais sensível, maior a necessidade de controle sobre onde e como o dado é processado.</li>
+<li><strong>Dependência do fornecedor:</strong> é possível migrar sem refazer tudo? Contratos e formatos abertos reduzem o risco de ficar preso.</li>
+<li><strong>Capacidade de operar:</strong> a equipe consegue monitorar, atualizar e dar suporte? Um sistema próprio sem operação vira dívida.</li>
+</ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap reveal">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Sua empresa está preparada para arquitetura de IA para grandes empresas?</h2>
+      <p style="color:var(--text-muted); font-size:16.5px; max-width:580px; margin:0 auto 30px;">
+        Fale com o Felipe — sem formulário, sem espera.
+      </p>
+      <div class="hero-ctas" style="justify-content:center;">
+        <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20arquitetura%20de%20IA%20para%20grandes%20empresas%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary">
+          Falar com o Felipe pelo WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="seguranca-e-conformidade">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Segurança e conformidade desenhadas desde o início</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+<p>No Brasil, a LGPD já se aplica ao tratamento de dados pessoais feito por sistemas de IA, inclusive o direito de pedir revisão de decisões tomadas apenas de forma automatizada. O debate do <a href="../pl-2338/">Marco Legal da IA</a> caminha para exigências de gestão de risco, transparência e supervisão humana proporcionais ao risco de cada sistema, e setores regulados, como o financeiro e o de saúde, têm normas próprias. Empresas que atuam com a Europa ainda precisam acompanhar o regulamento europeu de IA.</p>
+<p>A consequência para a arquitetura é prática: é muito mais barato prever os controles no desenho do que adaptá-los depois. Cinco itens costumam fazer diferença:</p>
+<ul>
+<li><strong>Inventário vivo:</strong> um registro de todos os sistemas de IA, com finalidade, dados usados, responsável e nível de risco. É a base de qualquer auditoria.</li>
+<li><strong>Registro de uso:</strong> logs de quem usou, com qual finalidade e o que foi enviado, tratados com a mesma atenção da LGPD.</li>
+<li><strong>Proteção de dados na entrada e na saída:</strong> filtros para impedir que informação sensível saia da empresa e para checar o que o modelo devolve.</li>
+<li><strong>Defesa contra manipulação:</strong> sistemas que leem texto externo, como e-mails e páginas, podem ser induzidos a ações indevidas. Limite o que cada agente pode fazer.</li>
+<li><strong>Supervisão humana e desligamento:</strong> decisões de alto impacto passam por uma pessoa, e existe um caminho claro para suspender um sistema.</li>
+</ul>
+<p>Esses controles ganham força quando se apoiam em uma estrutura de <a href="../governanca-de-ia/">governança de IA</a>, com política publicada, papéis definidos e um fluxo de aprovação. A arquitetura é a parte técnica da governança; sem uma, a outra não se sustenta.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="roteiro">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Um roteiro realista para sair do papel</h2>
+      </div>
+      <div class="reveal" style="max-width:760px;">
+<p>O erro mais comum é tentar projetar a arquitetura perfeita antes de rodar o primeiro caso. O oposto também é frequente: acumular pilotos sem base comum. O caminho do meio avança em quatro movimentos:</p>
+<ul>
+<li><strong>Enxergar:</strong> faça o <a href="../inventario-de-ia/">inventário de IA</a> e mapeie o que já está em uso, inclusive o uso informal. Sem esse retrato, qualquer desenho parte de suposições.</li>
+<li><strong>Definir princípios:</strong> escreva poucas regras de arquitetura, como "toda chamada a modelo passa pela camada de acesso" e "dado confidencial só em ambiente aprovado". Registre-as em uma política curta.</li>
+<li><strong>Construir a base com um caso real:</strong> escolha um ou dois casos de valor claro e monte, junto com eles, a camada comum de acesso, registro e controle. A base nasce validada pelo uso.</li>
+<li><strong>Replicar e medir:</strong> a cada novo caso, reaproveite a base, acompanhe poucos indicadores, como sistemas inventariados, uso por área e incidentes, e revise o desenho a cada ciclo.</li>
+</ul>
+<p>Duas armadilhas merecem vigilância. A primeira é a dependência de um único fornecedor sem plano de saída. A segunda é a falta de dono: toda aplicação precisa de um responsável de negócio, não só de um responsável técnico. Com esses cuidados, a arquitetura deixa de ser um documento e passa a ser a forma como a empresa usa IA no dia a dia.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Perguntas frequentes</p>
+        <h2>Arquitetura de IA, em resposta direta</h2>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-item">
+          <h3>O que é uma arquitetura de IA corporativa?</h3>
+          <p>É o desenho que define como modelos, dados, integrações, segurança e controles se organizam para que várias áreas usem IA de forma padronizada, auditável e escalável, em vez de cada equipe montar a sua solução isolada.</p>
+        </div>
+        <div class="faq-item">
+          <h3>É melhor construir uma plataforma própria de IA ou contratar ferramentas prontas?</h3>
+          <p>Na maioria dos casos, a resposta é híbrida: ferramentas prontas para usos gerais e componentes próprios onde há dado sensível ou diferencial competitivo. O que não pode variar é a camada comum de acesso, registro e controle.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Por onde começar a arquitetura de IA em uma empresa com mais de 200 pessoas?</h3>
+          <p>Comece pelo inventário do que já está em uso e pela definição de princípios e papéis. Depois escolha um ou dois casos de uso de valor claro e construa sobre eles a base comum, em vez de projetar tudo antes de rodar o primeiro caso.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="leia-tambem">
+    <div class="wrap">
+      <div class="section-head reveal"><p class="eyebrow">Leia também</p><h2>Para aprofundar</h2></div>
+      <div class="svc-grid reveal">
+        <div class="svc-card"><h3><a href="https://tyna.com.br/governanca-de-ia/">Governança de IA</a></h3><p>A estrutura de papéis, controles e evidências que sustenta a arquitetura.</p></div>
+        <div class="svc-card"><h3><a href="https://tyna.com.br/inventario-de-ia/">Inventário de IA</a></h3><p>O primeiro passo: saber quais sistemas existem, com que dados e sob qual responsável.</p></div>
+        <div class="svc-card"><h3><a href="https://tyna.com.br/modelo-de-politica-de-ia/">Modelo de política de IA</a></h3><p>Um ponto de partida para registrar os princípios que a arquitetura deve seguir.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="fale-com-a-tyna" class="lead-captura">
+    <div class="wrap reveal" style="text-align:center;">
+      <p class="eyebrow">Fale com a Tyna</p>
+      <h2>Quer desenhar a base de IA da sua empresa?</h2>
+      <p style="max-width:640px;margin:0 auto 22px;">A Tyna apoia a liderança no diagnóstico do uso real, nas decisões de arquitetura e nos controles de governança que a sustentam.</p>
+      <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20site%20da%20Tyna%20e%20quero%20falar%20sobre%20arquitetura%20de%20IA." target="_blank" rel="noopener" class="btn btn-primary">Agende uma conversa</a>
+      <p class="status-meta" style="margin-top:34px;">Publicado em 07/11/2026.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../" class="logo"><img src="../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../#servicos">Serviços</a>
+          <a href="../iso-42001/">ISO 42001</a>
+          <a href="../governanca-de-ia/">Governança de IA</a>
+          <a href="../lgpd-e-ia/">LGPD e IA</a>
+          <a href="../shadow-ai/">Shadow AI</a>
+          <a href="../pl-2338/">Marco Legal da IA</a>
+          <a href="../diagnostico/">Diagnóstico</a>
+          <a href="../blog/">Blog</a>
+          <a href="../biblioteca-prompts/">Prompts</a>
+          <a href="../sobre/">Sobre</a>
+          <a href="../glossario/">Glossário</a>
+          <a href="../ia-para-equipes-de-ti/">IA para equipes de TI</a>
+          <a href="../ia-segura-para-empresas/">IA segura para empresas</a>
+          <a href="../agentes-de-ia-para-empresas/">Agentes de IA</a>
+          <a href="../politica-de-privacidade/">Política de privacidade</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<!-- O botão flutuante do WhatsApp é montado por assets/site.js, que roda em todas as páginas -->
+<script src="../assets/site.js?v=18"></script>
+
+</body>
+</html>
