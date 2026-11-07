@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // Só coleta em produção (tyna.com.br) — localhost e previews do Cloudflare Pages (*.pages.dev) ficam de fora.
+  if (location.hostname !== 'tyna.com.br') window['ga-disable-G-DQS0KMDT3G'] = true;
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RAG para empresas: como funciona na prática | Tyna</title>
+<meta name="description" content="RAG para empresas como funciona: o modelo consulta a base da empresa antes de responder. Veja as etapas, os riscos com dados e como começar com segurança.">
+<link rel="canonical" href="https://tyna.com.br/rag-para-empresas-como-funciona/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RAG para empresas: como funciona na prática">
+<meta property="og:description" content="RAG para empresas como funciona: o modelo consulta a base da empresa antes de responder. Veja as etapas, os riscos com dados e como começar com segurança.">
+<meta property="og:url" content="https://tyna.com.br/rag-para-empresas-como-funciona/">
+<meta property="og:image" content="https://tyna.com.br/assets/og-agentes-ia.svg">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css?v=19">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "RAG para empresas: como funciona na prática",
+  "inLanguage": "pt-BR",
+  "description": "Como funciona o RAG em empresas: indexação, recuperação, geração e os controles de permissão, qualidade e auditoria que sustentam o uso em produção.",
+  "datePublished": "2026-11-07",
+  "dateModified": "2026-11-07",
+  "author": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "mainEntityOfPage": "https://tyna.com.br/rag-para-empresas-como-funciona/"
+}
+</script>
+<link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "pt-BR",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "RAG substitui o treinamento do modelo com dados da empresa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Na maioria dos casos, sim. O RAG entrega ao modelo, na hora da pergunta, os trechos relevantes dos documentos da empresa. Os dados ficam na base da empresa, podem ser atualizados ou removidos a qualquer momento e não precisam ser incorporados ao modelo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "RAG elimina alucinações?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não elimina, mas reduz. Ao responder com base em fontes citadas, o sistema permite conferir a origem de cada afirmação. Se a base não tem a resposta, o sistema deve dizer isso em vez de inventar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O RAG respeita a LGPD?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depende de como é montado. É preciso mapear quais dados pessoais entram na base, ter base legal para o uso, aplicar controle de acesso por usuário e registrar as consultas. O RAG facilita atender pedidos de titulares, porque o dado fica numa base que a empresa controla."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><img src="../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../#servicos">Serviços</a></li>
+        <li><a href="../iso-42001/">ISO 42001</a></li>
+        <li><a href="../#cases">Cases</a></li>
+        <li><a href="../#trilhas">Trilhas</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../biblioteca-prompts/">Prompts</a></li>
+        <li><a href="../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20RAG%20para%20empresas%20como%20funciona%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20RAG%20para%20empresas%20como%20funciona%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Agentes de IA</p>
+      <h1 style="max-width:900px;">RAG para empresas: como funciona na prática</h1>
+      <p class="lead" style="max-width:740px;">Quase toda empresa que testa IA generativa esbarra no mesmo problema: o modelo escreve bem, mas não conhece os contratos, as políticas e os procedimentos internos. Ele responde com confiança sobre o que não sabe.</p>
+      <p class="lead" style="max-width:740px;">O RAG (geração aumentada por recuperação) é a técnica mais usada para resolver isso. Mas, entre o protótipo que impressiona numa reunião e o sistema em que 200 pessoas podem confiar, há decisões de dados, de acesso e de auditoria. Este artigo explica como o RAG funciona e o que um gestor precisa exigir.</p>
+    </div>
+  </section>
+
+  <section id="como-funciona">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Passo a passo</p>
+        <h2>Como o RAG funciona, da pergunta à resposta</h2>
+        <p>A ideia é simples: antes de responder, o sistema busca nos documentos da empresa os trechos que importam e entrega ao modelo só esse material.</p>
+      </div>
+      <div class="steps reveal">
+        <div class="step">
+          <span class="step-num">01</span>
+          <div><h3>Preparar e indexar os documentos</h3><p>Manuais, contratos, políticas e bases de conhecimento são divididos em trechos e transformados em representações numéricas (embeddings), que permitem buscar por sentido, não só por palavra exata. Cada trecho guarda metadados: origem, data, área dona e quem pode ler.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">02</span>
+          <div><h3>Recuperar o que é relevante</h3><p>Quando alguém pergunta, o sistema busca os trechos mais próximos da pergunta, filtrando pelo que aquele usuário tem direito de ver.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <div><h3>Gerar a resposta com as fontes</h3><p>O modelo recebe a pergunta junto com os trechos recuperados e responde com base neles, citando de onde veio cada informação.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">04</span>
+          <div><h3>Registrar e medir</h3><p>Pergunta, trechos usados e resposta ficam registrados. Sem esse histórico não há como investigar um erro nem melhorar o sistema.</p></div>
+        </div>
+      </div>
+      <div class="section-head reveal" style="margin-top:36px;">
+        <p>Por que as empresas preferem esse caminho a treinar um modelo próprio? Porque o conhecimento continua em uma base que a empresa controla. Quando uma política muda, atualiza-se o documento e a resposta muda no mesmo dia. Quando um dado precisa sair, ele é removido da base. Com um modelo treinado, nada disso é simples.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="onde-falha">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Onde costuma falhar</p>
+        <h2>Os três pontos que derrubam projetos de RAG</h2>
+        <p>Em empresas de médio e grande porte, a tecnologia raramente é o gargalo. O que quebra é o que cerca a tecnologia.</p>
+      </div>
+      <div class="svc-grid reveal">
+        <div class="svc-card">
+          <span class="num">01</span>
+          <h3>Documentos desatualizados</h3>
+          <p>O RAG é tão bom quanto a base. Se existem três versões da mesma política, o sistema pode citar a errada com toda a segurança. Defina um dono para cada conjunto de documentos e uma regra de validade.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">02</span>
+          <h3>Permissões ignoradas</h3>
+          <p>Se a busca enxerga todos os documentos, qualquer funcionário pode receber, em uma resposta, um trecho de folha de pagamento ou de contrato sigiloso. O controle de acesso precisa valer na recuperação, antes de o texto chegar ao modelo.</p>
+        </div>
+        <div class="svc-card">
+          <span class="num">03</span>
+          <h3>Qualidade que ninguém mede</h3>
+          <p>Sem um conjunto de perguntas de teste com respostas conhecidas, ninguém sabe se uma mudança melhorou ou piorou o sistema. Monte esse conjunto com as áreas e rode-o a cada alteração.</p>
+        </div>
+      </div>
+      <div class="section-head reveal" style="margin-top:36px;">
+        <p>Há ainda um risco de segurança pouco discutido: o conteúdo recuperado também é entrada do modelo. Um documento com instruções maliciosas embutidas pode tentar desviar o comportamento do sistema. Por isso, o que vem da base deve ser tratado como dado, nunca como ordem, e passar por <a href="../o-que-e-guardrail-em-ia/">guardrails</a> de entrada e de saída.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap reveal">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Sua empresa está preparada para RAG para empresas como funciona?</h2>
+      <p style="color:var(--text-muted); font-size:16.5px; max-width:580px; margin:0 auto 30px;">
+        Fale com o Felipe — sem formulário, sem espera.
+      </p>
+      <div class="hero-ctas" style="justify-content:center;">
+        <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20RAG%20para%20empresas%20como%20funciona%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary">
+          Falar com o Felipe pelo WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="governanca">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Governança e regulação</p>
+        <h2>LGPD, auditoria e responsabilidade</h2>
+        <p>RAG não tira a empresa do alcance da regulação. Ele a coloca no centro dela, porque conecta a IA diretamente aos dados internos.</p>
+      </div>
+      <div class="reveal">
+        <table class="spec-table">
+          <thead><tr><th scope="col">Exigência</th><th scope="col">O que significa no RAG</th></tr></thead>
+          <tbody>
+            <tr><td>Mapeamento de dados pessoais (LGPD)</td><td>Saber quais documentos com dados pessoais estão na base e com que finalidade foram indexados</td></tr>
+            <tr><td>Base legal e minimização</td><td>Indexar apenas o necessário e anonimizar o que for possível antes da indexação</td></tr>
+            <tr><td>Direitos dos titulares</td><td>Conseguir localizar e remover o dado de uma pessoa da base e dos índices</td></tr>
+            <tr><td>Rastreabilidade</td><td>Guardar quem perguntou, quais fontes foram usadas e o que foi respondido</td></tr>
+            <tr><td>Supervisão humana</td><td>Definir quando a resposta exige revisão de uma pessoa, como em decisões que afetam clientes ou funcionários</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="section-head reveal" style="margin-top:36px;">
+        <p>Isso se conecta ao que o projeto de lei de IA em discussão no Brasil e a ISO 42001 pedem: inventário dos sistemas, gestão de risco, registro e responsabilidade definida. Um RAG que já nasce com registros e controle de acesso facilita a <a href="../auditoria-de-ia/">auditoria de IA</a>. Um que nasce sem eles precisa ser refeito depois.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="comecar">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Como começar</p>
+        <h2>Um piloto de RAG que dá para defender</h2>
+        <p>Comece pequeno, mas com os controles de verdade desde o primeiro dia.</p>
+      </div>
+      <div class="steps reveal">
+        <div class="step">
+          <span class="step-num">01</span>
+          <div><h3>Escolha um caso com base documental clara</h3><p>Por exemplo, consulta a políticas internas ou a procedimentos de uma área. Evite começar por documentos sem dono ou sem versão oficial.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">02</span>
+          <div><h3>Defina quem pode ver o quê</h3><p>Traga TI, jurídico e a área dona dos documentos para decidir o controle de acesso antes de indexar.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <div><h3>Monte o conjunto de perguntas de teste</h3><p>Reúna perguntas reais, com a resposta correta e a fonte esperada. É a régua que mostra se o sistema está pronto.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">04</span>
+          <div><h3>Exija citação de fonte e o direito de dizer “não sei”</h3><p>Uma resposta sem fonte não deve ser tratada como confiável. Se a base não cobre a pergunta, o sistema precisa admitir. Acompanhe isso dentro da <a href="../governanca-de-agentes/">governança de agentes</a> da empresa.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Perguntas frequentes</p>
+        <h2>RAG para empresas, em resposta direta</h2>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-item">
+          <h3>RAG substitui o treinamento do modelo com dados da empresa?</h3>
+          <p>Na maioria dos casos, sim. O RAG entrega ao modelo, na hora da pergunta, os trechos relevantes dos documentos da empresa. Os dados ficam na base da empresa, podem ser atualizados ou removidos a qualquer momento e não precisam ser incorporados ao modelo.</p>
+        </div>
+        <div class="faq-item">
+          <h3>RAG elimina alucinações?</h3>
+          <p>Não elimina, mas reduz. Ao responder com base em fontes citadas, o sistema permite conferir a origem de cada afirmação. Se a base não tem a resposta, o sistema deve dizer isso em vez de inventar.</p>
+        </div>
+        <div class="faq-item">
+          <h3>O RAG respeita a LGPD?</h3>
+          <p>Depende de como é montado. É preciso mapear quais dados pessoais entram na base, ter base legal para o uso, aplicar controle de acesso por usuário e registrar as consultas. O RAG facilita atender pedidos de titulares, porque o dado fica numa base que a empresa controla.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="leia-tambem">
+    <div class="wrap">
+      <div class="section-head reveal"><p class="eyebrow">Leia também</p><h2>Controles relacionados</h2></div>
+      <div class="svc-grid reveal">
+        <div class="svc-card"><h3><a href="https://tyna.com.br/governanca-de-agentes/">Governança de agentes</a></h3><p>Quem responde pelo que o agente faz e como acompanhar em produção.</p></div>
+        <div class="svc-card"><h3><a href="https://tyna.com.br/o-que-e-guardrail-em-ia/">O que é guardrail em IA</a></h3><p>Limites aplicados em execução, a cada chamada do sistema.</p></div>
+        <div class="svc-card"><h3><a href="https://tyna.com.br/auditoria-de-ia/">Auditoria de IA</a></h3><p>Como comprovar que o sistema faz o que a empresa diz que ele faz.</p></div>
+      </div>
+      <p class="status-meta" style="margin-top:34px;">Última revisão: 07/11/2026.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../" class="logo"><img src="../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../#servicos">Serviços</a>
+          <a href="../iso-42001/">ISO 42001</a>
+          <a href="../governanca-de-ia/">Governança de IA</a>
+          <a href="../shadow-ai/">Shadow AI</a>
+          <a href="../pl-2338/">Marco Legal da IA</a>
+          <a href="../diagnostico/">Diagnóstico</a>
+          <a href="../blog/">Blog</a>
+          <a href="../biblioteca-prompts/">Prompts</a>
+          <a href="../sobre/">Sobre</a>
+          <a href="../glossario/">Glossário</a>
+          <a href="../ia-para-equipes-de-ti/">IA para equipes de TI</a>
+          <a href="../ia-segura-para-empresas/">IA segura para empresas</a>
+          <a href="../agentes-de-ia-para-empresas/">Agentes de IA</a>
+          <a href="../politica-de-privacidade/">Política de privacidade</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<!-- O botão flutuante do WhatsApp é montado por assets/site.js, que roda em todas as páginas -->
+<script src="../assets/site.js?v=18"></script>
+
+</body>
+</html>
