@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // Só coleta em produção (tyna.com.br) — localhost e previews do Cloudflare Pages (*.pages.dev) ficam de fora.
+  if (location.hostname !== 'tyna.com.br') window['ga-disable-G-DQS0KMDT3G'] = true;
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Como avaliar um agente de IA antes de implantar | Tyna</title>
+<meta name="description" content="Como avaliar um agente de IA antes de implantar: escopo, testes com casos reais, limites em execução e critério de liberação que o gestor deve exigir.">
+<link rel="canonical" href="https://tyna.com.br/como-avaliar-um-agente-de-ia-antes-de-implantar/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Como avaliar um agente de IA antes de implantar">
+<meta property="og:description" content="Como avaliar um agente de IA antes de implantar: escopo, testes com casos reais, limites em execução e critério de liberação que o gestor deve exigir.">
+<meta property="og:url" content="https://tyna.com.br/como-avaliar-um-agente-de-ia-antes-de-implantar/">
+<meta property="og:image" content="https://tyna.com.br/assets/og-agentes-ia.svg">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css?v=19">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Como avaliar um agente de IA antes de implantar",
+  "inLanguage": "pt-BR",
+  "description": "Como avaliar um agente de IA antes de implantar: escopo, testes com casos reais, limites em execução e critério de liberação que o gestor deve exigir.",
+  "image": "https://tyna.com.br/assets/og-agentes-ia.svg",
+  "datePublished": "2026-11-07",
+  "dateModified": "2026-11-07",
+  "author": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "mainEntityOfPage": "https://tyna.com.br/como-avaliar-um-agente-de-ia-antes-de-implantar/"
+}
+</script>
+<link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "pt-BR",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Quanto tempo leva para avaliar um agente de IA antes de implantar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depende do risco do processo. Um agente que apenas consulta informação pode ser avaliado em semanas; um que executa ações irreversíveis exige mais ciclos de teste e um período de operação assistida antes da liberação total."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quem deve aprovar a entrada de um agente de IA em produção?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "O dono do processo de negócio, com parecer de segurança, jurídico ou privacidade e TI. A aprovação deve ficar registrada, com os critérios de liberação e os limites do agente."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Testar o agente com poucos exemplos é suficiente?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não. Demonstrações mostram o melhor caso. É preciso um conjunto de casos reais, incluindo situações raras, pedidos fora do escopo e tentativas de induzir o agente ao erro, repetido a cada mudança de modelo ou de instrução."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><img src="../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../#servicos">Serviços</a></li>
+        <li><a href="../iso-42001/">ISO 42001</a></li>
+        <li><a href="../#cases">Cases</a></li>
+        <li><a href="../#trilhas">Trilhas</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../biblioteca-prompts/">Prompts</a></li>
+        <li><a href="../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20como%20avaliar%20um%20agente%20de%20IA%20antes%20de%20implantar%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20como%20avaliar%20um%20agente%20de%20IA%20antes%20de%20implantar%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">Agentes de IA</p>
+      <h1 style="max-width:900px;">Como avaliar um agente de IA antes de implantar</h1>
+      <p class="lead" style="max-width:740px;">O agente passou na demonstração, a área está animada e o prazo apertou. A pergunta que falta fazer é o que acontece no dia em que ele errar, com um cliente real, um dado real e uma ação que não dá para desfazer.</p>
+    </div>
+  </section>
+
+  <section id="introducao">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p>Em empresas com mais de 200 pessoas, o problema raramente é a tecnologia. É que a avaliação costuma ser informal: alguém testa dez perguntas, gosta das respostas e libera. Um agente, diferente de um chatbot, consulta sistemas, decide e executa. Um erro deixa de ser uma resposta ruim e vira um pedido errado, um e-mail enviado ou um dado exposto.</p>
+        <p>Ao mesmo tempo, a cobrança aumenta. A LGPD já garante ao titular o direito de pedir revisão de decisões tomadas apenas por tratamento automatizado, o Marco Legal da IA segue em discussão no Congresso e normas como a ISO/IEC 42001 pedem processo documentado. Avaliar antes de implantar é a forma mais barata de chegar a essas conversas com evidência, e não com promessa.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="escopo">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">1. Escopo</p>
+        <h2>Defina o que o agente pode e não pode fazer</h2>
+        <p>Não dá para avaliar o que não foi delimitado. Antes de qualquer teste, escreva em uma página o que o agente deve resolver, quais sistemas ele acessa e quais ações pode executar sozinho.</p>
+        <p>Liste cada ferramenta e cada dado que ele toca e classifique por impacto: leitura, escrita reversível e escrita irreversível. Enviar uma resposta é diferente de alterar um cadastro, e alterar um cadastro é diferente de emitir uma ordem. Quanto maior o impacto, mais rigorosa a avaliação e mais cedo entra a aprovação humana.</p>
+        <p>Defina também o dono do processo. Se ninguém de negócio responde pelo resultado do agente, a avaliação vira um exercício técnico e a decisão de liberar fica sem responsável. Registre ainda quais dados pessoais o agente trata e com qual base legal, porque isso muda o que a área de privacidade vai exigir.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="testes">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">2. Testes</p>
+        <h2>Teste com casos reais, não com demonstrações</h2>
+        <p>Demonstração mostra o melhor caso. A avaliação precisa mostrar o pior. Monte um conjunto de casos a partir do histórico real do processo, com o resultado correto definido por quem conhece a operação, e meça o agente contra ele.</p>
+        <p>Esse conjunto deve incluir quatro tipos de situação:</p>
+        <ul>
+          <li><strong>Casos comuns:</strong> o volume do dia a dia, para medir taxa de acerto e tempo de resposta.</li>
+          <li><strong>Casos raros e ambíguos:</strong> exceções, dados incompletos, pedidos contraditórios. É aqui que o agente costuma inventar.</li>
+          <li><strong>Pedidos fora do escopo:</strong> o agente deve recusar ou encaminhar, não improvisar.</li>
+          <li><strong>Tentativas de manipulação:</strong> instruções escondidas em um e-mail ou documento, pedidos para ignorar regras. Veja <a href="../o-que-e-prompt-injection/">o que é prompt injection</a>.</li>
+        </ul>
+        <p>Defina antes dos testes qual resultado é aceitável. Uma média geral esconde falhas graves: um agente com alta taxa de acerto pode errar justamente nos casos de maior risco. Meça por categoria de impacto e trate erros graves separadamente. Guarde o conjunto de casos, porque ele será repetido a cada troca de modelo, de instrução ou de ferramenta.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap reveal">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Sua empresa está preparada para como avaliar um agente de IA antes de implantar?</h2>
+      <p style="color:var(--text-muted); font-size:16.5px; max-width:580px; margin:0 auto 30px;">
+        Fale com o Felipe — sem formulário, sem espera.
+      </p>
+      <div class="hero-ctas" style="justify-content:center;">
+        <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20como%20avaliar%20um%20agente%20de%20IA%20antes%20de%20implantar%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary">
+          Falar com o Felipe pelo WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="limites">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">3. Controles</p>
+        <h2>Exija limites aplicados em execução e rastro de cada decisão</h2>
+        <p>Um agente que acertou nos testes ainda pode errar em produção. A pergunta de avaliação passa a ser: o que impede o dano quando isso acontecer? Instrução no prompt não é resposta, porque o modelo pode ignorá-la. A resposta é um <a href="https://tyna.com.br/o-que-e-guardrail-em-ia/">guardrail</a>: uma verificação feita pelo sistema a cada chamada.</p>
+        <p>Na avaliação, confirme na prática que existem estes controles:</p>
+        <ul>
+          <li><strong>Limite de ação:</strong> lista de ações permitidas, tetos de valor e aprovação humana para o que é irreversível.</li>
+          <li><strong>Validação de saída:</strong> números e dados citados conferidos contra o sistema de origem.</li>
+          <li><strong>Proteção de dados:</strong> dado pessoal e sensível tratado antes de chegar ao modelo.</li>
+          <li><strong>Registro:</strong> cada entrada, decisão, ferramenta chamada e bloqueio gravados, para reconstituir o que aconteceu e responder a um titular ou a uma auditoria.</li>
+          <li><strong>Interruptor:</strong> uma forma rápida e testada de suspender o agente sem derrubar o processo.</li>
+        </ul>
+        <p>Não aceite a declaração do fornecedor ou da equipe. Peça para ver o controle funcionando: provoque o bloqueio e confira o registro. É essa evidência que uma <a href="https://tyna.com.br/auditoria-de-ia/">auditoria de IA</a> vai pedir depois.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="liberacao">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">4. Liberação</p>
+        <h2>Decida o critério de entrada e como acompanhar depois</h2>
+        <p>Avaliar não termina no go-live. Defina por escrito, antes, o critério que libera o agente: taxa de acerto mínima por categoria, zero falhas graves no conjunto de testes e controles verificados. Se o critério só aparece depois do resultado, ele tende a se ajustar ao resultado.</p>
+        <p>Libere em etapas. Comece com o agente sugerindo e uma pessoa aprovando, passe a um grupo pequeno de casos de baixo risco e só amplie quando os indicadores se mantiverem. Quem decide a ampliação é o dono do processo, com base em dados.</p>
+        <p>Depois da liberação, acompanhe três sinais: taxa de erro e de encaminhamento a humanos, bloqueios dos guardrails e reclamações ou contestações. Reavalie com o mesmo conjunto de casos sempre que mudar modelo, instrução, ferramenta ou base de conhecimento, porque qualquer uma dessas mudanças pode alterar o comportamento. Esse ciclo é a base da <a href="https://tyna.com.br/governanca-de-agentes/">governança de agentes</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Perguntas frequentes</p>
+        <h2>Avaliação de agentes de IA, em resposta direta</h2>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-item">
+          <h3>Quanto tempo leva para avaliar um agente de IA antes de implantar?</h3>
+          <p>Depende do risco do processo. Um agente que apenas consulta informação pode ser avaliado em semanas; um que executa ações irreversíveis exige mais ciclos de teste e um período de operação assistida antes da liberação total.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Quem deve aprovar a entrada de um agente de IA em produção?</h3>
+          <p>O dono do processo de negócio, com parecer de segurança, jurídico ou privacidade e TI. A aprovação deve ficar registrada, com os critérios de liberação e os limites do agente.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Testar o agente com poucos exemplos é suficiente?</h3>
+          <p>Não. Demonstrações mostram o melhor caso. É preciso um conjunto de casos reais, incluindo situações raras, pedidos fora do escopo e tentativas de induzir o agente ao erro, repetido a cada mudança de modelo ou de instrução.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="leia-tambem">
+    <div class="wrap">
+      <div class="section-head reveal"><p class="eyebrow">Leia também</p><h2>Para aprofundar</h2></div>
+      <div class="svc-grid reveal">
+        <div class="svc-card"><h3><a href="https://tyna.com.br/governanca-de-agentes/">Governança de agentes</a></h3><p>Quem responde pelo agente e quais controles acompanham a operação.</p></div>
+        <div class="svc-card"><h3><a href="https://tyna.com.br/o-que-e-guardrail-em-ia/">O que é guardrail em IA</a></h3><p>Os quatro tipos de limite aplicados em execução.</p></div>
+        <div class="svc-card"><h3><a href="https://tyna.com.br/auditoria-de-ia/">Auditoria de IA</a></h3><p>Que evidências um auditor vai pedir sobre o seu agente.</p></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../" class="logo"><img src="../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../#servicos">Serviços</a>
+          <a href="../iso-42001/">ISO 42001</a>
+          <a href="../governanca-de-ia/">Governança de IA</a>
+          <a href="../shadow-ai/">Shadow AI</a>
+          <a href="../pl-2338/">Marco Legal da IA</a>
+          <a href="../diagnostico/">Diagnóstico</a>
+          <a href="../blog/">Blog</a>
+          <a href="../biblioteca-prompts/">Prompts</a>
+          <a href="../sobre/">Sobre</a>
+          <a href="../glossario/">Glossário</a>
+          <a href="../ia-para-equipes-de-ti/">IA para equipes de TI</a>
+          <a href="../ia-segura-para-empresas/">IA segura para empresas</a>
+          <a href="../agentes-de-ia-para-empresas/">Agentes de IA</a>
+          <a href="../politica-de-privacidade/">Política de privacidade</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<!-- O botão flutuante do WhatsApp é montado por assets/site.js, que roda em todas as páginas -->
+<script src="../assets/site.js?v=18"></script>
+
+</body>
+</html>
