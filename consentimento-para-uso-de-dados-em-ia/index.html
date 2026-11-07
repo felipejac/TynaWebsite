@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQS0KMDT3G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // Só coleta em produção (tyna.com.br) — localhost e previews do Cloudflare Pages (*.pages.dev) ficam de fora.
+  if (location.hostname !== 'tyna.com.br') window['ga-disable-G-DQS0KMDT3G'] = true;
+  gtag('config', 'G-DQS0KMDT3G');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consentimento para uso de dados em IA: guia para gestores | Tyna</title>
+<meta name="description" content="Consentimento para uso de dados em IA: quando a LGPD exige, como coletar de forma válida e o que fazer quando o titular revoga. Guia para gestores de empresas.">
+<link rel="canonical" href="https://tyna.com.br/consentimento-para-uso-de-dados-em-ia/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Consentimento para uso de dados em IA: guia para gestores">
+<meta property="og:description" content="Consentimento para uso de dados em IA: quando a LGPD exige, como coletar de forma válida e o que fazer quando o titular revoga. Guia para gestores de empresas.">
+<meta property="og:url" content="https://tyna.com.br/consentimento-para-uso-de-dados-em-ia/">
+<meta property="og:image" content="https://tyna.com.br/assets/og-lgpd-ia.svg">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230D1117%22/><path d=%22M28 32h44M50 32v40%22 stroke=%22%23C9A968%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css?v=19">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Consentimento para uso de dados em IA: guia para gestores",
+  "inLanguage": "pt-BR",
+  "description": "Consentimento para uso de dados em IA: quando a LGPD exige, como coletar de forma válida e o que fazer quando o titular revoga. Guia para gestores de empresas.",
+  "datePublished": "2026-11-07",
+  "dateModified": "2026-11-07",
+  "author": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tyna",
+    "url": "https://tyna.com.br/"
+  },
+  "mainEntityOfPage": "https://tyna.com.br/consentimento-para-uso-de-dados-em-ia/"
+}
+</script>
+<link rel="alternate" type="application/ld+json" href="/ai.json" title="Grafo de conhecimento da Tyna">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "pt-BR",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Toda empresa precisa de consentimento para usar dados pessoais em IA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não. A LGPD tem dez hipóteses legais no art. 7º, e o consentimento é só uma delas. Dependendo da finalidade, outra base pode ser mais adequada, como execução de contrato ou legítimo interesse. O consentimento é indicado quando há relação direta com o titular e controle real dele sobre o uso, e é a regra para dados de crianças e uma das poucas saídas para dados sensíveis sem outra hipótese do art. 11."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O que acontece se o titular revogar o consentimento depois que o dado foi usado para treinar um modelo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A revogação vale daqui para frente: o dado deixa de ser usado em novos tratamentos, e o titular pode pedir a eliminação dos dados tratados com base no consentimento. O que fazer com um modelo já treinado deve ser definido antes, por exemplo com retreinamento periódico sem os dados revogados, e comunicado ao titular no momento da coleta."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Aceitar os termos de uso do serviço vale como consentimento para treinar IA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Em geral não. O consentimento precisa ser livre, informado e inequívoco, e as cláusulas que o fundamentam devem ser destacadas das demais. Uma frase genérica no meio dos termos, sem opção de recusar o treinamento e continuar usando o serviço, dificilmente cumpre esse padrão e é frágil diante de uma fiscalização."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../" class="logo"><img src="../assets/logo-tyna-dark.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+    <nav>
+      <ul id="navList">
+        <li><a href="../#servicos">Serviços</a></li>
+        <li><a href="../iso-42001/">ISO 42001</a></li>
+        <li><a href="../#cases">Cases</a></li>
+        <li><a href="../#trilhas">Trilhas</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../biblioteca-prompts/">Prompts</a></li>
+        <li><a href="../sobre/">Sobre</a></li>
+        <li><a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20consentimento%20para%20uso%20de%20dados%20em%20IA%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Agendar conversa</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20consentimento%20para%20uso%20de%20dados%20em%20IA%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary" id="navCta">Agendar conversa</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="eyebrow">LGPD e inteligência artificial</p>
+      <h1 style="max-width:900px;">Consentimento para uso de dados em IA: guia para gestores</h1>
+      <p class="lead" style="max-width:740px;">Um “aceito” no fim de um formulário raramente é consentimento válido para IA. Este artigo mostra quando a LGPD pede consentimento, o que o torna válido e como lidar com a revogação.</p>
+    </div>
+  </section>
+
+  <section id="introducao">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p>A área comercial quer usar o histórico de relacionamento para alimentar uma ferramenta de IA. O jurídico responde que “precisa de consentimento”. Alguém adiciona uma caixa de seleção ao cadastro, o projeto segue, e todos assumem que o assunto está resolvido. Meses depois, ninguém sabe dizer quais clientes consentiram, para qual finalidade, nem o que fazer quando um deles pede para sair.</p>
+        <p>O consentimento é a base legal mais conhecida e a mais malentendida. Ele dá ao titular um poder real sobre o dado, e esse poder precisa ser operacionalizado: coleta específica, registro, canal de revogação e uma resposta técnica para o que já foi processado. Para empresas com centenas de funcionários e várias áreas testando IA ao mesmo tempo, o risco está menos na lei e mais na falta de processo.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="quando-pedir">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Ponto de partida</p>
+        <h2>Quando o consentimento é, de fato, a base certa</h2>
+        <p>A LGPD não manda pedir consentimento para tudo. O art. 7º traz dez hipóteses, e escolher a errada é tão arriscado quanto não escolher nenhuma. A pergunta útil é: o titular tem escolha real? Se a resposta for não, o consentimento não se sustenta.</p>
+        <p>Na prática, ele costuma ser a melhor opção em quatro situações:</p>
+      </div>
+      <div class="steps reveal">
+        <div class="step">
+          <span class="step-num">01</span>
+          <div><h3>Finalidade opcional para o titular</h3><p>Personalização, melhoria de produto com dados de uso ou treinamento de modelo que o titular pode recusar sem perder o serviço principal.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">02</span>
+          <div><h3>Dados sensíveis sem outra hipótese</h3><p>Para saúde, biometria e demais dados do art. 11, o consentimento deve ser específico e destacado, para finalidades determinadas.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <div><h3>Crianças e adolescentes</h3><p>O art. 14 exige consentimento específico e em destaque de ao menos um dos pais ou do responsável legal para dados de crianças, com atenção ao melhor interesse do menor.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">04</span>
+          <div><h3>Fornecedor que usa o conteúdo para si</h3><p>Se a ferramenta de IA reaproveita o que a empresa envia para treinar os próprios modelos, é preciso base legal para essa comunicação. Quando o titular é cliente ou usuário, o consentimento pode ser o caminho.</p></div>
+        </div>
+      </div>
+      <div class="section-head reveal" style="margin-top:24px;">
+        <p>Há um caso em que o consentimento quase nunca funciona: o vínculo de emprego. Como o empregado dificilmente pode recusar sem consequência, a liberdade do consentimento é questionável, e a empresa deve buscar outra base ou revisar a finalidade. Para comparar as hipóteses, veja o artigo sobre <a href="https://tyna.com.br/base-legal-para-treinamento-de-ia-com-dados-pessoais/">base legal para treinamento de IA com dados pessoais</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="consentimento-valido">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Validade</p>
+        <h2>O que torna o consentimento válido em projetos de IA</h2>
+        <p>A LGPD define consentimento como manifestação livre, informada e inequívoca para uma finalidade determinada (art. 5º, XII). Cada adjetivo tem consequência prática quando o dado vai para um sistema de IA:</p>
+      </div>
+      <div class="steps reveal">
+        <div class="step">
+          <span class="step-num">01</span>
+          <div><h3>Livre</h3><p>Recusar não pode custar o serviço principal. Se o treinamento do modelo é condição para usar o produto, o consentimento está viciado. Caixas já marcadas também não valem.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">02</span>
+          <div><h3>Informado</h3><p>O titular precisa saber, em linguagem simples, quais dados serão usados, para treinar ou operar qual sistema, se haverá compartilhamento com fornecedor e por quanto tempo. “Para melhorar nossos serviços” é vago demais.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <div><h3>Específico</h3><p>Uma finalidade, um consentimento. Usar o mesmo “aceito” para marketing, análise de crédito e treinamento de modelo não passa no teste. Se a finalidade mudar, é preciso pedir de novo (art. 9º, §2º).</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">04</span>
+          <div><h3>Comprovável</h3><p>O ônus da prova é da empresa (art. 8º, §2º). Guarde quem consentiu, quando, em que versão do texto e por qual canal. Sem esse registro, na prática o consentimento não existe.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap reveal">
+      <p class="eyebrow">Próximo passo</p>
+      <h2>Sua empresa está preparada para consentimento para uso de dados em IA?</h2>
+      <p style="color:var(--text-muted); font-size:16.5px; max-width:580px; margin:0 auto 30px;">
+        Fale com o Felipe — sem formulário, sem espera.
+      </p>
+      <div class="hero-ctas" style="justify-content:center;">
+        <a href="https://wa.me/5511997228945?text=Ol%C3%A1%2C%20Felipe.%20Vim%20pelo%20artigo%20sobre%20consentimento%20para%20uso%20de%20dados%20em%20IA%20e%20quero%20conversar." target="_blank" rel="noopener" class="btn btn-primary">
+          Falar com o Felipe pelo WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="revogacao">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">O ponto difícil</p>
+        <h2>Revogação: o que fazer com o modelo já treinado</h2>
+        <p>O titular pode revogar o consentimento a qualquer momento, por procedimento gratuito e facilitado (art. 8º, §5º). A revogação não apaga retroativamente o que foi feito de forma legítima, mas impede novos usos e abre o direito de pedir a eliminação dos dados tratados com base nele (art. 18, VI).</p>
+        <p>Em IA, o desafio é técnico: retirar o dado de um modelo já treinado é difícil, e às vezes inviável. Por isso a decisão precisa ser tomada antes da coleta, e comunicada ao titular. As estratégias mais usadas são:</p>
+      </div>
+      <div class="steps reveal">
+        <div class="step">
+          <span class="step-num">01</span>
+          <div><h3>Separar o conjunto de treino por consentimento</h3><p>Mantenha o dado consentido em uma base identificável, para excluí-lo da próxima rodada de treinamento assim que a revogação chegar.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">02</span>
+          <div><h3>Retreinar em ciclos definidos</h3><p>Se o retreinamento imediato não é viável, defina uma janela fixa e informe o titular. A promessa precisa ser algo que a equipe técnica consiga cumprir.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <div><h3>Reduzir o dado pessoal que entra</h3><p>Quanto mais o conjunto for minimizado ou anonimizado, menos pedidos de revogação afetam o modelo. A anonimização verdadeira tira o dado do alcance da LGPD, mas precisa resistir à reidentificação.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="roteiro">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Na prática</p>
+        <h2>Roteiro para implantar o consentimento sem travar os projetos</h2>
+        <p>Para o gestor, o objetivo não é a perfeição jurídica, e sim um processo que o time consiga repetir em cada projeto de IA:</p>
+      </div>
+      <div class="steps reveal">
+        <div class="step">
+          <span class="step-num">01</span>
+          <div><h3>Inventarie os usos de IA e as bases atuais</h3><p>Liste cada ferramenta e cada finalidade. Muitas vezes o consentimento só é pedido porque ninguém analisou se outra base serviria melhor.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">02</span>
+          <div><h3>Escreva um texto de consentimento por finalidade</h3><p>Curto, destacado, sem juridiquês, com o nome do controlador, os dados, a finalidade, os terceiros envolvidos e como revogar.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <div><h3>Registre e vincule ao dado</h3><p>O status de consentimento precisa acompanhar o dado até o conjunto de treino. Um consentimento guardado só no CRM não ajuda a equipe de dados.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">04</span>
+          <div><h3>Dê um dono ao canal de revogação</h3><p>Normalmente o encarregado, com prazo interno e fluxo até a equipe técnica. Revisar contratos com fornecedores de IA, para saber se o conteúdo é retido ou reutilizado, entra aqui.</p></div>
+        </div>
+        <div class="step">
+          <span class="step-num">05</span>
+          <div><h3>Transforme tudo em política</h3><p>Regras que ficam só na cabeça de quem as definiu não escalam. Registre o fluxo na política de IA da empresa e revise quando uma finalidade mudar.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Perguntas frequentes</p>
+        <h2>Consentimento para IA, em resposta direta</h2>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-item">
+          <h3>Toda empresa precisa de consentimento para usar dados pessoais em IA?</h3>
+          <p>Não. A LGPD tem dez hipóteses legais no art. 7º, e o consentimento é só uma delas. Dependendo da finalidade, outra base pode ser mais adequada, como execução de contrato ou legítimo interesse. O consentimento é indicado quando há relação direta com o titular e controle real dele sobre o uso, e é a regra para dados de crianças e uma das poucas saídas para dados sensíveis sem outra hipótese do art. 11.</p>
+        </div>
+        <div class="faq-item">
+          <h3>O que acontece se o titular revogar o consentimento depois que o dado foi usado para treinar um modelo?</h3>
+          <p>A revogação vale daqui para frente: o dado deixa de ser usado em novos tratamentos, e o titular pode pedir a eliminação dos dados tratados com base no consentimento. O que fazer com um modelo já treinado deve ser definido antes, por exemplo com retreinamento periódico sem os dados revogados, e comunicado ao titular no momento da coleta.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Aceitar os termos de uso do serviço vale como consentimento para treinar IA?</h3>
+          <p>Em geral não. O consentimento precisa ser livre, informado e inequívoco, e as cláusulas que o fundamentam devem ser destacadas das demais. Uma frase genérica no meio dos termos, sem opção de recusar o treinamento e continuar usando o serviço, dificilmente cumpre esse padrão e é frágil diante de uma fiscalização.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="leia-tambem">
+    <div class="wrap">
+      <div class="section-head reveal"><p class="eyebrow">Leia também</p><h2>Aprofunde cada ponto</h2></div>
+      <div class="svc-grid reveal">
+        <div class="svc-card"><h3><a href="https://tyna.com.br/lgpd-e-ia/">LGPD e inteligência artificial na empresa</a></h3><p>As três portas por onde o dado pessoal entra e a base legal por finalidade.</p></div>
+        <div class="svc-card"><h3><a href="https://tyna.com.br/dpo-encarregado-e-inteligencia-artificial/">Encarregado (DPO) e IA</a></h3><p>As tarefas que a IA generativa coloca na mesa do encarregado, inclusive o canal de revogação.</p></div>
+        <div class="svc-card"><h3><a href="https://tyna.com.br/politica-de-uso-de-ia-para-empresas/">Política de uso de IA para empresas</a></h3><p>Como transformar as decisões sobre dados em regras que as pessoas seguem.</p></div>
+      </div>
+      <p class="status-meta" style="margin-top:34px;">Última revisão: 07/11/2026.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="../" class="logo"><img src="../assets/logo-tyna.png" alt="Tyna" width="1222" height="394"> <span>IA &amp; GOVERNANÇA</span></a>
+        <p>Consultoria em Inteligência Artificial aplicada ao negócio, com governança do prompt ao agente em produção.</p>
+      </div>
+      <div class="foot-right">
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <!--email_off--><a href="mailto:contato@tyna.com.br">E-mail</a><!--/email_off-->
+          <a href="https://linkedin.com/in/felipelj" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h5>Site</h5>
+          <a href="../#servicos">Serviços</a>
+          <a href="../iso-42001/">ISO 42001</a>
+          <a href="../governanca-de-ia/">Governança de IA</a>
+          <a href="../shadow-ai/">Shadow AI</a>
+          <a href="../pl-2338/">Marco Legal da IA</a>
+          <a href="../diagnostico/">Diagnóstico</a>
+          <a href="../blog/">Blog</a>
+          <a href="../biblioteca-prompts/">Prompts</a>
+          <a href="../sobre/">Sobre</a>
+          <a href="../glossario/">Glossário</a>
+          <a href="../ia-para-equipes-de-ti/">IA para equipes de TI</a>
+          <a href="../ia-segura-para-empresas/">IA segura para empresas</a>
+          <a href="../agentes-de-ia-para-empresas/">Agentes de IA</a>
+          <a href="../politica-de-privacidade/">Política de privacidade</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tyna. Todos os direitos reservados.</span>
+      <span>tyna.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<!-- O botão flutuante do WhatsApp é montado por assets/site.js, que roda em todas as páginas -->
+<script src="../assets/site.js?v=18"></script>
+
+</body>
+</html>
